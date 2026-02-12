@@ -1,0 +1,35 @@
+[
+  {
+    "id": "youngpoong_koreazinc",
+    "name": "영풍→고려아연",
+    "holdingName": "영풍",
+    "holdingTicker": "000670.KS",
+    "holdingTotalShares": 18077950,
+    "holdingTreasuryShares": 203500,
+    "subsidiaryName": "고려아연",
+    "subsidiaryTicker": "010130.KS",
+    "sharesHeld": 5262450
+  },
+  {
+    "id": "poongsan_holdings",
+    "name": "풍산홀딩스→풍산",
+    "holdingName": "풍산홀딩스",
+    "holdingTicker": "005810.KS",
+    "holdingTotalShares": 14417292,
+    "holdingTreasuryShares": 688429,
+    "subsidiaryName": "풍산",
+    "subsidiaryTicker": "103140.KS",
+    "sharesHeld": 10650000
+  },
+  {
+    "id": "seah_holdings",
+    "name": "세아홀딩스→세아베스틸지주",
+    "holdingName": "세아홀딩스",
+    "holdingTicker": "058650.KS",
+    "holdingTotalShares": 4313236,
+    "holdingTreasuryShares": 104391,
+    "subsidiaryName": "세아베스틸지주",
+    "subsidiaryTicker": "001430.KS",
+    "sharesHeld": 22135633
+  }
+]
