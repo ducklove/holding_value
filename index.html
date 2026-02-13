@@ -323,14 +323,23 @@ tr:hover { background: var(--surface2); }
       const c = p.current;
       const dir = c.ratioChange >= 0 ? 'up' : 'down';
       const arrow = c.ratioChange >= 0 ? '▲' : '▼';
-      const prices = p.isAverage ? '' : `<div class="prices">
+      let prices = '';
+      if (!p.isAverage) {
+        let subLines = '';
+        if (c.subsidiaries) {
+          subLines = c.subsidiaries.map(s => `<span>${s.name} ${formatPrice(s.price)} (${formatOk(s.value)})</span>`).join('');
+        } else {
+          subLines = `<span>${p.subsidiaryName} ${formatPrice(c.subsidiaryPrice)}</span>`;
+        }
+        prices = `<div class="prices">
           <span>${p.holdingName} ${formatPrice(c.holdingPrice)}</span>
-          <span>${p.subsidiaryName} ${formatPrice(c.subsidiaryPrice)}</span>
+          ${subLines}
         </div>
         <div class="amounts">
           <span>보유지분 ${formatOk(c.holdingValue)}</span>
           <span>조정시총 ${formatOk(c.marketCap)}</span>
         </div>`;
+      }
       return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}">
         <div class="name">${p.name}</div>
         <div class="ratio-val">${c.ratio.toFixed(1)}%</div>
@@ -369,10 +378,13 @@ tr:hover { background: var(--surface2); }
           <td><div class="bar-cell"><div class="bar" style="width:${barW}%;background:var(--green)"></div>${c.ratio.toFixed(1)}%</div></td>
         </tr>`;
       }
+      const subPrice = c.subsidiaries
+        ? c.subsidiaries.map(s => `${s.name} ${formatPrice(s.price)}`).join('<br>')
+        : formatPrice(c.subsidiaryPrice);
       return `<tr>
         <td><strong>${p.name}</strong></td>
         <td>${formatPrice(c.holdingPrice)}</td>
-        <td>${formatPrice(c.subsidiaryPrice)}</td>
+        <td>${subPrice}</td>
         <td>${formatOk(c.holdingValue)}</td>
         <td>${formatOk(c.marketCap)}</td>
         <td><strong>${c.ratio.toFixed(2)}%</strong></td>
@@ -551,13 +563,18 @@ tr:hover { background: var(--surface2); }
       const dotX = pad.left + (idx / (hist.length - 1)) * cW;
       const dotY = pad.top + cH - ((d.ratio - chartMin) / rangeS * cH);
 
-      const ttRows = p.isAverage
-        ? `<div class="tt-row"><span><strong>비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`
-        : `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>
-           <div class="tt-row"><span>${p.subsidiaryName}</span><span>${formatPrice(d.subsidiaryPrice)}</span></div>
-           <div class="tt-row"><span>보유지분가치</span><span>${formatOk(d.holdingValue)}</span></div>
+      let ttRows;
+      if (p.isAverage) {
+        ttRows = `<div class="tt-row"><span><strong>비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
+      } else {
+        ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
+        if (d.subsidiaryPrice) {
+          ttRows += `<div class="tt-row"><span>${p.subsidiaryName}</span><span>${formatPrice(d.subsidiaryPrice)}</span></div>`;
+        }
+        ttRows += `<div class="tt-row"><span>보유지분가치</span><span>${formatOk(d.holdingValue)}</span></div>
            <div class="tt-row"><span>조정시가총액</span><span>${formatOk(d.marketCap)}</span></div>
            <div class="tt-row"><span><strong>비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
+      }
 
       tooltip.innerHTML = `
         <div class="tt-date">${d.date}</div>
