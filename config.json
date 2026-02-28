@@ -45,13 +45,14 @@
   },
   {
     "id": "chokwang_brk",
-    "name": "조광피혁→BRK.A",
+    "name": "조광피혁→자회사",
     "holdingName": "조광피혁",
     "holdingTicker": "004700.KS",
     "holdingTotalShares": 6649138,
     "holdingTreasuryShares": 3096215,
     "subsidiaries": [
-      { "name": "BRK.A", "ticker": "BRK-A", "sharesHeld": 286 }
+      { "name": "버크셔해서웨이", "ticker": "BRK-A", "sharesHeld": 286 },
+      { "name": "애플", "ticker": "AAPL", "sharesHeld": 319982 }
     ]
   },
   {
