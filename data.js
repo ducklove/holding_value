@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-01 01:48:10",
+  "lastUpdated": "2026-03-02 01:28:11",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -15,14 +15,6 @@ const STOCK_DATA = {
         "ratioChange": 9.86
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 57210.0,
-          "subsidiaryPrice": 503416.0,
-          "holdingValue": 26492.0,
-          "marketCap": 10226.0,
-          "ratio": 259.07
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 57302.0,
@@ -139,7 +131,7 @@ const STOCK_DATA = {
           "date": "2023-02-21",
           "holdingPrice": 60139.0,
           "subsidiaryPrice": 567622.0,
-          "holdingValue": 29870.8,
+          "holdingValue": 29870.9,
           "marketCap": 10749.6,
           "ratio": 277.88
         },
@@ -258,7 +250,7 @@ const STOCK_DATA = {
         {
           "date": "2023-03-15",
           "holdingPrice": 51718.0,
-          "subsidiaryPrice": 504347.0,
+          "subsidiaryPrice": 504346.0,
           "holdingValue": 26541.0,
           "marketCap": 9244.3,
           "ratio": 287.11
@@ -1178,7 +1170,7 @@ const STOCK_DATA = {
         {
           "date": "2023-08-30",
           "holdingPrice": 49887.0,
-          "subsidiaryPrice": 517849.0,
+          "subsidiaryPrice": 517848.0,
           "holdingValue": 27251.5,
           "marketCap": 8917.1,
           "ratio": 305.61
@@ -1275,7 +1267,7 @@ const STOCK_DATA = {
           "date": "2023-09-15",
           "holdingPrice": 49979.0,
           "subsidiaryPrice": 529251.0,
-          "holdingValue": 27851.5,
+          "holdingValue": 27851.6,
           "marketCap": 8933.4,
           "ratio": 311.77
         },
@@ -1338,7 +1330,7 @@ const STOCK_DATA = {
         {
           "date": "2023-09-27",
           "holdingPrice": 47050.0,
-          "subsidiaryPrice": 480792.0,
+          "subsidiaryPrice": 480791.0,
           "holdingValue": 25301.4,
           "marketCap": 8409.8,
           "ratio": 300.85
@@ -1395,7 +1387,7 @@ const STOCK_DATA = {
           "date": "2023-10-13",
           "holdingPrice": 47416.0,
           "subsidiaryPrice": 460363.0,
-          "holdingValue": 24226.4,
+          "holdingValue": 24226.3,
           "marketCap": 8475.3,
           "ratio": 285.85
         },
@@ -1907,7 +1899,7 @@ const STOCK_DATA = {
           "date": "2024-01-16",
           "holdingPrice": 44991.0,
           "subsidiaryPrice": 445337.0,
-          "holdingValue": 23435.7,
+          "holdingValue": 23435.6,
           "marketCap": 8041.8,
           "ratio": 291.42
         },
@@ -2379,7 +2371,7 @@ const STOCK_DATA = {
           "date": "2024-04-12",
           "holdingPrice": 41397.0,
           "subsidiaryPrice": 451576.0,
-          "holdingValue": 23764.0,
+          "holdingValue": 23763.9,
           "marketCap": 7399.5,
           "ratio": 321.16
         },
@@ -3093,7 +3085,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 523452.0,
           "holdingValue": 27546.4,
           "marketCap": 5372.3,
-          "ratio": 512.74
+          "ratio": 512.75
         },
         {
           "date": "2024-08-23",
@@ -3461,7 +3453,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 1061580.0,
           "holdingValue": 55865.1,
           "marketCap": 6790.5,
-          "ratio": 822.7
+          "ratio": 822.69
         },
         {
           "date": "2024-11-05",
@@ -3634,8 +3626,8 @@ const STOCK_DATA = {
         {
           "date": "2024-12-04",
           "holdingPrice": 43544.0,
-          "subsidiaryPrice": 1634931.0,
-          "holdingValue": 86037.4,
+          "subsidiaryPrice": 1634932.0,
+          "holdingValue": 86037.5,
           "marketCap": 7783.2,
           "ratio": 1105.42
         },
@@ -6023,14 +6015,6 @@ const STOCK_DATA = {
         "ratioChange": -2.29
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 3292.0,
-          "subsidiaryPrice": 29750.0,
-          "holdingValue": 3703.0,
-          "marketCap": 1739.2,
-          "ratio": 212.91
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 3317.0,
@@ -12032,14 +12016,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 73154.0,
-          "subsidiaryPrice": 69495.0,
-          "holdingValue": 2104.1,
-          "marketCap": 12229.5,
-          "ratio": 17.2
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 74627.0,
           "subsidiaryPrice": 69495.0,
@@ -13259,7 +13235,7 @@ const STOCK_DATA = {
           "date": "2023-09-11",
           "holdingPrice": 66733.0,
           "subsidiaryPrice": 178673.0,
-          "holdingValue": 5409.6,
+          "holdingValue": 5409.7,
           "marketCap": 11156.1,
           "ratio": 48.49
         },
@@ -13345,7 +13321,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2023-09-26",
-          "holdingPrice": 64943.0,
+          "holdingPrice": 64944.0,
           "subsidiaryPrice": 161154.0,
           "holdingValue": 4879.2,
           "marketCap": 10857.0,
@@ -13692,7 +13668,7 @@ const STOCK_DATA = {
           "holdingPrice": 72206.0,
           "subsidiaryPrice": 207613.0,
           "holdingValue": 6285.9,
-          "marketCap": 12071.2,
+          "marketCap": 12071.1,
           "ratio": 52.07
         },
         {
@@ -15713,7 +15689,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-12-16",
-          "holdingPrice": 42278.0,
+          "holdingPrice": 42279.0,
           "subsidiaryPrice": 443802.0,
           "holdingValue": 13436.9,
           "marketCap": 7068.0,
@@ -18039,14 +18015,6 @@ const STOCK_DATA = {
         "ratioChange": -20.13
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 682530.0,
-          "subsidiaryPrice": 521000.0,
-          "holdingValue": 997710.7,
-          "marketCap": 468163.1,
-          "ratio": 213.11
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 680551.0,
@@ -24048,14 +24016,6 @@ const STOCK_DATA = {
         "ratioChange": 0.22
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 0,
-          "subsidiaryPrice": 0,
-          "holdingValue": 0,
-          "marketCap": 0,
-          "ratio": 161.9
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 0,
@@ -30065,26 +30025,18 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 62200.0,
-          "subsidiaryPrice": 57628.0,
-          "holdingValue": 292839.6,
-          "marketCap": 124400.7,
-          "ratio": 235.4
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 62639.0,
           "subsidiaryPrice": 57252.0,
           "holdingValue": 290931.8,
-          "marketCap": 125278.0,
+          "marketCap": 125277.9,
           "ratio": 232.23
         },
         {
           "date": "2023-02-02",
           "holdingPrice": 59832.0,
           "subsidiaryPrice": 59599.0,
-          "holdingValue": 302855.3,
+          "holdingValue": 302855.2,
           "marketCap": 119663.2,
           "ratio": 253.09
         },
@@ -30092,7 +30044,7 @@ const STOCK_DATA = {
           "date": "2023-02-03",
           "holdingPrice": 58954.0,
           "subsidiaryPrice": 59599.0,
-          "holdingValue": 302855.3,
+          "holdingValue": 302855.2,
           "marketCap": 117908.7,
           "ratio": 256.86
         },
@@ -30132,7 +30084,7 @@ const STOCK_DATA = {
           "date": "2023-02-10",
           "holdingPrice": 59305.0,
           "subsidiaryPrice": 59036.0,
-          "holdingValue": 299993.7,
+          "holdingValue": 299993.6,
           "marketCap": 118610.5,
           "ratio": 252.92
         },
@@ -30140,7 +30092,7 @@ const STOCK_DATA = {
           "date": "2023-02-13",
           "holdingPrice": 58867.0,
           "subsidiaryPrice": 59036.0,
-          "holdingValue": 299993.7,
+          "holdingValue": 299993.6,
           "marketCap": 117733.2,
           "ratio": 254.81
         },
@@ -30148,7 +30100,7 @@ const STOCK_DATA = {
           "date": "2023-02-14",
           "holdingPrice": 58867.0,
           "subsidiaryPrice": 59317.0,
-          "holdingValue": 301424.5,
+          "holdingValue": 301424.4,
           "marketCap": 117733.2,
           "ratio": 256.02
         },
@@ -30172,7 +30124,7 @@ const STOCK_DATA = {
           "date": "2023-02-17",
           "holdingPrice": 58779.0,
           "subsidiaryPrice": 58754.0,
-          "holdingValue": 298562.9,
+          "holdingValue": 298562.8,
           "marketCap": 117557.7,
           "ratio": 253.97
         },
@@ -30180,7 +30132,7 @@ const STOCK_DATA = {
           "date": "2023-02-20",
           "holdingPrice": 58867.0,
           "subsidiaryPrice": 58848.0,
-          "holdingValue": 299039.7,
+          "holdingValue": 299039.8,
           "marketCap": 117733.2,
           "ratio": 254.0
         },
@@ -30212,7 +30164,7 @@ const STOCK_DATA = {
           "date": "2023-02-24",
           "holdingPrice": 59481.0,
           "subsidiaryPrice": 57534.0,
-          "holdingValue": 292362.6,
+          "holdingValue": 292362.7,
           "marketCap": 118961.4,
           "ratio": 245.76
         },
@@ -30260,7 +30212,7 @@ const STOCK_DATA = {
           "date": "2023-03-07",
           "holdingPrice": 59042.0,
           "subsidiaryPrice": 56971.0,
-          "holdingValue": 289501.0,
+          "holdingValue": 289501.1,
           "marketCap": 118084.1,
           "ratio": 245.17
         },
@@ -30268,7 +30220,7 @@ const STOCK_DATA = {
           "date": "2023-03-08",
           "holdingPrice": 58252.0,
           "subsidiaryPrice": 56595.0,
-          "holdingValue": 287593.2,
+          "holdingValue": 287593.3,
           "marketCap": 116505.0,
           "ratio": 246.85
         },
@@ -30292,7 +30244,7 @@ const STOCK_DATA = {
           "date": "2023-03-13",
           "holdingPrice": 58691.0,
           "subsidiaryPrice": 56314.0,
-          "holdingValue": 286162.5,
+          "holdingValue": 286162.4,
           "marketCap": 117382.3,
           "ratio": 243.79
         },
@@ -30301,7 +30253,7 @@ const STOCK_DATA = {
           "holdingPrice": 57902.0,
           "subsidiaryPrice": 55375.0,
           "holdingValue": 281393.1,
-          "marketCap": 115803.2,
+          "marketCap": 115803.1,
           "ratio": 242.99
         },
         {
@@ -30309,7 +30261,7 @@ const STOCK_DATA = {
           "holdingPrice": 57902.0,
           "subsidiaryPrice": 56126.0,
           "holdingValue": 285208.6,
-          "marketCap": 115803.2,
+          "marketCap": 115803.1,
           "ratio": 246.29
         },
         {
@@ -30324,7 +30276,7 @@ const STOCK_DATA = {
           "date": "2023-03-17",
           "holdingPrice": 56235.0,
           "subsidiaryPrice": 57534.0,
-          "holdingValue": 292362.6,
+          "holdingValue": 292362.7,
           "marketCap": 112469.4,
           "ratio": 259.95
         },
@@ -30340,7 +30292,7 @@ const STOCK_DATA = {
           "date": "2023-03-21",
           "holdingPrice": 56235.0,
           "subsidiaryPrice": 56595.0,
-          "holdingValue": 287593.2,
+          "holdingValue": 287593.3,
           "marketCap": 112469.4,
           "ratio": 255.71
         },
@@ -30380,7 +30332,7 @@ const STOCK_DATA = {
           "date": "2023-03-28",
           "holdingPrice": 55094.0,
           "subsidiaryPrice": 59036.0,
-          "holdingValue": 299993.7,
+          "holdingValue": 299993.6,
           "marketCap": 110188.5,
           "ratio": 272.26
         },
@@ -30388,7 +30340,7 @@ const STOCK_DATA = {
           "date": "2023-03-29",
           "holdingPrice": 55621.0,
           "subsidiaryPrice": 58848.0,
-          "holdingValue": 299039.7,
+          "holdingValue": 299039.8,
           "marketCap": 111241.2,
           "ratio": 268.82
         },
@@ -30420,7 +30372,7 @@ const STOCK_DATA = {
           "date": "2023-04-04",
           "holdingPrice": 55094.0,
           "subsidiaryPrice": 60038.0,
-          "holdingValue": 305088.8,
+          "holdingValue": 305088.7,
           "marketCap": 110188.5,
           "ratio": 276.88
         },
@@ -30468,7 +30420,7 @@ const STOCK_DATA = {
           "date": "2023-04-12",
           "holdingPrice": 56059.0,
           "subsidiaryPrice": 62304.0,
-          "holdingValue": 316601.5,
+          "holdingValue": 316601.6,
           "marketCap": 112118.5,
           "ratio": 282.38
         },
@@ -30476,7 +30428,7 @@ const STOCK_DATA = {
           "date": "2023-04-13",
           "holdingPrice": 56235.0,
           "subsidiaryPrice": 62398.0,
-          "holdingValue": 317081.2,
+          "holdingValue": 317081.3,
           "marketCap": 112469.4,
           "ratio": 281.93
         },
@@ -30484,7 +30436,7 @@ const STOCK_DATA = {
           "date": "2023-04-14",
           "holdingPrice": 56761.0,
           "subsidiaryPrice": 61454.0,
-          "holdingValue": 312284.3,
+          "holdingValue": 312284.2,
           "marketCap": 113522.2,
           "ratio": 275.09
         },
@@ -30508,7 +30460,7 @@ const STOCK_DATA = {
           "date": "2023-04-19",
           "holdingPrice": 57200.0,
           "subsidiaryPrice": 61832.0,
-          "holdingValue": 314203.1,
+          "holdingValue": 314203.0,
           "marketCap": 114399.5,
           "ratio": 274.65
         },
@@ -30525,7 +30477,7 @@ const STOCK_DATA = {
           "holdingPrice": 57902.0,
           "subsidiaryPrice": 62021.0,
           "holdingValue": 315162.5,
-          "marketCap": 115803.2,
+          "marketCap": 115803.1,
           "ratio": 272.15
         },
         {
@@ -30540,7 +30492,7 @@ const STOCK_DATA = {
           "date": "2023-04-25",
           "holdingPrice": 57638.0,
           "subsidiaryPrice": 60038.0,
-          "holdingValue": 305088.8,
+          "holdingValue": 305088.7,
           "marketCap": 115276.8,
           "ratio": 264.66
         },
@@ -30564,7 +30516,7 @@ const STOCK_DATA = {
           "date": "2023-04-28",
           "holdingPrice": 58165.0,
           "subsidiaryPrice": 61832.0,
-          "holdingValue": 314203.1,
+          "holdingValue": 314203.0,
           "marketCap": 116329.5,
           "ratio": 270.1
         },
@@ -30588,7 +30540,7 @@ const STOCK_DATA = {
           "date": "2023-05-04",
           "holdingPrice": 58603.0,
           "subsidiaryPrice": 61454.0,
-          "holdingValue": 312284.3,
+          "holdingValue": 312284.2,
           "marketCap": 117206.8,
           "ratio": 266.44
         },
@@ -30620,7 +30572,7 @@ const STOCK_DATA = {
           "date": "2023-05-11",
           "holdingPrice": 59393.0,
           "subsidiaryPrice": 60605.0,
-          "holdingValue": 307967.0,
+          "holdingValue": 307966.9,
           "marketCap": 118786.0,
           "ratio": 259.26
         },
@@ -30636,7 +30588,7 @@ const STOCK_DATA = {
           "date": "2023-05-15",
           "holdingPrice": 58954.0,
           "subsidiaryPrice": 60888.0,
-          "holdingValue": 309406.1,
+          "holdingValue": 309406.0,
           "marketCap": 117908.7,
           "ratio": 262.41
         },
@@ -30668,7 +30620,7 @@ const STOCK_DATA = {
           "date": "2023-05-19",
           "holdingPrice": 59305.0,
           "subsidiaryPrice": 64569.0,
-          "holdingValue": 328114.4,
+          "holdingValue": 328114.3,
           "marketCap": 118610.5,
           "ratio": 276.63
         },
@@ -30676,7 +30628,7 @@ const STOCK_DATA = {
           "date": "2023-05-22",
           "holdingPrice": 58867.0,
           "subsidiaryPrice": 64664.0,
-          "holdingValue": 328594.1,
+          "holdingValue": 328594.0,
           "marketCap": 117733.2,
           "ratio": 279.1
         },
@@ -30684,7 +30636,7 @@ const STOCK_DATA = {
           "date": "2023-05-23",
           "holdingPrice": 58691.0,
           "subsidiaryPrice": 64569.0,
-          "holdingValue": 328114.4,
+          "holdingValue": 328114.3,
           "marketCap": 117382.3,
           "ratio": 279.53
         },
@@ -30692,7 +30644,7 @@ const STOCK_DATA = {
           "date": "2023-05-24",
           "holdingPrice": 59218.0,
           "subsidiaryPrice": 64664.0,
-          "holdingValue": 328594.1,
+          "holdingValue": 328594.0,
           "marketCap": 118435.0,
           "ratio": 277.45
         },
@@ -30732,7 +30684,7 @@ const STOCK_DATA = {
           "date": "2023-06-01",
           "holdingPrice": 57814.0,
           "subsidiaryPrice": 66929.0,
-          "holdingValue": 340106.8,
+          "holdingValue": 340106.9,
           "marketCap": 115627.7,
           "ratio": 294.14
         },
@@ -30764,7 +30716,7 @@ const STOCK_DATA = {
           "date": "2023-06-08",
           "holdingPrice": 60007.0,
           "subsidiaryPrice": 66929.0,
-          "holdingValue": 340106.8,
+          "holdingValue": 340106.9,
           "marketCap": 120014.2,
           "ratio": 283.39
         },
@@ -30772,7 +30724,7 @@ const STOCK_DATA = {
           "date": "2023-06-09",
           "holdingPrice": 59656.0,
           "subsidiaryPrice": 67968.0,
-          "holdingValue": 345383.6,
+          "holdingValue": 345383.5,
           "marketCap": 119312.3,
           "ratio": 289.48
         },
@@ -30788,7 +30740,7 @@ const STOCK_DATA = {
           "date": "2023-06-13",
           "holdingPrice": 58428.0,
           "subsidiaryPrice": 67968.0,
-          "holdingValue": 345383.6,
+          "holdingValue": 345383.5,
           "marketCap": 116855.9,
           "ratio": 295.56
         },
@@ -30812,7 +30764,7 @@ const STOCK_DATA = {
           "date": "2023-06-16",
           "holdingPrice": 58340.0,
           "subsidiaryPrice": 67779.0,
-          "holdingValue": 344424.1,
+          "holdingValue": 344424.2,
           "marketCap": 116680.4,
           "ratio": 295.19
         },
@@ -30844,7 +30796,7 @@ const STOCK_DATA = {
           "date": "2023-06-22",
           "holdingPrice": 57726.0,
           "subsidiaryPrice": 67307.0,
-          "holdingValue": 342025.6,
+          "holdingValue": 342025.7,
           "marketCap": 115452.2,
           "ratio": 296.25
         },
@@ -30852,7 +30804,7 @@ const STOCK_DATA = {
           "date": "2023-06-23",
           "holdingPrice": 56059.0,
           "subsidiaryPrice": 67590.0,
-          "holdingValue": 343464.7,
+          "holdingValue": 343464.8,
           "marketCap": 112118.5,
           "ratio": 306.34
         },
@@ -30868,7 +30820,7 @@ const STOCK_DATA = {
           "date": "2023-06-27",
           "holdingPrice": 57287.0,
           "subsidiaryPrice": 68534.0,
-          "holdingValue": 348261.6,
+          "holdingValue": 348261.7,
           "marketCap": 114574.9,
           "ratio": 303.96
         },
@@ -30876,7 +30828,7 @@ const STOCK_DATA = {
           "date": "2023-06-28",
           "holdingPrice": 58340.0,
           "subsidiaryPrice": 68629.0,
-          "holdingValue": 348741.4,
+          "holdingValue": 348741.3,
           "marketCap": 116680.4,
           "ratio": 298.89
         },
@@ -30892,7 +30844,7 @@ const STOCK_DATA = {
           "date": "2023-06-30",
           "holdingPrice": 59042.0,
           "subsidiaryPrice": 68497.0,
-          "holdingValue": 348071.2,
+          "holdingValue": 348071.3,
           "marketCap": 118084.1,
           "ratio": 294.77
         },
@@ -30900,7 +30852,7 @@ const STOCK_DATA = {
           "date": "2023-07-03",
           "holdingPrice": 59656.0,
           "subsidiaryPrice": 69256.0,
-          "holdingValue": 351928.0,
+          "holdingValue": 351928.1,
           "marketCap": 119312.3,
           "ratio": 294.96
         },
@@ -30908,7 +30860,7 @@ const STOCK_DATA = {
           "date": "2023-07-04",
           "holdingPrice": 59130.0,
           "subsidiaryPrice": 69256.0,
-          "holdingValue": 351928.0,
+          "holdingValue": 351928.1,
           "marketCap": 118259.6,
           "ratio": 297.59
         },
@@ -30916,7 +30868,7 @@ const STOCK_DATA = {
           "date": "2023-07-05",
           "holdingPrice": 58516.0,
           "subsidiaryPrice": 68307.0,
-          "holdingValue": 347107.1,
+          "holdingValue": 347107.2,
           "marketCap": 117031.4,
           "ratio": 296.59
         },
@@ -30948,7 +30900,7 @@ const STOCK_DATA = {
           "date": "2023-07-11",
           "holdingPrice": 62551.0,
           "subsidiaryPrice": 67833.0,
-          "holdingValue": 344696.7,
+          "holdingValue": 344696.6,
           "marketCap": 125102.5,
           "ratio": 275.53
         },
@@ -30980,7 +30932,7 @@ const STOCK_DATA = {
           "date": "2023-07-17",
           "holdingPrice": 61235.0,
           "subsidiaryPrice": 69540.0,
-          "holdingValue": 353374.3,
+          "holdingValue": 353374.2,
           "marketCap": 122470.6,
           "ratio": 288.54
         },
@@ -30988,7 +30940,7 @@ const STOCK_DATA = {
           "date": "2023-07-18",
           "holdingPrice": 60621.0,
           "subsidiaryPrice": 68307.0,
-          "holdingValue": 347107.1,
+          "holdingValue": 347107.2,
           "marketCap": 121242.4,
           "ratio": 286.29
         },
@@ -30996,7 +30948,7 @@ const STOCK_DATA = {
           "date": "2023-07-19",
           "holdingPrice": 60621.0,
           "subsidiaryPrice": 68022.0,
-          "holdingValue": 345660.9,
+          "holdingValue": 345660.8,
           "marketCap": 121242.4,
           "ratio": 285.1
         },
@@ -31012,7 +30964,7 @@ const STOCK_DATA = {
           "date": "2023-07-21",
           "holdingPrice": 60621.0,
           "subsidiaryPrice": 66694.0,
-          "holdingValue": 338911.5,
+          "holdingValue": 338911.6,
           "marketCap": 121242.4,
           "ratio": 279.53
         },
@@ -31028,8 +30980,8 @@ const STOCK_DATA = {
           "date": "2023-07-25",
           "holdingPrice": 60270.0,
           "subsidiaryPrice": 66410.0,
-          "holdingValue": 337465.2,
-          "marketCap": 120540.5,
+          "holdingValue": 337465.3,
+          "marketCap": 120540.6,
           "ratio": 279.96
         },
         {
@@ -31044,7 +30996,7 @@ const STOCK_DATA = {
           "date": "2023-07-27",
           "holdingPrice": 60972.0,
           "subsidiaryPrice": 68022.0,
-          "holdingValue": 345660.9,
+          "holdingValue": 345660.8,
           "marketCap": 121944.2,
           "ratio": 283.46
         },
@@ -31068,7 +31020,7 @@ const STOCK_DATA = {
           "date": "2023-08-01",
           "holdingPrice": 61323.0,
           "subsidiaryPrice": 67453.0,
-          "holdingValue": 342768.2,
+          "holdingValue": 342768.3,
           "marketCap": 122646.1,
           "ratio": 279.48
         },
@@ -31124,7 +31076,7 @@ const STOCK_DATA = {
           "date": "2023-08-10",
           "holdingPrice": 61498.0,
           "subsidiaryPrice": 64512.0,
-          "holdingValue": 327823.4,
+          "holdingValue": 327823.3,
           "marketCap": 122997.0,
           "ratio": 266.53
         },
@@ -31132,7 +31084,7 @@ const STOCK_DATA = {
           "date": "2023-08-11",
           "holdingPrice": 61674.0,
           "subsidiaryPrice": 64038.0,
-          "holdingValue": 325412.8,
+          "holdingValue": 325412.9,
           "marketCap": 123347.9,
           "ratio": 263.82
         },
@@ -31148,7 +31100,7 @@ const STOCK_DATA = {
           "date": "2023-08-16",
           "holdingPrice": 59218.0,
           "subsidiaryPrice": 63563.0,
-          "holdingValue": 323002.5,
+          "holdingValue": 323002.4,
           "marketCap": 118435.0,
           "ratio": 272.73
         },
@@ -31165,7 +31117,7 @@ const STOCK_DATA = {
           "holdingPrice": 57902.0,
           "subsidiaryPrice": 62899.0,
           "holdingValue": 319627.8,
-          "marketCap": 115803.2,
+          "marketCap": 115803.1,
           "ratio": 276.01
         },
         {
@@ -31173,7 +31125,7 @@ const STOCK_DATA = {
           "holdingPrice": 57902.0,
           "subsidiaryPrice": 63184.0,
           "holdingValue": 321074.1,
-          "marketCap": 115803.2,
+          "marketCap": 115803.1,
           "ratio": 277.26
         },
         {
@@ -31196,7 +31148,7 @@ const STOCK_DATA = {
           "date": "2023-08-24",
           "holdingPrice": 58252.0,
           "subsidiaryPrice": 64702.0,
-          "holdingValue": 328787.6,
+          "holdingValue": 328787.5,
           "marketCap": 116505.0,
           "ratio": 282.21
         },
@@ -31252,7 +31204,7 @@ const STOCK_DATA = {
           "date": "2023-09-04",
           "holdingPrice": 59481.0,
           "subsidiaryPrice": 67548.0,
-          "holdingValue": 343250.3,
+          "holdingValue": 343250.4,
           "marketCap": 118961.4,
           "ratio": 288.54
         },
@@ -31268,7 +31220,7 @@ const STOCK_DATA = {
           "date": "2023-09-06",
           "holdingPrice": 59218.0,
           "subsidiaryPrice": 66410.0,
-          "holdingValue": 337465.2,
+          "holdingValue": 337465.3,
           "marketCap": 118435.0,
           "ratio": 284.94
         },
@@ -31284,7 +31236,7 @@ const STOCK_DATA = {
           "date": "2023-09-08",
           "holdingPrice": 60007.0,
           "subsidiaryPrice": 66694.0,
-          "holdingValue": 338911.5,
+          "holdingValue": 338911.6,
           "marketCap": 120014.2,
           "ratio": 282.39
         },
@@ -31292,7 +31244,7 @@ const STOCK_DATA = {
           "date": "2023-09-11",
           "holdingPrice": 61323.0,
           "subsidiaryPrice": 67169.0,
-          "holdingValue": 341321.9,
+          "holdingValue": 341322.0,
           "marketCap": 122646.1,
           "ratio": 278.3
         },
@@ -31300,7 +31252,7 @@ const STOCK_DATA = {
           "date": "2023-09-12",
           "holdingPrice": 61060.0,
           "subsidiaryPrice": 66884.0,
-          "holdingValue": 339875.6,
+          "holdingValue": 339875.7,
           "marketCap": 122119.7,
           "ratio": 278.31
         },
@@ -31316,7 +31268,7 @@ const STOCK_DATA = {
           "date": "2023-09-14",
           "holdingPrice": 62814.0,
           "subsidiaryPrice": 68022.0,
-          "holdingValue": 345660.9,
+          "holdingValue": 345660.8,
           "marketCap": 125628.9,
           "ratio": 275.14
         },
@@ -31324,8 +31276,8 @@ const STOCK_DATA = {
           "date": "2023-09-15",
           "holdingPrice": 63516.0,
           "subsidiaryPrice": 68307.0,
-          "holdingValue": 347107.1,
-          "marketCap": 127032.5,
+          "holdingValue": 347107.2,
+          "marketCap": 127032.6,
           "ratio": 273.24
         },
         {
@@ -31372,8 +31324,8 @@ const STOCK_DATA = {
           "date": "2023-09-25",
           "holdingPrice": 62639.0,
           "subsidiaryPrice": 65840.0,
-          "holdingValue": 334572.6,
-          "marketCap": 125278.0,
+          "holdingValue": 334572.7,
+          "marketCap": 125277.9,
           "ratio": 267.06
         },
         {
@@ -31428,7 +31380,7 @@ const STOCK_DATA = {
           "date": "2023-10-11",
           "holdingPrice": 62990.0,
           "subsidiaryPrice": 65040.0,
-          "holdingValue": 330506.8,
+          "holdingValue": 330506.7,
           "marketCap": 125979.8,
           "ratio": 262.35
         },
@@ -31452,7 +31404,7 @@ const STOCK_DATA = {
           "date": "2023-10-16",
           "holdingPrice": 63604.0,
           "subsidiaryPrice": 64182.0,
-          "holdingValue": 326145.3,
+          "holdingValue": 326145.2,
           "marketCap": 127208.0,
           "ratio": 256.39
         },
@@ -31468,7 +31420,7 @@ const STOCK_DATA = {
           "date": "2023-10-18",
           "holdingPrice": 64657.0,
           "subsidiaryPrice": 67234.0,
-          "holdingValue": 341652.9,
+          "holdingValue": 341652.8,
           "marketCap": 129313.5,
           "ratio": 264.21
         },
@@ -31509,7 +31461,7 @@ const STOCK_DATA = {
           "holdingPrice": 63516.0,
           "subsidiaryPrice": 64849.0,
           "holdingValue": 329537.6,
-          "marketCap": 127032.5,
+          "marketCap": 127032.6,
           "ratio": 259.41
         },
         {
@@ -31524,15 +31476,15 @@ const STOCK_DATA = {
           "date": "2023-10-27",
           "holdingPrice": 62639.0,
           "subsidiaryPrice": 64182.0,
-          "holdingValue": 326145.3,
-          "marketCap": 125278.0,
+          "holdingValue": 326145.2,
+          "marketCap": 125277.9,
           "ratio": 260.34
         },
         {
           "date": "2023-10-30",
           "holdingPrice": 62902.0,
           "subsidiaryPrice": 64182.0,
-          "holdingValue": 326145.3,
+          "holdingValue": 326145.2,
           "marketCap": 125804.3,
           "ratio": 259.25
         },
@@ -31604,7 +31556,7 @@ const STOCK_DATA = {
           "date": "2023-11-10",
           "holdingPrice": 61148.0,
           "subsidiaryPrice": 67234.0,
-          "holdingValue": 341652.9,
+          "holdingValue": 341652.8,
           "marketCap": 122295.1,
           "ratio": 279.37
         },
@@ -31620,7 +31572,7 @@ const STOCK_DATA = {
           "date": "2023-11-14",
           "holdingPrice": 61235.0,
           "subsidiaryPrice": 67520.0,
-          "holdingValue": 343106.7,
+          "holdingValue": 343106.8,
           "marketCap": 122470.6,
           "ratio": 280.15
         },
@@ -31676,7 +31628,7 @@ const STOCK_DATA = {
           "date": "2023-11-23",
           "holdingPrice": 61674.0,
           "subsidiaryPrice": 69046.0,
-          "holdingValue": 350860.6,
+          "holdingValue": 350860.5,
           "marketCap": 123347.9,
           "ratio": 284.45
         },
@@ -31684,7 +31636,7 @@ const STOCK_DATA = {
           "date": "2023-11-24",
           "holdingPrice": 61235.0,
           "subsidiaryPrice": 68378.0,
-          "holdingValue": 347468.3,
+          "holdingValue": 347468.2,
           "marketCap": 122470.6,
           "ratio": 283.72
         },
@@ -31724,7 +31676,7 @@ const STOCK_DATA = {
           "date": "2023-12-01",
           "holdingPrice": 60884.0,
           "subsidiaryPrice": 68664.0,
-          "holdingValue": 348922.1,
+          "holdingValue": 348922.0,
           "marketCap": 121768.8,
           "ratio": 286.54
         },
@@ -31732,7 +31684,7 @@ const STOCK_DATA = {
           "date": "2023-12-04",
           "holdingPrice": 60972.0,
           "subsidiaryPrice": 69236.0,
-          "holdingValue": 351829.7,
+          "holdingValue": 351829.8,
           "marketCap": 121944.2,
           "ratio": 288.52
         },
@@ -31748,7 +31700,7 @@ const STOCK_DATA = {
           "date": "2023-12-06",
           "holdingPrice": 60884.0,
           "subsidiaryPrice": 68378.0,
-          "holdingValue": 347468.3,
+          "holdingValue": 347468.2,
           "marketCap": 121768.8,
           "ratio": 285.35
         },
@@ -31764,7 +31716,7 @@ const STOCK_DATA = {
           "date": "2023-12-08",
           "holdingPrice": 60709.0,
           "subsidiaryPrice": 69236.0,
-          "holdingValue": 351829.7,
+          "holdingValue": 351829.8,
           "marketCap": 121417.8,
           "ratio": 289.77
         },
@@ -31772,7 +31724,7 @@ const STOCK_DATA = {
           "date": "2023-12-11",
           "holdingPrice": 60709.0,
           "subsidiaryPrice": 69618.0,
-          "holdingValue": 353768.2,
+          "holdingValue": 353768.3,
           "marketCap": 121417.8,
           "ratio": 291.36
         },
@@ -31780,7 +31732,7 @@ const STOCK_DATA = {
           "date": "2023-12-12",
           "holdingPrice": 61674.0,
           "subsidiaryPrice": 70095.0,
-          "holdingValue": 356191.4,
+          "holdingValue": 356191.3,
           "marketCap": 123347.9,
           "ratio": 288.77
         },
@@ -31812,7 +31764,7 @@ const STOCK_DATA = {
           "date": "2023-12-18",
           "holdingPrice": 61762.0,
           "subsidiaryPrice": 69522.0,
-          "holdingValue": 353283.7,
+          "holdingValue": 353283.6,
           "marketCap": 123523.4,
           "ratio": 286.01
         },
@@ -31836,7 +31788,7 @@ const STOCK_DATA = {
           "date": "2023-12-21",
           "holdingPrice": 62727.0,
           "subsidiaryPrice": 71525.0,
-          "holdingValue": 363460.5,
+          "holdingValue": 363460.6,
           "marketCap": 125453.4,
           "ratio": 289.72
         },
@@ -31844,7 +31796,7 @@ const STOCK_DATA = {
           "date": "2023-12-22",
           "holdingPrice": 62727.0,
           "subsidiaryPrice": 72383.0,
-          "holdingValue": 367822.0,
+          "holdingValue": 367822.1,
           "marketCap": 125453.4,
           "ratio": 293.19
         },
@@ -31867,14 +31819,14 @@ const STOCK_DATA = {
         {
           "date": "2023-12-28",
           "holdingPrice": 63853.0,
-          "subsidiaryPrice": 75217.0,
-          "holdingValue": 382223.3,
+          "subsidiaryPrice": 75218.0,
+          "holdingValue": 382223.4,
           "marketCap": 127706.3,
           "ratio": 299.3
         },
         {
           "date": "2024-01-02",
-          "holdingPrice": 63022.0,
+          "holdingPrice": 63021.0,
           "subsidiaryPrice": 76271.0,
           "holdingValue": 387579.3,
           "marketCap": 126043.0,
@@ -31884,7 +31836,7 @@ const STOCK_DATA = {
           "date": "2024-01-03",
           "holdingPrice": 61913.0,
           "subsidiaryPrice": 73780.0,
-          "holdingValue": 374919.7,
+          "holdingValue": 374919.8,
           "marketCap": 123825.2,
           "ratio": 302.78
         },
@@ -31916,7 +31868,7 @@ const STOCK_DATA = {
           "date": "2024-01-09",
           "holdingPrice": 60619.0,
           "subsidiaryPrice": 71576.0,
-          "holdingValue": 363720.9,
+          "holdingValue": 363720.8,
           "marketCap": 121237.8,
           "ratio": 300.01
         },
@@ -31933,14 +31885,14 @@ const STOCK_DATA = {
           "holdingPrice": 58032.0,
           "subsidiaryPrice": 70139.0,
           "holdingValue": 356417.2,
-          "marketCap": 116063.0,
+          "marketCap": 116063.1,
           "ratio": 307.09
         },
         {
           "date": "2024-01-12",
           "holdingPrice": 58401.0,
           "subsidiaryPrice": 70043.0,
-          "holdingValue": 355930.4,
+          "holdingValue": 355930.3,
           "marketCap": 116802.3,
           "ratio": 304.73
         },
@@ -31956,7 +31908,7 @@ const STOCK_DATA = {
           "date": "2024-01-16",
           "holdingPrice": 57662.0,
           "subsidiaryPrice": 69564.0,
-          "holdingValue": 353495.7,
+          "holdingValue": 353495.8,
           "marketCap": 115323.8,
           "ratio": 306.52
         },
@@ -31972,7 +31924,7 @@ const STOCK_DATA = {
           "date": "2024-01-18",
           "holdingPrice": 55537.0,
           "subsidiaryPrice": 68702.0,
-          "holdingValue": 349113.6,
+          "holdingValue": 349113.5,
           "marketCap": 111073.1,
           "ratio": 314.31
         },
@@ -31980,7 +31932,7 @@ const STOCK_DATA = {
           "date": "2024-01-19",
           "holdingPrice": 56183.0,
           "subsidiaryPrice": 71576.0,
-          "holdingValue": 363720.9,
+          "holdingValue": 363720.8,
           "marketCap": 112366.8,
           "ratio": 323.69
         },
@@ -32012,7 +31964,7 @@ const STOCK_DATA = {
           "date": "2024-01-25",
           "holdingPrice": 58956.0,
           "subsidiaryPrice": 71001.0,
-          "holdingValue": 360799.4,
+          "holdingValue": 360799.3,
           "marketCap": 117911.2,
           "ratio": 305.99
         },
@@ -32029,14 +31981,14 @@ const STOCK_DATA = {
           "holdingPrice": 60711.0,
           "subsidiaryPrice": 71289.0,
           "holdingValue": 362260.1,
-          "marketCap": 121422.7,
+          "marketCap": 121422.6,
           "ratio": 298.35
         },
         {
           "date": "2024-01-30",
           "holdingPrice": 60804.0,
           "subsidiaryPrice": 71193.0,
-          "holdingValue": 361773.3,
+          "holdingValue": 361773.2,
           "marketCap": 121607.5,
           "ratio": 297.49
         },
@@ -32046,7 +31998,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 69660.0,
           "holdingValue": 353982.7,
           "marketCap": 128076.0,
-          "ratio": 276.39
+          "ratio": 276.38
         },
         {
           "date": "2024-02-01",
@@ -32068,7 +32020,7 @@ const STOCK_DATA = {
           "date": "2024-02-05",
           "holdingPrice": 71338.0,
           "subsidiaryPrice": 71193.0,
-          "holdingValue": 361773.3,
+          "holdingValue": 361773.2,
           "marketCap": 142676.2,
           "ratio": 253.56
         },
@@ -32092,7 +32044,7 @@ const STOCK_DATA = {
           "date": "2024-02-08",
           "holdingPrice": 76698.0,
           "subsidiaryPrice": 71001.0,
-          "holdingValue": 360799.4,
+          "holdingValue": 360799.3,
           "marketCap": 153395.4,
           "ratio": 235.21
         },
@@ -32124,7 +32076,7 @@ const STOCK_DATA = {
           "date": "2024-02-16",
           "holdingPrice": 74203.0,
           "subsidiaryPrice": 69756.0,
-          "holdingValue": 354469.5,
+          "holdingValue": 354469.6,
           "marketCap": 148405.5,
           "ratio": 238.85
         },
@@ -32132,7 +32084,7 @@ const STOCK_DATA = {
           "date": "2024-02-19",
           "holdingPrice": 78546.0,
           "subsidiaryPrice": 70714.0,
-          "holdingValue": 359338.6,
+          "holdingValue": 359338.7,
           "marketCap": 157091.7,
           "ratio": 228.74
         },
@@ -32140,7 +32092,7 @@ const STOCK_DATA = {
           "date": "2024-02-20",
           "holdingPrice": 75496.0,
           "subsidiaryPrice": 70235.0,
-          "holdingValue": 356904.2,
+          "holdingValue": 356904.1,
           "marketCap": 150992.9,
           "ratio": 236.37
         },
@@ -32156,7 +32108,7 @@ const STOCK_DATA = {
           "date": "2024-02-22",
           "holdingPrice": 85107.0,
           "subsidiaryPrice": 70043.0,
-          "holdingValue": 355930.4,
+          "holdingValue": 355930.3,
           "marketCap": 170213.5,
           "ratio": 209.11
         },
@@ -32164,7 +32116,7 @@ const STOCK_DATA = {
           "date": "2024-02-23",
           "holdingPrice": 88341.0,
           "subsidiaryPrice": 69852.0,
-          "holdingValue": 354956.5,
+          "holdingValue": 354956.4,
           "marketCap": 176682.0,
           "ratio": 200.9
         },
@@ -32172,7 +32124,7 @@ const STOCK_DATA = {
           "date": "2024-02-26",
           "holdingPrice": 85199.0,
           "subsidiaryPrice": 69756.0,
-          "holdingValue": 354469.5,
+          "holdingValue": 354469.6,
           "marketCap": 170398.3,
           "ratio": 208.02
         },
@@ -32180,7 +32132,7 @@ const STOCK_DATA = {
           "date": "2024-02-27",
           "holdingPrice": 85107.0,
           "subsidiaryPrice": 69852.0,
-          "holdingValue": 354956.5,
+          "holdingValue": 354956.4,
           "marketCap": 170213.5,
           "ratio": 208.54
         },
@@ -32197,7 +32149,7 @@ const STOCK_DATA = {
           "holdingPrice": 89542.0,
           "subsidiaryPrice": 70331.0,
           "holdingValue": 357391.0,
-          "marketCap": 179084.5,
+          "marketCap": 179084.6,
           "ratio": 199.57
         },
         {
@@ -32212,7 +32164,7 @@ const STOCK_DATA = {
           "date": "2024-03-05",
           "holdingPrice": 96565.0,
           "subsidiaryPrice": 70618.0,
-          "holdingValue": 358851.8,
+          "holdingValue": 358851.7,
           "marketCap": 193130.4,
           "ratio": 185.81
         },
@@ -32220,8 +32172,8 @@ const STOCK_DATA = {
           "date": "2024-03-06",
           "holdingPrice": 95549.0,
           "subsidiaryPrice": 69852.0,
-          "holdingValue": 354956.5,
-          "marketCap": 191097.4,
+          "holdingValue": 354956.4,
+          "marketCap": 191097.5,
           "ratio": 185.75
         },
         {
@@ -32236,7 +32188,7 @@ const STOCK_DATA = {
           "date": "2024-03-08",
           "holdingPrice": 97120.0,
           "subsidiaryPrice": 70235.0,
-          "holdingValue": 356904.2,
+          "holdingValue": 356904.1,
           "marketCap": 194239.3,
           "ratio": 183.74
         },
@@ -32252,7 +32204,7 @@ const STOCK_DATA = {
           "date": "2024-03-12",
           "holdingPrice": 90097.0,
           "subsidiaryPrice": 70235.0,
-          "holdingValue": 356904.2,
+          "holdingValue": 356904.1,
           "marketCap": 180193.4,
           "ratio": 198.07
         },
@@ -32260,7 +32212,7 @@ const STOCK_DATA = {
           "date": "2024-03-13",
           "holdingPrice": 91760.0,
           "subsidiaryPrice": 71001.0,
-          "holdingValue": 360799.4,
+          "holdingValue": 360799.3,
           "marketCap": 183520.1,
           "ratio": 196.6
         },
@@ -32268,7 +32220,7 @@ const STOCK_DATA = {
           "date": "2024-03-14",
           "holdingPrice": 93608.0,
           "subsidiaryPrice": 71193.0,
-          "holdingValue": 361773.3,
+          "holdingValue": 361773.2,
           "marketCap": 187216.4,
           "ratio": 193.24
         },
@@ -32282,9 +32234,9 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-03-18",
-          "holdingPrice": 89820.0,
+          "holdingPrice": 89819.0,
           "subsidiaryPrice": 69756.0,
-          "holdingValue": 354469.5,
+          "holdingValue": 354469.6,
           "marketCap": 179639.0,
           "ratio": 197.32
         },
@@ -32292,7 +32244,7 @@ const STOCK_DATA = {
           "date": "2024-03-19",
           "holdingPrice": 86400.0,
           "subsidiaryPrice": 69756.0,
-          "holdingValue": 354469.5,
+          "holdingValue": 354469.6,
           "marketCap": 172800.9,
           "ratio": 205.13
         },
@@ -32300,7 +32252,7 @@ const STOCK_DATA = {
           "date": "2024-03-20",
           "holdingPrice": 88526.0,
           "subsidiaryPrice": 73684.0,
-          "holdingValue": 374432.8,
+          "holdingValue": 374432.9,
           "marketCap": 177051.6,
           "ratio": 211.48
         },
@@ -32324,7 +32276,7 @@ const STOCK_DATA = {
           "date": "2024-03-25",
           "holdingPrice": 89912.0,
           "subsidiaryPrice": 74930.0,
-          "holdingValue": 380762.6,
+          "holdingValue": 380762.7,
           "marketCap": 179823.8,
           "ratio": 211.74
         },
@@ -32396,7 +32348,7 @@ const STOCK_DATA = {
           "date": "2024-04-05",
           "holdingPrice": 84922.0,
           "subsidiaryPrice": 81335.0,
-          "holdingValue": 413307.7,
+          "holdingValue": 413307.6,
           "marketCap": 169843.9,
           "ratio": 243.35
         },
@@ -32404,7 +32356,7 @@ const STOCK_DATA = {
           "date": "2024-04-08",
           "holdingPrice": 86585.0,
           "subsidiaryPrice": 81335.0,
-          "holdingValue": 413307.7,
+          "holdingValue": 413307.6,
           "marketCap": 173170.5,
           "ratio": 238.67
         },
@@ -32460,7 +32412,7 @@ const STOCK_DATA = {
           "date": "2024-04-18",
           "holdingPrice": 72077.0,
           "subsidiaryPrice": 76618.0,
-          "holdingValue": 389340.7,
+          "holdingValue": 389340.6,
           "marketCap": 144154.8,
           "ratio": 270.09
         },
@@ -32469,7 +32421,7 @@ const STOCK_DATA = {
           "holdingPrice": 71431.0,
           "subsidiaryPrice": 74693.0,
           "holdingValue": 379558.2,
-          "marketCap": 142861.1,
+          "marketCap": 142861.0,
           "ratio": 265.68
         },
         {
@@ -32492,7 +32444,7 @@ const STOCK_DATA = {
           "date": "2024-04-24",
           "holdingPrice": 78915.0,
           "subsidiaryPrice": 75656.0,
-          "holdingValue": 384449.4,
+          "holdingValue": 384449.5,
           "marketCap": 157831.0,
           "ratio": 243.58
         },
@@ -32508,7 +32460,7 @@ const STOCK_DATA = {
           "date": "2024-04-26",
           "holdingPrice": 82057.0,
           "subsidiaryPrice": 73827.0,
-          "holdingValue": 375156.2,
+          "holdingValue": 375156.1,
           "marketCap": 164114.6,
           "ratio": 228.59
         },
@@ -32516,7 +32468,7 @@ const STOCK_DATA = {
           "date": "2024-04-29",
           "holdingPrice": 81873.0,
           "subsidiaryPrice": 73827.0,
-          "holdingValue": 375156.2,
+          "holdingValue": 375156.1,
           "marketCap": 163745.0,
           "ratio": 229.11
         },
@@ -32524,8 +32476,8 @@ const STOCK_DATA = {
           "date": "2024-04-30",
           "holdingPrice": 80856.0,
           "subsidiaryPrice": 74597.0,
-          "holdingValue": 379069.1,
-          "marketCap": 161712.1,
+          "holdingValue": 379069.2,
+          "marketCap": 161712.0,
           "ratio": 234.41
         },
         {
@@ -32541,7 +32493,7 @@ const STOCK_DATA = {
           "holdingPrice": 77437.0,
           "subsidiaryPrice": 74693.0,
           "holdingValue": 379558.2,
-          "marketCap": 154874.0,
+          "marketCap": 154873.9,
           "ratio": 245.08
         },
         {
@@ -32692,16 +32644,16 @@ const STOCK_DATA = {
           "date": "2024-06-03",
           "holdingPrice": 78823.0,
           "subsidiaryPrice": 72864.0,
-          "holdingValue": 370265.0,
-          "marketCap": 157646.1,
+          "holdingValue": 370264.9,
+          "marketCap": 157646.2,
           "ratio": 234.87
         },
         {
           "date": "2024-06-04",
           "holdingPrice": 76051.0,
           "subsidiaryPrice": 72479.0,
-          "holdingValue": 368308.5,
-          "marketCap": 152101.8,
+          "holdingValue": 368308.4,
+          "marketCap": 152101.7,
           "ratio": 242.15
         },
         {
@@ -32724,7 +32676,7 @@ const STOCK_DATA = {
           "date": "2024-06-10",
           "holdingPrice": 77252.0,
           "subsidiaryPrice": 72864.0,
-          "holdingValue": 370265.0,
+          "holdingValue": 370264.9,
           "marketCap": 154504.3,
           "ratio": 239.65
         },
@@ -32733,7 +32685,7 @@ const STOCK_DATA = {
           "holdingPrice": 77437.0,
           "subsidiaryPrice": 72383.0,
           "holdingValue": 367819.3,
-          "marketCap": 154874.0,
+          "marketCap": 154873.9,
           "ratio": 237.5
         },
         {
@@ -32748,7 +32700,7 @@ const STOCK_DATA = {
           "date": "2024-06-13",
           "holdingPrice": 76513.0,
           "subsidiaryPrice": 75656.0,
-          "holdingValue": 384449.4,
+          "holdingValue": 384449.5,
           "marketCap": 153025.8,
           "ratio": 251.23
         },
@@ -32756,7 +32708,7 @@ const STOCK_DATA = {
           "date": "2024-06-14",
           "holdingPrice": 76605.0,
           "subsidiaryPrice": 76618.0,
-          "holdingValue": 389340.7,
+          "holdingValue": 389340.6,
           "marketCap": 153210.6,
           "ratio": 254.12
         },
@@ -32764,7 +32716,7 @@ const STOCK_DATA = {
           "date": "2024-06-17",
           "holdingPrice": 76975.0,
           "subsidiaryPrice": 75174.0,
-          "holdingValue": 382003.8,
+          "holdingValue": 382003.9,
           "marketCap": 153949.9,
           "ratio": 248.14
         },
@@ -32788,7 +32740,7 @@ const STOCK_DATA = {
           "date": "2024-06-20",
           "holdingPrice": 80948.0,
           "subsidiaryPrice": 78543.0,
-          "holdingValue": 399123.2,
+          "holdingValue": 399123.1,
           "marketCap": 161896.9,
           "ratio": 246.53
         },
@@ -32836,7 +32788,7 @@ const STOCK_DATA = {
           "date": "2024-06-28",
           "holdingPrice": 81780.0,
           "subsidiaryPrice": 78797.0,
-          "holdingValue": 400411.9,
+          "holdingValue": 400412.0,
           "marketCap": 163560.2,
           "ratio": 244.81
         },
@@ -32845,7 +32797,7 @@ const STOCK_DATA = {
           "holdingPrice": 80856.0,
           "subsidiaryPrice": 79087.0,
           "holdingValue": 401885.9,
-          "marketCap": 161712.1,
+          "marketCap": 161712.0,
           "ratio": 248.52
         },
         {
@@ -32901,7 +32853,7 @@ const STOCK_DATA = {
           "holdingPrice": 86862.0,
           "subsidiaryPrice": 84888.0,
           "holdingValue": 431364.1,
-          "marketCap": 173725.0,
+          "marketCap": 173724.9,
           "ratio": 248.3
         },
         {
@@ -32916,7 +32868,7 @@ const STOCK_DATA = {
           "date": "2024-07-12",
           "holdingPrice": 87325.0,
           "subsidiaryPrice": 81601.0,
-          "holdingValue": 414659.7,
+          "holdingValue": 414659.8,
           "marketCap": 174649.0,
           "ratio": 237.42
         },
@@ -32932,7 +32884,7 @@ const STOCK_DATA = {
           "date": "2024-07-16",
           "holdingPrice": 85846.0,
           "subsidiaryPrice": 84791.0,
-          "holdingValue": 430872.7,
+          "holdingValue": 430872.8,
           "marketCap": 171692.0,
           "ratio": 250.96
         },
@@ -32941,7 +32893,7 @@ const STOCK_DATA = {
           "holdingPrice": 85569.0,
           "subsidiaryPrice": 83824.0,
           "holdingValue": 425959.7,
-          "marketCap": 171137.6,
+          "marketCap": 171137.5,
           "ratio": 248.9
         },
         {
@@ -32949,14 +32901,14 @@ const STOCK_DATA = {
           "holdingPrice": 85569.0,
           "subsidiaryPrice": 84018.0,
           "holdingValue": 426942.3,
-          "marketCap": 171137.6,
+          "marketCap": 171137.5,
           "ratio": 249.47
         },
         {
           "date": "2024-07-19",
           "holdingPrice": 85938.0,
           "subsidiaryPrice": 81601.0,
-          "holdingValue": 414659.7,
+          "holdingValue": 414659.8,
           "marketCap": 171876.8,
           "ratio": 241.25
         },
@@ -32965,14 +32917,14 @@ const STOCK_DATA = {
           "holdingPrice": 86862.0,
           "subsidiaryPrice": 80247.0,
           "holdingValue": 407781.5,
-          "marketCap": 173725.0,
+          "marketCap": 173724.9,
           "ratio": 234.73
         },
         {
           "date": "2024-07-23",
           "holdingPrice": 85661.0,
           "subsidiaryPrice": 81117.0,
-          "holdingValue": 412203.2,
+          "holdingValue": 412203.3,
           "marketCap": 171322.4,
           "ratio": 240.6
         },
@@ -32988,7 +32940,7 @@ const STOCK_DATA = {
           "date": "2024-07-25",
           "holdingPrice": 84460.0,
           "subsidiaryPrice": 77733.0,
-          "holdingValue": 395007.7,
+          "holdingValue": 395007.6,
           "marketCap": 168919.8,
           "ratio": 233.84
         },
@@ -33004,7 +32956,7 @@ const STOCK_DATA = {
           "date": "2024-07-29",
           "holdingPrice": 88988.0,
           "subsidiaryPrice": 78507.0,
-          "holdingValue": 398938.1,
+          "holdingValue": 398938.0,
           "marketCap": 177975.7,
           "ratio": 224.15
         },
@@ -33012,7 +32964,7 @@ const STOCK_DATA = {
           "date": "2024-07-30",
           "holdingPrice": 87879.0,
           "subsidiaryPrice": 78313.0,
-          "holdingValue": 397955.4,
+          "holdingValue": 397955.5,
           "marketCap": 175757.9,
           "ratio": 226.42
         },
@@ -33020,7 +32972,7 @@ const STOCK_DATA = {
           "date": "2024-07-31",
           "holdingPrice": 89173.0,
           "subsidiaryPrice": 81117.0,
-          "holdingValue": 412203.2,
+          "holdingValue": 412203.3,
           "marketCap": 178345.3,
           "ratio": 231.13
         },
@@ -33028,7 +32980,7 @@ const STOCK_DATA = {
           "date": "2024-08-01",
           "holdingPrice": 86678.0,
           "subsidiaryPrice": 80344.0,
-          "holdingValue": 408272.8,
+          "holdingValue": 408272.9,
           "marketCap": 173355.3,
           "ratio": 235.51
         },
@@ -33093,7 +33045,7 @@ const STOCK_DATA = {
           "holdingPrice": 86862.0,
           "subsidiaryPrice": 73576.0,
           "holdingValue": 373881.6,
-          "marketCap": 173725.0,
+          "marketCap": 173724.9,
           "ratio": 215.21
         },
         {
@@ -33125,7 +33077,7 @@ const STOCK_DATA = {
           "holdingPrice": 90282.0,
           "subsidiaryPrice": 76283.0,
           "holdingValue": 387638.1,
-          "marketCap": 180563.1,
+          "marketCap": 180563.0,
           "ratio": 214.68
         },
         {
@@ -33148,7 +33100,7 @@ const STOCK_DATA = {
           "date": "2024-08-23",
           "holdingPrice": 90004.0,
           "subsidiaryPrice": 75123.0,
-          "holdingValue": 381742.4,
+          "holdingValue": 381742.5,
           "marketCap": 180008.6,
           "ratio": 212.07
         },
@@ -33186,17 +33138,17 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-08-30",
-          "holdingPrice": 89820.0,
+          "holdingPrice": 89819.0,
           "subsidiaryPrice": 71836.0,
-          "holdingValue": 365038.2,
+          "holdingValue": 365038.1,
           "marketCap": 179639.0,
           "ratio": 203.21
         },
         {
           "date": "2024-09-02",
-          "holdingPrice": 89820.0,
+          "holdingPrice": 89819.0,
           "subsidiaryPrice": 71932.0,
-          "holdingValue": 365529.4,
+          "holdingValue": 365529.5,
           "marketCap": 179639.0,
           "ratio": 203.48
         },
@@ -33212,7 +33164,7 @@ const STOCK_DATA = {
           "date": "2024-09-04",
           "holdingPrice": 90928.0,
           "subsidiaryPrice": 67678.0,
-          "holdingValue": 343912.1,
+          "holdingValue": 343912.2,
           "marketCap": 181856.8,
           "ratio": 189.11
         },
@@ -33242,7 +33194,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-09-10",
-          "holdingPrice": 89820.0,
+          "holdingPrice": 89819.0,
           "subsidiaryPrice": 64004.0,
           "holdingValue": 325242.6,
           "marketCap": 179639.0,
@@ -33261,14 +33213,14 @@ const STOCK_DATA = {
           "holdingPrice": 88895.0,
           "subsidiaryPrice": 64101.0,
           "holdingValue": 325733.9,
-          "marketCap": 177790.8,
+          "marketCap": 177790.9,
           "ratio": 183.21
         },
         {
           "date": "2024-09-13",
           "holdingPrice": 90097.0,
           "subsidiaryPrice": 62264.0,
-          "holdingValue": 316399.2,
+          "holdingValue": 316399.1,
           "marketCap": 180193.4,
           "ratio": 175.59
         },
@@ -33316,7 +33268,7 @@ const STOCK_DATA = {
           "date": "2024-09-26",
           "holdingPrice": 88341.0,
           "subsidiaryPrice": 62554.0,
-          "holdingValue": 317873.0,
+          "holdingValue": 317873.1,
           "marketCap": 176682.0,
           "ratio": 179.91
         },
@@ -33333,7 +33285,7 @@ const STOCK_DATA = {
           "holdingPrice": 86123.0,
           "subsidiaryPrice": 59794.0,
           "holdingValue": 303846.7,
-          "marketCap": 172246.4,
+          "marketCap": 172246.5,
           "ratio": 176.4
         },
         {
@@ -33348,8 +33300,8 @@ const STOCK_DATA = {
           "date": "2024-10-04",
           "holdingPrice": 86862.0,
           "subsidiaryPrice": 58919.0,
-          "holdingValue": 299400.2,
-          "marketCap": 173725.0,
+          "holdingValue": 299400.1,
+          "marketCap": 173724.9,
           "ratio": 172.34
         },
         {
@@ -33372,7 +33324,7 @@ const STOCK_DATA = {
           "date": "2024-10-10",
           "holdingPrice": 89727.0,
           "subsidiaryPrice": 57266.0,
-          "holdingValue": 291001.1,
+          "holdingValue": 291001.2,
           "marketCap": 179454.2,
           "ratio": 162.16
         },
@@ -33460,7 +33412,7 @@ const STOCK_DATA = {
           "date": "2024-10-25",
           "holdingPrice": 93978.0,
           "subsidiaryPrice": 54349.0,
-          "holdingValue": 276179.3,
+          "holdingValue": 276179.4,
           "marketCap": 187955.6,
           "ratio": 146.94
         },
@@ -33516,7 +33468,7 @@ const STOCK_DATA = {
           "date": "2024-11-05",
           "holdingPrice": 96380.0,
           "subsidiaryPrice": 56002.0,
-          "holdingValue": 284578.4,
+          "holdingValue": 284578.3,
           "marketCap": 192760.8,
           "ratio": 147.63
         },
@@ -33549,7 +33501,7 @@ const STOCK_DATA = {
           "holdingPrice": 95549.0,
           "subsidiaryPrice": 53474.0,
           "holdingValue": 271732.8,
-          "marketCap": 191097.4,
+          "marketCap": 191097.5,
           "ratio": 142.2
         },
         {
@@ -33612,7 +33564,7 @@ const STOCK_DATA = {
           "date": "2024-11-21",
           "holdingPrice": 96658.0,
           "subsidiaryPrice": 54835.0,
-          "holdingValue": 278649.6,
+          "holdingValue": 278649.7,
           "marketCap": 193315.2,
           "ratio": 144.14
         },
@@ -33660,7 +33612,7 @@ const STOCK_DATA = {
           "date": "2024-11-29",
           "holdingPrice": 98968.0,
           "subsidiaryPrice": 52696.0,
-          "holdingValue": 267780.4,
+          "holdingValue": 267780.3,
           "marketCap": 197935.6,
           "ratio": 135.29
         },
@@ -33732,7 +33684,7 @@ const STOCK_DATA = {
           "date": "2024-12-12",
           "holdingPrice": 96011.0,
           "subsidiaryPrice": 54349.0,
-          "holdingValue": 276179.3,
+          "holdingValue": 276179.4,
           "marketCap": 192021.5,
           "ratio": 143.83
         },
@@ -33756,7 +33708,7 @@ const STOCK_DATA = {
           "date": "2024-12-17",
           "holdingPrice": 91206.0,
           "subsidiaryPrice": 52696.0,
-          "holdingValue": 267780.4,
+          "holdingValue": 267780.3,
           "marketCap": 182411.2,
           "ratio": 146.8
         },
@@ -33868,7 +33820,7 @@ const STOCK_DATA = {
           "date": "2025-01-09",
           "holdingPrice": 90934.0,
           "subsidiaryPrice": 54916.0,
-          "holdingValue": 279057.3,
+          "holdingValue": 279057.4,
           "marketCap": 181868.3,
           "ratio": 153.44
         },
@@ -33988,7 +33940,7 @@ const STOCK_DATA = {
           "date": "2025-02-05",
           "holdingPrice": 91902.0,
           "subsidiaryPrice": 51783.0,
-          "holdingValue": 263139.7,
+          "holdingValue": 263139.6,
           "marketCap": 183803.1,
           "ratio": 143.16
         },
@@ -34228,7 +34180,7 @@ const STOCK_DATA = {
           "date": "2025-03-20",
           "holdingPrice": 82905.0,
           "subsidiaryPrice": 58929.0,
-          "holdingValue": 299451.9,
+          "holdingValue": 299452.0,
           "marketCap": 165809.7,
           "ratio": 180.6
         },
@@ -34668,7 +34620,7 @@ const STOCK_DATA = {
           "date": "2025-06-12",
           "holdingPrice": 118601.0,
           "subsidiaryPrice": 58590.0,
-          "holdingValue": 297728.3,
+          "holdingValue": 297728.4,
           "marketCap": 237202.7,
           "ratio": 125.52
         },
@@ -34716,7 +34668,7 @@ const STOCK_DATA = {
           "date": "2025-06-20",
           "holdingPrice": 123051.0,
           "subsidiaryPrice": 58590.0,
-          "holdingValue": 297728.3,
+          "holdingValue": 297728.4,
           "marketCap": 246102.7,
           "ratio": 120.98
         },
@@ -35148,7 +35100,7 @@ const STOCK_DATA = {
           "date": "2025-09-05",
           "holdingPrice": 145011.0,
           "subsidiaryPrice": 68857.0,
-          "holdingValue": 349899.8,
+          "holdingValue": 349899.9,
           "marketCap": 290021.9,
           "ratio": 120.65
         },
@@ -38833,14 +38785,6 @@ const STOCK_DATA = {
         "ratioChange": 0.56
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 96666.0,
-          "subsidiaryPrice": 14621.0,
-          "holdingValue": 3236.4,
-          "marketCap": 4068.5,
-          "ratio": 79.55
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 96297.0,
@@ -44859,14 +44803,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 112258.0,
-          "subsidiaryPrice": 0,
-          "holdingValue": 570512.8,
-          "marketCap": 181399.9,
-          "ratio": 314.51
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 113111.0,
           "subsidiaryPrice": 0,
@@ -44894,7 +44830,7 @@ const STOCK_DATA = {
           "date": "2023-02-06",
           "holdingPrice": 107711.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 575875.9,
+          "holdingValue": 575875.8,
           "marketCap": 174052.0,
           "ratio": 330.86
         },
@@ -44904,7 +44840,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 579723.8,
           "marketCap": 174052.0,
-          "ratio": 333.07
+          "ratio": 333.08
         },
         {
           "date": "2023-02-08",
@@ -44958,7 +44894,7 @@ const STOCK_DATA = {
           "date": "2023-02-16",
           "holdingPrice": 109416.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 582781.0,
+          "holdingValue": 582780.9,
           "marketCap": 176807.5,
           "ratio": 329.61
         },
@@ -44974,7 +44910,7 @@ const STOCK_DATA = {
           "date": "2023-02-20",
           "holdingPrice": 109227.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 578055.2,
+          "holdingValue": 578055.3,
           "marketCap": 176501.3,
           "ratio": 327.51
         },
@@ -45006,7 +44942,7 @@ const STOCK_DATA = {
           "date": "2023-02-24",
           "holdingPrice": 106479.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 563997.4,
+          "holdingValue": 563997.5,
           "marketCap": 172062.0,
           "ratio": 327.79
         },
@@ -45028,7 +44964,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2023-03-02",
-          "holdingPrice": 105059.0,
+          "holdingPrice": 105058.0,
           "subsidiaryPrice": 0,
           "holdingValue": 557275.4,
           "marketCap": 169765.8,
@@ -45111,7 +45047,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 562008.2,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 342.8
         },
         {
@@ -45143,7 +45079,7 @@ const STOCK_DATA = {
           "holdingPrice": 102880.0,
           "subsidiaryPrice": 0,
           "holdingValue": 575241.0,
-          "marketCap": 166244.9,
+          "marketCap": 166245.0,
           "ratio": 346.02
         },
         {
@@ -45175,7 +45111,7 @@ const STOCK_DATA = {
           "holdingPrice": 102406.0,
           "subsidiaryPrice": 0,
           "holdingValue": 573388.3,
-          "marketCap": 165479.5,
+          "marketCap": 165479.6,
           "ratio": 346.5
         },
         {
@@ -45214,7 +45150,7 @@ const STOCK_DATA = {
           "date": "2023-04-04",
           "holdingPrice": 102690.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 572146.8,
+          "holdingValue": 572146.7,
           "marketCap": 165938.8,
           "ratio": 344.79
         },
@@ -45222,7 +45158,7 @@ const STOCK_DATA = {
           "date": "2023-04-05",
           "holdingPrice": 103448.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 572891.9,
+          "holdingValue": 572892.0,
           "marketCap": 167163.4,
           "ratio": 342.71
         },
@@ -45231,7 +45167,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 576078.8,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 351.38
         },
         {
@@ -45262,7 +45198,7 @@ const STOCK_DATA = {
           "date": "2023-04-12",
           "holdingPrice": 103732.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 584949.9,
+          "holdingValue": 584950.0,
           "marketCap": 167622.7,
           "ratio": 348.97
         },
@@ -45350,15 +45286,15 @@ const STOCK_DATA = {
           "date": "2023-04-27",
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 570937.3,
-          "marketCap": 163948.7,
+          "holdingValue": 570937.2,
+          "marketCap": 163948.8,
           "ratio": 348.24
         },
         {
           "date": "2023-04-28",
           "holdingPrice": 103827.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 575400.8,
+          "holdingValue": 575400.7,
           "marketCap": 167775.8,
           "ratio": 342.96
         },
@@ -45446,7 +45382,7 @@ const STOCK_DATA = {
           "date": "2023-05-17",
           "holdingPrice": 103922.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 577019.5,
+          "holdingValue": 577019.6,
           "marketCap": 167928.8,
           "ratio": 343.61
         },
@@ -45502,7 +45438,7 @@ const STOCK_DATA = {
           "date": "2023-05-26",
           "holdingPrice": 104111.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 587203.9,
+          "holdingValue": 587204.0,
           "marketCap": 168235.0,
           "ratio": 349.04
         },
@@ -45510,7 +45446,7 @@ const STOCK_DATA = {
           "date": "2023-05-30",
           "holdingPrice": 105437.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 593186.2,
+          "holdingValue": 593186.1,
           "marketCap": 170378.1,
           "ratio": 348.16
         },
@@ -45558,7 +45494,7 @@ const STOCK_DATA = {
           "date": "2023-06-08",
           "holdingPrice": 104869.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 593244.1,
+          "holdingValue": 593244.2,
           "marketCap": 169459.6,
           "ratio": 350.08
         },
@@ -45606,7 +45542,7 @@ const STOCK_DATA = {
           "date": "2023-06-16",
           "holdingPrice": 101932.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 590428.8,
+          "holdingValue": 590428.9,
           "marketCap": 164714.2,
           "ratio": 358.46
         },
@@ -45623,7 +45559,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 585827.8,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 357.32
         },
         {
@@ -45638,8 +45574,8 @@ const STOCK_DATA = {
           "date": "2023-06-22",
           "holdingPrice": 100985.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 579827.6,
-          "marketCap": 163183.3,
+          "holdingValue": 579827.7,
+          "marketCap": 163183.4,
           "ratio": 355.32
         },
         {
@@ -45694,7 +45630,7 @@ const STOCK_DATA = {
           "date": "2023-07-03",
           "holdingPrice": 100132.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 580277.4,
+          "holdingValue": 580277.5,
           "marketCap": 161805.6,
           "ratio": 358.63
         },
@@ -45702,7 +45638,7 @@ const STOCK_DATA = {
           "date": "2023-07-04",
           "holdingPrice": 99375.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 581487.3,
+          "holdingValue": 581487.4,
           "marketCap": 160581.0,
           "ratio": 362.11
         },
@@ -45710,13 +45646,13 @@ const STOCK_DATA = {
           "date": "2023-07-05",
           "holdingPrice": 97954.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 582652.7,
+          "holdingValue": 582652.8,
           "marketCap": 158284.8,
           "ratio": 368.1
         },
         {
           "date": "2023-07-06",
-          "holdingPrice": 96911.0,
+          "holdingPrice": 96912.0,
           "subsidiaryPrice": 0,
           "holdingValue": 578690.8,
           "marketCap": 156600.9,
@@ -45750,7 +45686,7 @@ const STOCK_DATA = {
           "date": "2023-07-12",
           "holdingPrice": 96248.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 572049.2,
+          "holdingValue": 572049.3,
           "marketCap": 155529.3,
           "ratio": 367.81
         },
@@ -45790,7 +45726,7 @@ const STOCK_DATA = {
           "date": "2023-07-19",
           "holdingPrice": 97859.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 576019.8,
+          "holdingValue": 576019.7,
           "marketCap": 158131.7,
           "ratio": 364.27
         },
@@ -45820,7 +45756,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2023-07-25",
-          "holdingPrice": 96911.0,
+          "holdingPrice": 96912.0,
           "subsidiaryPrice": 0,
           "holdingValue": 568233.4,
           "marketCap": 156600.9,
@@ -45878,7 +45814,7 @@ const STOCK_DATA = {
           "date": "2023-08-03",
           "holdingPrice": 99848.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 598887.4,
+          "holdingValue": 598887.3,
           "marketCap": 161346.4,
           "ratio": 371.18
         },
@@ -45919,7 +45855,7 @@ const STOCK_DATA = {
           "holdingPrice": 98617.0,
           "subsidiaryPrice": 0,
           "holdingValue": 594601.0,
-          "marketCap": 159356.3,
+          "marketCap": 159356.4,
           "ratio": 373.13
         },
         {
@@ -45966,7 +45902,7 @@ const STOCK_DATA = {
           "date": "2023-08-21",
           "holdingPrice": 97101.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 577929.6,
+          "holdingValue": 577929.5,
           "marketCap": 156907.1,
           "ratio": 368.33
         },
@@ -45982,7 +45918,7 @@ const STOCK_DATA = {
           "date": "2023-08-23",
           "holdingPrice": 98427.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 572722.0,
+          "holdingValue": 572722.1,
           "marketCap": 159050.2,
           "ratio": 360.09
         },
@@ -45990,7 +45926,7 @@ const STOCK_DATA = {
           "date": "2023-08-24",
           "holdingPrice": 99090.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 575537.9,
+          "holdingValue": 575537.8,
           "marketCap": 160121.7,
           "ratio": 359.44
         },
@@ -46039,7 +45975,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 569755.3,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 347.52
         },
         {
@@ -46078,7 +46014,7 @@ const STOCK_DATA = {
           "date": "2023-09-08",
           "holdingPrice": 102217.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 563800.1,
+          "holdingValue": 563800.2,
           "marketCap": 165173.4,
           "ratio": 341.34
         },
@@ -46094,7 +46030,7 @@ const STOCK_DATA = {
           "date": "2023-09-12",
           "holdingPrice": 102974.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 564303.6,
+          "holdingValue": 564303.7,
           "marketCap": 166398.0,
           "ratio": 339.13
         },
@@ -46118,7 +46054,7 @@ const STOCK_DATA = {
           "date": "2023-09-15",
           "holdingPrice": 104206.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 573279.2,
+          "holdingValue": 573279.3,
           "marketCap": 168388.1,
           "ratio": 340.45
         },
@@ -46198,7 +46134,7 @@ const STOCK_DATA = {
           "date": "2023-10-05",
           "holdingPrice": 99185.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 555291.4,
+          "holdingValue": 555291.5,
           "marketCap": 160274.8,
           "ratio": 346.46
         },
@@ -46222,7 +46158,7 @@ const STOCK_DATA = {
           "date": "2023-10-11",
           "holdingPrice": 101174.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 560478.3,
+          "holdingValue": 560478.2,
           "marketCap": 163489.5,
           "ratio": 342.82
         },
@@ -46246,7 +46182,7 @@ const STOCK_DATA = {
           "date": "2023-10-16",
           "holdingPrice": 101269.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 553908.4,
+          "holdingValue": 553908.3,
           "marketCap": 163642.6,
           "ratio": 338.49
         },
@@ -46255,7 +46191,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 562355.7,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 343.01
         },
         {
@@ -46286,7 +46222,7 @@ const STOCK_DATA = {
           "date": "2023-10-23",
           "holdingPrice": 99943.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 549303.7,
+          "holdingValue": 549303.8,
           "marketCap": 161499.5,
           "ratio": 340.13
         },
@@ -46303,14 +46239,14 @@ const STOCK_DATA = {
           "holdingPrice": 100038.0,
           "subsidiaryPrice": 0,
           "holdingValue": 559169.1,
-          "marketCap": 161652.6,
+          "marketCap": 161652.5,
           "ratio": 345.91
         },
         {
           "date": "2023-10-26",
           "holdingPrice": 98238.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 558355.9,
+          "holdingValue": 558356.0,
           "marketCap": 158744.0,
           "ratio": 351.73
         },
@@ -46318,7 +46254,7 @@ const STOCK_DATA = {
           "date": "2023-10-27",
           "holdingPrice": 98143.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 556833.2,
+          "holdingValue": 556833.1,
           "marketCap": 158591.0,
           "ratio": 351.11
         },
@@ -46326,7 +46262,7 @@ const STOCK_DATA = {
           "date": "2023-10-30",
           "holdingPrice": 100511.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 555992.7,
+          "holdingValue": 555992.6,
           "marketCap": 162417.9,
           "ratio": 342.32
         },
@@ -46351,7 +46287,7 @@ const STOCK_DATA = {
           "holdingPrice": 101459.0,
           "subsidiaryPrice": 0,
           "holdingValue": 558054.8,
-          "marketCap": 163948.7,
+          "marketCap": 163948.8,
           "ratio": 340.38
         },
         {
@@ -46398,7 +46334,7 @@ const STOCK_DATA = {
           "date": "2023-11-10",
           "holdingPrice": 108848.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 566797.1,
+          "holdingValue": 566797.0,
           "marketCap": 175889.0,
           "ratio": 322.25
         },
@@ -46406,7 +46342,7 @@ const STOCK_DATA = {
           "date": "2023-11-13",
           "holdingPrice": 110553.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 563718.8,
+          "holdingValue": 563718.9,
           "marketCap": 178644.4,
           "ratio": 315.55
         },
@@ -46414,7 +46350,7 @@ const STOCK_DATA = {
           "date": "2023-11-14",
           "holdingPrice": 109700.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 564859.7,
+          "holdingValue": 564859.8,
           "marketCap": 177266.7,
           "ratio": 318.65
         },
@@ -46430,7 +46366,7 @@ const STOCK_DATA = {
           "date": "2023-11-16",
           "holdingPrice": 111595.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 576116.3,
+          "holdingValue": 576116.4,
           "marketCap": 180328.3,
           "ratio": 319.48
         },
@@ -46454,7 +46390,7 @@ const STOCK_DATA = {
           "date": "2023-11-21",
           "holdingPrice": 112448.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 571404.8,
+          "holdingValue": 571404.9,
           "marketCap": 181706.0,
           "ratio": 314.47
         },
@@ -46510,7 +46446,7 @@ const STOCK_DATA = {
           "date": "2023-11-30",
           "holdingPrice": 113016.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 572987.9,
+          "holdingValue": 572988.0,
           "marketCap": 182624.5,
           "ratio": 313.75
         },
@@ -46518,7 +46454,7 @@ const STOCK_DATA = {
           "date": "2023-12-01",
           "holdingPrice": 112353.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 563906.4,
+          "holdingValue": 563906.3,
           "marketCap": 181553.0,
           "ratio": 310.6
         },
@@ -46526,7 +46462,7 @@ const STOCK_DATA = {
           "date": "2023-12-04",
           "holdingPrice": 114153.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 566122.8,
+          "holdingValue": 566122.9,
           "marketCap": 184461.5,
           "ratio": 306.91
         },
@@ -46542,7 +46478,7 @@ const STOCK_DATA = {
           "date": "2023-12-06",
           "holdingPrice": 113774.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 560223.8,
+          "holdingValue": 560223.7,
           "marketCap": 183849.2,
           "ratio": 304.72
         },
@@ -46558,7 +46494,7 @@ const STOCK_DATA = {
           "date": "2023-12-08",
           "holdingPrice": 118226.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 564607.5,
+          "holdingValue": 564607.6,
           "marketCap": 191043.9,
           "ratio": 295.54
         },
@@ -46566,7 +46502,7 @@ const STOCK_DATA = {
           "date": "2023-12-11",
           "holdingPrice": 118700.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 562921.5,
+          "holdingValue": 562921.6,
           "marketCap": 191809.3,
           "ratio": 293.48
         },
@@ -46575,7 +46511,7 @@ const STOCK_DATA = {
           "holdingPrice": 122395.0,
           "subsidiaryPrice": 0,
           "holdingValue": 565192.1,
-          "marketCap": 197779.5,
+          "marketCap": 197779.4,
           "ratio": 285.77
         },
         {
@@ -46662,7 +46598,7 @@ const STOCK_DATA = {
           "date": "2023-12-28",
           "holdingPrice": 125163.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 607741.4,
+          "holdingValue": 607741.5,
           "marketCap": 202252.2,
           "ratio": 300.49
         },
@@ -46695,7 +46631,7 @@ const STOCK_DATA = {
           "holdingPrice": 120910.0,
           "subsidiaryPrice": 0,
           "holdingValue": 599125.0,
-          "marketCap": 195380.4,
+          "marketCap": 195380.3,
           "ratio": 306.65
         },
         {
@@ -46710,7 +46646,7 @@ const STOCK_DATA = {
           "date": "2024-01-09",
           "holdingPrice": 120330.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 591831.2,
+          "holdingValue": 591831.1,
           "marketCap": 194443.3,
           "ratio": 304.37
         },
@@ -46750,7 +46686,7 @@ const STOCK_DATA = {
           "date": "2024-01-16",
           "holdingPrice": 115304.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 591265.3,
+          "holdingValue": 591265.4,
           "marketCap": 186322.0,
           "ratio": 317.34
         },
@@ -46766,7 +46702,7 @@ const STOCK_DATA = {
           "date": "2024-01-18",
           "holdingPrice": 111535.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 580325.6,
+          "holdingValue": 580325.5,
           "marketCap": 180231.0,
           "ratio": 321.99
         },
@@ -46774,7 +46710,7 @@ const STOCK_DATA = {
           "date": "2024-01-19",
           "holdingPrice": 113758.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 598596.3,
+          "holdingValue": 598596.2,
           "marketCap": 183823.1,
           "ratio": 325.64
         },
@@ -46790,7 +46726,7 @@ const STOCK_DATA = {
           "date": "2024-01-23",
           "holdingPrice": 113661.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 614157.4,
+          "holdingValue": 614157.3,
           "marketCap": 183666.9,
           "ratio": 334.39
         },
@@ -46815,7 +46751,7 @@ const STOCK_DATA = {
           "holdingPrice": 116271.0,
           "subsidiaryPrice": 0,
           "holdingValue": 597356.5,
-          "marketCap": 187883.8,
+          "marketCap": 187883.7,
           "ratio": 317.94
         },
         {
@@ -46830,7 +46766,7 @@ const STOCK_DATA = {
           "date": "2024-01-30",
           "holdingPrice": 125356.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 624208.4,
+          "holdingValue": 624208.3,
           "marketCap": 202564.6,
           "ratio": 308.15
         },
@@ -46838,7 +46774,7 @@ const STOCK_DATA = {
           "date": "2024-01-31",
           "holdingPrice": 133378.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 628883.8,
+          "holdingValue": 628883.7,
           "marketCap": 215527.5,
           "ratio": 291.79
         },
@@ -46854,7 +46790,7 @@ const STOCK_DATA = {
           "date": "2024-02-02",
           "holdingPrice": 143719.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 648252.8,
+          "holdingValue": 648252.7,
           "marketCap": 232238.7,
           "ratio": 279.13
         },
@@ -46950,7 +46886,7 @@ const STOCK_DATA = {
           "date": "2024-02-22",
           "holdingPrice": 158604.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 628756.4,
+          "holdingValue": 628756.3,
           "marketCap": 256290.3,
           "ratio": 245.33
         },
@@ -46966,7 +46902,7 @@ const STOCK_DATA = {
           "date": "2024-02-26",
           "holdingPrice": 147199.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 623220.7,
+          "holdingValue": 623220.8,
           "marketCap": 237861.1,
           "ratio": 262.01
         },
@@ -46996,10 +46932,10 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-03-04",
-          "holdingPrice": 157541.0,
+          "holdingPrice": 157540.0,
           "subsidiaryPrice": 0,
           "holdingValue": 616459.3,
-          "marketCap": 254572.4,
+          "marketCap": 254572.3,
           "ratio": 242.15
         },
         {
@@ -47022,7 +46958,7 @@ const STOCK_DATA = {
           "date": "2024-03-07",
           "holdingPrice": 158990.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 619837.7,
+          "holdingValue": 619837.6,
           "marketCap": 256915.0,
           "ratio": 241.26
         },
@@ -47030,24 +46966,24 @@ const STOCK_DATA = {
           "date": "2024-03-08",
           "holdingPrice": 162566.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 642456.9,
-          "marketCap": 262693.6,
+          "holdingValue": 642456.8,
+          "marketCap": 262693.7,
           "ratio": 244.57
         },
         {
           "date": "2024-03-11",
           "holdingPrice": 162470.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 635393.5,
+          "holdingValue": 635393.6,
           "marketCap": 262537.5,
           "ratio": 242.02
         },
         {
           "date": "2024-03-12",
-          "holdingPrice": 157541.0,
+          "holdingPrice": 157540.0,
           "subsidiaryPrice": 0,
           "holdingValue": 640682.7,
-          "marketCap": 254572.4,
+          "marketCap": 254572.3,
           "ratio": 251.67
         },
         {
@@ -47062,7 +46998,7 @@ const STOCK_DATA = {
           "date": "2024-03-14",
           "holdingPrice": 165079.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 644906.8,
+          "holdingValue": 644906.7,
           "marketCap": 266754.3,
           "ratio": 241.76
         },
@@ -47110,7 +47046,7 @@ const STOCK_DATA = {
           "date": "2024-03-22",
           "holdingPrice": 154641.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 656874.2,
+          "holdingValue": 656874.1,
           "marketCap": 249886.9,
           "ratio": 262.87
         },
@@ -47128,7 +47064,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 654050.3,
           "marketCap": 250043.1,
-          "ratio": 261.58
+          "ratio": 261.57
         },
         {
           "date": "2024-03-27",
@@ -47159,7 +47095,7 @@ const STOCK_DATA = {
           "holdingPrice": 152321.0,
           "subsidiaryPrice": 0,
           "holdingValue": 653230.7,
-          "marketCap": 246138.7,
+          "marketCap": 246138.6,
           "ratio": 265.39
         },
         {
@@ -47198,7 +47134,7 @@ const STOCK_DATA = {
           "date": "2024-04-08",
           "holdingPrice": 146136.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 660743.0,
+          "holdingValue": 660742.9,
           "marketCap": 236143.2,
           "ratio": 279.81
         },
@@ -47206,8 +47142,8 @@ const STOCK_DATA = {
           "date": "2024-04-09",
           "holdingPrice": 144299.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 651939.3,
-          "marketCap": 233175.8,
+          "holdingValue": 651939.2,
+          "marketCap": 233175.7,
           "ratio": 279.59
         },
         {
@@ -47246,7 +47182,7 @@ const STOCK_DATA = {
           "date": "2024-04-17",
           "holdingPrice": 134151.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 620634.9,
+          "holdingValue": 620634.8,
           "marketCap": 216776.9,
           "ratio": 286.3
         },
@@ -47263,7 +47199,7 @@ const STOCK_DATA = {
           "holdingPrice": 133571.0,
           "subsidiaryPrice": 0,
           "holdingValue": 618998.0,
-          "marketCap": 215839.8,
+          "marketCap": 215839.9,
           "ratio": 286.79
         },
         {
@@ -47302,7 +47238,7 @@ const STOCK_DATA = {
           "date": "2024-04-26",
           "holdingPrice": 146039.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 615334.8,
+          "holdingValue": 615334.7,
           "marketCap": 235987.0,
           "ratio": 260.75
         },
@@ -47335,7 +47271,7 @@ const STOCK_DATA = {
           "holdingPrice": 141110.0,
           "subsidiaryPrice": 0,
           "holdingValue": 616609.7,
-          "marketCap": 228021.8,
+          "marketCap": 228021.9,
           "ratio": 270.42
         },
         {
@@ -47374,8 +47310,8 @@ const STOCK_DATA = {
           "date": "2024-05-13",
           "holdingPrice": 144299.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 626948.5,
-          "marketCap": 233175.8,
+          "holdingValue": 626948.4,
+          "marketCap": 233175.7,
           "ratio": 268.87
         },
         {
@@ -47399,7 +47335,7 @@ const STOCK_DATA = {
           "holdingPrice": 146716.0,
           "subsidiaryPrice": 0,
           "holdingValue": 625866.5,
-          "marketCap": 237080.3,
+          "marketCap": 237080.2,
           "ratio": 263.99
         },
         {
@@ -47414,7 +47350,7 @@ const STOCK_DATA = {
           "date": "2024-05-21",
           "holdingPrice": 143430.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 625541.5,
+          "holdingValue": 625541.4,
           "marketCap": 231770.1,
           "ratio": 269.9
         },
@@ -47447,7 +47383,7 @@ const STOCK_DATA = {
           "holdingPrice": 136374.0,
           "subsidiaryPrice": 0,
           "holdingValue": 608205.7,
-          "marketCap": 220369.1,
+          "marketCap": 220369.0,
           "ratio": 275.99
         },
         {
@@ -47462,7 +47398,7 @@ const STOCK_DATA = {
           "date": "2024-05-29",
           "holdingPrice": 130285.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 589577.4,
+          "holdingValue": 589577.3,
           "marketCap": 210529.8,
           "ratio": 280.04
         },
@@ -47486,7 +47422,7 @@ const STOCK_DATA = {
           "date": "2024-06-03",
           "holdingPrice": 134054.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 602724.2,
+          "holdingValue": 602724.1,
           "marketCap": 216620.8,
           "ratio": 278.24
         },
@@ -47526,7 +47462,7 @@ const STOCK_DATA = {
           "date": "2024-06-11",
           "holdingPrice": 129898.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 595094.8,
+          "holdingValue": 595094.7,
           "marketCap": 209905.0,
           "ratio": 283.51
         },
@@ -47630,7 +47566,7 @@ const STOCK_DATA = {
           "date": "2024-06-28",
           "holdingPrice": 137244.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 609832.6,
+          "holdingValue": 609832.7,
           "marketCap": 221774.7,
           "ratio": 274.98
         },
@@ -47654,7 +47590,7 @@ const STOCK_DATA = {
           "date": "2024-07-03",
           "holdingPrice": 137534.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 649877.6,
+          "holdingValue": 649877.5,
           "marketCap": 222243.2,
           "ratio": 292.42
         },
@@ -47719,7 +47655,7 @@ const STOCK_DATA = {
           "holdingPrice": 142946.0,
           "subsidiaryPrice": 0,
           "holdingValue": 669788.2,
-          "marketCap": 230989.3,
+          "marketCap": 230989.2,
           "ratio": 289.97
         },
         {
@@ -47743,7 +47679,7 @@ const STOCK_DATA = {
           "holdingPrice": 144299.0,
           "subsidiaryPrice": 0,
           "holdingValue": 684865.2,
-          "marketCap": 233175.8,
+          "marketCap": 233175.7,
           "ratio": 293.71
         },
         {
@@ -47766,7 +47702,7 @@ const STOCK_DATA = {
           "date": "2024-07-23",
           "holdingPrice": 142850.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 675283.6,
+          "holdingValue": 675283.7,
           "marketCap": 230833.1,
           "ratio": 292.54
         },
@@ -47775,14 +47711,14 @@ const STOCK_DATA = {
           "holdingPrice": 142946.0,
           "subsidiaryPrice": 0,
           "holdingValue": 686637.4,
-          "marketCap": 230989.3,
+          "marketCap": 230989.2,
           "ratio": 297.26
         },
         {
           "date": "2024-07-25",
           "holdingPrice": 141593.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 675534.8,
+          "holdingValue": 675534.7,
           "marketCap": 228802.7,
           "ratio": 295.25
         },
@@ -47823,7 +47759,7 @@ const STOCK_DATA = {
           "holdingPrice": 146232.0,
           "subsidiaryPrice": 0,
           "holdingValue": 709642.5,
-          "marketCap": 236299.3,
+          "marketCap": 236299.4,
           "ratio": 300.32
         },
         {
@@ -47871,7 +47807,7 @@ const STOCK_DATA = {
           "holdingPrice": 136374.0,
           "subsidiaryPrice": 0,
           "holdingValue": 700484.7,
-          "marketCap": 220369.1,
+          "marketCap": 220369.0,
           "ratio": 317.87
         },
         {
@@ -47900,7 +47836,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2024-08-16",
-          "holdingPrice": 139564.0,
+          "holdingPrice": 139563.0,
           "subsidiaryPrice": 0,
           "holdingValue": 702296.4,
           "marketCap": 225523.0,
@@ -47934,7 +47870,7 @@ const STOCK_DATA = {
           "date": "2024-08-22",
           "holdingPrice": 141786.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 711040.9,
+          "holdingValue": 711041.0,
           "marketCap": 229115.1,
           "ratio": 310.34
         },
@@ -47958,7 +47894,7 @@ const STOCK_DATA = {
           "date": "2024-08-27",
           "holdingPrice": 146136.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 711827.9,
+          "holdingValue": 711828.0,
           "marketCap": 236143.2,
           "ratio": 301.44
         },
@@ -47975,7 +47911,7 @@ const STOCK_DATA = {
           "holdingPrice": 144299.0,
           "subsidiaryPrice": 0,
           "holdingValue": 698649.0,
-          "marketCap": 233175.8,
+          "marketCap": 233175.7,
           "ratio": 299.62
         },
         {
@@ -47991,7 +47927,7 @@ const STOCK_DATA = {
           "holdingPrice": 141110.0,
           "subsidiaryPrice": 0,
           "holdingValue": 704546.5,
-          "marketCap": 228021.8,
+          "marketCap": 228021.9,
           "ratio": 308.98
         },
         {
@@ -48102,7 +48038,7 @@ const STOCK_DATA = {
           "date": "2024-09-25",
           "holdingPrice": 133861.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 706616.3,
+          "holdingValue": 706616.2,
           "marketCap": 216308.4,
           "ratio": 326.67
         },
@@ -48119,7 +48055,7 @@ const STOCK_DATA = {
           "holdingPrice": 135504.0,
           "subsidiaryPrice": 0,
           "holdingValue": 684986.7,
-          "marketCap": 218963.4,
+          "marketCap": 218963.5,
           "ratio": 312.83
         },
         {
@@ -48246,7 +48182,7 @@ const STOCK_DATA = {
           "date": "2024-10-24",
           "holdingPrice": 129125.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 691016.3,
+          "holdingValue": 691016.4,
           "marketCap": 208655.6,
           "ratio": 331.18
         },
@@ -48270,7 +48206,7 @@ const STOCK_DATA = {
           "date": "2024-10-29",
           "holdingPrice": 131638.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 703246.0,
+          "holdingValue": 703246.1,
           "marketCap": 212716.3,
           "ratio": 330.6
         },
@@ -48366,7 +48302,7 @@ const STOCK_DATA = {
           "date": "2024-11-14",
           "holdingPrice": 111921.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 630169.3,
+          "holdingValue": 630169.4,
           "marketCap": 180855.7,
           "ratio": 348.44
         },
@@ -48575,7 +48511,7 @@ const STOCK_DATA = {
           "holdingPrice": 112985.0,
           "subsidiaryPrice": 0,
           "holdingValue": 631739.5,
-          "marketCap": 182573.6,
+          "marketCap": 182573.7,
           "ratio": 346.02
         },
         {
@@ -48926,7 +48862,7 @@ const STOCK_DATA = {
           "date": "2025-03-04",
           "holdingPrice": 120777.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 719321.9,
+          "holdingValue": 719321.8,
           "marketCap": 195166.1,
           "ratio": 368.57
         },
@@ -49062,7 +48998,7 @@ const STOCK_DATA = {
           "date": "2025-03-27",
           "holdingPrice": 122556.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 711953.6,
+          "holdingValue": 711953.7,
           "marketCap": 198040.8,
           "ratio": 359.5
         },
@@ -49128,7 +49064,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 659228.2,
           "marketCap": 177917.3,
-          "ratio": 370.53
+          "ratio": 370.52
         },
         {
           "date": "2025-04-09",
@@ -49158,7 +49094,7 @@ const STOCK_DATA = {
           "date": "2025-04-14",
           "holdingPrice": 112376.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 683985.0,
+          "holdingValue": 683985.1,
           "marketCap": 181590.7,
           "ratio": 376.66
         },
@@ -49414,7 +49350,7 @@ const STOCK_DATA = {
           "date": "2025-06-02",
           "holdingPrice": 149538.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 690424.2,
+          "holdingValue": 690424.1,
           "marketCap": 241641.8,
           "ratio": 285.72
         },
@@ -49510,7 +49446,7 @@ const STOCK_DATA = {
           "date": "2025-06-20",
           "holdingPrice": 160015.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 701523.8,
+          "holdingValue": 701523.9,
           "marketCap": 258571.1,
           "ratio": 271.31
         },
@@ -49662,7 +49598,7 @@ const STOCK_DATA = {
           "date": "2025-07-17",
           "holdingPrice": 182253.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 754090.6,
+          "holdingValue": 754090.7,
           "marketCap": 294505.9,
           "ratio": 256.05
         },
@@ -49766,7 +49702,7 @@ const STOCK_DATA = {
           "date": "2025-08-05",
           "holdingPrice": 160707.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 748372.0,
+          "holdingValue": 748371.9,
           "marketCap": 259689.0,
           "ratio": 288.18
         },
@@ -49806,7 +49742,7 @@ const STOCK_DATA = {
           "date": "2025-08-12",
           "holdingPrice": 158434.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 738092.5,
+          "holdingValue": 738092.4,
           "marketCap": 256015.7,
           "ratio": 288.3
         },
@@ -49870,7 +49806,7 @@ const STOCK_DATA = {
           "date": "2025-08-25",
           "holdingPrice": 164660.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 749916.6,
+          "holdingValue": 749916.7,
           "marketCap": 266077.4,
           "ratio": 281.84
         },
@@ -49902,7 +49838,7 @@ const STOCK_DATA = {
           "date": "2025-08-29",
           "holdingPrice": 165846.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 731705.3,
+          "holdingValue": 731705.2,
           "marketCap": 267994.0,
           "ratio": 273.03
         },
@@ -49942,7 +49878,7 @@ const STOCK_DATA = {
           "date": "2025-09-05",
           "holdingPrice": 172963.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 747320.5,
+          "holdingValue": 747320.6,
           "marketCap": 279493.1,
           "ratio": 267.38
         },
@@ -50866,14 +50802,6 @@ const STOCK_DATA = {
         "ratioChange": 1.82
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 26796.0,
-          "subsidiaryPrice": 33409.0,
-          "holdingValue": 3558.1,
-          "marketCap": 3678.8,
-          "ratio": 96.72
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 26796.0,
@@ -56875,14 +56803,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 4515.0,
-          "subsidiaryPrice": 3565.0,
-          "holdingValue": 514.4,
-          "marketCap": 905.3,
-          "ratio": 56.82
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 4490.0,
           "subsidiaryPrice": 3585.0,
@@ -62863,14 +62783,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 28794.0,
-          "subsidiaryPrice": 0,
-          "holdingValue": 13098.2,
-          "marketCap": 4928.2,
-          "ratio": 265.78
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 29111.0,
           "subsidiaryPrice": 0,
@@ -62904,7 +62816,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2023-02-07",
-          "holdingPrice": 29020.0,
+          "holdingPrice": 29021.0,
           "subsidiaryPrice": 0,
           "holdingValue": 13300.0,
           "marketCap": 4967.0,
@@ -63344,7 +63256,7 @@ const STOCK_DATA = {
         },
         {
           "date": "2023-04-26",
-          "holdingPrice": 29020.0,
+          "holdingPrice": 29021.0,
           "subsidiaryPrice": 0,
           "holdingValue": 12491.6,
           "marketCap": 4967.0,
@@ -64202,7 +64114,7 @@ const STOCK_DATA = {
           "date": "2023-10-05",
           "holdingPrice": 36174.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 14108.2,
+          "holdingValue": 14108.3,
           "marketCap": 6191.3,
           "ratio": 227.87
         },
@@ -64300,7 +64212,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 13596.5,
           "marketCap": 6034.2,
-          "ratio": 225.32
+          "ratio": 225.33
         },
         {
           "date": "2023-10-25",
@@ -64554,7 +64466,7 @@ const STOCK_DATA = {
           "date": "2023-12-07",
           "holdingPrice": 39709.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 14191.8,
+          "holdingValue": 14191.9,
           "marketCap": 6796.3,
           "ratio": 208.82
         },
@@ -65227,7 +65139,7 @@ const STOCK_DATA = {
           "holdingPrice": 41650.0,
           "subsidiaryPrice": 0,
           "holdingValue": 14383.3,
-          "marketCap": 7128.6,
+          "marketCap": 7128.5,
           "ratio": 201.77
         },
         {
@@ -65235,7 +65147,7 @@ const STOCK_DATA = {
           "holdingPrice": 41650.0,
           "subsidiaryPrice": 0,
           "holdingValue": 14201.9,
-          "marketCap": 7128.6,
+          "marketCap": 7128.5,
           "ratio": 199.23
         },
         {
@@ -65379,7 +65291,7 @@ const STOCK_DATA = {
           "holdingPrice": 41650.0,
           "subsidiaryPrice": 0,
           "holdingValue": 15387.4,
-          "marketCap": 7128.6,
+          "marketCap": 7128.5,
           "ratio": 215.86
         },
         {
@@ -65706,7 +65618,7 @@ const STOCK_DATA = {
           "date": "2024-07-11",
           "holdingPrice": 34361.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 15151.6,
+          "holdingValue": 15151.7,
           "marketCap": 5881.1,
           "ratio": 257.63
         },
@@ -66963,7 +66875,7 @@ const STOCK_DATA = {
           "holdingPrice": 36733.0,
           "subsidiaryPrice": 0,
           "holdingValue": 19492.1,
-          "marketCap": 6287.1,
+          "marketCap": 6287.0,
           "ratio": 310.04
         },
         {
@@ -68870,14 +68782,6 @@ const STOCK_DATA = {
         "ratioChange": -2.4
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 43324.0,
-          "subsidiaryPrice": 44225.0,
-          "holdingValue": 2463.0,
-          "marketCap": 5658.1,
-          "ratio": 43.53
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 43324.0,
@@ -74879,14 +74783,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 36350.0,
-          "subsidiaryPrice": 86089.0,
-          "holdingValue": 125732.4,
-          "marketCap": 47869.8,
-          "ratio": 262.66
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 36950.0,
           "subsidiaryPrice": 88910.0,
@@ -74922,7 +74818,7 @@ const STOCK_DATA = {
           "date": "2023-02-07",
           "holdingPrice": 36000.0,
           "subsidiaryPrice": 88326.0,
-          "holdingValue": 129000.1,
+          "holdingValue": 129000.0,
           "marketCap": 47408.9,
           "ratio": 272.1
         },
@@ -74930,7 +74826,7 @@ const STOCK_DATA = {
           "date": "2023-02-08",
           "holdingPrice": 37250.0,
           "subsidiaryPrice": 92315.0,
-          "holdingValue": 134825.0,
+          "holdingValue": 134824.9,
           "marketCap": 49055.0,
           "ratio": 274.84
         },
@@ -74938,7 +74834,7 @@ const STOCK_DATA = {
           "date": "2023-02-09",
           "holdingPrice": 36850.0,
           "subsidiaryPrice": 92315.0,
-          "holdingValue": 134825.0,
+          "holdingValue": 134824.9,
           "marketCap": 48528.3,
           "ratio": 277.83
         },
@@ -74994,14 +74890,14 @@ const STOCK_DATA = {
           "date": "2023-02-20",
           "holdingPrice": 38450.0,
           "subsidiaryPrice": 89980.0,
-          "holdingValue": 131415.2,
+          "holdingValue": 131415.3,
           "marketCap": 50635.3,
           "ratio": 259.53
         },
         {
           "date": "2023-02-21",
           "holdingPrice": 37900.0,
-          "subsidiaryPrice": 88716.0,
+          "subsidiaryPrice": 88715.0,
           "holdingValue": 129568.3,
           "marketCap": 49911.0,
           "ratio": 259.6
@@ -75050,7 +74946,7 @@ const STOCK_DATA = {
           "date": "2023-03-02",
           "holdingPrice": 38900.0,
           "subsidiaryPrice": 85700.0,
-          "holdingValue": 125164.2,
+          "holdingValue": 125164.1,
           "marketCap": 51227.9,
           "ratio": 244.33
         },
@@ -75138,7 +75034,7 @@ const STOCK_DATA = {
           "date": "2023-03-17",
           "holdingPrice": 36800.0,
           "subsidiaryPrice": 81712.0,
-          "holdingValue": 119339.3,
+          "holdingValue": 119339.2,
           "marketCap": 48462.4,
           "ratio": 246.25
         },
@@ -75146,7 +75042,7 @@ const STOCK_DATA = {
           "date": "2023-03-20",
           "holdingPrice": 36850.0,
           "subsidiaryPrice": 81420.0,
-          "holdingValue": 118913.1,
+          "holdingValue": 118913.0,
           "marketCap": 48528.3,
           "ratio": 245.04
         },
@@ -75170,7 +75066,7 @@ const STOCK_DATA = {
           "date": "2023-03-23",
           "holdingPrice": 37650.0,
           "subsidiaryPrice": 86089.0,
-          "holdingValue": 125732.4,
+          "holdingValue": 125732.5,
           "marketCap": 49581.8,
           "ratio": 253.59
         },
@@ -75194,7 +75090,7 @@ const STOCK_DATA = {
           "date": "2023-03-28",
           "holdingPrice": 37350.0,
           "subsidiaryPrice": 85992.0,
-          "holdingValue": 125590.3,
+          "holdingValue": 125590.4,
           "marketCap": 49186.7,
           "ratio": 255.33
         },
@@ -75250,7 +75146,7 @@ const STOCK_DATA = {
           "date": "2023-04-06",
           "holdingPrice": 38450.0,
           "subsidiaryPrice": 81799.0,
-          "holdingValue": 119467.5,
+          "holdingValue": 119467.6,
           "marketCap": 50635.3,
           "ratio": 235.94
         },
@@ -75378,7 +75274,7 @@ const STOCK_DATA = {
           "date": "2023-04-28",
           "holdingPrice": 42450.0,
           "subsidiaryPrice": 87363.0,
-          "holdingValue": 127593.6,
+          "holdingValue": 127593.7,
           "marketCap": 55903.0,
           "ratio": 228.24
         },
@@ -75626,7 +75522,7 @@ const STOCK_DATA = {
           "date": "2023-06-16",
           "holdingPrice": 47550.0,
           "subsidiaryPrice": 116062.0,
-          "holdingValue": 169507.0,
+          "holdingValue": 169507.1,
           "marketCap": 62619.2,
           "ratio": 270.69
         },
@@ -75697,10 +75593,10 @@ const STOCK_DATA = {
         {
           "date": "2023-06-29",
           "holdingPrice": 44250.0,
-          "subsidiaryPrice": 113725.0,
+          "subsidiaryPrice": 113724.0,
           "holdingValue": 166093.8,
           "marketCap": 58273.4,
-          "ratio": 285.03
+          "ratio": 285.02
         },
         {
           "date": "2023-06-30",
@@ -75762,7 +75658,7 @@ const STOCK_DATA = {
           "date": "2023-07-11",
           "holdingPrice": 45600.0,
           "subsidiaryPrice": 110984.0,
-          "holdingValue": 162091.5,
+          "holdingValue": 162091.6,
           "marketCap": 60051.3,
           "ratio": 269.92
         },
@@ -75842,7 +75738,7 @@ const STOCK_DATA = {
           "date": "2023-07-25",
           "holdingPrice": 43550.0,
           "subsidiaryPrice": 110984.0,
-          "holdingValue": 162091.5,
+          "holdingValue": 162091.6,
           "marketCap": 57351.6,
           "ratio": 282.63
         },
@@ -75858,7 +75754,7 @@ const STOCK_DATA = {
           "date": "2023-07-27",
           "holdingPrice": 45700.0,
           "subsidiaryPrice": 121358.0,
-          "holdingValue": 177243.0,
+          "holdingValue": 177242.9,
           "marketCap": 60182.9,
           "ratio": 294.51
         },
@@ -75890,7 +75786,7 @@ const STOCK_DATA = {
           "date": "2023-08-02",
           "holdingPrice": 44900.0,
           "subsidiaryPrice": 116954.0,
-          "holdingValue": 170810.8,
+          "holdingValue": 170810.7,
           "marketCap": 59129.4,
           "ratio": 288.88
         },
@@ -76042,7 +75938,7 @@ const STOCK_DATA = {
           "date": "2023-08-30",
           "holdingPrice": 45650.0,
           "subsidiaryPrice": 116856.0,
-          "holdingValue": 170667.9,
+          "holdingValue": 170667.8,
           "marketCap": 60117.1,
           "ratio": 283.89
         },
@@ -76074,7 +75970,7 @@ const STOCK_DATA = {
           "date": "2023-09-05",
           "holdingPrice": 43950.0,
           "subsidiaryPrice": 116856.0,
-          "holdingValue": 170667.9,
+          "holdingValue": 170667.8,
           "marketCap": 57878.3,
           "ratio": 294.87
         },
@@ -76210,7 +76106,7 @@ const STOCK_DATA = {
           "date": "2023-10-04",
           "holdingPrice": 41400.0,
           "subsidiaryPrice": 113232.0,
-          "holdingValue": 165374.3,
+          "holdingValue": 165374.4,
           "marketCap": 54520.2,
           "ratio": 303.33
         },
@@ -76234,7 +76130,7 @@ const STOCK_DATA = {
           "date": "2023-10-10",
           "holdingPrice": 43400.0,
           "subsidiaryPrice": 117255.0,
-          "holdingValue": 171249.9,
+          "holdingValue": 171249.8,
           "marketCap": 57154.0,
           "ratio": 299.63
         },
@@ -76418,7 +76314,7 @@ const STOCK_DATA = {
           "date": "2023-11-10",
           "holdingPrice": 48250.0,
           "subsidiaryPrice": 128048.0,
-          "holdingValue": 187013.5,
+          "holdingValue": 187013.4,
           "marketCap": 63541.1,
           "ratio": 294.32
         },
@@ -76474,7 +76370,7 @@ const STOCK_DATA = {
           "date": "2023-11-21",
           "holdingPrice": 49300.0,
           "subsidiaryPrice": 129520.0,
-          "holdingValue": 189163.0,
+          "holdingValue": 189163.1,
           "marketCap": 64923.8,
           "ratio": 291.36
         },
@@ -76538,7 +76434,7 @@ const STOCK_DATA = {
           "date": "2023-12-01",
           "holdingPrice": 49050.0,
           "subsidiaryPrice": 130109.0,
-          "holdingValue": 190022.9,
+          "holdingValue": 190022.8,
           "marketCap": 64594.6,
           "ratio": 294.18
         },
@@ -76618,7 +76514,7 @@ const STOCK_DATA = {
           "date": "2023-12-15",
           "holdingPrice": 51100.0,
           "subsidiaryPrice": 137370.0,
-          "holdingValue": 200627.5,
+          "holdingValue": 200627.4,
           "marketCap": 67294.3,
           "ratio": 298.13
         },
@@ -76626,7 +76522,7 @@ const STOCK_DATA = {
           "date": "2023-12-18",
           "holdingPrice": 50100.0,
           "subsidiaryPrice": 137370.0,
-          "holdingValue": 200627.5,
+          "holdingValue": 200627.4,
           "marketCap": 65977.4,
           "ratio": 304.09
         },
@@ -76714,7 +76610,7 @@ const STOCK_DATA = {
           "date": "2024-01-05",
           "holdingPrice": 48700.0,
           "subsidiaryPrice": 135205.0,
-          "holdingValue": 197465.3,
+          "holdingValue": 197465.2,
           "marketCap": 64133.7,
           "ratio": 307.9
         },
@@ -76730,7 +76626,7 @@ const STOCK_DATA = {
           "date": "2024-01-09",
           "holdingPrice": 49450.0,
           "subsidiaryPrice": 135106.0,
-          "holdingValue": 197321.6,
+          "holdingValue": 197321.7,
           "marketCap": 65121.4,
           "ratio": 303.01
         },
@@ -76770,7 +76666,7 @@ const STOCK_DATA = {
           "date": "2024-01-16",
           "holdingPrice": 47700.0,
           "subsidiaryPrice": 129895.0,
-          "holdingValue": 189710.3,
+          "holdingValue": 189710.2,
           "marketCap": 62816.8,
           "ratio": 302.01
         },
@@ -76778,7 +76674,7 @@ const STOCK_DATA = {
           "date": "2024-01-17",
           "holdingPrice": 46850.0,
           "subsidiaryPrice": 128813.0,
-          "holdingValue": 188130.5,
+          "holdingValue": 188130.6,
           "marketCap": 61697.4,
           "ratio": 304.92
         },
@@ -76826,7 +76722,7 @@ const STOCK_DATA = {
           "date": "2024-01-25",
           "holdingPrice": 49850.0,
           "subsidiaryPrice": 135106.0,
-          "holdingValue": 197321.6,
+          "holdingValue": 197321.7,
           "marketCap": 65648.1,
           "ratio": 300.57
         },
@@ -76970,7 +76866,7 @@ const STOCK_DATA = {
           "date": "2024-02-22",
           "holdingPrice": 72900.0,
           "subsidiaryPrice": 153887.0,
-          "holdingValue": 224751.3,
+          "holdingValue": 224751.4,
           "marketCap": 96003.0,
           "ratio": 234.11
         },
@@ -77002,7 +76898,7 @@ const STOCK_DATA = {
           "date": "2024-02-28",
           "holdingPrice": 68000.0,
           "subsidiaryPrice": 155362.0,
-          "holdingValue": 226905.6,
+          "holdingValue": 226905.5,
           "marketCap": 89550.1,
           "ratio": 253.38
         },
@@ -77010,7 +76906,7 @@ const STOCK_DATA = {
           "date": "2024-02-29",
           "holdingPrice": 69900.0,
           "subsidiaryPrice": 153592.0,
-          "holdingValue": 224320.5,
+          "holdingValue": 224320.6,
           "marketCap": 92052.2,
           "ratio": 243.69
         },
@@ -77114,7 +77010,7 @@ const STOCK_DATA = {
           "date": "2024-03-20",
           "holdingPrice": 69400.0,
           "subsidiaryPrice": 153887.0,
-          "holdingValue": 224751.3,
+          "holdingValue": 224751.4,
           "marketCap": 91393.8,
           "ratio": 245.92
         },
@@ -77130,7 +77026,7 @@ const STOCK_DATA = {
           "date": "2024-03-22",
           "holdingPrice": 80000.0,
           "subsidiaryPrice": 166965.0,
-          "holdingValue": 243851.7,
+          "holdingValue": 243851.6,
           "marketCap": 105353.1,
           "ratio": 231.46
         },
@@ -77170,7 +77066,7 @@ const STOCK_DATA = {
           "date": "2024-03-29",
           "holdingPrice": 79000.0,
           "subsidiaryPrice": 180243.0,
-          "holdingValue": 263244.1,
+          "holdingValue": 263244.2,
           "marketCap": 104036.2,
           "ratio": 253.03
         },
@@ -77202,7 +77098,7 @@ const STOCK_DATA = {
           "date": "2024-04-04",
           "holdingPrice": 78000.0,
           "subsidiaryPrice": 185168.0,
-          "holdingValue": 270436.7,
+          "holdingValue": 270436.6,
           "marketCap": 102719.2,
           "ratio": 263.28
         },
@@ -77217,8 +77113,8 @@ const STOCK_DATA = {
         {
           "date": "2024-04-08",
           "holdingPrice": 73900.0,
-          "subsidiaryPrice": 178470.0,
-          "holdingValue": 260654.8,
+          "subsidiaryPrice": 178471.0,
+          "holdingValue": 260654.9,
           "marketCap": 97319.9,
           "ratio": 267.83
         },
@@ -77266,7 +77162,7 @@ const STOCK_DATA = {
           "date": "2024-04-17",
           "holdingPrice": 78800.0,
           "subsidiaryPrice": 176008.0,
-          "holdingValue": 257058.7,
+          "holdingValue": 257058.6,
           "marketCap": 103772.8,
           "ratio": 247.71
         },
@@ -77298,7 +77194,7 @@ const STOCK_DATA = {
           "date": "2024-04-23",
           "holdingPrice": 82600.0,
           "subsidiaryPrice": 168424.0,
-          "holdingValue": 245982.2,
+          "holdingValue": 245982.3,
           "marketCap": 108777.0,
           "ratio": 226.13
         },
@@ -77330,7 +77226,7 @@ const STOCK_DATA = {
           "date": "2024-04-29",
           "holdingPrice": 78800.0,
           "subsidiaryPrice": 173250.0,
-          "holdingValue": 253030.8,
+          "holdingValue": 253030.9,
           "marketCap": 103772.8,
           "ratio": 243.83
         },
@@ -77394,7 +77290,7 @@ const STOCK_DATA = {
           "date": "2024-05-13",
           "holdingPrice": 82900.0,
           "subsidiaryPrice": 181031.0,
-          "holdingValue": 264394.9,
+          "holdingValue": 264395.0,
           "marketCap": 109172.1,
           "ratio": 242.18
         },
@@ -77418,7 +77314,7 @@ const STOCK_DATA = {
           "date": "2024-05-17",
           "holdingPrice": 82300.0,
           "subsidiaryPrice": 187039.0,
-          "holdingValue": 273169.8,
+          "holdingValue": 273169.7,
           "marketCap": 108382.0,
           "ratio": 252.04
         },
@@ -77506,7 +77402,7 @@ const STOCK_DATA = {
           "date": "2024-06-03",
           "holdingPrice": 78200.0,
           "subsidiaryPrice": 191275.0,
-          "holdingValue": 279355.3,
+          "holdingValue": 279355.2,
           "marketCap": 102982.6,
           "ratio": 271.26
         },
@@ -77538,7 +77434,7 @@ const STOCK_DATA = {
           "date": "2024-06-10",
           "holdingPrice": 89800.0,
           "subsidiaryPrice": 204867.0,
-          "holdingValue": 299206.4,
+          "holdingValue": 299206.5,
           "marketCap": 118258.8,
           "ratio": 253.01
         },
@@ -77554,7 +77450,7 @@ const STOCK_DATA = {
           "date": "2024-06-12",
           "holdingPrice": 89800.0,
           "subsidiaryPrice": 211761.0,
-          "holdingValue": 309276.0,
+          "holdingValue": 309275.9,
           "marketCap": 118258.8,
           "ratio": 261.52
         },
@@ -77594,7 +77490,7 @@ const STOCK_DATA = {
           "date": "2024-06-19",
           "holdingPrice": 98500.0,
           "subsidiaryPrice": 229983.0,
-          "holdingValue": 335888.1,
+          "holdingValue": 335888.0,
           "marketCap": 129716.0,
           "ratio": 258.94
         },
@@ -77682,7 +77578,7 @@ const STOCK_DATA = {
           "date": "2024-07-04",
           "holdingPrice": 97300.0,
           "subsidiaryPrice": 226823.0,
-          "holdingValue": 331272.6,
+          "holdingValue": 331272.7,
           "marketCap": 128135.7,
           "ratio": 258.53
         },
@@ -77722,7 +77618,7 @@ const STOCK_DATA = {
           "date": "2024-07-11",
           "holdingPrice": 106700.0,
           "subsidiaryPrice": 237671.0,
-          "holdingValue": 347116.2,
+          "holdingValue": 347116.1,
           "marketCap": 140514.7,
           "ratio": 247.03
         },
@@ -77738,7 +77634,7 @@ const STOCK_DATA = {
           "date": "2024-07-15",
           "holdingPrice": 105500.0,
           "subsidiaryPrice": 226823.0,
-          "holdingValue": 331272.6,
+          "holdingValue": 331272.7,
           "marketCap": 138934.4,
           "ratio": 238.44
         },
@@ -77778,7 +77674,7 @@ const STOCK_DATA = {
           "date": "2024-07-22",
           "holdingPrice": 85700.0,
           "subsidiaryPrice": 202168.0,
-          "holdingValue": 295264.7,
+          "holdingValue": 295264.8,
           "marketCap": 112859.5,
           "ratio": 261.62
         },
@@ -77786,7 +77682,7 @@ const STOCK_DATA = {
           "date": "2024-07-23",
           "holdingPrice": 84700.0,
           "subsidiaryPrice": 202168.0,
-          "holdingValue": 295264.7,
+          "holdingValue": 295264.8,
           "marketCap": 111542.6,
           "ratio": 264.71
         },
@@ -77946,7 +77842,7 @@ const STOCK_DATA = {
           "date": "2024-08-21",
           "holdingPrice": 84100.0,
           "subsidiaryPrice": 189939.0,
-          "holdingValue": 277404.8,
+          "holdingValue": 277404.9,
           "marketCap": 110752.4,
           "ratio": 250.47
         },
@@ -78010,7 +77906,7 @@ const STOCK_DATA = {
           "date": "2024-09-02",
           "holdingPrice": 78500.0,
           "subsidiaryPrice": 171596.0,
-          "holdingValue": 250615.0,
+          "holdingValue": 250614.9,
           "marketCap": 103377.7,
           "ratio": 242.43
         },
@@ -78066,7 +77962,7 @@ const STOCK_DATA = {
           "date": "2024-09-11",
           "holdingPrice": 72500.0,
           "subsidiaryPrice": 155028.0,
-          "holdingValue": 226417.6,
+          "holdingValue": 226417.7,
           "marketCap": 95476.2,
           "ratio": 237.15
         },
@@ -78090,7 +77986,7 @@ const STOCK_DATA = {
           "date": "2024-09-19",
           "holdingPrice": 72700.0,
           "subsidiaryPrice": 150689.0,
-          "holdingValue": 220080.3,
+          "holdingValue": 220080.2,
           "marketCap": 95739.6,
           "ratio": 229.87
         },
@@ -78177,7 +78073,7 @@ const STOCK_DATA = {
         {
           "date": "2024-10-08",
           "holdingPrice": 80800.0,
-          "subsidiaryPrice": 175833.0,
+          "subsidiaryPrice": 175832.0,
           "holdingValue": 256802.1,
           "marketCap": 106406.6,
           "ratio": 241.34
@@ -78210,7 +78106,7 @@ const STOCK_DATA = {
           "date": "2024-10-15",
           "holdingPrice": 86400.0,
           "subsidiaryPrice": 190551.0,
-          "holdingValue": 278298.4,
+          "holdingValue": 278298.5,
           "marketCap": 113781.3,
           "ratio": 244.59
         },
@@ -78226,7 +78122,7 @@ const STOCK_DATA = {
           "date": "2024-10-17",
           "holdingPrice": 87000.0,
           "subsidiaryPrice": 193613.0,
-          "holdingValue": 282770.9,
+          "holdingValue": 282770.8,
           "marketCap": 114571.5,
           "ratio": 246.81
         },
@@ -78258,7 +78154,7 @@ const STOCK_DATA = {
           "date": "2024-10-23",
           "holdingPrice": 92100.0,
           "subsidiaryPrice": 193613.0,
-          "holdingValue": 282770.9,
+          "holdingValue": 282770.8,
           "marketCap": 121287.7,
           "ratio": 233.14
         },
@@ -78282,7 +78178,7 @@ const STOCK_DATA = {
           "date": "2024-10-28",
           "holdingPrice": 92700.0,
           "subsidiaryPrice": 193613.0,
-          "holdingValue": 282770.9,
+          "holdingValue": 282770.8,
           "marketCap": 122077.9,
           "ratio": 231.63
         },
@@ -78297,7 +78193,7 @@ const STOCK_DATA = {
         {
           "date": "2024-10-30",
           "holdingPrice": 89600.0,
-          "subsidiaryPrice": 192626.0,
+          "subsidiaryPrice": 192625.0,
           "holdingValue": 281328.1,
           "marketCap": 117995.4,
           "ratio": 238.42
@@ -78386,7 +78282,7 @@ const STOCK_DATA = {
           "date": "2024-11-14",
           "holdingPrice": 78300.0,
           "subsidiaryPrice": 170893.0,
-          "holdingValue": 249588.5,
+          "holdingValue": 249588.6,
           "marketCap": 103114.3,
           "ratio": 242.05
         },
@@ -78394,7 +78290,7 @@ const STOCK_DATA = {
           "date": "2024-11-15",
           "holdingPrice": 77600.0,
           "subsidiaryPrice": 176030.0,
-          "holdingValue": 257090.7,
+          "holdingValue": 257090.6,
           "marketCap": 102192.5,
           "ratio": 251.57
         },
@@ -78450,7 +78346,7 @@ const STOCK_DATA = {
           "date": "2024-11-26",
           "holdingPrice": 84600.0,
           "subsidiaryPrice": 174943.0,
-          "holdingValue": 255503.7,
+          "holdingValue": 255503.6,
           "marketCap": 111410.9,
           "ratio": 229.33
         },
@@ -78466,7 +78362,7 @@ const STOCK_DATA = {
           "date": "2024-11-28",
           "holdingPrice": 74000.0,
           "subsidiaryPrice": 159138.0,
-          "holdingValue": 232420.4,
+          "holdingValue": 232420.3,
           "marketCap": 97451.6,
           "ratio": 238.5
         },
@@ -78506,7 +78402,7 @@ const STOCK_DATA = {
           "date": "2024-12-05",
           "holdingPrice": 78900.0,
           "subsidiaryPrice": 170893.0,
-          "holdingValue": 249588.5,
+          "holdingValue": 249588.6,
           "marketCap": 103904.5,
           "ratio": 240.21
         },
@@ -78554,7 +78450,7 @@ const STOCK_DATA = {
           "date": "2024-12-13",
           "holdingPrice": 83300.0,
           "subsidiaryPrice": 173363.0,
-          "holdingValue": 253195.3,
+          "holdingValue": 253195.4,
           "marketCap": 109698.9,
           "ratio": 230.81
         },
@@ -78586,7 +78482,7 @@ const STOCK_DATA = {
           "date": "2024-12-19",
           "holdingPrice": 82300.0,
           "subsidiaryPrice": 172869.0,
-          "holdingValue": 252473.9,
+          "holdingValue": 252474.0,
           "marketCap": 108382.0,
           "ratio": 232.95
         },
@@ -78594,7 +78490,7 @@ const STOCK_DATA = {
           "date": "2024-12-20",
           "holdingPrice": 78900.0,
           "subsidiaryPrice": 166448.0,
-          "holdingValue": 243096.4,
+          "holdingValue": 243096.3,
           "marketCap": 103904.5,
           "ratio": 233.96
         },
@@ -78610,7 +78506,7 @@ const STOCK_DATA = {
           "date": "2024-12-24",
           "holdingPrice": 81200.0,
           "subsidiaryPrice": 166448.0,
-          "holdingValue": 243096.4,
+          "holdingValue": 243096.3,
           "marketCap": 106933.4,
           "ratio": 227.33
         },
@@ -78665,7 +78561,7 @@ const STOCK_DATA = {
         {
           "date": "2025-01-07",
           "holdingPrice": 93200.0,
-          "subsidiaryPrice": 192626.0,
+          "subsidiaryPrice": 192625.0,
           "holdingValue": 281328.1,
           "marketCap": 122736.3,
           "ratio": 229.21
@@ -78698,14 +78594,14 @@ const STOCK_DATA = {
           "date": "2025-01-13",
           "holdingPrice": 91200.0,
           "subsidiaryPrice": 191934.0,
-          "holdingValue": 280318.3,
+          "holdingValue": 280318.2,
           "marketCap": 120102.5,
           "ratio": 233.4
         },
         {
           "date": "2025-01-14",
           "holdingPrice": 89700.0,
-          "subsidiaryPrice": 192626.0,
+          "subsidiaryPrice": 192625.0,
           "holdingValue": 281328.1,
           "marketCap": 118127.1,
           "ratio": 238.16
@@ -78746,7 +78642,7 @@ const STOCK_DATA = {
           "date": "2025-01-21",
           "holdingPrice": 96000.0,
           "subsidiaryPrice": 215345.0,
-          "holdingValue": 314510.4,
+          "holdingValue": 314510.5,
           "marketCap": 126423.7,
           "ratio": 248.77
         },
@@ -78754,7 +78650,7 @@ const STOCK_DATA = {
           "date": "2025-01-22",
           "holdingPrice": 100700.0,
           "subsidiaryPrice": 222754.0,
-          "holdingValue": 325330.7,
+          "holdingValue": 325330.8,
           "marketCap": 132613.2,
           "ratio": 245.32
         },
@@ -78834,7 +78730,7 @@ const STOCK_DATA = {
           "date": "2025-02-11",
           "holdingPrice": 93300.0,
           "subsidiaryPrice": 197268.0,
-          "holdingValue": 288108.9,
+          "holdingValue": 288108.8,
           "marketCap": 122868.0,
           "ratio": 234.49
         },
@@ -79002,7 +78898,7 @@ const STOCK_DATA = {
           "date": "2025-03-13",
           "holdingPrice": 92200.0,
           "subsidiaryPrice": 198544.0,
-          "holdingValue": 289971.6,
+          "holdingValue": 289971.5,
           "marketCap": 121419.4,
           "ratio": 238.82
         },
@@ -79026,7 +78922,7 @@ const STOCK_DATA = {
           "date": "2025-03-18",
           "holdingPrice": 93800.0,
           "subsidiaryPrice": 201825.0,
-          "holdingValue": 294763.2,
+          "holdingValue": 294763.3,
           "marketCap": 123526.5,
           "ratio": 238.62
         },
@@ -79034,7 +78930,7 @@ const STOCK_DATA = {
           "date": "2025-03-19",
           "holdingPrice": 94700.0,
           "subsidiaryPrice": 204310.0,
-          "holdingValue": 298393.4,
+          "holdingValue": 298393.3,
           "marketCap": 124711.7,
           "ratio": 239.27
         },
@@ -79090,7 +78986,7 @@ const STOCK_DATA = {
           "date": "2025-03-28",
           "holdingPrice": 96000.0,
           "subsidiaryPrice": 198146.0,
-          "holdingValue": 289390.8,
+          "holdingValue": 289390.7,
           "marketCap": 126423.7,
           "ratio": 228.91
         },
@@ -79162,7 +79058,7 @@ const STOCK_DATA = {
           "date": "2025-04-10",
           "holdingPrice": 85700.0,
           "subsidiaryPrice": 182139.0,
-          "holdingValue": 266012.9,
+          "holdingValue": 266013.0,
           "marketCap": 112859.5,
           "ratio": 235.7
         },
@@ -79378,7 +79274,7 @@ const STOCK_DATA = {
           "date": "2025-05-22",
           "holdingPrice": 98500.0,
           "subsidiaryPrice": 195760.0,
-          "holdingValue": 285905.9,
+          "holdingValue": 285905.8,
           "marketCap": 129716.0,
           "ratio": 220.41
         },
@@ -79386,7 +79282,7 @@ const STOCK_DATA = {
           "date": "2025-05-23",
           "holdingPrice": 99100.0,
           "subsidiaryPrice": 198842.0,
-          "holdingValue": 290407.1,
+          "holdingValue": 290407.2,
           "marketCap": 130506.1,
           "ratio": 222.52
         },
@@ -79394,7 +79290,7 @@ const STOCK_DATA = {
           "date": "2025-05-26",
           "holdingPrice": 102500.0,
           "subsidiaryPrice": 201825.0,
-          "holdingValue": 294763.2,
+          "holdingValue": 294763.3,
           "marketCap": 134983.6,
           "ratio": 218.37
         },
@@ -79553,7 +79449,7 @@ const STOCK_DATA = {
         {
           "date": "2025-06-25",
           "holdingPrice": 192200.0,
-          "subsidiaryPrice": 284858.0,
+          "subsidiaryPrice": 284857.0,
           "holdingValue": 416032.3,
           "marketCap": 253110.8,
           "ratio": 164.37
@@ -79570,7 +79466,7 @@ const STOCK_DATA = {
           "date": "2025-06-27",
           "holdingPrice": 176300.0,
           "subsidiaryPrice": 282865.0,
-          "holdingValue": 413122.9,
+          "holdingValue": 413123.0,
           "marketCap": 232171.8,
           "ratio": 177.94
         },
@@ -79594,7 +79490,7 @@ const STOCK_DATA = {
           "date": "2025-07-02",
           "holdingPrice": 176200.0,
           "subsidiaryPrice": 277885.0,
-          "holdingValue": 405849.7,
+          "holdingValue": 405849.6,
           "marketCap": 232040.1,
           "ratio": 174.9
         },
@@ -79650,7 +79546,7 @@ const STOCK_DATA = {
           "date": "2025-07-11",
           "holdingPrice": 174000.0,
           "subsidiaryPrice": 293324.0,
-          "holdingValue": 428396.9,
+          "holdingValue": 428396.8,
           "marketCap": 229142.9,
           "ratio": 186.96
         },
@@ -79674,7 +79570,7 @@ const STOCK_DATA = {
           "date": "2025-07-16",
           "holdingPrice": 174100.0,
           "subsidiaryPrice": 294818.0,
-          "holdingValue": 430578.8,
+          "holdingValue": 430578.9,
           "marketCap": 229274.6,
           "ratio": 187.8
         },
@@ -79842,7 +79738,7 @@ const STOCK_DATA = {
           "date": "2025-08-14",
           "holdingPrice": 143700.0,
           "subsidiaryPrice": 275395.0,
-          "holdingValue": 402213.0,
+          "holdingValue": 402213.1,
           "marketCap": 189240.5,
           "ratio": 212.54
         },
@@ -79946,7 +79842,7 @@ const STOCK_DATA = {
           "date": "2025-09-03",
           "holdingPrice": 143900.0,
           "subsidiaryPrice": 261829.0,
-          "holdingValue": 382399.4,
+          "holdingValue": 382399.3,
           "marketCap": 189503.8,
           "ratio": 201.79
         },
@@ -79978,7 +79874,7 @@ const STOCK_DATA = {
           "date": "2025-09-09",
           "holdingPrice": 162000.0,
           "subsidiaryPrice": 287264.0,
-          "holdingValue": 419546.8,
+          "holdingValue": 419546.7,
           "marketCap": 213340.0,
           "ratio": 196.66
         },
@@ -80034,7 +79930,7 @@ const STOCK_DATA = {
           "date": "2025-09-18",
           "holdingPrice": 208500.0,
           "subsidiaryPrice": 354591.0,
-          "holdingValue": 517877.9,
+          "holdingValue": 517878.0,
           "marketCap": 274576.4,
           "ratio": 188.61
         },
@@ -80042,7 +79938,7 @@ const STOCK_DATA = {
           "date": "2025-09-22",
           "holdingPrice": 215500.0,
           "subsidiaryPrice": 350103.0,
-          "holdingValue": 511322.5,
+          "holdingValue": 511322.6,
           "marketCap": 283794.8,
           "ratio": 180.17
         },
@@ -80106,7 +80002,7 @@ const STOCK_DATA = {
           "date": "2025-10-02",
           "holdingPrice": 240000.0,
           "subsidiaryPrice": 394489.0,
-          "holdingValue": 576148.4,
+          "holdingValue": 576148.3,
           "marketCap": 316059.2,
           "ratio": 182.29
         },
@@ -80122,7 +80018,7 @@ const STOCK_DATA = {
           "date": "2025-10-13",
           "holdingPrice": 245500.0,
           "subsidiaryPrice": 413939.0,
-          "holdingValue": 604555.1,
+          "holdingValue": 604555.2,
           "marketCap": 323302.2,
           "ratio": 186.99
         },
@@ -80234,7 +80130,7 @@ const STOCK_DATA = {
           "date": "2025-10-31",
           "holdingPrice": 260000.0,
           "subsidiaryPrice": 557571.0,
-          "holdingValue": 814328.6,
+          "holdingValue": 814328.5,
           "marketCap": 342397.5,
           "ratio": 237.83
         },
@@ -80313,8 +80209,8 @@ const STOCK_DATA = {
         {
           "date": "2025-11-14",
           "holdingPrice": 291000.0,
-          "subsidiaryPrice": 558568.0,
-          "holdingValue": 815785.2,
+          "subsidiaryPrice": 558569.0,
+          "holdingValue": 815785.3,
           "marketCap": 383221.8,
           "ratio": 212.88
         },
@@ -80898,14 +80794,6 @@ const STOCK_DATA = {
         ]
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 48650.0,
-          "subsidiaryPrice": 0,
-          "holdingValue": 2225.6,
-          "marketCap": 1728.5,
-          "ratio": 128.76
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 48550.0,
@@ -83072,7 +82960,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 3160.4,
           "marketCap": 1861.7,
-          "ratio": 169.75
+          "ratio": 169.76
         },
         {
           "date": "2024-03-21",
@@ -86724,14 +86612,6 @@ const STOCK_DATA = {
       },
       "history": [
         {
-          "date": "2023-01-31",
-          "holdingPrice": 13560.0,
-          "subsidiaryPrice": 0,
-          "holdingValue": 2184.5,
-          "marketCap": 1600.1,
-          "ratio": 136.52
-        },
-        {
           "date": "2023-02-01",
           "holdingPrice": 13526.0,
           "subsidiaryPrice": 0,
@@ -89471,7 +89351,7 @@ const STOCK_DATA = {
           "date": "2024-06-25",
           "holdingPrice": 18684.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 3538.0,
+          "holdingValue": 3537.9,
           "marketCap": 2204.7,
           "ratio": 160.47
         },
@@ -92731,14 +92611,6 @@ const STOCK_DATA = {
         "ratioChange": -2.5
       },
       "history": [
-        {
-          "date": "2023-01-31",
-          "holdingPrice": 2485.0,
-          "subsidiaryPrice": 1108.0,
-          "holdingValue": 878.9,
-          "marketCap": 830.0,
-          "ratio": 105.9
-        },
         {
           "date": "2023-02-01",
           "holdingPrice": 2510.0,
