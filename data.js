@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-06 20:24:17",
+  "lastUpdated": "2026-03-06 23:05:15",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -26797,8 +26797,8 @@ const STOCK_DATA = {
         "subsidiaryPrice": 0,
         "holdingValue": 0,
         "marketCap": 0,
-        "ratio": 279.24,
-        "ratioChange": 2.24
+        "ratio": 270.32,
+        "ratioChange": 1.96
       },
       "history": [
         {
@@ -32775,7 +32775,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 275.72
+          "ratio": 267.07
         },
         {
           "date": "2026-03-04",
@@ -32783,7 +32783,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 277.0
+          "ratio": 268.36
         },
         {
           "date": "2026-03-05",
@@ -32791,7 +32791,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 279.24
+          "ratio": 270.32
         }
       ]
     },
@@ -86601,6 +86601,46 @@ const STOCK_DATA = {
           "holdingValue": 3464.1,
           "marketCap": 1917.2,
           "ratio": 180.68
+        }
+      ]
+    },
+    {
+      "id": "amore",
+      "name": "아모레퍼시픽홀딩스→아모레퍼시픽",
+      "holdingName": "아모레퍼시픽홀딩스",
+      "subsidiaryName": "아모레퍼시픽",
+      "current": {
+        "holdingPrice": 27000.0,
+        "subsidiaryPrice": 130200.0,
+        "holdingValue": 30938.0,
+        "marketCap": 24232.9,
+        "ratio": 127.67,
+        "ratioChange": -2.53
+      },
+      "history": [
+        {
+          "date": "2026-03-03",
+          "holdingPrice": 28500.0,
+          "subsidiaryPrice": 138600.0,
+          "holdingValue": 32934.0,
+          "marketCap": 25579.1,
+          "ratio": 128.75
+        },
+        {
+          "date": "2026-03-04",
+          "holdingPrice": 25500.0,
+          "subsidiaryPrice": 125400.0,
+          "holdingValue": 29797.4,
+          "marketCap": 22886.6,
+          "ratio": 130.2
+        },
+        {
+          "date": "2026-03-05",
+          "holdingPrice": 27000.0,
+          "subsidiaryPrice": 130200.0,
+          "holdingValue": 30938.0,
+          "marketCap": 24232.9,
+          "ratio": 127.67
         }
       ]
     },
