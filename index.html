@@ -319,12 +319,17 @@ tr:hover { background: var(--surface2); }
 </div>
 
 <script src="data.js"></script>
+<script>var CURRENT_DATA = null;</script>
+<script src="current.js" onerror=""></script>
 <script>
 (function() {
   const pairs = STOCK_DATA.pairs;
   let selectedIdx = 0;
   let periodDays = 0; // 0 = all
   let pricePeriodDays = 0;
+
+  // --- Apply live data ---
+  applyCurrentData();
 
   // --- Init ---
   document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
@@ -335,6 +340,51 @@ tr:hover { background: var(--surface2); }
   renderStats();
   bindPeriodBtns();
   bindPricePeriodBtns();
+
+  // --- Auto-refresh every 10 minutes ---
+  setInterval(refreshCurrentPrices, 10 * 60 * 1000);
+
+  function applyCurrentData() {
+    if (!window.CURRENT_DATA) return;
+    const currentMap = {};
+    for (const p of CURRENT_DATA.pairs) {
+      currentMap[p.id] = p;
+    }
+    for (const pair of pairs) {
+      const live = currentMap[pair.id];
+      if (!live) continue;
+      const lastHist = pair.history.length > 0 ? pair.history[pair.history.length - 1] : null;
+      pair.current.ratio = live.ratio;
+      pair.current.ratioChange = lastHist ? +(live.ratio - lastHist.ratio).toFixed(2) : 0;
+      if (!pair.isAverage) {
+        pair.current.holdingPrice = live.holdingPrice;
+        pair.current.holdingValue = live.holdingValue;
+        pair.current.marketCap = live.marketCap;
+        if (live.subsidiaryPrice !== undefined) {
+          pair.current.subsidiaryPrice = live.subsidiaryPrice;
+        }
+        if (live.subsidiaries) {
+          pair.current.subsidiaries = live.subsidiaries;
+        }
+      }
+    }
+    STOCK_DATA.lastUpdated = CURRENT_DATA.lastUpdated;
+  }
+
+  function refreshCurrentPrices() {
+    fetch('current.js?t=' + Date.now())
+      .then(function(res) { return res.text(); })
+      .then(function(text) {
+        var json = text.replace(/^const CURRENT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
+        window.CURRENT_DATA = JSON.parse(json);
+        applyCurrentData();
+        document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
+        renderCards();
+        renderTable();
+        renderStats();
+      })
+      .catch(function(err) { console.warn('현재가 갱신 실패:', err); });
+  }
 
   // --- Cards ---
   function renderCards() {

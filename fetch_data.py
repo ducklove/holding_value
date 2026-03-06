@@ -5,7 +5,9 @@ Yahoo Finance에서 지주사/자회사 가격 데이터를 가져와 data.js를
 다중 자회사 및 해외 종목(BRK-A 등) 환율 변환을 지원한다.
 """
 
+import argparse
 import json
+import re
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -18,11 +20,38 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
     PAIRS = json.load(f)
 
 
+OUTPUT_PATH = Path(__file__).parent / "data.js"
+
+
+def parse_existing_data():
+    """기존 data.js를 파싱하여 데이터를 반환한다."""
+    if not OUTPUT_PATH.exists():
+        return None
+    text = OUTPUT_PATH.read_text(encoding="utf-8")
+    json_str = re.sub(r'^const STOCK_DATA\s*=\s*', '', text)
+    json_str = re.sub(r';\s*$', '', json_str)
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        return None
+
+
 def is_korean(ticker):
     return ticker.endswith(".KS") or ticker.endswith(".KQ")
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--full', action='store_true', help='전체 3년 데이터 재다운로드')
+    args = parser.parse_args()
+
+    existing = None if args.full else parse_existing_data()
+    existing_history = {}
+    if existing:
+        for p in existing.get('pairs', []):
+            if p.get('id') and p.get('history') and not p.get('isAverage'):
+                existing_history[p['id']] = p['history']
+
     # 모든 티커 수집 (중복 제거)
     all_tickers = []
     needs_fx = False
@@ -38,7 +67,13 @@ def main():
         all_tickers.append("USDKRW=X")
 
     end_date = datetime.now()
-    start_date = end_date - timedelta(days=3 * 365 + 30)
+    if existing_history:
+        last_dates = [h[-1]['date'] for h in existing_history.values() if h]
+        latest = max(last_dates)
+        start_date = datetime.strptime(latest, '%Y-%m-%d') - timedelta(days=5)
+        print(f"증분 모드: {start_date.strftime('%Y-%m-%d')}부터 다운로드")
+    else:
+        start_date = end_date - timedelta(days=3 * 365 + 30)
 
     print(f"Downloading data for {len(all_tickers)} tickers...")
     print(f"Period: {start_date.strftime('%Y-%m-%d')} ~ {end_date.strftime('%Y-%m-%d')}")
@@ -50,6 +85,13 @@ def main():
         auto_adjust=True,
         progress=True,
     )
+
+    if data.empty:
+        if existing:
+            print("새 데이터 없음. 기존 data.js를 유지합니다.")
+            return
+        print("ERROR: 데이터를 다운로드하지 못했습니다.")
+        return
 
     close = data["Close"]
 
@@ -143,6 +185,18 @@ def main():
 
             history.append(entry)
 
+        # 기존 히스토리와 병합
+        if pair["id"] in existing_history:
+            old_hist = existing_history[pair["id"]]
+            new_dates = {e["date"] for e in history}
+            merged = [e for e in old_hist if e["date"] not in new_dates]
+            merged.extend(history)
+            merged.sort(key=lambda e: e["date"])
+            history = merged
+
+        if not history:
+            continue
+
         latest = history[-1]
         prev = history[-2] if len(history) >= 2 else latest
         ratio_change = round(latest["ratio"] - prev["ratio"], 2)
@@ -188,6 +242,14 @@ def main():
             f"current ratio {latest['ratio']:.2f}% "
             f"({'↑' if ratio_change > 0 else '↓'}{abs(ratio_change):.2f}%p)"
         )
+
+    # 새 데이터가 없는 기존 종목 유지
+    if existing:
+        processed_ids = {p['id'] for p in pairs_result}
+        for p in existing.get('pairs', []):
+            if p.get('id') and p['id'] not in processed_ids and not p.get('isAverage'):
+                pairs_result.append(p)
+                print(f"  {p['name']}: 기존 데이터 유지 ({len(p.get('history', []))} days)")
 
     # 일별 전체 평균 비율 계산
     daily_ratios = defaultdict(list)
@@ -244,7 +306,7 @@ def main():
 
     js_content = "const STOCK_DATA = " + json.dumps(stock_data, ensure_ascii=False, indent=2) + ";\n"
 
-    output_path = Path(__file__).parent / "data.js"
+    output_path = OUTPUT_PATH
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(js_content)
 
