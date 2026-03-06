@@ -1,306 +1,297 @@
 [
   {
-    "id": "samsung_elec",
-    "name": "삼성전자",
-    "commonTicker": "005930.KS",
-    "preferredTicker": "005935.KS",
-    "commonName": "삼성전자",
-    "preferredName": "삼성전자우"
+    "id": "youngpoong_koreazinc",
+    "name": "영풍→고려아연",
+    "holdingName": "영풍",
+    "holdingTicker": "000670.KS",
+    "holdingTotalShares": 18077950,
+    "holdingTreasuryShares": 203500,
+    "subsidiaries": [
+      {
+        "name": "고려아연",
+        "ticker": "010130.KS",
+        "sharesHeld": 5262450
+      }
+    ]
   },
   {
-    "id": "hyundai_motor",
-    "name": "현대차/2우B",
-    "commonTicker": "005380.KS",
-    "preferredTicker": "005387.KS",
-    "commonName": "현대차",
-    "preferredName": "현대차2우B"
+    "id": "poongsan_holdings",
+    "name": "풍산홀딩스→풍산",
+    "holdingName": "풍산홀딩스",
+    "holdingTicker": "005810.KS",
+    "holdingTotalShares": 14417292,
+    "holdingTreasuryShares": 688429,
+    "subsidiaries": [
+      {
+        "name": "풍산",
+        "ticker": "103140.KS",
+        "sharesHeld": 10650000
+      }
+    ]
   },
   {
-    "id": "hyundai_motor_pref",
-    "name": "현대차/우",
-    "commonTicker": "005380.KS",
-    "preferredTicker": "005385.KS",
-    "commonName": "현대차",
-    "preferredName": "현대차우"
+    "id": "seah_holdings",
+    "name": "세아홀딩스→세아베스틸지주",
+    "holdingName": "세아홀딩스",
+    "holdingTicker": "058650.KS",
+    "holdingTotalShares": 4313236,
+    "holdingTreasuryShares": 104391,
+    "subsidiaries": [
+      {
+        "name": "세아베스틸지주",
+        "ticker": "001430.KS",
+        "sharesHeld": 22135633
+      }
+    ]
   },
   {
-    "id": "hyundai_motor_3pref",
-    "name": "현대차/3우",
-    "commonTicker": "005380.KS",
-    "preferredTicker": "005389.KS",
-    "commonName": "현대차",
-    "preferredName": "현대차3우B"
+    "id": "hyosung_heavy",
+    "name": "효성→효성중공업",
+    "holdingName": "효성",
+    "holdingTicker": "004800.KS",
+    "holdingTotalShares": 16740407,
+    "holdingTreasuryShares": 22803,
+    "subsidiaries": [
+      {
+        "name": "효성중공업",
+        "ticker": "298040.KS",
+        "sharesHeld": 3027685
+      }
+    ]
   },
   {
-    "id": "lg_elec",
-    "name": "LG전자",
-    "commonTicker": "066570.KS",
-    "preferredTicker": "066575.KS",
-    "commonName": "LG전자",
-    "preferredName": "LG전자우"
+    "id": "chokwang_brk",
+    "name": "조광피혁→자회사",
+    "holdingName": "조광피혁",
+    "holdingTicker": "004700.KS",
+    "holdingTotalShares": 6649138,
+    "holdingTreasuryShares": 3096215,
+    "subsidiaries": [
+      {
+        "name": "버크셔해서웨이",
+        "ticker": "BRK-A",
+        "sharesHeld": 286
+      },
+      {
+        "name": "애플",
+        "ticker": "AAPL",
+        "sharesHeld": 319982
+      }
+    ]
   },
   {
-    "id": "lg_chem",
-    "name": "LG화학",
-    "commonTicker": "051910.KS",
-    "preferredTicker": "051915.KS",
-    "commonName": "LG화학",
-    "preferredName": "LG화학우"
+    "id": "yoosung_seohee",
+    "name": "유성티엔에스→서희건설",
+    "holdingName": "유성티엔에스",
+    "holdingTicker": "024800.KQ",
+    "holdingTotalShares": 37051812,
+    "holdingTreasuryShares": 3652884,
+    "subsidiaries": [
+      {
+        "name": "서희건설",
+        "ticker": "035890.KS",
+        "sharesHeld": 79346093
+      }
+    ]
   },
   {
-    "id": "samsung_sdi",
-    "name": "삼성SDI",
-    "commonTicker": "006400.KS",
-    "preferredTicker": "006405.KS",
-    "commonName": "삼성SDI",
-    "preferredName": "삼성SDI우"
+    "id": "simmtech_holdings",
+    "name": "심텍홀딩스→심텍",
+    "holdingName": "심텍홀딩스",
+    "holdingTicker": "036710.KQ",
+    "holdingTotalShares": 52827754,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "심텍",
+        "ticker": "222800.KQ",
+        "sharesHeld": 12446967
+      }
+    ]
   },
   {
-    "id": "amorepacific",
-    "name": "아모레퍼시픽",
-    "commonTicker": "090430.KS",
-    "preferredTicker": "090435.KS",
-    "commonName": "아모레퍼시픽",
-    "preferredName": "아모레퍼시픽우"
+    "id": "samsung_ct",
+    "name": "삼성물산→자회사",
+    "holdingName": "삼성물산",
+    "holdingTicker": "028260.KS",
+    "holdingTotalShares": 177784107,
+    "holdingTreasuryShares": 16192437,
+    "subsidiaries": [
+      {
+        "name": "삼성바이오로직스",
+        "ticker": "207940.KS",
+        "sharesHeld": 30643534
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930.KS",
+        "sharesHeld": 299085914
+      },
+      {
+        "name": "삼성생명",
+        "ticker": "032830.KS",
+        "sharesHeld": 38680000
+      }
+    ]
   },
   {
-    "id": "samsung_fire",
-    "name": "삼성화재",
-    "commonTicker": "000810.KS",
-    "preferredTicker": "000815.KS",
-    "commonName": "삼성화재",
-    "preferredName": "삼성화재우"
+    "id": "wonik",
+    "name": "원익→원익홀딩스",
+    "holdingName": "원익",
+    "holdingTicker": "032940.KQ",
+    "holdingTotalShares": 20610195,
+    "holdingTreasuryShares": 560000,
+    "subsidiaries": [
+      {
+        "name": "원익홀딩스",
+        "ticker": "030530.KQ",
+        "sharesHeld": 14428218
+      }
+    ]
   },
   {
-    "id": "daishin_sec",
-    "name": "대신증권/우",
-    "commonTicker": "003540.KS",
-    "preferredTicker": "003545.KS",
-    "commonName": "대신증권",
-    "preferredName": "대신증권우"
+    "id": "snt_holdings",
+    "name": "SNT홀딩스→자회사",
+    "holdingName": "SNT홀딩스",
+    "holdingTicker": "036530.KS",
+    "holdingTotalShares": 12000000,
+    "holdingTreasuryShares": 200000,
+    "subsidiaries": [
+      {
+        "name": "SNT다이내믹스",
+        "ticker": "003570.KS",
+        "sharesHeld": 10060000
+      },
+      {
+        "name": "SNT모티브",
+        "ticker": "064960.KS",
+        "sharesHeld": 5124000
+      },
+      {
+        "name": "SNT에너지",
+        "ticker": "100840.KS",
+        "sharesHeld": 4000000
+      }
+    ]
   },
   {
-    "id": "daishin_sec_2pref",
-    "name": "대신증권/2우B",
-    "commonTicker": "003540.KS",
-    "preferredTicker": "003547.KS",
-    "commonName": "대신증권",
-    "preferredName": "대신증권2우B"
+    "id": "samsung_life",
+    "name": "삼성생명→삼성전자",
+    "holdingName": "삼성생명",
+    "holdingTicker": "032830.KS",
+    "holdingTotalShares": 200000000,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930.KS",
+        "sharesHeld": 508157528
+      }
+    ]
   },
   {
-    "id": "lg_household",
-    "name": "LG생활건강",
-    "commonTicker": "051900.KS",
-    "preferredTicker": "051905.KS",
-    "commonName": "LG생활건강",
-    "preferredName": "LG생활건강우"
+    "id": "lg_chem_ensol",
+    "name": "LG화학→LG에너지솔루션",
+    "holdingName": "LG화학",
+    "holdingTicker": "051910.KS",
+    "holdingTotalShares": 70592343,
+    "holdingTreasuryShares": 2000000,
+    "subsidiaries": [
+      {
+        "name": "LG에너지솔루션",
+        "ticker": "373220.KS",
+        "sharesHeld": 191499175
+      }
+    ]
   },
   {
-    "id": "doosan",
-    "name": "두산/우",
-    "commonTicker": "000150.KS",
-    "preferredTicker": "000155.KS",
-    "commonName": "두산",
-    "preferredName": "두산우"
-  },
-  {
-    "id": "doosan_2pref",
-    "name": "두산/2우B",
-    "commonTicker": "000150.KS",
-    "preferredTicker": "000157.KS",
-    "commonName": "두산",
-    "preferredName": "두산2우B"
-  },
-  {
-    "id": "korea_investment",
-    "name": "한국금융지주",
-    "commonTicker": "071050.KS",
-    "preferredTicker": "071055.KS",
-    "commonName": "한국금융지주",
-    "preferredName": "한국금융지주우"
-  },
-  {
-    "id": "samsung_electro",
-    "name": "삼성전기",
-    "commonTicker": "009150.KS",
-    "preferredTicker": "009155.KS",
-    "commonName": "삼성전기",
-    "preferredName": "삼성전기우"
-  },
-  {
-    "id": "nh_investment",
-    "name": "NH투자증권",
-    "commonTicker": "005940.KS",
-    "preferredTicker": "005945.KS",
-    "commonName": "NH투자증권",
-    "preferredName": "NH투자증권우"
-  },
-  {
-    "id": "kumho_petro",
-    "name": "금호석유",
-    "commonTicker": "011780.KS",
-    "preferredTicker": "011785.KS",
-    "commonName": "금호석유",
-    "preferredName": "금호석유우"
-  },
-  {
-    "id": "cj_cheiljedang",
-    "name": "CJ제일제당",
-    "commonTicker": "097950.KS",
-    "preferredTicker": "097955.KS",
-    "commonName": "CJ제일제당",
-    "preferredName": "CJ제일제당우"
-  },
-  {
-    "id": "s_oil",
-    "name": "S-Oil",
-    "commonTicker": "010950.KS",
-    "preferredTicker": "010955.KS",
-    "commonName": "S-Oil",
-    "preferredName": "S-Oil우"
-  },
-  {
-    "id": "lg",
-    "name": "LG",
-    "commonTicker": "003550.KS",
-    "preferredTicker": "003555.KS",
-    "commonName": "LG",
-    "preferredName": "LG우"
-  },
-  {
-    "id": "cj",
-    "name": "CJ/우",
-    "commonTicker": "001040.KS",
-    "preferredTicker": "001045.KS",
-    "commonName": "CJ",
-    "preferredName": "CJ우"
-  },
-  {
-    "id": "cj_4pref",
-    "name": "CJ/4우",
-    "commonTicker": "001040.KS",
-    "preferredTicker": "00104K.KS",
-    "commonName": "CJ",
-    "preferredName": "CJ4우"
-  },
-  {
-    "id": "doosan_fuelcell",
-    "name": "두산퓨얼셀/1우",
-    "commonTicker": "336260.KS",
-    "preferredTicker": "33626K.KS",
-    "commonName": "두산퓨얼셀",
-    "preferredName": "두산퓨얼셀1우"
-  },
-  {
-    "id": "doosan_fuelcell_2pref",
-    "name": "두산퓨얼셀/2우B",
-    "commonTicker": "336260.KS",
-    "preferredTicker": "33626L.KS",
-    "commonName": "두산퓨얼셀",
-    "preferredName": "두산퓨얼셀2우B"
-  },
-  {
-    "id": "byc",
-    "name": "BYC",
-    "commonTicker": "001460.KS",
-    "preferredTicker": "001465.KS",
-    "commonName": "BYC",
-    "preferredName": "BYC우"
-  },
-  {
-    "id": "solus",
-    "name": "솔루스첨단소재/1우",
-    "commonTicker": "336370.KS",
-    "preferredTicker": "33637K.KS",
-    "commonName": "솔루스첨단소재",
-    "preferredName": "솔루스첨단소재1우"
-  },
-  {
-    "id": "solus_2pref",
-    "name": "솔루스첨단소재/2우B",
-    "commonTicker": "336370.KS",
-    "preferredTicker": "33637L.KS",
-    "commonName": "솔루스첨단소재",
-    "preferredName": "솔루스첨단소재2우B"
-  },
-  {
-    "id": "nexen_tire",
-    "name": "넥센타이어",
-    "commonTicker": "002350.KS",
-    "preferredTicker": "002355.KS",
-    "commonName": "넥센타이어",
-    "preferredName": "넥센타이어1우B"
-  },
-  {
-    "id": "sebang",
-    "name": "세방",
-    "commonTicker": "004360.KS",
-    "preferredTicker": "004365.KS",
-    "commonName": "세방",
-    "preferredName": "세방우"
-  },
-  {
-    "id": "hanjinkal",
-    "name": "한진칼",
-    "commonTicker": "180640.KS",
-    "preferredTicker": "18064K.KS",
-    "commonName": "한진칼",
-    "preferredName": "한진칼우"
-  },
-  {
-    "id": "amore_holdings",
-    "name": "아모레G",
-    "commonTicker": "002790.KS",
-    "preferredTicker": "002795.KS",
-    "commonName": "아모레퍼시픽홀딩스",
-    "preferredName": "아모레퍼시픽홀딩스우"
-  },
-  {
-    "id": "sk_chemicals",
-    "name": "SK케미칼",
-    "commonTicker": "285130.KS",
-    "preferredTicker": "28513K.KS",
-    "commonName": "SK케미칼",
-    "preferredName": "SK케미칼우"
-  },
-  {
-    "id": "sk",
-    "name": "SK",
-    "commonTicker": "034730.KS",
-    "preferredTicker": "03473K.KS",
-    "commonName": "SK",
-    "preferredName": "SK우"
+    "id": "sebang_battery",
+    "name": "세방→세방전지",
+    "holdingName": "세방",
+    "holdingTicker": "004360.KS",
+    "holdingTotalShares": 13860000,
+    "holdingTreasuryShares": 800000,
+    "subsidiaries": [
+      {
+        "name": "세방전지",
+        "ticker": "004490.KS",
+        "sharesHeld": 5569225
+      }
+    ]
   },
   {
     "id": "hanwha",
-    "name": "한화",
-    "commonTicker": "000880.KS",
-    "preferredTicker": "00088K.KS",
-    "commonName": "한화",
-    "preferredName": "한화3우B"
+    "name": "한화→자회사",
+    "holdingName": "한화",
+    "holdingTicker": "000880.KS",
+    "holdingTotalShares": 75495175,
+    "holdingTreasuryShares": 2500000,
+    "subsidiaries": [
+      {
+        "name": "한화에어로스페이스",
+        "ticker": "012450.KS",
+        "sharesHeld": 16593103
+      },
+      {
+        "name": "한화생명보험",
+        "ticker": "088350.KS",
+        "sharesHeld": 391088536
+      },
+      {
+        "name": "한화비전",
+        "ticker": "489790.KS",
+        "sharesHeld": 17141530
+      }
+    ]
   },
   {
-    "id": "mirae_asset",
-    "name": "미래에셋증권/2우B",
-    "commonTicker": "006800.KS",
-    "preferredTicker": "00680K.KS",
-    "commonName": "미래에셋증권",
-    "preferredName": "미래에셋증권2우B"
+    "id": "sk_discovery",
+    "name": "SK디스커버리→자회사",
+    "holdingName": "SK디스커버리",
+    "holdingTicker": "006120.KS",
+    "holdingTotalShares": 18348000,
+    "holdingTreasuryShares": 1232637,
+    "subsidiaries": [
+      {
+        "name": "SK가스",
+        "ticker": "018670.KS",
+        "sharesHeld": 7221843
+      },
+      {
+        "name": "SK케미칼",
+        "ticker": "285130.KS",
+        "sharesHeld": 6400615
+      }
+    ]
   },
   {
-    "id": "mirae_asset_pref",
-    "name": "미래에셋증권/우",
-    "commonTicker": "006800.KS",
-    "preferredTicker": "006805.KS",
-    "commonName": "미래에셋증권",
-    "preferredName": "미래에셋증권우"
+    "id": "sk_square",
+    "name": "SK스퀘어→SK하이닉스",
+    "holdingName": "SK스퀘어",
+    "holdingTicker": "402340.KS",
+    "holdingTotalShares": 132087115,
+    "holdingTreasuryShares": 395777,
+    "subsidiaries": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660.KS",
+        "sharesHeld": 146049275
+      }
+    ]
   },
   {
-    "id": "amere_3pref",
-    "name": "아모레G",
-    "commonTicker": "002790.KS",
-    "preferredTicker": "00279K.KS",
-    "commonName": "아모레G",
-    "preferredName": "아모레퍼시픽홀딩스3우B"
+    "id": "amore",
+    "name": "아모레퍼시픽홀딩스→아모레퍼시픽",
+    "holdingName": "아모레퍼시픽홀딩스",
+    "holdingTicker": "002790.KS",
+    "holdingTotalShares": 89994150,
+    "holdingTreasuryShares": 242770,
+    "subsidiaries": [
+      {
+        "name": "아모레퍼시픽",
+        "ticker": "090430.KS",
+        "sharesHeld": 23761899
+      }
+    ]
   }
 ]
