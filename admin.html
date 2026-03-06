@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>종목 관리</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #232733;
+  --border: #2e3345;
+  --text: #e4e7f1;
+  --text-dim: #8b90a5;
+  --accent: #6c8cff;
+  --accent-hover: #5a7af0;
+  --up: #f0615e;
+  --down: #4a90d9;
+  --green: #38c96a;
+  --warn: #f5a623;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.header-actions { display: flex; gap: 8px; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px 32px; }
+
+/* Buttons */
+.btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--accent); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-danger { color: var(--up); }
+.btn-danger:hover { border-color: var(--up); background: rgba(240,97,94,0.1); }
+.btn-sm { padding: 5px 12px; font-size: 13px; }
+
+/* Pair cards */
+.pair-list { display: flex; flex-direction: column; gap: 12px; }
+.pair-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.pair-card:hover { border-color: var(--accent); }
+.pair-info { flex: 1; min-width: 0; }
+.pair-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.pair-detail { font-size: 13px; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 8px; }
+.pair-detail span { white-space: nowrap; }
+.pair-subs { margin-top: 6px; font-size: 12px; color: var(--text-dim); }
+.pair-subs .sub-item { display: inline-block; background: var(--surface2); border-radius: 4px; padding: 2px 8px; margin: 2px 4px 2px 0; }
+.pair-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.visible { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+.modal h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+
+/* Form */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-group input:focus { border-color: var(--accent); }
+.form-group input::placeholder { color: #555; }
+
+.sub-section { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
+.sub-section h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+.sub-entry {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  position: relative;
+}
+.sub-entry .form-row { grid-template-columns: 1fr 1fr 1fr; }
+.sub-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--up);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.sub-remove:hover { background: rgba(240,97,94,0.15); }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--surface2);
+  border: 1px solid var(--green);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: transform 0.3s;
+  z-index: 200;
+}
+.toast.visible { transform: translateX(-50%) translateY(0); }
+
+/* Link */
+.back-link { color: var(--accent); text-decoration: none; font-size: 14px; }
+.back-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .header, .container { padding-left: 16px; padding-right: 16px; }
+  .pair-card { flex-direction: column; align-items: flex-start; }
+  .form-row { grid-template-columns: 1fr; }
+  .sub-entry .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;gap:16px">
+    <h1>종목 관리</h1>
+    <a href="index.html" class="back-link">대시보드</a>
+  </div>
+  <div class="header-actions">
+    <button class="btn btn-primary" onclick="openAddModal()">+ 종목 추가</button>
+    <button class="btn" onclick="downloadConfig()">config.json 저장</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="pair-list" id="pairList">
+    <div class="empty-state">config.json을 불러오는 중...</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">종목 추가</h2>
+    <form id="pairForm" onsubmit="return savePair(event)">
+      <input type="hidden" id="editIdx" value="-1">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>ID (영문, 고유값)</label>
+          <input type="text" id="fId" placeholder="예: youngpoong_koreazinc" required>
+        </div>
+        <div class="form-group">
+          <label>지주사 이름</label>
+          <input type="text" id="fHoldingName" placeholder="예: 영풍" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>지주사 티커</label>
+          <input type="text" id="fHoldingTicker" placeholder="예: 000670.KS" required>
+        </div>
+        <div class="form-group">
+          <label>발행주식 총수</label>
+          <input type="number" id="fTotalShares" min="0" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>자사주</label>
+        <input type="number" id="fTreasuryShares" min="0" value="0" required>
+      </div>
+
+      <div class="sub-section">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <h3>자회사 목록</h3>
+          <button type="button" class="btn btn-sm" onclick="addSubEntry()">+ 자회사</button>
+        </div>
+        <div id="subEntries"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn" onclick="closeModal()">취소</button>
+        <button type="submit" class="btn btn-primary">저장</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  let config = [];
+
+  // --- Load config ---
+  fetch('config.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { config = data; renderList(); })
+    .catch(function() {
+      document.getElementById('pairList').innerHTML = '<div class="empty-state">config.json을 불러올 수 없습니다.</div>';
+    });
+
+  // --- Render ---
+  window.renderList = function() {
+    var el = document.getElementById('pairList');
+    if (config.length === 0) {
+      el.innerHTML = '<div class="empty-state">등록된 종목이 없습니다.</div>';
+      return;
+    }
+    el.innerHTML = config.map(function(p, i) {
+      var adjShares = (p.holdingTotalShares - p.holdingTreasuryShares).toLocaleString('ko-KR');
+      var subs = p.subsidiaries.map(function(s) {
+        return '<span class="sub-item">' + s.name + ' (' + s.ticker + ') ' + s.sharesHeld.toLocaleString('ko-KR') + '주</span>';
+      }).join('');
+      return '<div class="pair-card">' +
+        '<div class="pair-info">' +
+          '<div class="pair-name">' + esc(p.holdingName) + ' → ' + subNames(p) + '</div>' +
+          '<div class="pair-detail">' +
+            '<span>ID: ' + esc(p.id) + '</span>' +
+            '<span>티커: ' + esc(p.holdingTicker) + '</span>' +
+            '<span>조정주식수: ' + adjShares + '</span>' +
+          '</div>' +
+          '<div class="pair-subs">' + subs + '</div>' +
+        '</div>' +
+        '<div class="pair-actions">' +
+          '<button class="btn btn-sm" onclick="openEditModal(' + i + ')">편집</button>' +
+          '<button class="btn btn-sm btn-danger" onclick="deletePair(' + i + ')">삭제</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  };
+
+  function subNames(p) {
+    if (p.subsidiaries.length === 1) return esc(p.subsidiaries[0].name);
+    return p.subsidiaries.map(function(s) { return esc(s.name); }).join(', ');
+  }
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  // --- Modal ---
+  window.openAddModal = function() {
+    document.getElementById('modalTitle').textContent = '종목 추가';
+    document.getElementById('editIdx').value = -1;
+    document.getElementById('pairForm').reset();
+    document.getElementById('fTreasuryShares').value = 0;
+    var subEntries = document.getElementById('subEntries');
+    subEntries.innerHTML = '';
+    addSubEntry();
+    showModal();
+  };
+
+  window.openEditModal = function(i) {
+    var p = config[i];
+    document.getElementById('modalTitle').textContent = '종목 편집';
+    document.getElementById('editIdx').value = i;
+    document.getElementById('fId').value = p.id;
+    document.getElementById('fHoldingName').value = p.holdingName;
+    document.getElementById('fHoldingTicker').value = p.holdingTicker;
+    document.getElementById('fTotalShares').value = p.holdingTotalShares;
+    document.getElementById('fTreasuryShares').value = p.holdingTreasuryShares;
+
+    var subEntries = document.getElementById('subEntries');
+    subEntries.innerHTML = '';
+    p.subsidiaries.forEach(function(s) {
+      addSubEntry(s.name, s.ticker, s.sharesHeld);
+    });
+    showModal();
+  };
+
+  window.closeModal = function() {
+    document.getElementById('modalOverlay').classList.remove('visible');
+  };
+
+  function showModal() {
+    document.getElementById('modalOverlay').classList.add('visible');
+  }
+
+  // click overlay to close
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // ESC to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // --- Subsidiaries ---
+  window.addSubEntry = function(name, ticker, shares) {
+    var div = document.createElement('div');
+    div.className = 'sub-entry';
+    div.innerHTML =
+      '<button type="button" class="sub-remove" onclick="this.parentElement.remove()">&times;</button>' +
+      '<div class="form-row">' +
+        '<div class="form-group"><label>자회사 이름</label><input type="text" class="sub-name" value="' + esc(name || '') + '" placeholder="예: 고려아연" required></div>' +
+        '<div class="form-group"><label>티커</label><input type="text" class="sub-ticker" value="' + esc(ticker || '') + '" placeholder="예: 010130.KS" required></div>' +
+        '<div class="form-group"><label>보유 주식수</label><input type="number" class="sub-shares" value="' + (shares || '') + '" min="0" required></div>' +
+      '</div>';
+    document.getElementById('subEntries').appendChild(div);
+  };
+
+  // --- Save pair ---
+  window.savePair = function(e) {
+    e.preventDefault();
+
+    var subs = [];
+    var subEntries = document.querySelectorAll('#subEntries .sub-entry');
+    if (subEntries.length === 0) {
+      showToast('자회사를 1개 이상 추가해주세요.');
+      return false;
+    }
+    for (var i = 0; i < subEntries.length; i++) {
+      var entry = subEntries[i];
+      subs.push({
+        name: entry.querySelector('.sub-name').value.trim(),
+        ticker: entry.querySelector('.sub-ticker').value.trim(),
+        sharesHeld: parseInt(entry.querySelector('.sub-shares').value)
+      });
+    }
+
+    var pair = {
+      id: document.getElementById('fId').value.trim(),
+      name: buildName(document.getElementById('fHoldingName').value.trim(), subs),
+      holdingName: document.getElementById('fHoldingName').value.trim(),
+      holdingTicker: document.getElementById('fHoldingTicker').value.trim(),
+      holdingTotalShares: parseInt(document.getElementById('fTotalShares').value),
+      holdingTreasuryShares: parseInt(document.getElementById('fTreasuryShares').value),
+      subsidiaries: subs
+    };
+
+    var idx = parseInt(document.getElementById('editIdx').value);
+
+    // ID 중복 검사
+    for (var j = 0; j < config.length; j++) {
+      if (j !== idx && config[j].id === pair.id) {
+        showToast('이미 사용 중인 ID입니다: ' + pair.id);
+        return false;
+      }
+    }
+
+    if (idx >= 0) {
+      config[idx] = pair;
+      showToast('종목이 수정되었습니다.');
+    } else {
+      config.push(pair);
+      showToast('종목이 추가되었습니다.');
+    }
+
+    renderList();
+    closeModal();
+    return false;
+  };
+
+  function buildName(holdingName, subs) {
+    if (subs.length === 1) return holdingName + '→' + subs[0].name;
+    return holdingName + '→자회사';
+  }
+
+  // --- Delete ---
+  window.deletePair = function(i) {
+    var name = config[i].holdingName;
+    if (!confirm(name + ' 종목을 삭제하시겠습니까?')) return;
+    config.splice(i, 1);
+    renderList();
+    showToast('종목이 삭제되었습니다.');
+  };
+
+  // --- Download ---
+  window.downloadConfig = function() {
+    var json = JSON.stringify(config, null, 2) + '\n';
+    var blob = new Blob([json], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'config.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('config.json 파일이 다운로드되었습니다.');
+  };
+
+  // --- Toast ---
+  function showToast(msg) {
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('visible');
+    setTimeout(function() { el.classList.remove('visible'); }, 2500);
+  }
+})();
+</script>
+</body>
+</html>
