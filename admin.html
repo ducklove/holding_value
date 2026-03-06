@@ -366,12 +366,14 @@ body {
 
   function init() {
     updateStatus();
-    if (ghToken && ghOwner && ghRepo) {
-      loadFromGithub();
-    } else {
-      loadFromFetch();
-      if (!ghToken) openSettingsModal();
-    }
+    // 항상 로컬 fetch로 먼저 로드 (GitHub Pages에서 확실하게 동작)
+    loadFromFetch(function() {
+      // 로드 성공 후, GitHub 토큰이 있으면 SHA만 백그라운드로 가져옴 (저장용)
+      if (ghToken && ghOwner && ghRepo) {
+        fetchGithubSha();
+      }
+    });
+    if (!ghToken) openSettingsModal();
   }
 
   function updateStatus() {
@@ -396,31 +398,33 @@ body {
     return fetch('https://api.github.com/repos/' + ghOwner + '/' + ghRepo + path, opts);
   }
 
-  function loadFromGithub() {
-    document.getElementById('pairList').innerHTML = '<div class="empty-state">GitHub에서 불러오는 중...</div>';
+  function fetchGithubSha() {
     ghApi('/contents/config.json')
       .then(function(r) {
-        if (!r.ok) throw new Error('API 오류: ' + r.status);
+        if (!r.ok) throw new Error('API ' + r.status);
         return r.json();
       })
       .then(function(data) {
         fileSha = data.sha;
-        var content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-        config = JSON.parse(content);
-        renderList();
       })
       .catch(function(err) {
-        showToast('GitHub 로드 실패: ' + err.message, true);
-        loadFromFetch();
+        console.warn('GitHub SHA 가져오기 실패:', err.message);
       });
   }
 
-  function loadFromFetch() {
+  function loadFromFetch(onSuccess) {
     fetch('config.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { config = data; renderList(); })
-      .catch(function() {
-        document.getElementById('pairList').innerHTML = '<div class="empty-state">config.json을 불러올 수 없습니다.</div>';
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        config = data;
+        renderList();
+        if (onSuccess) onSuccess();
+      })
+      .catch(function(err) {
+        document.getElementById('pairList').innerHTML = '<div class="empty-state">config.json을 불러올 수 없습니다. (' + err.message + ')</div>';
       });
   }
 
@@ -521,7 +525,7 @@ body {
       closeSettings();
       showToast('GitHub 연결 완료');
       fileSha = null;
-      loadFromGithub();
+      fetchGithubSha();
     })
     .catch(function(err) {
       showToast(err.message, true);
