@@ -279,6 +279,23 @@ tr:hover { background: var(--surface2); }
     </div>
   </div>
 
+  <div class="chart-section" id="priceChartSection">
+    <div class="chart-header">
+      <div class="chart-title" id="priceChartTitle">주가 추이</div>
+      <div class="period-btns" id="pricePeriodBtns">
+        <button data-days="30">1M</button>
+        <button data-days="90">3M</button>
+        <button data-days="180">6M</button>
+        <button data-days="365">1Y</button>
+        <button data-days="0" class="active">전체</button>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="priceChart"></canvas>
+      <div class="tooltip" id="priceTooltip"></div>
+    </div>
+  </div>
+
   <div class="stats-row" id="statsRow"></div>
 
   <div class="table-section">
@@ -307,14 +324,17 @@ tr:hover { background: var(--surface2); }
   const pairs = STOCK_DATA.pairs;
   let selectedIdx = 0;
   let periodDays = 0; // 0 = all
+  let pricePeriodDays = 0;
 
   // --- Init ---
   document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
   renderCards();
   renderTable();
   renderChart();
+  renderPriceChart();
   renderStats();
   bindPeriodBtns();
+  bindPricePeriodBtns();
 
   // --- Cards ---
   function renderCards() {
@@ -352,6 +372,7 @@ tr:hover { background: var(--surface2); }
         selectedIdx = parseInt(card.dataset.idx);
         renderCards();
         renderChart();
+        renderPriceChart();
         renderStats();
       });
     });
@@ -606,6 +627,171 @@ tr:hover { background: var(--surface2); }
     });
   }
 
+  // --- Price Chart ---
+  function renderPriceChart() {
+    const p = pairs[selectedIdx];
+    const section = document.getElementById('priceChartSection');
+    if (p.isAverage) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    document.getElementById('priceChartTitle').textContent = p.holdingName + ' 주가 추이';
+
+    const canvas = document.getElementById('priceChart');
+    const container = canvas.parentElement;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = container.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const W = rect.width;
+    const H = rect.height;
+
+    const hist = getFilteredPriceHistory(p);
+    if (hist.length < 2) return;
+
+    const prices = hist.map(h => h.holdingPrice);
+    const minP = Math.min(...prices);
+    const maxP = Math.max(...prices);
+    const chartMin = minP - (maxP - minP) * 0.05;
+    const chartMax = maxP + (maxP - minP) * 0.05;
+    const rangeP = chartMax - chartMin || 1;
+
+    const pad = { top: 20, right: 16, bottom: 36, left: 80 };
+    const cW = W - pad.left - pad.right;
+    const cH = H - pad.top - pad.bottom;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Y axis grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    const yTicks = 5;
+    ctx.font = '12px -apple-system, sans-serif';
+    ctx.fillStyle = '#8b90a5';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= yTicks; i++) {
+      const v = chartMin + (rangeP * i / yTicks);
+      const y = pad.top + cH - (cH * i / yTicks);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, y);
+      ctx.lineTo(W - pad.right, y);
+      ctx.stroke();
+      ctx.fillText(Math.round(v).toLocaleString('ko-KR'), pad.left - 8, y + 4);
+    }
+
+    // X axis labels
+    ctx.fillStyle = '#8b90a5';
+    ctx.textAlign = 'center';
+    const xLabelCount = Math.min(6, hist.length);
+    for (let i = 0; i < xLabelCount; i++) {
+      const idx = Math.floor(i * (hist.length - 1) / (xLabelCount - 1));
+      const x = pad.left + (idx / (hist.length - 1)) * cW;
+      ctx.fillText(hist[idx].date.slice(2), x, H - pad.bottom + 20);
+    }
+
+    // Price change color
+    const priceUp = prices[prices.length - 1] >= prices[0];
+    const lineColor = priceUp ? '#f0615e' : '#4a90d9';
+    const fillStart = priceUp ? 'rgba(240,97,94,0.25)' : 'rgba(74,144,217,0.25)';
+    const fillEnd = priceUp ? 'rgba(240,97,94,0.0)' : 'rgba(74,144,217,0.0)';
+
+    // Gradient fill
+    const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
+    gradient.addColorStop(0, fillStart);
+    gradient.addColorStop(1, fillEnd);
+
+    ctx.beginPath();
+    for (let i = 0; i < hist.length; i++) {
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((hist[i].holdingPrice - chartMin) / rangeP * cH);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.lineTo(pad.left + cW, pad.top + cH);
+    ctx.lineTo(pad.left, pad.top + cH);
+    ctx.closePath();
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    // Line
+    ctx.beginPath();
+    for (let i = 0; i < hist.length; i++) {
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((hist[i].holdingPrice - chartMin) / rangeP * cH);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = lineColor;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Tooltip
+    const tooltip = document.getElementById('priceTooltip');
+    canvas.onmousemove = function(e) {
+      const r = canvas.getBoundingClientRect();
+      const mx = e.clientX - r.left;
+      const my = e.clientY - r.top;
+      if (mx < pad.left || mx > W - pad.right || my < pad.top || my > pad.top + cH) {
+        tooltip.classList.remove('visible');
+        return;
+      }
+      const ratio = (mx - pad.left) / cW;
+      const idx = Math.round(ratio * (hist.length - 1));
+      const d = hist[idx];
+      if (!d) return;
+
+      const dotX = pad.left + (idx / (hist.length - 1)) * cW;
+      const dotY = pad.top + cH - ((d.holdingPrice - chartMin) / rangeP * cH);
+
+      const change = idx > 0 ? d.holdingPrice - hist[idx - 1].holdingPrice : 0;
+      const changePct = idx > 0 ? (change / hist[idx - 1].holdingPrice * 100) : 0;
+      const changeDir = change >= 0 ? 'up' : 'down';
+      const arrow = change >= 0 ? '▲' : '▼';
+
+      tooltip.innerHTML = `
+        <div class="tt-date">${d.date}</div>
+        <div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>
+        <div class="tt-row"><span>전일 대비</span><span class="${changeDir}-color">${arrow} ${Math.abs(changePct).toFixed(2)}%</span></div>
+      `;
+
+      let tx = dotX + 12;
+      let ty = dotY - 60;
+      if (tx + 210 > W) tx = dotX - 210;
+      if (ty < 0) ty = dotY + 12;
+      tooltip.style.left = tx + 'px';
+      tooltip.style.top = ty + 'px';
+      tooltip.classList.add('visible');
+    };
+    canvas.onmouseleave = function() {
+      tooltip.classList.remove('visible');
+    };
+  }
+
+  function bindPricePeriodBtns() {
+    document.getElementById('pricePeriodBtns').addEventListener('click', function(e) {
+      if (e.target.tagName !== 'BUTTON') return;
+      this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      pricePeriodDays = parseInt(e.target.dataset.days);
+      renderPriceChart();
+    });
+  }
+
+  function getFilteredPriceHistory(pair) {
+    const hist = pair.history;
+    if (pricePeriodDays === 0) return hist;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - pricePeriodDays);
+    const cutStr = cutoff.toISOString().slice(0, 10);
+    return hist.filter(h => h.date >= cutStr);
+  }
+
   // --- Helpers ---
   function getFilteredHistory(pair) {
     const hist = pair.history;
@@ -625,7 +811,7 @@ tr:hover { background: var(--surface2); }
   }
 
   // Resize
-  window.addEventListener('resize', () => renderChart());
+  window.addEventListener('resize', () => { renderChart(); renderPriceChart(); });
 })();
 </script>
 </body>
