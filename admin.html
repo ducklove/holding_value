@@ -428,7 +428,7 @@ body {
       });
   }
 
-  window.saveToGithub = function() {
+  function saveToGithub() {
     if (!ghToken || !ghOwner || !ghRepo) {
       openSettingsModal();
       return;
@@ -471,7 +471,7 @@ body {
       btn.disabled = false;
       btn.textContent = 'GitHub 저장';
     });
-  };
+  }
 
   function triggerWorkflow() {
     ghApi('/actions/workflows/update-data.yml/dispatches', {
@@ -485,18 +485,18 @@ body {
   }
 
   // --- Settings ---
-  window.openSettingsModal = function() {
+  function openSettingsModal() {
     document.getElementById('sToken').value = ghToken;
     document.getElementById('sOwner').value = ghOwner;
     document.getElementById('sRepo').value = ghRepo;
     document.getElementById('settingsOverlay').classList.add('visible');
-  };
+  }
 
-  window.closeSettings = function() {
+  function closeSettings() {
     document.getElementById('settingsOverlay').classList.remove('visible');
-  };
+  }
 
-  window.saveSettings = function() {
+  function saveSettings() {
     var token = document.getElementById('sToken').value.trim();
     var owner = document.getElementById('sOwner').value.trim();
     var repo = document.getElementById('sRepo').value.trim();
@@ -530,9 +530,9 @@ body {
     .catch(function(err) {
       showToast(err.message, true);
     });
-  };
+  }
 
-  window.clearSettings = function() {
+  function clearSettings() {
     if (!confirm('저장된 토큰을 삭제하시겠습니까?')) return;
     localStorage.removeItem('gh_token');
     localStorage.removeItem('gh_owner');
@@ -544,14 +544,14 @@ body {
     updateStatus();
     closeSettings();
     showToast('토큰이 삭제되었습니다.');
-  };
+  }
 
   document.getElementById('settingsOverlay').addEventListener('click', function(e) {
     if (e.target === this) closeSettings();
   });
 
   // --- Render ---
-  window.renderList = function() {
+  function renderList() {
     var el = document.getElementById('pairList');
     if (config.length === 0) {
       el.innerHTML = '<div class="empty-state">등록된 종목이 없습니다.</div>';
@@ -578,7 +578,7 @@ body {
         '</div>' +
       '</div>';
     }).join('');
-  };
+  }
 
   function subNames(p) {
     if (p.subsidiaries.length === 1) return esc(p.subsidiaries[0].name);
@@ -593,7 +593,7 @@ body {
   }
 
   // --- Pair Modal ---
-  window.openAddModal = function() {
+  function openAddModal() {
     document.getElementById('modalTitle').textContent = '종목 추가';
     document.getElementById('editIdx').value = -1;
     document.getElementById('pairForm').reset();
@@ -601,9 +601,9 @@ body {
     document.getElementById('subEntries').innerHTML = '';
     addSubEntry();
     document.getElementById('modalOverlay').classList.add('visible');
-  };
+  }
 
-  window.openEditModal = function(i) {
+  function openEditModal(i) {
     var p = config[i];
     document.getElementById('modalTitle').textContent = '종목 편집';
     document.getElementById('editIdx').value = i;
@@ -615,11 +615,11 @@ body {
     document.getElementById('subEntries').innerHTML = '';
     p.subsidiaries.forEach(function(s) { addSubEntry(s.name, s.ticker, s.sharesHeld); });
     document.getElementById('modalOverlay').classList.add('visible');
-  };
+  }
 
-  window.closeModal = function() {
+  function closeModal() {
     document.getElementById('modalOverlay').classList.remove('visible');
-  };
+  }
 
   document.getElementById('modalOverlay').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
@@ -633,7 +633,7 @@ body {
   });
 
   // --- Subsidiaries ---
-  window.addSubEntry = function(name, ticker, shares) {
+  function addSubEntry(name, ticker, shares) {
     var div = document.createElement('div');
     div.className = 'sub-entry';
     div.innerHTML =
@@ -644,10 +644,10 @@ body {
         '<div class="form-group"><label>보유 주식수</label><input type="number" class="sub-shares" value="' + (shares || '') + '" min="0" required></div>' +
       '</div>';
     document.getElementById('subEntries').appendChild(div);
-  };
+  }
 
   // --- Save pair (local) ---
-  window.savePair = function(e) {
+  function savePair(e) {
     e.preventDefault();
 
     var subs = [];
@@ -695,7 +695,7 @@ body {
     renderList();
     closeModal();
     return false;
-  };
+  }
 
   function buildName(holdingName, subs) {
     if (subs.length === 1) return holdingName + '\u2192' + subs[0].name;
@@ -703,16 +703,16 @@ body {
   }
 
   // --- Delete ---
-  window.deletePair = function(i) {
+  function deletePair(i) {
     var name = config[i].holdingName;
     if (!confirm(name + ' 종목을 삭제하시겠습니까?')) return;
     config.splice(i, 1);
     renderList();
     showToast('종목이 삭제되었습니다. GitHub 저장 버튼을 눌러 반영하세요.');
-  };
+  }
 
   // --- Download fallback ---
-  window.downloadConfig = function() {
+  function downloadConfig() {
     var json = JSON.stringify(config, null, 2) + '\n';
     var blob = new Blob([json], { type: 'application/json' });
     var a = document.createElement('a');
@@ -721,7 +721,21 @@ body {
     a.click();
     URL.revokeObjectURL(a.href);
     showToast('config.json 파일이 다운로드되었습니다.');
-  };
+  }
+
+  // --- Expose to HTML onclick handlers ---
+  window.openAddModal = openAddModal;
+  window.openEditModal = openEditModal;
+  window.closeModal = closeModal;
+  window.addSubEntry = addSubEntry;
+  window.savePair = savePair;
+  window.deletePair = deletePair;
+  window.saveToGithub = saveToGithub;
+  window.downloadConfig = downloadConfig;
+  window.openSettingsModal = openSettingsModal;
+  window.closeSettings = closeSettings;
+  window.saveSettings = saveSettings;
+  window.clearSettings = clearSettings;
 
   // --- Toast ---
   function showToast(msg, isError) {
