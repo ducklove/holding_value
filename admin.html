@@ -38,7 +38,7 @@ body {
   gap: 12px;
 }
 .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
-.header-actions { display: flex; gap: 8px; }
+.header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px 32px; }
 
@@ -54,8 +54,11 @@ body {
   transition: all 0.15s;
 }
 .btn:hover { border-color: var(--accent); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn-primary:hover { background: var(--accent-hover); }
+.btn-green { background: var(--green); border-color: var(--green); color: #fff; }
+.btn-green:hover { background: #2fb85d; }
 .btn-danger { color: var(--up); }
 .btn-danger:hover { border-color: var(--up); background: rgba(240,97,94,0.1); }
 .btn-sm { padding: 5px 12px; font-size: 13px; }
@@ -87,6 +90,25 @@ body {
   color: var(--text-dim);
   font-size: 15px;
 }
+
+/* Status bar */
+.status-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 32px;
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.connected { background: var(--green); }
+.status-dot.disconnected { background: var(--up); }
 
 /* Modal */
 .modal-overlay {
@@ -120,6 +142,7 @@ body {
   margin-bottom: 4px;
   font-weight: 500;
 }
+.form-hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-group input {
   width: 100%;
@@ -185,14 +208,30 @@ body {
   transition: transform 0.3s;
   z-index: 200;
 }
+.toast.error { border-color: var(--up); }
 .toast.visible { transform: translateX(-50%) translateY(0); }
 
 /* Link */
 .back-link { color: var(--accent); text-decoration: none; font-size: 14px; }
 .back-link:hover { text-decoration: underline; }
 
+.token-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.token-masked {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: var(--bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
 @media (max-width: 768px) {
-  .header, .container { padding-left: 16px; padding-right: 16px; }
+  .header, .container, .status-bar { padding-left: 16px; padding-right: 16px; }
   .pair-card { flex-direction: column; align-items: flex-start; }
   .form-row { grid-template-columns: 1fr; }
   .sub-entry .form-row { grid-template-columns: 1fr; }
@@ -208,17 +247,52 @@ body {
   </div>
   <div class="header-actions">
     <button class="btn btn-primary" onclick="openAddModal()">+ 종목 추가</button>
-    <button class="btn" onclick="downloadConfig()">config.json 저장</button>
+    <button class="btn btn-green" id="saveBtn" onclick="saveToGithub()">GitHub 저장</button>
+    <button class="btn" onclick="downloadConfig()">다운로드</button>
+    <button class="btn" onclick="openSettingsModal()">설정</button>
   </div>
+</div>
+
+<div class="status-bar" id="statusBar">
+  <span class="status-dot disconnected" id="statusDot"></span>
+  <span id="statusText">GitHub 미연결</span>
 </div>
 
 <div class="container">
   <div class="pair-list" id="pairList">
-    <div class="empty-state">config.json을 불러오는 중...</div>
+    <div class="empty-state">불러오는 중...</div>
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Settings Modal -->
+<div class="modal-overlay" id="settingsOverlay">
+  <div class="modal">
+    <h2>GitHub 설정</h2>
+    <div class="form-group">
+      <label>Personal Access Token</label>
+      <input type="password" id="sToken" placeholder="ghp_xxxxxxxxxxxx">
+      <div class="form-hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens<br>권한: Contents (Read and write)</div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Owner</label>
+        <input type="text" id="sOwner" placeholder="예: ducklove">
+      </div>
+      <div class="form-group">
+        <label>Repository</label>
+        <input type="text" id="sRepo" placeholder="예: holding_value">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-danger btn-sm" onclick="clearSettings()">토큰 삭제</button>
+      <div style="flex:1"></div>
+      <button type="button" class="btn" onclick="closeSettings()">취소</button>
+      <button type="button" class="btn btn-primary" onclick="saveSettings()">연결</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pair Edit Modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <h2 id="modalTitle">종목 추가</h2>
@@ -272,15 +346,205 @@ body {
 
 <script>
 (function() {
-  let config = [];
+  var config = [];
+  var fileSha = null;
+  var ghToken = localStorage.getItem('gh_token') || '';
+  var ghOwner = localStorage.getItem('gh_owner') || '';
+  var ghRepo = localStorage.getItem('gh_repo') || '';
 
-  // --- Load config ---
-  fetch('config.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) { config = data; renderList(); })
-    .catch(function() {
-      document.getElementById('pairList').innerHTML = '<div class="empty-state">config.json을 불러올 수 없습니다.</div>';
+  // --- Auto-detect repo from GitHub Pages URL ---
+  if (!ghOwner || !ghRepo) {
+    var host = location.hostname;
+    if (host.endsWith('.github.io')) {
+      ghOwner = ghOwner || host.replace('.github.io', '');
+      ghRepo = ghRepo || location.pathname.split('/')[1] || '';
+    }
+  }
+
+  // --- Init ---
+  init();
+
+  function init() {
+    updateStatus();
+    if (ghToken && ghOwner && ghRepo) {
+      loadFromGithub();
+    } else {
+      loadFromFetch();
+      if (!ghToken) openSettingsModal();
+    }
+  }
+
+  function updateStatus() {
+    var dot = document.getElementById('statusDot');
+    var text = document.getElementById('statusText');
+    if (ghToken && ghOwner && ghRepo) {
+      dot.className = 'status-dot connected';
+      text.textContent = ghOwner + '/' + ghRepo + ' 연결됨';
+    } else {
+      dot.className = 'status-dot disconnected';
+      text.textContent = 'GitHub 미연결 (설정에서 토큰을 입력하세요)';
+    }
+  }
+
+  // --- GitHub API ---
+  function ghApi(path, opts) {
+    opts = opts || {};
+    opts.headers = opts.headers || {};
+    opts.headers['Authorization'] = 'Bearer ' + ghToken;
+    opts.headers['Accept'] = 'application/vnd.github+json';
+    if (opts.body) opts.headers['Content-Type'] = 'application/json';
+    return fetch('https://api.github.com/repos/' + ghOwner + '/' + ghRepo + path, opts);
+  }
+
+  function loadFromGithub() {
+    document.getElementById('pairList').innerHTML = '<div class="empty-state">GitHub에서 불러오는 중...</div>';
+    ghApi('/contents/config.json')
+      .then(function(r) {
+        if (!r.ok) throw new Error('API 오류: ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        fileSha = data.sha;
+        var content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+        config = JSON.parse(content);
+        renderList();
+      })
+      .catch(function(err) {
+        showToast('GitHub 로드 실패: ' + err.message, true);
+        loadFromFetch();
+      });
+  }
+
+  function loadFromFetch() {
+    fetch('config.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { config = data; renderList(); })
+      .catch(function() {
+        document.getElementById('pairList').innerHTML = '<div class="empty-state">config.json을 불러올 수 없습니다.</div>';
+      });
+  }
+
+  window.saveToGithub = function() {
+    if (!ghToken || !ghOwner || !ghRepo) {
+      openSettingsModal();
+      return;
+    }
+
+    var btn = document.getElementById('saveBtn');
+    btn.disabled = true;
+    btn.textContent = '저장 중...';
+
+    var content = btoa(unescape(encodeURIComponent(JSON.stringify(config, null, 2) + '\n')));
+
+    // SHA가 없으면 먼저 가져오기
+    var getSha = fileSha
+      ? Promise.resolve(fileSha)
+      : ghApi('/contents/config.json').then(function(r) { return r.json(); }).then(function(d) { return d.sha; });
+
+    getSha.then(function(sha) {
+      return ghApi('/contents/config.json', {
+        method: 'PUT',
+        body: JSON.stringify({
+          message: '종목 설정 변경 (admin)',
+          content: content,
+          sha: sha
+        })
+      });
+    })
+    .then(function(r) {
+      if (!r.ok) return r.json().then(function(d) { throw new Error(d.message || r.status); });
+      return r.json();
+    })
+    .then(function(data) {
+      fileSha = data.content.sha;
+      showToast('GitHub에 저장되었습니다.');
+      triggerWorkflow();
+    })
+    .catch(function(err) {
+      showToast('저장 실패: ' + err.message, true);
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'GitHub 저장';
     });
+  };
+
+  function triggerWorkflow() {
+    ghApi('/actions/workflows/update-data.yml/dispatches', {
+      method: 'POST',
+      body: JSON.stringify({ ref: 'master' })
+    }).then(function(r) {
+      if (r.status === 204) {
+        showToast('데이터 갱신 워크플로우가 시작되었습니다.');
+      }
+    }).catch(function() {});
+  }
+
+  // --- Settings ---
+  window.openSettingsModal = function() {
+    document.getElementById('sToken').value = ghToken;
+    document.getElementById('sOwner').value = ghOwner;
+    document.getElementById('sRepo').value = ghRepo;
+    document.getElementById('settingsOverlay').classList.add('visible');
+  };
+
+  window.closeSettings = function() {
+    document.getElementById('settingsOverlay').classList.remove('visible');
+  };
+
+  window.saveSettings = function() {
+    var token = document.getElementById('sToken').value.trim();
+    var owner = document.getElementById('sOwner').value.trim();
+    var repo = document.getElementById('sRepo').value.trim();
+
+    if (!token || !owner || !repo) {
+      showToast('모든 항목을 입력해주세요.', true);
+      return;
+    }
+
+    // 토큰 유효성 검증
+    fetch('https://api.github.com/repos/' + owner + '/' + repo, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error(r.status === 401 ? '토큰이 유효하지 않습니다.' : '저장소를 찾을 수 없습니다.');
+      return r.json();
+    })
+    .then(function() {
+      ghToken = token;
+      ghOwner = owner;
+      ghRepo = repo;
+      localStorage.setItem('gh_token', token);
+      localStorage.setItem('gh_owner', owner);
+      localStorage.setItem('gh_repo', repo);
+      updateStatus();
+      closeSettings();
+      showToast('GitHub 연결 완료');
+      fileSha = null;
+      loadFromGithub();
+    })
+    .catch(function(err) {
+      showToast(err.message, true);
+    });
+  };
+
+  window.clearSettings = function() {
+    if (!confirm('저장된 토큰을 삭제하시겠습니까?')) return;
+    localStorage.removeItem('gh_token');
+    localStorage.removeItem('gh_owner');
+    localStorage.removeItem('gh_repo');
+    ghToken = '';
+    ghOwner = '';
+    ghRepo = '';
+    fileSha = null;
+    updateStatus();
+    closeSettings();
+    showToast('토큰이 삭제되었습니다.');
+  };
+
+  document.getElementById('settingsOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeSettings();
+  });
 
   // --- Render ---
   window.renderList = function() {
@@ -292,11 +556,11 @@ body {
     el.innerHTML = config.map(function(p, i) {
       var adjShares = (p.holdingTotalShares - p.holdingTreasuryShares).toLocaleString('ko-KR');
       var subs = p.subsidiaries.map(function(s) {
-        return '<span class="sub-item">' + s.name + ' (' + s.ticker + ') ' + s.sharesHeld.toLocaleString('ko-KR') + '주</span>';
+        return '<span class="sub-item">' + esc(s.name) + ' (' + esc(s.ticker) + ') ' + s.sharesHeld.toLocaleString('ko-KR') + '주</span>';
       }).join('');
       return '<div class="pair-card">' +
         '<div class="pair-info">' +
-          '<div class="pair-name">' + esc(p.holdingName) + ' → ' + subNames(p) + '</div>' +
+          '<div class="pair-name">' + esc(p.holdingName) + ' &rarr; ' + subNames(p) + '</div>' +
           '<div class="pair-detail">' +
             '<span>ID: ' + esc(p.id) + '</span>' +
             '<span>티커: ' + esc(p.holdingTicker) + '</span>' +
@@ -318,21 +582,21 @@ body {
   }
 
   function esc(s) {
+    if (!s) return '';
     var d = document.createElement('div');
     d.textContent = s;
     return d.innerHTML;
   }
 
-  // --- Modal ---
+  // --- Pair Modal ---
   window.openAddModal = function() {
     document.getElementById('modalTitle').textContent = '종목 추가';
     document.getElementById('editIdx').value = -1;
     document.getElementById('pairForm').reset();
     document.getElementById('fTreasuryShares').value = 0;
-    var subEntries = document.getElementById('subEntries');
-    subEntries.innerHTML = '';
+    document.getElementById('subEntries').innerHTML = '';
     addSubEntry();
-    showModal();
+    document.getElementById('modalOverlay').classList.add('visible');
   };
 
   window.openEditModal = function(i) {
@@ -344,31 +608,24 @@ body {
     document.getElementById('fHoldingTicker').value = p.holdingTicker;
     document.getElementById('fTotalShares').value = p.holdingTotalShares;
     document.getElementById('fTreasuryShares').value = p.holdingTreasuryShares;
-
-    var subEntries = document.getElementById('subEntries');
-    subEntries.innerHTML = '';
-    p.subsidiaries.forEach(function(s) {
-      addSubEntry(s.name, s.ticker, s.sharesHeld);
-    });
-    showModal();
+    document.getElementById('subEntries').innerHTML = '';
+    p.subsidiaries.forEach(function(s) { addSubEntry(s.name, s.ticker, s.sharesHeld); });
+    document.getElementById('modalOverlay').classList.add('visible');
   };
 
   window.closeModal = function() {
     document.getElementById('modalOverlay').classList.remove('visible');
   };
 
-  function showModal() {
-    document.getElementById('modalOverlay').classList.add('visible');
-  }
-
-  // click overlay to close
   document.getElementById('modalOverlay').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
 
-  // ESC to close
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      closeModal();
+      closeSettings();
+    }
   });
 
   // --- Subsidiaries ---
@@ -385,14 +642,14 @@ body {
     document.getElementById('subEntries').appendChild(div);
   };
 
-  // --- Save pair ---
+  // --- Save pair (local) ---
   window.savePair = function(e) {
     e.preventDefault();
 
     var subs = [];
     var subEntries = document.querySelectorAll('#subEntries .sub-entry');
     if (subEntries.length === 0) {
-      showToast('자회사를 1개 이상 추가해주세요.');
+      showToast('자회사를 1개 이상 추가해주세요.', true);
       return false;
     }
     for (var i = 0; i < subEntries.length; i++) {
@@ -416,20 +673,19 @@ body {
 
     var idx = parseInt(document.getElementById('editIdx').value);
 
-    // ID 중복 검사
     for (var j = 0; j < config.length; j++) {
       if (j !== idx && config[j].id === pair.id) {
-        showToast('이미 사용 중인 ID입니다: ' + pair.id);
+        showToast('이미 사용 중인 ID입니다: ' + pair.id, true);
         return false;
       }
     }
 
     if (idx >= 0) {
       config[idx] = pair;
-      showToast('종목이 수정되었습니다.');
+      showToast('종목이 수정되었습니다. GitHub 저장 버튼을 눌러 반영하세요.');
     } else {
       config.push(pair);
-      showToast('종목이 추가되었습니다.');
+      showToast('종목이 추가되었습니다. GitHub 저장 버튼을 눌러 반영하세요.');
     }
 
     renderList();
@@ -438,8 +694,8 @@ body {
   };
 
   function buildName(holdingName, subs) {
-    if (subs.length === 1) return holdingName + '→' + subs[0].name;
-    return holdingName + '→자회사';
+    if (subs.length === 1) return holdingName + '\u2192' + subs[0].name;
+    return holdingName + '\u2192\uc790\ud68c\uc0ac';
   }
 
   // --- Delete ---
@@ -448,10 +704,10 @@ body {
     if (!confirm(name + ' 종목을 삭제하시겠습니까?')) return;
     config.splice(i, 1);
     renderList();
-    showToast('종목이 삭제되었습니다.');
+    showToast('종목이 삭제되었습니다. GitHub 저장 버튼을 눌러 반영하세요.');
   };
 
-  // --- Download ---
+  // --- Download fallback ---
   window.downloadConfig = function() {
     var json = JSON.stringify(config, null, 2) + '\n';
     var blob = new Blob([json], { type: 'application/json' });
@@ -464,11 +720,13 @@ body {
   };
 
   // --- Toast ---
-  function showToast(msg) {
+  function showToast(msg, isError) {
     var el = document.getElementById('toast');
     el.textContent = msg;
+    el.className = 'toast' + (isError ? ' error' : '');
     el.classList.add('visible');
-    setTimeout(function() { el.classList.remove('visible'); }, 2500);
+    clearTimeout(el._timer);
+    el._timer = setTimeout(function() { el.classList.remove('visible'); }, 3000);
   }
 })();
 </script>
