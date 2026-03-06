@@ -7,7 +7,11 @@
     "holdingTotalShares": 18077950,
     "holdingTreasuryShares": 203500,
     "subsidiaries": [
-      { "name": "고려아연", "ticker": "010130.KS", "sharesHeld": 5262450 }
+      {
+        "name": "고려아연",
+        "ticker": "010130.KS",
+        "sharesHeld": 5262450
+      }
     ]
   },
   {
@@ -18,7 +22,11 @@
     "holdingTotalShares": 14417292,
     "holdingTreasuryShares": 688429,
     "subsidiaries": [
-      { "name": "풍산", "ticker": "103140.KS", "sharesHeld": 10650000 }
+      {
+        "name": "풍산",
+        "ticker": "103140.KS",
+        "sharesHeld": 10650000
+      }
     ]
   },
   {
@@ -29,7 +37,11 @@
     "holdingTotalShares": 4313236,
     "holdingTreasuryShares": 104391,
     "subsidiaries": [
-      { "name": "세아베스틸지주", "ticker": "001430.KS", "sharesHeld": 22135633 }
+      {
+        "name": "세아베스틸지주",
+        "ticker": "001430.KS",
+        "sharesHeld": 22135633
+      }
     ]
   },
   {
@@ -40,7 +52,11 @@
     "holdingTotalShares": 16740407,
     "holdingTreasuryShares": 22803,
     "subsidiaries": [
-      { "name": "효성중공업", "ticker": "298040.KS", "sharesHeld": 3027685 }
+      {
+        "name": "효성중공업",
+        "ticker": "298040.KS",
+        "sharesHeld": 3027685
+      }
     ]
   },
   {
@@ -51,8 +67,16 @@
     "holdingTotalShares": 6649138,
     "holdingTreasuryShares": 3096215,
     "subsidiaries": [
-      { "name": "버크셔해서웨이", "ticker": "BRK-A", "sharesHeld": 286 },
-      { "name": "애플", "ticker": "AAPL", "sharesHeld": 319982 }
+      {
+        "name": "버크셔해서웨이",
+        "ticker": "BRK-A",
+        "sharesHeld": 286
+      },
+      {
+        "name": "애플",
+        "ticker": "AAPL",
+        "sharesHeld": 319982
+      }
     ]
   },
   {
@@ -63,7 +87,11 @@
     "holdingTotalShares": 37051812,
     "holdingTreasuryShares": 3652884,
     "subsidiaries": [
-      { "name": "서희건설", "ticker": "035890.KS", "sharesHeld": 79346093 }
+      {
+        "name": "서희건설",
+        "ticker": "035890.KS",
+        "sharesHeld": 79346093
+      }
     ]
   },
   {
@@ -74,7 +102,11 @@
     "holdingTotalShares": 52827754,
     "holdingTreasuryShares": 0,
     "subsidiaries": [
-      { "name": "심텍", "ticker": "222800.KQ", "sharesHeld": 12446967 }
+      {
+        "name": "심텍",
+        "ticker": "222800.KQ",
+        "sharesHeld": 12446967
+      }
     ]
   },
   {
@@ -85,9 +117,21 @@
     "holdingTotalShares": 177784107,
     "holdingTreasuryShares": 16192437,
     "subsidiaries": [
-      { "name": "삼성바이오로직스", "ticker": "207940.KS", "sharesHeld": 30643534 },
-      { "name": "삼성전자", "ticker": "005930.KS", "sharesHeld": 299085914 },
-      { "name": "삼성생명", "ticker": "032830.KS", "sharesHeld": 38680000 }
+      {
+        "name": "삼성바이오로직스",
+        "ticker": "207940.KS",
+        "sharesHeld": 30643534
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930.KS",
+        "sharesHeld": 299085914
+      },
+      {
+        "name": "삼성생명",
+        "ticker": "032830.KS",
+        "sharesHeld": 38680000
+      }
     ]
   },
   {
@@ -98,7 +142,11 @@
     "holdingTotalShares": 20610195,
     "holdingTreasuryShares": 560000,
     "subsidiaries": [
-      { "name": "원익홀딩스", "ticker": "030530.KQ", "sharesHeld": 14428218 }
+      {
+        "name": "원익홀딩스",
+        "ticker": "030530.KQ",
+        "sharesHeld": 14428218
+      }
     ]
   },
   {
@@ -109,9 +157,21 @@
     "holdingTotalShares": 12000000,
     "holdingTreasuryShares": 200000,
     "subsidiaries": [
-      { "name": "SNT다이내믹스", "ticker": "003570.KS", "sharesHeld": 10060000 },
-      { "name": "SNT모티브", "ticker": "064960.KS", "sharesHeld": 5124000 },
-      { "name": "SNT에너지", "ticker": "100840.KS", "sharesHeld": 4000000 }
+      {
+        "name": "SNT다이내믹스",
+        "ticker": "003570.KS",
+        "sharesHeld": 10060000
+      },
+      {
+        "name": "SNT모티브",
+        "ticker": "064960.KS",
+        "sharesHeld": 5124000
+      },
+      {
+        "name": "SNT에너지",
+        "ticker": "100840.KS",
+        "sharesHeld": 4000000
+      }
     ]
   },
   {
@@ -122,7 +182,11 @@
     "holdingTotalShares": 200000000,
     "holdingTreasuryShares": 0,
     "subsidiaries": [
-      { "name": "삼성전자", "ticker": "005930.KS", "sharesHeld": 508157528 }
+      {
+        "name": "삼성전자",
+        "ticker": "005930.KS",
+        "sharesHeld": 508157528
+      }
     ]
   },
   {
@@ -133,7 +197,11 @@
     "holdingTotalShares": 70592343,
     "holdingTreasuryShares": 2000000,
     "subsidiaries": [
-      { "name": "LG에너지솔루션", "ticker": "373220.KS", "sharesHeld": 191499175 }
+      {
+        "name": "LG에너지솔루션",
+        "ticker": "373220.KS",
+        "sharesHeld": 191499175
+      }
     ]
   },
   {
@@ -144,7 +212,11 @@
     "holdingTotalShares": 13860000,
     "holdingTreasuryShares": 800000,
     "subsidiaries": [
-      { "name": "세방전지", "ticker": "004490.KS", "sharesHeld": 5569225 }
+      {
+        "name": "세방전지",
+        "ticker": "004490.KS",
+        "sharesHeld": 5569225
+      }
     ]
   },
   {
@@ -155,9 +227,21 @@
     "holdingTotalShares": 75495175,
     "holdingTreasuryShares": 2500000,
     "subsidiaries": [
-      { "name": "한화에어로스페이스", "ticker": "012450.KS", "sharesHeld": 16593103 },
-      { "name": "한화생명보험", "ticker": "088350.KS", "sharesHeld": 391088536 },
-      { "name": "한화비전", "ticker": "489790.KS", "sharesHeld": 17141530 }
+      {
+        "name": "한화에어로스페이스",
+        "ticker": "012450.KS",
+        "sharesHeld": 16593103
+      },
+      {
+        "name": "한화생명보험",
+        "ticker": "088350.KS",
+        "sharesHeld": 391088536
+      },
+      {
+        "name": "한화비전",
+        "ticker": "489790.KS",
+        "sharesHeld": 17141530
+      }
     ]
   },
   {
@@ -168,8 +252,16 @@
     "holdingTotalShares": 18348000,
     "holdingTreasuryShares": 1232637,
     "subsidiaries": [
-      { "name": "SK가스", "ticker": "018670.KS", "sharesHeld": 7221843 },
-      { "name": "SK케미칼", "ticker": "285130.KS", "sharesHeld": 6400615 }
+      {
+        "name": "SK가스",
+        "ticker": "018670.KS",
+        "sharesHeld": 7221843
+      },
+      {
+        "name": "SK케미칼",
+        "ticker": "285130.KS",
+        "sharesHeld": 6400615
+      }
     ]
   },
   {
@@ -180,7 +272,26 @@
     "holdingTotalShares": 132087115,
     "holdingTreasuryShares": 395777,
     "subsidiaries": [
-      { "name": "SK하이닉스", "ticker": "000660.KS", "sharesHeld": 146049275 }
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660.KS",
+        "sharesHeld": 146049275
+      }
+    ]
+  },
+  {
+    "id": "amore",
+    "name": "아모레퍼시픽홀딩스→아모레퍼시픽",
+    "holdingName": "아모레퍼시픽홀딩스",
+    "holdingTicker": "002790.KS",
+    "holdingTotalShares": 89994150,
+    "holdingTreasuryShares": 242770,
+    "subsidiaries": [
+      {
+        "name": "아모레퍼시픽",
+        "ticker": "090430.KS",
+        "sharesHeld": 23761899
+      }
     ]
   }
 ]
