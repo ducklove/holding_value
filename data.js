@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-21 20:18:27",
+  "lastUpdated": "2026-03-22 20:18:45",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -27237,8 +27237,8 @@ const STOCK_DATA = {
         "subsidiaryPrice": 0,
         "holdingValue": 0,
         "marketCap": 0,
-        "ratio": 261.24,
-        "ratioChange": -7.52
+        "ratio": 261.14,
+        "ratioChange": -7.62
       },
       "history": [
         {
@@ -33319,7 +33319,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 261.24
+          "ratio": 261.14
         }
       ]
     },
@@ -75944,20 +75944,20 @@ const STOCK_DATA = {
       "current": {
         "holdingPrice": 70000.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 4295.9,
+        "holdingValue": 4253.1,
         "marketCap": 2487.0,
-        "ratio": 172.73,
-        "ratioChange": -0.84,
+        "ratio": 171.01,
+        "ratioChange": -2.56,
         "subsidiaries": [
           {
             "name": "버크셔해서웨이",
-            "price": 1084533959.0,
-            "value": 3101.8
+            "price": 1073730643.0,
+            "value": 3070.9
           },
           {
             "name": "애플",
-            "price": 373183.0,
-            "value": 1194.1
+            "price": 369465.0,
+            "value": 1182.2
           }
         ]
       },
@@ -81830,9 +81830,9 @@ const STOCK_DATA = {
           "date": "2026-03-20",
           "holdingPrice": 70000.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 4295.9,
+          "holdingValue": 4253.1,
           "marketCap": 2487.0,
-          "ratio": 172.73
+          "ratio": 171.01
         }
       ]
     },
