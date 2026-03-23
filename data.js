@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-22 20:18:45",
+  "lastUpdated": "2026-03-23 20:31:44",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -27237,7 +27237,7 @@ const STOCK_DATA = {
         "subsidiaryPrice": 0,
         "holdingValue": 0,
         "marketCap": 0,
-        "ratio": 261.14,
+        "ratio": 261.44,
         "ratioChange": -7.62
       },
       "history": [
@@ -33287,7 +33287,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 276.6
+          "ratio": 276.9
         },
         {
           "date": "2026-03-17",
@@ -33295,7 +33295,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 274.73
+          "ratio": 275.04
         },
         {
           "date": "2026-03-18",
@@ -33303,7 +33303,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 267.39
+          "ratio": 267.7
         },
         {
           "date": "2026-03-19",
@@ -33311,7 +33311,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 268.76
+          "ratio": 269.06
         },
         {
           "date": "2026-03-20",
@@ -33319,7 +33319,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 261.14
+          "ratio": 261.44
         }
       ]
     },
@@ -63766,12 +63766,12 @@ const STOCK_DATA = {
       "holdingName": "풍산홀딩스",
       "subsidiaryName": "풍산",
       "current": {
-        "holdingPrice": 38450.0,
-        "subsidiaryPrice": 98800.0,
-        "holdingValue": 10522.2,
-        "marketCap": 5278.7,
-        "ratio": 199.33,
-        "ratioChange": -5.42
+        "holdingPrice": 36809.0,
+        "subsidiaryPrice": 96962.0,
+        "holdingValue": 10326.5,
+        "marketCap": 5053.5,
+        "ratio": 204.34,
+        "ratioChange": -5.55
       },
       "history": [
         {
@@ -69808,43 +69808,43 @@ const STOCK_DATA = {
         },
         {
           "date": "2026-03-16",
-          "holdingPrice": 37850.0,
-          "subsidiaryPrice": 99200.0,
-          "holdingValue": 10564.8,
-          "marketCap": 5196.4,
-          "ratio": 203.31
+          "holdingPrice": 36235.0,
+          "subsidiaryPrice": 97355.0,
+          "holdingValue": 10368.3,
+          "marketCap": 4974.7,
+          "ratio": 208.42
         },
         {
           "date": "2026-03-17",
-          "holdingPrice": 38100.0,
-          "subsidiaryPrice": 102500.0,
-          "holdingValue": 10916.2,
-          "marketCap": 5230.7,
-          "ratio": 208.7
+          "holdingPrice": 36474.0,
+          "subsidiaryPrice": 100594.0,
+          "holdingValue": 10713.2,
+          "marketCap": 5007.5,
+          "ratio": 213.94
         },
         {
           "date": "2026-03-18",
-          "holdingPrice": 38350.0,
-          "subsidiaryPrice": 102400.0,
-          "holdingValue": 10905.6,
-          "marketCap": 5265.0,
-          "ratio": 207.13
+          "holdingPrice": 36714.0,
+          "subsidiaryPrice": 100495.0,
+          "holdingValue": 10702.8,
+          "marketCap": 5040.4,
+          "ratio": 212.34
         },
         {
           "date": "2026-03-19",
-          "holdingPrice": 37850.0,
-          "subsidiaryPrice": 99900.0,
-          "holdingValue": 10639.4,
-          "marketCap": 5196.4,
-          "ratio": 204.75
+          "holdingPrice": 36235.0,
+          "subsidiaryPrice": 98042.0,
+          "holdingValue": 10441.5,
+          "marketCap": 4974.7,
+          "ratio": 209.89
         },
         {
           "date": "2026-03-20",
-          "holdingPrice": 38450.0,
-          "subsidiaryPrice": 98800.0,
-          "holdingValue": 10522.2,
-          "marketCap": 5278.7,
-          "ratio": 199.33
+          "holdingPrice": 36809.0,
+          "subsidiaryPrice": 96962.0,
+          "holdingValue": 10326.5,
+          "marketCap": 5053.5,
+          "ratio": 204.34
         }
       ]
     },
