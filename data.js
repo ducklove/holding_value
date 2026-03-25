@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-24 20:34:24",
+  "lastUpdated": "2026-03-25 20:32:07",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -7,12 +7,12 @@ const STOCK_DATA = {
       "holdingName": "영풍",
       "subsidiaryName": "고려아연",
       "current": {
-        "holdingPrice": 59100.0,
-        "subsidiaryPrice": 1486000.0,
-        "holdingValue": 78200.0,
-        "marketCap": 10563.8,
-        "ratio": 740.26,
-        "ratioChange": -35.87
+        "holdingPrice": 64000.0,
+        "subsidiaryPrice": 1543000.0,
+        "holdingValue": 81199.6,
+        "marketCap": 11439.6,
+        "ratio": 709.81,
+        "ratioChange": -30.45
       },
       "history": [
         {
@@ -6094,6 +6094,14 @@ const STOCK_DATA = {
           "holdingValue": 78200.0,
           "marketCap": 10563.8,
           "ratio": 740.26
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 64000.0,
+          "subsidiaryPrice": 1543000.0,
+          "holdingValue": 81199.6,
+          "marketCap": 11439.6,
+          "ratio": 709.81
         }
       ]
     },
@@ -6103,12 +6111,12 @@ const STOCK_DATA = {
       "holdingName": "심텍홀딩스",
       "subsidiaryName": "심텍",
       "current": {
-        "holdingPrice": 2620.0,
+        "holdingPrice": 2650.0,
         "subsidiaryPrice": 56800.0,
         "holdingValue": 7069.9,
-        "marketCap": 1384.1,
-        "ratio": 510.8,
-        "ratioChange": -16.07
+        "marketCap": 1399.9,
+        "ratio": 505.01,
+        "ratioChange": -5.79
       },
       "history": [
         {
@@ -12190,6102 +12198,14 @@ const STOCK_DATA = {
           "holdingValue": 7069.9,
           "marketCap": 1384.1,
           "ratio": 510.8
-        }
-      ]
-    },
-    {
-      "id": "hyosung_heavy",
-      "name": "효성→효성중공업",
-      "holdingName": "효성",
-      "subsidiaryName": "효성중공업",
-      "current": {
-        "holdingPrice": 135800.0,
-        "subsidiaryPrice": 2589000.0,
-        "holdingValue": 78386.8,
-        "marketCap": 22702.5,
-        "ratio": 345.28,
-        "ratioChange": 15.72
-      },
-      "history": [
-        {
-          "date": "2023-02-06",
-          "holdingPrice": 73259.0,
-          "subsidiaryPrice": 67849.0,
-          "holdingValue": 2054.3,
-          "marketCap": 12247.1,
-          "ratio": 16.77
-        },
-        {
-          "date": "2023-02-07",
-          "holdingPrice": 73364.0,
-          "subsidiaryPrice": 66397.0,
-          "holdingValue": 2010.3,
-          "marketCap": 12264.7,
-          "ratio": 16.39
-        },
-        {
-          "date": "2023-02-08",
-          "holdingPrice": 73575.0,
-          "subsidiaryPrice": 66107.0,
-          "holdingValue": 2001.5,
-          "marketCap": 12299.9,
-          "ratio": 16.27
-        },
-        {
-          "date": "2023-02-09",
-          "holdingPrice": 73680.0,
-          "subsidiaryPrice": 65913.0,
-          "holdingValue": 1995.7,
-          "marketCap": 12317.5,
-          "ratio": 16.2
-        },
-        {
-          "date": "2023-02-10",
-          "holdingPrice": 73154.0,
-          "subsidiaryPrice": 65429.0,
-          "holdingValue": 1981.0,
-          "marketCap": 12229.5,
-          "ratio": 16.2
-        },
-        {
-          "date": "2023-02-13",
-          "holdingPrice": 73364.0,
-          "subsidiaryPrice": 66010.0,
-          "holdingValue": 1998.6,
-          "marketCap": 12264.7,
-          "ratio": 16.3
-        },
-        {
-          "date": "2023-02-14",
-          "holdingPrice": 73469.0,
-          "subsidiaryPrice": 65623.0,
-          "holdingValue": 1986.9,
-          "marketCap": 12282.3,
-          "ratio": 16.18
-        },
-        {
-          "date": "2023-02-15",
-          "holdingPrice": 72417.0,
-          "subsidiaryPrice": 62623.0,
-          "holdingValue": 1896.0,
-          "marketCap": 12106.3,
-          "ratio": 15.66
-        },
-        {
-          "date": "2023-02-16",
-          "holdingPrice": 72943.0,
-          "subsidiaryPrice": 65817.0,
-          "holdingValue": 1992.7,
-          "marketCap": 12194.3,
-          "ratio": 16.34
-        },
-        {
-          "date": "2023-02-17",
-          "holdingPrice": 72627.0,
-          "subsidiaryPrice": 67559.0,
-          "holdingValue": 2045.5,
-          "marketCap": 12141.5,
-          "ratio": 16.85
-        },
-        {
-          "date": "2023-02-20",
-          "holdingPrice": 73259.0,
-          "subsidiaryPrice": 67075.0,
-          "holdingValue": 2030.8,
-          "marketCap": 12247.1,
-          "ratio": 16.58
-        },
-        {
-          "date": "2023-02-21",
-          "holdingPrice": 73996.0,
-          "subsidiaryPrice": 66494.0,
-          "holdingValue": 2013.2,
-          "marketCap": 12370.3,
-          "ratio": 16.27
-        },
-        {
-          "date": "2023-02-22",
-          "holdingPrice": 73364.0,
-          "subsidiaryPrice": 67559.0,
-          "holdingValue": 2045.5,
-          "marketCap": 12264.7,
-          "ratio": 16.68
-        },
-        {
-          "date": "2023-02-23",
-          "holdingPrice": 74206.0,
-          "subsidiaryPrice": 70463.0,
-          "holdingValue": 2133.4,
-          "marketCap": 12405.5,
-          "ratio": 17.2
-        },
-        {
-          "date": "2023-02-24",
-          "holdingPrice": 73048.0,
-          "subsidiaryPrice": 68527.0,
-          "holdingValue": 2074.8,
-          "marketCap": 12211.9,
-          "ratio": 16.99
-        },
-        {
-          "date": "2023-02-27",
-          "holdingPrice": 70838.0,
-          "subsidiaryPrice": 68624.0,
-          "holdingValue": 2077.7,
-          "marketCap": 11842.4,
-          "ratio": 17.54
-        },
-        {
-          "date": "2023-02-28",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 68817.0,
-          "holdingValue": 2083.6,
-          "marketCap": 11807.2,
-          "ratio": 17.65
-        },
-        {
-          "date": "2023-03-02",
-          "holdingPrice": 70733.0,
-          "subsidiaryPrice": 75496.0,
-          "holdingValue": 2285.8,
-          "marketCap": 11824.8,
-          "ratio": 19.33
-        },
-        {
-          "date": "2023-03-03",
-          "holdingPrice": 71048.0,
-          "subsidiaryPrice": 75302.0,
-          "holdingValue": 2279.9,
-          "marketCap": 11877.6,
-          "ratio": 19.2
-        },
-        {
-          "date": "2023-03-06",
-          "holdingPrice": 71259.0,
-          "subsidiaryPrice": 72882.0,
-          "holdingValue": 2206.6,
-          "marketCap": 11912.8,
-          "ratio": 18.52
-        },
-        {
-          "date": "2023-03-07",
-          "holdingPrice": 70943.0,
-          "subsidiaryPrice": 74141.0,
-          "holdingValue": 2244.7,
-          "marketCap": 11860.0,
-          "ratio": 18.93
-        },
-        {
-          "date": "2023-03-08",
-          "holdingPrice": 70206.0,
-          "subsidiaryPrice": 73560.0,
-          "holdingValue": 2227.2,
-          "marketCap": 11736.8,
-          "ratio": 18.98
-        },
-        {
-          "date": "2023-03-09",
-          "holdingPrice": 69996.0,
-          "subsidiaryPrice": 72785.0,
-          "holdingValue": 2203.7,
-          "marketCap": 11701.6,
-          "ratio": 18.83
-        },
-        {
-          "date": "2023-03-10",
-          "holdingPrice": 68838.0,
-          "subsidiaryPrice": 70946.0,
-          "holdingValue": 2148.0,
-          "marketCap": 11508.1,
-          "ratio": 18.67
-        },
-        {
-          "date": "2023-03-13",
-          "holdingPrice": 68312.0,
-          "subsidiaryPrice": 69591.0,
-          "holdingValue": 2107.0,
-          "marketCap": 11420.1,
-          "ratio": 18.45
-        },
-        {
-          "date": "2023-03-14",
-          "holdingPrice": 67259.0,
-          "subsidiaryPrice": 66010.0,
-          "holdingValue": 1998.6,
-          "marketCap": 11244.1,
-          "ratio": 17.77
-        },
-        {
-          "date": "2023-03-15",
-          "holdingPrice": 67785.0,
-          "subsidiaryPrice": 68043.0,
-          "holdingValue": 2060.1,
-          "marketCap": 11332.1,
-          "ratio": 18.18
-        },
-        {
-          "date": "2023-03-16",
-          "holdingPrice": 67575.0,
-          "subsidiaryPrice": 66978.0,
-          "holdingValue": 2027.9,
-          "marketCap": 11296.9,
-          "ratio": 17.95
-        },
-        {
-          "date": "2023-03-17",
-          "holdingPrice": 67785.0,
-          "subsidiaryPrice": 65623.0,
-          "holdingValue": 1986.9,
-          "marketCap": 11332.1,
-          "ratio": 17.53
-        },
-        {
-          "date": "2023-03-20",
-          "holdingPrice": 67680.0,
-          "subsidiaryPrice": 65817.0,
-          "holdingValue": 1992.7,
-          "marketCap": 11314.5,
-          "ratio": 17.61
-        },
-        {
-          "date": "2023-03-21",
-          "holdingPrice": 68417.0,
-          "subsidiaryPrice": 65526.0,
-          "holdingValue": 1983.9,
-          "marketCap": 11437.7,
-          "ratio": 17.35
-        },
-        {
-          "date": "2023-03-22",
-          "holdingPrice": 69049.0,
-          "subsidiaryPrice": 65429.0,
-          "holdingValue": 1981.0,
-          "marketCap": 11543.3,
-          "ratio": 17.16
-        },
-        {
-          "date": "2023-03-23",
-          "holdingPrice": 68733.0,
-          "subsidiaryPrice": 63784.0,
-          "holdingValue": 1931.2,
-          "marketCap": 11490.5,
-          "ratio": 16.81
-        },
-        {
-          "date": "2023-03-24",
-          "holdingPrice": 68627.0,
-          "subsidiaryPrice": 64074.0,
-          "holdingValue": 1940.0,
-          "marketCap": 11472.9,
-          "ratio": 16.91
-        },
-        {
-          "date": "2023-03-27",
-          "holdingPrice": 68943.0,
-          "subsidiaryPrice": 63494.0,
-          "holdingValue": 1922.4,
-          "marketCap": 11525.7,
-          "ratio": 16.68
-        },
-        {
-          "date": "2023-03-28",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 65236.0,
-          "holdingValue": 1975.1,
-          "marketCap": 11596.0,
-          "ratio": 17.03
-        },
-        {
-          "date": "2023-03-29",
-          "holdingPrice": 69470.0,
-          "subsidiaryPrice": 64365.0,
-          "holdingValue": 1948.8,
-          "marketCap": 11613.6,
-          "ratio": 16.78
-        },
-        {
-          "date": "2023-03-30",
-          "holdingPrice": 69785.0,
-          "subsidiaryPrice": 64946.0,
-          "holdingValue": 1966.3,
-          "marketCap": 11666.4,
-          "ratio": 16.85
-        },
-        {
-          "date": "2023-03-31",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 64558.0,
-          "holdingValue": 1954.6,
-          "marketCap": 11895.2,
-          "ratio": 16.43
-        },
-        {
-          "date": "2023-04-03",
-          "holdingPrice": 70522.0,
-          "subsidiaryPrice": 68430.0,
-          "holdingValue": 2071.8,
-          "marketCap": 11789.6,
-          "ratio": 17.57
-        },
-        {
-          "date": "2023-04-04",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 67946.0,
-          "holdingValue": 2057.2,
-          "marketCap": 11895.2,
-          "ratio": 17.29
-        },
-        {
-          "date": "2023-04-05",
-          "holdingPrice": 70522.0,
-          "subsidiaryPrice": 69301.0,
-          "holdingValue": 2098.2,
-          "marketCap": 11789.6,
-          "ratio": 17.8
-        },
-        {
-          "date": "2023-04-06",
-          "holdingPrice": 69680.0,
-          "subsidiaryPrice": 66204.0,
-          "holdingValue": 2004.4,
-          "marketCap": 11648.8,
-          "ratio": 17.21
-        },
-        {
-          "date": "2023-04-07",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 66397.0,
-          "holdingValue": 2010.3,
-          "marketCap": 11596.0,
-          "ratio": 17.34
-        },
-        {
-          "date": "2023-04-10",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 66010.0,
-          "holdingValue": 1998.6,
-          "marketCap": 11596.0,
-          "ratio": 17.24
-        },
-        {
-          "date": "2023-04-11",
-          "holdingPrice": 70101.0,
-          "subsidiaryPrice": 67075.0,
-          "holdingValue": 2030.8,
-          "marketCap": 11719.2,
-          "ratio": 17.33
-        },
-        {
-          "date": "2023-04-12",
-          "holdingPrice": 70312.0,
-          "subsidiaryPrice": 69301.0,
-          "holdingValue": 2098.2,
-          "marketCap": 11754.4,
-          "ratio": 17.85
-        },
-        {
-          "date": "2023-04-13",
-          "holdingPrice": 71469.0,
-          "subsidiaryPrice": 74141.0,
-          "holdingValue": 2244.7,
-          "marketCap": 11948.0,
-          "ratio": 18.79
-        },
-        {
-          "date": "2023-04-14",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 73657.0,
-          "holdingValue": 2230.1,
-          "marketCap": 11895.2,
-          "ratio": 18.75
-        },
-        {
-          "date": "2023-04-17",
-          "holdingPrice": 71575.0,
-          "subsidiaryPrice": 77335.0,
-          "holdingValue": 2341.4,
-          "marketCap": 11965.6,
-          "ratio": 19.57
-        },
-        {
-          "date": "2023-04-18",
-          "holdingPrice": 71785.0,
-          "subsidiaryPrice": 76270.0,
-          "holdingValue": 2309.2,
-          "marketCap": 12000.8,
-          "ratio": 19.24
-        },
-        {
-          "date": "2023-04-19",
-          "holdingPrice": 72311.0,
-          "subsidiaryPrice": 75302.0,
-          "holdingValue": 2279.9,
-          "marketCap": 12088.7,
-          "ratio": 18.86
-        },
-        {
-          "date": "2023-04-20",
-          "holdingPrice": 71680.0,
-          "subsidiaryPrice": 73366.0,
-          "holdingValue": 2221.3,
-          "marketCap": 11983.2,
-          "ratio": 18.54
-        },
-        {
-          "date": "2023-04-21",
-          "holdingPrice": 70943.0,
-          "subsidiaryPrice": 75205.0,
-          "holdingValue": 2277.0,
-          "marketCap": 11860.0,
-          "ratio": 19.2
-        },
-        {
-          "date": "2023-04-24",
-          "holdingPrice": 70312.0,
-          "subsidiaryPrice": 73560.0,
-          "holdingValue": 2227.2,
-          "marketCap": 11754.4,
-          "ratio": 18.95
-        },
-        {
-          "date": "2023-04-25",
-          "holdingPrice": 69470.0,
-          "subsidiaryPrice": 76463.0,
-          "holdingValue": 2315.1,
-          "marketCap": 11613.6,
-          "ratio": 19.93
-        },
-        {
-          "date": "2023-04-26",
-          "holdingPrice": 68943.0,
-          "subsidiaryPrice": 74624.0,
-          "holdingValue": 2259.4,
-          "marketCap": 11525.7,
-          "ratio": 19.6
-        },
-        {
-          "date": "2023-04-27",
-          "holdingPrice": 68838.0,
-          "subsidiaryPrice": 76076.0,
-          "holdingValue": 2303.4,
-          "marketCap": 11508.1,
-          "ratio": 20.02
-        },
-        {
-          "date": "2023-04-28",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 75980.0,
-          "holdingValue": 2300.4,
-          "marketCap": 11596.0,
-          "ratio": 19.84
-        },
-        {
-          "date": "2023-05-02",
-          "holdingPrice": 71048.0,
-          "subsidiaryPrice": 79077.0,
-          "holdingValue": 2394.2,
-          "marketCap": 11877.6,
-          "ratio": 20.16
-        },
-        {
-          "date": "2023-05-03",
-          "holdingPrice": 69891.0,
-          "subsidiaryPrice": 77818.0,
-          "holdingValue": 2356.1,
-          "marketCap": 11684.0,
-          "ratio": 20.17
-        },
-        {
-          "date": "2023-05-04",
-          "holdingPrice": 70206.0,
-          "subsidiaryPrice": 79174.0,
-          "holdingValue": 2397.1,
-          "marketCap": 11736.8,
-          "ratio": 20.42
-        },
-        {
-          "date": "2023-05-08",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 79270.0,
-          "holdingValue": 2400.1,
-          "marketCap": 11807.2,
-          "ratio": 20.33
-        },
-        {
-          "date": "2023-05-09",
-          "holdingPrice": 71259.0,
-          "subsidiaryPrice": 80335.0,
-          "holdingValue": 2432.3,
-          "marketCap": 11912.8,
-          "ratio": 20.42
-        },
-        {
-          "date": "2023-05-10",
-          "holdingPrice": 70522.0,
-          "subsidiaryPrice": 79367.0,
-          "holdingValue": 2403.0,
-          "marketCap": 11789.6,
-          "ratio": 20.38
-        },
-        {
-          "date": "2023-05-11",
-          "holdingPrice": 71259.0,
-          "subsidiaryPrice": 79851.0,
-          "holdingValue": 2417.6,
-          "marketCap": 11912.8,
-          "ratio": 20.29
-        },
-        {
-          "date": "2023-05-12",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 77431.0,
-          "holdingValue": 2344.4,
-          "marketCap": 11807.2,
-          "ratio": 19.86
-        },
-        {
-          "date": "2023-05-15",
-          "holdingPrice": 70417.0,
-          "subsidiaryPrice": 76754.0,
-          "holdingValue": 2323.9,
-          "marketCap": 11772.0,
-          "ratio": 19.74
-        },
-        {
-          "date": "2023-05-16",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 75496.0,
-          "holdingValue": 2285.8,
-          "marketCap": 11596.0,
-          "ratio": 19.71
-        },
-        {
-          "date": "2023-05-17",
-          "holdingPrice": 69259.0,
-          "subsidiaryPrice": 75108.0,
-          "holdingValue": 2274.0,
-          "marketCap": 11578.5,
-          "ratio": 19.64
-        },
-        {
-          "date": "2023-05-18",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 75108.0,
-          "holdingValue": 2274.0,
-          "marketCap": 11596.0,
-          "ratio": 19.61
-        },
-        {
-          "date": "2023-05-19",
-          "holdingPrice": 69996.0,
-          "subsidiaryPrice": 73173.0,
-          "holdingValue": 2215.4,
-          "marketCap": 11701.6,
-          "ratio": 18.93
-        },
-        {
-          "date": "2023-05-22",
-          "holdingPrice": 69891.0,
-          "subsidiaryPrice": 77915.0,
-          "holdingValue": 2359.0,
-          "marketCap": 11684.0,
-          "ratio": 20.19
-        },
-        {
-          "date": "2023-05-23",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 77044.0,
-          "holdingValue": 2332.7,
-          "marketCap": 11807.2,
-          "ratio": 19.76
-        },
-        {
-          "date": "2023-05-24",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 81690.0,
-          "holdingValue": 2473.3,
-          "marketCap": 11807.2,
-          "ratio": 20.95
-        },
-        {
-          "date": "2023-05-25",
-          "holdingPrice": 69575.0,
-          "subsidiaryPrice": 78883.0,
-          "holdingValue": 2388.3,
-          "marketCap": 11631.2,
-          "ratio": 20.53
-        },
-        {
-          "date": "2023-05-26",
-          "holdingPrice": 69259.0,
-          "subsidiaryPrice": 76754.0,
-          "holdingValue": 2323.9,
-          "marketCap": 11578.5,
-          "ratio": 20.07
-        },
-        {
-          "date": "2023-05-30",
-          "holdingPrice": 69259.0,
-          "subsidiaryPrice": 78012.0,
-          "holdingValue": 2362.0,
-          "marketCap": 11578.5,
-          "ratio": 20.4
-        },
-        {
-          "date": "2023-05-31",
-          "holdingPrice": 68733.0,
-          "subsidiaryPrice": 77431.0,
-          "holdingValue": 2344.4,
-          "marketCap": 11490.5,
-          "ratio": 20.4
-        },
-        {
-          "date": "2023-06-01",
-          "holdingPrice": 68733.0,
-          "subsidiaryPrice": 79077.0,
-          "holdingValue": 2394.2,
-          "marketCap": 11490.5,
-          "ratio": 20.84
-        },
-        {
-          "date": "2023-06-02",
-          "holdingPrice": 69364.0,
-          "subsidiaryPrice": 85465.0,
-          "holdingValue": 2587.6,
-          "marketCap": 11596.0,
-          "ratio": 22.31
-        },
-        {
-          "date": "2023-06-05",
-          "holdingPrice": 69891.0,
-          "subsidiaryPrice": 85174.0,
-          "holdingValue": 2578.8,
-          "marketCap": 11684.0,
-          "ratio": 22.07
-        },
-        {
-          "date": "2023-06-07",
-          "holdingPrice": 70312.0,
-          "subsidiaryPrice": 87110.0,
-          "holdingValue": 2637.4,
-          "marketCap": 11754.4,
-          "ratio": 22.44
-        },
-        {
-          "date": "2023-06-08",
-          "holdingPrice": 70627.0,
-          "subsidiaryPrice": 87788.0,
-          "holdingValue": 2657.9,
-          "marketCap": 11807.2,
-          "ratio": 22.51
-        },
-        {
-          "date": "2023-06-09",
-          "holdingPrice": 70101.0,
-          "subsidiaryPrice": 92434.0,
-          "holdingValue": 2798.6,
-          "marketCap": 11719.2,
-          "ratio": 23.88
-        },
-        {
-          "date": "2023-06-12",
-          "holdingPrice": 69891.0,
-          "subsidiaryPrice": 91369.0,
-          "holdingValue": 2766.4,
-          "marketCap": 11684.0,
-          "ratio": 23.68
-        },
-        {
-          "date": "2023-06-13",
-          "holdingPrice": 68838.0,
-          "subsidiaryPrice": 90014.0,
-          "holdingValue": 2725.3,
-          "marketCap": 11508.1,
-          "ratio": 23.68
-        },
-        {
-          "date": "2023-06-14",
-          "holdingPrice": 68943.0,
-          "subsidiaryPrice": 88272.0,
-          "holdingValue": 2672.6,
-          "marketCap": 11525.7,
-          "ratio": 23.19
-        },
-        {
-          "date": "2023-06-15",
-          "holdingPrice": 68522.0,
-          "subsidiaryPrice": 89627.0,
-          "holdingValue": 2713.6,
-          "marketCap": 11455.3,
-          "ratio": 23.69
-        },
-        {
-          "date": "2023-06-16",
-          "holdingPrice": 68101.0,
-          "subsidiaryPrice": 93305.0,
-          "holdingValue": 2825.0,
-          "marketCap": 11384.9,
-          "ratio": 24.81
-        },
-        {
-          "date": "2023-06-19",
-          "holdingPrice": 67891.0,
-          "subsidiaryPrice": 95434.0,
-          "holdingValue": 2889.4,
-          "marketCap": 11349.7,
-          "ratio": 25.46
-        },
-        {
-          "date": "2023-06-20",
-          "holdingPrice": 68627.0,
-          "subsidiaryPrice": 95337.0,
-          "holdingValue": 2886.5,
-          "marketCap": 11472.9,
-          "ratio": 25.16
-        },
-        {
-          "date": "2023-06-21",
-          "holdingPrice": 68417.0,
-          "subsidiaryPrice": 98822.0,
-          "holdingValue": 2992.0,
-          "marketCap": 11437.7,
-          "ratio": 26.16
-        },
-        {
-          "date": "2023-06-22",
-          "holdingPrice": 68417.0,
-          "subsidiaryPrice": 97951.0,
-          "holdingValue": 2965.6,
-          "marketCap": 11437.7,
-          "ratio": 25.93
-        },
-        {
-          "date": "2023-06-23",
-          "holdingPrice": 67680.0,
-          "subsidiaryPrice": 96789.0,
-          "holdingValue": 2930.5,
-          "marketCap": 11314.5,
-          "ratio": 25.9
-        },
-        {
-          "date": "2023-06-26",
-          "holdingPrice": 68206.0,
-          "subsidiaryPrice": 97757.0,
-          "holdingValue": 2959.8,
-          "marketCap": 11402.5,
-          "ratio": 25.96
-        },
-        {
-          "date": "2023-06-27",
-          "holdingPrice": 67785.0,
-          "subsidiaryPrice": 97854.0,
-          "holdingValue": 2962.7,
-          "marketCap": 11332.1,
-          "ratio": 26.14
-        },
-        {
-          "date": "2023-06-28",
-          "holdingPrice": 67680.0,
-          "subsidiaryPrice": 98047.0,
-          "holdingValue": 2968.6,
-          "marketCap": 11314.5,
-          "ratio": 26.24
-        },
-        {
-          "date": "2023-06-29",
-          "holdingPrice": 66312.0,
-          "subsidiaryPrice": 97273.0,
-          "holdingValue": 2945.1,
-          "marketCap": 11085.8,
-          "ratio": 26.57
-        },
-        {
-          "date": "2023-06-30",
-          "holdingPrice": 66522.0,
-          "subsidiaryPrice": 111211.0,
-          "holdingValue": 3367.1,
-          "marketCap": 11120.9,
-          "ratio": 30.28
-        },
-        {
-          "date": "2023-07-03",
-          "holdingPrice": 66943.0,
-          "subsidiaryPrice": 112469.0,
-          "holdingValue": 3405.2,
-          "marketCap": 11191.3,
-          "ratio": 30.43
-        },
-        {
-          "date": "2023-07-04",
-          "holdingPrice": 63786.0,
-          "subsidiaryPrice": 118276.0,
-          "holdingValue": 3581.0,
-          "marketCap": 10663.4,
-          "ratio": 33.58
-        },
-        {
-          "date": "2023-07-05",
-          "holdingPrice": 60207.0,
-          "subsidiaryPrice": 120309.0,
-          "holdingValue": 3642.6,
-          "marketCap": 10065.2,
-          "ratio": 36.19
-        },
-        {
-          "date": "2023-07-06",
-          "holdingPrice": 59891.0,
-          "subsidiaryPrice": 117212.0,
-          "holdingValue": 3548.8,
-          "marketCap": 10012.4,
-          "ratio": 35.44
-        },
-        {
-          "date": "2023-07-07",
-          "holdingPrice": 59996.0,
-          "subsidiaryPrice": 117986.0,
-          "holdingValue": 3572.2,
-          "marketCap": 10030.0,
-          "ratio": 35.62
-        },
-        {
-          "date": "2023-07-10",
-          "holdingPrice": 60838.0,
-          "subsidiaryPrice": 119341.0,
-          "holdingValue": 3613.3,
-          "marketCap": 10170.7,
-          "ratio": 35.53
-        },
-        {
-          "date": "2023-07-11",
-          "holdingPrice": 62944.0,
-          "subsidiaryPrice": 130278.0,
-          "holdingValue": 3944.4,
-          "marketCap": 10522.7,
-          "ratio": 37.48
-        },
-        {
-          "date": "2023-07-12",
-          "holdingPrice": 61891.0,
-          "subsidiaryPrice": 129697.0,
-          "holdingValue": 3926.8,
-          "marketCap": 10346.7,
-          "ratio": 37.95
-        },
-        {
-          "date": "2023-07-13",
-          "holdingPrice": 62312.0,
-          "subsidiaryPrice": 136763.0,
-          "holdingValue": 4140.8,
-          "marketCap": 10417.1,
-          "ratio": 39.75
-        },
-        {
-          "date": "2023-07-14",
-          "holdingPrice": 62838.0,
-          "subsidiaryPrice": 127084.0,
-          "holdingValue": 3847.7,
-          "marketCap": 10505.1,
-          "ratio": 36.63
-        },
-        {
-          "date": "2023-07-17",
-          "holdingPrice": 62312.0,
-          "subsidiaryPrice": 127084.0,
-          "holdingValue": 3847.7,
-          "marketCap": 10417.1,
-          "ratio": 36.94
-        },
-        {
-          "date": "2023-07-18",
-          "holdingPrice": 62417.0,
-          "subsidiaryPrice": 124858.0,
-          "holdingValue": 3780.3,
-          "marketCap": 10434.7,
-          "ratio": 36.23
-        },
-        {
-          "date": "2023-07-19",
-          "holdingPrice": 61681.0,
-          "subsidiaryPrice": 127084.0,
-          "holdingValue": 3847.7,
-          "marketCap": 10311.5,
-          "ratio": 37.31
-        },
-        {
-          "date": "2023-07-20",
-          "holdingPrice": 62102.0,
-          "subsidiaryPrice": 129214.0,
-          "holdingValue": 3912.2,
-          "marketCap": 10381.9,
-          "ratio": 37.68
-        },
-        {
-          "date": "2023-07-21",
-          "holdingPrice": 62628.0,
-          "subsidiaryPrice": 126310.0,
-          "holdingValue": 3824.3,
-          "marketCap": 10469.9,
-          "ratio": 36.53
-        },
-        {
-          "date": "2023-07-24",
-          "holdingPrice": 62102.0,
-          "subsidiaryPrice": 128730.0,
-          "holdingValue": 3897.5,
-          "marketCap": 10381.9,
-          "ratio": 37.54
-        },
-        {
-          "date": "2023-07-25",
-          "holdingPrice": 61996.0,
-          "subsidiaryPrice": 144022.0,
-          "holdingValue": 4360.5,
-          "marketCap": 10364.3,
-          "ratio": 42.07
-        },
-        {
-          "date": "2023-07-26",
-          "holdingPrice": 61049.0,
-          "subsidiaryPrice": 130375.0,
-          "holdingValue": 3947.3,
-          "marketCap": 10205.9,
-          "ratio": 38.68
-        },
-        {
-          "date": "2023-07-27",
-          "holdingPrice": 62417.0,
-          "subsidiaryPrice": 122438.0,
-          "holdingValue": 3707.0,
-          "marketCap": 10434.7,
-          "ratio": 35.53
-        },
-        {
-          "date": "2023-07-28",
-          "holdingPrice": 62102.0,
-          "subsidiaryPrice": 129988.0,
-          "holdingValue": 3935.6,
-          "marketCap": 10381.9,
-          "ratio": 37.91
-        },
-        {
-          "date": "2023-07-31",
-          "holdingPrice": 63470.0,
-          "subsidiaryPrice": 168897.0,
-          "holdingValue": 5113.7,
-          "marketCap": 10610.6,
-          "ratio": 48.19
-        },
-        {
-          "date": "2023-08-01",
-          "holdingPrice": 63996.0,
-          "subsidiaryPrice": 159315.0,
-          "holdingValue": 4823.6,
-          "marketCap": 10698.6,
-          "ratio": 45.09
-        },
-        {
-          "date": "2023-08-02",
-          "holdingPrice": 68206.0,
-          "subsidiaryPrice": 161251.0,
-          "holdingValue": 4882.2,
-          "marketCap": 11402.5,
-          "ratio": 42.82
-        },
-        {
-          "date": "2023-08-03",
-          "holdingPrice": 65470.0,
-          "subsidiaryPrice": 180705.0,
-          "holdingValue": 5471.2,
-          "marketCap": 10945.0,
-          "ratio": 49.99
-        },
-        {
-          "date": "2023-08-04",
-          "holdingPrice": 65786.0,
-          "subsidiaryPrice": 167252.0,
-          "holdingValue": 5063.9,
-          "marketCap": 10997.8,
-          "ratio": 46.04
-        },
-        {
-          "date": "2023-08-07",
-          "holdingPrice": 66101.0,
-          "subsidiaryPrice": 169091.0,
-          "holdingValue": 5119.5,
-          "marketCap": 11050.6,
-          "ratio": 46.33
-        },
-        {
-          "date": "2023-08-08",
-          "holdingPrice": 66522.0,
-          "subsidiaryPrice": 182835.0,
-          "holdingValue": 5535.7,
-          "marketCap": 11120.9,
-          "ratio": 49.78
-        },
-        {
-          "date": "2023-08-09",
-          "holdingPrice": 66207.0,
-          "subsidiaryPrice": 185158.0,
-          "holdingValue": 5606.0,
-          "marketCap": 11068.2,
-          "ratio": 50.65
-        },
-        {
-          "date": "2023-08-10",
-          "holdingPrice": 66101.0,
-          "subsidiaryPrice": 180802.0,
-          "holdingValue": 5474.1,
-          "marketCap": 11050.6,
-          "ratio": 49.54
-        },
-        {
-          "date": "2023-08-11",
-          "holdingPrice": 66838.0,
-          "subsidiaryPrice": 180802.0,
-          "holdingValue": 5474.1,
-          "marketCap": 11173.7,
-          "ratio": 48.99
-        },
-        {
-          "date": "2023-08-14",
-          "holdingPrice": 66101.0,
-          "subsidiaryPrice": 182060.0,
-          "holdingValue": 5512.2,
-          "marketCap": 11050.6,
-          "ratio": 49.88
-        },
-        {
-          "date": "2023-08-16",
-          "holdingPrice": 65470.0,
-          "subsidiaryPrice": 180028.0,
-          "holdingValue": 5450.7,
-          "marketCap": 10945.0,
-          "ratio": 49.8
-        },
-        {
-          "date": "2023-08-17",
-          "holdingPrice": 64101.0,
-          "subsidiaryPrice": 180899.0,
-          "holdingValue": 5477.1,
-          "marketCap": 10716.2,
-          "ratio": 51.11
-        },
-        {
-          "date": "2023-08-18",
-          "holdingPrice": 64417.0,
-          "subsidiaryPrice": 180028.0,
-          "holdingValue": 5450.7,
-          "marketCap": 10769.0,
-          "ratio": 50.61
-        },
-        {
-          "date": "2023-08-21",
-          "holdingPrice": 64417.0,
-          "subsidiaryPrice": 184771.0,
-          "holdingValue": 5594.3,
-          "marketCap": 10769.0,
-          "ratio": 51.95
-        },
-        {
-          "date": "2023-08-22",
-          "holdingPrice": 64838.0,
-          "subsidiaryPrice": 196482.0,
-          "holdingValue": 5948.9,
-          "marketCap": 10839.4,
-          "ratio": 54.88
-        },
-        {
-          "date": "2023-08-23",
-          "holdingPrice": 64733.0,
-          "subsidiaryPrice": 183706.0,
-          "holdingValue": 5562.0,
-          "marketCap": 10821.8,
-          "ratio": 51.4
-        },
-        {
-          "date": "2023-08-24",
-          "holdingPrice": 65575.0,
-          "subsidiaryPrice": 184190.0,
-          "holdingValue": 5576.7,
-          "marketCap": 10962.6,
-          "ratio": 50.87
-        },
-        {
-          "date": "2023-08-25",
-          "holdingPrice": 65680.0,
-          "subsidiaryPrice": 187287.0,
-          "holdingValue": 5670.5,
-          "marketCap": 10980.2,
-          "ratio": 51.64
-        },
-        {
-          "date": "2023-08-28",
-          "holdingPrice": 66207.0,
-          "subsidiaryPrice": 183996.0,
-          "holdingValue": 5570.8,
-          "marketCap": 11068.2,
-          "ratio": 50.33
-        },
-        {
-          "date": "2023-08-29",
-          "holdingPrice": 65891.0,
-          "subsidiaryPrice": 186416.0,
-          "holdingValue": 5644.1,
-          "marketCap": 11015.4,
-          "ratio": 51.24
-        },
-        {
-          "date": "2023-08-30",
-          "holdingPrice": 66101.0,
-          "subsidiaryPrice": 185061.0,
-          "holdingValue": 5603.1,
-          "marketCap": 11050.6,
-          "ratio": 50.7
-        },
-        {
-          "date": "2023-08-31",
-          "holdingPrice": 66733.0,
-          "subsidiaryPrice": 194062.0,
-          "holdingValue": 5875.6,
-          "marketCap": 11156.1,
-          "ratio": 52.67
-        },
-        {
-          "date": "2023-09-01",
-          "holdingPrice": 65786.0,
-          "subsidiaryPrice": 179931.0,
-          "holdingValue": 5447.7,
-          "marketCap": 10997.8,
-          "ratio": 49.54
-        },
-        {
-          "date": "2023-09-04",
-          "holdingPrice": 66943.0,
-          "subsidiaryPrice": 180996.0,
-          "holdingValue": 5480.0,
-          "marketCap": 11191.3,
-          "ratio": 48.97
-        },
-        {
-          "date": "2023-09-05",
-          "holdingPrice": 66943.0,
-          "subsidiaryPrice": 177511.0,
-          "holdingValue": 5374.5,
-          "marketCap": 11191.3,
-          "ratio": 48.02
-        },
-        {
-          "date": "2023-09-06",
-          "holdingPrice": 66207.0,
-          "subsidiaryPrice": 174898.0,
-          "holdingValue": 5295.4,
-          "marketCap": 11068.2,
-          "ratio": 47.84
-        },
-        {
-          "date": "2023-09-07",
-          "holdingPrice": 65680.0,
-          "subsidiaryPrice": 171026.0,
-          "holdingValue": 5178.1,
-          "marketCap": 10980.2,
-          "ratio": 47.16
-        },
-        {
-          "date": "2023-09-08",
-          "holdingPrice": 66417.0,
-          "subsidiaryPrice": 169381.0,
-          "holdingValue": 5128.3,
-          "marketCap": 11103.3,
-          "ratio": 46.19
-        },
-        {
-          "date": "2023-09-11",
-          "holdingPrice": 66733.0,
-          "subsidiaryPrice": 178673.0,
-          "holdingValue": 5409.6,
-          "marketCap": 11156.1,
-          "ratio": 48.49
-        },
-        {
-          "date": "2023-09-12",
-          "holdingPrice": 67259.0,
-          "subsidiaryPrice": 179060.0,
-          "holdingValue": 5421.4,
-          "marketCap": 11244.1,
-          "ratio": 48.22
-        },
-        {
-          "date": "2023-09-13",
-          "holdingPrice": 67049.0,
-          "subsidiaryPrice": 168800.0,
-          "holdingValue": 5110.7,
-          "marketCap": 11208.9,
-          "ratio": 45.6
-        },
-        {
-          "date": "2023-09-14",
-          "holdingPrice": 67049.0,
-          "subsidiaryPrice": 171026.0,
-          "holdingValue": 5178.1,
-          "marketCap": 11208.9,
-          "ratio": 46.2
-        },
-        {
-          "date": "2023-09-15",
-          "holdingPrice": 67259.0,
-          "subsidiaryPrice": 176834.0,
-          "holdingValue": 5354.0,
-          "marketCap": 11244.1,
-          "ratio": 47.62
-        },
-        {
-          "date": "2023-09-18",
-          "holdingPrice": 66943.0,
-          "subsidiaryPrice": 179834.0,
-          "holdingValue": 5444.8,
-          "marketCap": 11191.3,
-          "ratio": 48.65
-        },
-        {
-          "date": "2023-09-19",
-          "holdingPrice": 66943.0,
-          "subsidiaryPrice": 184771.0,
-          "holdingValue": 5594.3,
-          "marketCap": 11191.3,
-          "ratio": 49.99
-        },
-        {
-          "date": "2023-09-20",
-          "holdingPrice": 67680.0,
-          "subsidiaryPrice": 180415.0,
-          "holdingValue": 5462.4,
-          "marketCap": 11314.5,
-          "ratio": 48.28
-        },
-        {
-          "date": "2023-09-21",
-          "holdingPrice": 66312.0,
-          "subsidiaryPrice": 177221.0,
-          "holdingValue": 5365.7,
-          "marketCap": 11085.8,
-          "ratio": 48.4
-        },
-        {
-          "date": "2023-09-22",
-          "holdingPrice": 65996.0,
-          "subsidiaryPrice": 178286.0,
-          "holdingValue": 5397.9,
-          "marketCap": 11033.0,
-          "ratio": 48.93
-        },
-        {
-          "date": "2023-09-25",
-          "holdingPrice": 65680.0,
-          "subsidiaryPrice": 164638.0,
-          "holdingValue": 4984.7,
-          "marketCap": 10980.2,
-          "ratio": 45.4
-        },
-        {
-          "date": "2023-09-26",
-          "holdingPrice": 64943.0,
-          "subsidiaryPrice": 161154.0,
-          "holdingValue": 4879.2,
-          "marketCap": 10857.0,
-          "ratio": 44.94
-        },
-        {
-          "date": "2023-09-27",
-          "holdingPrice": 65154.0,
-          "subsidiaryPrice": 164542.0,
-          "holdingValue": 4981.8,
-          "marketCap": 10892.2,
-          "ratio": 45.74
-        },
-        {
-          "date": "2023-10-04",
-          "holdingPrice": 63049.0,
-          "subsidiaryPrice": 156024.0,
-          "holdingValue": 4723.9,
-          "marketCap": 10540.3,
-          "ratio": 44.82
-        },
-        {
-          "date": "2023-10-05",
-          "holdingPrice": 63049.0,
-          "subsidiaryPrice": 156411.0,
-          "holdingValue": 4735.6,
-          "marketCap": 10540.3,
-          "ratio": 44.93
-        },
-        {
-          "date": "2023-10-06",
-          "holdingPrice": 63365.0,
-          "subsidiaryPrice": 156798.0,
-          "holdingValue": 4747.4,
-          "marketCap": 10593.0,
-          "ratio": 44.82
-        },
-        {
-          "date": "2023-10-10",
-          "holdingPrice": 62628.0,
-          "subsidiaryPrice": 157476.0,
-          "holdingValue": 4767.9,
-          "marketCap": 10469.9,
-          "ratio": 45.54
-        },
-        {
-          "date": "2023-10-11",
-          "holdingPrice": 63154.0,
-          "subsidiaryPrice": 162219.0,
-          "holdingValue": 4911.5,
-          "marketCap": 10557.9,
-          "ratio": 46.52
-        },
-        {
-          "date": "2023-10-12",
-          "holdingPrice": 63365.0,
-          "subsidiaryPrice": 167929.0,
-          "holdingValue": 5084.4,
-          "marketCap": 10593.0,
-          "ratio": 48.0
-        },
-        {
-          "date": "2023-10-13",
-          "holdingPrice": 61996.0,
-          "subsidiaryPrice": 170155.0,
-          "holdingValue": 5151.8,
-          "marketCap": 10364.3,
-          "ratio": 49.71
-        },
-        {
-          "date": "2023-10-16",
-          "holdingPrice": 60944.0,
-          "subsidiaryPrice": 174317.0,
-          "holdingValue": 5277.8,
-          "marketCap": 10188.3,
-          "ratio": 51.8
-        },
-        {
-          "date": "2023-10-17",
-          "holdingPrice": 61365.0,
-          "subsidiaryPrice": 178382.0,
-          "holdingValue": 5400.9,
-          "marketCap": 10258.7,
-          "ratio": 52.65
-        },
-        {
-          "date": "2023-10-18",
-          "holdingPrice": 62523.0,
-          "subsidiaryPrice": 178382.0,
-          "holdingValue": 5400.9,
-          "marketCap": 10452.3,
-          "ratio": 51.67
-        },
-        {
-          "date": "2023-10-19",
-          "holdingPrice": 61681.0,
-          "subsidiaryPrice": 167252.0,
-          "holdingValue": 5063.9,
-          "marketCap": 10311.5,
-          "ratio": 49.11
-        },
-        {
-          "date": "2023-10-20",
-          "holdingPrice": 60733.0,
-          "subsidiaryPrice": 169091.0,
-          "holdingValue": 5119.5,
-          "marketCap": 10153.1,
-          "ratio": 50.42
-        },
-        {
-          "date": "2023-10-23",
-          "holdingPrice": 59681.0,
-          "subsidiaryPrice": 157670.0,
-          "holdingValue": 4773.7,
-          "marketCap": 9977.2,
-          "ratio": 47.85
-        },
-        {
-          "date": "2023-10-24",
-          "holdingPrice": 60417.0,
-          "subsidiaryPrice": 168704.0,
-          "holdingValue": 5107.8,
-          "marketCap": 10100.4,
-          "ratio": 50.57
-        },
-        {
-          "date": "2023-10-25",
-          "holdingPrice": 61049.0,
-          "subsidiaryPrice": 174027.0,
-          "holdingValue": 5269.0,
-          "marketCap": 10205.9,
-          "ratio": 51.63
-        },
-        {
-          "date": "2023-10-26",
-          "holdingPrice": 60628.0,
-          "subsidiaryPrice": 173156.0,
-          "holdingValue": 5242.6,
-          "marketCap": 10135.5,
-          "ratio": 51.73
-        },
-        {
-          "date": "2023-10-27",
-          "holdingPrice": 61470.0,
-          "subsidiaryPrice": 169962.0,
-          "holdingValue": 5145.9,
-          "marketCap": 10276.3,
-          "ratio": 50.08
-        },
-        {
-          "date": "2023-10-30",
-          "holdingPrice": 62312.0,
-          "subsidiaryPrice": 170446.0,
-          "holdingValue": 5160.6,
-          "marketCap": 10417.1,
-          "ratio": 49.54
-        },
-        {
-          "date": "2023-10-31",
-          "holdingPrice": 62102.0,
-          "subsidiaryPrice": 165219.0,
-          "holdingValue": 5002.3,
-          "marketCap": 10381.9,
-          "ratio": 48.18
-        },
-        {
-          "date": "2023-11-01",
-          "holdingPrice": 63996.0,
-          "subsidiaryPrice": 176931.0,
-          "holdingValue": 5356.9,
-          "marketCap": 10698.6,
-          "ratio": 50.07
-        },
-        {
-          "date": "2023-11-02",
-          "holdingPrice": 65154.0,
-          "subsidiaryPrice": 176350.0,
-          "holdingValue": 5339.3,
-          "marketCap": 10892.2,
-          "ratio": 49.02
-        },
-        {
-          "date": "2023-11-03",
-          "holdingPrice": 65259.0,
-          "subsidiaryPrice": 171123.0,
-          "holdingValue": 5181.1,
-          "marketCap": 10909.8,
-          "ratio": 47.49
-        },
-        {
-          "date": "2023-11-06",
-          "holdingPrice": 66312.0,
-          "subsidiaryPrice": 173253.0,
-          "holdingValue": 5245.5,
-          "marketCap": 11085.8,
-          "ratio": 47.32
-        },
-        {
-          "date": "2023-11-07",
-          "holdingPrice": 64838.0,
-          "subsidiaryPrice": 179447.0,
-          "holdingValue": 5433.1,
-          "marketCap": 10839.4,
-          "ratio": 50.12
-        },
-        {
-          "date": "2023-11-08",
-          "holdingPrice": 65786.0,
-          "subsidiaryPrice": 176737.0,
-          "holdingValue": 5351.0,
-          "marketCap": 10997.8,
-          "ratio": 48.66
-        },
-        {
-          "date": "2023-11-09",
-          "holdingPrice": 66207.0,
-          "subsidiaryPrice": 179060.0,
-          "holdingValue": 5421.4,
-          "marketCap": 11068.2,
-          "ratio": 48.98
-        },
-        {
-          "date": "2023-11-10",
-          "holdingPrice": 66101.0,
-          "subsidiaryPrice": 187190.0,
-          "holdingValue": 5667.5,
-          "marketCap": 11050.6,
-          "ratio": 51.29
-        },
-        {
-          "date": "2023-11-13",
-          "holdingPrice": 66417.0,
-          "subsidiaryPrice": 183706.0,
-          "holdingValue": 5562.0,
-          "marketCap": 11103.3,
-          "ratio": 50.09
-        },
-        {
-          "date": "2023-11-14",
-          "holdingPrice": 66838.0,
-          "subsidiaryPrice": 183899.0,
-          "holdingValue": 5567.9,
-          "marketCap": 11173.7,
-          "ratio": 49.83
-        },
-        {
-          "date": "2023-11-15",
-          "holdingPrice": 67470.0,
-          "subsidiaryPrice": 186416.0,
-          "holdingValue": 5644.1,
-          "marketCap": 11279.3,
-          "ratio": 50.04
-        },
-        {
-          "date": "2023-11-16",
-          "holdingPrice": 68522.0,
-          "subsidiaryPrice": 197450.0,
-          "holdingValue": 5978.2,
-          "marketCap": 11455.3,
-          "ratio": 52.19
-        },
-        {
-          "date": "2023-11-17",
-          "holdingPrice": 69575.0,
-          "subsidiaryPrice": 198418.0,
-          "holdingValue": 6007.5,
-          "marketCap": 11631.2,
-          "ratio": 51.65
-        },
-        {
-          "date": "2023-11-20",
-          "holdingPrice": 69996.0,
-          "subsidiaryPrice": 192320.0,
-          "holdingValue": 5822.8,
-          "marketCap": 11701.6,
-          "ratio": 49.76
-        },
-        {
-          "date": "2023-11-21",
-          "holdingPrice": 70522.0,
-          "subsidiaryPrice": 193288.0,
-          "holdingValue": 5852.2,
-          "marketCap": 11789.6,
-          "ratio": 49.64
-        },
-        {
-          "date": "2023-11-22",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 188158.0,
-          "holdingValue": 5696.8,
-          "marketCap": 11895.2,
-          "ratio": 47.89
-        },
-        {
-          "date": "2023-11-23",
-          "holdingPrice": 70206.0,
-          "subsidiaryPrice": 182641.0,
-          "holdingValue": 5529.8,
-          "marketCap": 11736.8,
-          "ratio": 47.11
-        },
-        {
-          "date": "2023-11-24",
-          "holdingPrice": 71048.0,
-          "subsidiaryPrice": 190384.0,
-          "holdingValue": 5764.2,
-          "marketCap": 11877.6,
-          "ratio": 48.53
-        },
-        {
-          "date": "2023-11-27",
-          "holdingPrice": 71890.0,
-          "subsidiaryPrice": 193578.0,
-          "holdingValue": 5860.9,
-          "marketCap": 12018.4,
-          "ratio": 48.77
-        },
-        {
-          "date": "2023-11-28",
-          "holdingPrice": 71996.0,
-          "subsidiaryPrice": 195514.0,
-          "holdingValue": 5919.6,
-          "marketCap": 12036.0,
-          "ratio": 49.18
-        },
-        {
-          "date": "2023-11-29",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 205193.0,
-          "holdingValue": 6212.6,
-          "marketCap": 11895.2,
-          "ratio": 52.23
-        },
-        {
-          "date": "2023-11-30",
-          "holdingPrice": 71996.0,
-          "subsidiaryPrice": 203257.0,
-          "holdingValue": 6154.0,
-          "marketCap": 12036.0,
-          "ratio": 51.13
-        },
-        {
-          "date": "2023-12-01",
-          "holdingPrice": 72206.0,
-          "subsidiaryPrice": 207613.0,
-          "holdingValue": 6285.9,
-          "marketCap": 12071.2,
-          "ratio": 52.07
-        },
-        {
-          "date": "2023-12-04",
-          "holdingPrice": 72733.0,
-          "subsidiaryPrice": 195030.0,
-          "holdingValue": 5904.9,
-          "marketCap": 12159.1,
-          "ratio": 48.56
-        },
-        {
-          "date": "2023-12-05",
-          "holdingPrice": 72627.0,
-          "subsidiaryPrice": 184771.0,
-          "holdingValue": 5594.3,
-          "marketCap": 12141.5,
-          "ratio": 46.08
-        },
-        {
-          "date": "2023-12-06",
-          "holdingPrice": 72522.0,
-          "subsidiaryPrice": 179544.0,
-          "holdingValue": 5436.0,
-          "marketCap": 12123.9,
-          "ratio": 44.84
-        },
-        {
-          "date": "2023-12-07",
-          "holdingPrice": 72733.0,
-          "subsidiaryPrice": 177608.0,
-          "holdingValue": 5377.4,
-          "marketCap": 12159.1,
-          "ratio": 44.23
-        },
-        {
-          "date": "2023-12-08",
-          "holdingPrice": 72627.0,
-          "subsidiaryPrice": 174801.0,
-          "holdingValue": 5292.4,
-          "marketCap": 12141.5,
-          "ratio": 43.59
-        },
-        {
-          "date": "2023-12-11",
-          "holdingPrice": 72522.0,
-          "subsidiaryPrice": 178770.0,
-          "holdingValue": 5412.6,
-          "marketCap": 12123.9,
-          "ratio": 44.64
-        },
-        {
-          "date": "2023-12-12",
-          "holdingPrice": 71785.0,
-          "subsidiaryPrice": 168994.0,
-          "holdingValue": 5116.6,
-          "marketCap": 12000.8,
-          "ratio": 42.64
-        },
-        {
-          "date": "2023-12-13",
-          "holdingPrice": 70522.0,
-          "subsidiaryPrice": 163283.0,
-          "holdingValue": 4943.7,
-          "marketCap": 11789.6,
-          "ratio": 41.93
-        },
-        {
-          "date": "2023-12-14",
-          "holdingPrice": 71259.0,
-          "subsidiaryPrice": 157960.0,
-          "holdingValue": 4782.5,
-          "marketCap": 11912.8,
-          "ratio": 40.15
-        },
-        {
-          "date": "2023-12-15",
-          "holdingPrice": 71154.0,
-          "subsidiaryPrice": 160573.0,
-          "holdingValue": 4861.7,
-          "marketCap": 11895.2,
-          "ratio": 40.87
-        },
-        {
-          "date": "2023-12-18",
-          "holdingPrice": 70206.0,
-          "subsidiaryPrice": 169478.0,
-          "holdingValue": 5131.3,
-          "marketCap": 11736.8,
-          "ratio": 43.72
-        },
-        {
-          "date": "2023-12-19",
-          "holdingPrice": 70206.0,
-          "subsidiaryPrice": 163670.0,
-          "holdingValue": 4955.4,
-          "marketCap": 11736.8,
-          "ratio": 42.22
-        },
-        {
-          "date": "2023-12-20",
-          "holdingPrice": 71575.0,
-          "subsidiaryPrice": 163670.0,
-          "holdingValue": 4955.4,
-          "marketCap": 11965.6,
-          "ratio": 41.41
-        },
-        {
-          "date": "2023-12-21",
-          "holdingPrice": 71575.0,
-          "subsidiaryPrice": 161541.0,
-          "holdingValue": 4891.0,
-          "marketCap": 11965.6,
-          "ratio": 40.88
-        },
-        {
-          "date": "2023-12-22",
-          "holdingPrice": 71364.0,
-          "subsidiaryPrice": 160573.0,
-          "holdingValue": 4861.7,
-          "marketCap": 11930.4,
-          "ratio": 40.75
-        },
-        {
-          "date": "2023-12-26",
-          "holdingPrice": 71890.0,
-          "subsidiaryPrice": 157960.0,
-          "holdingValue": 4782.5,
-          "marketCap": 12018.4,
-          "ratio": 39.79
-        },
-        {
-          "date": "2023-12-27",
-          "holdingPrice": 68588.0,
-          "subsidiaryPrice": 159828.0,
-          "holdingValue": 4839.1,
-          "marketCap": 11466.2,
-          "ratio": 42.2
-        },
-        {
-          "date": "2023-12-28",
-          "holdingPrice": 69689.0,
-          "subsidiaryPrice": 159139.0,
-          "holdingValue": 4818.2,
-          "marketCap": 11650.3,
-          "ratio": 41.36
-        },
-        {
-          "date": "2024-01-02",
-          "holdingPrice": 68698.0,
-          "subsidiaryPrice": 155011.0,
-          "holdingValue": 4693.2,
-          "marketCap": 11484.6,
-          "ratio": 40.87
-        },
-        {
-          "date": "2024-01-03",
-          "holdingPrice": 68147.0,
-          "subsidiaryPrice": 165037.0,
-          "holdingValue": 4996.8,
-          "marketCap": 11392.6,
-          "ratio": 43.86
-        },
-        {
-          "date": "2024-01-04",
-          "holdingPrice": 67156.0,
-          "subsidiaryPrice": 165135.0,
-          "holdingValue": 4999.8,
-          "marketCap": 11227.0,
-          "ratio": 44.53
-        },
-        {
-          "date": "2024-01-05",
-          "holdingPrice": 67707.0,
-          "subsidiaryPrice": 166512.0,
-          "holdingValue": 5041.4,
-          "marketCap": 11319.0,
-          "ratio": 44.54
-        },
-        {
-          "date": "2024-01-08",
-          "holdingPrice": 67267.0,
-          "subsidiaryPrice": 171721.0,
-          "holdingValue": 5199.2,
-          "marketCap": 11245.4,
-          "ratio": 46.23
-        },
-        {
-          "date": "2024-01-09",
-          "holdingPrice": 67487.0,
-          "subsidiaryPrice": 173982.0,
-          "holdingValue": 5267.6,
-          "marketCap": 11282.2,
-          "ratio": 46.69
-        },
-        {
-          "date": "2024-01-10",
-          "holdingPrice": 67817.0,
-          "subsidiaryPrice": 173392.0,
-          "holdingValue": 5249.8,
-          "marketCap": 11337.4,
-          "ratio": 46.3
-        },
-        {
-          "date": "2024-01-11",
-          "holdingPrice": 67597.0,
-          "subsidiaryPrice": 174277.0,
-          "holdingValue": 5276.6,
-          "marketCap": 11300.6,
-          "ratio": 46.69
-        },
-        {
-          "date": "2024-01-12",
-          "holdingPrice": 67707.0,
-          "subsidiaryPrice": 177914.0,
-          "holdingValue": 5386.7,
-          "marketCap": 11319.0,
-          "ratio": 47.59
-        },
-        {
-          "date": "2024-01-15",
-          "holdingPrice": 67597.0,
-          "subsidiaryPrice": 178405.0,
-          "holdingValue": 5401.5,
-          "marketCap": 11300.6,
-          "ratio": 47.8
-        },
-        {
-          "date": "2024-01-16",
-          "holdingPrice": 66936.0,
-          "subsidiaryPrice": 170050.0,
-          "holdingValue": 5148.6,
-          "marketCap": 11190.1,
-          "ratio": 46.01
-        },
-        {
-          "date": "2024-01-17",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 166118.0,
-          "holdingValue": 5029.5,
-          "marketCap": 11042.9,
-          "ratio": 45.55
-        },
-        {
-          "date": "2024-01-18",
-          "holdingPrice": 65725.0,
-          "subsidiaryPrice": 176538.0,
-          "holdingValue": 5345.0,
-          "marketCap": 10987.7,
-          "ratio": 48.65
-        },
-        {
-          "date": "2024-01-19",
-          "holdingPrice": 66606.0,
-          "subsidiaryPrice": 174473.0,
-          "holdingValue": 5282.5,
-          "marketCap": 11134.9,
-          "ratio": 47.44
-        },
-        {
-          "date": "2024-01-22",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 171328.0,
-          "holdingValue": 5187.3,
-          "marketCap": 11042.9,
-          "ratio": 46.97
-        },
-        {
-          "date": "2024-01-23",
-          "holdingPrice": 66606.0,
-          "subsidiaryPrice": 182534.0,
-          "holdingValue": 5526.5,
-          "marketCap": 11134.9,
-          "ratio": 49.63
-        },
-        {
-          "date": "2024-01-24",
-          "holdingPrice": 66496.0,
-          "subsidiaryPrice": 183025.0,
-          "holdingValue": 5541.4,
-          "marketCap": 11116.5,
-          "ratio": 49.85
-        },
-        {
-          "date": "2024-01-25",
-          "holdingPrice": 67046.0,
-          "subsidiaryPrice": 185777.0,
-          "holdingValue": 5624.8,
-          "marketCap": 11208.5,
-          "ratio": 50.18
-        },
-        {
-          "date": "2024-01-26",
-          "holdingPrice": 67267.0,
-          "subsidiaryPrice": 181846.0,
-          "holdingValue": 5505.7,
-          "marketCap": 11245.4,
-          "ratio": 48.96
-        },
-        {
-          "date": "2024-01-29",
-          "holdingPrice": 68147.0,
-          "subsidiaryPrice": 177422.0,
-          "holdingValue": 5371.8,
-          "marketCap": 11392.6,
-          "ratio": 47.15
-        },
-        {
-          "date": "2024-01-30",
-          "holdingPrice": 68698.0,
-          "subsidiaryPrice": 169657.0,
-          "holdingValue": 5136.7,
-          "marketCap": 11484.6,
-          "ratio": 44.73
-        },
-        {
-          "date": "2024-01-31",
-          "holdingPrice": 69138.0,
-          "subsidiaryPrice": 168871.0,
-          "holdingValue": 5112.9,
-          "marketCap": 11558.2,
-          "ratio": 44.24
-        },
-        {
-          "date": "2024-02-01",
-          "holdingPrice": 71670.0,
-          "subsidiaryPrice": 159434.0,
-          "holdingValue": 4827.2,
-          "marketCap": 11981.6,
-          "ratio": 40.29
-        },
-        {
-          "date": "2024-02-02",
-          "holdingPrice": 70679.0,
-          "subsidiaryPrice": 160909.0,
-          "holdingValue": 4871.8,
-          "marketCap": 11815.9,
-          "ratio": 41.23
-        },
-        {
-          "date": "2024-02-05",
-          "holdingPrice": 69579.0,
-          "subsidiaryPrice": 157075.0,
-          "holdingValue": 4755.7,
-          "marketCap": 11631.9,
-          "ratio": 40.89
-        },
-        {
-          "date": "2024-02-06",
-          "holdingPrice": 68698.0,
-          "subsidiaryPrice": 158648.0,
-          "holdingValue": 4803.4,
-          "marketCap": 11484.6,
-          "ratio": 41.82
-        },
-        {
-          "date": "2024-02-07",
-          "holdingPrice": 69909.0,
-          "subsidiaryPrice": 156486.0,
-          "holdingValue": 4737.9,
-          "marketCap": 11687.1,
-          "ratio": 40.54
-        },
-        {
-          "date": "2024-02-08",
-          "holdingPrice": 69358.0,
-          "subsidiaryPrice": 157567.0,
-          "holdingValue": 4770.6,
-          "marketCap": 11595.0,
-          "ratio": 41.14
-        },
-        {
-          "date": "2024-02-13",
-          "holdingPrice": 68918.0,
-          "subsidiaryPrice": 159533.0,
-          "holdingValue": 4830.1,
-          "marketCap": 11521.4,
-          "ratio": 41.92
-        },
-        {
-          "date": "2024-02-14",
-          "holdingPrice": 67707.0,
-          "subsidiaryPrice": 159434.0,
-          "holdingValue": 4827.2,
-          "marketCap": 11319.0,
-          "ratio": 42.65
-        },
-        {
-          "date": "2024-02-15",
-          "holdingPrice": 67267.0,
-          "subsidiaryPrice": 170935.0,
-          "holdingValue": 5175.4,
-          "marketCap": 11245.4,
-          "ratio": 46.02
-        },
-        {
-          "date": "2024-02-16",
-          "holdingPrice": 68367.0,
-          "subsidiaryPrice": 166708.0,
-          "holdingValue": 5047.4,
-          "marketCap": 11429.4,
-          "ratio": 44.16
-        },
-        {
-          "date": "2024-02-19",
-          "holdingPrice": 69579.0,
-          "subsidiaryPrice": 165135.0,
-          "holdingValue": 4999.8,
-          "marketCap": 11631.9,
-          "ratio": 42.98
-        },
-        {
-          "date": "2024-02-20",
-          "holdingPrice": 68698.0,
-          "subsidiaryPrice": 182927.0,
-          "holdingValue": 5538.4,
-          "marketCap": 11484.6,
-          "ratio": 48.22
-        },
-        {
-          "date": "2024-02-21",
-          "holdingPrice": 69028.0,
-          "subsidiaryPrice": 179880.0,
-          "holdingValue": 5446.2,
-          "marketCap": 11539.8,
-          "ratio": 47.19
-        },
-        {
-          "date": "2024-02-22",
-          "holdingPrice": 70459.0,
-          "subsidiaryPrice": 179388.0,
-          "holdingValue": 5431.3,
-          "marketCap": 11779.1,
-          "ratio": 46.11
-        },
-        {
-          "date": "2024-02-23",
-          "holdingPrice": 69579.0,
-          "subsidiaryPrice": 181452.0,
-          "holdingValue": 5493.8,
-          "marketCap": 11631.9,
-          "ratio": 47.23
-        },
-        {
-          "date": "2024-02-26",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 190299.0,
-          "holdingValue": 5761.7,
-          "marketCap": 11042.9,
-          "ratio": 52.18
-        },
-        {
-          "date": "2024-02-27",
-          "holdingPrice": 65285.0,
-          "subsidiaryPrice": 188726.0,
-          "holdingValue": 5714.0,
-          "marketCap": 10914.1,
-          "ratio": 52.35
-        },
-        {
-          "date": "2024-02-28",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 188726.0,
-          "holdingValue": 5714.0,
-          "marketCap": 11042.9,
-          "ratio": 51.74
-        },
-        {
-          "date": "2024-02-29",
-          "holdingPrice": 65835.0,
-          "subsidiaryPrice": 189119.0,
-          "holdingValue": 5725.9,
-          "marketCap": 11006.1,
-          "ratio": 52.03
-        },
-        {
-          "date": "2024-03-04",
-          "holdingPrice": 65395.0,
-          "subsidiaryPrice": 218706.0,
-          "holdingValue": 6621.7,
-          "marketCap": 10932.5,
-          "ratio": 60.57
-        },
-        {
-          "date": "2024-03-05",
-          "holdingPrice": 65395.0,
-          "subsidiaryPrice": 226078.0,
-          "holdingValue": 6844.9,
-          "marketCap": 10932.5,
-          "ratio": 62.61
-        },
-        {
-          "date": "2024-03-06",
-          "holdingPrice": 64734.0,
-          "subsidiaryPrice": 228044.0,
-          "holdingValue": 6904.5,
-          "marketCap": 10822.0,
-          "ratio": 63.8
-        },
-        {
-          "date": "2024-03-07",
-          "holdingPrice": 64184.0,
-          "subsidiaryPrice": 224604.0,
-          "holdingValue": 6800.3,
-          "marketCap": 10730.0,
-          "ratio": 63.38
-        },
-        {
-          "date": "2024-03-08",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 227553.0,
-          "holdingValue": 6889.6,
-          "marketCap": 10858.9,
-          "ratio": 63.45
-        },
-        {
-          "date": "2024-03-11",
-          "holdingPrice": 64294.0,
-          "subsidiaryPrice": 227553.0,
-          "holdingValue": 6889.6,
-          "marketCap": 10748.4,
-          "ratio": 64.1
-        },
-        {
-          "date": "2024-03-12",
-          "holdingPrice": 63523.0,
-          "subsidiaryPrice": 228044.0,
-          "holdingValue": 6904.5,
-          "marketCap": 10619.6,
-          "ratio": 65.02
-        },
-        {
-          "date": "2024-03-13",
-          "holdingPrice": 63634.0,
-          "subsidiaryPrice": 235908.0,
-          "holdingValue": 7142.5,
-          "marketCap": 10638.0,
-          "ratio": 67.14
-        },
-        {
-          "date": "2024-03-14",
-          "holdingPrice": 63854.0,
-          "subsidiaryPrice": 232959.0,
-          "holdingValue": 7053.3,
-          "marketCap": 10674.8,
-          "ratio": 66.07
-        },
-        {
-          "date": "2024-03-15",
-          "holdingPrice": 64074.0,
-          "subsidiaryPrice": 225587.0,
-          "holdingValue": 6830.1,
-          "marketCap": 10711.6,
-          "ratio": 63.76
-        },
-        {
-          "date": "2024-03-18",
-          "holdingPrice": 63523.0,
-          "subsidiaryPrice": 241805.0,
-          "holdingValue": 7321.1,
-          "marketCap": 10619.6,
-          "ratio": 68.94
-        },
-        {
-          "date": "2024-03-19",
-          "holdingPrice": 63083.0,
-          "subsidiaryPrice": 237874.0,
-          "holdingValue": 7202.1,
-          "marketCap": 10546.0,
-          "ratio": 68.29
-        },
-        {
-          "date": "2024-03-20",
-          "holdingPrice": 62863.0,
-          "subsidiaryPrice": 237382.0,
-          "holdingValue": 7187.2,
-          "marketCap": 10509.2,
-          "ratio": 68.39
-        },
-        {
-          "date": "2024-03-21",
-          "holdingPrice": 63523.0,
-          "subsidiaryPrice": 247212.0,
-          "holdingValue": 7484.8,
-          "marketCap": 10619.6,
-          "ratio": 70.48
-        },
-        {
-          "date": "2024-03-22",
-          "holdingPrice": 63083.0,
-          "subsidiaryPrice": 234925.0,
-          "holdingValue": 7112.8,
-          "marketCap": 10546.0,
-          "ratio": 67.45
-        },
-        {
-          "date": "2024-03-25",
-          "holdingPrice": 62533.0,
-          "subsidiaryPrice": 230502.0,
-          "holdingValue": 6978.9,
-          "marketCap": 10453.9,
-          "ratio": 66.76
-        },
-        {
-          "date": "2024-03-26",
-          "holdingPrice": 63303.0,
-          "subsidiaryPrice": 237382.0,
-          "holdingValue": 7187.2,
-          "marketCap": 10582.8,
-          "ratio": 67.91
-        },
-        {
-          "date": "2024-03-27",
-          "holdingPrice": 63303.0,
-          "subsidiaryPrice": 256058.0,
-          "holdingValue": 7752.6,
-          "marketCap": 10582.8,
-          "ratio": 73.26
-        },
-        {
-          "date": "2024-03-28",
-          "holdingPrice": 68588.0,
-          "subsidiaryPrice": 272768.0,
-          "holdingValue": 8258.6,
-          "marketCap": 11466.2,
-          "ratio": 72.03
-        },
-        {
-          "date": "2024-03-29",
-          "holdingPrice": 70129.0,
-          "subsidiaryPrice": 279158.0,
-          "holdingValue": 8452.0,
-          "marketCap": 11723.9,
-          "ratio": 72.09
-        },
-        {
-          "date": "2024-04-01",
-          "holdingPrice": 65835.0,
-          "subsidiaryPrice": 283089.0,
-          "holdingValue": 8571.1,
-          "marketCap": 11006.1,
-          "ratio": 77.88
-        },
-        {
-          "date": "2024-04-02",
-          "holdingPrice": 65175.0,
-          "subsidiaryPrice": 285055.0,
-          "holdingValue": 8630.6,
-          "marketCap": 10895.7,
-          "ratio": 79.21
-        },
-        {
-          "date": "2024-04-03",
-          "holdingPrice": 65725.0,
-          "subsidiaryPrice": 279158.0,
-          "holdingValue": 8452.0,
-          "marketCap": 10987.7,
-          "ratio": 76.92
-        },
-        {
-          "date": "2024-04-04",
-          "holdingPrice": 65285.0,
-          "subsidiaryPrice": 301765.0,
-          "holdingValue": 9136.5,
-          "marketCap": 10914.1,
-          "ratio": 83.71
-        },
-        {
-          "date": "2024-04-05",
-          "holdingPrice": 64624.0,
-          "subsidiaryPrice": 297834.0,
-          "holdingValue": 9017.5,
-          "marketCap": 10803.6,
-          "ratio": 83.47
-        },
-        {
-          "date": "2024-04-08",
-          "holdingPrice": 63634.0,
-          "subsidiaryPrice": 291936.0,
-          "holdingValue": 8838.9,
-          "marketCap": 10638.0,
-          "ratio": 83.09
-        },
-        {
-          "date": "2024-04-09",
-          "holdingPrice": 63744.0,
-          "subsidiaryPrice": 302748.0,
-          "holdingValue": 9166.3,
-          "marketCap": 10656.4,
-          "ratio": 86.02
-        },
-        {
-          "date": "2024-04-11",
-          "holdingPrice": 62422.0,
-          "subsidiaryPrice": 311595.0,
-          "holdingValue": 9434.1,
-          "marketCap": 10435.5,
-          "ratio": 90.4
-        },
-        {
-          "date": "2024-04-12",
-          "holdingPrice": 61982.0,
-          "subsidiaryPrice": 333220.0,
-          "holdingValue": 10088.8,
-          "marketCap": 10361.9,
-          "ratio": 97.36
-        },
-        {
-          "date": "2024-04-15",
-          "holdingPrice": 62312.0,
-          "subsidiaryPrice": 334203.0,
-          "holdingValue": 10118.6,
-          "marketCap": 10417.1,
-          "ratio": 97.13
-        },
-        {
-          "date": "2024-04-16",
-          "holdingPrice": 61762.0,
-          "subsidiaryPrice": 287021.0,
-          "holdingValue": 8690.1,
-          "marketCap": 10325.1,
-          "ratio": 84.16
-        },
-        {
-          "date": "2024-04-17",
-          "holdingPrice": 61101.0,
-          "subsidiaryPrice": 303240.0,
-          "holdingValue": 9181.1,
-          "marketCap": 10214.7,
-          "ratio": 89.88
-        },
-        {
-          "date": "2024-04-18",
-          "holdingPrice": 61982.0,
-          "subsidiaryPrice": 322407.0,
-          "holdingValue": 9761.5,
-          "marketCap": 10361.9,
-          "ratio": 94.21
-        },
-        {
-          "date": "2024-04-19",
-          "holdingPrice": 62753.0,
-          "subsidiaryPrice": 308155.0,
-          "holdingValue": 9329.9,
-          "marketCap": 10490.8,
-          "ratio": 88.93
-        },
-        {
-          "date": "2024-04-22",
-          "holdingPrice": 63964.0,
-          "subsidiaryPrice": 272277.0,
-          "holdingValue": 8243.7,
-          "marketCap": 10693.2,
-          "ratio": 77.09
-        },
-        {
-          "date": "2024-04-23",
-          "holdingPrice": 64624.0,
-          "subsidiaryPrice": 279649.0,
-          "holdingValue": 8466.9,
-          "marketCap": 10803.6,
-          "ratio": 78.37
-        },
-        {
-          "date": "2024-04-24",
-          "holdingPrice": 64184.0,
-          "subsidiaryPrice": 287021.0,
-          "holdingValue": 8690.1,
-          "marketCap": 10730.0,
-          "ratio": 80.99
-        },
-        {
-          "date": "2024-04-25",
-          "holdingPrice": 64294.0,
-          "subsidiaryPrice": 266871.0,
-          "holdingValue": 8080.0,
-          "marketCap": 10748.4,
-          "ratio": 75.17
-        },
-        {
-          "date": "2024-04-26",
-          "holdingPrice": 64845.0,
-          "subsidiaryPrice": 286038.0,
-          "holdingValue": 8660.3,
-          "marketCap": 10840.5,
-          "ratio": 79.89
-        },
-        {
-          "date": "2024-04-29",
-          "holdingPrice": 66166.0,
-          "subsidiaryPrice": 306680.0,
-          "holdingValue": 9285.3,
-          "marketCap": 11061.3,
-          "ratio": 83.94
-        },
-        {
-          "date": "2024-04-30",
-          "holdingPrice": 66386.0,
-          "subsidiaryPrice": 307663.0,
-          "holdingValue": 9315.1,
-          "marketCap": 11098.1,
-          "ratio": 83.93
-        },
-        {
-          "date": "2024-05-02",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 301765.0,
-          "holdingValue": 9136.5,
-          "marketCap": 11042.9,
-          "ratio": 82.74
-        },
-        {
-          "date": "2024-05-03",
-          "holdingPrice": 65505.0,
-          "subsidiaryPrice": 283581.0,
-          "holdingValue": 8585.9,
-          "marketCap": 10950.9,
-          "ratio": 78.4
-        },
-        {
-          "date": "2024-05-07",
-          "holdingPrice": 66496.0,
-          "subsidiaryPrice": 292919.0,
-          "holdingValue": 8868.7,
-          "marketCap": 11116.5,
-          "ratio": 79.78
-        },
-        {
-          "date": "2024-05-08",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 299800.0,
-          "holdingValue": 9077.0,
-          "marketCap": 11042.9,
-          "ratio": 82.2
-        },
-        {
-          "date": "2024-05-09",
-          "holdingPrice": 65395.0,
-          "subsidiaryPrice": 315035.0,
-          "holdingValue": 9538.3,
-          "marketCap": 10932.5,
-          "ratio": 87.25
-        },
-        {
-          "date": "2024-05-10",
-          "holdingPrice": 66166.0,
-          "subsidiaryPrice": 318476.0,
-          "holdingValue": 9642.4,
-          "marketCap": 11061.3,
-          "ratio": 87.17
-        },
-        {
-          "date": "2024-05-13",
-          "holdingPrice": 66386.0,
-          "subsidiaryPrice": 313561.0,
-          "holdingValue": 9493.6,
-          "marketCap": 11098.1,
-          "ratio": 85.54
-        },
-        {
-          "date": "2024-05-14",
-          "holdingPrice": 66606.0,
-          "subsidiaryPrice": 304223.0,
-          "holdingValue": 9210.9,
-          "marketCap": 11134.9,
-          "ratio": 82.72
-        },
-        {
-          "date": "2024-05-16",
-          "holdingPrice": 66496.0,
-          "subsidiaryPrice": 309138.0,
-          "holdingValue": 9359.7,
-          "marketCap": 11116.5,
-          "ratio": 84.2
-        },
-        {
-          "date": "2024-05-17",
-          "holdingPrice": 68257.0,
-          "subsidiaryPrice": 364183.0,
-          "holdingValue": 11026.3,
-          "marketCap": 11411.0,
-          "ratio": 96.63
-        },
-        {
-          "date": "2024-05-20",
-          "holdingPrice": 68588.0,
-          "subsidiaryPrice": 412347.0,
-          "holdingValue": 12484.6,
-          "marketCap": 11466.2,
-          "ratio": 108.88
-        },
-        {
-          "date": "2024-05-21",
-          "holdingPrice": 68257.0,
-          "subsidiaryPrice": 412347.0,
-          "holdingValue": 12484.6,
-          "marketCap": 11411.0,
-          "ratio": 109.41
-        },
-        {
-          "date": "2024-05-22",
-          "holdingPrice": 68478.0,
-          "subsidiaryPrice": 397603.0,
-          "holdingValue": 12038.2,
-          "marketCap": 11447.8,
-          "ratio": 105.16
-        },
-        {
-          "date": "2024-05-23",
-          "holdingPrice": 67817.0,
-          "subsidiaryPrice": 402026.0,
-          "holdingValue": 12172.1,
-          "marketCap": 11337.4,
-          "ratio": 107.36
-        },
-        {
-          "date": "2024-05-24",
-          "holdingPrice": 67046.0,
-          "subsidiaryPrice": 409398.0,
-          "holdingValue": 12395.3,
-          "marketCap": 11208.5,
-          "ratio": 110.59
-        },
-        {
-          "date": "2024-05-27",
-          "holdingPrice": 76955.0,
-          "subsidiaryPrice": 421685.0,
-          "holdingValue": 12767.3,
-          "marketCap": 12865.0,
-          "ratio": 99.24
-        },
-        {
-          "date": "2024-05-28",
-          "holdingPrice": 67267.0,
-          "subsidiaryPrice": 441836.0,
-          "holdingValue": 13377.4,
-          "marketCap": 11245.4,
-          "ratio": 118.96
-        },
-        {
-          "date": "2024-05-29",
-          "holdingPrice": 65725.0,
-          "subsidiaryPrice": 430040.0,
-          "holdingValue": 13020.3,
-          "marketCap": 10987.7,
-          "ratio": 118.5
-        },
-        {
-          "date": "2024-05-30",
-          "holdingPrice": 64845.0,
-          "subsidiaryPrice": 424143.0,
-          "holdingValue": 12841.7,
-          "marketCap": 10840.5,
-          "ratio": 118.46
-        },
-        {
-          "date": "2024-05-31",
-          "holdingPrice": 65725.0,
-          "subsidiaryPrice": 434464.0,
-          "holdingValue": 13154.2,
-          "marketCap": 10987.7,
-          "ratio": 119.72
-        },
-        {
-          "date": "2024-06-03",
-          "holdingPrice": 66056.0,
-          "subsidiaryPrice": 419719.0,
-          "holdingValue": 12707.8,
-          "marketCap": 11042.9,
-          "ratio": 115.08
-        },
-        {
-          "date": "2024-06-04",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 401535.0,
-          "holdingValue": 12157.2,
-          "marketCap": 10858.9,
-          "ratio": 111.96
-        },
-        {
-          "date": "2024-06-05",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 377944.0,
-          "holdingValue": 11443.0,
-          "marketCap": 10858.9,
-          "ratio": 105.38
-        },
-        {
-          "date": "2024-06-07",
-          "holdingPrice": 65285.0,
-          "subsidiaryPrice": 364674.0,
-          "holdingValue": 11041.2,
-          "marketCap": 10914.1,
-          "ratio": 101.16
-        },
-        {
-          "date": "2024-06-10",
-          "holdingPrice": 65065.0,
-          "subsidiaryPrice": 389739.0,
-          "holdingValue": 11800.1,
-          "marketCap": 10877.3,
-          "ratio": 108.48
-        },
-        {
-          "date": "2024-06-11",
-          "holdingPrice": 65285.0,
-          "subsidiaryPrice": 389248.0,
-          "holdingValue": 11785.2,
-          "marketCap": 10914.1,
-          "ratio": 107.98
-        },
-        {
-          "date": "2024-06-12",
-          "holdingPrice": 65615.0,
-          "subsidiaryPrice": 360742.0,
-          "holdingValue": 10922.1,
-          "marketCap": 10969.3,
-          "ratio": 99.57
-        },
-        {
-          "date": "2024-06-13",
-          "holdingPrice": 65505.0,
-          "subsidiaryPrice": 358776.0,
-          "holdingValue": 10862.6,
-          "marketCap": 10950.9,
-          "ratio": 99.19
-        },
-        {
-          "date": "2024-06-14",
-          "holdingPrice": 65065.0,
-          "subsidiaryPrice": 368114.0,
-          "holdingValue": 11145.3,
-          "marketCap": 10877.3,
-          "ratio": 102.46
-        },
-        {
-          "date": "2024-06-17",
-          "holdingPrice": 63854.0,
-          "subsidiaryPrice": 368606.0,
-          "holdingValue": 11160.2,
-          "marketCap": 10674.8,
-          "ratio": 104.55
-        },
-        {
-          "date": "2024-06-18",
-          "holdingPrice": 62312.0,
-          "subsidiaryPrice": 369097.0,
-          "holdingValue": 11175.1,
-          "marketCap": 10417.1,
-          "ratio": 107.28
-        },
-        {
-          "date": "2024-06-19",
-          "holdingPrice": 63083.0,
-          "subsidiaryPrice": 358285.0,
-          "holdingValue": 10847.7,
-          "marketCap": 10546.0,
-          "ratio": 102.86
-        },
-        {
-          "date": "2024-06-20",
-          "holdingPrice": 62973.0,
-          "subsidiaryPrice": 350913.0,
-          "holdingValue": 10624.5,
-          "marketCap": 10527.6,
-          "ratio": 100.92
-        },
-        {
-          "date": "2024-06-21",
-          "holdingPrice": 63634.0,
-          "subsidiaryPrice": 370080.0,
-          "holdingValue": 11204.9,
-          "marketCap": 10638.0,
-          "ratio": 105.33
-        },
-        {
-          "date": "2024-06-24",
-          "holdingPrice": 62973.0,
-          "subsidiaryPrice": 353862.0,
-          "holdingValue": 10713.8,
-          "marketCap": 10527.6,
-          "ratio": 101.77
-        },
-        {
-          "date": "2024-06-25",
-          "holdingPrice": 63744.0,
-          "subsidiaryPrice": 356811.0,
-          "holdingValue": 10803.1,
-          "marketCap": 10656.4,
-          "ratio": 101.38
-        },
-        {
-          "date": "2024-06-26",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 356811.0,
-          "holdingValue": 10803.1,
-          "marketCap": 10858.9,
-          "ratio": 99.49
-        },
-        {
-          "date": "2024-06-27",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 358776.0,
-          "holdingValue": 10862.6,
-          "marketCap": 10858.9,
-          "ratio": 100.03
-        },
-        {
-          "date": "2024-06-28",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 340100.0,
-          "holdingValue": 10297.2,
-          "marketCap": 10858.9,
-          "ratio": 94.83
-        },
-        {
-          "date": "2024-07-01",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 313561.0,
-          "holdingValue": 9493.6,
-          "marketCap": 10858.9,
-          "ratio": 87.43
-        },
-        {
-          "date": "2024-07-02",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 332237.0,
-          "holdingValue": 10059.1,
-          "marketCap": 10858.9,
-          "ratio": 92.63
-        },
-        {
-          "date": "2024-07-03",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 323882.0,
-          "holdingValue": 9806.1,
-          "marketCap": 10858.9,
-          "ratio": 90.31
-        },
-        {
-          "date": "2024-07-04",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 309138.0,
-          "holdingValue": 9359.7,
-          "marketCap": 10858.9,
-          "ratio": 86.19
-        },
-        {
-          "date": "2024-07-05",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 305206.0,
-          "holdingValue": 9240.7,
-          "marketCap": 10858.9,
-          "ratio": 85.1
-        },
-        {
-          "date": "2024-07-08",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 325356.0,
-          "holdingValue": 9850.8,
-          "marketCap": 10858.9,
-          "ratio": 90.72
-        },
-        {
-          "date": "2024-07-09",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 340100.0,
-          "holdingValue": 10297.2,
-          "marketCap": 10858.9,
-          "ratio": 94.83
-        },
-        {
-          "date": "2024-07-10",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 383350.0,
-          "holdingValue": 11606.6,
-          "marketCap": 10858.9,
-          "ratio": 106.89
-        },
-        {
-          "date": "2024-07-11",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 376961.0,
-          "holdingValue": 11413.2,
-          "marketCap": 10858.9,
-          "ratio": 105.1
-        },
-        {
-          "date": "2024-07-12",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 374504.0,
-          "holdingValue": 11338.8,
-          "marketCap": 10858.9,
-          "ratio": 104.42
-        },
-        {
-          "date": "2024-07-15",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 385316.0,
-          "holdingValue": 11666.2,
-          "marketCap": 10858.9,
-          "ratio": 107.43
-        },
-        {
-          "date": "2024-07-16",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 386299.0,
-          "holdingValue": 11695.9,
-          "marketCap": 10858.9,
-          "ratio": 107.71
-        },
-        {
-          "date": "2024-07-17",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 364183.0,
-          "holdingValue": 11026.3,
-          "marketCap": 10858.9,
-          "ratio": 101.54
-        },
-        {
-          "date": "2024-07-18",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 343049.0,
-          "holdingValue": 10386.5,
-          "marketCap": 10858.9,
-          "ratio": 95.65
-        },
-        {
-          "date": "2024-07-19",
-          "holdingPrice": 64955.0,
-          "subsidiaryPrice": 338626.0,
-          "holdingValue": 10252.5,
-          "marketCap": 10858.9,
-          "ratio": 94.42
-        },
-        {
-          "date": "2024-07-22",
-          "holdingPrice": 40928.0,
-          "subsidiaryPrice": 319950.0,
-          "holdingValue": 9687.1,
-          "marketCap": 6842.1,
-          "ratio": 141.58
-        },
-        {
-          "date": "2024-07-23",
-          "holdingPrice": 40928.0,
-          "subsidiaryPrice": 352879.0,
-          "holdingValue": 10684.1,
-          "marketCap": 6842.1,
-          "ratio": 156.15
-        },
-        {
-          "date": "2024-07-24",
-          "holdingPrice": 40928.0,
-          "subsidiaryPrice": 358776.0,
-          "holdingValue": 10862.6,
-          "marketCap": 6842.1,
-          "ratio": 158.76
-        },
-        {
-          "date": "2024-07-25",
-          "holdingPrice": 40928.0,
-          "subsidiaryPrice": 320441.0,
-          "holdingValue": 9702.0,
-          "marketCap": 6842.1,
-          "ratio": 141.8
-        },
-        {
-          "date": "2024-07-26",
-          "holdingPrice": 40928.0,
-          "subsidiaryPrice": 330271.0,
-          "holdingValue": 9999.6,
-          "marketCap": 6842.1,
-          "ratio": 146.15
-        },
-        {
-          "date": "2024-07-29",
-          "holdingPrice": 45475.0,
-          "subsidiaryPrice": 333220.0,
-          "holdingValue": 10088.8,
-          "marketCap": 7602.4,
-          "ratio": 132.71
-        },
-        {
-          "date": "2024-07-30",
-          "holdingPrice": 41288.0,
-          "subsidiaryPrice": 314544.0,
-          "holdingValue": 9523.4,
-          "marketCap": 6902.4,
-          "ratio": 137.97
-        },
-        {
-          "date": "2024-07-31",
-          "holdingPrice": 41288.0,
-          "subsidiaryPrice": 305697.0,
-          "holdingValue": 9255.5,
-          "marketCap": 6902.4,
-          "ratio": 134.09
-        },
-        {
-          "date": "2024-08-01",
-          "holdingPrice": 40703.0,
-          "subsidiaryPrice": 312578.0,
-          "holdingValue": 9463.9,
-          "marketCap": 6804.5,
-          "ratio": 139.08
-        },
-        {
-          "date": "2024-08-02",
-          "holdingPrice": 38947.0,
-          "subsidiaryPrice": 275717.0,
-          "holdingValue": 8347.8,
-          "marketCap": 6510.9,
-          "ratio": 128.21
-        },
-        {
-          "date": "2024-08-05",
-          "holdingPrice": 36065.0,
-          "subsidiaryPrice": 247703.0,
-          "holdingValue": 7499.7,
-          "marketCap": 6029.2,
-          "ratio": 124.39
-        },
-        {
-          "date": "2024-08-06",
-          "holdingPrice": 36065.0,
-          "subsidiaryPrice": 261956.0,
-          "holdingValue": 7931.2,
-          "marketCap": 6029.2,
-          "ratio": 131.55
-        },
-        {
-          "date": "2024-08-07",
-          "holdingPrice": 36290.0,
-          "subsidiaryPrice": 272768.0,
-          "holdingValue": 8258.6,
-          "marketCap": 6066.8,
-          "ratio": 136.13
-        },
-        {
-          "date": "2024-08-08",
-          "holdingPrice": 36921.0,
-          "subsidiaryPrice": 268345.0,
-          "holdingValue": 8124.6,
-          "marketCap": 6172.2,
-          "ratio": 131.63
-        },
-        {
-          "date": "2024-08-09",
-          "holdingPrice": 37146.0,
-          "subsidiaryPrice": 280141.0,
-          "holdingValue": 8481.8,
-          "marketCap": 6209.9,
-          "ratio": 136.59
-        },
-        {
-          "date": "2024-08-12",
-          "holdingPrice": 38046.0,
-          "subsidiaryPrice": 286038.0,
-          "holdingValue": 8660.3,
-          "marketCap": 6360.4,
-          "ratio": 136.16
-        },
-        {
-          "date": "2024-08-13",
-          "holdingPrice": 37911.0,
-          "subsidiaryPrice": 277683.0,
-          "holdingValue": 8407.4,
-          "marketCap": 6337.8,
-          "ratio": 132.65
-        },
-        {
-          "date": "2024-08-14",
-          "holdingPrice": 38722.0,
-          "subsidiaryPrice": 282106.0,
-          "holdingValue": 8541.3,
-          "marketCap": 6473.3,
-          "ratio": 131.95
-        },
-        {
-          "date": "2024-08-16",
-          "holdingPrice": 38992.0,
-          "subsidiaryPrice": 306189.0,
-          "holdingValue": 9270.4,
-          "marketCap": 6518.5,
-          "ratio": 142.22
-        },
-        {
-          "date": "2024-08-19",
-          "holdingPrice": 39757.0,
-          "subsidiaryPrice": 304714.0,
-          "holdingValue": 9225.8,
-          "marketCap": 6646.4,
-          "ratio": 138.81
-        },
-        {
-          "date": "2024-08-20",
-          "holdingPrice": 39622.0,
-          "subsidiaryPrice": 323882.0,
-          "holdingValue": 9806.1,
-          "marketCap": 6623.9,
-          "ratio": 148.04
-        },
-        {
-          "date": "2024-08-21",
-          "holdingPrice": 39892.0,
-          "subsidiaryPrice": 329779.0,
-          "holdingValue": 9984.7,
-          "marketCap": 6669.0,
-          "ratio": 149.72
-        },
-        {
-          "date": "2024-08-22",
-          "holdingPrice": 39667.0,
-          "subsidiaryPrice": 334694.0,
-          "holdingValue": 10133.5,
-          "marketCap": 6631.4,
-          "ratio": 152.81
-        },
-        {
-          "date": "2024-08-23",
-          "holdingPrice": 40162.0,
-          "subsidiaryPrice": 330271.0,
-          "holdingValue": 9999.6,
-          "marketCap": 6714.2,
-          "ratio": 148.93
-        },
-        {
-          "date": "2024-08-26",
-          "holdingPrice": 41918.0,
-          "subsidiaryPrice": 314544.0,
-          "holdingValue": 9523.4,
-          "marketCap": 7007.7,
-          "ratio": 135.9
-        },
-        {
-          "date": "2024-08-27",
-          "holdingPrice": 43989.0,
-          "subsidiaryPrice": 294393.0,
-          "holdingValue": 8913.3,
-          "marketCap": 7354.0,
-          "ratio": 121.2
-        },
-        {
-          "date": "2024-08-28",
-          "holdingPrice": 44665.0,
-          "subsidiaryPrice": 290953.0,
-          "holdingValue": 8809.1,
-          "marketCap": 7466.9,
-          "ratio": 117.98
-        },
-        {
-          "date": "2024-08-29",
-          "holdingPrice": 43764.0,
-          "subsidiaryPrice": 277192.0,
-          "holdingValue": 8392.5,
-          "marketCap": 7316.3,
-          "ratio": 114.71
-        },
-        {
-          "date": "2024-08-30",
-          "holdingPrice": 44395.0,
-          "subsidiaryPrice": 284564.0,
-          "holdingValue": 8615.7,
-          "marketCap": 7421.7,
-          "ratio": 116.09
-        },
-        {
-          "date": "2024-09-02",
-          "holdingPrice": 43989.0,
-          "subsidiaryPrice": 279158.0,
-          "holdingValue": 8452.0,
-          "marketCap": 7354.0,
-          "ratio": 114.93
-        },
-        {
-          "date": "2024-09-03",
-          "holdingPrice": 44890.0,
-          "subsidiaryPrice": 281123.0,
-          "holdingValue": 8511.5,
-          "marketCap": 7504.5,
-          "ratio": 113.42
-        },
-        {
-          "date": "2024-09-04",
-          "holdingPrice": 43539.0,
-          "subsidiaryPrice": 265396.0,
-          "holdingValue": 8035.4,
-          "marketCap": 7278.7,
-          "ratio": 110.4
-        },
-        {
-          "date": "2024-09-05",
-          "holdingPrice": 43809.0,
-          "subsidiaryPrice": 252618.0,
-          "holdingValue": 7648.5,
-          "marketCap": 7323.9,
-          "ratio": 104.43
-        },
-        {
-          "date": "2024-09-06",
-          "holdingPrice": 43584.0,
-          "subsidiaryPrice": 244263.0,
-          "holdingValue": 7395.5,
-          "marketCap": 7286.2,
-          "ratio": 101.5
-        },
-        {
-          "date": "2024-09-09",
-          "holdingPrice": 44125.0,
-          "subsidiaryPrice": 268837.0,
-          "holdingValue": 8139.5,
-          "marketCap": 7376.6,
-          "ratio": 110.34
-        },
-        {
-          "date": "2024-09-10",
-          "holdingPrice": 44485.0,
-          "subsidiaryPrice": 271294.0,
-          "holdingValue": 8213.9,
-          "marketCap": 7436.8,
-          "ratio": 110.45
-        },
-        {
-          "date": "2024-09-11",
-          "holdingPrice": 44305.0,
-          "subsidiaryPrice": 284564.0,
-          "holdingValue": 8615.7,
-          "marketCap": 7406.7,
-          "ratio": 116.32
-        },
-        {
-          "date": "2024-09-12",
-          "holdingPrice": 44620.0,
-          "subsidiaryPrice": 291936.0,
-          "holdingValue": 8838.9,
-          "marketCap": 7459.4,
-          "ratio": 118.49
-        },
-        {
-          "date": "2024-09-13",
-          "holdingPrice": 44935.0,
-          "subsidiaryPrice": 284564.0,
-          "holdingValue": 8615.7,
-          "marketCap": 7512.1,
-          "ratio": 114.69
-        },
-        {
-          "date": "2024-09-19",
-          "holdingPrice": 45926.0,
-          "subsidiaryPrice": 315527.0,
-          "holdingValue": 9553.2,
-          "marketCap": 7677.6,
-          "ratio": 124.43
-        },
-        {
-          "date": "2024-09-20",
-          "holdingPrice": 47006.0,
-          "subsidiaryPrice": 309629.0,
-          "holdingValue": 9374.6,
-          "marketCap": 7858.3,
-          "ratio": 119.3
-        },
-        {
-          "date": "2024-09-23",
-          "holdingPrice": 45295.0,
-          "subsidiaryPrice": 333220.0,
-          "holdingValue": 10088.8,
-          "marketCap": 7572.3,
-          "ratio": 133.23
-        },
-        {
-          "date": "2024-09-24",
-          "holdingPrice": 46826.0,
-          "subsidiaryPrice": 336169.0,
-          "holdingValue": 10178.1,
-          "marketCap": 7828.2,
-          "ratio": 130.02
-        },
-        {
-          "date": "2024-09-25",
-          "holdingPrice": 45926.0,
-          "subsidiaryPrice": 332237.0,
-          "holdingValue": 10059.1,
-          "marketCap": 7677.6,
-          "ratio": 131.02
-        },
-        {
-          "date": "2024-09-26",
-          "holdingPrice": 47006.0,
-          "subsidiaryPrice": 351404.0,
-          "holdingValue": 10639.4,
-          "marketCap": 7858.3,
-          "ratio": 135.39
-        },
-        {
-          "date": "2024-09-27",
-          "holdingPrice": 47006.0,
-          "subsidiaryPrice": 348947.0,
-          "holdingValue": 10565.0,
-          "marketCap": 7858.3,
-          "ratio": 134.44
-        },
-        {
-          "date": "2024-09-30",
-          "holdingPrice": 46646.0,
-          "subsidiaryPrice": 342558.0,
-          "holdingValue": 10371.6,
-          "marketCap": 7798.1,
-          "ratio": 133.0
-        },
-        {
-          "date": "2024-10-02",
-          "holdingPrice": 45655.0,
-          "subsidiaryPrice": 343541.0,
-          "holdingValue": 10401.3,
-          "marketCap": 7632.5,
-          "ratio": 136.28
-        },
-        {
-          "date": "2024-10-04",
-          "holdingPrice": 45385.0,
-          "subsidiaryPrice": 344524.0,
-          "holdingValue": 10431.1,
-          "marketCap": 7587.3,
-          "ratio": 137.48
-        },
-        {
-          "date": "2024-10-07",
-          "holdingPrice": 44485.0,
-          "subsidiaryPrice": 359268.0,
-          "holdingValue": 10877.5,
-          "marketCap": 7436.8,
-          "ratio": 146.27
-        },
-        {
-          "date": "2024-10-08",
-          "holdingPrice": 43494.0,
-          "subsidiaryPrice": 357302.0,
-          "holdingValue": 10818.0,
-          "marketCap": 7271.2,
-          "ratio": 148.78
-        },
-        {
-          "date": "2024-10-10",
-          "holdingPrice": 43899.0,
-          "subsidiaryPrice": 366640.0,
-          "holdingValue": 11100.7,
-          "marketCap": 7338.9,
-          "ratio": 151.26
-        },
-        {
-          "date": "2024-10-11",
-          "holdingPrice": 43899.0,
-          "subsidiaryPrice": 366640.0,
-          "holdingValue": 11100.7,
-          "marketCap": 7338.9,
-          "ratio": 151.26
-        },
-        {
-          "date": "2024-10-14",
-          "holdingPrice": 44755.0,
-          "subsidiaryPrice": 366640.0,
-          "holdingValue": 11100.7,
-          "marketCap": 7481.9,
-          "ratio": 148.37
-        },
-        {
-          "date": "2024-10-15",
-          "holdingPrice": 43944.0,
-          "subsidiaryPrice": 387282.0,
-          "holdingValue": 11725.7,
-          "marketCap": 7346.5,
-          "ratio": 159.61
-        },
-        {
-          "date": "2024-10-16",
-          "holdingPrice": 43944.0,
-          "subsidiaryPrice": 392197.0,
-          "holdingValue": 11874.5,
-          "marketCap": 7346.5,
-          "ratio": 161.64
-        },
-        {
-          "date": "2024-10-17",
-          "holdingPrice": 44980.0,
-          "subsidiaryPrice": 399569.0,
-          "holdingValue": 12097.7,
-          "marketCap": 7519.6,
-          "ratio": 160.88
-        },
-        {
-          "date": "2024-10-18",
-          "holdingPrice": 44485.0,
-          "subsidiaryPrice": 399569.0,
-          "holdingValue": 12097.7,
-          "marketCap": 7436.8,
-          "ratio": 162.67
-        },
-        {
-          "date": "2024-10-21",
-          "holdingPrice": 44125.0,
-          "subsidiaryPrice": 391705.0,
-          "holdingValue": 11859.6,
-          "marketCap": 7376.6,
-          "ratio": 160.77
-        },
-        {
-          "date": "2024-10-22",
-          "holdingPrice": 45205.0,
-          "subsidiaryPrice": 383842.0,
-          "holdingValue": 11621.5,
-          "marketCap": 7557.2,
-          "ratio": 153.78
-        },
-        {
-          "date": "2024-10-23",
-          "holdingPrice": 45115.0,
-          "subsidiaryPrice": 385808.0,
-          "holdingValue": 11681.0,
-          "marketCap": 7542.2,
-          "ratio": 154.88
-        },
-        {
-          "date": "2024-10-24",
-          "holdingPrice": 44800.0,
-          "subsidiaryPrice": 382367.0,
-          "holdingValue": 11576.9,
-          "marketCap": 7489.5,
-          "ratio": 154.58
-        },
-        {
-          "date": "2024-10-25",
-          "holdingPrice": 44935.0,
-          "subsidiaryPrice": 385316.0,
-          "holdingValue": 11666.2,
-          "marketCap": 7512.1,
-          "ratio": 155.3
-        },
-        {
-          "date": "2024-10-28",
-          "holdingPrice": 45385.0,
-          "subsidiaryPrice": 388756.0,
-          "holdingValue": 11770.3,
-          "marketCap": 7587.3,
-          "ratio": 155.13
-        },
-        {
-          "date": "2024-10-29",
-          "holdingPrice": 44620.0,
-          "subsidiaryPrice": 398094.0,
-          "holdingValue": 12053.0,
-          "marketCap": 7459.4,
-          "ratio": 161.58
-        },
-        {
-          "date": "2024-10-30",
-          "holdingPrice": 44395.0,
-          "subsidiaryPrice": 398094.0,
-          "holdingValue": 12053.0,
-          "marketCap": 7421.7,
-          "ratio": 162.4
-        },
-        {
-          "date": "2024-10-31",
-          "holdingPrice": 44845.0,
-          "subsidiaryPrice": 394163.0,
-          "holdingValue": 11934.0,
-          "marketCap": 7497.0,
-          "ratio": 159.18
-        },
-        {
-          "date": "2024-11-01",
-          "holdingPrice": 45385.0,
-          "subsidiaryPrice": 410381.0,
-          "holdingValue": 12425.1,
-          "marketCap": 7587.3,
-          "ratio": 163.76
-        },
-        {
-          "date": "2024-11-04",
-          "holdingPrice": 45385.0,
-          "subsidiaryPrice": 435938.0,
-          "holdingValue": 13198.8,
-          "marketCap": 7587.3,
-          "ratio": 173.96
-        },
-        {
-          "date": "2024-11-05",
-          "holdingPrice": 45745.0,
-          "subsidiaryPrice": 442327.0,
-          "holdingValue": 13392.3,
-          "marketCap": 7647.5,
-          "ratio": 175.12
-        },
-        {
-          "date": "2024-11-06",
-          "holdingPrice": 46196.0,
-          "subsidiaryPrice": 460020.0,
-          "holdingValue": 13928.0,
-          "marketCap": 7722.8,
-          "ratio": 180.35
-        },
-        {
-          "date": "2024-11-07",
-          "holdingPrice": 47186.0,
-          "subsidiaryPrice": 454122.0,
-          "holdingValue": 13749.4,
-          "marketCap": 7888.4,
-          "ratio": 174.3
-        },
-        {
-          "date": "2024-11-08",
-          "holdingPrice": 45295.0,
-          "subsidiaryPrice": 453631.0,
-          "holdingValue": 13734.5,
-          "marketCap": 7572.3,
-          "ratio": 181.38
-        },
-        {
-          "date": "2024-11-11",
-          "holdingPrice": 45655.0,
-          "subsidiaryPrice": 484594.0,
-          "holdingValue": 14672.0,
-          "marketCap": 7632.5,
-          "ratio": 192.23
-        },
-        {
-          "date": "2024-11-12",
-          "holdingPrice": 43989.0,
-          "subsidiaryPrice": 491475.0,
-          "holdingValue": 14880.3,
-          "marketCap": 7354.0,
-          "ratio": 202.34
-        },
-        {
-          "date": "2024-11-13",
-          "holdingPrice": 44305.0,
-          "subsidiaryPrice": 451174.0,
-          "holdingValue": 13660.1,
-          "marketCap": 7406.7,
-          "ratio": 184.43
-        },
-        {
-          "date": "2024-11-14",
-          "holdingPrice": 44530.0,
-          "subsidiaryPrice": 471324.0,
-          "holdingValue": 14270.2,
-          "marketCap": 7444.3,
-          "ratio": 191.69
-        },
-        {
-          "date": "2024-11-15",
-          "holdingPrice": 43944.0,
-          "subsidiaryPrice": 458546.0,
-          "holdingValue": 13883.3,
-          "marketCap": 7346.5,
-          "ratio": 188.98
-        },
-        {
-          "date": "2024-11-18",
-          "holdingPrice": 45475.0,
-          "subsidiaryPrice": 442819.0,
-          "holdingValue": 13407.2,
-          "marketCap": 7602.4,
-          "ratio": 176.35
-        },
-        {
-          "date": "2024-11-19",
-          "holdingPrice": 45025.0,
-          "subsidiaryPrice": 448225.0,
-          "holdingValue": 13570.8,
-          "marketCap": 7527.1,
-          "ratio": 180.29
-        },
-        {
-          "date": "2024-11-20",
-          "holdingPrice": 44215.0,
-          "subsidiaryPrice": 443310.0,
-          "holdingValue": 13422.0,
-          "marketCap": 7391.6,
-          "ratio": 181.58
-        },
-        {
-          "date": "2024-11-21",
-          "holdingPrice": 43944.0,
-          "subsidiaryPrice": 430532.0,
-          "holdingValue": 13035.1,
-          "marketCap": 7346.5,
-          "ratio": 177.43
-        },
-        {
-          "date": "2024-11-22",
-          "holdingPrice": 40568.0,
-          "subsidiaryPrice": 399569.0,
-          "holdingValue": 12097.7,
-          "marketCap": 6781.9,
-          "ratio": 178.38
-        },
-        {
-          "date": "2024-11-25",
-          "holdingPrice": 40297.0,
-          "subsidiaryPrice": 387282.0,
-          "holdingValue": 11725.7,
-          "marketCap": 6736.8,
-          "ratio": 174.06
-        },
-        {
-          "date": "2024-11-26",
-          "holdingPrice": 40117.0,
-          "subsidiaryPrice": 392197.0,
-          "holdingValue": 11874.5,
-          "marketCap": 6706.7,
-          "ratio": 177.06
-        },
-        {
-          "date": "2024-11-27",
-          "holdingPrice": 40838.0,
-          "subsidiaryPrice": 404975.0,
-          "holdingValue": 12261.4,
-          "marketCap": 6827.1,
-          "ratio": 179.6
-        },
-        {
-          "date": "2024-11-28",
-          "holdingPrice": 41558.0,
-          "subsidiaryPrice": 389739.0,
-          "holdingValue": 11800.1,
-          "marketCap": 6947.5,
-          "ratio": 169.85
-        },
-        {
-          "date": "2024-11-29",
-          "holdingPrice": 40523.0,
-          "subsidiaryPrice": 396620.0,
-          "holdingValue": 12008.4,
-          "marketCap": 6774.4,
-          "ratio": 177.26
-        },
-        {
-          "date": "2024-12-02",
-          "holdingPrice": 41018.0,
-          "subsidiaryPrice": 379418.0,
-          "holdingValue": 11487.6,
-          "marketCap": 6857.2,
-          "ratio": 167.53
-        },
-        {
-          "date": "2024-12-03",
-          "holdingPrice": 42639.0,
-          "subsidiaryPrice": 417262.0,
-          "holdingValue": 12633.4,
-          "marketCap": 7128.2,
-          "ratio": 177.23
-        },
-        {
-          "date": "2024-12-04",
-          "holdingPrice": 42504.0,
-          "subsidiaryPrice": 421685.0,
-          "holdingValue": 12767.3,
-          "marketCap": 7105.6,
-          "ratio": 179.68
-        },
-        {
-          "date": "2024-12-05",
-          "holdingPrice": 41018.0,
-          "subsidiaryPrice": 432006.0,
-          "holdingValue": 13079.8,
-          "marketCap": 6857.2,
-          "ratio": 190.75
-        },
-        {
-          "date": "2024-12-06",
-          "holdingPrice": 41513.0,
-          "subsidiaryPrice": 418736.0,
-          "holdingValue": 12678.0,
-          "marketCap": 6940.0,
-          "ratio": 182.68
-        },
-        {
-          "date": "2024-12-09",
-          "holdingPrice": 39892.0,
-          "subsidiaryPrice": 409890.0,
-          "holdingValue": 12410.2,
-          "marketCap": 6669.0,
-          "ratio": 186.09
-        },
-        {
-          "date": "2024-12-10",
-          "holdingPrice": 41153.0,
-          "subsidiaryPrice": 418736.0,
-          "holdingValue": 12678.0,
-          "marketCap": 6879.8,
-          "ratio": 184.28
-        },
-        {
-          "date": "2024-12-11",
-          "holdingPrice": 41873.0,
-          "subsidiaryPrice": 422668.0,
-          "holdingValue": 12797.1,
-          "marketCap": 7000.2,
-          "ratio": 182.81
-        },
-        {
-          "date": "2024-12-12",
-          "holdingPrice": 40613.0,
-          "subsidiaryPrice": 429549.0,
-          "holdingValue": 13005.4,
-          "marketCap": 6789.4,
-          "ratio": 191.55
-        },
-        {
-          "date": "2024-12-13",
-          "holdingPrice": 41963.0,
-          "subsidiaryPrice": 422668.0,
-          "holdingValue": 12797.1,
-          "marketCap": 7015.3,
-          "ratio": 182.42
-        },
-        {
-          "date": "2024-12-16",
-          "holdingPrice": 42278.0,
-          "subsidiaryPrice": 443802.0,
-          "holdingValue": 13436.9,
-          "marketCap": 7068.0,
-          "ratio": 190.11
-        },
-        {
-          "date": "2024-12-17",
-          "holdingPrice": 47006.0,
-          "subsidiaryPrice": 448716.0,
-          "holdingValue": 13585.7,
-          "marketCap": 7858.3,
-          "ratio": 172.88
-        },
-        {
-          "date": "2024-12-18",
-          "holdingPrice": 47006.0,
-          "subsidiaryPrice": 427091.0,
-          "holdingValue": 12931.0,
-          "marketCap": 7858.3,
-          "ratio": 164.55
-        },
-        {
-          "date": "2024-12-19",
-          "holdingPrice": 47096.0,
-          "subsidiaryPrice": 422177.0,
-          "holdingValue": 12782.2,
-          "marketCap": 7873.4,
-          "ratio": 162.35
-        },
-        {
-          "date": "2024-12-20",
-          "holdingPrice": 46196.0,
-          "subsidiaryPrice": 402518.0,
-          "holdingValue": 12187.0,
-          "marketCap": 7722.8,
-          "ratio": 157.8
-        },
-        {
-          "date": "2024-12-23",
-          "holdingPrice": 45655.0,
-          "subsidiaryPrice": 417262.0,
-          "holdingValue": 12633.4,
-          "marketCap": 7632.5,
-          "ratio": 165.52
-        },
-        {
-          "date": "2024-12-24",
-          "holdingPrice": 45926.0,
-          "subsidiaryPrice": 386299.0,
-          "holdingValue": 11695.9,
-          "marketCap": 7677.6,
-          "ratio": 152.34
-        },
-        {
-          "date": "2024-12-26",
-          "holdingPrice": 45475.0,
-          "subsidiaryPrice": 382859.0,
-          "holdingValue": 11591.8,
-          "marketCap": 7602.4,
-          "ratio": 152.48
-        },
-        {
-          "date": "2024-12-27",
-          "holdingPrice": 43991.0,
-          "subsidiaryPrice": 384850.0,
-          "holdingValue": 11652.1,
-          "marketCap": 7354.3,
-          "ratio": 158.44
-        },
-        {
-          "date": "2024-12-30",
-          "holdingPrice": 44901.0,
-          "subsidiaryPrice": 391322.0,
-          "holdingValue": 11848.0,
-          "marketCap": 7506.3,
-          "ratio": 157.84
-        },
-        {
-          "date": "2025-01-02",
-          "holdingPrice": 43991.0,
-          "subsidiaryPrice": 404765.0,
-          "holdingValue": 12255.0,
-          "marketCap": 7354.3,
-          "ratio": 166.64
-        },
-        {
-          "date": "2025-01-03",
-          "holdingPrice": 43608.0,
-          "subsidiaryPrice": 415718.0,
-          "holdingValue": 12586.6,
-          "marketCap": 7290.3,
-          "ratio": 172.65
-        },
-        {
-          "date": "2025-01-06",
-          "holdingPrice": 43608.0,
-          "subsidiaryPrice": 405263.0,
-          "holdingValue": 12270.1,
-          "marketCap": 7290.3,
-          "ratio": 168.31
-        },
-        {
-          "date": "2025-01-07",
-          "holdingPrice": 44374.0,
-          "subsidiaryPrice": 420199.0,
-          "holdingValue": 12722.3,
-          "marketCap": 7418.3,
-          "ratio": 171.5
-        },
-        {
-          "date": "2025-01-08",
-          "holdingPrice": 44326.0,
-          "subsidiaryPrice": 416216.0,
-          "holdingValue": 12601.7,
-          "marketCap": 7410.3,
-          "ratio": 170.06
-        },
-        {
-          "date": "2025-01-09",
-          "holdingPrice": 44518.0,
-          "subsidiaryPrice": 429160.0,
-          "holdingValue": 12993.6,
-          "marketCap": 7442.3,
-          "ratio": 174.59
-        },
-        {
-          "date": "2025-01-10",
-          "holdingPrice": 43656.0,
-          "subsidiaryPrice": 423684.0,
-          "holdingValue": 12827.8,
-          "marketCap": 7298.3,
-          "ratio": 175.76
-        },
-        {
-          "date": "2025-01-13",
-          "holdingPrice": 43608.0,
-          "subsidiaryPrice": 419701.0,
-          "holdingValue": 12707.2,
-          "marketCap": 7290.3,
-          "ratio": 174.3
-        },
-        {
-          "date": "2025-01-14",
-          "holdingPrice": 43369.0,
-          "subsidiaryPrice": 421194.0,
-          "holdingValue": 12752.4,
-          "marketCap": 7250.3,
-          "ratio": 175.89
-        },
-        {
-          "date": "2025-01-15",
-          "holdingPrice": 43465.0,
-          "subsidiaryPrice": 448079.0,
-          "holdingValue": 13566.4,
-          "marketCap": 7266.3,
-          "ratio": 186.7
-        },
-        {
-          "date": "2025-01-16",
-          "holdingPrice": 44422.0,
-          "subsidiaryPrice": 466998.0,
-          "holdingValue": 14139.2,
-          "marketCap": 7426.3,
-          "ratio": 190.39
-        },
-        {
-          "date": "2025-01-17",
-          "holdingPrice": 43848.0,
-          "subsidiaryPrice": 477951.0,
-          "holdingValue": 14470.9,
-          "marketCap": 7330.3,
-          "ratio": 197.41
-        },
-        {
-          "date": "2025-01-20",
-          "holdingPrice": 43752.0,
-          "subsidiaryPrice": 454551.0,
-          "holdingValue": 13762.4,
-          "marketCap": 7314.3,
-          "ratio": 188.16
-        },
-        {
-          "date": "2025-01-21",
-          "holdingPrice": 44039.0,
-          "subsidiaryPrice": 464011.0,
-          "holdingValue": 14048.8,
-          "marketCap": 7362.3,
-          "ratio": 190.82
-        },
-        {
-          "date": "2025-01-22",
-          "holdingPrice": 44518.0,
-          "subsidiaryPrice": 503840.0,
-          "holdingValue": 15254.7,
-          "marketCap": 7442.3,
-          "ratio": 204.97
-        },
-        {
-          "date": "2025-01-23",
-          "holdingPrice": 43943.0,
-          "subsidiaryPrice": 491891.0,
-          "holdingValue": 14892.9,
-          "marketCap": 7346.3,
-          "ratio": 202.73
-        },
-        {
-          "date": "2025-01-24",
-          "holdingPrice": 44039.0,
-          "subsidiaryPrice": 505832.0,
-          "holdingValue": 15315.0,
-          "marketCap": 7362.3,
-          "ratio": 208.02
-        },
-        {
-          "date": "2025-01-31",
-          "holdingPrice": 43752.0,
-          "subsidiaryPrice": 446586.0,
-          "holdingValue": 13521.2,
-          "marketCap": 7314.3,
-          "ratio": 184.86
-        },
-        {
-          "date": "2025-02-03",
-          "holdingPrice": 42842.0,
-          "subsidiaryPrice": 445590.0,
-          "holdingValue": 13491.1,
-          "marketCap": 7162.2,
-          "ratio": 188.36
-        },
-        {
-          "date": "2025-02-04",
-          "holdingPrice": 44566.0,
-          "subsidiaryPrice": 509814.0,
-          "holdingValue": 15435.6,
-          "marketCap": 7450.3,
-          "ratio": 207.18
-        },
-        {
-          "date": "2025-02-05",
-          "holdingPrice": 44279.0,
-          "subsidiaryPrice": 500853.0,
-          "holdingValue": 15164.2,
-          "marketCap": 7402.3,
-          "ratio": 204.86
-        },
-        {
-          "date": "2025-02-06",
-          "holdingPrice": 45188.0,
-          "subsidiaryPrice": 530725.0,
-          "holdingValue": 16068.7,
-          "marketCap": 7554.4,
-          "ratio": 212.71
-        },
-        {
-          "date": "2025-02-07",
-          "holdingPrice": 44566.0,
-          "subsidiaryPrice": 500853.0,
-          "holdingValue": 15164.2,
-          "marketCap": 7450.3,
-          "ratio": 203.54
-        },
-        {
-          "date": "2025-02-10",
-          "holdingPrice": 44231.0,
-          "subsidiaryPrice": 485917.0,
-          "holdingValue": 14712.0,
-          "marketCap": 7394.3,
-          "ratio": 198.96
-        },
-        {
-          "date": "2025-02-11",
-          "holdingPrice": 44039.0,
-          "subsidiaryPrice": 494381.0,
-          "holdingValue": 14968.3,
-          "marketCap": 7362.3,
-          "ratio": 203.31
-        },
-        {
-          "date": "2025-02-12",
-          "holdingPrice": 44231.0,
-          "subsidiaryPrice": 499857.0,
-          "holdingValue": 15134.1,
-          "marketCap": 7394.3,
-          "ratio": 204.67
-        },
-        {
-          "date": "2025-02-13",
-          "holdingPrice": 44709.0,
-          "subsidiaryPrice": 494878.0,
-          "holdingValue": 14983.4,
-          "marketCap": 7474.3,
-          "ratio": 200.46
-        },
-        {
-          "date": "2025-02-14",
-          "holdingPrice": 44662.0,
-          "subsidiaryPrice": 485917.0,
-          "holdingValue": 14712.0,
-          "marketCap": 7466.3,
-          "ratio": 197.04
-        },
-        {
-          "date": "2025-02-17",
-          "holdingPrice": 45284.0,
-          "subsidiaryPrice": 481934.0,
-          "holdingValue": 14591.4,
-          "marketCap": 7570.4,
-          "ratio": 192.74
-        },
-        {
-          "date": "2025-02-18",
-          "holdingPrice": 45715.0,
-          "subsidiaryPrice": 503840.0,
-          "holdingValue": 15254.7,
-          "marketCap": 7642.4,
-          "ratio": 199.61
-        },
-        {
-          "date": "2025-02-19",
-          "holdingPrice": 45667.0,
-          "subsidiaryPrice": 495376.0,
-          "holdingValue": 14998.4,
-          "marketCap": 7634.4,
-          "ratio": 196.46
-        },
-        {
-          "date": "2025-02-20",
-          "holdingPrice": 46528.0,
-          "subsidiaryPrice": 478449.0,
-          "holdingValue": 14485.9,
-          "marketCap": 7778.4,
-          "ratio": 186.23
-        },
-        {
-          "date": "2025-02-21",
-          "holdingPrice": 46576.0,
-          "subsidiaryPrice": 478947.0,
-          "holdingValue": 14501.0,
-          "marketCap": 7786.4,
-          "ratio": 186.23
-        },
-        {
-          "date": "2025-02-24",
-          "holdingPrice": 46720.0,
-          "subsidiaryPrice": 456543.0,
-          "holdingValue": 13822.7,
-          "marketCap": 7810.4,
-          "ratio": 176.98
-        },
-        {
-          "date": "2025-02-25",
-          "holdingPrice": 46098.0,
-          "subsidiaryPrice": 453556.0,
-          "holdingValue": 13732.2,
-          "marketCap": 7706.4,
-          "ratio": 178.19
-        },
-        {
-          "date": "2025-02-26",
-          "holdingPrice": 46289.0,
-          "subsidiaryPrice": 457041.0,
-          "holdingValue": 13837.8,
-          "marketCap": 7738.4,
-          "ratio": 178.82
-        },
-        {
-          "date": "2025-02-27",
-          "holdingPrice": 45667.0,
-          "subsidiaryPrice": 453556.0,
-          "holdingValue": 13732.2,
-          "marketCap": 7634.4,
-          "ratio": 179.87
-        },
-        {
-          "date": "2025-02-28",
-          "holdingPrice": 45092.0,
-          "subsidiaryPrice": 430654.0,
-          "holdingValue": 13038.8,
-          "marketCap": 7538.4,
-          "ratio": 172.97
-        },
-        {
-          "date": "2025-03-04",
-          "holdingPrice": 43943.0,
-          "subsidiaryPrice": 439615.0,
-          "holdingValue": 13310.2,
-          "marketCap": 7346.3,
-          "ratio": 181.18
-        },
-        {
-          "date": "2025-03-05",
-          "holdingPrice": 45188.0,
-          "subsidiaryPrice": 449075.0,
-          "holdingValue": 13596.6,
-          "marketCap": 7554.4,
-          "ratio": 179.98
-        },
-        {
-          "date": "2025-03-06",
-          "holdingPrice": 45475.0,
-          "subsidiaryPrice": 429658.0,
-          "holdingValue": 13008.7,
-          "marketCap": 7602.4,
-          "ratio": 171.11
-        },
-        {
-          "date": "2025-03-07",
-          "holdingPrice": 44997.0,
-          "subsidiaryPrice": 421194.0,
-          "holdingValue": 12752.4,
-          "marketCap": 7522.4,
-          "ratio": 169.53
-        },
-        {
-          "date": "2025-03-10",
-          "holdingPrice": 45667.0,
-          "subsidiaryPrice": 420696.0,
-          "holdingValue": 12737.4,
-          "marketCap": 7634.4,
-          "ratio": 166.84
-        },
-        {
-          "date": "2025-03-11",
-          "holdingPrice": 45571.0,
-          "subsidiaryPrice": 421194.0,
-          "holdingValue": 12752.4,
-          "marketCap": 7618.4,
-          "ratio": 167.39
-        },
-        {
-          "date": "2025-03-12",
-          "holdingPrice": 45906.0,
-          "subsidiaryPrice": 424182.0,
-          "holdingValue": 12842.9,
-          "marketCap": 7674.4,
-          "ratio": 167.35
-        },
-        {
-          "date": "2025-03-13",
-          "holdingPrice": 45044.0,
-          "subsidiaryPrice": 427667.0,
-          "holdingValue": 12948.4,
-          "marketCap": 7530.4,
-          "ratio": 171.95
-        },
-        {
-          "date": "2025-03-14",
-          "holdingPrice": 45762.0,
-          "subsidiaryPrice": 452062.0,
-          "holdingValue": 13687.0,
-          "marketCap": 7650.4,
-          "ratio": 178.91
-        },
-        {
-          "date": "2025-03-17",
-          "holdingPrice": 46193.0,
-          "subsidiaryPrice": 472972.0,
-          "holdingValue": 14320.1,
-          "marketCap": 7722.4,
-          "ratio": 185.44
-        },
-        {
-          "date": "2025-03-18",
-          "holdingPrice": 46337.0,
-          "subsidiaryPrice": 472475.0,
-          "holdingValue": 14305.0,
-          "marketCap": 7746.4,
-          "ratio": 184.67
-        },
-        {
-          "date": "2025-03-19",
-          "holdingPrice": 46672.0,
-          "subsidiaryPrice": 459032.0,
-          "holdingValue": 13898.0,
-          "marketCap": 7802.4,
-          "ratio": 178.12
-        },
-        {
-          "date": "2025-03-20",
-          "holdingPrice": 46576.0,
-          "subsidiaryPrice": 461024.0,
-          "holdingValue": 13958.3,
-          "marketCap": 7786.4,
-          "ratio": 179.26
-        },
-        {
-          "date": "2025-03-21",
-          "holdingPrice": 45858.0,
-          "subsidiaryPrice": 449075.0,
-          "holdingValue": 13596.6,
-          "marketCap": 7666.4,
-          "ratio": 177.35
-        },
-        {
-          "date": "2025-03-24",
-          "holdingPrice": 45188.0,
-          "subsidiaryPrice": 457539.0,
-          "holdingValue": 13852.8,
-          "marketCap": 7554.4,
-          "ratio": 183.38
-        },
-        {
-          "date": "2025-03-25",
-          "holdingPrice": 45523.0,
-          "subsidiaryPrice": 455547.0,
-          "holdingValue": 13792.5,
-          "marketCap": 7610.4,
-          "ratio": 181.23
-        },
-        {
-          "date": "2025-03-26",
-          "holdingPrice": 46145.0,
-          "subsidiaryPrice": 474466.0,
-          "holdingValue": 14365.3,
-          "marketCap": 7714.4,
-          "ratio": 186.21
-        },
-        {
-          "date": "2025-03-27",
-          "holdingPrice": 46050.0,
-          "subsidiaryPrice": 441607.0,
-          "holdingValue": 13370.5,
-          "marketCap": 7698.4,
-          "ratio": 173.68
-        },
-        {
-          "date": "2025-03-28",
-          "holdingPrice": 46002.0,
-          "subsidiaryPrice": 428662.0,
-          "holdingValue": 12978.5,
-          "marketCap": 7690.4,
-          "ratio": 168.76
-        },
-        {
-          "date": "2025-03-31",
-          "holdingPrice": 45906.0,
-          "subsidiaryPrice": 426671.0,
-          "holdingValue": 12918.3,
-          "marketCap": 7674.4,
-          "ratio": 168.33
-        },
-        {
-          "date": "2025-04-01",
-          "holdingPrice": 46816.0,
-          "subsidiaryPrice": 420199.0,
-          "holdingValue": 12722.3,
-          "marketCap": 7826.4,
-          "ratio": 162.56
-        },
-        {
-          "date": "2025-04-02",
-          "holdingPrice": 46959.0,
-          "subsidiaryPrice": 420199.0,
-          "holdingValue": 12722.3,
-          "marketCap": 7850.5,
-          "ratio": 162.06
-        },
-        {
-          "date": "2025-04-03",
-          "holdingPrice": 46720.0,
-          "subsidiaryPrice": 417709.0,
-          "holdingValue": 12646.9,
-          "marketCap": 7810.4,
-          "ratio": 161.92
-        },
-        {
-          "date": "2025-04-04",
-          "holdingPrice": 47151.0,
-          "subsidiaryPrice": 429658.0,
-          "holdingValue": 13008.7,
-          "marketCap": 7882.5,
-          "ratio": 165.03
-        },
-        {
-          "date": "2025-04-07",
-          "holdingPrice": 44231.0,
-          "subsidiaryPrice": 391820.0,
-          "holdingValue": 11863.1,
-          "marketCap": 7394.3,
-          "ratio": 160.44
-        },
-        {
-          "date": "2025-04-08",
-          "holdingPrice": 44279.0,
-          "subsidiaryPrice": 400782.0,
-          "holdingValue": 12134.4,
-          "marketCap": 7402.3,
-          "ratio": 163.93
-        },
-        {
-          "date": "2025-04-09",
-          "holdingPrice": 43608.0,
-          "subsidiaryPrice": 380867.0,
-          "holdingValue": 11531.5,
-          "marketCap": 7290.3,
-          "ratio": 158.18
-        },
-        {
-          "date": "2025-04-10",
-          "holdingPrice": 45523.0,
-          "subsidiaryPrice": 430156.0,
-          "holdingValue": 13023.8,
-          "marketCap": 7610.4,
-          "ratio": 171.13
-        },
-        {
-          "date": "2025-04-11",
-          "holdingPrice": 47390.0,
-          "subsidiaryPrice": 434139.0,
-          "holdingValue": 13144.4,
-          "marketCap": 7922.5,
-          "ratio": 165.91
-        },
-        {
-          "date": "2025-04-14",
-          "holdingPrice": 47055.0,
-          "subsidiaryPrice": 441109.0,
-          "holdingValue": 13355.4,
-          "marketCap": 7866.5,
-          "ratio": 169.78
-        },
-        {
-          "date": "2025-04-15",
-          "holdingPrice": 47773.0,
-          "subsidiaryPrice": 468989.0,
-          "holdingValue": 14199.5,
-          "marketCap": 7986.5,
-          "ratio": 177.79
-        },
-        {
-          "date": "2025-04-16",
-          "holdingPrice": 47103.0,
-          "subsidiaryPrice": 460028.0,
-          "holdingValue": 13928.2,
-          "marketCap": 7874.5,
-          "ratio": 176.88
-        },
-        {
-          "date": "2025-04-17",
-          "holdingPrice": 47677.0,
-          "subsidiaryPrice": 473968.0,
-          "holdingValue": 14350.3,
-          "marketCap": 7970.5,
-          "ratio": 180.04
-        },
-        {
-          "date": "2025-04-18",
-          "holdingPrice": 47869.0,
-          "subsidiaryPrice": 476457.0,
-          "holdingValue": 14425.6,
-          "marketCap": 8002.5,
-          "ratio": 180.26
-        },
-        {
-          "date": "2025-04-21",
-          "holdingPrice": 47869.0,
-          "subsidiaryPrice": 474964.0,
-          "holdingValue": 14380.4,
-          "marketCap": 8002.5,
-          "ratio": 179.7
-        },
-        {
-          "date": "2025-04-22",
-          "holdingPrice": 47869.0,
-          "subsidiaryPrice": 436130.0,
-          "holdingValue": 13204.7,
-          "marketCap": 8002.5,
-          "ratio": 165.01
-        },
-        {
-          "date": "2025-04-23",
-          "holdingPrice": 47869.0,
-          "subsidiaryPrice": 438620.0,
-          "holdingValue": 13280.0,
-          "marketCap": 8002.5,
-          "ratio": 165.95
-        },
-        {
-          "date": "2025-04-24",
-          "holdingPrice": 48635.0,
-          "subsidiaryPrice": 436628.0,
-          "holdingValue": 13219.7,
-          "marketCap": 8130.5,
-          "ratio": 162.59
-        },
-        {
-          "date": "2025-04-25",
-          "holdingPrice": 49496.0,
-          "subsidiaryPrice": 457539.0,
-          "holdingValue": 13852.8,
-          "marketCap": 8274.6,
-          "ratio": 167.41
-        },
-        {
-          "date": "2025-04-28",
-          "holdingPrice": 51124.0,
-          "subsidiaryPrice": 482432.0,
-          "holdingValue": 14606.5,
-          "marketCap": 8546.7,
-          "ratio": 170.9
-        },
-        {
-          "date": "2025-04-29",
-          "holdingPrice": 51028.0,
-          "subsidiaryPrice": 517780.0,
-          "holdingValue": 15676.8,
-          "marketCap": 8530.7,
-          "ratio": 183.77
-        },
-        {
-          "date": "2025-04-30",
-          "holdingPrice": 50837.0,
-          "subsidiaryPrice": 487410.0,
-          "holdingValue": 14757.3,
-          "marketCap": 8498.7,
-          "ratio": 173.64
-        },
-        {
-          "date": "2025-05-02",
-          "holdingPrice": 50358.0,
-          "subsidiaryPrice": 504836.0,
-          "holdingValue": 15284.8,
-          "marketCap": 8418.6,
-          "ratio": 181.56
-        },
-        {
-          "date": "2025-05-07",
-          "holdingPrice": 51507.0,
-          "subsidiaryPrice": 513797.0,
-          "holdingValue": 15556.2,
-          "marketCap": 8610.7,
-          "ratio": 180.66
-        },
-        {
-          "date": "2025-05-08",
-          "holdingPrice": 49783.0,
-          "subsidiaryPrice": 534708.0,
-          "holdingValue": 16189.3,
-          "marketCap": 8322.6,
-          "ratio": 194.52
-        },
-        {
-          "date": "2025-05-09",
-          "holdingPrice": 50741.0,
-          "subsidiaryPrice": 515789.0,
-          "holdingValue": 15616.5,
-          "marketCap": 8482.7,
-          "ratio": 184.1
-        },
-        {
-          "date": "2025-05-12",
-          "holdingPrice": 50549.0,
-          "subsidiaryPrice": 524750.0,
-          "holdingValue": 15887.8,
-          "marketCap": 8450.6,
-          "ratio": 188.01
-        },
-        {
-          "date": "2025-05-13",
-          "holdingPrice": 51890.0,
-          "subsidiaryPrice": 537695.0,
-          "holdingValue": 16279.7,
-          "marketCap": 8674.7,
-          "ratio": 187.67
-        },
-        {
-          "date": "2025-05-14",
-          "holdingPrice": 52368.0,
-          "subsidiaryPrice": 553627.0,
-          "holdingValue": 16762.1,
-          "marketCap": 8754.7,
-          "ratio": 191.46
-        },
-        {
-          "date": "2025-05-15",
-          "holdingPrice": 52177.0,
-          "subsidiaryPrice": 575533.0,
-          "holdingValue": 17425.3,
-          "marketCap": 8722.7,
-          "ratio": 199.77
-        },
-        {
-          "date": "2025-05-16",
-          "holdingPrice": 51411.0,
-          "subsidiaryPrice": 582503.0,
-          "holdingValue": 17636.4,
-          "marketCap": 8594.7,
-          "ratio": 205.2
-        },
-        {
-          "date": "2025-05-19",
-          "holdingPrice": 51124.0,
-          "subsidiaryPrice": 570554.0,
-          "holdingValue": 17274.6,
-          "marketCap": 8546.7,
-          "ratio": 202.12
-        },
-        {
-          "date": "2025-05-20",
-          "holdingPrice": 52273.0,
-          "subsidiaryPrice": 579516.0,
-          "holdingValue": 17545.9,
-          "marketCap": 8738.7,
-          "ratio": 200.78
-        },
-        {
-          "date": "2025-05-21",
-          "holdingPrice": 53134.0,
-          "subsidiaryPrice": 595447.0,
-          "holdingValue": 18028.3,
-          "marketCap": 8882.8,
-          "ratio": 202.96
-        },
-        {
-          "date": "2025-05-22",
-          "holdingPrice": 52560.0,
-          "subsidiaryPrice": 590469.0,
-          "holdingValue": 17877.5,
-          "marketCap": 8786.7,
-          "ratio": 203.46
-        },
-        {
-          "date": "2025-05-23",
-          "holdingPrice": 52943.0,
-          "subsidiaryPrice": 597439.0,
-          "holdingValue": 18088.6,
-          "marketCap": 8850.8,
-          "ratio": 204.37
-        },
-        {
-          "date": "2025-05-26",
-          "holdingPrice": 54187.0,
-          "subsidiaryPrice": 597439.0,
-          "holdingValue": 18088.6,
-          "marketCap": 9058.8,
-          "ratio": 199.68
-        },
-        {
-          "date": "2025-05-27",
-          "holdingPrice": 55815.0,
-          "subsidiaryPrice": 606400.0,
-          "holdingValue": 18359.9,
-          "marketCap": 9330.9,
-          "ratio": 196.76
-        },
-        {
-          "date": "2025-05-28",
-          "holdingPrice": 57442.0,
-          "subsidiaryPrice": 591464.0,
-          "holdingValue": 17907.7,
-          "marketCap": 9603.0,
-          "ratio": 186.48
-        },
-        {
-          "date": "2025-05-29",
-          "holdingPrice": 63953.0,
-          "subsidiaryPrice": 619345.0,
-          "holdingValue": 18751.8,
-          "marketCap": 10691.3,
-          "ratio": 175.39
-        },
-        {
-          "date": "2025-05-30",
-          "holdingPrice": 59740.0,
-          "subsidiaryPrice": 616358.0,
-          "holdingValue": 18661.4,
-          "marketCap": 9987.1,
-          "ratio": 186.85
-        },
-        {
-          "date": "2025-06-02",
-          "holdingPrice": 61846.0,
-          "subsidiaryPrice": 634281.0,
-          "holdingValue": 19204.0,
-          "marketCap": 10339.2,
-          "ratio": 185.74
-        },
-        {
-          "date": "2025-06-04",
-          "holdingPrice": 64240.0,
-          "subsidiaryPrice": 645234.0,
-          "holdingValue": 19535.7,
-          "marketCap": 10739.4,
-          "ratio": 181.91
-        },
-        {
-          "date": "2025-06-05",
-          "holdingPrice": 64336.0,
-          "subsidiaryPrice": 647225.0,
-          "holdingValue": 19595.9,
-          "marketCap": 10755.4,
-          "ratio": 182.2
-        },
-        {
-          "date": "2025-06-09",
-          "holdingPrice": 63665.0,
-          "subsidiaryPrice": 663157.0,
-          "holdingValue": 20078.3,
-          "marketCap": 10643.3,
-          "ratio": 188.65
-        },
-        {
-          "date": "2025-06-10",
-          "holdingPrice": 63187.0,
-          "subsidiaryPrice": 679089.0,
-          "holdingValue": 20560.7,
-          "marketCap": 10563.3,
-          "ratio": 194.64
-        },
-        {
-          "date": "2025-06-11",
-          "holdingPrice": 63761.0,
-          "subsidiaryPrice": 676102.0,
-          "holdingValue": 20470.2,
-          "marketCap": 10659.3,
-          "ratio": 192.04
-        },
-        {
-          "date": "2025-06-12",
-          "holdingPrice": 63282.0,
-          "subsidiaryPrice": 674110.0,
-          "holdingValue": 20409.9,
-          "marketCap": 10579.3,
-          "ratio": 192.92
-        },
-        {
-          "date": "2025-06-13",
-          "holdingPrice": 61846.0,
-          "subsidiaryPrice": 677097.0,
-          "holdingValue": 20500.4,
-          "marketCap": 10339.2,
-          "ratio": 198.28
-        },
-        {
-          "date": "2025-06-16",
-          "holdingPrice": 65006.0,
-          "subsidiaryPrice": 767709.0,
-          "holdingValue": 23243.8,
-          "marketCap": 10867.4,
-          "ratio": 213.89
-        },
-        {
-          "date": "2025-06-17",
-          "holdingPrice": 62899.0,
-          "subsidiaryPrice": 762730.0,
-          "holdingValue": 23093.1,
-          "marketCap": 10515.3,
-          "ratio": 219.61
-        },
-        {
-          "date": "2025-06-18",
-          "holdingPrice": 63761.0,
-          "subsidiaryPrice": 800568.0,
-          "holdingValue": 24238.7,
-          "marketCap": 10659.3,
-          "ratio": 227.39
-        },
-        {
-          "date": "2025-06-19",
-          "holdingPrice": 63378.0,
-          "subsidiaryPrice": 840397.0,
-          "holdingValue": 25444.6,
-          "marketCap": 10595.3,
-          "ratio": 240.15
-        },
-        {
-          "date": "2025-06-20",
-          "holdingPrice": 64240.0,
-          "subsidiaryPrice": 823470.0,
-          "holdingValue": 24932.1,
-          "marketCap": 10739.4,
-          "ratio": 232.16
-        },
-        {
-          "date": "2025-06-23",
-          "holdingPrice": 65293.0,
-          "subsidiaryPrice": 823470.0,
-          "holdingValue": 24932.1,
-          "marketCap": 10915.4,
-          "ratio": 228.41
-        },
-        {
-          "date": "2025-06-24",
-          "holdingPrice": 68835.0,
-          "subsidiaryPrice": 822474.0,
-          "holdingValue": 24901.9,
-          "marketCap": 11507.6,
-          "ratio": 216.4
-        },
-        {
-          "date": "2025-06-25",
-          "holdingPrice": 69410.0,
-          "subsidiaryPrice": 852346.0,
-          "holdingValue": 25806.4,
-          "marketCap": 11603.6,
-          "ratio": 222.4
-        },
-        {
-          "date": "2025-06-26",
-          "holdingPrice": 69027.0,
-          "subsidiaryPrice": 859316.0,
-          "holdingValue": 26017.4,
-          "marketCap": 11539.6,
-          "ratio": 225.46
-        },
-        {
-          "date": "2025-06-27",
-          "holdingPrice": 70941.0,
-          "subsidiaryPrice": 853342.0,
-          "holdingValue": 25836.5,
-          "marketCap": 11859.7,
-          "ratio": 217.85
-        },
-        {
-          "date": "2025-06-30",
-          "holdingPrice": 73048.0,
-          "subsidiaryPrice": 887197.0,
-          "holdingValue": 26861.5,
-          "marketCap": 12211.8,
-          "ratio": 219.96
-        },
-        {
-          "date": "2025-07-01",
-          "holdingPrice": 74675.0,
-          "subsidiaryPrice": 901137.0,
-          "holdingValue": 27283.6,
-          "marketCap": 12483.9,
-          "ratio": 218.55
-        },
-        {
-          "date": "2025-07-02",
-          "holdingPrice": 73622.0,
-          "subsidiaryPrice": 933996.0,
-          "holdingValue": 28278.5,
-          "marketCap": 12307.8,
-          "ratio": 229.76
-        },
-        {
-          "date": "2025-07-03",
-          "holdingPrice": 72569.0,
-          "subsidiaryPrice": 903128.0,
-          "holdingValue": 27343.9,
-          "marketCap": 12131.8,
-          "ratio": 225.39
-        },
-        {
-          "date": "2025-07-04",
-          "holdingPrice": 66250.0,
-          "subsidiaryPrice": 885205.0,
-          "holdingValue": 26801.2,
-          "marketCap": 11075.5,
-          "ratio": 241.99
-        },
-        {
-          "date": "2025-07-07",
-          "holdingPrice": 67591.0,
-          "subsidiaryPrice": 899145.0,
-          "holdingValue": 27223.3,
-          "marketCap": 11299.5,
-          "ratio": 240.92
-        },
-        {
-          "date": "2025-07-08",
-          "holdingPrice": 69984.0,
-          "subsidiaryPrice": 955902.0,
-          "holdingValue": 28941.7,
-          "marketCap": 11699.7,
-          "ratio": 247.37
-        },
-        {
-          "date": "2025-07-09",
-          "holdingPrice": 72090.0,
-          "subsidiaryPrice": 938975.0,
-          "holdingValue": 28429.2,
-          "marketCap": 12051.8,
-          "ratio": 235.89
-        },
-        {
-          "date": "2025-07-10",
-          "holdingPrice": 73239.0,
-          "subsidiaryPrice": 970838.0,
-          "holdingValue": 29393.9,
-          "marketCap": 12243.8,
-          "ratio": 240.07
-        },
-        {
-          "date": "2025-07-11",
-          "holdingPrice": 72760.0,
-          "subsidiaryPrice": 973825.0,
-          "holdingValue": 29484.4,
-          "marketCap": 12163.8,
-          "ratio": 242.39
-        },
-        {
-          "date": "2025-07-14",
-          "holdingPrice": 74101.0,
-          "subsidiaryPrice": 1003697.0,
-          "holdingValue": 30388.8,
-          "marketCap": 12387.9,
-          "ratio": 245.31
-        },
-        {
-          "date": "2025-07-15",
-          "holdingPrice": 76877.0,
-          "subsidiaryPrice": 1030582.0,
-          "holdingValue": 31202.8,
-          "marketCap": 12852.0,
-          "ratio": 242.79
-        },
-        {
-          "date": "2025-07-16",
-          "holdingPrice": 77835.0,
-          "subsidiaryPrice": 1061450.0,
-          "holdingValue": 32137.4,
-          "marketCap": 13012.1,
-          "ratio": 246.98
-        },
-        {
-          "date": "2025-07-17",
-          "holdingPrice": 76111.0,
-          "subsidiaryPrice": 1053484.0,
-          "holdingValue": 31896.2,
-          "marketCap": 12724.0,
-          "ratio": 250.68
-        },
-        {
-          "date": "2025-07-18",
-          "holdingPrice": 74579.0,
-          "subsidiaryPrice": 1053484.0,
-          "holdingValue": 31896.2,
-          "marketCap": 12467.9,
-          "ratio": 255.83
-        },
-        {
-          "date": "2025-07-21",
-          "holdingPrice": 74101.0,
-          "subsidiaryPrice": 1048505.0,
-          "holdingValue": 31745.4,
-          "marketCap": 12387.9,
-          "ratio": 256.26
-        },
-        {
-          "date": "2025-07-22",
-          "holdingPrice": 74101.0,
-          "subsidiaryPrice": 1035561.0,
-          "holdingValue": 31353.5,
-          "marketCap": 12387.9,
-          "ratio": 253.1
-        },
-        {
-          "date": "2025-07-23",
-          "holdingPrice": 74771.0,
-          "subsidiaryPrice": 1054480.0,
-          "holdingValue": 31926.3,
-          "marketCap": 12499.9,
-          "ratio": 255.41
-        },
-        {
-          "date": "2025-07-24",
-          "holdingPrice": 74962.0,
-          "subsidiaryPrice": 1117211.0,
-          "holdingValue": 33825.6,
-          "marketCap": 12531.9,
-          "ratio": 269.92
-        },
-        {
-          "date": "2025-07-25",
-          "holdingPrice": 73526.0,
-          "subsidiaryPrice": 1120198.0,
-          "holdingValue": 33916.1,
-          "marketCap": 12291.8,
-          "ratio": 275.92
-        },
-        {
-          "date": "2025-07-28",
-          "holdingPrice": 75920.0,
-          "subsidiaryPrice": 1280510.0,
-          "holdingValue": 38769.8,
-          "marketCap": 12692.0,
-          "ratio": 305.47
-        },
-        {
-          "date": "2025-07-29",
-          "holdingPrice": 80419.0,
-          "subsidiaryPrice": 1287481.0,
-          "holdingValue": 38980.9,
-          "marketCap": 13444.2,
-          "ratio": 289.95
-        },
-        {
-          "date": "2025-07-30",
-          "holdingPrice": 83579.0,
-          "subsidiaryPrice": 1235703.0,
-          "holdingValue": 37413.2,
-          "marketCap": 13972.4,
-          "ratio": 267.77
-        },
-        {
-          "date": "2025-07-31",
-          "holdingPrice": 83292.0,
-          "subsidiaryPrice": 1220767.0,
-          "holdingValue": 36961.0,
-          "marketCap": 13924.4,
-          "ratio": 265.44
-        },
-        {
-          "date": "2025-08-01",
-          "holdingPrice": 79941.0,
-          "subsidiaryPrice": 1164010.0,
-          "holdingValue": 35242.6,
-          "marketCap": 13364.2,
-          "ratio": 263.71
-        },
-        {
-          "date": "2025-08-04",
-          "holdingPrice": 80228.0,
-          "subsidiaryPrice": 1194878.0,
-          "holdingValue": 36177.1,
-          "marketCap": 13412.2,
-          "ratio": 269.73
-        },
-        {
-          "date": "2025-08-05",
-          "holdingPrice": 80898.0,
-          "subsidiaryPrice": 1276528.0,
-          "holdingValue": 38649.2,
-          "marketCap": 13524.2,
-          "ratio": 285.78
-        },
-        {
-          "date": "2025-08-06",
-          "holdingPrice": 82621.0,
-          "subsidiaryPrice": 1272545.0,
-          "holdingValue": 38528.6,
-          "marketCap": 13812.3,
-          "ratio": 278.94
-        },
-        {
-          "date": "2025-08-07",
-          "holdingPrice": 83770.0,
-          "subsidiaryPrice": 1218775.0,
-          "holdingValue": 36900.7,
-          "marketCap": 14004.4,
-          "ratio": 263.49
-        },
-        {
-          "date": "2025-08-08",
-          "holdingPrice": 84249.0,
-          "subsidiaryPrice": 1184920.0,
-          "holdingValue": 35875.7,
-          "marketCap": 14084.4,
-          "ratio": 254.72
-        },
-        {
-          "date": "2025-08-11",
-          "holdingPrice": 83100.0,
-          "subsidiaryPrice": 1199856.0,
-          "holdingValue": 36327.9,
-          "marketCap": 13892.3,
-          "ratio": 261.5
-        },
-        {
-          "date": "2025-08-12",
-          "holdingPrice": 83770.0,
-          "subsidiaryPrice": 1201848.0,
-          "holdingValue": 36388.2,
-          "marketCap": 14004.4,
-          "ratio": 259.83
-        },
-        {
-          "date": "2025-08-13",
-          "holdingPrice": 85206.0,
-          "subsidiaryPrice": 1221762.0,
-          "holdingValue": 36991.1,
-          "marketCap": 14244.5,
-          "ratio": 259.69
-        },
-        {
-          "date": "2025-08-14",
-          "holdingPrice": 84823.0,
-          "subsidiaryPrice": 1209814.0,
-          "holdingValue": 36629.3,
-          "marketCap": 14180.4,
-          "ratio": 258.31
-        },
-        {
-          "date": "2025-08-18",
-          "holdingPrice": 84249.0,
-          "subsidiaryPrice": 1171976.0,
-          "holdingValue": 35483.7,
-          "marketCap": 14084.4,
-          "ratio": 251.94
-        },
-        {
-          "date": "2025-08-19",
-          "holdingPrice": 81951.0,
-          "subsidiaryPrice": 1155048.0,
-          "holdingValue": 34971.2,
-          "marketCap": 13700.3,
-          "ratio": 255.26
-        },
-        {
-          "date": "2025-08-20",
-          "holdingPrice": 80419.0,
-          "subsidiaryPrice": 1110240.0,
-          "holdingValue": 33614.6,
-          "marketCap": 13444.2,
-          "ratio": 250.03
-        },
-        {
-          "date": "2025-08-21",
-          "holdingPrice": 78217.0,
-          "subsidiaryPrice": 1130155.0,
-          "holdingValue": 34217.5,
-          "marketCap": 13076.1,
-          "ratio": 261.68
-        },
-        {
-          "date": "2025-08-22",
-          "holdingPrice": 80419.0,
-          "subsidiaryPrice": 1193882.0,
-          "holdingValue": 36147.0,
-          "marketCap": 13444.2,
-          "ratio": 268.87
-        },
-        {
-          "date": "2025-08-25",
-          "holdingPrice": 80132.0,
-          "subsidiaryPrice": 1238690.0,
-          "holdingValue": 37503.6,
-          "marketCap": 13396.2,
-          "ratio": 279.96
-        },
-        {
-          "date": "2025-08-26",
-          "holdingPrice": 79462.0,
-          "subsidiaryPrice": 1245660.0,
-          "holdingValue": 37714.7,
-          "marketCap": 13284.2,
-          "ratio": 283.91
-        },
-        {
-          "date": "2025-08-27",
-          "holdingPrice": 78505.0,
-          "subsidiaryPrice": 1224750.0,
-          "holdingValue": 37081.6,
-          "marketCap": 13124.1,
-          "ratio": 282.55
-        },
-        {
-          "date": "2025-08-28",
-          "holdingPrice": 81377.0,
-          "subsidiaryPrice": 1223754.0,
-          "holdingValue": 37051.4,
-          "marketCap": 13604.3,
-          "ratio": 272.35
-        },
-        {
-          "date": "2025-08-29",
-          "holdingPrice": 83100.0,
-          "subsidiaryPrice": 1234707.0,
-          "holdingValue": 37383.0,
-          "marketCap": 13892.3,
-          "ratio": 269.09
-        },
-        {
-          "date": "2025-09-01",
-          "holdingPrice": 83292.0,
-          "subsidiaryPrice": 1210809.0,
-          "holdingValue": 36659.5,
-          "marketCap": 13924.4,
-          "ratio": 263.28
-        },
-        {
-          "date": "2025-09-02",
-          "holdingPrice": 81568.0,
-          "subsidiaryPrice": 1227737.0,
-          "holdingValue": 37172.0,
-          "marketCap": 13636.3,
-          "ratio": 272.6
-        },
-        {
-          "date": "2025-09-03",
-          "holdingPrice": 81377.0,
-          "subsidiaryPrice": 1252630.0,
-          "holdingValue": 37925.7,
-          "marketCap": 13604.3,
-          "ratio": 278.78
-        },
-        {
-          "date": "2025-09-04",
-          "holdingPrice": 79654.0,
-          "subsidiaryPrice": 1203839.0,
-          "holdingValue": 36448.5,
-          "marketCap": 13316.2,
-          "ratio": 273.72
-        },
-        {
-          "date": "2025-09-05",
-          "holdingPrice": 80898.0,
-          "subsidiaryPrice": 1226741.0,
-          "holdingValue": 37141.9,
-          "marketCap": 13524.2,
-          "ratio": 274.63
-        },
-        {
-          "date": "2025-09-08",
-          "holdingPrice": 80898.0,
-          "subsidiaryPrice": 1198860.0,
-          "holdingValue": 36297.7,
-          "marketCap": 13524.2,
-          "ratio": 268.39
-        },
-        {
-          "date": "2025-09-09",
-          "holdingPrice": 83866.0,
-          "subsidiaryPrice": 1246656.0,
-          "holdingValue": 37744.8,
-          "marketCap": 14020.4,
-          "ratio": 269.21
-        },
-        {
-          "date": "2025-09-10",
-          "holdingPrice": 85685.0,
-          "subsidiaryPrice": 1387054.0,
-          "holdingValue": 41995.6,
-          "marketCap": 14324.5,
-          "ratio": 293.17
-        },
-        {
-          "date": "2025-09-11",
-          "holdingPrice": 84823.0,
-          "subsidiaryPrice": 1380084.0,
-          "holdingValue": 41784.6,
-          "marketCap": 14180.4,
-          "ratio": 294.66
-        },
-        {
-          "date": "2025-09-12",
-          "holdingPrice": 85398.0,
-          "subsidiaryPrice": 1438832.0,
-          "holdingValue": 43563.3,
-          "marketCap": 14276.5,
-          "ratio": 305.14
-        },
-        {
-          "date": "2025-09-15",
-          "holdingPrice": 89993.0,
-          "subsidiaryPrice": 1417922.0,
-          "holdingValue": 42930.2,
-          "marketCap": 15044.7,
-          "ratio": 285.35
-        },
-        {
-          "date": "2025-09-16",
-          "holdingPrice": 88749.0,
-          "subsidiaryPrice": 1375105.0,
-          "holdingValue": 41633.8,
-          "marketCap": 14836.6,
-          "ratio": 280.62
-        },
-        {
-          "date": "2025-09-17",
-          "holdingPrice": 87600.0,
-          "subsidiaryPrice": 1369131.0,
-          "holdingValue": 41453.0,
-          "marketCap": 14644.6,
-          "ratio": 283.06
-        },
-        {
-          "date": "2025-09-18",
-          "holdingPrice": 86355.0,
-          "subsidiaryPrice": 1387054.0,
-          "holdingValue": 41995.6,
-          "marketCap": 14436.5,
-          "ratio": 290.9
-        },
-        {
-          "date": "2025-09-22",
-          "holdingPrice": 85781.0,
-          "subsidiaryPrice": 1401990.0,
-          "holdingValue": 42447.8,
-          "marketCap": 14340.5,
-          "ratio": 296.0
-        },
-        {
-          "date": "2025-09-23",
-          "holdingPrice": 86068.0,
-          "subsidiaryPrice": 1391037.0,
-          "holdingValue": 42116.2,
-          "marketCap": 14388.5,
-          "ratio": 292.71
-        },
-        {
-          "date": "2025-09-24",
-          "holdingPrice": 83292.0,
-          "subsidiaryPrice": 1372118.0,
-          "holdingValue": 41543.4,
-          "marketCap": 13924.4,
-          "ratio": 298.35
-        },
-        {
-          "date": "2025-09-25",
-          "holdingPrice": 82621.0,
-          "subsidiaryPrice": 1347224.0,
-          "holdingValue": 40789.7,
-          "marketCap": 13812.3,
-          "ratio": 295.31
-        },
-        {
-          "date": "2025-09-26",
-          "holdingPrice": 81951.0,
-          "subsidiaryPrice": 1322331.0,
-          "holdingValue": 40036.0,
-          "marketCap": 13700.3,
-          "ratio": 292.23
-        },
-        {
-          "date": "2025-09-29",
-          "holdingPrice": 81377.0,
-          "subsidiaryPrice": 1331293.0,
-          "holdingValue": 40307.4,
-          "marketCap": 13604.3,
-          "ratio": 296.28
-        },
-        {
-          "date": "2025-09-30",
-          "holdingPrice": 81281.0,
-          "subsidiaryPrice": 1334280.0,
-          "holdingValue": 40397.8,
-          "marketCap": 13588.2,
-          "ratio": 297.3
-        },
-        {
-          "date": "2025-10-01",
-          "holdingPrice": 82143.0,
-          "subsidiaryPrice": 1369131.0,
-          "holdingValue": 41453.0,
-          "marketCap": 13732.3,
-          "ratio": 301.86
-        },
-        {
-          "date": "2025-10-02",
-          "holdingPrice": 82334.0,
-          "subsidiaryPrice": 1411947.0,
-          "holdingValue": 42749.3,
-          "marketCap": 13764.3,
-          "ratio": 310.58
-        },
-        {
-          "date": "2025-10-10",
-          "holdingPrice": 85589.0,
-          "subsidiaryPrice": 1491606.0,
-          "holdingValue": 45161.1,
-          "marketCap": 14308.5,
-          "ratio": 315.63
-        },
-        {
-          "date": "2025-10-13",
-          "holdingPrice": 85015.0,
-          "subsidiaryPrice": 1439828.0,
-          "holdingValue": 43593.4,
-          "marketCap": 14212.4,
-          "ratio": 306.73
-        },
-        {
-          "date": "2025-10-14",
-          "holdingPrice": 91908.0,
-          "subsidiaryPrice": 1458746.0,
-          "holdingValue": 44166.2,
-          "marketCap": 15364.8,
-          "ratio": 287.45
-        },
-        {
-          "date": "2025-10-15",
-          "holdingPrice": 96025.0,
-          "subsidiaryPrice": 1632999.0,
-          "holdingValue": 49442.1,
-          "marketCap": 16053.0,
-          "ratio": 307.99
-        },
-        {
-          "date": "2025-10-16",
-          "holdingPrice": 100716.0,
-          "subsidiaryPrice": 1607110.0,
-          "holdingValue": 48658.2,
-          "marketCap": 16837.3,
-          "ratio": 288.99
-        },
-        {
-          "date": "2025-10-17",
-          "holdingPrice": 96791.0,
-          "subsidiaryPrice": 1573256.0,
-          "holdingValue": 47633.2,
-          "marketCap": 16181.1,
-          "ratio": 294.38
-        },
-        {
-          "date": "2025-10-20",
-          "holdingPrice": 96599.0,
-          "subsidiaryPrice": 1652914.0,
-          "holdingValue": 50045.0,
-          "marketCap": 16149.0,
-          "ratio": 309.89
-        },
-        {
-          "date": "2025-10-21",
-          "holdingPrice": 94972.0,
-          "subsidiaryPrice": 1673824.0,
-          "holdingValue": 50678.1,
-          "marketCap": 15877.0,
-          "ratio": 319.19
-        },
-        {
-          "date": "2025-10-22",
-          "holdingPrice": 100907.0,
-          "subsidiaryPrice": 1713654.0,
-          "holdingValue": 51884.0,
-          "marketCap": 16869.3,
-          "ratio": 307.57
-        },
-        {
-          "date": "2025-10-23",
-          "holdingPrice": 103205.0,
-          "subsidiaryPrice": 1843099.0,
-          "holdingValue": 55803.2,
-          "marketCap": 17253.4,
-          "ratio": 323.43
-        },
-        {
-          "date": "2025-10-24",
-          "holdingPrice": 108949.0,
-          "subsidiaryPrice": 1894877.0,
-          "holdingValue": 57370.9,
-          "marketCap": 18213.7,
-          "ratio": 314.99
-        },
-        {
-          "date": "2025-10-27",
-          "holdingPrice": 114502.0,
-          "subsidiaryPrice": 1911804.0,
-          "holdingValue": 57883.4,
-          "marketCap": 19142.0,
-          "ratio": 302.39
-        },
-        {
-          "date": "2025-10-28",
-          "holdingPrice": 113353.0,
-          "subsidiaryPrice": 1906826.0,
-          "holdingValue": 57732.7,
-          "marketCap": 18949.9,
-          "ratio": 304.66
-        },
-        {
-          "date": "2025-10-29",
-          "holdingPrice": 117661.0,
-          "subsidiaryPrice": 1990467.0,
-          "holdingValue": 60265.1,
-          "marketCap": 19670.1,
-          "ratio": 306.38
-        },
-        {
-          "date": "2025-10-30",
-          "holdingPrice": 118140.0,
-          "subsidiaryPrice": 2091036.0,
-          "holdingValue": 63310.0,
-          "marketCap": 19750.2,
-          "ratio": 320.55
-        },
-        {
-          "date": "2025-10-31",
-          "holdingPrice": 121299.0,
-          "subsidiaryPrice": 2125886.0,
-          "holdingValue": 64365.1,
-          "marketCap": 20278.3,
-          "ratio": 317.41
-        },
-        {
-          "date": "2025-11-03",
-          "holdingPrice": 155478.0,
-          "subsidiaryPrice": 2318062.0,
-          "holdingValue": 70183.6,
-          "marketCap": 25992.1,
-          "ratio": 270.02
-        },
-        {
-          "date": "2025-11-04",
-          "holdingPrice": 134703.0,
-          "subsidiaryPrice": 2277238.0,
-          "holdingValue": 68947.6,
-          "marketCap": 22519.0,
-          "ratio": 306.17
-        },
-        {
-          "date": "2025-11-05",
-          "holdingPrice": 127139.0,
-          "subsidiaryPrice": 2209528.0,
-          "holdingValue": 66897.5,
-          "marketCap": 21254.6,
-          "ratio": 314.74
-        },
-        {
-          "date": "2025-11-06",
-          "holdingPrice": 126086.0,
-          "subsidiaryPrice": 2245374.0,
-          "holdingValue": 67982.9,
-          "marketCap": 21078.6,
-          "ratio": 322.52
-        },
-        {
-          "date": "2025-11-07",
-          "holdingPrice": 128192.0,
-          "subsidiaryPrice": 2178660.0,
-          "holdingValue": 65963.0,
-          "marketCap": 21430.7,
-          "ratio": 307.8
-        },
-        {
-          "date": "2025-11-10",
-          "holdingPrice": 139489.0,
-          "subsidiaryPrice": 2244378.0,
-          "holdingValue": 67952.7,
-          "marketCap": 23319.3,
-          "ratio": 291.4
-        },
-        {
-          "date": "2025-11-11",
-          "holdingPrice": 157297.0,
-          "subsidiaryPrice": 2294165.0,
-          "holdingValue": 69460.1,
-          "marketCap": 26296.2,
-          "ratio": 264.14
-        },
-        {
-          "date": "2025-11-12",
-          "holdingPrice": 145042.0,
-          "subsidiaryPrice": 2210524.0,
-          "holdingValue": 66927.7,
-          "marketCap": 24247.6,
-          "ratio": 276.02
-        },
-        {
-          "date": "2025-11-13",
-          "holdingPrice": 140734.0,
-          "subsidiaryPrice": 2243383.0,
-          "holdingValue": 67922.6,
-          "marketCap": 23527.4,
-          "ratio": 288.7
-        },
-        {
-          "date": "2025-11-14",
-          "holdingPrice": 128958.0,
-          "subsidiaryPrice": 2115929.0,
-          "holdingValue": 64063.7,
-          "marketCap": 21558.7,
-          "ratio": 297.16
-        },
-        {
-          "date": "2025-11-17",
-          "holdingPrice": 134990.0,
-          "subsidiaryPrice": 2156754.0,
-          "holdingValue": 65299.7,
-          "marketCap": 22567.1,
-          "ratio": 289.36
-        },
-        {
-          "date": "2025-11-18",
-          "holdingPrice": 129533.0,
-          "subsidiaryPrice": 2068134.0,
-          "holdingValue": 62616.6,
-          "marketCap": 21654.8,
-          "ratio": 289.16
-        },
-        {
-          "date": "2025-11-19",
-          "holdingPrice": 125033.0,
-          "subsidiaryPrice": 2009386.0,
-          "holdingValue": 60837.9,
-          "marketCap": 20902.5,
-          "ratio": 291.06
-        },
-        {
-          "date": "2025-11-20",
-          "holdingPrice": 124459.0,
-          "subsidiaryPrice": 2011377.0,
-          "holdingValue": 60898.2,
-          "marketCap": 20806.5,
-          "ratio": 292.69
-        },
-        {
-          "date": "2025-11-21",
-          "holdingPrice": 117661.0,
-          "subsidiaryPrice": 1901847.0,
-          "holdingValue": 57581.9,
-          "marketCap": 19670.1,
-          "ratio": 292.74
-        },
-        {
-          "date": "2025-11-24",
-          "holdingPrice": 119289.0,
-          "subsidiaryPrice": 1894877.0,
-          "holdingValue": 57370.9,
-          "marketCap": 19942.2,
-          "ratio": 287.69
-        },
-        {
-          "date": "2025-11-25",
-          "holdingPrice": 123884.0,
-          "subsidiaryPrice": 1931719.0,
-          "holdingValue": 58486.4,
-          "marketCap": 20710.5,
-          "ratio": 282.4
-        },
-        {
-          "date": "2025-11-26",
-          "holdingPrice": 125416.0,
-          "subsidiaryPrice": 1951634.0,
-          "holdingValue": 59089.3,
-          "marketCap": 20966.6,
-          "ratio": 281.83
-        },
-        {
-          "date": "2025-11-27",
-          "holdingPrice": 129820.0,
-          "subsidiaryPrice": 1991463.0,
-          "holdingValue": 60295.2,
-          "marketCap": 21702.8,
-          "ratio": 277.82
-        },
-        {
-          "date": "2025-11-28",
-          "holdingPrice": 125129.0,
-          "subsidiaryPrice": 1892885.0,
-          "holdingValue": 57310.6,
-          "marketCap": 20918.5,
-          "ratio": 273.97
-        },
-        {
-          "date": "2025-12-01",
-          "holdingPrice": 121395.0,
-          "subsidiaryPrice": 1798291.0,
-          "holdingValue": 54446.6,
-          "marketCap": 20294.3,
-          "ratio": 268.28
-        },
-        {
-          "date": "2025-12-02",
-          "holdingPrice": 122735.0,
-          "subsidiaryPrice": 1853056.0,
-          "holdingValue": 56104.7,
-          "marketCap": 20518.4,
-          "ratio": 273.44
-        },
-        {
-          "date": "2025-12-03",
-          "holdingPrice": 127331.0,
-          "subsidiaryPrice": 1886911.0,
-          "holdingValue": 57129.7,
-          "marketCap": 21286.7,
-          "ratio": 268.38
-        },
-        {
-          "date": "2025-12-04",
-          "holdingPrice": 127427.0,
-          "subsidiaryPrice": 1840112.0,
-          "holdingValue": 55712.8,
-          "marketCap": 21302.7,
-          "ratio": 261.53
-        },
-        {
-          "date": "2025-12-05",
-          "holdingPrice": 130873.0,
-          "subsidiaryPrice": 2003412.0,
-          "holdingValue": 60657.0,
-          "marketCap": 21878.8,
-          "ratio": 277.24
-        },
-        {
-          "date": "2025-12-08",
-          "holdingPrice": 131160.0,
-          "subsidiaryPrice": 1978518.0,
-          "holdingValue": 59903.3,
-          "marketCap": 21926.9,
-          "ratio": 273.2
-        },
-        {
-          "date": "2025-12-09",
-          "holdingPrice": 134703.0,
-          "subsidiaryPrice": 1939685.0,
-          "holdingValue": 58727.5,
-          "marketCap": 22519.0,
-          "ratio": 260.79
-        },
-        {
-          "date": "2025-12-10",
-          "holdingPrice": 129054.0,
-          "subsidiaryPrice": 1936698.0,
-          "holdingValue": 58637.1,
-          "marketCap": 21574.7,
-          "ratio": 271.79
-        },
-        {
-          "date": "2025-12-11",
-          "holdingPrice": 130394.0,
-          "subsidiaryPrice": 1969557.0,
-          "holdingValue": 59632.0,
-          "marketCap": 21798.8,
-          "ratio": 273.56
-        },
-        {
-          "date": "2025-12-12",
-          "holdingPrice": 126182.0,
-          "subsidiaryPrice": 1953625.0,
-          "holdingValue": 59149.6,
-          "marketCap": 21094.6,
-          "ratio": 280.4
-        },
-        {
-          "date": "2025-12-15",
-          "holdingPrice": 122352.0,
-          "subsidiaryPrice": 1892885.0,
-          "holdingValue": 57310.6,
-          "marketCap": 20454.4,
-          "ratio": 280.19
-        },
-        {
-          "date": "2025-12-16",
-          "holdingPrice": 120246.0,
-          "subsidiaryPrice": 1889898.0,
-          "holdingValue": 57220.2,
-          "marketCap": 20102.3,
-          "ratio": 284.65
-        },
-        {
-          "date": "2025-12-17",
-          "holdingPrice": 118140.0,
-          "subsidiaryPrice": 1901847.0,
-          "holdingValue": 57581.9,
-          "marketCap": 19750.2,
-          "ratio": 291.55
-        },
-        {
-          "date": "2025-12-18",
-          "holdingPrice": 113832.0,
-          "subsidiaryPrice": 1804265.0,
-          "holdingValue": 54627.5,
-          "marketCap": 19030.0,
-          "ratio": 287.06
-        },
-        {
-          "date": "2025-12-19",
-          "holdingPrice": 113928.0,
-          "subsidiaryPrice": 1842103.0,
-          "holdingValue": 55773.1,
-          "marketCap": 19046.0,
-          "ratio": 292.83
-        },
-        {
-          "date": "2025-12-22",
-          "holdingPrice": 115459.0,
-          "subsidiaryPrice": 1842103.0,
-          "holdingValue": 55773.1,
-          "marketCap": 19302.0,
-          "ratio": 288.95
-        },
-        {
-          "date": "2025-12-23",
-          "holdingPrice": 114693.0,
-          "subsidiaryPrice": 1820197.0,
-          "holdingValue": 55109.8,
-          "marketCap": 19174.0,
-          "ratio": 287.42
-        },
-        {
-          "date": "2025-12-24",
-          "holdingPrice": 113640.0,
-          "subsidiaryPrice": 1782359.0,
-          "holdingValue": 53964.2,
-          "marketCap": 18997.9,
-          "ratio": 284.05
-        },
-        {
-          "date": "2025-12-26",
-          "holdingPrice": 112300.0,
-          "subsidiaryPrice": 1749500.0,
-          "holdingValue": 52969.3,
-          "marketCap": 18773.9,
-          "ratio": 282.14
-        },
-        {
-          "date": "2025-12-29",
-          "holdingPrice": 117000.0,
-          "subsidiaryPrice": 1840000.0,
-          "holdingValue": 55709.4,
-          "marketCap": 19559.6,
-          "ratio": 284.82
-        },
-        {
-          "date": "2025-12-30",
-          "holdingPrice": 114700.0,
-          "subsidiaryPrice": 1781000.0,
-          "holdingValue": 53923.1,
-          "marketCap": 19175.1,
-          "ratio": 281.21
-        },
-        {
-          "date": "2026-01-02",
-          "holdingPrice": 112500.0,
-          "subsidiaryPrice": 1845000.0,
-          "holdingValue": 55860.8,
-          "marketCap": 18807.3,
-          "ratio": 297.02
-        },
-        {
-          "date": "2026-01-05",
-          "holdingPrice": 119700.0,
-          "subsidiaryPrice": 1913000.0,
-          "holdingValue": 57919.6,
-          "marketCap": 20011.0,
-          "ratio": 289.44
-        },
-        {
-          "date": "2026-01-06",
-          "holdingPrice": 117800.0,
-          "subsidiaryPrice": 1845000.0,
-          "holdingValue": 55860.8,
-          "marketCap": 19693.3,
-          "ratio": 283.65
-        },
-        {
-          "date": "2026-01-07",
-          "holdingPrice": 116300.0,
-          "subsidiaryPrice": 1825000.0,
-          "holdingValue": 55255.3,
-          "marketCap": 19442.6,
-          "ratio": 284.2
-        },
-        {
-          "date": "2026-01-08",
-          "holdingPrice": 117500.0,
-          "subsidiaryPrice": 1839000.0,
-          "holdingValue": 55679.1,
-          "marketCap": 19643.2,
-          "ratio": 283.45
-        },
-        {
-          "date": "2026-01-09",
-          "holdingPrice": 120500.0,
-          "subsidiaryPrice": 1885000.0,
-          "holdingValue": 57071.9,
-          "marketCap": 20144.7,
-          "ratio": 283.31
-        },
-        {
-          "date": "2026-01-12",
-          "holdingPrice": 125700.0,
-          "subsidiaryPrice": 2013000.0,
-          "holdingValue": 60947.3,
-          "marketCap": 21014.0,
-          "ratio": 290.03
-        },
-        {
-          "date": "2026-01-13",
-          "holdingPrice": 132000.0,
-          "subsidiaryPrice": 2032000.0,
-          "holdingValue": 61522.6,
-          "marketCap": 22067.2,
-          "ratio": 278.8
-        },
-        {
-          "date": "2026-01-14",
-          "holdingPrice": 136900.0,
-          "subsidiaryPrice": 2125000.0,
-          "holdingValue": 64338.3,
-          "marketCap": 22886.4,
-          "ratio": 281.12
-        },
-        {
-          "date": "2026-01-15",
-          "holdingPrice": 151300.0,
-          "subsidiaryPrice": 2243000.0,
-          "holdingValue": 67911.0,
-          "marketCap": 25293.7,
-          "ratio": 268.49
-        },
-        {
-          "date": "2026-01-16",
-          "holdingPrice": 145700.0,
-          "subsidiaryPrice": 2333000.0,
-          "holdingValue": 70635.9,
-          "marketCap": 24357.5,
-          "ratio": 290.0
-        },
-        {
-          "date": "2026-01-19",
-          "holdingPrice": 153000.0,
-          "subsidiaryPrice": 2360000.0,
-          "holdingValue": 71453.4,
-          "marketCap": 25577.9,
-          "ratio": 279.36
-        },
-        {
-          "date": "2026-01-20",
-          "holdingPrice": 159400.0,
-          "subsidiaryPrice": 2344000.0,
-          "holdingValue": 70968.9,
-          "marketCap": 26647.9,
-          "ratio": 266.32
-        },
-        {
-          "date": "2026-01-21",
-          "holdingPrice": 151200.0,
-          "subsidiaryPrice": 2319000.0,
-          "holdingValue": 70212.0,
-          "marketCap": 25277.0,
-          "ratio": 277.77
-        },
-        {
-          "date": "2026-01-22",
-          "holdingPrice": 151500.0,
-          "subsidiaryPrice": 2349000.0,
-          "holdingValue": 71120.3,
-          "marketCap": 25327.2,
-          "ratio": 280.81
-        },
-        {
-          "date": "2026-01-23",
-          "holdingPrice": 154400.0,
-          "subsidiaryPrice": 2347000.0,
-          "holdingValue": 71059.8,
-          "marketCap": 25812.0,
-          "ratio": 275.3
-        },
-        {
-          "date": "2026-01-26",
-          "holdingPrice": 150800.0,
-          "subsidiaryPrice": 2344000.0,
-          "holdingValue": 70968.9,
-          "marketCap": 25210.1,
-          "ratio": 281.51
-        },
-        {
-          "date": "2026-01-27",
-          "holdingPrice": 150000.0,
-          "subsidiaryPrice": 2387000.0,
-          "holdingValue": 72270.8,
-          "marketCap": 25076.4,
-          "ratio": 288.2
-        },
-        {
-          "date": "2026-01-28",
-          "holdingPrice": 151500.0,
-          "subsidiaryPrice": 2518000.0,
-          "holdingValue": 76237.1,
-          "marketCap": 25327.2,
-          "ratio": 301.01
-        },
-        {
-          "date": "2026-01-29",
-          "holdingPrice": 157800.0,
-          "subsidiaryPrice": 2546000.0,
-          "holdingValue": 77084.9,
-          "marketCap": 26380.4,
-          "ratio": 292.21
-        },
-        {
-          "date": "2026-01-30",
-          "holdingPrice": 152800.0,
-          "subsidiaryPrice": 2603000.0,
-          "holdingValue": 78810.6,
-          "marketCap": 25544.5,
-          "ratio": 308.52
-        },
-        {
-          "date": "2026-02-02",
-          "holdingPrice": 137300.0,
-          "subsidiaryPrice": 2281000.0,
-          "holdingValue": 69061.5,
-          "marketCap": 22953.3,
-          "ratio": 300.88
-        },
-        {
-          "date": "2026-02-03",
-          "holdingPrice": 147900.0,
-          "subsidiaryPrice": 2367000.0,
-          "holdingValue": 71665.3,
-          "marketCap": 24725.3,
-          "ratio": 289.85
-        },
-        {
-          "date": "2026-02-04",
-          "holdingPrice": 149900.0,
-          "subsidiaryPrice": 2384000.0,
-          "holdingValue": 72180.0,
-          "marketCap": 25059.7,
-          "ratio": 288.03
-        },
-        {
-          "date": "2026-02-05",
-          "holdingPrice": 145600.0,
-          "subsidiaryPrice": 2334000.0,
-          "holdingValue": 70666.2,
-          "marketCap": 24340.8,
-          "ratio": 290.32
-        },
-        {
-          "date": "2026-02-06",
-          "holdingPrice": 140000.0,
-          "subsidiaryPrice": 2211000.0,
-          "holdingValue": 66942.1,
-          "marketCap": 23404.6,
-          "ratio": 286.02
-        },
-        {
-          "date": "2026-02-09",
-          "holdingPrice": 151400.0,
-          "subsidiaryPrice": 2396000.0,
-          "holdingValue": 72543.3,
-          "marketCap": 25310.5,
-          "ratio": 286.61
-        },
-        {
-          "date": "2026-02-10",
-          "holdingPrice": 150300.0,
-          "subsidiaryPrice": 2347000.0,
-          "holdingValue": 71059.8,
-          "marketCap": 25126.6,
-          "ratio": 282.81
-        },
-        {
-          "date": "2026-02-11",
-          "holdingPrice": 147700.0,
-          "subsidiaryPrice": 2401000.0,
-          "holdingValue": 72694.7,
-          "marketCap": 24691.9,
-          "ratio": 294.41
-        },
-        {
-          "date": "2026-02-12",
-          "holdingPrice": 150000.0,
-          "subsidiaryPrice": 2405000.0,
-          "holdingValue": 72815.8,
-          "marketCap": 25076.4,
-          "ratio": 290.38
-        },
-        {
-          "date": "2026-02-13",
-          "holdingPrice": 161900.0,
-          "subsidiaryPrice": 2384000.0,
-          "holdingValue": 72180.0,
-          "marketCap": 27065.8,
-          "ratio": 266.68
-        },
-        {
-          "date": "2026-02-19",
-          "holdingPrice": 163300.0,
-          "subsidiaryPrice": 2453000.0,
-          "holdingValue": 74269.1,
-          "marketCap": 27299.8,
-          "ratio": 272.05
-        },
-        {
-          "date": "2026-02-20",
-          "holdingPrice": 167700.0,
-          "subsidiaryPrice": 2633000.0,
-          "holdingValue": 79718.9,
-          "marketCap": 28035.4,
-          "ratio": 284.35
-        },
-        {
-          "date": "2026-02-23",
-          "holdingPrice": 172300.0,
-          "subsidiaryPrice": 2744000.0,
-          "holdingValue": 83079.7,
-          "marketCap": 28804.4,
-          "ratio": 288.43
-        },
-        {
-          "date": "2026-02-24",
-          "holdingPrice": 170100.0,
-          "subsidiaryPrice": 2758000.0,
-          "holdingValue": 83503.6,
-          "marketCap": 28436.6,
-          "ratio": 293.65
-        },
-        {
-          "date": "2026-02-25",
-          "holdingPrice": 172800.0,
-          "subsidiaryPrice": 2763000.0,
-          "holdingValue": 83654.9,
-          "marketCap": 28888.0,
-          "ratio": 289.58
-        },
-        {
-          "date": "2026-02-26",
-          "holdingPrice": 174700.0,
-          "subsidiaryPrice": 2898000.0,
-          "holdingValue": 87742.3,
-          "marketCap": 29205.7,
-          "ratio": 300.43
-        },
-        {
-          "date": "2026-02-27",
-          "holdingPrice": 169000.0,
-          "subsidiaryPrice": 2823000.0,
-          "holdingValue": 85471.5,
-          "marketCap": 28252.8,
-          "ratio": 302.52
-        },
-        {
-          "date": "2026-03-03",
-          "holdingPrice": 156500.0,
-          "subsidiaryPrice": 2606000.0,
-          "holdingValue": 78901.5,
-          "marketCap": 26163.1,
-          "ratio": 301.58
-        },
-        {
-          "date": "2026-03-04",
-          "holdingPrice": 131500.0,
-          "subsidiaryPrice": 2297000.0,
-          "holdingValue": 69545.9,
-          "marketCap": 21983.6,
-          "ratio": 316.35
-        },
-        {
-          "date": "2026-03-05",
-          "holdingPrice": 146100.0,
-          "subsidiaryPrice": 2484000.0,
-          "holdingValue": 75207.7,
-          "marketCap": 24424.4,
-          "ratio": 307.92
-        },
-        {
-          "date": "2026-03-06",
-          "holdingPrice": 146200.0,
-          "subsidiaryPrice": 2478000.0,
-          "holdingValue": 75026.0,
-          "marketCap": 24441.1,
-          "ratio": 306.97
-        },
-        {
-          "date": "2026-03-09",
-          "holdingPrice": 134200.0,
-          "subsidiaryPrice": 2389000.0,
-          "holdingValue": 72331.4,
-          "marketCap": 22435.0,
-          "ratio": 322.4
-        },
-        {
-          "date": "2026-03-10",
-          "holdingPrice": 139900.0,
-          "subsidiaryPrice": 2550000.0,
-          "holdingValue": 77206.0,
-          "marketCap": 23387.9,
-          "ratio": 330.11
-        },
-        {
-          "date": "2026-03-11",
-          "holdingPrice": 140000.0,
-          "subsidiaryPrice": 2533000.0,
-          "holdingValue": 76691.3,
-          "marketCap": 23404.6,
-          "ratio": 327.68
-        },
-        {
-          "date": "2026-03-12",
-          "holdingPrice": 138400.0,
-          "subsidiaryPrice": 2561000.0,
-          "holdingValue": 77539.0,
-          "marketCap": 23137.2,
-          "ratio": 335.13
-        },
-        {
-          "date": "2026-03-13",
-          "holdingPrice": 132400.0,
-          "subsidiaryPrice": 2593000.0,
-          "holdingValue": 78507.9,
-          "marketCap": 22134.1,
-          "ratio": 354.69
-        },
-        {
-          "date": "2026-03-16",
-          "holdingPrice": 131900.0,
-          "subsidiaryPrice": 2517000.0,
-          "holdingValue": 76206.8,
-          "marketCap": 22050.5,
-          "ratio": 345.6
-        },
-        {
-          "date": "2026-03-17",
-          "holdingPrice": 133900.0,
-          "subsidiaryPrice": 2546000.0,
-          "holdingValue": 77084.9,
-          "marketCap": 22384.9,
-          "ratio": 344.36
-        },
-        {
-          "date": "2026-03-18",
-          "holdingPrice": 148000.0,
-          "subsidiaryPrice": 2731000.0,
-          "holdingValue": 82686.1,
-          "marketCap": 24742.1,
-          "ratio": 334.19
-        },
-        {
-          "date": "2026-03-19",
-          "holdingPrice": 145000.0,
-          "subsidiaryPrice": 2693000.0,
-          "holdingValue": 81535.6,
-          "marketCap": 24240.5,
-          "ratio": 336.36
-        },
-        {
-          "date": "2026-03-20",
-          "holdingPrice": 150300.0,
-          "subsidiaryPrice": 2735000.0,
-          "holdingValue": 82807.2,
-          "marketCap": 25126.6,
-          "ratio": 329.56
         },
         {
-          "date": "2026-03-23",
-          "holdingPrice": 135800.0,
-          "subsidiaryPrice": 2589000.0,
-          "holdingValue": 78386.8,
-          "marketCap": 22702.5,
-          "ratio": 345.28
+          "date": "2026-03-24",
+          "holdingPrice": 2650.0,
+          "subsidiaryPrice": 56800.0,
+          "holdingValue": 7069.9,
+          "marketCap": 1399.9,
+          "ratio": 505.01
         }
       ]
     },
@@ -18295,12 +12215,12 @@ const STOCK_DATA = {
       "holdingName": "LG화학",
       "subsidiaryName": "LG에너지솔루션",
       "current": {
-        "holdingPrice": 290000.0,
-        "subsidiaryPrice": 356000.0,
-        "holdingValue": 681737.1,
-        "marketCap": 198917.8,
-        "ratio": 342.72,
-        "ratioChange": 4.55
+        "holdingPrice": 314000.0,
+        "subsidiaryPrice": 392500.0,
+        "holdingValue": 751634.3,
+        "marketCap": 215380.0,
+        "ratio": 348.98,
+        "ratioChange": 6.26
       },
       "history": [
         {
@@ -24382,6 +18302,6118 @@ const STOCK_DATA = {
           "holdingValue": 681737.1,
           "marketCap": 198917.8,
           "ratio": 342.72
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 314000.0,
+          "subsidiaryPrice": 392500.0,
+          "holdingValue": 751634.3,
+          "marketCap": 215380.0,
+          "ratio": 348.98
+        }
+      ]
+    },
+    {
+      "id": "hyosung_heavy",
+      "name": "효성→효성중공업",
+      "holdingName": "효성",
+      "subsidiaryName": "효성중공업",
+      "current": {
+        "holdingPrice": 140600.0,
+        "subsidiaryPrice": 2701000.0,
+        "holdingValue": 81777.8,
+        "marketCap": 23505.0,
+        "ratio": 347.92,
+        "ratioChange": 2.64
+      },
+      "history": [
+        {
+          "date": "2023-02-06",
+          "holdingPrice": 73259.0,
+          "subsidiaryPrice": 67849.0,
+          "holdingValue": 2054.3,
+          "marketCap": 12247.1,
+          "ratio": 16.77
+        },
+        {
+          "date": "2023-02-07",
+          "holdingPrice": 73364.0,
+          "subsidiaryPrice": 66397.0,
+          "holdingValue": 2010.3,
+          "marketCap": 12264.7,
+          "ratio": 16.39
+        },
+        {
+          "date": "2023-02-08",
+          "holdingPrice": 73575.0,
+          "subsidiaryPrice": 66107.0,
+          "holdingValue": 2001.5,
+          "marketCap": 12299.9,
+          "ratio": 16.27
+        },
+        {
+          "date": "2023-02-09",
+          "holdingPrice": 73680.0,
+          "subsidiaryPrice": 65913.0,
+          "holdingValue": 1995.7,
+          "marketCap": 12317.5,
+          "ratio": 16.2
+        },
+        {
+          "date": "2023-02-10",
+          "holdingPrice": 73154.0,
+          "subsidiaryPrice": 65429.0,
+          "holdingValue": 1981.0,
+          "marketCap": 12229.5,
+          "ratio": 16.2
+        },
+        {
+          "date": "2023-02-13",
+          "holdingPrice": 73364.0,
+          "subsidiaryPrice": 66010.0,
+          "holdingValue": 1998.6,
+          "marketCap": 12264.7,
+          "ratio": 16.3
+        },
+        {
+          "date": "2023-02-14",
+          "holdingPrice": 73469.0,
+          "subsidiaryPrice": 65623.0,
+          "holdingValue": 1986.9,
+          "marketCap": 12282.3,
+          "ratio": 16.18
+        },
+        {
+          "date": "2023-02-15",
+          "holdingPrice": 72417.0,
+          "subsidiaryPrice": 62623.0,
+          "holdingValue": 1896.0,
+          "marketCap": 12106.3,
+          "ratio": 15.66
+        },
+        {
+          "date": "2023-02-16",
+          "holdingPrice": 72943.0,
+          "subsidiaryPrice": 65817.0,
+          "holdingValue": 1992.7,
+          "marketCap": 12194.3,
+          "ratio": 16.34
+        },
+        {
+          "date": "2023-02-17",
+          "holdingPrice": 72627.0,
+          "subsidiaryPrice": 67559.0,
+          "holdingValue": 2045.5,
+          "marketCap": 12141.5,
+          "ratio": 16.85
+        },
+        {
+          "date": "2023-02-20",
+          "holdingPrice": 73259.0,
+          "subsidiaryPrice": 67075.0,
+          "holdingValue": 2030.8,
+          "marketCap": 12247.1,
+          "ratio": 16.58
+        },
+        {
+          "date": "2023-02-21",
+          "holdingPrice": 73996.0,
+          "subsidiaryPrice": 66494.0,
+          "holdingValue": 2013.2,
+          "marketCap": 12370.3,
+          "ratio": 16.27
+        },
+        {
+          "date": "2023-02-22",
+          "holdingPrice": 73364.0,
+          "subsidiaryPrice": 67559.0,
+          "holdingValue": 2045.5,
+          "marketCap": 12264.7,
+          "ratio": 16.68
+        },
+        {
+          "date": "2023-02-23",
+          "holdingPrice": 74206.0,
+          "subsidiaryPrice": 70463.0,
+          "holdingValue": 2133.4,
+          "marketCap": 12405.5,
+          "ratio": 17.2
+        },
+        {
+          "date": "2023-02-24",
+          "holdingPrice": 73048.0,
+          "subsidiaryPrice": 68527.0,
+          "holdingValue": 2074.8,
+          "marketCap": 12211.9,
+          "ratio": 16.99
+        },
+        {
+          "date": "2023-02-27",
+          "holdingPrice": 70838.0,
+          "subsidiaryPrice": 68624.0,
+          "holdingValue": 2077.7,
+          "marketCap": 11842.4,
+          "ratio": 17.54
+        },
+        {
+          "date": "2023-02-28",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 68817.0,
+          "holdingValue": 2083.6,
+          "marketCap": 11807.2,
+          "ratio": 17.65
+        },
+        {
+          "date": "2023-03-02",
+          "holdingPrice": 70733.0,
+          "subsidiaryPrice": 75496.0,
+          "holdingValue": 2285.8,
+          "marketCap": 11824.8,
+          "ratio": 19.33
+        },
+        {
+          "date": "2023-03-03",
+          "holdingPrice": 71048.0,
+          "subsidiaryPrice": 75302.0,
+          "holdingValue": 2279.9,
+          "marketCap": 11877.6,
+          "ratio": 19.2
+        },
+        {
+          "date": "2023-03-06",
+          "holdingPrice": 71259.0,
+          "subsidiaryPrice": 72882.0,
+          "holdingValue": 2206.6,
+          "marketCap": 11912.8,
+          "ratio": 18.52
+        },
+        {
+          "date": "2023-03-07",
+          "holdingPrice": 70943.0,
+          "subsidiaryPrice": 74141.0,
+          "holdingValue": 2244.7,
+          "marketCap": 11860.0,
+          "ratio": 18.93
+        },
+        {
+          "date": "2023-03-08",
+          "holdingPrice": 70206.0,
+          "subsidiaryPrice": 73560.0,
+          "holdingValue": 2227.2,
+          "marketCap": 11736.8,
+          "ratio": 18.98
+        },
+        {
+          "date": "2023-03-09",
+          "holdingPrice": 69996.0,
+          "subsidiaryPrice": 72785.0,
+          "holdingValue": 2203.7,
+          "marketCap": 11701.6,
+          "ratio": 18.83
+        },
+        {
+          "date": "2023-03-10",
+          "holdingPrice": 68838.0,
+          "subsidiaryPrice": 70946.0,
+          "holdingValue": 2148.0,
+          "marketCap": 11508.1,
+          "ratio": 18.67
+        },
+        {
+          "date": "2023-03-13",
+          "holdingPrice": 68312.0,
+          "subsidiaryPrice": 69591.0,
+          "holdingValue": 2107.0,
+          "marketCap": 11420.1,
+          "ratio": 18.45
+        },
+        {
+          "date": "2023-03-14",
+          "holdingPrice": 67259.0,
+          "subsidiaryPrice": 66010.0,
+          "holdingValue": 1998.6,
+          "marketCap": 11244.1,
+          "ratio": 17.77
+        },
+        {
+          "date": "2023-03-15",
+          "holdingPrice": 67785.0,
+          "subsidiaryPrice": 68043.0,
+          "holdingValue": 2060.1,
+          "marketCap": 11332.1,
+          "ratio": 18.18
+        },
+        {
+          "date": "2023-03-16",
+          "holdingPrice": 67575.0,
+          "subsidiaryPrice": 66978.0,
+          "holdingValue": 2027.9,
+          "marketCap": 11296.9,
+          "ratio": 17.95
+        },
+        {
+          "date": "2023-03-17",
+          "holdingPrice": 67785.0,
+          "subsidiaryPrice": 65623.0,
+          "holdingValue": 1986.9,
+          "marketCap": 11332.1,
+          "ratio": 17.53
+        },
+        {
+          "date": "2023-03-20",
+          "holdingPrice": 67680.0,
+          "subsidiaryPrice": 65817.0,
+          "holdingValue": 1992.7,
+          "marketCap": 11314.5,
+          "ratio": 17.61
+        },
+        {
+          "date": "2023-03-21",
+          "holdingPrice": 68417.0,
+          "subsidiaryPrice": 65526.0,
+          "holdingValue": 1983.9,
+          "marketCap": 11437.7,
+          "ratio": 17.35
+        },
+        {
+          "date": "2023-03-22",
+          "holdingPrice": 69049.0,
+          "subsidiaryPrice": 65429.0,
+          "holdingValue": 1981.0,
+          "marketCap": 11543.3,
+          "ratio": 17.16
+        },
+        {
+          "date": "2023-03-23",
+          "holdingPrice": 68733.0,
+          "subsidiaryPrice": 63784.0,
+          "holdingValue": 1931.2,
+          "marketCap": 11490.5,
+          "ratio": 16.81
+        },
+        {
+          "date": "2023-03-24",
+          "holdingPrice": 68627.0,
+          "subsidiaryPrice": 64074.0,
+          "holdingValue": 1940.0,
+          "marketCap": 11472.9,
+          "ratio": 16.91
+        },
+        {
+          "date": "2023-03-27",
+          "holdingPrice": 68943.0,
+          "subsidiaryPrice": 63494.0,
+          "holdingValue": 1922.4,
+          "marketCap": 11525.7,
+          "ratio": 16.68
+        },
+        {
+          "date": "2023-03-28",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 65236.0,
+          "holdingValue": 1975.1,
+          "marketCap": 11596.0,
+          "ratio": 17.03
+        },
+        {
+          "date": "2023-03-29",
+          "holdingPrice": 69470.0,
+          "subsidiaryPrice": 64365.0,
+          "holdingValue": 1948.8,
+          "marketCap": 11613.6,
+          "ratio": 16.78
+        },
+        {
+          "date": "2023-03-30",
+          "holdingPrice": 69785.0,
+          "subsidiaryPrice": 64946.0,
+          "holdingValue": 1966.3,
+          "marketCap": 11666.4,
+          "ratio": 16.85
+        },
+        {
+          "date": "2023-03-31",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 64558.0,
+          "holdingValue": 1954.6,
+          "marketCap": 11895.2,
+          "ratio": 16.43
+        },
+        {
+          "date": "2023-04-03",
+          "holdingPrice": 70522.0,
+          "subsidiaryPrice": 68430.0,
+          "holdingValue": 2071.8,
+          "marketCap": 11789.6,
+          "ratio": 17.57
+        },
+        {
+          "date": "2023-04-04",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 67946.0,
+          "holdingValue": 2057.2,
+          "marketCap": 11895.2,
+          "ratio": 17.29
+        },
+        {
+          "date": "2023-04-05",
+          "holdingPrice": 70522.0,
+          "subsidiaryPrice": 69301.0,
+          "holdingValue": 2098.2,
+          "marketCap": 11789.6,
+          "ratio": 17.8
+        },
+        {
+          "date": "2023-04-06",
+          "holdingPrice": 69680.0,
+          "subsidiaryPrice": 66204.0,
+          "holdingValue": 2004.4,
+          "marketCap": 11648.8,
+          "ratio": 17.21
+        },
+        {
+          "date": "2023-04-07",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 66397.0,
+          "holdingValue": 2010.3,
+          "marketCap": 11596.0,
+          "ratio": 17.34
+        },
+        {
+          "date": "2023-04-10",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 66010.0,
+          "holdingValue": 1998.6,
+          "marketCap": 11596.0,
+          "ratio": 17.24
+        },
+        {
+          "date": "2023-04-11",
+          "holdingPrice": 70101.0,
+          "subsidiaryPrice": 67075.0,
+          "holdingValue": 2030.8,
+          "marketCap": 11719.2,
+          "ratio": 17.33
+        },
+        {
+          "date": "2023-04-12",
+          "holdingPrice": 70312.0,
+          "subsidiaryPrice": 69301.0,
+          "holdingValue": 2098.2,
+          "marketCap": 11754.4,
+          "ratio": 17.85
+        },
+        {
+          "date": "2023-04-13",
+          "holdingPrice": 71469.0,
+          "subsidiaryPrice": 74141.0,
+          "holdingValue": 2244.7,
+          "marketCap": 11948.0,
+          "ratio": 18.79
+        },
+        {
+          "date": "2023-04-14",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 73657.0,
+          "holdingValue": 2230.1,
+          "marketCap": 11895.2,
+          "ratio": 18.75
+        },
+        {
+          "date": "2023-04-17",
+          "holdingPrice": 71575.0,
+          "subsidiaryPrice": 77335.0,
+          "holdingValue": 2341.4,
+          "marketCap": 11965.6,
+          "ratio": 19.57
+        },
+        {
+          "date": "2023-04-18",
+          "holdingPrice": 71785.0,
+          "subsidiaryPrice": 76270.0,
+          "holdingValue": 2309.2,
+          "marketCap": 12000.8,
+          "ratio": 19.24
+        },
+        {
+          "date": "2023-04-19",
+          "holdingPrice": 72311.0,
+          "subsidiaryPrice": 75302.0,
+          "holdingValue": 2279.9,
+          "marketCap": 12088.7,
+          "ratio": 18.86
+        },
+        {
+          "date": "2023-04-20",
+          "holdingPrice": 71680.0,
+          "subsidiaryPrice": 73366.0,
+          "holdingValue": 2221.3,
+          "marketCap": 11983.2,
+          "ratio": 18.54
+        },
+        {
+          "date": "2023-04-21",
+          "holdingPrice": 70943.0,
+          "subsidiaryPrice": 75205.0,
+          "holdingValue": 2277.0,
+          "marketCap": 11860.0,
+          "ratio": 19.2
+        },
+        {
+          "date": "2023-04-24",
+          "holdingPrice": 70312.0,
+          "subsidiaryPrice": 73560.0,
+          "holdingValue": 2227.2,
+          "marketCap": 11754.4,
+          "ratio": 18.95
+        },
+        {
+          "date": "2023-04-25",
+          "holdingPrice": 69470.0,
+          "subsidiaryPrice": 76463.0,
+          "holdingValue": 2315.1,
+          "marketCap": 11613.6,
+          "ratio": 19.93
+        },
+        {
+          "date": "2023-04-26",
+          "holdingPrice": 68943.0,
+          "subsidiaryPrice": 74624.0,
+          "holdingValue": 2259.4,
+          "marketCap": 11525.7,
+          "ratio": 19.6
+        },
+        {
+          "date": "2023-04-27",
+          "holdingPrice": 68838.0,
+          "subsidiaryPrice": 76076.0,
+          "holdingValue": 2303.4,
+          "marketCap": 11508.1,
+          "ratio": 20.02
+        },
+        {
+          "date": "2023-04-28",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 75980.0,
+          "holdingValue": 2300.4,
+          "marketCap": 11596.0,
+          "ratio": 19.84
+        },
+        {
+          "date": "2023-05-02",
+          "holdingPrice": 71048.0,
+          "subsidiaryPrice": 79077.0,
+          "holdingValue": 2394.2,
+          "marketCap": 11877.6,
+          "ratio": 20.16
+        },
+        {
+          "date": "2023-05-03",
+          "holdingPrice": 69891.0,
+          "subsidiaryPrice": 77818.0,
+          "holdingValue": 2356.1,
+          "marketCap": 11684.0,
+          "ratio": 20.17
+        },
+        {
+          "date": "2023-05-04",
+          "holdingPrice": 70206.0,
+          "subsidiaryPrice": 79174.0,
+          "holdingValue": 2397.1,
+          "marketCap": 11736.8,
+          "ratio": 20.42
+        },
+        {
+          "date": "2023-05-08",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 79270.0,
+          "holdingValue": 2400.1,
+          "marketCap": 11807.2,
+          "ratio": 20.33
+        },
+        {
+          "date": "2023-05-09",
+          "holdingPrice": 71259.0,
+          "subsidiaryPrice": 80335.0,
+          "holdingValue": 2432.3,
+          "marketCap": 11912.8,
+          "ratio": 20.42
+        },
+        {
+          "date": "2023-05-10",
+          "holdingPrice": 70522.0,
+          "subsidiaryPrice": 79367.0,
+          "holdingValue": 2403.0,
+          "marketCap": 11789.6,
+          "ratio": 20.38
+        },
+        {
+          "date": "2023-05-11",
+          "holdingPrice": 71259.0,
+          "subsidiaryPrice": 79851.0,
+          "holdingValue": 2417.6,
+          "marketCap": 11912.8,
+          "ratio": 20.29
+        },
+        {
+          "date": "2023-05-12",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 77431.0,
+          "holdingValue": 2344.4,
+          "marketCap": 11807.2,
+          "ratio": 19.86
+        },
+        {
+          "date": "2023-05-15",
+          "holdingPrice": 70417.0,
+          "subsidiaryPrice": 76754.0,
+          "holdingValue": 2323.9,
+          "marketCap": 11772.0,
+          "ratio": 19.74
+        },
+        {
+          "date": "2023-05-16",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 75496.0,
+          "holdingValue": 2285.8,
+          "marketCap": 11596.0,
+          "ratio": 19.71
+        },
+        {
+          "date": "2023-05-17",
+          "holdingPrice": 69259.0,
+          "subsidiaryPrice": 75108.0,
+          "holdingValue": 2274.0,
+          "marketCap": 11578.5,
+          "ratio": 19.64
+        },
+        {
+          "date": "2023-05-18",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 75108.0,
+          "holdingValue": 2274.0,
+          "marketCap": 11596.0,
+          "ratio": 19.61
+        },
+        {
+          "date": "2023-05-19",
+          "holdingPrice": 69996.0,
+          "subsidiaryPrice": 73173.0,
+          "holdingValue": 2215.4,
+          "marketCap": 11701.6,
+          "ratio": 18.93
+        },
+        {
+          "date": "2023-05-22",
+          "holdingPrice": 69891.0,
+          "subsidiaryPrice": 77915.0,
+          "holdingValue": 2359.0,
+          "marketCap": 11684.0,
+          "ratio": 20.19
+        },
+        {
+          "date": "2023-05-23",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 77044.0,
+          "holdingValue": 2332.7,
+          "marketCap": 11807.2,
+          "ratio": 19.76
+        },
+        {
+          "date": "2023-05-24",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 81690.0,
+          "holdingValue": 2473.3,
+          "marketCap": 11807.2,
+          "ratio": 20.95
+        },
+        {
+          "date": "2023-05-25",
+          "holdingPrice": 69575.0,
+          "subsidiaryPrice": 78883.0,
+          "holdingValue": 2388.3,
+          "marketCap": 11631.2,
+          "ratio": 20.53
+        },
+        {
+          "date": "2023-05-26",
+          "holdingPrice": 69259.0,
+          "subsidiaryPrice": 76754.0,
+          "holdingValue": 2323.9,
+          "marketCap": 11578.5,
+          "ratio": 20.07
+        },
+        {
+          "date": "2023-05-30",
+          "holdingPrice": 69259.0,
+          "subsidiaryPrice": 78012.0,
+          "holdingValue": 2362.0,
+          "marketCap": 11578.5,
+          "ratio": 20.4
+        },
+        {
+          "date": "2023-05-31",
+          "holdingPrice": 68733.0,
+          "subsidiaryPrice": 77431.0,
+          "holdingValue": 2344.4,
+          "marketCap": 11490.5,
+          "ratio": 20.4
+        },
+        {
+          "date": "2023-06-01",
+          "holdingPrice": 68733.0,
+          "subsidiaryPrice": 79077.0,
+          "holdingValue": 2394.2,
+          "marketCap": 11490.5,
+          "ratio": 20.84
+        },
+        {
+          "date": "2023-06-02",
+          "holdingPrice": 69364.0,
+          "subsidiaryPrice": 85465.0,
+          "holdingValue": 2587.6,
+          "marketCap": 11596.0,
+          "ratio": 22.31
+        },
+        {
+          "date": "2023-06-05",
+          "holdingPrice": 69891.0,
+          "subsidiaryPrice": 85174.0,
+          "holdingValue": 2578.8,
+          "marketCap": 11684.0,
+          "ratio": 22.07
+        },
+        {
+          "date": "2023-06-07",
+          "holdingPrice": 70312.0,
+          "subsidiaryPrice": 87110.0,
+          "holdingValue": 2637.4,
+          "marketCap": 11754.4,
+          "ratio": 22.44
+        },
+        {
+          "date": "2023-06-08",
+          "holdingPrice": 70627.0,
+          "subsidiaryPrice": 87788.0,
+          "holdingValue": 2657.9,
+          "marketCap": 11807.2,
+          "ratio": 22.51
+        },
+        {
+          "date": "2023-06-09",
+          "holdingPrice": 70101.0,
+          "subsidiaryPrice": 92434.0,
+          "holdingValue": 2798.6,
+          "marketCap": 11719.2,
+          "ratio": 23.88
+        },
+        {
+          "date": "2023-06-12",
+          "holdingPrice": 69891.0,
+          "subsidiaryPrice": 91369.0,
+          "holdingValue": 2766.4,
+          "marketCap": 11684.0,
+          "ratio": 23.68
+        },
+        {
+          "date": "2023-06-13",
+          "holdingPrice": 68838.0,
+          "subsidiaryPrice": 90014.0,
+          "holdingValue": 2725.3,
+          "marketCap": 11508.1,
+          "ratio": 23.68
+        },
+        {
+          "date": "2023-06-14",
+          "holdingPrice": 68943.0,
+          "subsidiaryPrice": 88272.0,
+          "holdingValue": 2672.6,
+          "marketCap": 11525.7,
+          "ratio": 23.19
+        },
+        {
+          "date": "2023-06-15",
+          "holdingPrice": 68522.0,
+          "subsidiaryPrice": 89627.0,
+          "holdingValue": 2713.6,
+          "marketCap": 11455.3,
+          "ratio": 23.69
+        },
+        {
+          "date": "2023-06-16",
+          "holdingPrice": 68101.0,
+          "subsidiaryPrice": 93305.0,
+          "holdingValue": 2825.0,
+          "marketCap": 11384.9,
+          "ratio": 24.81
+        },
+        {
+          "date": "2023-06-19",
+          "holdingPrice": 67891.0,
+          "subsidiaryPrice": 95434.0,
+          "holdingValue": 2889.4,
+          "marketCap": 11349.7,
+          "ratio": 25.46
+        },
+        {
+          "date": "2023-06-20",
+          "holdingPrice": 68627.0,
+          "subsidiaryPrice": 95337.0,
+          "holdingValue": 2886.5,
+          "marketCap": 11472.9,
+          "ratio": 25.16
+        },
+        {
+          "date": "2023-06-21",
+          "holdingPrice": 68417.0,
+          "subsidiaryPrice": 98822.0,
+          "holdingValue": 2992.0,
+          "marketCap": 11437.7,
+          "ratio": 26.16
+        },
+        {
+          "date": "2023-06-22",
+          "holdingPrice": 68417.0,
+          "subsidiaryPrice": 97951.0,
+          "holdingValue": 2965.6,
+          "marketCap": 11437.7,
+          "ratio": 25.93
+        },
+        {
+          "date": "2023-06-23",
+          "holdingPrice": 67680.0,
+          "subsidiaryPrice": 96789.0,
+          "holdingValue": 2930.5,
+          "marketCap": 11314.5,
+          "ratio": 25.9
+        },
+        {
+          "date": "2023-06-26",
+          "holdingPrice": 68206.0,
+          "subsidiaryPrice": 97757.0,
+          "holdingValue": 2959.8,
+          "marketCap": 11402.5,
+          "ratio": 25.96
+        },
+        {
+          "date": "2023-06-27",
+          "holdingPrice": 67785.0,
+          "subsidiaryPrice": 97854.0,
+          "holdingValue": 2962.7,
+          "marketCap": 11332.1,
+          "ratio": 26.14
+        },
+        {
+          "date": "2023-06-28",
+          "holdingPrice": 67680.0,
+          "subsidiaryPrice": 98047.0,
+          "holdingValue": 2968.6,
+          "marketCap": 11314.5,
+          "ratio": 26.24
+        },
+        {
+          "date": "2023-06-29",
+          "holdingPrice": 66312.0,
+          "subsidiaryPrice": 97273.0,
+          "holdingValue": 2945.1,
+          "marketCap": 11085.8,
+          "ratio": 26.57
+        },
+        {
+          "date": "2023-06-30",
+          "holdingPrice": 66522.0,
+          "subsidiaryPrice": 111211.0,
+          "holdingValue": 3367.1,
+          "marketCap": 11120.9,
+          "ratio": 30.28
+        },
+        {
+          "date": "2023-07-03",
+          "holdingPrice": 66943.0,
+          "subsidiaryPrice": 112469.0,
+          "holdingValue": 3405.2,
+          "marketCap": 11191.3,
+          "ratio": 30.43
+        },
+        {
+          "date": "2023-07-04",
+          "holdingPrice": 63786.0,
+          "subsidiaryPrice": 118276.0,
+          "holdingValue": 3581.0,
+          "marketCap": 10663.4,
+          "ratio": 33.58
+        },
+        {
+          "date": "2023-07-05",
+          "holdingPrice": 60207.0,
+          "subsidiaryPrice": 120309.0,
+          "holdingValue": 3642.6,
+          "marketCap": 10065.2,
+          "ratio": 36.19
+        },
+        {
+          "date": "2023-07-06",
+          "holdingPrice": 59891.0,
+          "subsidiaryPrice": 117212.0,
+          "holdingValue": 3548.8,
+          "marketCap": 10012.4,
+          "ratio": 35.44
+        },
+        {
+          "date": "2023-07-07",
+          "holdingPrice": 59996.0,
+          "subsidiaryPrice": 117986.0,
+          "holdingValue": 3572.2,
+          "marketCap": 10030.0,
+          "ratio": 35.62
+        },
+        {
+          "date": "2023-07-10",
+          "holdingPrice": 60838.0,
+          "subsidiaryPrice": 119341.0,
+          "holdingValue": 3613.3,
+          "marketCap": 10170.7,
+          "ratio": 35.53
+        },
+        {
+          "date": "2023-07-11",
+          "holdingPrice": 62944.0,
+          "subsidiaryPrice": 130278.0,
+          "holdingValue": 3944.4,
+          "marketCap": 10522.7,
+          "ratio": 37.48
+        },
+        {
+          "date": "2023-07-12",
+          "holdingPrice": 61891.0,
+          "subsidiaryPrice": 129697.0,
+          "holdingValue": 3926.8,
+          "marketCap": 10346.7,
+          "ratio": 37.95
+        },
+        {
+          "date": "2023-07-13",
+          "holdingPrice": 62312.0,
+          "subsidiaryPrice": 136763.0,
+          "holdingValue": 4140.8,
+          "marketCap": 10417.1,
+          "ratio": 39.75
+        },
+        {
+          "date": "2023-07-14",
+          "holdingPrice": 62838.0,
+          "subsidiaryPrice": 127084.0,
+          "holdingValue": 3847.7,
+          "marketCap": 10505.1,
+          "ratio": 36.63
+        },
+        {
+          "date": "2023-07-17",
+          "holdingPrice": 62312.0,
+          "subsidiaryPrice": 127084.0,
+          "holdingValue": 3847.7,
+          "marketCap": 10417.1,
+          "ratio": 36.94
+        },
+        {
+          "date": "2023-07-18",
+          "holdingPrice": 62417.0,
+          "subsidiaryPrice": 124858.0,
+          "holdingValue": 3780.3,
+          "marketCap": 10434.7,
+          "ratio": 36.23
+        },
+        {
+          "date": "2023-07-19",
+          "holdingPrice": 61681.0,
+          "subsidiaryPrice": 127084.0,
+          "holdingValue": 3847.7,
+          "marketCap": 10311.5,
+          "ratio": 37.31
+        },
+        {
+          "date": "2023-07-20",
+          "holdingPrice": 62102.0,
+          "subsidiaryPrice": 129214.0,
+          "holdingValue": 3912.2,
+          "marketCap": 10381.9,
+          "ratio": 37.68
+        },
+        {
+          "date": "2023-07-21",
+          "holdingPrice": 62628.0,
+          "subsidiaryPrice": 126310.0,
+          "holdingValue": 3824.3,
+          "marketCap": 10469.9,
+          "ratio": 36.53
+        },
+        {
+          "date": "2023-07-24",
+          "holdingPrice": 62102.0,
+          "subsidiaryPrice": 128730.0,
+          "holdingValue": 3897.5,
+          "marketCap": 10381.9,
+          "ratio": 37.54
+        },
+        {
+          "date": "2023-07-25",
+          "holdingPrice": 61996.0,
+          "subsidiaryPrice": 144022.0,
+          "holdingValue": 4360.5,
+          "marketCap": 10364.3,
+          "ratio": 42.07
+        },
+        {
+          "date": "2023-07-26",
+          "holdingPrice": 61049.0,
+          "subsidiaryPrice": 130375.0,
+          "holdingValue": 3947.3,
+          "marketCap": 10205.9,
+          "ratio": 38.68
+        },
+        {
+          "date": "2023-07-27",
+          "holdingPrice": 62417.0,
+          "subsidiaryPrice": 122438.0,
+          "holdingValue": 3707.0,
+          "marketCap": 10434.7,
+          "ratio": 35.53
+        },
+        {
+          "date": "2023-07-28",
+          "holdingPrice": 62102.0,
+          "subsidiaryPrice": 129988.0,
+          "holdingValue": 3935.6,
+          "marketCap": 10381.9,
+          "ratio": 37.91
+        },
+        {
+          "date": "2023-07-31",
+          "holdingPrice": 63470.0,
+          "subsidiaryPrice": 168897.0,
+          "holdingValue": 5113.7,
+          "marketCap": 10610.6,
+          "ratio": 48.19
+        },
+        {
+          "date": "2023-08-01",
+          "holdingPrice": 63996.0,
+          "subsidiaryPrice": 159315.0,
+          "holdingValue": 4823.6,
+          "marketCap": 10698.6,
+          "ratio": 45.09
+        },
+        {
+          "date": "2023-08-02",
+          "holdingPrice": 68206.0,
+          "subsidiaryPrice": 161251.0,
+          "holdingValue": 4882.2,
+          "marketCap": 11402.5,
+          "ratio": 42.82
+        },
+        {
+          "date": "2023-08-03",
+          "holdingPrice": 65470.0,
+          "subsidiaryPrice": 180705.0,
+          "holdingValue": 5471.2,
+          "marketCap": 10945.0,
+          "ratio": 49.99
+        },
+        {
+          "date": "2023-08-04",
+          "holdingPrice": 65786.0,
+          "subsidiaryPrice": 167252.0,
+          "holdingValue": 5063.9,
+          "marketCap": 10997.8,
+          "ratio": 46.04
+        },
+        {
+          "date": "2023-08-07",
+          "holdingPrice": 66101.0,
+          "subsidiaryPrice": 169091.0,
+          "holdingValue": 5119.5,
+          "marketCap": 11050.6,
+          "ratio": 46.33
+        },
+        {
+          "date": "2023-08-08",
+          "holdingPrice": 66522.0,
+          "subsidiaryPrice": 182835.0,
+          "holdingValue": 5535.7,
+          "marketCap": 11120.9,
+          "ratio": 49.78
+        },
+        {
+          "date": "2023-08-09",
+          "holdingPrice": 66207.0,
+          "subsidiaryPrice": 185158.0,
+          "holdingValue": 5606.0,
+          "marketCap": 11068.2,
+          "ratio": 50.65
+        },
+        {
+          "date": "2023-08-10",
+          "holdingPrice": 66101.0,
+          "subsidiaryPrice": 180802.0,
+          "holdingValue": 5474.1,
+          "marketCap": 11050.6,
+          "ratio": 49.54
+        },
+        {
+          "date": "2023-08-11",
+          "holdingPrice": 66838.0,
+          "subsidiaryPrice": 180802.0,
+          "holdingValue": 5474.1,
+          "marketCap": 11173.7,
+          "ratio": 48.99
+        },
+        {
+          "date": "2023-08-14",
+          "holdingPrice": 66101.0,
+          "subsidiaryPrice": 182060.0,
+          "holdingValue": 5512.2,
+          "marketCap": 11050.6,
+          "ratio": 49.88
+        },
+        {
+          "date": "2023-08-16",
+          "holdingPrice": 65470.0,
+          "subsidiaryPrice": 180028.0,
+          "holdingValue": 5450.7,
+          "marketCap": 10945.0,
+          "ratio": 49.8
+        },
+        {
+          "date": "2023-08-17",
+          "holdingPrice": 64101.0,
+          "subsidiaryPrice": 180899.0,
+          "holdingValue": 5477.1,
+          "marketCap": 10716.2,
+          "ratio": 51.11
+        },
+        {
+          "date": "2023-08-18",
+          "holdingPrice": 64417.0,
+          "subsidiaryPrice": 180028.0,
+          "holdingValue": 5450.7,
+          "marketCap": 10769.0,
+          "ratio": 50.61
+        },
+        {
+          "date": "2023-08-21",
+          "holdingPrice": 64417.0,
+          "subsidiaryPrice": 184771.0,
+          "holdingValue": 5594.3,
+          "marketCap": 10769.0,
+          "ratio": 51.95
+        },
+        {
+          "date": "2023-08-22",
+          "holdingPrice": 64838.0,
+          "subsidiaryPrice": 196482.0,
+          "holdingValue": 5948.9,
+          "marketCap": 10839.4,
+          "ratio": 54.88
+        },
+        {
+          "date": "2023-08-23",
+          "holdingPrice": 64733.0,
+          "subsidiaryPrice": 183706.0,
+          "holdingValue": 5562.0,
+          "marketCap": 10821.8,
+          "ratio": 51.4
+        },
+        {
+          "date": "2023-08-24",
+          "holdingPrice": 65575.0,
+          "subsidiaryPrice": 184190.0,
+          "holdingValue": 5576.7,
+          "marketCap": 10962.6,
+          "ratio": 50.87
+        },
+        {
+          "date": "2023-08-25",
+          "holdingPrice": 65680.0,
+          "subsidiaryPrice": 187287.0,
+          "holdingValue": 5670.5,
+          "marketCap": 10980.2,
+          "ratio": 51.64
+        },
+        {
+          "date": "2023-08-28",
+          "holdingPrice": 66207.0,
+          "subsidiaryPrice": 183996.0,
+          "holdingValue": 5570.8,
+          "marketCap": 11068.2,
+          "ratio": 50.33
+        },
+        {
+          "date": "2023-08-29",
+          "holdingPrice": 65891.0,
+          "subsidiaryPrice": 186416.0,
+          "holdingValue": 5644.1,
+          "marketCap": 11015.4,
+          "ratio": 51.24
+        },
+        {
+          "date": "2023-08-30",
+          "holdingPrice": 66101.0,
+          "subsidiaryPrice": 185061.0,
+          "holdingValue": 5603.1,
+          "marketCap": 11050.6,
+          "ratio": 50.7
+        },
+        {
+          "date": "2023-08-31",
+          "holdingPrice": 66733.0,
+          "subsidiaryPrice": 194062.0,
+          "holdingValue": 5875.6,
+          "marketCap": 11156.1,
+          "ratio": 52.67
+        },
+        {
+          "date": "2023-09-01",
+          "holdingPrice": 65786.0,
+          "subsidiaryPrice": 179931.0,
+          "holdingValue": 5447.7,
+          "marketCap": 10997.8,
+          "ratio": 49.54
+        },
+        {
+          "date": "2023-09-04",
+          "holdingPrice": 66943.0,
+          "subsidiaryPrice": 180996.0,
+          "holdingValue": 5480.0,
+          "marketCap": 11191.3,
+          "ratio": 48.97
+        },
+        {
+          "date": "2023-09-05",
+          "holdingPrice": 66943.0,
+          "subsidiaryPrice": 177511.0,
+          "holdingValue": 5374.5,
+          "marketCap": 11191.3,
+          "ratio": 48.02
+        },
+        {
+          "date": "2023-09-06",
+          "holdingPrice": 66207.0,
+          "subsidiaryPrice": 174898.0,
+          "holdingValue": 5295.4,
+          "marketCap": 11068.2,
+          "ratio": 47.84
+        },
+        {
+          "date": "2023-09-07",
+          "holdingPrice": 65680.0,
+          "subsidiaryPrice": 171026.0,
+          "holdingValue": 5178.1,
+          "marketCap": 10980.2,
+          "ratio": 47.16
+        },
+        {
+          "date": "2023-09-08",
+          "holdingPrice": 66417.0,
+          "subsidiaryPrice": 169381.0,
+          "holdingValue": 5128.3,
+          "marketCap": 11103.3,
+          "ratio": 46.19
+        },
+        {
+          "date": "2023-09-11",
+          "holdingPrice": 66733.0,
+          "subsidiaryPrice": 178673.0,
+          "holdingValue": 5409.6,
+          "marketCap": 11156.1,
+          "ratio": 48.49
+        },
+        {
+          "date": "2023-09-12",
+          "holdingPrice": 67259.0,
+          "subsidiaryPrice": 179060.0,
+          "holdingValue": 5421.4,
+          "marketCap": 11244.1,
+          "ratio": 48.22
+        },
+        {
+          "date": "2023-09-13",
+          "holdingPrice": 67049.0,
+          "subsidiaryPrice": 168800.0,
+          "holdingValue": 5110.7,
+          "marketCap": 11208.9,
+          "ratio": 45.6
+        },
+        {
+          "date": "2023-09-14",
+          "holdingPrice": 67049.0,
+          "subsidiaryPrice": 171026.0,
+          "holdingValue": 5178.1,
+          "marketCap": 11208.9,
+          "ratio": 46.2
+        },
+        {
+          "date": "2023-09-15",
+          "holdingPrice": 67259.0,
+          "subsidiaryPrice": 176834.0,
+          "holdingValue": 5354.0,
+          "marketCap": 11244.1,
+          "ratio": 47.62
+        },
+        {
+          "date": "2023-09-18",
+          "holdingPrice": 66943.0,
+          "subsidiaryPrice": 179834.0,
+          "holdingValue": 5444.8,
+          "marketCap": 11191.3,
+          "ratio": 48.65
+        },
+        {
+          "date": "2023-09-19",
+          "holdingPrice": 66943.0,
+          "subsidiaryPrice": 184771.0,
+          "holdingValue": 5594.3,
+          "marketCap": 11191.3,
+          "ratio": 49.99
+        },
+        {
+          "date": "2023-09-20",
+          "holdingPrice": 67680.0,
+          "subsidiaryPrice": 180415.0,
+          "holdingValue": 5462.4,
+          "marketCap": 11314.5,
+          "ratio": 48.28
+        },
+        {
+          "date": "2023-09-21",
+          "holdingPrice": 66312.0,
+          "subsidiaryPrice": 177221.0,
+          "holdingValue": 5365.7,
+          "marketCap": 11085.8,
+          "ratio": 48.4
+        },
+        {
+          "date": "2023-09-22",
+          "holdingPrice": 65996.0,
+          "subsidiaryPrice": 178286.0,
+          "holdingValue": 5397.9,
+          "marketCap": 11033.0,
+          "ratio": 48.93
+        },
+        {
+          "date": "2023-09-25",
+          "holdingPrice": 65680.0,
+          "subsidiaryPrice": 164638.0,
+          "holdingValue": 4984.7,
+          "marketCap": 10980.2,
+          "ratio": 45.4
+        },
+        {
+          "date": "2023-09-26",
+          "holdingPrice": 64943.0,
+          "subsidiaryPrice": 161154.0,
+          "holdingValue": 4879.2,
+          "marketCap": 10857.0,
+          "ratio": 44.94
+        },
+        {
+          "date": "2023-09-27",
+          "holdingPrice": 65154.0,
+          "subsidiaryPrice": 164542.0,
+          "holdingValue": 4981.8,
+          "marketCap": 10892.2,
+          "ratio": 45.74
+        },
+        {
+          "date": "2023-10-04",
+          "holdingPrice": 63049.0,
+          "subsidiaryPrice": 156024.0,
+          "holdingValue": 4723.9,
+          "marketCap": 10540.3,
+          "ratio": 44.82
+        },
+        {
+          "date": "2023-10-05",
+          "holdingPrice": 63049.0,
+          "subsidiaryPrice": 156411.0,
+          "holdingValue": 4735.6,
+          "marketCap": 10540.3,
+          "ratio": 44.93
+        },
+        {
+          "date": "2023-10-06",
+          "holdingPrice": 63365.0,
+          "subsidiaryPrice": 156798.0,
+          "holdingValue": 4747.4,
+          "marketCap": 10593.0,
+          "ratio": 44.82
+        },
+        {
+          "date": "2023-10-10",
+          "holdingPrice": 62628.0,
+          "subsidiaryPrice": 157476.0,
+          "holdingValue": 4767.9,
+          "marketCap": 10469.9,
+          "ratio": 45.54
+        },
+        {
+          "date": "2023-10-11",
+          "holdingPrice": 63154.0,
+          "subsidiaryPrice": 162219.0,
+          "holdingValue": 4911.5,
+          "marketCap": 10557.9,
+          "ratio": 46.52
+        },
+        {
+          "date": "2023-10-12",
+          "holdingPrice": 63365.0,
+          "subsidiaryPrice": 167929.0,
+          "holdingValue": 5084.4,
+          "marketCap": 10593.0,
+          "ratio": 48.0
+        },
+        {
+          "date": "2023-10-13",
+          "holdingPrice": 61996.0,
+          "subsidiaryPrice": 170155.0,
+          "holdingValue": 5151.8,
+          "marketCap": 10364.3,
+          "ratio": 49.71
+        },
+        {
+          "date": "2023-10-16",
+          "holdingPrice": 60944.0,
+          "subsidiaryPrice": 174317.0,
+          "holdingValue": 5277.8,
+          "marketCap": 10188.3,
+          "ratio": 51.8
+        },
+        {
+          "date": "2023-10-17",
+          "holdingPrice": 61365.0,
+          "subsidiaryPrice": 178382.0,
+          "holdingValue": 5400.9,
+          "marketCap": 10258.7,
+          "ratio": 52.65
+        },
+        {
+          "date": "2023-10-18",
+          "holdingPrice": 62523.0,
+          "subsidiaryPrice": 178382.0,
+          "holdingValue": 5400.9,
+          "marketCap": 10452.3,
+          "ratio": 51.67
+        },
+        {
+          "date": "2023-10-19",
+          "holdingPrice": 61681.0,
+          "subsidiaryPrice": 167252.0,
+          "holdingValue": 5063.9,
+          "marketCap": 10311.5,
+          "ratio": 49.11
+        },
+        {
+          "date": "2023-10-20",
+          "holdingPrice": 60733.0,
+          "subsidiaryPrice": 169091.0,
+          "holdingValue": 5119.5,
+          "marketCap": 10153.1,
+          "ratio": 50.42
+        },
+        {
+          "date": "2023-10-23",
+          "holdingPrice": 59681.0,
+          "subsidiaryPrice": 157670.0,
+          "holdingValue": 4773.7,
+          "marketCap": 9977.2,
+          "ratio": 47.85
+        },
+        {
+          "date": "2023-10-24",
+          "holdingPrice": 60417.0,
+          "subsidiaryPrice": 168704.0,
+          "holdingValue": 5107.8,
+          "marketCap": 10100.4,
+          "ratio": 50.57
+        },
+        {
+          "date": "2023-10-25",
+          "holdingPrice": 61049.0,
+          "subsidiaryPrice": 174027.0,
+          "holdingValue": 5269.0,
+          "marketCap": 10205.9,
+          "ratio": 51.63
+        },
+        {
+          "date": "2023-10-26",
+          "holdingPrice": 60628.0,
+          "subsidiaryPrice": 173156.0,
+          "holdingValue": 5242.6,
+          "marketCap": 10135.5,
+          "ratio": 51.73
+        },
+        {
+          "date": "2023-10-27",
+          "holdingPrice": 61470.0,
+          "subsidiaryPrice": 169962.0,
+          "holdingValue": 5145.9,
+          "marketCap": 10276.3,
+          "ratio": 50.08
+        },
+        {
+          "date": "2023-10-30",
+          "holdingPrice": 62312.0,
+          "subsidiaryPrice": 170446.0,
+          "holdingValue": 5160.6,
+          "marketCap": 10417.1,
+          "ratio": 49.54
+        },
+        {
+          "date": "2023-10-31",
+          "holdingPrice": 62102.0,
+          "subsidiaryPrice": 165219.0,
+          "holdingValue": 5002.3,
+          "marketCap": 10381.9,
+          "ratio": 48.18
+        },
+        {
+          "date": "2023-11-01",
+          "holdingPrice": 63996.0,
+          "subsidiaryPrice": 176931.0,
+          "holdingValue": 5356.9,
+          "marketCap": 10698.6,
+          "ratio": 50.07
+        },
+        {
+          "date": "2023-11-02",
+          "holdingPrice": 65154.0,
+          "subsidiaryPrice": 176350.0,
+          "holdingValue": 5339.3,
+          "marketCap": 10892.2,
+          "ratio": 49.02
+        },
+        {
+          "date": "2023-11-03",
+          "holdingPrice": 65259.0,
+          "subsidiaryPrice": 171123.0,
+          "holdingValue": 5181.1,
+          "marketCap": 10909.8,
+          "ratio": 47.49
+        },
+        {
+          "date": "2023-11-06",
+          "holdingPrice": 66312.0,
+          "subsidiaryPrice": 173253.0,
+          "holdingValue": 5245.5,
+          "marketCap": 11085.8,
+          "ratio": 47.32
+        },
+        {
+          "date": "2023-11-07",
+          "holdingPrice": 64838.0,
+          "subsidiaryPrice": 179447.0,
+          "holdingValue": 5433.1,
+          "marketCap": 10839.4,
+          "ratio": 50.12
+        },
+        {
+          "date": "2023-11-08",
+          "holdingPrice": 65786.0,
+          "subsidiaryPrice": 176737.0,
+          "holdingValue": 5351.0,
+          "marketCap": 10997.8,
+          "ratio": 48.66
+        },
+        {
+          "date": "2023-11-09",
+          "holdingPrice": 66207.0,
+          "subsidiaryPrice": 179060.0,
+          "holdingValue": 5421.4,
+          "marketCap": 11068.2,
+          "ratio": 48.98
+        },
+        {
+          "date": "2023-11-10",
+          "holdingPrice": 66101.0,
+          "subsidiaryPrice": 187190.0,
+          "holdingValue": 5667.5,
+          "marketCap": 11050.6,
+          "ratio": 51.29
+        },
+        {
+          "date": "2023-11-13",
+          "holdingPrice": 66417.0,
+          "subsidiaryPrice": 183706.0,
+          "holdingValue": 5562.0,
+          "marketCap": 11103.3,
+          "ratio": 50.09
+        },
+        {
+          "date": "2023-11-14",
+          "holdingPrice": 66838.0,
+          "subsidiaryPrice": 183899.0,
+          "holdingValue": 5567.9,
+          "marketCap": 11173.7,
+          "ratio": 49.83
+        },
+        {
+          "date": "2023-11-15",
+          "holdingPrice": 67470.0,
+          "subsidiaryPrice": 186416.0,
+          "holdingValue": 5644.1,
+          "marketCap": 11279.3,
+          "ratio": 50.04
+        },
+        {
+          "date": "2023-11-16",
+          "holdingPrice": 68522.0,
+          "subsidiaryPrice": 197450.0,
+          "holdingValue": 5978.2,
+          "marketCap": 11455.3,
+          "ratio": 52.19
+        },
+        {
+          "date": "2023-11-17",
+          "holdingPrice": 69575.0,
+          "subsidiaryPrice": 198418.0,
+          "holdingValue": 6007.5,
+          "marketCap": 11631.2,
+          "ratio": 51.65
+        },
+        {
+          "date": "2023-11-20",
+          "holdingPrice": 69996.0,
+          "subsidiaryPrice": 192320.0,
+          "holdingValue": 5822.8,
+          "marketCap": 11701.6,
+          "ratio": 49.76
+        },
+        {
+          "date": "2023-11-21",
+          "holdingPrice": 70522.0,
+          "subsidiaryPrice": 193288.0,
+          "holdingValue": 5852.2,
+          "marketCap": 11789.6,
+          "ratio": 49.64
+        },
+        {
+          "date": "2023-11-22",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 188158.0,
+          "holdingValue": 5696.8,
+          "marketCap": 11895.2,
+          "ratio": 47.89
+        },
+        {
+          "date": "2023-11-23",
+          "holdingPrice": 70206.0,
+          "subsidiaryPrice": 182641.0,
+          "holdingValue": 5529.8,
+          "marketCap": 11736.8,
+          "ratio": 47.11
+        },
+        {
+          "date": "2023-11-24",
+          "holdingPrice": 71048.0,
+          "subsidiaryPrice": 190384.0,
+          "holdingValue": 5764.2,
+          "marketCap": 11877.6,
+          "ratio": 48.53
+        },
+        {
+          "date": "2023-11-27",
+          "holdingPrice": 71890.0,
+          "subsidiaryPrice": 193578.0,
+          "holdingValue": 5860.9,
+          "marketCap": 12018.4,
+          "ratio": 48.77
+        },
+        {
+          "date": "2023-11-28",
+          "holdingPrice": 71996.0,
+          "subsidiaryPrice": 195514.0,
+          "holdingValue": 5919.6,
+          "marketCap": 12036.0,
+          "ratio": 49.18
+        },
+        {
+          "date": "2023-11-29",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 205193.0,
+          "holdingValue": 6212.6,
+          "marketCap": 11895.2,
+          "ratio": 52.23
+        },
+        {
+          "date": "2023-11-30",
+          "holdingPrice": 71996.0,
+          "subsidiaryPrice": 203257.0,
+          "holdingValue": 6154.0,
+          "marketCap": 12036.0,
+          "ratio": 51.13
+        },
+        {
+          "date": "2023-12-01",
+          "holdingPrice": 72206.0,
+          "subsidiaryPrice": 207613.0,
+          "holdingValue": 6285.9,
+          "marketCap": 12071.2,
+          "ratio": 52.07
+        },
+        {
+          "date": "2023-12-04",
+          "holdingPrice": 72733.0,
+          "subsidiaryPrice": 195030.0,
+          "holdingValue": 5904.9,
+          "marketCap": 12159.1,
+          "ratio": 48.56
+        },
+        {
+          "date": "2023-12-05",
+          "holdingPrice": 72627.0,
+          "subsidiaryPrice": 184771.0,
+          "holdingValue": 5594.3,
+          "marketCap": 12141.5,
+          "ratio": 46.08
+        },
+        {
+          "date": "2023-12-06",
+          "holdingPrice": 72522.0,
+          "subsidiaryPrice": 179544.0,
+          "holdingValue": 5436.0,
+          "marketCap": 12123.9,
+          "ratio": 44.84
+        },
+        {
+          "date": "2023-12-07",
+          "holdingPrice": 72733.0,
+          "subsidiaryPrice": 177608.0,
+          "holdingValue": 5377.4,
+          "marketCap": 12159.1,
+          "ratio": 44.23
+        },
+        {
+          "date": "2023-12-08",
+          "holdingPrice": 72627.0,
+          "subsidiaryPrice": 174801.0,
+          "holdingValue": 5292.4,
+          "marketCap": 12141.5,
+          "ratio": 43.59
+        },
+        {
+          "date": "2023-12-11",
+          "holdingPrice": 72522.0,
+          "subsidiaryPrice": 178770.0,
+          "holdingValue": 5412.6,
+          "marketCap": 12123.9,
+          "ratio": 44.64
+        },
+        {
+          "date": "2023-12-12",
+          "holdingPrice": 71785.0,
+          "subsidiaryPrice": 168994.0,
+          "holdingValue": 5116.6,
+          "marketCap": 12000.8,
+          "ratio": 42.64
+        },
+        {
+          "date": "2023-12-13",
+          "holdingPrice": 70522.0,
+          "subsidiaryPrice": 163283.0,
+          "holdingValue": 4943.7,
+          "marketCap": 11789.6,
+          "ratio": 41.93
+        },
+        {
+          "date": "2023-12-14",
+          "holdingPrice": 71259.0,
+          "subsidiaryPrice": 157960.0,
+          "holdingValue": 4782.5,
+          "marketCap": 11912.8,
+          "ratio": 40.15
+        },
+        {
+          "date": "2023-12-15",
+          "holdingPrice": 71154.0,
+          "subsidiaryPrice": 160573.0,
+          "holdingValue": 4861.7,
+          "marketCap": 11895.2,
+          "ratio": 40.87
+        },
+        {
+          "date": "2023-12-18",
+          "holdingPrice": 70206.0,
+          "subsidiaryPrice": 169478.0,
+          "holdingValue": 5131.3,
+          "marketCap": 11736.8,
+          "ratio": 43.72
+        },
+        {
+          "date": "2023-12-19",
+          "holdingPrice": 70206.0,
+          "subsidiaryPrice": 163670.0,
+          "holdingValue": 4955.4,
+          "marketCap": 11736.8,
+          "ratio": 42.22
+        },
+        {
+          "date": "2023-12-20",
+          "holdingPrice": 71575.0,
+          "subsidiaryPrice": 163670.0,
+          "holdingValue": 4955.4,
+          "marketCap": 11965.6,
+          "ratio": 41.41
+        },
+        {
+          "date": "2023-12-21",
+          "holdingPrice": 71575.0,
+          "subsidiaryPrice": 161541.0,
+          "holdingValue": 4891.0,
+          "marketCap": 11965.6,
+          "ratio": 40.88
+        },
+        {
+          "date": "2023-12-22",
+          "holdingPrice": 71364.0,
+          "subsidiaryPrice": 160573.0,
+          "holdingValue": 4861.7,
+          "marketCap": 11930.4,
+          "ratio": 40.75
+        },
+        {
+          "date": "2023-12-26",
+          "holdingPrice": 71890.0,
+          "subsidiaryPrice": 157960.0,
+          "holdingValue": 4782.5,
+          "marketCap": 12018.4,
+          "ratio": 39.79
+        },
+        {
+          "date": "2023-12-27",
+          "holdingPrice": 68588.0,
+          "subsidiaryPrice": 159828.0,
+          "holdingValue": 4839.1,
+          "marketCap": 11466.2,
+          "ratio": 42.2
+        },
+        {
+          "date": "2023-12-28",
+          "holdingPrice": 69689.0,
+          "subsidiaryPrice": 159139.0,
+          "holdingValue": 4818.2,
+          "marketCap": 11650.3,
+          "ratio": 41.36
+        },
+        {
+          "date": "2024-01-02",
+          "holdingPrice": 68698.0,
+          "subsidiaryPrice": 155011.0,
+          "holdingValue": 4693.2,
+          "marketCap": 11484.6,
+          "ratio": 40.87
+        },
+        {
+          "date": "2024-01-03",
+          "holdingPrice": 68147.0,
+          "subsidiaryPrice": 165037.0,
+          "holdingValue": 4996.8,
+          "marketCap": 11392.6,
+          "ratio": 43.86
+        },
+        {
+          "date": "2024-01-04",
+          "holdingPrice": 67156.0,
+          "subsidiaryPrice": 165135.0,
+          "holdingValue": 4999.8,
+          "marketCap": 11227.0,
+          "ratio": 44.53
+        },
+        {
+          "date": "2024-01-05",
+          "holdingPrice": 67707.0,
+          "subsidiaryPrice": 166512.0,
+          "holdingValue": 5041.4,
+          "marketCap": 11319.0,
+          "ratio": 44.54
+        },
+        {
+          "date": "2024-01-08",
+          "holdingPrice": 67267.0,
+          "subsidiaryPrice": 171721.0,
+          "holdingValue": 5199.2,
+          "marketCap": 11245.4,
+          "ratio": 46.23
+        },
+        {
+          "date": "2024-01-09",
+          "holdingPrice": 67487.0,
+          "subsidiaryPrice": 173982.0,
+          "holdingValue": 5267.6,
+          "marketCap": 11282.2,
+          "ratio": 46.69
+        },
+        {
+          "date": "2024-01-10",
+          "holdingPrice": 67817.0,
+          "subsidiaryPrice": 173392.0,
+          "holdingValue": 5249.8,
+          "marketCap": 11337.4,
+          "ratio": 46.3
+        },
+        {
+          "date": "2024-01-11",
+          "holdingPrice": 67597.0,
+          "subsidiaryPrice": 174277.0,
+          "holdingValue": 5276.6,
+          "marketCap": 11300.6,
+          "ratio": 46.69
+        },
+        {
+          "date": "2024-01-12",
+          "holdingPrice": 67707.0,
+          "subsidiaryPrice": 177914.0,
+          "holdingValue": 5386.7,
+          "marketCap": 11319.0,
+          "ratio": 47.59
+        },
+        {
+          "date": "2024-01-15",
+          "holdingPrice": 67597.0,
+          "subsidiaryPrice": 178405.0,
+          "holdingValue": 5401.5,
+          "marketCap": 11300.6,
+          "ratio": 47.8
+        },
+        {
+          "date": "2024-01-16",
+          "holdingPrice": 66936.0,
+          "subsidiaryPrice": 170050.0,
+          "holdingValue": 5148.6,
+          "marketCap": 11190.1,
+          "ratio": 46.01
+        },
+        {
+          "date": "2024-01-17",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 166118.0,
+          "holdingValue": 5029.5,
+          "marketCap": 11042.9,
+          "ratio": 45.55
+        },
+        {
+          "date": "2024-01-18",
+          "holdingPrice": 65725.0,
+          "subsidiaryPrice": 176538.0,
+          "holdingValue": 5345.0,
+          "marketCap": 10987.7,
+          "ratio": 48.65
+        },
+        {
+          "date": "2024-01-19",
+          "holdingPrice": 66606.0,
+          "subsidiaryPrice": 174473.0,
+          "holdingValue": 5282.5,
+          "marketCap": 11134.9,
+          "ratio": 47.44
+        },
+        {
+          "date": "2024-01-22",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 171328.0,
+          "holdingValue": 5187.3,
+          "marketCap": 11042.9,
+          "ratio": 46.97
+        },
+        {
+          "date": "2024-01-23",
+          "holdingPrice": 66606.0,
+          "subsidiaryPrice": 182534.0,
+          "holdingValue": 5526.5,
+          "marketCap": 11134.9,
+          "ratio": 49.63
+        },
+        {
+          "date": "2024-01-24",
+          "holdingPrice": 66496.0,
+          "subsidiaryPrice": 183025.0,
+          "holdingValue": 5541.4,
+          "marketCap": 11116.5,
+          "ratio": 49.85
+        },
+        {
+          "date": "2024-01-25",
+          "holdingPrice": 67046.0,
+          "subsidiaryPrice": 185777.0,
+          "holdingValue": 5624.8,
+          "marketCap": 11208.5,
+          "ratio": 50.18
+        },
+        {
+          "date": "2024-01-26",
+          "holdingPrice": 67267.0,
+          "subsidiaryPrice": 181846.0,
+          "holdingValue": 5505.7,
+          "marketCap": 11245.4,
+          "ratio": 48.96
+        },
+        {
+          "date": "2024-01-29",
+          "holdingPrice": 68147.0,
+          "subsidiaryPrice": 177422.0,
+          "holdingValue": 5371.8,
+          "marketCap": 11392.6,
+          "ratio": 47.15
+        },
+        {
+          "date": "2024-01-30",
+          "holdingPrice": 68698.0,
+          "subsidiaryPrice": 169657.0,
+          "holdingValue": 5136.7,
+          "marketCap": 11484.6,
+          "ratio": 44.73
+        },
+        {
+          "date": "2024-01-31",
+          "holdingPrice": 69138.0,
+          "subsidiaryPrice": 168871.0,
+          "holdingValue": 5112.9,
+          "marketCap": 11558.2,
+          "ratio": 44.24
+        },
+        {
+          "date": "2024-02-01",
+          "holdingPrice": 71670.0,
+          "subsidiaryPrice": 159434.0,
+          "holdingValue": 4827.2,
+          "marketCap": 11981.6,
+          "ratio": 40.29
+        },
+        {
+          "date": "2024-02-02",
+          "holdingPrice": 70679.0,
+          "subsidiaryPrice": 160909.0,
+          "holdingValue": 4871.8,
+          "marketCap": 11815.9,
+          "ratio": 41.23
+        },
+        {
+          "date": "2024-02-05",
+          "holdingPrice": 69579.0,
+          "subsidiaryPrice": 157075.0,
+          "holdingValue": 4755.7,
+          "marketCap": 11631.9,
+          "ratio": 40.89
+        },
+        {
+          "date": "2024-02-06",
+          "holdingPrice": 68698.0,
+          "subsidiaryPrice": 158648.0,
+          "holdingValue": 4803.4,
+          "marketCap": 11484.6,
+          "ratio": 41.82
+        },
+        {
+          "date": "2024-02-07",
+          "holdingPrice": 69909.0,
+          "subsidiaryPrice": 156486.0,
+          "holdingValue": 4737.9,
+          "marketCap": 11687.1,
+          "ratio": 40.54
+        },
+        {
+          "date": "2024-02-08",
+          "holdingPrice": 69358.0,
+          "subsidiaryPrice": 157567.0,
+          "holdingValue": 4770.6,
+          "marketCap": 11595.0,
+          "ratio": 41.14
+        },
+        {
+          "date": "2024-02-13",
+          "holdingPrice": 68918.0,
+          "subsidiaryPrice": 159533.0,
+          "holdingValue": 4830.1,
+          "marketCap": 11521.4,
+          "ratio": 41.92
+        },
+        {
+          "date": "2024-02-14",
+          "holdingPrice": 67707.0,
+          "subsidiaryPrice": 159434.0,
+          "holdingValue": 4827.2,
+          "marketCap": 11319.0,
+          "ratio": 42.65
+        },
+        {
+          "date": "2024-02-15",
+          "holdingPrice": 67267.0,
+          "subsidiaryPrice": 170935.0,
+          "holdingValue": 5175.4,
+          "marketCap": 11245.4,
+          "ratio": 46.02
+        },
+        {
+          "date": "2024-02-16",
+          "holdingPrice": 68367.0,
+          "subsidiaryPrice": 166708.0,
+          "holdingValue": 5047.4,
+          "marketCap": 11429.4,
+          "ratio": 44.16
+        },
+        {
+          "date": "2024-02-19",
+          "holdingPrice": 69579.0,
+          "subsidiaryPrice": 165135.0,
+          "holdingValue": 4999.8,
+          "marketCap": 11631.9,
+          "ratio": 42.98
+        },
+        {
+          "date": "2024-02-20",
+          "holdingPrice": 68698.0,
+          "subsidiaryPrice": 182927.0,
+          "holdingValue": 5538.4,
+          "marketCap": 11484.6,
+          "ratio": 48.22
+        },
+        {
+          "date": "2024-02-21",
+          "holdingPrice": 69028.0,
+          "subsidiaryPrice": 179880.0,
+          "holdingValue": 5446.2,
+          "marketCap": 11539.8,
+          "ratio": 47.19
+        },
+        {
+          "date": "2024-02-22",
+          "holdingPrice": 70459.0,
+          "subsidiaryPrice": 179388.0,
+          "holdingValue": 5431.3,
+          "marketCap": 11779.1,
+          "ratio": 46.11
+        },
+        {
+          "date": "2024-02-23",
+          "holdingPrice": 69579.0,
+          "subsidiaryPrice": 181452.0,
+          "holdingValue": 5493.8,
+          "marketCap": 11631.9,
+          "ratio": 47.23
+        },
+        {
+          "date": "2024-02-26",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 190299.0,
+          "holdingValue": 5761.7,
+          "marketCap": 11042.9,
+          "ratio": 52.18
+        },
+        {
+          "date": "2024-02-27",
+          "holdingPrice": 65285.0,
+          "subsidiaryPrice": 188726.0,
+          "holdingValue": 5714.0,
+          "marketCap": 10914.1,
+          "ratio": 52.35
+        },
+        {
+          "date": "2024-02-28",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 188726.0,
+          "holdingValue": 5714.0,
+          "marketCap": 11042.9,
+          "ratio": 51.74
+        },
+        {
+          "date": "2024-02-29",
+          "holdingPrice": 65835.0,
+          "subsidiaryPrice": 189119.0,
+          "holdingValue": 5725.9,
+          "marketCap": 11006.1,
+          "ratio": 52.03
+        },
+        {
+          "date": "2024-03-04",
+          "holdingPrice": 65395.0,
+          "subsidiaryPrice": 218706.0,
+          "holdingValue": 6621.7,
+          "marketCap": 10932.5,
+          "ratio": 60.57
+        },
+        {
+          "date": "2024-03-05",
+          "holdingPrice": 65395.0,
+          "subsidiaryPrice": 226078.0,
+          "holdingValue": 6844.9,
+          "marketCap": 10932.5,
+          "ratio": 62.61
+        },
+        {
+          "date": "2024-03-06",
+          "holdingPrice": 64734.0,
+          "subsidiaryPrice": 228044.0,
+          "holdingValue": 6904.5,
+          "marketCap": 10822.0,
+          "ratio": 63.8
+        },
+        {
+          "date": "2024-03-07",
+          "holdingPrice": 64184.0,
+          "subsidiaryPrice": 224604.0,
+          "holdingValue": 6800.3,
+          "marketCap": 10730.0,
+          "ratio": 63.38
+        },
+        {
+          "date": "2024-03-08",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 227553.0,
+          "holdingValue": 6889.6,
+          "marketCap": 10858.9,
+          "ratio": 63.45
+        },
+        {
+          "date": "2024-03-11",
+          "holdingPrice": 64294.0,
+          "subsidiaryPrice": 227553.0,
+          "holdingValue": 6889.6,
+          "marketCap": 10748.4,
+          "ratio": 64.1
+        },
+        {
+          "date": "2024-03-12",
+          "holdingPrice": 63523.0,
+          "subsidiaryPrice": 228044.0,
+          "holdingValue": 6904.5,
+          "marketCap": 10619.6,
+          "ratio": 65.02
+        },
+        {
+          "date": "2024-03-13",
+          "holdingPrice": 63634.0,
+          "subsidiaryPrice": 235908.0,
+          "holdingValue": 7142.5,
+          "marketCap": 10638.0,
+          "ratio": 67.14
+        },
+        {
+          "date": "2024-03-14",
+          "holdingPrice": 63854.0,
+          "subsidiaryPrice": 232959.0,
+          "holdingValue": 7053.3,
+          "marketCap": 10674.8,
+          "ratio": 66.07
+        },
+        {
+          "date": "2024-03-15",
+          "holdingPrice": 64074.0,
+          "subsidiaryPrice": 225587.0,
+          "holdingValue": 6830.1,
+          "marketCap": 10711.6,
+          "ratio": 63.76
+        },
+        {
+          "date": "2024-03-18",
+          "holdingPrice": 63523.0,
+          "subsidiaryPrice": 241805.0,
+          "holdingValue": 7321.1,
+          "marketCap": 10619.6,
+          "ratio": 68.94
+        },
+        {
+          "date": "2024-03-19",
+          "holdingPrice": 63083.0,
+          "subsidiaryPrice": 237874.0,
+          "holdingValue": 7202.1,
+          "marketCap": 10546.0,
+          "ratio": 68.29
+        },
+        {
+          "date": "2024-03-20",
+          "holdingPrice": 62863.0,
+          "subsidiaryPrice": 237382.0,
+          "holdingValue": 7187.2,
+          "marketCap": 10509.2,
+          "ratio": 68.39
+        },
+        {
+          "date": "2024-03-21",
+          "holdingPrice": 63523.0,
+          "subsidiaryPrice": 247212.0,
+          "holdingValue": 7484.8,
+          "marketCap": 10619.6,
+          "ratio": 70.48
+        },
+        {
+          "date": "2024-03-22",
+          "holdingPrice": 63083.0,
+          "subsidiaryPrice": 234925.0,
+          "holdingValue": 7112.8,
+          "marketCap": 10546.0,
+          "ratio": 67.45
+        },
+        {
+          "date": "2024-03-25",
+          "holdingPrice": 62533.0,
+          "subsidiaryPrice": 230502.0,
+          "holdingValue": 6978.9,
+          "marketCap": 10453.9,
+          "ratio": 66.76
+        },
+        {
+          "date": "2024-03-26",
+          "holdingPrice": 63303.0,
+          "subsidiaryPrice": 237382.0,
+          "holdingValue": 7187.2,
+          "marketCap": 10582.8,
+          "ratio": 67.91
+        },
+        {
+          "date": "2024-03-27",
+          "holdingPrice": 63303.0,
+          "subsidiaryPrice": 256058.0,
+          "holdingValue": 7752.6,
+          "marketCap": 10582.8,
+          "ratio": 73.26
+        },
+        {
+          "date": "2024-03-28",
+          "holdingPrice": 68588.0,
+          "subsidiaryPrice": 272768.0,
+          "holdingValue": 8258.6,
+          "marketCap": 11466.2,
+          "ratio": 72.03
+        },
+        {
+          "date": "2024-03-29",
+          "holdingPrice": 70129.0,
+          "subsidiaryPrice": 279158.0,
+          "holdingValue": 8452.0,
+          "marketCap": 11723.9,
+          "ratio": 72.09
+        },
+        {
+          "date": "2024-04-01",
+          "holdingPrice": 65835.0,
+          "subsidiaryPrice": 283089.0,
+          "holdingValue": 8571.1,
+          "marketCap": 11006.1,
+          "ratio": 77.88
+        },
+        {
+          "date": "2024-04-02",
+          "holdingPrice": 65175.0,
+          "subsidiaryPrice": 285055.0,
+          "holdingValue": 8630.6,
+          "marketCap": 10895.7,
+          "ratio": 79.21
+        },
+        {
+          "date": "2024-04-03",
+          "holdingPrice": 65725.0,
+          "subsidiaryPrice": 279158.0,
+          "holdingValue": 8452.0,
+          "marketCap": 10987.7,
+          "ratio": 76.92
+        },
+        {
+          "date": "2024-04-04",
+          "holdingPrice": 65285.0,
+          "subsidiaryPrice": 301765.0,
+          "holdingValue": 9136.5,
+          "marketCap": 10914.1,
+          "ratio": 83.71
+        },
+        {
+          "date": "2024-04-05",
+          "holdingPrice": 64624.0,
+          "subsidiaryPrice": 297834.0,
+          "holdingValue": 9017.5,
+          "marketCap": 10803.6,
+          "ratio": 83.47
+        },
+        {
+          "date": "2024-04-08",
+          "holdingPrice": 63634.0,
+          "subsidiaryPrice": 291936.0,
+          "holdingValue": 8838.9,
+          "marketCap": 10638.0,
+          "ratio": 83.09
+        },
+        {
+          "date": "2024-04-09",
+          "holdingPrice": 63744.0,
+          "subsidiaryPrice": 302748.0,
+          "holdingValue": 9166.3,
+          "marketCap": 10656.4,
+          "ratio": 86.02
+        },
+        {
+          "date": "2024-04-11",
+          "holdingPrice": 62422.0,
+          "subsidiaryPrice": 311595.0,
+          "holdingValue": 9434.1,
+          "marketCap": 10435.5,
+          "ratio": 90.4
+        },
+        {
+          "date": "2024-04-12",
+          "holdingPrice": 61982.0,
+          "subsidiaryPrice": 333220.0,
+          "holdingValue": 10088.8,
+          "marketCap": 10361.9,
+          "ratio": 97.36
+        },
+        {
+          "date": "2024-04-15",
+          "holdingPrice": 62312.0,
+          "subsidiaryPrice": 334203.0,
+          "holdingValue": 10118.6,
+          "marketCap": 10417.1,
+          "ratio": 97.13
+        },
+        {
+          "date": "2024-04-16",
+          "holdingPrice": 61762.0,
+          "subsidiaryPrice": 287021.0,
+          "holdingValue": 8690.1,
+          "marketCap": 10325.1,
+          "ratio": 84.16
+        },
+        {
+          "date": "2024-04-17",
+          "holdingPrice": 61101.0,
+          "subsidiaryPrice": 303240.0,
+          "holdingValue": 9181.1,
+          "marketCap": 10214.7,
+          "ratio": 89.88
+        },
+        {
+          "date": "2024-04-18",
+          "holdingPrice": 61982.0,
+          "subsidiaryPrice": 322407.0,
+          "holdingValue": 9761.5,
+          "marketCap": 10361.9,
+          "ratio": 94.21
+        },
+        {
+          "date": "2024-04-19",
+          "holdingPrice": 62753.0,
+          "subsidiaryPrice": 308155.0,
+          "holdingValue": 9329.9,
+          "marketCap": 10490.8,
+          "ratio": 88.93
+        },
+        {
+          "date": "2024-04-22",
+          "holdingPrice": 63964.0,
+          "subsidiaryPrice": 272277.0,
+          "holdingValue": 8243.7,
+          "marketCap": 10693.2,
+          "ratio": 77.09
+        },
+        {
+          "date": "2024-04-23",
+          "holdingPrice": 64624.0,
+          "subsidiaryPrice": 279649.0,
+          "holdingValue": 8466.9,
+          "marketCap": 10803.6,
+          "ratio": 78.37
+        },
+        {
+          "date": "2024-04-24",
+          "holdingPrice": 64184.0,
+          "subsidiaryPrice": 287021.0,
+          "holdingValue": 8690.1,
+          "marketCap": 10730.0,
+          "ratio": 80.99
+        },
+        {
+          "date": "2024-04-25",
+          "holdingPrice": 64294.0,
+          "subsidiaryPrice": 266871.0,
+          "holdingValue": 8080.0,
+          "marketCap": 10748.4,
+          "ratio": 75.17
+        },
+        {
+          "date": "2024-04-26",
+          "holdingPrice": 64845.0,
+          "subsidiaryPrice": 286038.0,
+          "holdingValue": 8660.3,
+          "marketCap": 10840.5,
+          "ratio": 79.89
+        },
+        {
+          "date": "2024-04-29",
+          "holdingPrice": 66166.0,
+          "subsidiaryPrice": 306680.0,
+          "holdingValue": 9285.3,
+          "marketCap": 11061.3,
+          "ratio": 83.94
+        },
+        {
+          "date": "2024-04-30",
+          "holdingPrice": 66386.0,
+          "subsidiaryPrice": 307663.0,
+          "holdingValue": 9315.1,
+          "marketCap": 11098.1,
+          "ratio": 83.93
+        },
+        {
+          "date": "2024-05-02",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 301765.0,
+          "holdingValue": 9136.5,
+          "marketCap": 11042.9,
+          "ratio": 82.74
+        },
+        {
+          "date": "2024-05-03",
+          "holdingPrice": 65505.0,
+          "subsidiaryPrice": 283581.0,
+          "holdingValue": 8585.9,
+          "marketCap": 10950.9,
+          "ratio": 78.4
+        },
+        {
+          "date": "2024-05-07",
+          "holdingPrice": 66496.0,
+          "subsidiaryPrice": 292919.0,
+          "holdingValue": 8868.7,
+          "marketCap": 11116.5,
+          "ratio": 79.78
+        },
+        {
+          "date": "2024-05-08",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 299800.0,
+          "holdingValue": 9077.0,
+          "marketCap": 11042.9,
+          "ratio": 82.2
+        },
+        {
+          "date": "2024-05-09",
+          "holdingPrice": 65395.0,
+          "subsidiaryPrice": 315035.0,
+          "holdingValue": 9538.3,
+          "marketCap": 10932.5,
+          "ratio": 87.25
+        },
+        {
+          "date": "2024-05-10",
+          "holdingPrice": 66166.0,
+          "subsidiaryPrice": 318476.0,
+          "holdingValue": 9642.4,
+          "marketCap": 11061.3,
+          "ratio": 87.17
+        },
+        {
+          "date": "2024-05-13",
+          "holdingPrice": 66386.0,
+          "subsidiaryPrice": 313561.0,
+          "holdingValue": 9493.6,
+          "marketCap": 11098.1,
+          "ratio": 85.54
+        },
+        {
+          "date": "2024-05-14",
+          "holdingPrice": 66606.0,
+          "subsidiaryPrice": 304223.0,
+          "holdingValue": 9210.9,
+          "marketCap": 11134.9,
+          "ratio": 82.72
+        },
+        {
+          "date": "2024-05-16",
+          "holdingPrice": 66496.0,
+          "subsidiaryPrice": 309138.0,
+          "holdingValue": 9359.7,
+          "marketCap": 11116.5,
+          "ratio": 84.2
+        },
+        {
+          "date": "2024-05-17",
+          "holdingPrice": 68257.0,
+          "subsidiaryPrice": 364183.0,
+          "holdingValue": 11026.3,
+          "marketCap": 11411.0,
+          "ratio": 96.63
+        },
+        {
+          "date": "2024-05-20",
+          "holdingPrice": 68588.0,
+          "subsidiaryPrice": 412347.0,
+          "holdingValue": 12484.6,
+          "marketCap": 11466.2,
+          "ratio": 108.88
+        },
+        {
+          "date": "2024-05-21",
+          "holdingPrice": 68257.0,
+          "subsidiaryPrice": 412347.0,
+          "holdingValue": 12484.6,
+          "marketCap": 11411.0,
+          "ratio": 109.41
+        },
+        {
+          "date": "2024-05-22",
+          "holdingPrice": 68478.0,
+          "subsidiaryPrice": 397603.0,
+          "holdingValue": 12038.2,
+          "marketCap": 11447.8,
+          "ratio": 105.16
+        },
+        {
+          "date": "2024-05-23",
+          "holdingPrice": 67817.0,
+          "subsidiaryPrice": 402026.0,
+          "holdingValue": 12172.1,
+          "marketCap": 11337.4,
+          "ratio": 107.36
+        },
+        {
+          "date": "2024-05-24",
+          "holdingPrice": 67046.0,
+          "subsidiaryPrice": 409398.0,
+          "holdingValue": 12395.3,
+          "marketCap": 11208.5,
+          "ratio": 110.59
+        },
+        {
+          "date": "2024-05-27",
+          "holdingPrice": 76955.0,
+          "subsidiaryPrice": 421685.0,
+          "holdingValue": 12767.3,
+          "marketCap": 12865.0,
+          "ratio": 99.24
+        },
+        {
+          "date": "2024-05-28",
+          "holdingPrice": 67267.0,
+          "subsidiaryPrice": 441836.0,
+          "holdingValue": 13377.4,
+          "marketCap": 11245.4,
+          "ratio": 118.96
+        },
+        {
+          "date": "2024-05-29",
+          "holdingPrice": 65725.0,
+          "subsidiaryPrice": 430040.0,
+          "holdingValue": 13020.3,
+          "marketCap": 10987.7,
+          "ratio": 118.5
+        },
+        {
+          "date": "2024-05-30",
+          "holdingPrice": 64845.0,
+          "subsidiaryPrice": 424143.0,
+          "holdingValue": 12841.7,
+          "marketCap": 10840.5,
+          "ratio": 118.46
+        },
+        {
+          "date": "2024-05-31",
+          "holdingPrice": 65725.0,
+          "subsidiaryPrice": 434464.0,
+          "holdingValue": 13154.2,
+          "marketCap": 10987.7,
+          "ratio": 119.72
+        },
+        {
+          "date": "2024-06-03",
+          "holdingPrice": 66056.0,
+          "subsidiaryPrice": 419719.0,
+          "holdingValue": 12707.8,
+          "marketCap": 11042.9,
+          "ratio": 115.08
+        },
+        {
+          "date": "2024-06-04",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 401535.0,
+          "holdingValue": 12157.2,
+          "marketCap": 10858.9,
+          "ratio": 111.96
+        },
+        {
+          "date": "2024-06-05",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 377944.0,
+          "holdingValue": 11443.0,
+          "marketCap": 10858.9,
+          "ratio": 105.38
+        },
+        {
+          "date": "2024-06-07",
+          "holdingPrice": 65285.0,
+          "subsidiaryPrice": 364674.0,
+          "holdingValue": 11041.2,
+          "marketCap": 10914.1,
+          "ratio": 101.16
+        },
+        {
+          "date": "2024-06-10",
+          "holdingPrice": 65065.0,
+          "subsidiaryPrice": 389739.0,
+          "holdingValue": 11800.1,
+          "marketCap": 10877.3,
+          "ratio": 108.48
+        },
+        {
+          "date": "2024-06-11",
+          "holdingPrice": 65285.0,
+          "subsidiaryPrice": 389248.0,
+          "holdingValue": 11785.2,
+          "marketCap": 10914.1,
+          "ratio": 107.98
+        },
+        {
+          "date": "2024-06-12",
+          "holdingPrice": 65615.0,
+          "subsidiaryPrice": 360742.0,
+          "holdingValue": 10922.1,
+          "marketCap": 10969.3,
+          "ratio": 99.57
+        },
+        {
+          "date": "2024-06-13",
+          "holdingPrice": 65505.0,
+          "subsidiaryPrice": 358776.0,
+          "holdingValue": 10862.6,
+          "marketCap": 10950.9,
+          "ratio": 99.19
+        },
+        {
+          "date": "2024-06-14",
+          "holdingPrice": 65065.0,
+          "subsidiaryPrice": 368114.0,
+          "holdingValue": 11145.3,
+          "marketCap": 10877.3,
+          "ratio": 102.46
+        },
+        {
+          "date": "2024-06-17",
+          "holdingPrice": 63854.0,
+          "subsidiaryPrice": 368606.0,
+          "holdingValue": 11160.2,
+          "marketCap": 10674.8,
+          "ratio": 104.55
+        },
+        {
+          "date": "2024-06-18",
+          "holdingPrice": 62312.0,
+          "subsidiaryPrice": 369097.0,
+          "holdingValue": 11175.1,
+          "marketCap": 10417.1,
+          "ratio": 107.28
+        },
+        {
+          "date": "2024-06-19",
+          "holdingPrice": 63083.0,
+          "subsidiaryPrice": 358285.0,
+          "holdingValue": 10847.7,
+          "marketCap": 10546.0,
+          "ratio": 102.86
+        },
+        {
+          "date": "2024-06-20",
+          "holdingPrice": 62973.0,
+          "subsidiaryPrice": 350913.0,
+          "holdingValue": 10624.5,
+          "marketCap": 10527.6,
+          "ratio": 100.92
+        },
+        {
+          "date": "2024-06-21",
+          "holdingPrice": 63634.0,
+          "subsidiaryPrice": 370080.0,
+          "holdingValue": 11204.9,
+          "marketCap": 10638.0,
+          "ratio": 105.33
+        },
+        {
+          "date": "2024-06-24",
+          "holdingPrice": 62973.0,
+          "subsidiaryPrice": 353862.0,
+          "holdingValue": 10713.8,
+          "marketCap": 10527.6,
+          "ratio": 101.77
+        },
+        {
+          "date": "2024-06-25",
+          "holdingPrice": 63744.0,
+          "subsidiaryPrice": 356811.0,
+          "holdingValue": 10803.1,
+          "marketCap": 10656.4,
+          "ratio": 101.38
+        },
+        {
+          "date": "2024-06-26",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 356811.0,
+          "holdingValue": 10803.1,
+          "marketCap": 10858.9,
+          "ratio": 99.49
+        },
+        {
+          "date": "2024-06-27",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 358776.0,
+          "holdingValue": 10862.6,
+          "marketCap": 10858.9,
+          "ratio": 100.03
+        },
+        {
+          "date": "2024-06-28",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 340100.0,
+          "holdingValue": 10297.2,
+          "marketCap": 10858.9,
+          "ratio": 94.83
+        },
+        {
+          "date": "2024-07-01",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 313561.0,
+          "holdingValue": 9493.6,
+          "marketCap": 10858.9,
+          "ratio": 87.43
+        },
+        {
+          "date": "2024-07-02",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 332237.0,
+          "holdingValue": 10059.1,
+          "marketCap": 10858.9,
+          "ratio": 92.63
+        },
+        {
+          "date": "2024-07-03",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 323882.0,
+          "holdingValue": 9806.1,
+          "marketCap": 10858.9,
+          "ratio": 90.31
+        },
+        {
+          "date": "2024-07-04",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 309138.0,
+          "holdingValue": 9359.7,
+          "marketCap": 10858.9,
+          "ratio": 86.19
+        },
+        {
+          "date": "2024-07-05",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 305206.0,
+          "holdingValue": 9240.7,
+          "marketCap": 10858.9,
+          "ratio": 85.1
+        },
+        {
+          "date": "2024-07-08",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 325356.0,
+          "holdingValue": 9850.8,
+          "marketCap": 10858.9,
+          "ratio": 90.72
+        },
+        {
+          "date": "2024-07-09",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 340100.0,
+          "holdingValue": 10297.2,
+          "marketCap": 10858.9,
+          "ratio": 94.83
+        },
+        {
+          "date": "2024-07-10",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 383350.0,
+          "holdingValue": 11606.6,
+          "marketCap": 10858.9,
+          "ratio": 106.89
+        },
+        {
+          "date": "2024-07-11",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 376961.0,
+          "holdingValue": 11413.2,
+          "marketCap": 10858.9,
+          "ratio": 105.1
+        },
+        {
+          "date": "2024-07-12",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 374504.0,
+          "holdingValue": 11338.8,
+          "marketCap": 10858.9,
+          "ratio": 104.42
+        },
+        {
+          "date": "2024-07-15",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 385316.0,
+          "holdingValue": 11666.2,
+          "marketCap": 10858.9,
+          "ratio": 107.43
+        },
+        {
+          "date": "2024-07-16",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 386299.0,
+          "holdingValue": 11695.9,
+          "marketCap": 10858.9,
+          "ratio": 107.71
+        },
+        {
+          "date": "2024-07-17",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 364183.0,
+          "holdingValue": 11026.3,
+          "marketCap": 10858.9,
+          "ratio": 101.54
+        },
+        {
+          "date": "2024-07-18",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 343049.0,
+          "holdingValue": 10386.5,
+          "marketCap": 10858.9,
+          "ratio": 95.65
+        },
+        {
+          "date": "2024-07-19",
+          "holdingPrice": 64955.0,
+          "subsidiaryPrice": 338626.0,
+          "holdingValue": 10252.5,
+          "marketCap": 10858.9,
+          "ratio": 94.42
+        },
+        {
+          "date": "2024-07-22",
+          "holdingPrice": 40928.0,
+          "subsidiaryPrice": 319950.0,
+          "holdingValue": 9687.1,
+          "marketCap": 6842.1,
+          "ratio": 141.58
+        },
+        {
+          "date": "2024-07-23",
+          "holdingPrice": 40928.0,
+          "subsidiaryPrice": 352879.0,
+          "holdingValue": 10684.1,
+          "marketCap": 6842.1,
+          "ratio": 156.15
+        },
+        {
+          "date": "2024-07-24",
+          "holdingPrice": 40928.0,
+          "subsidiaryPrice": 358776.0,
+          "holdingValue": 10862.6,
+          "marketCap": 6842.1,
+          "ratio": 158.76
+        },
+        {
+          "date": "2024-07-25",
+          "holdingPrice": 40928.0,
+          "subsidiaryPrice": 320441.0,
+          "holdingValue": 9702.0,
+          "marketCap": 6842.1,
+          "ratio": 141.8
+        },
+        {
+          "date": "2024-07-26",
+          "holdingPrice": 40928.0,
+          "subsidiaryPrice": 330271.0,
+          "holdingValue": 9999.6,
+          "marketCap": 6842.1,
+          "ratio": 146.15
+        },
+        {
+          "date": "2024-07-29",
+          "holdingPrice": 45475.0,
+          "subsidiaryPrice": 333220.0,
+          "holdingValue": 10088.8,
+          "marketCap": 7602.4,
+          "ratio": 132.71
+        },
+        {
+          "date": "2024-07-30",
+          "holdingPrice": 41288.0,
+          "subsidiaryPrice": 314544.0,
+          "holdingValue": 9523.4,
+          "marketCap": 6902.4,
+          "ratio": 137.97
+        },
+        {
+          "date": "2024-07-31",
+          "holdingPrice": 41288.0,
+          "subsidiaryPrice": 305697.0,
+          "holdingValue": 9255.5,
+          "marketCap": 6902.4,
+          "ratio": 134.09
+        },
+        {
+          "date": "2024-08-01",
+          "holdingPrice": 40703.0,
+          "subsidiaryPrice": 312578.0,
+          "holdingValue": 9463.9,
+          "marketCap": 6804.5,
+          "ratio": 139.08
+        },
+        {
+          "date": "2024-08-02",
+          "holdingPrice": 38947.0,
+          "subsidiaryPrice": 275717.0,
+          "holdingValue": 8347.8,
+          "marketCap": 6510.9,
+          "ratio": 128.21
+        },
+        {
+          "date": "2024-08-05",
+          "holdingPrice": 36065.0,
+          "subsidiaryPrice": 247703.0,
+          "holdingValue": 7499.7,
+          "marketCap": 6029.2,
+          "ratio": 124.39
+        },
+        {
+          "date": "2024-08-06",
+          "holdingPrice": 36065.0,
+          "subsidiaryPrice": 261956.0,
+          "holdingValue": 7931.2,
+          "marketCap": 6029.2,
+          "ratio": 131.55
+        },
+        {
+          "date": "2024-08-07",
+          "holdingPrice": 36290.0,
+          "subsidiaryPrice": 272768.0,
+          "holdingValue": 8258.6,
+          "marketCap": 6066.8,
+          "ratio": 136.13
+        },
+        {
+          "date": "2024-08-08",
+          "holdingPrice": 36921.0,
+          "subsidiaryPrice": 268345.0,
+          "holdingValue": 8124.6,
+          "marketCap": 6172.2,
+          "ratio": 131.63
+        },
+        {
+          "date": "2024-08-09",
+          "holdingPrice": 37146.0,
+          "subsidiaryPrice": 280141.0,
+          "holdingValue": 8481.8,
+          "marketCap": 6209.9,
+          "ratio": 136.59
+        },
+        {
+          "date": "2024-08-12",
+          "holdingPrice": 38046.0,
+          "subsidiaryPrice": 286038.0,
+          "holdingValue": 8660.3,
+          "marketCap": 6360.4,
+          "ratio": 136.16
+        },
+        {
+          "date": "2024-08-13",
+          "holdingPrice": 37911.0,
+          "subsidiaryPrice": 277683.0,
+          "holdingValue": 8407.4,
+          "marketCap": 6337.8,
+          "ratio": 132.65
+        },
+        {
+          "date": "2024-08-14",
+          "holdingPrice": 38722.0,
+          "subsidiaryPrice": 282106.0,
+          "holdingValue": 8541.3,
+          "marketCap": 6473.3,
+          "ratio": 131.95
+        },
+        {
+          "date": "2024-08-16",
+          "holdingPrice": 38992.0,
+          "subsidiaryPrice": 306189.0,
+          "holdingValue": 9270.4,
+          "marketCap": 6518.5,
+          "ratio": 142.22
+        },
+        {
+          "date": "2024-08-19",
+          "holdingPrice": 39757.0,
+          "subsidiaryPrice": 304714.0,
+          "holdingValue": 9225.8,
+          "marketCap": 6646.4,
+          "ratio": 138.81
+        },
+        {
+          "date": "2024-08-20",
+          "holdingPrice": 39622.0,
+          "subsidiaryPrice": 323882.0,
+          "holdingValue": 9806.1,
+          "marketCap": 6623.9,
+          "ratio": 148.04
+        },
+        {
+          "date": "2024-08-21",
+          "holdingPrice": 39892.0,
+          "subsidiaryPrice": 329779.0,
+          "holdingValue": 9984.7,
+          "marketCap": 6669.0,
+          "ratio": 149.72
+        },
+        {
+          "date": "2024-08-22",
+          "holdingPrice": 39667.0,
+          "subsidiaryPrice": 334694.0,
+          "holdingValue": 10133.5,
+          "marketCap": 6631.4,
+          "ratio": 152.81
+        },
+        {
+          "date": "2024-08-23",
+          "holdingPrice": 40162.0,
+          "subsidiaryPrice": 330271.0,
+          "holdingValue": 9999.6,
+          "marketCap": 6714.2,
+          "ratio": 148.93
+        },
+        {
+          "date": "2024-08-26",
+          "holdingPrice": 41918.0,
+          "subsidiaryPrice": 314544.0,
+          "holdingValue": 9523.4,
+          "marketCap": 7007.7,
+          "ratio": 135.9
+        },
+        {
+          "date": "2024-08-27",
+          "holdingPrice": 43989.0,
+          "subsidiaryPrice": 294393.0,
+          "holdingValue": 8913.3,
+          "marketCap": 7354.0,
+          "ratio": 121.2
+        },
+        {
+          "date": "2024-08-28",
+          "holdingPrice": 44665.0,
+          "subsidiaryPrice": 290953.0,
+          "holdingValue": 8809.1,
+          "marketCap": 7466.9,
+          "ratio": 117.98
+        },
+        {
+          "date": "2024-08-29",
+          "holdingPrice": 43764.0,
+          "subsidiaryPrice": 277192.0,
+          "holdingValue": 8392.5,
+          "marketCap": 7316.3,
+          "ratio": 114.71
+        },
+        {
+          "date": "2024-08-30",
+          "holdingPrice": 44395.0,
+          "subsidiaryPrice": 284564.0,
+          "holdingValue": 8615.7,
+          "marketCap": 7421.7,
+          "ratio": 116.09
+        },
+        {
+          "date": "2024-09-02",
+          "holdingPrice": 43989.0,
+          "subsidiaryPrice": 279158.0,
+          "holdingValue": 8452.0,
+          "marketCap": 7354.0,
+          "ratio": 114.93
+        },
+        {
+          "date": "2024-09-03",
+          "holdingPrice": 44890.0,
+          "subsidiaryPrice": 281123.0,
+          "holdingValue": 8511.5,
+          "marketCap": 7504.5,
+          "ratio": 113.42
+        },
+        {
+          "date": "2024-09-04",
+          "holdingPrice": 43539.0,
+          "subsidiaryPrice": 265396.0,
+          "holdingValue": 8035.4,
+          "marketCap": 7278.7,
+          "ratio": 110.4
+        },
+        {
+          "date": "2024-09-05",
+          "holdingPrice": 43809.0,
+          "subsidiaryPrice": 252618.0,
+          "holdingValue": 7648.5,
+          "marketCap": 7323.9,
+          "ratio": 104.43
+        },
+        {
+          "date": "2024-09-06",
+          "holdingPrice": 43584.0,
+          "subsidiaryPrice": 244263.0,
+          "holdingValue": 7395.5,
+          "marketCap": 7286.2,
+          "ratio": 101.5
+        },
+        {
+          "date": "2024-09-09",
+          "holdingPrice": 44125.0,
+          "subsidiaryPrice": 268837.0,
+          "holdingValue": 8139.5,
+          "marketCap": 7376.6,
+          "ratio": 110.34
+        },
+        {
+          "date": "2024-09-10",
+          "holdingPrice": 44485.0,
+          "subsidiaryPrice": 271294.0,
+          "holdingValue": 8213.9,
+          "marketCap": 7436.8,
+          "ratio": 110.45
+        },
+        {
+          "date": "2024-09-11",
+          "holdingPrice": 44305.0,
+          "subsidiaryPrice": 284564.0,
+          "holdingValue": 8615.7,
+          "marketCap": 7406.7,
+          "ratio": 116.32
+        },
+        {
+          "date": "2024-09-12",
+          "holdingPrice": 44620.0,
+          "subsidiaryPrice": 291936.0,
+          "holdingValue": 8838.9,
+          "marketCap": 7459.4,
+          "ratio": 118.49
+        },
+        {
+          "date": "2024-09-13",
+          "holdingPrice": 44935.0,
+          "subsidiaryPrice": 284564.0,
+          "holdingValue": 8615.7,
+          "marketCap": 7512.1,
+          "ratio": 114.69
+        },
+        {
+          "date": "2024-09-19",
+          "holdingPrice": 45926.0,
+          "subsidiaryPrice": 315527.0,
+          "holdingValue": 9553.2,
+          "marketCap": 7677.6,
+          "ratio": 124.43
+        },
+        {
+          "date": "2024-09-20",
+          "holdingPrice": 47006.0,
+          "subsidiaryPrice": 309629.0,
+          "holdingValue": 9374.6,
+          "marketCap": 7858.3,
+          "ratio": 119.3
+        },
+        {
+          "date": "2024-09-23",
+          "holdingPrice": 45295.0,
+          "subsidiaryPrice": 333220.0,
+          "holdingValue": 10088.8,
+          "marketCap": 7572.3,
+          "ratio": 133.23
+        },
+        {
+          "date": "2024-09-24",
+          "holdingPrice": 46826.0,
+          "subsidiaryPrice": 336169.0,
+          "holdingValue": 10178.1,
+          "marketCap": 7828.2,
+          "ratio": 130.02
+        },
+        {
+          "date": "2024-09-25",
+          "holdingPrice": 45926.0,
+          "subsidiaryPrice": 332237.0,
+          "holdingValue": 10059.1,
+          "marketCap": 7677.6,
+          "ratio": 131.02
+        },
+        {
+          "date": "2024-09-26",
+          "holdingPrice": 47006.0,
+          "subsidiaryPrice": 351404.0,
+          "holdingValue": 10639.4,
+          "marketCap": 7858.3,
+          "ratio": 135.39
+        },
+        {
+          "date": "2024-09-27",
+          "holdingPrice": 47006.0,
+          "subsidiaryPrice": 348947.0,
+          "holdingValue": 10565.0,
+          "marketCap": 7858.3,
+          "ratio": 134.44
+        },
+        {
+          "date": "2024-09-30",
+          "holdingPrice": 46646.0,
+          "subsidiaryPrice": 342558.0,
+          "holdingValue": 10371.6,
+          "marketCap": 7798.1,
+          "ratio": 133.0
+        },
+        {
+          "date": "2024-10-02",
+          "holdingPrice": 45655.0,
+          "subsidiaryPrice": 343541.0,
+          "holdingValue": 10401.3,
+          "marketCap": 7632.5,
+          "ratio": 136.28
+        },
+        {
+          "date": "2024-10-04",
+          "holdingPrice": 45385.0,
+          "subsidiaryPrice": 344524.0,
+          "holdingValue": 10431.1,
+          "marketCap": 7587.3,
+          "ratio": 137.48
+        },
+        {
+          "date": "2024-10-07",
+          "holdingPrice": 44485.0,
+          "subsidiaryPrice": 359268.0,
+          "holdingValue": 10877.5,
+          "marketCap": 7436.8,
+          "ratio": 146.27
+        },
+        {
+          "date": "2024-10-08",
+          "holdingPrice": 43494.0,
+          "subsidiaryPrice": 357302.0,
+          "holdingValue": 10818.0,
+          "marketCap": 7271.2,
+          "ratio": 148.78
+        },
+        {
+          "date": "2024-10-10",
+          "holdingPrice": 43899.0,
+          "subsidiaryPrice": 366640.0,
+          "holdingValue": 11100.7,
+          "marketCap": 7338.9,
+          "ratio": 151.26
+        },
+        {
+          "date": "2024-10-11",
+          "holdingPrice": 43899.0,
+          "subsidiaryPrice": 366640.0,
+          "holdingValue": 11100.7,
+          "marketCap": 7338.9,
+          "ratio": 151.26
+        },
+        {
+          "date": "2024-10-14",
+          "holdingPrice": 44755.0,
+          "subsidiaryPrice": 366640.0,
+          "holdingValue": 11100.7,
+          "marketCap": 7481.9,
+          "ratio": 148.37
+        },
+        {
+          "date": "2024-10-15",
+          "holdingPrice": 43944.0,
+          "subsidiaryPrice": 387282.0,
+          "holdingValue": 11725.7,
+          "marketCap": 7346.5,
+          "ratio": 159.61
+        },
+        {
+          "date": "2024-10-16",
+          "holdingPrice": 43944.0,
+          "subsidiaryPrice": 392197.0,
+          "holdingValue": 11874.5,
+          "marketCap": 7346.5,
+          "ratio": 161.64
+        },
+        {
+          "date": "2024-10-17",
+          "holdingPrice": 44980.0,
+          "subsidiaryPrice": 399569.0,
+          "holdingValue": 12097.7,
+          "marketCap": 7519.6,
+          "ratio": 160.88
+        },
+        {
+          "date": "2024-10-18",
+          "holdingPrice": 44485.0,
+          "subsidiaryPrice": 399569.0,
+          "holdingValue": 12097.7,
+          "marketCap": 7436.8,
+          "ratio": 162.67
+        },
+        {
+          "date": "2024-10-21",
+          "holdingPrice": 44125.0,
+          "subsidiaryPrice": 391705.0,
+          "holdingValue": 11859.6,
+          "marketCap": 7376.6,
+          "ratio": 160.77
+        },
+        {
+          "date": "2024-10-22",
+          "holdingPrice": 45205.0,
+          "subsidiaryPrice": 383842.0,
+          "holdingValue": 11621.5,
+          "marketCap": 7557.2,
+          "ratio": 153.78
+        },
+        {
+          "date": "2024-10-23",
+          "holdingPrice": 45115.0,
+          "subsidiaryPrice": 385808.0,
+          "holdingValue": 11681.0,
+          "marketCap": 7542.2,
+          "ratio": 154.88
+        },
+        {
+          "date": "2024-10-24",
+          "holdingPrice": 44800.0,
+          "subsidiaryPrice": 382367.0,
+          "holdingValue": 11576.9,
+          "marketCap": 7489.5,
+          "ratio": 154.58
+        },
+        {
+          "date": "2024-10-25",
+          "holdingPrice": 44935.0,
+          "subsidiaryPrice": 385316.0,
+          "holdingValue": 11666.2,
+          "marketCap": 7512.1,
+          "ratio": 155.3
+        },
+        {
+          "date": "2024-10-28",
+          "holdingPrice": 45385.0,
+          "subsidiaryPrice": 388756.0,
+          "holdingValue": 11770.3,
+          "marketCap": 7587.3,
+          "ratio": 155.13
+        },
+        {
+          "date": "2024-10-29",
+          "holdingPrice": 44620.0,
+          "subsidiaryPrice": 398094.0,
+          "holdingValue": 12053.0,
+          "marketCap": 7459.4,
+          "ratio": 161.58
+        },
+        {
+          "date": "2024-10-30",
+          "holdingPrice": 44395.0,
+          "subsidiaryPrice": 398094.0,
+          "holdingValue": 12053.0,
+          "marketCap": 7421.7,
+          "ratio": 162.4
+        },
+        {
+          "date": "2024-10-31",
+          "holdingPrice": 44845.0,
+          "subsidiaryPrice": 394163.0,
+          "holdingValue": 11934.0,
+          "marketCap": 7497.0,
+          "ratio": 159.18
+        },
+        {
+          "date": "2024-11-01",
+          "holdingPrice": 45385.0,
+          "subsidiaryPrice": 410381.0,
+          "holdingValue": 12425.1,
+          "marketCap": 7587.3,
+          "ratio": 163.76
+        },
+        {
+          "date": "2024-11-04",
+          "holdingPrice": 45385.0,
+          "subsidiaryPrice": 435938.0,
+          "holdingValue": 13198.8,
+          "marketCap": 7587.3,
+          "ratio": 173.96
+        },
+        {
+          "date": "2024-11-05",
+          "holdingPrice": 45745.0,
+          "subsidiaryPrice": 442327.0,
+          "holdingValue": 13392.3,
+          "marketCap": 7647.5,
+          "ratio": 175.12
+        },
+        {
+          "date": "2024-11-06",
+          "holdingPrice": 46196.0,
+          "subsidiaryPrice": 460020.0,
+          "holdingValue": 13928.0,
+          "marketCap": 7722.8,
+          "ratio": 180.35
+        },
+        {
+          "date": "2024-11-07",
+          "holdingPrice": 47186.0,
+          "subsidiaryPrice": 454122.0,
+          "holdingValue": 13749.4,
+          "marketCap": 7888.4,
+          "ratio": 174.3
+        },
+        {
+          "date": "2024-11-08",
+          "holdingPrice": 45295.0,
+          "subsidiaryPrice": 453631.0,
+          "holdingValue": 13734.5,
+          "marketCap": 7572.3,
+          "ratio": 181.38
+        },
+        {
+          "date": "2024-11-11",
+          "holdingPrice": 45655.0,
+          "subsidiaryPrice": 484594.0,
+          "holdingValue": 14672.0,
+          "marketCap": 7632.5,
+          "ratio": 192.23
+        },
+        {
+          "date": "2024-11-12",
+          "holdingPrice": 43989.0,
+          "subsidiaryPrice": 491475.0,
+          "holdingValue": 14880.3,
+          "marketCap": 7354.0,
+          "ratio": 202.34
+        },
+        {
+          "date": "2024-11-13",
+          "holdingPrice": 44305.0,
+          "subsidiaryPrice": 451174.0,
+          "holdingValue": 13660.1,
+          "marketCap": 7406.7,
+          "ratio": 184.43
+        },
+        {
+          "date": "2024-11-14",
+          "holdingPrice": 44530.0,
+          "subsidiaryPrice": 471324.0,
+          "holdingValue": 14270.2,
+          "marketCap": 7444.3,
+          "ratio": 191.69
+        },
+        {
+          "date": "2024-11-15",
+          "holdingPrice": 43944.0,
+          "subsidiaryPrice": 458546.0,
+          "holdingValue": 13883.3,
+          "marketCap": 7346.5,
+          "ratio": 188.98
+        },
+        {
+          "date": "2024-11-18",
+          "holdingPrice": 45475.0,
+          "subsidiaryPrice": 442819.0,
+          "holdingValue": 13407.2,
+          "marketCap": 7602.4,
+          "ratio": 176.35
+        },
+        {
+          "date": "2024-11-19",
+          "holdingPrice": 45025.0,
+          "subsidiaryPrice": 448225.0,
+          "holdingValue": 13570.8,
+          "marketCap": 7527.1,
+          "ratio": 180.29
+        },
+        {
+          "date": "2024-11-20",
+          "holdingPrice": 44215.0,
+          "subsidiaryPrice": 443310.0,
+          "holdingValue": 13422.0,
+          "marketCap": 7391.6,
+          "ratio": 181.58
+        },
+        {
+          "date": "2024-11-21",
+          "holdingPrice": 43944.0,
+          "subsidiaryPrice": 430532.0,
+          "holdingValue": 13035.1,
+          "marketCap": 7346.5,
+          "ratio": 177.43
+        },
+        {
+          "date": "2024-11-22",
+          "holdingPrice": 40568.0,
+          "subsidiaryPrice": 399569.0,
+          "holdingValue": 12097.7,
+          "marketCap": 6781.9,
+          "ratio": 178.38
+        },
+        {
+          "date": "2024-11-25",
+          "holdingPrice": 40297.0,
+          "subsidiaryPrice": 387282.0,
+          "holdingValue": 11725.7,
+          "marketCap": 6736.8,
+          "ratio": 174.06
+        },
+        {
+          "date": "2024-11-26",
+          "holdingPrice": 40117.0,
+          "subsidiaryPrice": 392197.0,
+          "holdingValue": 11874.5,
+          "marketCap": 6706.7,
+          "ratio": 177.06
+        },
+        {
+          "date": "2024-11-27",
+          "holdingPrice": 40838.0,
+          "subsidiaryPrice": 404975.0,
+          "holdingValue": 12261.4,
+          "marketCap": 6827.1,
+          "ratio": 179.6
+        },
+        {
+          "date": "2024-11-28",
+          "holdingPrice": 41558.0,
+          "subsidiaryPrice": 389739.0,
+          "holdingValue": 11800.1,
+          "marketCap": 6947.5,
+          "ratio": 169.85
+        },
+        {
+          "date": "2024-11-29",
+          "holdingPrice": 40523.0,
+          "subsidiaryPrice": 396620.0,
+          "holdingValue": 12008.4,
+          "marketCap": 6774.4,
+          "ratio": 177.26
+        },
+        {
+          "date": "2024-12-02",
+          "holdingPrice": 41018.0,
+          "subsidiaryPrice": 379418.0,
+          "holdingValue": 11487.6,
+          "marketCap": 6857.2,
+          "ratio": 167.53
+        },
+        {
+          "date": "2024-12-03",
+          "holdingPrice": 42639.0,
+          "subsidiaryPrice": 417262.0,
+          "holdingValue": 12633.4,
+          "marketCap": 7128.2,
+          "ratio": 177.23
+        },
+        {
+          "date": "2024-12-04",
+          "holdingPrice": 42504.0,
+          "subsidiaryPrice": 421685.0,
+          "holdingValue": 12767.3,
+          "marketCap": 7105.6,
+          "ratio": 179.68
+        },
+        {
+          "date": "2024-12-05",
+          "holdingPrice": 41018.0,
+          "subsidiaryPrice": 432006.0,
+          "holdingValue": 13079.8,
+          "marketCap": 6857.2,
+          "ratio": 190.75
+        },
+        {
+          "date": "2024-12-06",
+          "holdingPrice": 41513.0,
+          "subsidiaryPrice": 418736.0,
+          "holdingValue": 12678.0,
+          "marketCap": 6940.0,
+          "ratio": 182.68
+        },
+        {
+          "date": "2024-12-09",
+          "holdingPrice": 39892.0,
+          "subsidiaryPrice": 409890.0,
+          "holdingValue": 12410.2,
+          "marketCap": 6669.0,
+          "ratio": 186.09
+        },
+        {
+          "date": "2024-12-10",
+          "holdingPrice": 41153.0,
+          "subsidiaryPrice": 418736.0,
+          "holdingValue": 12678.0,
+          "marketCap": 6879.8,
+          "ratio": 184.28
+        },
+        {
+          "date": "2024-12-11",
+          "holdingPrice": 41873.0,
+          "subsidiaryPrice": 422668.0,
+          "holdingValue": 12797.1,
+          "marketCap": 7000.2,
+          "ratio": 182.81
+        },
+        {
+          "date": "2024-12-12",
+          "holdingPrice": 40613.0,
+          "subsidiaryPrice": 429549.0,
+          "holdingValue": 13005.4,
+          "marketCap": 6789.4,
+          "ratio": 191.55
+        },
+        {
+          "date": "2024-12-13",
+          "holdingPrice": 41963.0,
+          "subsidiaryPrice": 422668.0,
+          "holdingValue": 12797.1,
+          "marketCap": 7015.3,
+          "ratio": 182.42
+        },
+        {
+          "date": "2024-12-16",
+          "holdingPrice": 42278.0,
+          "subsidiaryPrice": 443802.0,
+          "holdingValue": 13436.9,
+          "marketCap": 7068.0,
+          "ratio": 190.11
+        },
+        {
+          "date": "2024-12-17",
+          "holdingPrice": 47006.0,
+          "subsidiaryPrice": 448716.0,
+          "holdingValue": 13585.7,
+          "marketCap": 7858.3,
+          "ratio": 172.88
+        },
+        {
+          "date": "2024-12-18",
+          "holdingPrice": 47006.0,
+          "subsidiaryPrice": 427091.0,
+          "holdingValue": 12931.0,
+          "marketCap": 7858.3,
+          "ratio": 164.55
+        },
+        {
+          "date": "2024-12-19",
+          "holdingPrice": 47096.0,
+          "subsidiaryPrice": 422177.0,
+          "holdingValue": 12782.2,
+          "marketCap": 7873.4,
+          "ratio": 162.35
+        },
+        {
+          "date": "2024-12-20",
+          "holdingPrice": 46196.0,
+          "subsidiaryPrice": 402518.0,
+          "holdingValue": 12187.0,
+          "marketCap": 7722.8,
+          "ratio": 157.8
+        },
+        {
+          "date": "2024-12-23",
+          "holdingPrice": 45655.0,
+          "subsidiaryPrice": 417262.0,
+          "holdingValue": 12633.4,
+          "marketCap": 7632.5,
+          "ratio": 165.52
+        },
+        {
+          "date": "2024-12-24",
+          "holdingPrice": 45926.0,
+          "subsidiaryPrice": 386299.0,
+          "holdingValue": 11695.9,
+          "marketCap": 7677.6,
+          "ratio": 152.34
+        },
+        {
+          "date": "2024-12-26",
+          "holdingPrice": 45475.0,
+          "subsidiaryPrice": 382859.0,
+          "holdingValue": 11591.8,
+          "marketCap": 7602.4,
+          "ratio": 152.48
+        },
+        {
+          "date": "2024-12-27",
+          "holdingPrice": 43991.0,
+          "subsidiaryPrice": 384850.0,
+          "holdingValue": 11652.1,
+          "marketCap": 7354.3,
+          "ratio": 158.44
+        },
+        {
+          "date": "2024-12-30",
+          "holdingPrice": 44901.0,
+          "subsidiaryPrice": 391322.0,
+          "holdingValue": 11848.0,
+          "marketCap": 7506.3,
+          "ratio": 157.84
+        },
+        {
+          "date": "2025-01-02",
+          "holdingPrice": 43991.0,
+          "subsidiaryPrice": 404765.0,
+          "holdingValue": 12255.0,
+          "marketCap": 7354.3,
+          "ratio": 166.64
+        },
+        {
+          "date": "2025-01-03",
+          "holdingPrice": 43608.0,
+          "subsidiaryPrice": 415718.0,
+          "holdingValue": 12586.6,
+          "marketCap": 7290.3,
+          "ratio": 172.65
+        },
+        {
+          "date": "2025-01-06",
+          "holdingPrice": 43608.0,
+          "subsidiaryPrice": 405263.0,
+          "holdingValue": 12270.1,
+          "marketCap": 7290.3,
+          "ratio": 168.31
+        },
+        {
+          "date": "2025-01-07",
+          "holdingPrice": 44374.0,
+          "subsidiaryPrice": 420199.0,
+          "holdingValue": 12722.3,
+          "marketCap": 7418.3,
+          "ratio": 171.5
+        },
+        {
+          "date": "2025-01-08",
+          "holdingPrice": 44326.0,
+          "subsidiaryPrice": 416216.0,
+          "holdingValue": 12601.7,
+          "marketCap": 7410.3,
+          "ratio": 170.06
+        },
+        {
+          "date": "2025-01-09",
+          "holdingPrice": 44518.0,
+          "subsidiaryPrice": 429160.0,
+          "holdingValue": 12993.6,
+          "marketCap": 7442.3,
+          "ratio": 174.59
+        },
+        {
+          "date": "2025-01-10",
+          "holdingPrice": 43656.0,
+          "subsidiaryPrice": 423684.0,
+          "holdingValue": 12827.8,
+          "marketCap": 7298.3,
+          "ratio": 175.76
+        },
+        {
+          "date": "2025-01-13",
+          "holdingPrice": 43608.0,
+          "subsidiaryPrice": 419701.0,
+          "holdingValue": 12707.2,
+          "marketCap": 7290.3,
+          "ratio": 174.3
+        },
+        {
+          "date": "2025-01-14",
+          "holdingPrice": 43369.0,
+          "subsidiaryPrice": 421194.0,
+          "holdingValue": 12752.4,
+          "marketCap": 7250.3,
+          "ratio": 175.89
+        },
+        {
+          "date": "2025-01-15",
+          "holdingPrice": 43465.0,
+          "subsidiaryPrice": 448079.0,
+          "holdingValue": 13566.4,
+          "marketCap": 7266.3,
+          "ratio": 186.7
+        },
+        {
+          "date": "2025-01-16",
+          "holdingPrice": 44422.0,
+          "subsidiaryPrice": 466998.0,
+          "holdingValue": 14139.2,
+          "marketCap": 7426.3,
+          "ratio": 190.39
+        },
+        {
+          "date": "2025-01-17",
+          "holdingPrice": 43848.0,
+          "subsidiaryPrice": 477951.0,
+          "holdingValue": 14470.9,
+          "marketCap": 7330.3,
+          "ratio": 197.41
+        },
+        {
+          "date": "2025-01-20",
+          "holdingPrice": 43752.0,
+          "subsidiaryPrice": 454551.0,
+          "holdingValue": 13762.4,
+          "marketCap": 7314.3,
+          "ratio": 188.16
+        },
+        {
+          "date": "2025-01-21",
+          "holdingPrice": 44039.0,
+          "subsidiaryPrice": 464011.0,
+          "holdingValue": 14048.8,
+          "marketCap": 7362.3,
+          "ratio": 190.82
+        },
+        {
+          "date": "2025-01-22",
+          "holdingPrice": 44518.0,
+          "subsidiaryPrice": 503840.0,
+          "holdingValue": 15254.7,
+          "marketCap": 7442.3,
+          "ratio": 204.97
+        },
+        {
+          "date": "2025-01-23",
+          "holdingPrice": 43943.0,
+          "subsidiaryPrice": 491891.0,
+          "holdingValue": 14892.9,
+          "marketCap": 7346.3,
+          "ratio": 202.73
+        },
+        {
+          "date": "2025-01-24",
+          "holdingPrice": 44039.0,
+          "subsidiaryPrice": 505832.0,
+          "holdingValue": 15315.0,
+          "marketCap": 7362.3,
+          "ratio": 208.02
+        },
+        {
+          "date": "2025-01-31",
+          "holdingPrice": 43752.0,
+          "subsidiaryPrice": 446586.0,
+          "holdingValue": 13521.2,
+          "marketCap": 7314.3,
+          "ratio": 184.86
+        },
+        {
+          "date": "2025-02-03",
+          "holdingPrice": 42842.0,
+          "subsidiaryPrice": 445590.0,
+          "holdingValue": 13491.1,
+          "marketCap": 7162.2,
+          "ratio": 188.36
+        },
+        {
+          "date": "2025-02-04",
+          "holdingPrice": 44566.0,
+          "subsidiaryPrice": 509814.0,
+          "holdingValue": 15435.6,
+          "marketCap": 7450.3,
+          "ratio": 207.18
+        },
+        {
+          "date": "2025-02-05",
+          "holdingPrice": 44279.0,
+          "subsidiaryPrice": 500853.0,
+          "holdingValue": 15164.2,
+          "marketCap": 7402.3,
+          "ratio": 204.86
+        },
+        {
+          "date": "2025-02-06",
+          "holdingPrice": 45188.0,
+          "subsidiaryPrice": 530725.0,
+          "holdingValue": 16068.7,
+          "marketCap": 7554.4,
+          "ratio": 212.71
+        },
+        {
+          "date": "2025-02-07",
+          "holdingPrice": 44566.0,
+          "subsidiaryPrice": 500853.0,
+          "holdingValue": 15164.2,
+          "marketCap": 7450.3,
+          "ratio": 203.54
+        },
+        {
+          "date": "2025-02-10",
+          "holdingPrice": 44231.0,
+          "subsidiaryPrice": 485917.0,
+          "holdingValue": 14712.0,
+          "marketCap": 7394.3,
+          "ratio": 198.96
+        },
+        {
+          "date": "2025-02-11",
+          "holdingPrice": 44039.0,
+          "subsidiaryPrice": 494381.0,
+          "holdingValue": 14968.3,
+          "marketCap": 7362.3,
+          "ratio": 203.31
+        },
+        {
+          "date": "2025-02-12",
+          "holdingPrice": 44231.0,
+          "subsidiaryPrice": 499857.0,
+          "holdingValue": 15134.1,
+          "marketCap": 7394.3,
+          "ratio": 204.67
+        },
+        {
+          "date": "2025-02-13",
+          "holdingPrice": 44709.0,
+          "subsidiaryPrice": 494878.0,
+          "holdingValue": 14983.4,
+          "marketCap": 7474.3,
+          "ratio": 200.46
+        },
+        {
+          "date": "2025-02-14",
+          "holdingPrice": 44662.0,
+          "subsidiaryPrice": 485917.0,
+          "holdingValue": 14712.0,
+          "marketCap": 7466.3,
+          "ratio": 197.04
+        },
+        {
+          "date": "2025-02-17",
+          "holdingPrice": 45284.0,
+          "subsidiaryPrice": 481934.0,
+          "holdingValue": 14591.4,
+          "marketCap": 7570.4,
+          "ratio": 192.74
+        },
+        {
+          "date": "2025-02-18",
+          "holdingPrice": 45715.0,
+          "subsidiaryPrice": 503840.0,
+          "holdingValue": 15254.7,
+          "marketCap": 7642.4,
+          "ratio": 199.61
+        },
+        {
+          "date": "2025-02-19",
+          "holdingPrice": 45667.0,
+          "subsidiaryPrice": 495376.0,
+          "holdingValue": 14998.4,
+          "marketCap": 7634.4,
+          "ratio": 196.46
+        },
+        {
+          "date": "2025-02-20",
+          "holdingPrice": 46528.0,
+          "subsidiaryPrice": 478449.0,
+          "holdingValue": 14485.9,
+          "marketCap": 7778.4,
+          "ratio": 186.23
+        },
+        {
+          "date": "2025-02-21",
+          "holdingPrice": 46576.0,
+          "subsidiaryPrice": 478947.0,
+          "holdingValue": 14501.0,
+          "marketCap": 7786.4,
+          "ratio": 186.23
+        },
+        {
+          "date": "2025-02-24",
+          "holdingPrice": 46720.0,
+          "subsidiaryPrice": 456543.0,
+          "holdingValue": 13822.7,
+          "marketCap": 7810.4,
+          "ratio": 176.98
+        },
+        {
+          "date": "2025-02-25",
+          "holdingPrice": 46098.0,
+          "subsidiaryPrice": 453556.0,
+          "holdingValue": 13732.2,
+          "marketCap": 7706.4,
+          "ratio": 178.19
+        },
+        {
+          "date": "2025-02-26",
+          "holdingPrice": 46289.0,
+          "subsidiaryPrice": 457041.0,
+          "holdingValue": 13837.8,
+          "marketCap": 7738.4,
+          "ratio": 178.82
+        },
+        {
+          "date": "2025-02-27",
+          "holdingPrice": 45667.0,
+          "subsidiaryPrice": 453556.0,
+          "holdingValue": 13732.2,
+          "marketCap": 7634.4,
+          "ratio": 179.87
+        },
+        {
+          "date": "2025-02-28",
+          "holdingPrice": 45092.0,
+          "subsidiaryPrice": 430654.0,
+          "holdingValue": 13038.8,
+          "marketCap": 7538.4,
+          "ratio": 172.97
+        },
+        {
+          "date": "2025-03-04",
+          "holdingPrice": 43943.0,
+          "subsidiaryPrice": 439615.0,
+          "holdingValue": 13310.2,
+          "marketCap": 7346.3,
+          "ratio": 181.18
+        },
+        {
+          "date": "2025-03-05",
+          "holdingPrice": 45188.0,
+          "subsidiaryPrice": 449075.0,
+          "holdingValue": 13596.6,
+          "marketCap": 7554.4,
+          "ratio": 179.98
+        },
+        {
+          "date": "2025-03-06",
+          "holdingPrice": 45475.0,
+          "subsidiaryPrice": 429658.0,
+          "holdingValue": 13008.7,
+          "marketCap": 7602.4,
+          "ratio": 171.11
+        },
+        {
+          "date": "2025-03-07",
+          "holdingPrice": 44997.0,
+          "subsidiaryPrice": 421194.0,
+          "holdingValue": 12752.4,
+          "marketCap": 7522.4,
+          "ratio": 169.53
+        },
+        {
+          "date": "2025-03-10",
+          "holdingPrice": 45667.0,
+          "subsidiaryPrice": 420696.0,
+          "holdingValue": 12737.4,
+          "marketCap": 7634.4,
+          "ratio": 166.84
+        },
+        {
+          "date": "2025-03-11",
+          "holdingPrice": 45571.0,
+          "subsidiaryPrice": 421194.0,
+          "holdingValue": 12752.4,
+          "marketCap": 7618.4,
+          "ratio": 167.39
+        },
+        {
+          "date": "2025-03-12",
+          "holdingPrice": 45906.0,
+          "subsidiaryPrice": 424182.0,
+          "holdingValue": 12842.9,
+          "marketCap": 7674.4,
+          "ratio": 167.35
+        },
+        {
+          "date": "2025-03-13",
+          "holdingPrice": 45044.0,
+          "subsidiaryPrice": 427667.0,
+          "holdingValue": 12948.4,
+          "marketCap": 7530.4,
+          "ratio": 171.95
+        },
+        {
+          "date": "2025-03-14",
+          "holdingPrice": 45762.0,
+          "subsidiaryPrice": 452062.0,
+          "holdingValue": 13687.0,
+          "marketCap": 7650.4,
+          "ratio": 178.91
+        },
+        {
+          "date": "2025-03-17",
+          "holdingPrice": 46193.0,
+          "subsidiaryPrice": 472972.0,
+          "holdingValue": 14320.1,
+          "marketCap": 7722.4,
+          "ratio": 185.44
+        },
+        {
+          "date": "2025-03-18",
+          "holdingPrice": 46337.0,
+          "subsidiaryPrice": 472475.0,
+          "holdingValue": 14305.0,
+          "marketCap": 7746.4,
+          "ratio": 184.67
+        },
+        {
+          "date": "2025-03-19",
+          "holdingPrice": 46672.0,
+          "subsidiaryPrice": 459032.0,
+          "holdingValue": 13898.0,
+          "marketCap": 7802.4,
+          "ratio": 178.12
+        },
+        {
+          "date": "2025-03-20",
+          "holdingPrice": 46576.0,
+          "subsidiaryPrice": 461024.0,
+          "holdingValue": 13958.3,
+          "marketCap": 7786.4,
+          "ratio": 179.26
+        },
+        {
+          "date": "2025-03-21",
+          "holdingPrice": 45858.0,
+          "subsidiaryPrice": 449075.0,
+          "holdingValue": 13596.6,
+          "marketCap": 7666.4,
+          "ratio": 177.35
+        },
+        {
+          "date": "2025-03-24",
+          "holdingPrice": 45188.0,
+          "subsidiaryPrice": 457539.0,
+          "holdingValue": 13852.8,
+          "marketCap": 7554.4,
+          "ratio": 183.38
+        },
+        {
+          "date": "2025-03-25",
+          "holdingPrice": 45523.0,
+          "subsidiaryPrice": 455547.0,
+          "holdingValue": 13792.5,
+          "marketCap": 7610.4,
+          "ratio": 181.23
+        },
+        {
+          "date": "2025-03-26",
+          "holdingPrice": 46145.0,
+          "subsidiaryPrice": 474466.0,
+          "holdingValue": 14365.3,
+          "marketCap": 7714.4,
+          "ratio": 186.21
+        },
+        {
+          "date": "2025-03-27",
+          "holdingPrice": 46050.0,
+          "subsidiaryPrice": 441607.0,
+          "holdingValue": 13370.5,
+          "marketCap": 7698.4,
+          "ratio": 173.68
+        },
+        {
+          "date": "2025-03-28",
+          "holdingPrice": 46002.0,
+          "subsidiaryPrice": 428662.0,
+          "holdingValue": 12978.5,
+          "marketCap": 7690.4,
+          "ratio": 168.76
+        },
+        {
+          "date": "2025-03-31",
+          "holdingPrice": 45906.0,
+          "subsidiaryPrice": 426671.0,
+          "holdingValue": 12918.3,
+          "marketCap": 7674.4,
+          "ratio": 168.33
+        },
+        {
+          "date": "2025-04-01",
+          "holdingPrice": 46816.0,
+          "subsidiaryPrice": 420199.0,
+          "holdingValue": 12722.3,
+          "marketCap": 7826.4,
+          "ratio": 162.56
+        },
+        {
+          "date": "2025-04-02",
+          "holdingPrice": 46959.0,
+          "subsidiaryPrice": 420199.0,
+          "holdingValue": 12722.3,
+          "marketCap": 7850.5,
+          "ratio": 162.06
+        },
+        {
+          "date": "2025-04-03",
+          "holdingPrice": 46720.0,
+          "subsidiaryPrice": 417709.0,
+          "holdingValue": 12646.9,
+          "marketCap": 7810.4,
+          "ratio": 161.92
+        },
+        {
+          "date": "2025-04-04",
+          "holdingPrice": 47151.0,
+          "subsidiaryPrice": 429658.0,
+          "holdingValue": 13008.7,
+          "marketCap": 7882.5,
+          "ratio": 165.03
+        },
+        {
+          "date": "2025-04-07",
+          "holdingPrice": 44231.0,
+          "subsidiaryPrice": 391820.0,
+          "holdingValue": 11863.1,
+          "marketCap": 7394.3,
+          "ratio": 160.44
+        },
+        {
+          "date": "2025-04-08",
+          "holdingPrice": 44279.0,
+          "subsidiaryPrice": 400782.0,
+          "holdingValue": 12134.4,
+          "marketCap": 7402.3,
+          "ratio": 163.93
+        },
+        {
+          "date": "2025-04-09",
+          "holdingPrice": 43608.0,
+          "subsidiaryPrice": 380867.0,
+          "holdingValue": 11531.5,
+          "marketCap": 7290.3,
+          "ratio": 158.18
+        },
+        {
+          "date": "2025-04-10",
+          "holdingPrice": 45523.0,
+          "subsidiaryPrice": 430156.0,
+          "holdingValue": 13023.8,
+          "marketCap": 7610.4,
+          "ratio": 171.13
+        },
+        {
+          "date": "2025-04-11",
+          "holdingPrice": 47390.0,
+          "subsidiaryPrice": 434139.0,
+          "holdingValue": 13144.4,
+          "marketCap": 7922.5,
+          "ratio": 165.91
+        },
+        {
+          "date": "2025-04-14",
+          "holdingPrice": 47055.0,
+          "subsidiaryPrice": 441109.0,
+          "holdingValue": 13355.4,
+          "marketCap": 7866.5,
+          "ratio": 169.78
+        },
+        {
+          "date": "2025-04-15",
+          "holdingPrice": 47773.0,
+          "subsidiaryPrice": 468989.0,
+          "holdingValue": 14199.5,
+          "marketCap": 7986.5,
+          "ratio": 177.79
+        },
+        {
+          "date": "2025-04-16",
+          "holdingPrice": 47103.0,
+          "subsidiaryPrice": 460028.0,
+          "holdingValue": 13928.2,
+          "marketCap": 7874.5,
+          "ratio": 176.88
+        },
+        {
+          "date": "2025-04-17",
+          "holdingPrice": 47677.0,
+          "subsidiaryPrice": 473968.0,
+          "holdingValue": 14350.3,
+          "marketCap": 7970.5,
+          "ratio": 180.04
+        },
+        {
+          "date": "2025-04-18",
+          "holdingPrice": 47869.0,
+          "subsidiaryPrice": 476457.0,
+          "holdingValue": 14425.6,
+          "marketCap": 8002.5,
+          "ratio": 180.26
+        },
+        {
+          "date": "2025-04-21",
+          "holdingPrice": 47869.0,
+          "subsidiaryPrice": 474964.0,
+          "holdingValue": 14380.4,
+          "marketCap": 8002.5,
+          "ratio": 179.7
+        },
+        {
+          "date": "2025-04-22",
+          "holdingPrice": 47869.0,
+          "subsidiaryPrice": 436130.0,
+          "holdingValue": 13204.7,
+          "marketCap": 8002.5,
+          "ratio": 165.01
+        },
+        {
+          "date": "2025-04-23",
+          "holdingPrice": 47869.0,
+          "subsidiaryPrice": 438620.0,
+          "holdingValue": 13280.0,
+          "marketCap": 8002.5,
+          "ratio": 165.95
+        },
+        {
+          "date": "2025-04-24",
+          "holdingPrice": 48635.0,
+          "subsidiaryPrice": 436628.0,
+          "holdingValue": 13219.7,
+          "marketCap": 8130.5,
+          "ratio": 162.59
+        },
+        {
+          "date": "2025-04-25",
+          "holdingPrice": 49496.0,
+          "subsidiaryPrice": 457539.0,
+          "holdingValue": 13852.8,
+          "marketCap": 8274.6,
+          "ratio": 167.41
+        },
+        {
+          "date": "2025-04-28",
+          "holdingPrice": 51124.0,
+          "subsidiaryPrice": 482432.0,
+          "holdingValue": 14606.5,
+          "marketCap": 8546.7,
+          "ratio": 170.9
+        },
+        {
+          "date": "2025-04-29",
+          "holdingPrice": 51028.0,
+          "subsidiaryPrice": 517780.0,
+          "holdingValue": 15676.8,
+          "marketCap": 8530.7,
+          "ratio": 183.77
+        },
+        {
+          "date": "2025-04-30",
+          "holdingPrice": 50837.0,
+          "subsidiaryPrice": 487410.0,
+          "holdingValue": 14757.3,
+          "marketCap": 8498.7,
+          "ratio": 173.64
+        },
+        {
+          "date": "2025-05-02",
+          "holdingPrice": 50358.0,
+          "subsidiaryPrice": 504836.0,
+          "holdingValue": 15284.8,
+          "marketCap": 8418.6,
+          "ratio": 181.56
+        },
+        {
+          "date": "2025-05-07",
+          "holdingPrice": 51507.0,
+          "subsidiaryPrice": 513797.0,
+          "holdingValue": 15556.2,
+          "marketCap": 8610.7,
+          "ratio": 180.66
+        },
+        {
+          "date": "2025-05-08",
+          "holdingPrice": 49783.0,
+          "subsidiaryPrice": 534708.0,
+          "holdingValue": 16189.3,
+          "marketCap": 8322.6,
+          "ratio": 194.52
+        },
+        {
+          "date": "2025-05-09",
+          "holdingPrice": 50741.0,
+          "subsidiaryPrice": 515789.0,
+          "holdingValue": 15616.5,
+          "marketCap": 8482.7,
+          "ratio": 184.1
+        },
+        {
+          "date": "2025-05-12",
+          "holdingPrice": 50549.0,
+          "subsidiaryPrice": 524750.0,
+          "holdingValue": 15887.8,
+          "marketCap": 8450.6,
+          "ratio": 188.01
+        },
+        {
+          "date": "2025-05-13",
+          "holdingPrice": 51890.0,
+          "subsidiaryPrice": 537695.0,
+          "holdingValue": 16279.7,
+          "marketCap": 8674.7,
+          "ratio": 187.67
+        },
+        {
+          "date": "2025-05-14",
+          "holdingPrice": 52368.0,
+          "subsidiaryPrice": 553627.0,
+          "holdingValue": 16762.1,
+          "marketCap": 8754.7,
+          "ratio": 191.46
+        },
+        {
+          "date": "2025-05-15",
+          "holdingPrice": 52177.0,
+          "subsidiaryPrice": 575533.0,
+          "holdingValue": 17425.3,
+          "marketCap": 8722.7,
+          "ratio": 199.77
+        },
+        {
+          "date": "2025-05-16",
+          "holdingPrice": 51411.0,
+          "subsidiaryPrice": 582503.0,
+          "holdingValue": 17636.4,
+          "marketCap": 8594.7,
+          "ratio": 205.2
+        },
+        {
+          "date": "2025-05-19",
+          "holdingPrice": 51124.0,
+          "subsidiaryPrice": 570554.0,
+          "holdingValue": 17274.6,
+          "marketCap": 8546.7,
+          "ratio": 202.12
+        },
+        {
+          "date": "2025-05-20",
+          "holdingPrice": 52273.0,
+          "subsidiaryPrice": 579516.0,
+          "holdingValue": 17545.9,
+          "marketCap": 8738.7,
+          "ratio": 200.78
+        },
+        {
+          "date": "2025-05-21",
+          "holdingPrice": 53134.0,
+          "subsidiaryPrice": 595447.0,
+          "holdingValue": 18028.3,
+          "marketCap": 8882.8,
+          "ratio": 202.96
+        },
+        {
+          "date": "2025-05-22",
+          "holdingPrice": 52560.0,
+          "subsidiaryPrice": 590469.0,
+          "holdingValue": 17877.5,
+          "marketCap": 8786.7,
+          "ratio": 203.46
+        },
+        {
+          "date": "2025-05-23",
+          "holdingPrice": 52943.0,
+          "subsidiaryPrice": 597439.0,
+          "holdingValue": 18088.6,
+          "marketCap": 8850.8,
+          "ratio": 204.37
+        },
+        {
+          "date": "2025-05-26",
+          "holdingPrice": 54187.0,
+          "subsidiaryPrice": 597439.0,
+          "holdingValue": 18088.6,
+          "marketCap": 9058.8,
+          "ratio": 199.68
+        },
+        {
+          "date": "2025-05-27",
+          "holdingPrice": 55815.0,
+          "subsidiaryPrice": 606400.0,
+          "holdingValue": 18359.9,
+          "marketCap": 9330.9,
+          "ratio": 196.76
+        },
+        {
+          "date": "2025-05-28",
+          "holdingPrice": 57442.0,
+          "subsidiaryPrice": 591464.0,
+          "holdingValue": 17907.7,
+          "marketCap": 9603.0,
+          "ratio": 186.48
+        },
+        {
+          "date": "2025-05-29",
+          "holdingPrice": 63953.0,
+          "subsidiaryPrice": 619345.0,
+          "holdingValue": 18751.8,
+          "marketCap": 10691.3,
+          "ratio": 175.39
+        },
+        {
+          "date": "2025-05-30",
+          "holdingPrice": 59740.0,
+          "subsidiaryPrice": 616358.0,
+          "holdingValue": 18661.4,
+          "marketCap": 9987.1,
+          "ratio": 186.85
+        },
+        {
+          "date": "2025-06-02",
+          "holdingPrice": 61846.0,
+          "subsidiaryPrice": 634281.0,
+          "holdingValue": 19204.0,
+          "marketCap": 10339.2,
+          "ratio": 185.74
+        },
+        {
+          "date": "2025-06-04",
+          "holdingPrice": 64240.0,
+          "subsidiaryPrice": 645234.0,
+          "holdingValue": 19535.7,
+          "marketCap": 10739.4,
+          "ratio": 181.91
+        },
+        {
+          "date": "2025-06-05",
+          "holdingPrice": 64336.0,
+          "subsidiaryPrice": 647225.0,
+          "holdingValue": 19595.9,
+          "marketCap": 10755.4,
+          "ratio": 182.2
+        },
+        {
+          "date": "2025-06-09",
+          "holdingPrice": 63665.0,
+          "subsidiaryPrice": 663157.0,
+          "holdingValue": 20078.3,
+          "marketCap": 10643.3,
+          "ratio": 188.65
+        },
+        {
+          "date": "2025-06-10",
+          "holdingPrice": 63187.0,
+          "subsidiaryPrice": 679089.0,
+          "holdingValue": 20560.7,
+          "marketCap": 10563.3,
+          "ratio": 194.64
+        },
+        {
+          "date": "2025-06-11",
+          "holdingPrice": 63761.0,
+          "subsidiaryPrice": 676102.0,
+          "holdingValue": 20470.2,
+          "marketCap": 10659.3,
+          "ratio": 192.04
+        },
+        {
+          "date": "2025-06-12",
+          "holdingPrice": 63282.0,
+          "subsidiaryPrice": 674110.0,
+          "holdingValue": 20409.9,
+          "marketCap": 10579.3,
+          "ratio": 192.92
+        },
+        {
+          "date": "2025-06-13",
+          "holdingPrice": 61846.0,
+          "subsidiaryPrice": 677097.0,
+          "holdingValue": 20500.4,
+          "marketCap": 10339.2,
+          "ratio": 198.28
+        },
+        {
+          "date": "2025-06-16",
+          "holdingPrice": 65006.0,
+          "subsidiaryPrice": 767709.0,
+          "holdingValue": 23243.8,
+          "marketCap": 10867.4,
+          "ratio": 213.89
+        },
+        {
+          "date": "2025-06-17",
+          "holdingPrice": 62899.0,
+          "subsidiaryPrice": 762730.0,
+          "holdingValue": 23093.1,
+          "marketCap": 10515.3,
+          "ratio": 219.61
+        },
+        {
+          "date": "2025-06-18",
+          "holdingPrice": 63761.0,
+          "subsidiaryPrice": 800568.0,
+          "holdingValue": 24238.7,
+          "marketCap": 10659.3,
+          "ratio": 227.39
+        },
+        {
+          "date": "2025-06-19",
+          "holdingPrice": 63378.0,
+          "subsidiaryPrice": 840397.0,
+          "holdingValue": 25444.6,
+          "marketCap": 10595.3,
+          "ratio": 240.15
+        },
+        {
+          "date": "2025-06-20",
+          "holdingPrice": 64240.0,
+          "subsidiaryPrice": 823470.0,
+          "holdingValue": 24932.1,
+          "marketCap": 10739.4,
+          "ratio": 232.16
+        },
+        {
+          "date": "2025-06-23",
+          "holdingPrice": 65293.0,
+          "subsidiaryPrice": 823470.0,
+          "holdingValue": 24932.1,
+          "marketCap": 10915.4,
+          "ratio": 228.41
+        },
+        {
+          "date": "2025-06-24",
+          "holdingPrice": 68835.0,
+          "subsidiaryPrice": 822474.0,
+          "holdingValue": 24901.9,
+          "marketCap": 11507.6,
+          "ratio": 216.4
+        },
+        {
+          "date": "2025-06-25",
+          "holdingPrice": 69410.0,
+          "subsidiaryPrice": 852346.0,
+          "holdingValue": 25806.4,
+          "marketCap": 11603.6,
+          "ratio": 222.4
+        },
+        {
+          "date": "2025-06-26",
+          "holdingPrice": 69027.0,
+          "subsidiaryPrice": 859316.0,
+          "holdingValue": 26017.4,
+          "marketCap": 11539.6,
+          "ratio": 225.46
+        },
+        {
+          "date": "2025-06-27",
+          "holdingPrice": 70941.0,
+          "subsidiaryPrice": 853342.0,
+          "holdingValue": 25836.5,
+          "marketCap": 11859.7,
+          "ratio": 217.85
+        },
+        {
+          "date": "2025-06-30",
+          "holdingPrice": 73048.0,
+          "subsidiaryPrice": 887197.0,
+          "holdingValue": 26861.5,
+          "marketCap": 12211.8,
+          "ratio": 219.96
+        },
+        {
+          "date": "2025-07-01",
+          "holdingPrice": 74675.0,
+          "subsidiaryPrice": 901137.0,
+          "holdingValue": 27283.6,
+          "marketCap": 12483.9,
+          "ratio": 218.55
+        },
+        {
+          "date": "2025-07-02",
+          "holdingPrice": 73622.0,
+          "subsidiaryPrice": 933996.0,
+          "holdingValue": 28278.5,
+          "marketCap": 12307.8,
+          "ratio": 229.76
+        },
+        {
+          "date": "2025-07-03",
+          "holdingPrice": 72569.0,
+          "subsidiaryPrice": 903128.0,
+          "holdingValue": 27343.9,
+          "marketCap": 12131.8,
+          "ratio": 225.39
+        },
+        {
+          "date": "2025-07-04",
+          "holdingPrice": 66250.0,
+          "subsidiaryPrice": 885205.0,
+          "holdingValue": 26801.2,
+          "marketCap": 11075.5,
+          "ratio": 241.99
+        },
+        {
+          "date": "2025-07-07",
+          "holdingPrice": 67591.0,
+          "subsidiaryPrice": 899145.0,
+          "holdingValue": 27223.3,
+          "marketCap": 11299.5,
+          "ratio": 240.92
+        },
+        {
+          "date": "2025-07-08",
+          "holdingPrice": 69984.0,
+          "subsidiaryPrice": 955902.0,
+          "holdingValue": 28941.7,
+          "marketCap": 11699.7,
+          "ratio": 247.37
+        },
+        {
+          "date": "2025-07-09",
+          "holdingPrice": 72090.0,
+          "subsidiaryPrice": 938975.0,
+          "holdingValue": 28429.2,
+          "marketCap": 12051.8,
+          "ratio": 235.89
+        },
+        {
+          "date": "2025-07-10",
+          "holdingPrice": 73239.0,
+          "subsidiaryPrice": 970838.0,
+          "holdingValue": 29393.9,
+          "marketCap": 12243.8,
+          "ratio": 240.07
+        },
+        {
+          "date": "2025-07-11",
+          "holdingPrice": 72760.0,
+          "subsidiaryPrice": 973825.0,
+          "holdingValue": 29484.4,
+          "marketCap": 12163.8,
+          "ratio": 242.39
+        },
+        {
+          "date": "2025-07-14",
+          "holdingPrice": 74101.0,
+          "subsidiaryPrice": 1003697.0,
+          "holdingValue": 30388.8,
+          "marketCap": 12387.9,
+          "ratio": 245.31
+        },
+        {
+          "date": "2025-07-15",
+          "holdingPrice": 76877.0,
+          "subsidiaryPrice": 1030582.0,
+          "holdingValue": 31202.8,
+          "marketCap": 12852.0,
+          "ratio": 242.79
+        },
+        {
+          "date": "2025-07-16",
+          "holdingPrice": 77835.0,
+          "subsidiaryPrice": 1061450.0,
+          "holdingValue": 32137.4,
+          "marketCap": 13012.1,
+          "ratio": 246.98
+        },
+        {
+          "date": "2025-07-17",
+          "holdingPrice": 76111.0,
+          "subsidiaryPrice": 1053484.0,
+          "holdingValue": 31896.2,
+          "marketCap": 12724.0,
+          "ratio": 250.68
+        },
+        {
+          "date": "2025-07-18",
+          "holdingPrice": 74579.0,
+          "subsidiaryPrice": 1053484.0,
+          "holdingValue": 31896.2,
+          "marketCap": 12467.9,
+          "ratio": 255.83
+        },
+        {
+          "date": "2025-07-21",
+          "holdingPrice": 74101.0,
+          "subsidiaryPrice": 1048505.0,
+          "holdingValue": 31745.4,
+          "marketCap": 12387.9,
+          "ratio": 256.26
+        },
+        {
+          "date": "2025-07-22",
+          "holdingPrice": 74101.0,
+          "subsidiaryPrice": 1035561.0,
+          "holdingValue": 31353.5,
+          "marketCap": 12387.9,
+          "ratio": 253.1
+        },
+        {
+          "date": "2025-07-23",
+          "holdingPrice": 74771.0,
+          "subsidiaryPrice": 1054480.0,
+          "holdingValue": 31926.3,
+          "marketCap": 12499.9,
+          "ratio": 255.41
+        },
+        {
+          "date": "2025-07-24",
+          "holdingPrice": 74962.0,
+          "subsidiaryPrice": 1117211.0,
+          "holdingValue": 33825.6,
+          "marketCap": 12531.9,
+          "ratio": 269.92
+        },
+        {
+          "date": "2025-07-25",
+          "holdingPrice": 73526.0,
+          "subsidiaryPrice": 1120198.0,
+          "holdingValue": 33916.1,
+          "marketCap": 12291.8,
+          "ratio": 275.92
+        },
+        {
+          "date": "2025-07-28",
+          "holdingPrice": 75920.0,
+          "subsidiaryPrice": 1280510.0,
+          "holdingValue": 38769.8,
+          "marketCap": 12692.0,
+          "ratio": 305.47
+        },
+        {
+          "date": "2025-07-29",
+          "holdingPrice": 80419.0,
+          "subsidiaryPrice": 1287481.0,
+          "holdingValue": 38980.9,
+          "marketCap": 13444.2,
+          "ratio": 289.95
+        },
+        {
+          "date": "2025-07-30",
+          "holdingPrice": 83579.0,
+          "subsidiaryPrice": 1235703.0,
+          "holdingValue": 37413.2,
+          "marketCap": 13972.4,
+          "ratio": 267.77
+        },
+        {
+          "date": "2025-07-31",
+          "holdingPrice": 83292.0,
+          "subsidiaryPrice": 1220767.0,
+          "holdingValue": 36961.0,
+          "marketCap": 13924.4,
+          "ratio": 265.44
+        },
+        {
+          "date": "2025-08-01",
+          "holdingPrice": 79941.0,
+          "subsidiaryPrice": 1164010.0,
+          "holdingValue": 35242.6,
+          "marketCap": 13364.2,
+          "ratio": 263.71
+        },
+        {
+          "date": "2025-08-04",
+          "holdingPrice": 80228.0,
+          "subsidiaryPrice": 1194878.0,
+          "holdingValue": 36177.1,
+          "marketCap": 13412.2,
+          "ratio": 269.73
+        },
+        {
+          "date": "2025-08-05",
+          "holdingPrice": 80898.0,
+          "subsidiaryPrice": 1276528.0,
+          "holdingValue": 38649.2,
+          "marketCap": 13524.2,
+          "ratio": 285.78
+        },
+        {
+          "date": "2025-08-06",
+          "holdingPrice": 82621.0,
+          "subsidiaryPrice": 1272545.0,
+          "holdingValue": 38528.6,
+          "marketCap": 13812.3,
+          "ratio": 278.94
+        },
+        {
+          "date": "2025-08-07",
+          "holdingPrice": 83770.0,
+          "subsidiaryPrice": 1218775.0,
+          "holdingValue": 36900.7,
+          "marketCap": 14004.4,
+          "ratio": 263.49
+        },
+        {
+          "date": "2025-08-08",
+          "holdingPrice": 84249.0,
+          "subsidiaryPrice": 1184920.0,
+          "holdingValue": 35875.7,
+          "marketCap": 14084.4,
+          "ratio": 254.72
+        },
+        {
+          "date": "2025-08-11",
+          "holdingPrice": 83100.0,
+          "subsidiaryPrice": 1199856.0,
+          "holdingValue": 36327.9,
+          "marketCap": 13892.3,
+          "ratio": 261.5
+        },
+        {
+          "date": "2025-08-12",
+          "holdingPrice": 83770.0,
+          "subsidiaryPrice": 1201848.0,
+          "holdingValue": 36388.2,
+          "marketCap": 14004.4,
+          "ratio": 259.83
+        },
+        {
+          "date": "2025-08-13",
+          "holdingPrice": 85206.0,
+          "subsidiaryPrice": 1221762.0,
+          "holdingValue": 36991.1,
+          "marketCap": 14244.5,
+          "ratio": 259.69
+        },
+        {
+          "date": "2025-08-14",
+          "holdingPrice": 84823.0,
+          "subsidiaryPrice": 1209814.0,
+          "holdingValue": 36629.3,
+          "marketCap": 14180.4,
+          "ratio": 258.31
+        },
+        {
+          "date": "2025-08-18",
+          "holdingPrice": 84249.0,
+          "subsidiaryPrice": 1171976.0,
+          "holdingValue": 35483.7,
+          "marketCap": 14084.4,
+          "ratio": 251.94
+        },
+        {
+          "date": "2025-08-19",
+          "holdingPrice": 81951.0,
+          "subsidiaryPrice": 1155048.0,
+          "holdingValue": 34971.2,
+          "marketCap": 13700.3,
+          "ratio": 255.26
+        },
+        {
+          "date": "2025-08-20",
+          "holdingPrice": 80419.0,
+          "subsidiaryPrice": 1110240.0,
+          "holdingValue": 33614.6,
+          "marketCap": 13444.2,
+          "ratio": 250.03
+        },
+        {
+          "date": "2025-08-21",
+          "holdingPrice": 78217.0,
+          "subsidiaryPrice": 1130155.0,
+          "holdingValue": 34217.5,
+          "marketCap": 13076.1,
+          "ratio": 261.68
+        },
+        {
+          "date": "2025-08-22",
+          "holdingPrice": 80419.0,
+          "subsidiaryPrice": 1193882.0,
+          "holdingValue": 36147.0,
+          "marketCap": 13444.2,
+          "ratio": 268.87
+        },
+        {
+          "date": "2025-08-25",
+          "holdingPrice": 80132.0,
+          "subsidiaryPrice": 1238690.0,
+          "holdingValue": 37503.6,
+          "marketCap": 13396.2,
+          "ratio": 279.96
+        },
+        {
+          "date": "2025-08-26",
+          "holdingPrice": 79462.0,
+          "subsidiaryPrice": 1245660.0,
+          "holdingValue": 37714.7,
+          "marketCap": 13284.2,
+          "ratio": 283.91
+        },
+        {
+          "date": "2025-08-27",
+          "holdingPrice": 78505.0,
+          "subsidiaryPrice": 1224750.0,
+          "holdingValue": 37081.6,
+          "marketCap": 13124.1,
+          "ratio": 282.55
+        },
+        {
+          "date": "2025-08-28",
+          "holdingPrice": 81377.0,
+          "subsidiaryPrice": 1223754.0,
+          "holdingValue": 37051.4,
+          "marketCap": 13604.3,
+          "ratio": 272.35
+        },
+        {
+          "date": "2025-08-29",
+          "holdingPrice": 83100.0,
+          "subsidiaryPrice": 1234707.0,
+          "holdingValue": 37383.0,
+          "marketCap": 13892.3,
+          "ratio": 269.09
+        },
+        {
+          "date": "2025-09-01",
+          "holdingPrice": 83292.0,
+          "subsidiaryPrice": 1210809.0,
+          "holdingValue": 36659.5,
+          "marketCap": 13924.4,
+          "ratio": 263.28
+        },
+        {
+          "date": "2025-09-02",
+          "holdingPrice": 81568.0,
+          "subsidiaryPrice": 1227737.0,
+          "holdingValue": 37172.0,
+          "marketCap": 13636.3,
+          "ratio": 272.6
+        },
+        {
+          "date": "2025-09-03",
+          "holdingPrice": 81377.0,
+          "subsidiaryPrice": 1252630.0,
+          "holdingValue": 37925.7,
+          "marketCap": 13604.3,
+          "ratio": 278.78
+        },
+        {
+          "date": "2025-09-04",
+          "holdingPrice": 79654.0,
+          "subsidiaryPrice": 1203839.0,
+          "holdingValue": 36448.5,
+          "marketCap": 13316.2,
+          "ratio": 273.72
+        },
+        {
+          "date": "2025-09-05",
+          "holdingPrice": 80898.0,
+          "subsidiaryPrice": 1226741.0,
+          "holdingValue": 37141.9,
+          "marketCap": 13524.2,
+          "ratio": 274.63
+        },
+        {
+          "date": "2025-09-08",
+          "holdingPrice": 80898.0,
+          "subsidiaryPrice": 1198860.0,
+          "holdingValue": 36297.7,
+          "marketCap": 13524.2,
+          "ratio": 268.39
+        },
+        {
+          "date": "2025-09-09",
+          "holdingPrice": 83866.0,
+          "subsidiaryPrice": 1246656.0,
+          "holdingValue": 37744.8,
+          "marketCap": 14020.4,
+          "ratio": 269.21
+        },
+        {
+          "date": "2025-09-10",
+          "holdingPrice": 85685.0,
+          "subsidiaryPrice": 1387054.0,
+          "holdingValue": 41995.6,
+          "marketCap": 14324.5,
+          "ratio": 293.17
+        },
+        {
+          "date": "2025-09-11",
+          "holdingPrice": 84823.0,
+          "subsidiaryPrice": 1380084.0,
+          "holdingValue": 41784.6,
+          "marketCap": 14180.4,
+          "ratio": 294.66
+        },
+        {
+          "date": "2025-09-12",
+          "holdingPrice": 85398.0,
+          "subsidiaryPrice": 1438832.0,
+          "holdingValue": 43563.3,
+          "marketCap": 14276.5,
+          "ratio": 305.14
+        },
+        {
+          "date": "2025-09-15",
+          "holdingPrice": 89993.0,
+          "subsidiaryPrice": 1417922.0,
+          "holdingValue": 42930.2,
+          "marketCap": 15044.7,
+          "ratio": 285.35
+        },
+        {
+          "date": "2025-09-16",
+          "holdingPrice": 88749.0,
+          "subsidiaryPrice": 1375105.0,
+          "holdingValue": 41633.8,
+          "marketCap": 14836.6,
+          "ratio": 280.62
+        },
+        {
+          "date": "2025-09-17",
+          "holdingPrice": 87600.0,
+          "subsidiaryPrice": 1369131.0,
+          "holdingValue": 41453.0,
+          "marketCap": 14644.6,
+          "ratio": 283.06
+        },
+        {
+          "date": "2025-09-18",
+          "holdingPrice": 86355.0,
+          "subsidiaryPrice": 1387054.0,
+          "holdingValue": 41995.6,
+          "marketCap": 14436.5,
+          "ratio": 290.9
+        },
+        {
+          "date": "2025-09-22",
+          "holdingPrice": 85781.0,
+          "subsidiaryPrice": 1401990.0,
+          "holdingValue": 42447.8,
+          "marketCap": 14340.5,
+          "ratio": 296.0
+        },
+        {
+          "date": "2025-09-23",
+          "holdingPrice": 86068.0,
+          "subsidiaryPrice": 1391037.0,
+          "holdingValue": 42116.2,
+          "marketCap": 14388.5,
+          "ratio": 292.71
+        },
+        {
+          "date": "2025-09-24",
+          "holdingPrice": 83292.0,
+          "subsidiaryPrice": 1372118.0,
+          "holdingValue": 41543.4,
+          "marketCap": 13924.4,
+          "ratio": 298.35
+        },
+        {
+          "date": "2025-09-25",
+          "holdingPrice": 82621.0,
+          "subsidiaryPrice": 1347224.0,
+          "holdingValue": 40789.7,
+          "marketCap": 13812.3,
+          "ratio": 295.31
+        },
+        {
+          "date": "2025-09-26",
+          "holdingPrice": 81951.0,
+          "subsidiaryPrice": 1322331.0,
+          "holdingValue": 40036.0,
+          "marketCap": 13700.3,
+          "ratio": 292.23
+        },
+        {
+          "date": "2025-09-29",
+          "holdingPrice": 81377.0,
+          "subsidiaryPrice": 1331293.0,
+          "holdingValue": 40307.4,
+          "marketCap": 13604.3,
+          "ratio": 296.28
+        },
+        {
+          "date": "2025-09-30",
+          "holdingPrice": 81281.0,
+          "subsidiaryPrice": 1334280.0,
+          "holdingValue": 40397.8,
+          "marketCap": 13588.2,
+          "ratio": 297.3
+        },
+        {
+          "date": "2025-10-01",
+          "holdingPrice": 82143.0,
+          "subsidiaryPrice": 1369131.0,
+          "holdingValue": 41453.0,
+          "marketCap": 13732.3,
+          "ratio": 301.86
+        },
+        {
+          "date": "2025-10-02",
+          "holdingPrice": 82334.0,
+          "subsidiaryPrice": 1411947.0,
+          "holdingValue": 42749.3,
+          "marketCap": 13764.3,
+          "ratio": 310.58
+        },
+        {
+          "date": "2025-10-10",
+          "holdingPrice": 85589.0,
+          "subsidiaryPrice": 1491606.0,
+          "holdingValue": 45161.1,
+          "marketCap": 14308.5,
+          "ratio": 315.63
+        },
+        {
+          "date": "2025-10-13",
+          "holdingPrice": 85015.0,
+          "subsidiaryPrice": 1439828.0,
+          "holdingValue": 43593.4,
+          "marketCap": 14212.4,
+          "ratio": 306.73
+        },
+        {
+          "date": "2025-10-14",
+          "holdingPrice": 91908.0,
+          "subsidiaryPrice": 1458746.0,
+          "holdingValue": 44166.2,
+          "marketCap": 15364.8,
+          "ratio": 287.45
+        },
+        {
+          "date": "2025-10-15",
+          "holdingPrice": 96025.0,
+          "subsidiaryPrice": 1632999.0,
+          "holdingValue": 49442.1,
+          "marketCap": 16053.0,
+          "ratio": 307.99
+        },
+        {
+          "date": "2025-10-16",
+          "holdingPrice": 100716.0,
+          "subsidiaryPrice": 1607110.0,
+          "holdingValue": 48658.2,
+          "marketCap": 16837.3,
+          "ratio": 288.99
+        },
+        {
+          "date": "2025-10-17",
+          "holdingPrice": 96791.0,
+          "subsidiaryPrice": 1573256.0,
+          "holdingValue": 47633.2,
+          "marketCap": 16181.1,
+          "ratio": 294.38
+        },
+        {
+          "date": "2025-10-20",
+          "holdingPrice": 96599.0,
+          "subsidiaryPrice": 1652914.0,
+          "holdingValue": 50045.0,
+          "marketCap": 16149.0,
+          "ratio": 309.89
+        },
+        {
+          "date": "2025-10-21",
+          "holdingPrice": 94972.0,
+          "subsidiaryPrice": 1673824.0,
+          "holdingValue": 50678.1,
+          "marketCap": 15877.0,
+          "ratio": 319.19
+        },
+        {
+          "date": "2025-10-22",
+          "holdingPrice": 100907.0,
+          "subsidiaryPrice": 1713654.0,
+          "holdingValue": 51884.0,
+          "marketCap": 16869.3,
+          "ratio": 307.57
+        },
+        {
+          "date": "2025-10-23",
+          "holdingPrice": 103205.0,
+          "subsidiaryPrice": 1843099.0,
+          "holdingValue": 55803.2,
+          "marketCap": 17253.4,
+          "ratio": 323.43
+        },
+        {
+          "date": "2025-10-24",
+          "holdingPrice": 108949.0,
+          "subsidiaryPrice": 1894877.0,
+          "holdingValue": 57370.9,
+          "marketCap": 18213.7,
+          "ratio": 314.99
+        },
+        {
+          "date": "2025-10-27",
+          "holdingPrice": 114502.0,
+          "subsidiaryPrice": 1911804.0,
+          "holdingValue": 57883.4,
+          "marketCap": 19142.0,
+          "ratio": 302.39
+        },
+        {
+          "date": "2025-10-28",
+          "holdingPrice": 113353.0,
+          "subsidiaryPrice": 1906826.0,
+          "holdingValue": 57732.7,
+          "marketCap": 18949.9,
+          "ratio": 304.66
+        },
+        {
+          "date": "2025-10-29",
+          "holdingPrice": 117661.0,
+          "subsidiaryPrice": 1990467.0,
+          "holdingValue": 60265.1,
+          "marketCap": 19670.1,
+          "ratio": 306.38
+        },
+        {
+          "date": "2025-10-30",
+          "holdingPrice": 118140.0,
+          "subsidiaryPrice": 2091036.0,
+          "holdingValue": 63310.0,
+          "marketCap": 19750.2,
+          "ratio": 320.55
+        },
+        {
+          "date": "2025-10-31",
+          "holdingPrice": 121299.0,
+          "subsidiaryPrice": 2125886.0,
+          "holdingValue": 64365.1,
+          "marketCap": 20278.3,
+          "ratio": 317.41
+        },
+        {
+          "date": "2025-11-03",
+          "holdingPrice": 155478.0,
+          "subsidiaryPrice": 2318062.0,
+          "holdingValue": 70183.6,
+          "marketCap": 25992.1,
+          "ratio": 270.02
+        },
+        {
+          "date": "2025-11-04",
+          "holdingPrice": 134703.0,
+          "subsidiaryPrice": 2277238.0,
+          "holdingValue": 68947.6,
+          "marketCap": 22519.0,
+          "ratio": 306.17
+        },
+        {
+          "date": "2025-11-05",
+          "holdingPrice": 127139.0,
+          "subsidiaryPrice": 2209528.0,
+          "holdingValue": 66897.5,
+          "marketCap": 21254.6,
+          "ratio": 314.74
+        },
+        {
+          "date": "2025-11-06",
+          "holdingPrice": 126086.0,
+          "subsidiaryPrice": 2245374.0,
+          "holdingValue": 67982.9,
+          "marketCap": 21078.6,
+          "ratio": 322.52
+        },
+        {
+          "date": "2025-11-07",
+          "holdingPrice": 128192.0,
+          "subsidiaryPrice": 2178660.0,
+          "holdingValue": 65963.0,
+          "marketCap": 21430.7,
+          "ratio": 307.8
+        },
+        {
+          "date": "2025-11-10",
+          "holdingPrice": 139489.0,
+          "subsidiaryPrice": 2244378.0,
+          "holdingValue": 67952.7,
+          "marketCap": 23319.3,
+          "ratio": 291.4
+        },
+        {
+          "date": "2025-11-11",
+          "holdingPrice": 157297.0,
+          "subsidiaryPrice": 2294165.0,
+          "holdingValue": 69460.1,
+          "marketCap": 26296.2,
+          "ratio": 264.14
+        },
+        {
+          "date": "2025-11-12",
+          "holdingPrice": 145042.0,
+          "subsidiaryPrice": 2210524.0,
+          "holdingValue": 66927.7,
+          "marketCap": 24247.6,
+          "ratio": 276.02
+        },
+        {
+          "date": "2025-11-13",
+          "holdingPrice": 140734.0,
+          "subsidiaryPrice": 2243383.0,
+          "holdingValue": 67922.6,
+          "marketCap": 23527.4,
+          "ratio": 288.7
+        },
+        {
+          "date": "2025-11-14",
+          "holdingPrice": 128958.0,
+          "subsidiaryPrice": 2115929.0,
+          "holdingValue": 64063.7,
+          "marketCap": 21558.7,
+          "ratio": 297.16
+        },
+        {
+          "date": "2025-11-17",
+          "holdingPrice": 134990.0,
+          "subsidiaryPrice": 2156754.0,
+          "holdingValue": 65299.7,
+          "marketCap": 22567.1,
+          "ratio": 289.36
+        },
+        {
+          "date": "2025-11-18",
+          "holdingPrice": 129533.0,
+          "subsidiaryPrice": 2068134.0,
+          "holdingValue": 62616.6,
+          "marketCap": 21654.8,
+          "ratio": 289.16
+        },
+        {
+          "date": "2025-11-19",
+          "holdingPrice": 125033.0,
+          "subsidiaryPrice": 2009386.0,
+          "holdingValue": 60837.9,
+          "marketCap": 20902.5,
+          "ratio": 291.06
+        },
+        {
+          "date": "2025-11-20",
+          "holdingPrice": 124459.0,
+          "subsidiaryPrice": 2011377.0,
+          "holdingValue": 60898.2,
+          "marketCap": 20806.5,
+          "ratio": 292.69
+        },
+        {
+          "date": "2025-11-21",
+          "holdingPrice": 117661.0,
+          "subsidiaryPrice": 1901847.0,
+          "holdingValue": 57581.9,
+          "marketCap": 19670.1,
+          "ratio": 292.74
+        },
+        {
+          "date": "2025-11-24",
+          "holdingPrice": 119289.0,
+          "subsidiaryPrice": 1894877.0,
+          "holdingValue": 57370.9,
+          "marketCap": 19942.2,
+          "ratio": 287.69
+        },
+        {
+          "date": "2025-11-25",
+          "holdingPrice": 123884.0,
+          "subsidiaryPrice": 1931719.0,
+          "holdingValue": 58486.4,
+          "marketCap": 20710.5,
+          "ratio": 282.4
+        },
+        {
+          "date": "2025-11-26",
+          "holdingPrice": 125416.0,
+          "subsidiaryPrice": 1951634.0,
+          "holdingValue": 59089.3,
+          "marketCap": 20966.6,
+          "ratio": 281.83
+        },
+        {
+          "date": "2025-11-27",
+          "holdingPrice": 129820.0,
+          "subsidiaryPrice": 1991463.0,
+          "holdingValue": 60295.2,
+          "marketCap": 21702.8,
+          "ratio": 277.82
+        },
+        {
+          "date": "2025-11-28",
+          "holdingPrice": 125129.0,
+          "subsidiaryPrice": 1892885.0,
+          "holdingValue": 57310.6,
+          "marketCap": 20918.5,
+          "ratio": 273.97
+        },
+        {
+          "date": "2025-12-01",
+          "holdingPrice": 121395.0,
+          "subsidiaryPrice": 1798291.0,
+          "holdingValue": 54446.6,
+          "marketCap": 20294.3,
+          "ratio": 268.28
+        },
+        {
+          "date": "2025-12-02",
+          "holdingPrice": 122735.0,
+          "subsidiaryPrice": 1853056.0,
+          "holdingValue": 56104.7,
+          "marketCap": 20518.4,
+          "ratio": 273.44
+        },
+        {
+          "date": "2025-12-03",
+          "holdingPrice": 127331.0,
+          "subsidiaryPrice": 1886911.0,
+          "holdingValue": 57129.7,
+          "marketCap": 21286.7,
+          "ratio": 268.38
+        },
+        {
+          "date": "2025-12-04",
+          "holdingPrice": 127427.0,
+          "subsidiaryPrice": 1840112.0,
+          "holdingValue": 55712.8,
+          "marketCap": 21302.7,
+          "ratio": 261.53
+        },
+        {
+          "date": "2025-12-05",
+          "holdingPrice": 130873.0,
+          "subsidiaryPrice": 2003412.0,
+          "holdingValue": 60657.0,
+          "marketCap": 21878.8,
+          "ratio": 277.24
+        },
+        {
+          "date": "2025-12-08",
+          "holdingPrice": 131160.0,
+          "subsidiaryPrice": 1978518.0,
+          "holdingValue": 59903.3,
+          "marketCap": 21926.9,
+          "ratio": 273.2
+        },
+        {
+          "date": "2025-12-09",
+          "holdingPrice": 134703.0,
+          "subsidiaryPrice": 1939685.0,
+          "holdingValue": 58727.5,
+          "marketCap": 22519.0,
+          "ratio": 260.79
+        },
+        {
+          "date": "2025-12-10",
+          "holdingPrice": 129054.0,
+          "subsidiaryPrice": 1936698.0,
+          "holdingValue": 58637.1,
+          "marketCap": 21574.7,
+          "ratio": 271.79
+        },
+        {
+          "date": "2025-12-11",
+          "holdingPrice": 130394.0,
+          "subsidiaryPrice": 1969557.0,
+          "holdingValue": 59632.0,
+          "marketCap": 21798.8,
+          "ratio": 273.56
+        },
+        {
+          "date": "2025-12-12",
+          "holdingPrice": 126182.0,
+          "subsidiaryPrice": 1953625.0,
+          "holdingValue": 59149.6,
+          "marketCap": 21094.6,
+          "ratio": 280.4
+        },
+        {
+          "date": "2025-12-15",
+          "holdingPrice": 122352.0,
+          "subsidiaryPrice": 1892885.0,
+          "holdingValue": 57310.6,
+          "marketCap": 20454.4,
+          "ratio": 280.19
+        },
+        {
+          "date": "2025-12-16",
+          "holdingPrice": 120246.0,
+          "subsidiaryPrice": 1889898.0,
+          "holdingValue": 57220.2,
+          "marketCap": 20102.3,
+          "ratio": 284.65
+        },
+        {
+          "date": "2025-12-17",
+          "holdingPrice": 118140.0,
+          "subsidiaryPrice": 1901847.0,
+          "holdingValue": 57581.9,
+          "marketCap": 19750.2,
+          "ratio": 291.55
+        },
+        {
+          "date": "2025-12-18",
+          "holdingPrice": 113832.0,
+          "subsidiaryPrice": 1804265.0,
+          "holdingValue": 54627.5,
+          "marketCap": 19030.0,
+          "ratio": 287.06
+        },
+        {
+          "date": "2025-12-19",
+          "holdingPrice": 113928.0,
+          "subsidiaryPrice": 1842103.0,
+          "holdingValue": 55773.1,
+          "marketCap": 19046.0,
+          "ratio": 292.83
+        },
+        {
+          "date": "2025-12-22",
+          "holdingPrice": 115459.0,
+          "subsidiaryPrice": 1842103.0,
+          "holdingValue": 55773.1,
+          "marketCap": 19302.0,
+          "ratio": 288.95
+        },
+        {
+          "date": "2025-12-23",
+          "holdingPrice": 114693.0,
+          "subsidiaryPrice": 1820197.0,
+          "holdingValue": 55109.8,
+          "marketCap": 19174.0,
+          "ratio": 287.42
+        },
+        {
+          "date": "2025-12-24",
+          "holdingPrice": 113640.0,
+          "subsidiaryPrice": 1782359.0,
+          "holdingValue": 53964.2,
+          "marketCap": 18997.9,
+          "ratio": 284.05
+        },
+        {
+          "date": "2025-12-26",
+          "holdingPrice": 112300.0,
+          "subsidiaryPrice": 1749500.0,
+          "holdingValue": 52969.3,
+          "marketCap": 18773.9,
+          "ratio": 282.14
+        },
+        {
+          "date": "2025-12-29",
+          "holdingPrice": 117000.0,
+          "subsidiaryPrice": 1840000.0,
+          "holdingValue": 55709.4,
+          "marketCap": 19559.6,
+          "ratio": 284.82
+        },
+        {
+          "date": "2025-12-30",
+          "holdingPrice": 114700.0,
+          "subsidiaryPrice": 1781000.0,
+          "holdingValue": 53923.1,
+          "marketCap": 19175.1,
+          "ratio": 281.21
+        },
+        {
+          "date": "2026-01-02",
+          "holdingPrice": 112500.0,
+          "subsidiaryPrice": 1845000.0,
+          "holdingValue": 55860.8,
+          "marketCap": 18807.3,
+          "ratio": 297.02
+        },
+        {
+          "date": "2026-01-05",
+          "holdingPrice": 119700.0,
+          "subsidiaryPrice": 1913000.0,
+          "holdingValue": 57919.6,
+          "marketCap": 20011.0,
+          "ratio": 289.44
+        },
+        {
+          "date": "2026-01-06",
+          "holdingPrice": 117800.0,
+          "subsidiaryPrice": 1845000.0,
+          "holdingValue": 55860.8,
+          "marketCap": 19693.3,
+          "ratio": 283.65
+        },
+        {
+          "date": "2026-01-07",
+          "holdingPrice": 116300.0,
+          "subsidiaryPrice": 1825000.0,
+          "holdingValue": 55255.3,
+          "marketCap": 19442.6,
+          "ratio": 284.2
+        },
+        {
+          "date": "2026-01-08",
+          "holdingPrice": 117500.0,
+          "subsidiaryPrice": 1839000.0,
+          "holdingValue": 55679.1,
+          "marketCap": 19643.2,
+          "ratio": 283.45
+        },
+        {
+          "date": "2026-01-09",
+          "holdingPrice": 120500.0,
+          "subsidiaryPrice": 1885000.0,
+          "holdingValue": 57071.9,
+          "marketCap": 20144.7,
+          "ratio": 283.31
+        },
+        {
+          "date": "2026-01-12",
+          "holdingPrice": 125700.0,
+          "subsidiaryPrice": 2013000.0,
+          "holdingValue": 60947.3,
+          "marketCap": 21014.0,
+          "ratio": 290.03
+        },
+        {
+          "date": "2026-01-13",
+          "holdingPrice": 132000.0,
+          "subsidiaryPrice": 2032000.0,
+          "holdingValue": 61522.6,
+          "marketCap": 22067.2,
+          "ratio": 278.8
+        },
+        {
+          "date": "2026-01-14",
+          "holdingPrice": 136900.0,
+          "subsidiaryPrice": 2125000.0,
+          "holdingValue": 64338.3,
+          "marketCap": 22886.4,
+          "ratio": 281.12
+        },
+        {
+          "date": "2026-01-15",
+          "holdingPrice": 151300.0,
+          "subsidiaryPrice": 2243000.0,
+          "holdingValue": 67911.0,
+          "marketCap": 25293.7,
+          "ratio": 268.49
+        },
+        {
+          "date": "2026-01-16",
+          "holdingPrice": 145700.0,
+          "subsidiaryPrice": 2333000.0,
+          "holdingValue": 70635.9,
+          "marketCap": 24357.5,
+          "ratio": 290.0
+        },
+        {
+          "date": "2026-01-19",
+          "holdingPrice": 153000.0,
+          "subsidiaryPrice": 2360000.0,
+          "holdingValue": 71453.4,
+          "marketCap": 25577.9,
+          "ratio": 279.36
+        },
+        {
+          "date": "2026-01-20",
+          "holdingPrice": 159400.0,
+          "subsidiaryPrice": 2344000.0,
+          "holdingValue": 70968.9,
+          "marketCap": 26647.9,
+          "ratio": 266.32
+        },
+        {
+          "date": "2026-01-21",
+          "holdingPrice": 151200.0,
+          "subsidiaryPrice": 2319000.0,
+          "holdingValue": 70212.0,
+          "marketCap": 25277.0,
+          "ratio": 277.77
+        },
+        {
+          "date": "2026-01-22",
+          "holdingPrice": 151500.0,
+          "subsidiaryPrice": 2349000.0,
+          "holdingValue": 71120.3,
+          "marketCap": 25327.2,
+          "ratio": 280.81
+        },
+        {
+          "date": "2026-01-23",
+          "holdingPrice": 154400.0,
+          "subsidiaryPrice": 2347000.0,
+          "holdingValue": 71059.8,
+          "marketCap": 25812.0,
+          "ratio": 275.3
+        },
+        {
+          "date": "2026-01-26",
+          "holdingPrice": 150800.0,
+          "subsidiaryPrice": 2344000.0,
+          "holdingValue": 70968.9,
+          "marketCap": 25210.1,
+          "ratio": 281.51
+        },
+        {
+          "date": "2026-01-27",
+          "holdingPrice": 150000.0,
+          "subsidiaryPrice": 2387000.0,
+          "holdingValue": 72270.8,
+          "marketCap": 25076.4,
+          "ratio": 288.2
+        },
+        {
+          "date": "2026-01-28",
+          "holdingPrice": 151500.0,
+          "subsidiaryPrice": 2518000.0,
+          "holdingValue": 76237.1,
+          "marketCap": 25327.2,
+          "ratio": 301.01
+        },
+        {
+          "date": "2026-01-29",
+          "holdingPrice": 157800.0,
+          "subsidiaryPrice": 2546000.0,
+          "holdingValue": 77084.9,
+          "marketCap": 26380.4,
+          "ratio": 292.21
+        },
+        {
+          "date": "2026-01-30",
+          "holdingPrice": 152800.0,
+          "subsidiaryPrice": 2603000.0,
+          "holdingValue": 78810.6,
+          "marketCap": 25544.5,
+          "ratio": 308.52
+        },
+        {
+          "date": "2026-02-02",
+          "holdingPrice": 137300.0,
+          "subsidiaryPrice": 2281000.0,
+          "holdingValue": 69061.5,
+          "marketCap": 22953.3,
+          "ratio": 300.88
+        },
+        {
+          "date": "2026-02-03",
+          "holdingPrice": 147900.0,
+          "subsidiaryPrice": 2367000.0,
+          "holdingValue": 71665.3,
+          "marketCap": 24725.3,
+          "ratio": 289.85
+        },
+        {
+          "date": "2026-02-04",
+          "holdingPrice": 149900.0,
+          "subsidiaryPrice": 2384000.0,
+          "holdingValue": 72180.0,
+          "marketCap": 25059.7,
+          "ratio": 288.03
+        },
+        {
+          "date": "2026-02-05",
+          "holdingPrice": 145600.0,
+          "subsidiaryPrice": 2334000.0,
+          "holdingValue": 70666.2,
+          "marketCap": 24340.8,
+          "ratio": 290.32
+        },
+        {
+          "date": "2026-02-06",
+          "holdingPrice": 140000.0,
+          "subsidiaryPrice": 2211000.0,
+          "holdingValue": 66942.1,
+          "marketCap": 23404.6,
+          "ratio": 286.02
+        },
+        {
+          "date": "2026-02-09",
+          "holdingPrice": 151400.0,
+          "subsidiaryPrice": 2396000.0,
+          "holdingValue": 72543.3,
+          "marketCap": 25310.5,
+          "ratio": 286.61
+        },
+        {
+          "date": "2026-02-10",
+          "holdingPrice": 150300.0,
+          "subsidiaryPrice": 2347000.0,
+          "holdingValue": 71059.8,
+          "marketCap": 25126.6,
+          "ratio": 282.81
+        },
+        {
+          "date": "2026-02-11",
+          "holdingPrice": 147700.0,
+          "subsidiaryPrice": 2401000.0,
+          "holdingValue": 72694.7,
+          "marketCap": 24691.9,
+          "ratio": 294.41
+        },
+        {
+          "date": "2026-02-12",
+          "holdingPrice": 150000.0,
+          "subsidiaryPrice": 2405000.0,
+          "holdingValue": 72815.8,
+          "marketCap": 25076.4,
+          "ratio": 290.38
+        },
+        {
+          "date": "2026-02-13",
+          "holdingPrice": 161900.0,
+          "subsidiaryPrice": 2384000.0,
+          "holdingValue": 72180.0,
+          "marketCap": 27065.8,
+          "ratio": 266.68
+        },
+        {
+          "date": "2026-02-19",
+          "holdingPrice": 163300.0,
+          "subsidiaryPrice": 2453000.0,
+          "holdingValue": 74269.1,
+          "marketCap": 27299.8,
+          "ratio": 272.05
+        },
+        {
+          "date": "2026-02-20",
+          "holdingPrice": 167700.0,
+          "subsidiaryPrice": 2633000.0,
+          "holdingValue": 79718.9,
+          "marketCap": 28035.4,
+          "ratio": 284.35
+        },
+        {
+          "date": "2026-02-23",
+          "holdingPrice": 172300.0,
+          "subsidiaryPrice": 2744000.0,
+          "holdingValue": 83079.7,
+          "marketCap": 28804.4,
+          "ratio": 288.43
+        },
+        {
+          "date": "2026-02-24",
+          "holdingPrice": 170100.0,
+          "subsidiaryPrice": 2758000.0,
+          "holdingValue": 83503.6,
+          "marketCap": 28436.6,
+          "ratio": 293.65
+        },
+        {
+          "date": "2026-02-25",
+          "holdingPrice": 172800.0,
+          "subsidiaryPrice": 2763000.0,
+          "holdingValue": 83654.9,
+          "marketCap": 28888.0,
+          "ratio": 289.58
+        },
+        {
+          "date": "2026-02-26",
+          "holdingPrice": 174700.0,
+          "subsidiaryPrice": 2898000.0,
+          "holdingValue": 87742.3,
+          "marketCap": 29205.7,
+          "ratio": 300.43
+        },
+        {
+          "date": "2026-02-27",
+          "holdingPrice": 169000.0,
+          "subsidiaryPrice": 2823000.0,
+          "holdingValue": 85471.5,
+          "marketCap": 28252.8,
+          "ratio": 302.52
+        },
+        {
+          "date": "2026-03-03",
+          "holdingPrice": 156500.0,
+          "subsidiaryPrice": 2606000.0,
+          "holdingValue": 78901.5,
+          "marketCap": 26163.1,
+          "ratio": 301.58
+        },
+        {
+          "date": "2026-03-04",
+          "holdingPrice": 131500.0,
+          "subsidiaryPrice": 2297000.0,
+          "holdingValue": 69545.9,
+          "marketCap": 21983.6,
+          "ratio": 316.35
+        },
+        {
+          "date": "2026-03-05",
+          "holdingPrice": 146100.0,
+          "subsidiaryPrice": 2484000.0,
+          "holdingValue": 75207.7,
+          "marketCap": 24424.4,
+          "ratio": 307.92
+        },
+        {
+          "date": "2026-03-06",
+          "holdingPrice": 146200.0,
+          "subsidiaryPrice": 2478000.0,
+          "holdingValue": 75026.0,
+          "marketCap": 24441.1,
+          "ratio": 306.97
+        },
+        {
+          "date": "2026-03-09",
+          "holdingPrice": 134200.0,
+          "subsidiaryPrice": 2389000.0,
+          "holdingValue": 72331.4,
+          "marketCap": 22435.0,
+          "ratio": 322.4
+        },
+        {
+          "date": "2026-03-10",
+          "holdingPrice": 139900.0,
+          "subsidiaryPrice": 2550000.0,
+          "holdingValue": 77206.0,
+          "marketCap": 23387.9,
+          "ratio": 330.11
+        },
+        {
+          "date": "2026-03-11",
+          "holdingPrice": 140000.0,
+          "subsidiaryPrice": 2533000.0,
+          "holdingValue": 76691.3,
+          "marketCap": 23404.6,
+          "ratio": 327.68
+        },
+        {
+          "date": "2026-03-12",
+          "holdingPrice": 138400.0,
+          "subsidiaryPrice": 2561000.0,
+          "holdingValue": 77539.0,
+          "marketCap": 23137.2,
+          "ratio": 335.13
+        },
+        {
+          "date": "2026-03-13",
+          "holdingPrice": 132400.0,
+          "subsidiaryPrice": 2593000.0,
+          "holdingValue": 78507.9,
+          "marketCap": 22134.1,
+          "ratio": 354.69
+        },
+        {
+          "date": "2026-03-16",
+          "holdingPrice": 131900.0,
+          "subsidiaryPrice": 2517000.0,
+          "holdingValue": 76206.8,
+          "marketCap": 22050.5,
+          "ratio": 345.6
+        },
+        {
+          "date": "2026-03-17",
+          "holdingPrice": 133900.0,
+          "subsidiaryPrice": 2546000.0,
+          "holdingValue": 77084.9,
+          "marketCap": 22384.9,
+          "ratio": 344.36
+        },
+        {
+          "date": "2026-03-18",
+          "holdingPrice": 148000.0,
+          "subsidiaryPrice": 2731000.0,
+          "holdingValue": 82686.1,
+          "marketCap": 24742.1,
+          "ratio": 334.19
+        },
+        {
+          "date": "2026-03-19",
+          "holdingPrice": 145000.0,
+          "subsidiaryPrice": 2693000.0,
+          "holdingValue": 81535.6,
+          "marketCap": 24240.5,
+          "ratio": 336.36
+        },
+        {
+          "date": "2026-03-20",
+          "holdingPrice": 150300.0,
+          "subsidiaryPrice": 2735000.0,
+          "holdingValue": 82807.2,
+          "marketCap": 25126.6,
+          "ratio": 329.56
+        },
+        {
+          "date": "2026-03-23",
+          "holdingPrice": 135800.0,
+          "subsidiaryPrice": 2589000.0,
+          "holdingValue": 78386.8,
+          "marketCap": 22702.5,
+          "ratio": 345.28
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 140600.0,
+          "subsidiaryPrice": 2701000.0,
+          "holdingValue": 81777.8,
+          "marketCap": 23505.0,
+          "ratio": 347.92
         }
       ]
     },
@@ -24391,27 +24423,27 @@ const STOCK_DATA = {
       "holdingName": "한화",
       "subsidiaryName": "한화에어로스페이스+한화생명보험+한화비전",
       "current": {
-        "holdingPrice": 108600.0,
+        "holdingPrice": 114600.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 244579.6,
-        "marketCap": 79272.8,
-        "ratio": 308.53,
-        "ratioChange": 19.71,
+        "holdingValue": 254693.6,
+        "marketCap": 83652.5,
+        "ratio": 304.47,
+        "ratioChange": -4.06,
         "subsidiaries": [
           {
             "name": "한화에어로스페이스",
-            "price": 1278000.0,
-            "value": 212059.9
+            "price": 1335000.0,
+            "value": 221517.9
           },
           {
             "name": "한화생명보험",
-            "price": 4800.0,
-            "value": 18772.2
+            "price": 4845.0,
+            "value": 18948.2
           },
           {
             "name": "한화비전",
-            "price": 80200.0,
-            "value": 13747.5
+            "price": 83000.0,
+            "value": 14227.5
           }
         ]
       },
@@ -27263,6 +27295,14 @@ const STOCK_DATA = {
           "holdingValue": 244579.6,
           "marketCap": 79272.8,
           "ratio": 308.53
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 114600.0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 254693.6,
+          "marketCap": 83652.5,
+          "ratio": 304.47
         }
       ]
     },
@@ -27277,8 +27317,8 @@ const STOCK_DATA = {
         "subsidiaryPrice": 0,
         "holdingValue": 0,
         "marketCap": 0,
-        "ratio": 260.84,
-        "ratioChange": -0.6
+        "ratio": 259.54,
+        "ratioChange": -1.13
       },
       "history": [
         {
@@ -33343,7 +33383,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 267.7
+          "ratio": 267.57
         },
         {
           "date": "2026-03-19",
@@ -33351,7 +33391,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 269.06
+          "ratio": 268.9
         },
         {
           "date": "2026-03-20",
@@ -33359,7 +33399,7 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 261.44
+          "ratio": 261.28
         },
         {
           "date": "2026-03-23",
@@ -33367,7 +33407,15 @@ const STOCK_DATA = {
           "subsidiaryPrice": 0,
           "holdingValue": 0,
           "marketCap": 0,
-          "ratio": 260.84
+          "ratio": 260.67
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 0,
+          "marketCap": 0,
+          "ratio": 259.54
         }
       ]
     },
@@ -33377,27 +33425,27 @@ const STOCK_DATA = {
       "holdingName": "삼성물산",
       "subsidiaryName": "삼성바이오로직스+삼성전자+삼성생명",
       "current": {
-        "holdingPrice": 274500.0,
+        "holdingPrice": 281500.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 1108027.1,
-        "marketCap": 443569.1,
-        "ratio": 249.8,
-        "ratioChange": 5.07,
+        "holdingValue": 1127291.0,
+        "marketCap": 454880.6,
+        "ratio": 247.82,
+        "ratioChange": -1.98,
         "subsidiaries": [
           {
             "name": "삼성바이오로직스",
-            "price": 1523000.0,
-            "value": 466701.0
+            "price": 1547000.0,
+            "value": 474055.5
           },
           {
             "name": "삼성전자",
-            "price": 186300.0,
-            "value": 557197.1
+            "price": 189700.0,
+            "value": 567366.0
           },
           {
             "name": "삼성생명",
-            "price": 217500.0,
-            "value": 84129.0
+            "price": 222000.0,
+            "value": 85869.6
           }
         ]
       },
@@ -39481,6 +39529,14 @@ const STOCK_DATA = {
           "holdingValue": 1108027.1,
           "marketCap": 443569.1,
           "ratio": 249.8
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 281500.0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 1127291.0,
+          "marketCap": 454880.6,
+          "ratio": 247.82
         }
       ]
     },
@@ -39490,12 +39546,12 @@ const STOCK_DATA = {
       "holdingName": "원익",
       "subsidiaryName": "원익홀딩스",
       "current": {
-        "holdingPrice": 9850.0,
-        "subsidiaryPrice": 31300.0,
-        "holdingValue": 4516.0,
-        "marketCap": 1974.9,
-        "ratio": 228.67,
-        "ratioChange": -1.91
+        "holdingPrice": 10300.0,
+        "subsidiaryPrice": 32900.0,
+        "holdingValue": 4746.9,
+        "marketCap": 2065.2,
+        "ratio": 229.85,
+        "ratioChange": 1.18
       },
       "history": [
         {
@@ -45545,6 +45601,6118 @@ const STOCK_DATA = {
           "holdingValue": 4516.0,
           "marketCap": 1974.9,
           "ratio": 228.67
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 10300.0,
+          "subsidiaryPrice": 32900.0,
+          "holdingValue": 4746.9,
+          "marketCap": 2065.2,
+          "ratio": 229.85
+        }
+      ]
+    },
+    {
+      "id": "seah_holdings",
+      "name": "세아홀딩스→세아베스틸지주",
+      "holdingName": "세아홀딩스",
+      "subsidiaryName": "세아베스틸지주",
+      "current": {
+        "holdingPrice": 155584.0,
+        "subsidiaryPrice": 67760.0,
+        "holdingValue": 14999.0,
+        "marketCap": 6548.3,
+        "ratio": 229.05,
+        "ratioChange": 18.37
+      },
+      "history": [
+        {
+          "date": "2023-02-06",
+          "holdingPrice": 100540.0,
+          "subsidiaryPrice": 14388.0,
+          "holdingValue": 3184.8,
+          "marketCap": 4231.6,
+          "ratio": 75.26
+        },
+        {
+          "date": "2023-02-07",
+          "holdingPrice": 97128.0,
+          "subsidiaryPrice": 14450.0,
+          "holdingValue": 3198.7,
+          "marketCap": 4087.9,
+          "ratio": 78.25
+        },
+        {
+          "date": "2023-02-08",
+          "holdingPrice": 96390.0,
+          "subsidiaryPrice": 14343.0,
+          "holdingValue": 3174.9,
+          "marketCap": 4056.9,
+          "ratio": 78.26
+        },
+        {
+          "date": "2023-02-09",
+          "holdingPrice": 95836.0,
+          "subsidiaryPrice": 14316.0,
+          "holdingValue": 3168.9,
+          "marketCap": 4033.6,
+          "ratio": 78.56
+        },
+        {
+          "date": "2023-02-10",
+          "holdingPrice": 95744.0,
+          "subsidiaryPrice": 14361.0,
+          "holdingValue": 3178.8,
+          "marketCap": 4029.7,
+          "ratio": 78.88
+        },
+        {
+          "date": "2023-02-13",
+          "holdingPrice": 96574.0,
+          "subsidiaryPrice": 14746.0,
+          "holdingValue": 3264.2,
+          "marketCap": 4064.7,
+          "ratio": 80.31
+        },
+        {
+          "date": "2023-02-14",
+          "holdingPrice": 97035.0,
+          "subsidiaryPrice": 14701.0,
+          "holdingValue": 3254.2,
+          "marketCap": 4084.1,
+          "ratio": 79.68
+        },
+        {
+          "date": "2023-02-15",
+          "holdingPrice": 95744.0,
+          "subsidiaryPrice": 15096.0,
+          "holdingValue": 3341.5,
+          "marketCap": 4029.7,
+          "ratio": 82.92
+        },
+        {
+          "date": "2023-02-16",
+          "holdingPrice": 95652.0,
+          "subsidiaryPrice": 15105.0,
+          "holdingValue": 3343.5,
+          "marketCap": 4025.8,
+          "ratio": 83.05
+        },
+        {
+          "date": "2023-02-17",
+          "holdingPrice": 96759.0,
+          "subsidiaryPrice": 16270.0,
+          "holdingValue": 3601.5,
+          "marketCap": 4072.4,
+          "ratio": 88.44
+        },
+        {
+          "date": "2023-02-20",
+          "holdingPrice": 99618.0,
+          "subsidiaryPrice": 17184.0,
+          "holdingValue": 3803.9,
+          "marketCap": 4192.8,
+          "ratio": 90.72
+        },
+        {
+          "date": "2023-02-21",
+          "holdingPrice": 99802.0,
+          "subsidiaryPrice": 17444.0,
+          "holdingValue": 3861.4,
+          "marketCap": 4200.5,
+          "ratio": 91.93
+        },
+        {
+          "date": "2023-02-22",
+          "holdingPrice": 100633.0,
+          "subsidiaryPrice": 17525.0,
+          "holdingValue": 3879.3,
+          "marketCap": 4235.5,
+          "ratio": 91.59
+        },
+        {
+          "date": "2023-02-23",
+          "holdingPrice": 99710.0,
+          "subsidiaryPrice": 16826.0,
+          "holdingValue": 3724.5,
+          "marketCap": 4196.6,
+          "ratio": 88.75
+        },
+        {
+          "date": "2023-02-24",
+          "holdingPrice": 98234.0,
+          "subsidiaryPrice": 16467.0,
+          "holdingValue": 3645.1,
+          "marketCap": 4134.5,
+          "ratio": 88.16
+        },
+        {
+          "date": "2023-02-27",
+          "holdingPrice": 106813.0,
+          "subsidiaryPrice": 21380.0,
+          "holdingValue": 4732.5,
+          "marketCap": 4495.6,
+          "ratio": 105.27
+        },
+        {
+          "date": "2023-02-28",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 20169.0,
+          "holdingValue": 4464.6,
+          "marketCap": 4282.1,
+          "ratio": 104.26
+        },
+        {
+          "date": "2023-03-02",
+          "holdingPrice": 102662.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4320.9,
+          "ratio": 105.62
+        },
+        {
+          "date": "2023-03-03",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 21066.0,
+          "holdingValue": 4663.1,
+          "marketCap": 4282.1,
+          "ratio": 108.9
+        },
+        {
+          "date": "2023-03-06",
+          "holdingPrice": 100540.0,
+          "subsidiaryPrice": 20169.0,
+          "holdingValue": 4464.6,
+          "marketCap": 4231.6,
+          "ratio": 105.51
+        },
+        {
+          "date": "2023-03-07",
+          "holdingPrice": 101832.0,
+          "subsidiaryPrice": 21290.0,
+          "holdingValue": 4712.7,
+          "marketCap": 4285.9,
+          "ratio": 109.96
+        },
+        {
+          "date": "2023-03-08",
+          "holdingPrice": 100540.0,
+          "subsidiaryPrice": 22142.0,
+          "holdingValue": 4901.2,
+          "marketCap": 4231.6,
+          "ratio": 115.82
+        },
+        {
+          "date": "2023-03-09",
+          "holdingPrice": 104322.0,
+          "subsidiaryPrice": 22769.0,
+          "holdingValue": 5040.1,
+          "marketCap": 4390.8,
+          "ratio": 114.79
+        },
+        {
+          "date": "2023-03-10",
+          "holdingPrice": 101463.0,
+          "subsidiaryPrice": 21559.0,
+          "holdingValue": 4772.2,
+          "marketCap": 4270.4,
+          "ratio": 111.75
+        },
+        {
+          "date": "2023-03-13",
+          "holdingPrice": 103308.0,
+          "subsidiaryPrice": 20304.0,
+          "holdingValue": 4494.4,
+          "marketCap": 4348.1,
+          "ratio": 103.37
+        },
+        {
+          "date": "2023-03-14",
+          "holdingPrice": 98788.0,
+          "subsidiaryPrice": 19318.0,
+          "holdingValue": 4276.1,
+          "marketCap": 4157.8,
+          "ratio": 102.85
+        },
+        {
+          "date": "2023-03-15",
+          "holdingPrice": 99618.0,
+          "subsidiaryPrice": 19587.0,
+          "holdingValue": 4335.7,
+          "marketCap": 4192.8,
+          "ratio": 103.41
+        },
+        {
+          "date": "2023-03-16",
+          "holdingPrice": 99341.0,
+          "subsidiaryPrice": 18870.0,
+          "holdingValue": 4176.9,
+          "marketCap": 4181.1,
+          "ratio": 99.9
+        },
+        {
+          "date": "2023-03-17",
+          "holdingPrice": 99895.0,
+          "subsidiaryPrice": 18421.0,
+          "holdingValue": 4077.7,
+          "marketCap": 4204.4,
+          "ratio": 96.99
+        },
+        {
+          "date": "2023-03-20",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 19811.0,
+          "holdingValue": 4385.3,
+          "marketCap": 4247.1,
+          "ratio": 103.25
+        },
+        {
+          "date": "2023-03-21",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 20438.0,
+          "holdingValue": 4524.2,
+          "marketCap": 4247.1,
+          "ratio": 106.52
+        },
+        {
+          "date": "2023-03-22",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4247.1,
+          "ratio": 107.46
+        },
+        {
+          "date": "2023-03-23",
+          "holdingPrice": 100079.0,
+          "subsidiaryPrice": 20887.0,
+          "holdingValue": 4623.4,
+          "marketCap": 4212.2,
+          "ratio": 109.76
+        },
+        {
+          "date": "2023-03-24",
+          "holdingPrice": 99802.0,
+          "subsidiaryPrice": 21559.0,
+          "holdingValue": 4772.2,
+          "marketCap": 4200.5,
+          "ratio": 113.61
+        },
+        {
+          "date": "2023-03-27",
+          "holdingPrice": 99618.0,
+          "subsidiaryPrice": 22142.0,
+          "holdingValue": 4901.2,
+          "marketCap": 4192.8,
+          "ratio": 116.9
+        },
+        {
+          "date": "2023-03-28",
+          "holdingPrice": 102108.0,
+          "subsidiaryPrice": 21514.0,
+          "holdingValue": 4762.3,
+          "marketCap": 4297.6,
+          "ratio": 110.81
+        },
+        {
+          "date": "2023-03-29",
+          "holdingPrice": 102201.0,
+          "subsidiaryPrice": 22097.0,
+          "holdingValue": 4891.3,
+          "marketCap": 4301.5,
+          "ratio": 113.71
+        },
+        {
+          "date": "2023-03-30",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 20125.0,
+          "holdingValue": 4454.7,
+          "marketCap": 4282.1,
+          "ratio": 104.03
+        },
+        {
+          "date": "2023-03-31",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 20304.0,
+          "holdingValue": 4494.4,
+          "marketCap": 4247.1,
+          "ratio": 105.82
+        },
+        {
+          "date": "2023-04-03",
+          "holdingPrice": 101094.0,
+          "subsidiaryPrice": 21111.0,
+          "holdingValue": 4673.0,
+          "marketCap": 4254.9,
+          "ratio": 109.83
+        },
+        {
+          "date": "2023-04-04",
+          "holdingPrice": 100817.0,
+          "subsidiaryPrice": 20663.0,
+          "holdingValue": 4573.8,
+          "marketCap": 4243.2,
+          "ratio": 107.79
+        },
+        {
+          "date": "2023-04-05",
+          "holdingPrice": 101832.0,
+          "subsidiaryPrice": 20169.0,
+          "holdingValue": 4464.6,
+          "marketCap": 4285.9,
+          "ratio": 104.17
+        },
+        {
+          "date": "2023-04-06",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 20125.0,
+          "holdingValue": 4454.7,
+          "marketCap": 4282.1,
+          "ratio": 104.03
+        },
+        {
+          "date": "2023-04-07",
+          "holdingPrice": 101647.0,
+          "subsidiaryPrice": 20797.0,
+          "holdingValue": 4603.5,
+          "marketCap": 4278.2,
+          "ratio": 107.61
+        },
+        {
+          "date": "2023-04-10",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 20887.0,
+          "holdingValue": 4623.4,
+          "marketCap": 4282.1,
+          "ratio": 107.97
+        },
+        {
+          "date": "2023-04-11",
+          "holdingPrice": 101555.0,
+          "subsidiaryPrice": 21918.0,
+          "holdingValue": 4851.6,
+          "marketCap": 4274.3,
+          "ratio": 113.51
+        },
+        {
+          "date": "2023-04-12",
+          "holdingPrice": 102201.0,
+          "subsidiaryPrice": 21918.0,
+          "holdingValue": 4851.6,
+          "marketCap": 4301.5,
+          "ratio": 112.79
+        },
+        {
+          "date": "2023-04-13",
+          "holdingPrice": 103123.0,
+          "subsidiaryPrice": 22411.0,
+          "holdingValue": 4960.7,
+          "marketCap": 4340.3,
+          "ratio": 114.29
+        },
+        {
+          "date": "2023-04-14",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 22859.0,
+          "holdingValue": 5059.9,
+          "marketCap": 4386.9,
+          "ratio": 115.34
+        },
+        {
+          "date": "2023-04-17",
+          "holdingPrice": 106075.0,
+          "subsidiaryPrice": 23531.0,
+          "holdingValue": 5208.8,
+          "marketCap": 4464.5,
+          "ratio": 116.67
+        },
+        {
+          "date": "2023-04-18",
+          "holdingPrice": 104507.0,
+          "subsidiaryPrice": 22186.0,
+          "holdingValue": 4911.1,
+          "marketCap": 4398.5,
+          "ratio": 111.65
+        },
+        {
+          "date": "2023-04-19",
+          "holdingPrice": 104876.0,
+          "subsidiaryPrice": 22455.0,
+          "holdingValue": 4970.6,
+          "marketCap": 4414.1,
+          "ratio": 112.61
+        },
+        {
+          "date": "2023-04-20",
+          "holdingPrice": 105337.0,
+          "subsidiaryPrice": 22948.0,
+          "holdingValue": 5079.8,
+          "marketCap": 4433.5,
+          "ratio": 114.58
+        },
+        {
+          "date": "2023-04-21",
+          "holdingPrice": 104414.0,
+          "subsidiaryPrice": 21200.0,
+          "holdingValue": 4692.8,
+          "marketCap": 4394.6,
+          "ratio": 106.79
+        },
+        {
+          "date": "2023-04-24",
+          "holdingPrice": 105429.0,
+          "subsidiaryPrice": 21514.0,
+          "holdingValue": 4762.3,
+          "marketCap": 4437.3,
+          "ratio": 107.32
+        },
+        {
+          "date": "2023-04-25",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 21693.0,
+          "holdingValue": 4802.0,
+          "marketCap": 4386.9,
+          "ratio": 109.46
+        },
+        {
+          "date": "2023-04-26",
+          "holdingPrice": 103677.0,
+          "subsidiaryPrice": 20707.0,
+          "holdingValue": 4583.7,
+          "marketCap": 4363.6,
+          "ratio": 105.04
+        },
+        {
+          "date": "2023-04-27",
+          "holdingPrice": 104414.0,
+          "subsidiaryPrice": 21245.0,
+          "holdingValue": 4702.8,
+          "marketCap": 4394.6,
+          "ratio": 107.01
+        },
+        {
+          "date": "2023-04-28",
+          "holdingPrice": 105060.0,
+          "subsidiaryPrice": 20752.0,
+          "holdingValue": 4593.6,
+          "marketCap": 4421.8,
+          "ratio": 103.89
+        },
+        {
+          "date": "2023-05-02",
+          "holdingPrice": 104322.0,
+          "subsidiaryPrice": 20394.0,
+          "holdingValue": 4514.3,
+          "marketCap": 4390.8,
+          "ratio": 102.81
+        },
+        {
+          "date": "2023-05-03",
+          "holdingPrice": 104322.0,
+          "subsidiaryPrice": 21245.0,
+          "holdingValue": 4702.8,
+          "marketCap": 4390.8,
+          "ratio": 107.11
+        },
+        {
+          "date": "2023-05-04",
+          "holdingPrice": 104968.0,
+          "subsidiaryPrice": 22142.0,
+          "holdingValue": 4901.2,
+          "marketCap": 4417.9,
+          "ratio": 110.94
+        },
+        {
+          "date": "2023-05-08",
+          "holdingPrice": 104599.0,
+          "subsidiaryPrice": 20707.0,
+          "holdingValue": 4583.7,
+          "marketCap": 4402.4,
+          "ratio": 104.12
+        },
+        {
+          "date": "2023-05-09",
+          "holdingPrice": 104599.0,
+          "subsidiaryPrice": 21111.0,
+          "holdingValue": 4673.0,
+          "marketCap": 4402.4,
+          "ratio": 106.15
+        },
+        {
+          "date": "2023-05-10",
+          "holdingPrice": 104783.0,
+          "subsidiaryPrice": 20707.0,
+          "holdingValue": 4583.7,
+          "marketCap": 4410.2,
+          "ratio": 103.93
+        },
+        {
+          "date": "2023-05-11",
+          "holdingPrice": 106351.0,
+          "subsidiaryPrice": 20707.0,
+          "holdingValue": 4583.7,
+          "marketCap": 4476.2,
+          "ratio": 102.4
+        },
+        {
+          "date": "2023-05-12",
+          "holdingPrice": 104414.0,
+          "subsidiaryPrice": 20797.0,
+          "holdingValue": 4603.5,
+          "marketCap": 4394.6,
+          "ratio": 104.75
+        },
+        {
+          "date": "2023-05-15",
+          "holdingPrice": 104414.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4394.6,
+          "ratio": 103.85
+        },
+        {
+          "date": "2023-05-16",
+          "holdingPrice": 104691.0,
+          "subsidiaryPrice": 20752.0,
+          "holdingValue": 4593.6,
+          "marketCap": 4406.3,
+          "ratio": 104.25
+        },
+        {
+          "date": "2023-05-17",
+          "holdingPrice": 104783.0,
+          "subsidiaryPrice": 21156.0,
+          "holdingValue": 4682.9,
+          "marketCap": 4410.2,
+          "ratio": 106.18
+        },
+        {
+          "date": "2023-05-18",
+          "holdingPrice": 105060.0,
+          "subsidiaryPrice": 21918.0,
+          "holdingValue": 4851.6,
+          "marketCap": 4421.8,
+          "ratio": 109.72
+        },
+        {
+          "date": "2023-05-19",
+          "holdingPrice": 104968.0,
+          "subsidiaryPrice": 21828.0,
+          "holdingValue": 4831.7,
+          "marketCap": 4417.9,
+          "ratio": 109.37
+        },
+        {
+          "date": "2023-05-22",
+          "holdingPrice": 104876.0,
+          "subsidiaryPrice": 21380.0,
+          "holdingValue": 4732.5,
+          "marketCap": 4414.1,
+          "ratio": 107.21
+        },
+        {
+          "date": "2023-05-23",
+          "holdingPrice": 104783.0,
+          "subsidiaryPrice": 21962.0,
+          "holdingValue": 4861.5,
+          "marketCap": 4410.2,
+          "ratio": 110.23
+        },
+        {
+          "date": "2023-05-24",
+          "holdingPrice": 104783.0,
+          "subsidiaryPrice": 22052.0,
+          "holdingValue": 4881.3,
+          "marketCap": 4410.2,
+          "ratio": 110.68
+        },
+        {
+          "date": "2023-05-25",
+          "holdingPrice": 104599.0,
+          "subsidiaryPrice": 22052.0,
+          "holdingValue": 4881.3,
+          "marketCap": 4402.4,
+          "ratio": 110.88
+        },
+        {
+          "date": "2023-05-26",
+          "holdingPrice": 103769.0,
+          "subsidiaryPrice": 21514.0,
+          "holdingValue": 4762.3,
+          "marketCap": 4367.5,
+          "ratio": 109.04
+        },
+        {
+          "date": "2023-05-30",
+          "holdingPrice": 103953.0,
+          "subsidiaryPrice": 21335.0,
+          "holdingValue": 4722.6,
+          "marketCap": 4375.2,
+          "ratio": 107.94
+        },
+        {
+          "date": "2023-05-31",
+          "holdingPrice": 104138.0,
+          "subsidiaryPrice": 21649.0,
+          "holdingValue": 4792.1,
+          "marketCap": 4383.0,
+          "ratio": 109.33
+        },
+        {
+          "date": "2023-06-01",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 22635.0,
+          "holdingValue": 5010.3,
+          "marketCap": 4386.9,
+          "ratio": 114.21
+        },
+        {
+          "date": "2023-06-02",
+          "holdingPrice": 104691.0,
+          "subsidiaryPrice": 22948.0,
+          "holdingValue": 5079.8,
+          "marketCap": 4406.3,
+          "ratio": 115.28
+        },
+        {
+          "date": "2023-06-05",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 22769.0,
+          "holdingValue": 5040.1,
+          "marketCap": 4386.9,
+          "ratio": 114.89
+        },
+        {
+          "date": "2023-06-07",
+          "holdingPrice": 104045.0,
+          "subsidiaryPrice": 23172.0,
+          "holdingValue": 5129.4,
+          "marketCap": 4379.1,
+          "ratio": 117.13
+        },
+        {
+          "date": "2023-06-08",
+          "holdingPrice": 104045.0,
+          "subsidiaryPrice": 22590.0,
+          "holdingValue": 5000.4,
+          "marketCap": 4379.1,
+          "ratio": 114.19
+        },
+        {
+          "date": "2023-06-09",
+          "holdingPrice": 104968.0,
+          "subsidiaryPrice": 22276.0,
+          "holdingValue": 4931.0,
+          "marketCap": 4417.9,
+          "ratio": 111.61
+        },
+        {
+          "date": "2023-06-12",
+          "holdingPrice": 104138.0,
+          "subsidiaryPrice": 21873.0,
+          "holdingValue": 4841.7,
+          "marketCap": 4383.0,
+          "ratio": 110.46
+        },
+        {
+          "date": "2023-06-13",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 21245.0,
+          "holdingValue": 4702.8,
+          "marketCap": 4386.9,
+          "ratio": 107.2
+        },
+        {
+          "date": "2023-06-14",
+          "holdingPrice": 105245.0,
+          "subsidiaryPrice": 21111.0,
+          "holdingValue": 4673.0,
+          "marketCap": 4429.6,
+          "ratio": 105.5
+        },
+        {
+          "date": "2023-06-15",
+          "holdingPrice": 103584.0,
+          "subsidiaryPrice": 20842.0,
+          "holdingValue": 4613.5,
+          "marketCap": 4359.7,
+          "ratio": 105.82
+        },
+        {
+          "date": "2023-06-16",
+          "holdingPrice": 104322.0,
+          "subsidiaryPrice": 20797.0,
+          "holdingValue": 4603.5,
+          "marketCap": 4390.8,
+          "ratio": 104.85
+        },
+        {
+          "date": "2023-06-19",
+          "holdingPrice": 103861.0,
+          "subsidiaryPrice": 20976.0,
+          "holdingValue": 4643.2,
+          "marketCap": 4371.3,
+          "ratio": 106.22
+        },
+        {
+          "date": "2023-06-20",
+          "holdingPrice": 103861.0,
+          "subsidiaryPrice": 20394.0,
+          "holdingValue": 4514.3,
+          "marketCap": 4371.3,
+          "ratio": 103.27
+        },
+        {
+          "date": "2023-06-21",
+          "holdingPrice": 103584.0,
+          "subsidiaryPrice": 20349.0,
+          "holdingValue": 4504.3,
+          "marketCap": 4359.7,
+          "ratio": 103.32
+        },
+        {
+          "date": "2023-06-22",
+          "holdingPrice": 104138.0,
+          "subsidiaryPrice": 19901.0,
+          "holdingValue": 4405.1,
+          "marketCap": 4383.0,
+          "ratio": 100.5
+        },
+        {
+          "date": "2023-06-23",
+          "holdingPrice": 103677.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4363.6,
+          "ratio": 104.59
+        },
+        {
+          "date": "2023-06-26",
+          "holdingPrice": 103769.0,
+          "subsidiaryPrice": 20438.0,
+          "holdingValue": 4524.2,
+          "marketCap": 4367.5,
+          "ratio": 103.59
+        },
+        {
+          "date": "2023-06-27",
+          "holdingPrice": 104691.0,
+          "subsidiaryPrice": 21738.0,
+          "holdingValue": 4811.9,
+          "marketCap": 4406.3,
+          "ratio": 109.21
+        },
+        {
+          "date": "2023-06-28",
+          "holdingPrice": 104322.0,
+          "subsidiaryPrice": 22411.0,
+          "holdingValue": 4960.7,
+          "marketCap": 4390.8,
+          "ratio": 112.98
+        },
+        {
+          "date": "2023-06-29",
+          "holdingPrice": 103677.0,
+          "subsidiaryPrice": 22545.0,
+          "holdingValue": 4990.5,
+          "marketCap": 4363.6,
+          "ratio": 114.37
+        },
+        {
+          "date": "2023-06-30",
+          "holdingPrice": 104691.0,
+          "subsidiaryPrice": 23083.0,
+          "holdingValue": 5109.5,
+          "marketCap": 4406.3,
+          "ratio": 115.96
+        },
+        {
+          "date": "2023-07-03",
+          "holdingPrice": 103953.0,
+          "subsidiaryPrice": 23038.0,
+          "holdingValue": 5099.6,
+          "marketCap": 4375.2,
+          "ratio": 116.56
+        },
+        {
+          "date": "2023-07-04",
+          "holdingPrice": 103584.0,
+          "subsidiaryPrice": 22724.0,
+          "holdingValue": 5030.2,
+          "marketCap": 4359.7,
+          "ratio": 115.38
+        },
+        {
+          "date": "2023-07-05",
+          "holdingPrice": 103308.0,
+          "subsidiaryPrice": 22186.0,
+          "holdingValue": 4911.1,
+          "marketCap": 4348.1,
+          "ratio": 112.95
+        },
+        {
+          "date": "2023-07-06",
+          "holdingPrice": 104507.0,
+          "subsidiaryPrice": 22904.0,
+          "holdingValue": 5069.9,
+          "marketCap": 4398.5,
+          "ratio": 115.26
+        },
+        {
+          "date": "2023-07-07",
+          "holdingPrice": 105429.0,
+          "subsidiaryPrice": 22724.0,
+          "holdingValue": 5030.2,
+          "marketCap": 4437.3,
+          "ratio": 113.36
+        },
+        {
+          "date": "2023-07-10",
+          "holdingPrice": 104230.0,
+          "subsidiaryPrice": 23441.0,
+          "holdingValue": 5188.9,
+          "marketCap": 4386.9,
+          "ratio": 118.28
+        },
+        {
+          "date": "2023-07-11",
+          "holdingPrice": 103861.0,
+          "subsidiaryPrice": 23934.0,
+          "holdingValue": 5298.0,
+          "marketCap": 4371.3,
+          "ratio": 121.2
+        },
+        {
+          "date": "2023-07-12",
+          "holdingPrice": 104138.0,
+          "subsidiaryPrice": 26310.0,
+          "holdingValue": 5823.9,
+          "marketCap": 4383.0,
+          "ratio": 132.87
+        },
+        {
+          "date": "2023-07-13",
+          "holdingPrice": 103492.0,
+          "subsidiaryPrice": 25503.0,
+          "holdingValue": 5645.3,
+          "marketCap": 4355.8,
+          "ratio": 129.6
+        },
+        {
+          "date": "2023-07-14",
+          "holdingPrice": 102939.0,
+          "subsidiaryPrice": 26310.0,
+          "holdingValue": 5823.9,
+          "marketCap": 4332.5,
+          "ratio": 134.42
+        },
+        {
+          "date": "2023-07-17",
+          "holdingPrice": 102662.0,
+          "subsidiaryPrice": 25055.0,
+          "holdingValue": 5546.1,
+          "marketCap": 4320.9,
+          "ratio": 128.36
+        },
+        {
+          "date": "2023-07-18",
+          "holdingPrice": 104691.0,
+          "subsidiaryPrice": 25010.0,
+          "holdingValue": 5536.2,
+          "marketCap": 4406.3,
+          "ratio": 125.64
+        },
+        {
+          "date": "2023-07-19",
+          "holdingPrice": 103400.0,
+          "subsidiaryPrice": 25638.0,
+          "holdingValue": 5675.1,
+          "marketCap": 4351.9,
+          "ratio": 130.4
+        },
+        {
+          "date": "2023-07-20",
+          "holdingPrice": 102477.0,
+          "subsidiaryPrice": 25727.0,
+          "holdingValue": 5694.9,
+          "marketCap": 4313.1,
+          "ratio": 132.04
+        },
+        {
+          "date": "2023-07-21",
+          "holdingPrice": 103584.0,
+          "subsidiaryPrice": 25862.0,
+          "holdingValue": 5724.7,
+          "marketCap": 4359.7,
+          "ratio": 131.31
+        },
+        {
+          "date": "2023-07-24",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 25548.0,
+          "holdingValue": 5655.2,
+          "marketCap": 4282.1,
+          "ratio": 132.07
+        },
+        {
+          "date": "2023-07-25",
+          "holdingPrice": 101740.0,
+          "subsidiaryPrice": 25862.0,
+          "holdingValue": 5724.7,
+          "marketCap": 4282.1,
+          "ratio": 133.69
+        },
+        {
+          "date": "2023-07-26",
+          "holdingPrice": 98603.0,
+          "subsidiaryPrice": 24517.0,
+          "holdingValue": 5427.0,
+          "marketCap": 4150.1,
+          "ratio": 130.77
+        },
+        {
+          "date": "2023-07-27",
+          "holdingPrice": 100817.0,
+          "subsidiaryPrice": 25951.0,
+          "holdingValue": 5744.5,
+          "marketCap": 4243.2,
+          "ratio": 135.38
+        },
+        {
+          "date": "2023-07-28",
+          "holdingPrice": 100171.0,
+          "subsidiaryPrice": 25100.0,
+          "holdingValue": 5556.0,
+          "marketCap": 4216.1,
+          "ratio": 131.78
+        },
+        {
+          "date": "2023-07-31",
+          "holdingPrice": 100356.0,
+          "subsidiaryPrice": 25189.0,
+          "holdingValue": 5575.8,
+          "marketCap": 4223.8,
+          "ratio": 132.01
+        },
+        {
+          "date": "2023-08-01",
+          "holdingPrice": 102570.0,
+          "subsidiaryPrice": 23845.0,
+          "holdingValue": 5278.2,
+          "marketCap": 4317.0,
+          "ratio": 122.27
+        },
+        {
+          "date": "2023-08-02",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 23352.0,
+          "holdingValue": 5169.1,
+          "marketCap": 4247.1,
+          "ratio": 121.71
+        },
+        {
+          "date": "2023-08-03",
+          "holdingPrice": 103492.0,
+          "subsidiaryPrice": 23217.0,
+          "holdingValue": 5139.3,
+          "marketCap": 4355.8,
+          "ratio": 117.99
+        },
+        {
+          "date": "2023-08-04",
+          "holdingPrice": 103492.0,
+          "subsidiaryPrice": 22186.0,
+          "holdingValue": 4911.1,
+          "marketCap": 4355.8,
+          "ratio": 112.75
+        },
+        {
+          "date": "2023-08-07",
+          "holdingPrice": 103308.0,
+          "subsidiaryPrice": 22007.0,
+          "holdingValue": 4871.4,
+          "marketCap": 4348.1,
+          "ratio": 112.04
+        },
+        {
+          "date": "2023-08-08",
+          "holdingPrice": 103123.0,
+          "subsidiaryPrice": 22500.0,
+          "holdingValue": 4980.6,
+          "marketCap": 4340.3,
+          "ratio": 114.75
+        },
+        {
+          "date": "2023-08-09",
+          "holdingPrice": 103123.0,
+          "subsidiaryPrice": 22142.0,
+          "holdingValue": 4901.2,
+          "marketCap": 4340.3,
+          "ratio": 112.92
+        },
+        {
+          "date": "2023-08-10",
+          "holdingPrice": 100540.0,
+          "subsidiaryPrice": 21604.0,
+          "holdingValue": 4782.1,
+          "marketCap": 4231.6,
+          "ratio": 113.01
+        },
+        {
+          "date": "2023-08-11",
+          "holdingPrice": 99895.0,
+          "subsidiaryPrice": 21604.0,
+          "holdingValue": 4782.1,
+          "marketCap": 4204.4,
+          "ratio": 113.74
+        },
+        {
+          "date": "2023-08-14",
+          "holdingPrice": 99802.0,
+          "subsidiaryPrice": 21649.0,
+          "holdingValue": 4792.1,
+          "marketCap": 4200.5,
+          "ratio": 114.08
+        },
+        {
+          "date": "2023-08-16",
+          "holdingPrice": 98696.0,
+          "subsidiaryPrice": 20752.0,
+          "holdingValue": 4593.6,
+          "marketCap": 4153.9,
+          "ratio": 110.58
+        },
+        {
+          "date": "2023-08-17",
+          "holdingPrice": 97773.0,
+          "subsidiaryPrice": 20394.0,
+          "holdingValue": 4514.3,
+          "marketCap": 4115.1,
+          "ratio": 109.7
+        },
+        {
+          "date": "2023-08-18",
+          "holdingPrice": 96666.0,
+          "subsidiaryPrice": 20573.0,
+          "holdingValue": 4553.9,
+          "marketCap": 4068.5,
+          "ratio": 111.93
+        },
+        {
+          "date": "2023-08-21",
+          "holdingPrice": 96390.0,
+          "subsidiaryPrice": 20438.0,
+          "holdingValue": 4524.2,
+          "marketCap": 4056.9,
+          "ratio": 111.52
+        },
+        {
+          "date": "2023-08-22",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 20349.0,
+          "holdingValue": 4504.3,
+          "marketCap": 4076.3,
+          "ratio": 110.5
+        },
+        {
+          "date": "2023-08-23",
+          "holdingPrice": 97773.0,
+          "subsidiaryPrice": 20349.0,
+          "holdingValue": 4504.3,
+          "marketCap": 4115.1,
+          "ratio": 109.46
+        },
+        {
+          "date": "2023-08-24",
+          "holdingPrice": 98142.0,
+          "subsidiaryPrice": 20663.0,
+          "holdingValue": 4573.8,
+          "marketCap": 4130.7,
+          "ratio": 110.73
+        },
+        {
+          "date": "2023-08-25",
+          "holdingPrice": 100079.0,
+          "subsidiaryPrice": 20394.0,
+          "holdingValue": 4514.3,
+          "marketCap": 4212.2,
+          "ratio": 107.17
+        },
+        {
+          "date": "2023-08-28",
+          "holdingPrice": 99157.0,
+          "subsidiaryPrice": 21066.0,
+          "holdingValue": 4663.1,
+          "marketCap": 4173.4,
+          "ratio": 111.73
+        },
+        {
+          "date": "2023-08-29",
+          "holdingPrice": 99618.0,
+          "subsidiaryPrice": 21200.0,
+          "holdingValue": 4692.8,
+          "marketCap": 4192.8,
+          "ratio": 111.93
+        },
+        {
+          "date": "2023-08-30",
+          "holdingPrice": 100817.0,
+          "subsidiaryPrice": 20931.0,
+          "holdingValue": 4633.3,
+          "marketCap": 4243.2,
+          "ratio": 109.19
+        },
+        {
+          "date": "2023-08-31",
+          "holdingPrice": 101094.0,
+          "subsidiaryPrice": 21156.0,
+          "holdingValue": 4682.9,
+          "marketCap": 4254.9,
+          "ratio": 110.06
+        },
+        {
+          "date": "2023-09-01",
+          "holdingPrice": 100356.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4223.8,
+          "ratio": 108.05
+        },
+        {
+          "date": "2023-09-04",
+          "holdingPrice": 101371.0,
+          "subsidiaryPrice": 21111.0,
+          "holdingValue": 4673.0,
+          "marketCap": 4266.5,
+          "ratio": 109.53
+        },
+        {
+          "date": "2023-09-05",
+          "holdingPrice": 97958.0,
+          "subsidiaryPrice": 21021.0,
+          "holdingValue": 4653.2,
+          "marketCap": 4122.9,
+          "ratio": 112.86
+        },
+        {
+          "date": "2023-09-06",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 20259.0,
+          "holdingValue": 4484.5,
+          "marketCap": 4076.3,
+          "ratio": 110.01
+        },
+        {
+          "date": "2023-09-07",
+          "holdingPrice": 95006.0,
+          "subsidiaryPrice": 20438.0,
+          "holdingValue": 4524.2,
+          "marketCap": 3998.7,
+          "ratio": 113.14
+        },
+        {
+          "date": "2023-09-08",
+          "holdingPrice": 95006.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 3998.7,
+          "ratio": 114.13
+        },
+        {
+          "date": "2023-09-11",
+          "holdingPrice": 95467.0,
+          "subsidiaryPrice": 21021.0,
+          "holdingValue": 4653.2,
+          "marketCap": 4018.1,
+          "ratio": 115.81
+        },
+        {
+          "date": "2023-09-12",
+          "holdingPrice": 95467.0,
+          "subsidiaryPrice": 20483.0,
+          "holdingValue": 4534.1,
+          "marketCap": 4018.1,
+          "ratio": 112.84
+        },
+        {
+          "date": "2023-09-13",
+          "holdingPrice": 95191.0,
+          "subsidiaryPrice": 20663.0,
+          "holdingValue": 4573.8,
+          "marketCap": 4006.4,
+          "ratio": 114.16
+        },
+        {
+          "date": "2023-09-14",
+          "holdingPrice": 95283.0,
+          "subsidiaryPrice": 20483.0,
+          "holdingValue": 4534.1,
+          "marketCap": 4010.3,
+          "ratio": 113.06
+        },
+        {
+          "date": "2023-09-15",
+          "holdingPrice": 95836.0,
+          "subsidiaryPrice": 21380.0,
+          "holdingValue": 4732.5,
+          "marketCap": 4033.6,
+          "ratio": 117.33
+        },
+        {
+          "date": "2023-09-18",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 21380.0,
+          "holdingValue": 4732.5,
+          "marketCap": 4076.3,
+          "ratio": 116.1
+        },
+        {
+          "date": "2023-09-19",
+          "holdingPrice": 96574.0,
+          "subsidiaryPrice": 22142.0,
+          "holdingValue": 4901.2,
+          "marketCap": 4064.7,
+          "ratio": 120.58
+        },
+        {
+          "date": "2023-09-20",
+          "holdingPrice": 95006.0,
+          "subsidiaryPrice": 21873.0,
+          "holdingValue": 4841.7,
+          "marketCap": 3998.7,
+          "ratio": 121.08
+        },
+        {
+          "date": "2023-09-21",
+          "holdingPrice": 95283.0,
+          "subsidiaryPrice": 21156.0,
+          "holdingValue": 4682.9,
+          "marketCap": 4010.3,
+          "ratio": 116.77
+        },
+        {
+          "date": "2023-09-22",
+          "holdingPrice": 95283.0,
+          "subsidiaryPrice": 22411.0,
+          "holdingValue": 4960.7,
+          "marketCap": 4010.3,
+          "ratio": 123.7
+        },
+        {
+          "date": "2023-09-25",
+          "holdingPrice": 95098.0,
+          "subsidiaryPrice": 21559.0,
+          "holdingValue": 4772.2,
+          "marketCap": 4002.5,
+          "ratio": 119.23
+        },
+        {
+          "date": "2023-09-26",
+          "holdingPrice": 94545.0,
+          "subsidiaryPrice": 21424.0,
+          "holdingValue": 4742.4,
+          "marketCap": 3979.2,
+          "ratio": 119.18
+        },
+        {
+          "date": "2023-09-27",
+          "holdingPrice": 95467.0,
+          "subsidiaryPrice": 22052.0,
+          "holdingValue": 4881.3,
+          "marketCap": 4018.1,
+          "ratio": 121.48
+        },
+        {
+          "date": "2023-10-04",
+          "holdingPrice": 95467.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4018.1,
+          "ratio": 113.58
+        },
+        {
+          "date": "2023-10-05",
+          "holdingPrice": 95928.0,
+          "subsidiaryPrice": 20887.0,
+          "holdingValue": 4623.4,
+          "marketCap": 4037.5,
+          "ratio": 114.51
+        },
+        {
+          "date": "2023-10-06",
+          "holdingPrice": 96021.0,
+          "subsidiaryPrice": 20483.0,
+          "holdingValue": 4534.1,
+          "marketCap": 4041.4,
+          "ratio": 112.19
+        },
+        {
+          "date": "2023-10-10",
+          "holdingPrice": 97589.0,
+          "subsidiaryPrice": 20483.0,
+          "holdingValue": 4534.1,
+          "marketCap": 4107.4,
+          "ratio": 110.39
+        },
+        {
+          "date": "2023-10-11",
+          "holdingPrice": 96759.0,
+          "subsidiaryPrice": 20707.0,
+          "holdingValue": 4583.7,
+          "marketCap": 4072.4,
+          "ratio": 112.55
+        },
+        {
+          "date": "2023-10-12",
+          "holdingPrice": 96205.0,
+          "subsidiaryPrice": 20618.0,
+          "holdingValue": 4563.9,
+          "marketCap": 4049.1,
+          "ratio": 112.71
+        },
+        {
+          "date": "2023-10-13",
+          "holdingPrice": 95928.0,
+          "subsidiaryPrice": 20349.0,
+          "holdingValue": 4504.3,
+          "marketCap": 4037.5,
+          "ratio": 111.56
+        },
+        {
+          "date": "2023-10-16",
+          "holdingPrice": 96943.0,
+          "subsidiaryPrice": 19766.0,
+          "holdingValue": 4375.4,
+          "marketCap": 4080.2,
+          "ratio": 107.23
+        },
+        {
+          "date": "2023-10-17",
+          "holdingPrice": 97035.0,
+          "subsidiaryPrice": 19228.0,
+          "holdingValue": 4256.3,
+          "marketCap": 4084.1,
+          "ratio": 104.22
+        },
+        {
+          "date": "2023-10-18",
+          "holdingPrice": 97681.0,
+          "subsidiaryPrice": 19228.0,
+          "holdingValue": 4256.3,
+          "marketCap": 4111.2,
+          "ratio": 103.53
+        },
+        {
+          "date": "2023-10-19",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 19183.0,
+          "holdingValue": 4246.4,
+          "marketCap": 4076.3,
+          "ratio": 104.17
+        },
+        {
+          "date": "2023-10-20",
+          "holdingPrice": 96574.0,
+          "subsidiaryPrice": 18377.0,
+          "holdingValue": 4067.8,
+          "marketCap": 4064.7,
+          "ratio": 100.08
+        },
+        {
+          "date": "2023-10-23",
+          "holdingPrice": 95559.0,
+          "subsidiaryPrice": 18646.0,
+          "holdingValue": 4127.3,
+          "marketCap": 4022.0,
+          "ratio": 102.62
+        },
+        {
+          "date": "2023-10-24",
+          "holdingPrice": 96666.0,
+          "subsidiaryPrice": 18780.0,
+          "holdingValue": 4157.1,
+          "marketCap": 4068.5,
+          "ratio": 102.18
+        },
+        {
+          "date": "2023-10-25",
+          "holdingPrice": 96666.0,
+          "subsidiaryPrice": 18914.0,
+          "holdingValue": 4186.8,
+          "marketCap": 4068.5,
+          "ratio": 102.91
+        },
+        {
+          "date": "2023-10-26",
+          "holdingPrice": 95744.0,
+          "subsidiaryPrice": 18287.0,
+          "holdingValue": 4047.9,
+          "marketCap": 4029.7,
+          "ratio": 100.45
+        },
+        {
+          "date": "2023-10-27",
+          "holdingPrice": 97404.0,
+          "subsidiaryPrice": 19228.0,
+          "holdingValue": 4256.3,
+          "marketCap": 4099.6,
+          "ratio": 103.82
+        },
+        {
+          "date": "2023-10-30",
+          "holdingPrice": 98234.0,
+          "subsidiaryPrice": 20080.0,
+          "holdingValue": 4444.8,
+          "marketCap": 4134.5,
+          "ratio": 107.5
+        },
+        {
+          "date": "2023-10-31",
+          "holdingPrice": 97958.0,
+          "subsidiaryPrice": 19497.0,
+          "holdingValue": 4315.8,
+          "marketCap": 4122.9,
+          "ratio": 104.68
+        },
+        {
+          "date": "2023-11-01",
+          "holdingPrice": 97773.0,
+          "subsidiaryPrice": 19901.0,
+          "holdingValue": 4405.1,
+          "marketCap": 4115.1,
+          "ratio": 107.05
+        },
+        {
+          "date": "2023-11-02",
+          "holdingPrice": 97312.0,
+          "subsidiaryPrice": 20752.0,
+          "holdingValue": 4593.6,
+          "marketCap": 4095.7,
+          "ratio": 112.16
+        },
+        {
+          "date": "2023-11-03",
+          "holdingPrice": 97220.0,
+          "subsidiaryPrice": 19094.0,
+          "holdingValue": 4226.5,
+          "marketCap": 4091.8,
+          "ratio": 103.29
+        },
+        {
+          "date": "2023-11-06",
+          "holdingPrice": 97497.0,
+          "subsidiaryPrice": 19228.0,
+          "holdingValue": 4256.3,
+          "marketCap": 4103.5,
+          "ratio": 103.72
+        },
+        {
+          "date": "2023-11-07",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 19856.0,
+          "holdingValue": 4395.2,
+          "marketCap": 4076.3,
+          "ratio": 107.82
+        },
+        {
+          "date": "2023-11-08",
+          "holdingPrice": 95928.0,
+          "subsidiaryPrice": 19990.0,
+          "holdingValue": 4425.0,
+          "marketCap": 4037.5,
+          "ratio": 109.6
+        },
+        {
+          "date": "2023-11-09",
+          "holdingPrice": 95467.0,
+          "subsidiaryPrice": 20304.0,
+          "holdingValue": 4494.4,
+          "marketCap": 4018.1,
+          "ratio": 111.85
+        },
+        {
+          "date": "2023-11-10",
+          "holdingPrice": 97497.0,
+          "subsidiaryPrice": 19811.0,
+          "holdingValue": 4385.3,
+          "marketCap": 4103.5,
+          "ratio": 106.87
+        },
+        {
+          "date": "2023-11-13",
+          "holdingPrice": 95652.0,
+          "subsidiaryPrice": 20304.0,
+          "holdingValue": 4494.4,
+          "marketCap": 4025.8,
+          "ratio": 111.64
+        },
+        {
+          "date": "2023-11-14",
+          "holdingPrice": 95928.0,
+          "subsidiaryPrice": 21290.0,
+          "holdingValue": 4712.7,
+          "marketCap": 4037.5,
+          "ratio": 116.72
+        },
+        {
+          "date": "2023-11-15",
+          "holdingPrice": 95928.0,
+          "subsidiaryPrice": 22186.0,
+          "holdingValue": 4911.1,
+          "marketCap": 4037.5,
+          "ratio": 121.64
+        },
+        {
+          "date": "2023-11-16",
+          "holdingPrice": 94637.0,
+          "subsidiaryPrice": 21962.0,
+          "holdingValue": 4861.5,
+          "marketCap": 3983.1,
+          "ratio": 122.05
+        },
+        {
+          "date": "2023-11-17",
+          "holdingPrice": 95559.0,
+          "subsidiaryPrice": 21469.0,
+          "holdingValue": 4752.4,
+          "marketCap": 4022.0,
+          "ratio": 118.16
+        },
+        {
+          "date": "2023-11-20",
+          "holdingPrice": 96482.0,
+          "subsidiaryPrice": 21156.0,
+          "holdingValue": 4682.9,
+          "marketCap": 4060.8,
+          "ratio": 115.32
+        },
+        {
+          "date": "2023-11-21",
+          "holdingPrice": 98696.0,
+          "subsidiaryPrice": 22904.0,
+          "holdingValue": 5069.9,
+          "marketCap": 4153.9,
+          "ratio": 122.05
+        },
+        {
+          "date": "2023-11-22",
+          "holdingPrice": 99157.0,
+          "subsidiaryPrice": 22635.0,
+          "holdingValue": 5010.3,
+          "marketCap": 4173.4,
+          "ratio": 120.05
+        },
+        {
+          "date": "2023-11-23",
+          "holdingPrice": 100079.0,
+          "subsidiaryPrice": 23128.0,
+          "holdingValue": 5119.5,
+          "marketCap": 4212.2,
+          "ratio": 121.54
+        },
+        {
+          "date": "2023-11-24",
+          "holdingPrice": 100171.0,
+          "subsidiaryPrice": 24293.0,
+          "holdingValue": 5377.4,
+          "marketCap": 4216.1,
+          "ratio": 127.55
+        },
+        {
+          "date": "2023-11-27",
+          "holdingPrice": 100079.0,
+          "subsidiaryPrice": 23755.0,
+          "holdingValue": 5258.4,
+          "marketCap": 4212.2,
+          "ratio": 124.84
+        },
+        {
+          "date": "2023-11-28",
+          "holdingPrice": 98788.0,
+          "subsidiaryPrice": 22993.0,
+          "holdingValue": 5089.7,
+          "marketCap": 4157.8,
+          "ratio": 122.41
+        },
+        {
+          "date": "2023-11-29",
+          "holdingPrice": 99065.0,
+          "subsidiaryPrice": 22545.0,
+          "holdingValue": 4990.5,
+          "marketCap": 4169.5,
+          "ratio": 119.69
+        },
+        {
+          "date": "2023-11-30",
+          "holdingPrice": 99802.0,
+          "subsidiaryPrice": 22052.0,
+          "holdingValue": 4881.3,
+          "marketCap": 4200.5,
+          "ratio": 116.21
+        },
+        {
+          "date": "2023-12-01",
+          "holdingPrice": 98788.0,
+          "subsidiaryPrice": 22769.0,
+          "holdingValue": 5040.1,
+          "marketCap": 4157.8,
+          "ratio": 121.22
+        },
+        {
+          "date": "2023-12-04",
+          "holdingPrice": 98142.0,
+          "subsidiaryPrice": 22635.0,
+          "holdingValue": 5010.3,
+          "marketCap": 4130.7,
+          "ratio": 121.3
+        },
+        {
+          "date": "2023-12-05",
+          "holdingPrice": 97773.0,
+          "subsidiaryPrice": 22276.0,
+          "holdingValue": 4931.0,
+          "marketCap": 4115.1,
+          "ratio": 119.83
+        },
+        {
+          "date": "2023-12-06",
+          "holdingPrice": 96759.0,
+          "subsidiaryPrice": 22321.0,
+          "holdingValue": 4940.9,
+          "marketCap": 4072.4,
+          "ratio": 121.33
+        },
+        {
+          "date": "2023-12-07",
+          "holdingPrice": 96851.0,
+          "subsidiaryPrice": 22007.0,
+          "holdingValue": 4871.4,
+          "marketCap": 4076.3,
+          "ratio": 119.51
+        },
+        {
+          "date": "2023-12-08",
+          "holdingPrice": 98972.0,
+          "subsidiaryPrice": 22904.0,
+          "holdingValue": 5069.9,
+          "marketCap": 4165.6,
+          "ratio": 121.71
+        },
+        {
+          "date": "2023-12-11",
+          "holdingPrice": 98419.0,
+          "subsidiaryPrice": 23576.0,
+          "holdingValue": 5218.7,
+          "marketCap": 4142.3,
+          "ratio": 125.98
+        },
+        {
+          "date": "2023-12-12",
+          "holdingPrice": 98419.0,
+          "subsidiaryPrice": 23262.0,
+          "holdingValue": 5149.2,
+          "marketCap": 4142.3,
+          "ratio": 124.31
+        },
+        {
+          "date": "2023-12-13",
+          "holdingPrice": 98788.0,
+          "subsidiaryPrice": 23845.0,
+          "holdingValue": 5278.2,
+          "marketCap": 4157.8,
+          "ratio": 126.95
+        },
+        {
+          "date": "2023-12-14",
+          "holdingPrice": 98419.0,
+          "subsidiaryPrice": 24024.0,
+          "holdingValue": 5317.9,
+          "marketCap": 4142.3,
+          "ratio": 128.38
+        },
+        {
+          "date": "2023-12-15",
+          "holdingPrice": 103123.0,
+          "subsidiaryPrice": 23666.0,
+          "holdingValue": 5238.5,
+          "marketCap": 4340.3,
+          "ratio": 120.7
+        },
+        {
+          "date": "2023-12-18",
+          "holdingPrice": 100909.0,
+          "subsidiaryPrice": 24427.0,
+          "holdingValue": 5407.2,
+          "marketCap": 4247.1,
+          "ratio": 127.31
+        },
+        {
+          "date": "2023-12-19",
+          "holdingPrice": 102016.0,
+          "subsidiaryPrice": 22679.0,
+          "holdingValue": 5020.2,
+          "marketCap": 4293.7,
+          "ratio": 116.92
+        },
+        {
+          "date": "2023-12-20",
+          "holdingPrice": 104045.0,
+          "subsidiaryPrice": 23397.0,
+          "holdingValue": 5179.0,
+          "marketCap": 4379.1,
+          "ratio": 118.27
+        },
+        {
+          "date": "2023-12-21",
+          "holdingPrice": 99987.0,
+          "subsidiaryPrice": 23262.0,
+          "holdingValue": 5149.2,
+          "marketCap": 4208.3,
+          "ratio": 122.36
+        },
+        {
+          "date": "2023-12-22",
+          "holdingPrice": 101278.0,
+          "subsidiaryPrice": 23083.0,
+          "holdingValue": 5109.5,
+          "marketCap": 4262.6,
+          "ratio": 119.87
+        },
+        {
+          "date": "2023-12-26",
+          "holdingPrice": 99065.0,
+          "subsidiaryPrice": 23128.0,
+          "holdingValue": 5119.5,
+          "marketCap": 4169.5,
+          "ratio": 122.78
+        },
+        {
+          "date": "2023-12-27",
+          "holdingPrice": 103855.0,
+          "subsidiaryPrice": 22752.0,
+          "holdingValue": 5036.2,
+          "marketCap": 4371.1,
+          "ratio": 115.22
+        },
+        {
+          "date": "2023-12-28",
+          "holdingPrice": 103472.0,
+          "subsidiaryPrice": 23363.0,
+          "holdingValue": 5171.5,
+          "marketCap": 4355.0,
+          "ratio": 118.75
+        },
+        {
+          "date": "2024-01-02",
+          "holdingPrice": 103759.0,
+          "subsidiaryPrice": 22846.0,
+          "holdingValue": 5057.0,
+          "marketCap": 4367.1,
+          "ratio": 115.8
+        },
+        {
+          "date": "2024-01-03",
+          "holdingPrice": 101843.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4286.4,
+          "ratio": 111.18
+        },
+        {
+          "date": "2024-01-04",
+          "holdingPrice": 101556.0,
+          "subsidiaryPrice": 21576.0,
+          "holdingValue": 4776.1,
+          "marketCap": 4274.3,
+          "ratio": 111.74
+        },
+        {
+          "date": "2024-01-05",
+          "holdingPrice": 101172.0,
+          "subsidiaryPrice": 22282.0,
+          "holdingValue": 4932.2,
+          "marketCap": 4258.2,
+          "ratio": 115.83
+        },
+        {
+          "date": "2024-01-08",
+          "holdingPrice": 100789.0,
+          "subsidiaryPrice": 21952.0,
+          "holdingValue": 4859.3,
+          "marketCap": 4242.1,
+          "ratio": 114.55
+        },
+        {
+          "date": "2024-01-09",
+          "holdingPrice": 102609.0,
+          "subsidiaryPrice": 22047.0,
+          "holdingValue": 4880.1,
+          "marketCap": 4318.7,
+          "ratio": 113.0
+        },
+        {
+          "date": "2024-01-10",
+          "holdingPrice": 100885.0,
+          "subsidiaryPrice": 21952.0,
+          "holdingValue": 4859.3,
+          "marketCap": 4246.1,
+          "ratio": 114.44
+        },
+        {
+          "date": "2024-01-11",
+          "holdingPrice": 102130.0,
+          "subsidiaryPrice": 21059.0,
+          "holdingValue": 4661.6,
+          "marketCap": 4298.5,
+          "ratio": 108.45
+        },
+        {
+          "date": "2024-01-12",
+          "holdingPrice": 103088.0,
+          "subsidiaryPrice": 20824.0,
+          "holdingValue": 4609.6,
+          "marketCap": 4338.8,
+          "ratio": 106.24
+        },
+        {
+          "date": "2024-01-15",
+          "holdingPrice": 103184.0,
+          "subsidiaryPrice": 20354.0,
+          "holdingValue": 4505.5,
+          "marketCap": 4342.9,
+          "ratio": 103.75
+        },
+        {
+          "date": "2024-01-16",
+          "holdingPrice": 103951.0,
+          "subsidiaryPrice": 20119.0,
+          "holdingValue": 4453.5,
+          "marketCap": 4375.1,
+          "ratio": 101.79
+        },
+        {
+          "date": "2024-01-17",
+          "holdingPrice": 102514.0,
+          "subsidiaryPrice": 19555.0,
+          "holdingValue": 4328.6,
+          "marketCap": 4314.6,
+          "ratio": 100.32
+        },
+        {
+          "date": "2024-01-18",
+          "holdingPrice": 101556.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 4274.3,
+          "ratio": 98.59
+        },
+        {
+          "date": "2024-01-19",
+          "holdingPrice": 101268.0,
+          "subsidiaryPrice": 19179.0,
+          "holdingValue": 4245.4,
+          "marketCap": 4262.2,
+          "ratio": 99.61
+        },
+        {
+          "date": "2024-01-22",
+          "holdingPrice": 100693.0,
+          "subsidiaryPrice": 18991.0,
+          "holdingValue": 4203.8,
+          "marketCap": 4238.0,
+          "ratio": 99.19
+        },
+        {
+          "date": "2024-01-23",
+          "holdingPrice": 100023.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 4209.8,
+          "ratio": 100.1
+        },
+        {
+          "date": "2024-01-24",
+          "holdingPrice": 99544.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4189.6,
+          "ratio": 99.84
+        },
+        {
+          "date": "2024-01-25",
+          "holdingPrice": 98681.0,
+          "subsidiaryPrice": 19367.0,
+          "holdingValue": 4287.0,
+          "marketCap": 4153.3,
+          "ratio": 103.22
+        },
+        {
+          "date": "2024-01-26",
+          "holdingPrice": 99448.0,
+          "subsidiaryPrice": 19837.0,
+          "holdingValue": 4391.1,
+          "marketCap": 4185.6,
+          "ratio": 104.91
+        },
+        {
+          "date": "2024-01-29",
+          "holdingPrice": 101460.0,
+          "subsidiaryPrice": 20683.0,
+          "holdingValue": 4578.4,
+          "marketCap": 4270.3,
+          "ratio": 107.21
+        },
+        {
+          "date": "2024-01-30",
+          "holdingPrice": 109124.0,
+          "subsidiaryPrice": 20495.0,
+          "holdingValue": 4536.8,
+          "marketCap": 4592.9,
+          "ratio": 98.78
+        },
+        {
+          "date": "2024-01-31",
+          "holdingPrice": 105484.0,
+          "subsidiaryPrice": 20636.0,
+          "holdingValue": 4568.0,
+          "marketCap": 4439.6,
+          "ratio": 102.89
+        },
+        {
+          "date": "2024-02-01",
+          "holdingPrice": 110370.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4645.3,
+          "ratio": 102.59
+        },
+        {
+          "date": "2024-02-02",
+          "holdingPrice": 113723.0,
+          "subsidiaryPrice": 21388.0,
+          "holdingValue": 4734.5,
+          "marketCap": 4786.4,
+          "ratio": 98.91
+        },
+        {
+          "date": "2024-02-05",
+          "holdingPrice": 112669.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4742.1,
+          "ratio": 100.5
+        },
+        {
+          "date": "2024-02-06",
+          "holdingPrice": 111520.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4693.7,
+          "ratio": 101.53
+        },
+        {
+          "date": "2024-02-07",
+          "holdingPrice": 108837.0,
+          "subsidiaryPrice": 22611.0,
+          "holdingValue": 5005.0,
+          "marketCap": 4580.8,
+          "ratio": 109.26
+        },
+        {
+          "date": "2024-02-08",
+          "holdingPrice": 110178.0,
+          "subsidiaryPrice": 23410.0,
+          "holdingValue": 5181.9,
+          "marketCap": 4637.2,
+          "ratio": 111.75
+        },
+        {
+          "date": "2024-02-13",
+          "holdingPrice": 109699.0,
+          "subsidiaryPrice": 23410.0,
+          "holdingValue": 5181.9,
+          "marketCap": 4617.1,
+          "ratio": 112.23
+        },
+        {
+          "date": "2024-02-14",
+          "holdingPrice": 110753.0,
+          "subsidiaryPrice": 23457.0,
+          "holdingValue": 5192.3,
+          "marketCap": 4661.4,
+          "ratio": 111.39
+        },
+        {
+          "date": "2024-02-15",
+          "holdingPrice": 113627.0,
+          "subsidiaryPrice": 23410.0,
+          "holdingValue": 5181.9,
+          "marketCap": 4782.4,
+          "ratio": 108.35
+        },
+        {
+          "date": "2024-02-16",
+          "holdingPrice": 113052.0,
+          "subsidiaryPrice": 23551.0,
+          "holdingValue": 5213.1,
+          "marketCap": 4758.2,
+          "ratio": 109.56
+        },
+        {
+          "date": "2024-02-19",
+          "holdingPrice": 114969.0,
+          "subsidiaryPrice": 23410.0,
+          "holdingValue": 5181.9,
+          "marketCap": 4838.8,
+          "ratio": 107.09
+        },
+        {
+          "date": "2024-02-20",
+          "holdingPrice": 118897.0,
+          "subsidiaryPrice": 23598.0,
+          "holdingValue": 5223.5,
+          "marketCap": 5004.2,
+          "ratio": 104.38
+        },
+        {
+          "date": "2024-02-21",
+          "holdingPrice": 116501.0,
+          "subsidiaryPrice": 23128.0,
+          "holdingValue": 5119.5,
+          "marketCap": 4903.4,
+          "ratio": 104.41
+        },
+        {
+          "date": "2024-02-22",
+          "holdingPrice": 116789.0,
+          "subsidiaryPrice": 22987.0,
+          "holdingValue": 5088.2,
+          "marketCap": 4915.5,
+          "ratio": 103.52
+        },
+        {
+          "date": "2024-02-23",
+          "holdingPrice": 115639.0,
+          "subsidiaryPrice": 24726.0,
+          "holdingValue": 5473.2,
+          "marketCap": 4867.1,
+          "ratio": 112.45
+        },
+        {
+          "date": "2024-02-26",
+          "holdingPrice": 114490.0,
+          "subsidiaryPrice": 24632.0,
+          "holdingValue": 5452.4,
+          "marketCap": 4818.7,
+          "ratio": 113.15
+        },
+        {
+          "date": "2024-02-27",
+          "holdingPrice": 110178.0,
+          "subsidiaryPrice": 24444.0,
+          "holdingValue": 5410.8,
+          "marketCap": 4637.2,
+          "ratio": 116.68
+        },
+        {
+          "date": "2024-02-28",
+          "holdingPrice": 109987.0,
+          "subsidiaryPrice": 24491.0,
+          "holdingValue": 5421.2,
+          "marketCap": 4629.2,
+          "ratio": 117.11
+        },
+        {
+          "date": "2024-02-29",
+          "holdingPrice": 105579.0,
+          "subsidiaryPrice": 24256.0,
+          "holdingValue": 5369.2,
+          "marketCap": 4443.7,
+          "ratio": 120.83
+        },
+        {
+          "date": "2024-03-04",
+          "holdingPrice": 105771.0,
+          "subsidiaryPrice": 22705.0,
+          "holdingValue": 5025.8,
+          "marketCap": 4451.7,
+          "ratio": 112.9
+        },
+        {
+          "date": "2024-03-05",
+          "holdingPrice": 107975.0,
+          "subsidiaryPrice": 22423.0,
+          "holdingValue": 4963.4,
+          "marketCap": 4544.5,
+          "ratio": 109.22
+        },
+        {
+          "date": "2024-03-06",
+          "holdingPrice": 106442.0,
+          "subsidiaryPrice": 22752.0,
+          "holdingValue": 5036.2,
+          "marketCap": 4480.0,
+          "ratio": 112.42
+        },
+        {
+          "date": "2024-03-07",
+          "holdingPrice": 109124.0,
+          "subsidiaryPrice": 21576.0,
+          "holdingValue": 4776.1,
+          "marketCap": 4592.9,
+          "ratio": 103.99
+        },
+        {
+          "date": "2024-03-08",
+          "holdingPrice": 108454.0,
+          "subsidiaryPrice": 22094.0,
+          "holdingValue": 4890.5,
+          "marketCap": 4564.6,
+          "ratio": 107.14
+        },
+        {
+          "date": "2024-03-11",
+          "holdingPrice": 110466.0,
+          "subsidiaryPrice": 21576.0,
+          "holdingValue": 4776.1,
+          "marketCap": 4649.3,
+          "ratio": 102.73
+        },
+        {
+          "date": "2024-03-12",
+          "holdingPrice": 110466.0,
+          "subsidiaryPrice": 22423.0,
+          "holdingValue": 4963.4,
+          "marketCap": 4649.3,
+          "ratio": 106.75
+        },
+        {
+          "date": "2024-03-13",
+          "holdingPrice": 105579.0,
+          "subsidiaryPrice": 22235.0,
+          "holdingValue": 4921.8,
+          "marketCap": 4443.7,
+          "ratio": 110.76
+        },
+        {
+          "date": "2024-03-14",
+          "holdingPrice": 106825.0,
+          "subsidiaryPrice": 21905.0,
+          "holdingValue": 4848.9,
+          "marketCap": 4496.1,
+          "ratio": 107.85
+        },
+        {
+          "date": "2024-03-15",
+          "holdingPrice": 107687.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4532.4,
+          "ratio": 105.15
+        },
+        {
+          "date": "2024-03-18",
+          "holdingPrice": 106442.0,
+          "subsidiaryPrice": 21670.0,
+          "holdingValue": 4796.9,
+          "marketCap": 4480.0,
+          "ratio": 107.07
+        },
+        {
+          "date": "2024-03-19",
+          "holdingPrice": 105867.0,
+          "subsidiaryPrice": 22000.0,
+          "holdingValue": 4869.7,
+          "marketCap": 4455.8,
+          "ratio": 109.29
+        },
+        {
+          "date": "2024-03-20",
+          "holdingPrice": 107208.0,
+          "subsidiaryPrice": 22564.0,
+          "holdingValue": 4994.6,
+          "marketCap": 4512.2,
+          "ratio": 110.69
+        },
+        {
+          "date": "2024-03-21",
+          "holdingPrice": 107496.0,
+          "subsidiaryPrice": 22470.0,
+          "holdingValue": 4973.8,
+          "marketCap": 4524.3,
+          "ratio": 109.93
+        },
+        {
+          "date": "2024-03-22",
+          "holdingPrice": 106346.0,
+          "subsidiaryPrice": 21858.0,
+          "holdingValue": 4838.5,
+          "marketCap": 4475.9,
+          "ratio": 108.1
+        },
+        {
+          "date": "2024-03-25",
+          "holdingPrice": 105675.0,
+          "subsidiaryPrice": 21717.0,
+          "holdingValue": 4807.3,
+          "marketCap": 4447.7,
+          "ratio": 108.08
+        },
+        {
+          "date": "2024-03-26",
+          "holdingPrice": 107208.0,
+          "subsidiaryPrice": 21952.0,
+          "holdingValue": 4859.3,
+          "marketCap": 4512.2,
+          "ratio": 107.69
+        },
+        {
+          "date": "2024-03-27",
+          "holdingPrice": 103280.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4346.9,
+          "ratio": 109.63
+        },
+        {
+          "date": "2024-03-28",
+          "holdingPrice": 104047.0,
+          "subsidiaryPrice": 21294.0,
+          "holdingValue": 4713.6,
+          "marketCap": 4379.2,
+          "ratio": 107.64
+        },
+        {
+          "date": "2024-03-29",
+          "holdingPrice": 104238.0,
+          "subsidiaryPrice": 21435.0,
+          "holdingValue": 4744.9,
+          "marketCap": 4387.2,
+          "ratio": 108.15
+        },
+        {
+          "date": "2024-04-01",
+          "holdingPrice": 107783.0,
+          "subsidiaryPrice": 21811.0,
+          "holdingValue": 4828.1,
+          "marketCap": 4536.4,
+          "ratio": 106.43
+        },
+        {
+          "date": "2024-04-02",
+          "holdingPrice": 104526.0,
+          "subsidiaryPrice": 21200.0,
+          "holdingValue": 4692.8,
+          "marketCap": 4399.3,
+          "ratio": 106.67
+        },
+        {
+          "date": "2024-04-03",
+          "holdingPrice": 107304.0,
+          "subsidiaryPrice": 20871.0,
+          "holdingValue": 4620.0,
+          "marketCap": 4516.3,
+          "ratio": 102.3
+        },
+        {
+          "date": "2024-04-04",
+          "holdingPrice": 107017.0,
+          "subsidiaryPrice": 20824.0,
+          "holdingValue": 4609.6,
+          "marketCap": 4504.2,
+          "ratio": 102.34
+        },
+        {
+          "date": "2024-04-05",
+          "holdingPrice": 104047.0,
+          "subsidiaryPrice": 20495.0,
+          "holdingValue": 4536.8,
+          "marketCap": 4379.2,
+          "ratio": 103.6
+        },
+        {
+          "date": "2024-04-08",
+          "holdingPrice": 103951.0,
+          "subsidiaryPrice": 20119.0,
+          "holdingValue": 4453.5,
+          "marketCap": 4375.1,
+          "ratio": 101.79
+        },
+        {
+          "date": "2024-04-09",
+          "holdingPrice": 102705.0,
+          "subsidiaryPrice": 20965.0,
+          "holdingValue": 4640.8,
+          "marketCap": 4322.7,
+          "ratio": 107.36
+        },
+        {
+          "date": "2024-04-11",
+          "holdingPrice": 102035.0,
+          "subsidiaryPrice": 20589.0,
+          "holdingValue": 4557.6,
+          "marketCap": 4294.5,
+          "ratio": 106.13
+        },
+        {
+          "date": "2024-04-12",
+          "holdingPrice": 101364.0,
+          "subsidiaryPrice": 20495.0,
+          "holdingValue": 4536.8,
+          "marketCap": 4266.3,
+          "ratio": 106.34
+        },
+        {
+          "date": "2024-04-15",
+          "holdingPrice": 101172.0,
+          "subsidiaryPrice": 20213.0,
+          "holdingValue": 4474.3,
+          "marketCap": 4258.2,
+          "ratio": 105.08
+        },
+        {
+          "date": "2024-04-16",
+          "holdingPrice": 100406.0,
+          "subsidiaryPrice": 19696.0,
+          "holdingValue": 4359.9,
+          "marketCap": 4225.9,
+          "ratio": 103.17
+        },
+        {
+          "date": "2024-04-17",
+          "holdingPrice": 101460.0,
+          "subsidiaryPrice": 19132.0,
+          "holdingValue": 4235.0,
+          "marketCap": 4270.3,
+          "ratio": 99.17
+        },
+        {
+          "date": "2024-04-18",
+          "holdingPrice": 102609.0,
+          "subsidiaryPrice": 19226.0,
+          "holdingValue": 4255.8,
+          "marketCap": 4318.7,
+          "ratio": 98.54
+        },
+        {
+          "date": "2024-04-19",
+          "holdingPrice": 103280.0,
+          "subsidiaryPrice": 19320.0,
+          "holdingValue": 4276.6,
+          "marketCap": 4346.9,
+          "ratio": 98.38
+        },
+        {
+          "date": "2024-04-22",
+          "holdingPrice": 102801.0,
+          "subsidiaryPrice": 19602.0,
+          "holdingValue": 4339.1,
+          "marketCap": 4326.7,
+          "ratio": 100.28
+        },
+        {
+          "date": "2024-04-23",
+          "holdingPrice": 103472.0,
+          "subsidiaryPrice": 19884.0,
+          "holdingValue": 4401.5,
+          "marketCap": 4355.0,
+          "ratio": 101.07
+        },
+        {
+          "date": "2024-04-24",
+          "holdingPrice": 104047.0,
+          "subsidiaryPrice": 19837.0,
+          "holdingValue": 4391.1,
+          "marketCap": 4379.2,
+          "ratio": 100.27
+        },
+        {
+          "date": "2024-04-25",
+          "holdingPrice": 104621.0,
+          "subsidiaryPrice": 20354.0,
+          "holdingValue": 4505.5,
+          "marketCap": 4403.4,
+          "ratio": 102.32
+        },
+        {
+          "date": "2024-04-26",
+          "holdingPrice": 106921.0,
+          "subsidiaryPrice": 20025.0,
+          "holdingValue": 4432.7,
+          "marketCap": 4500.1,
+          "ratio": 98.5
+        },
+        {
+          "date": "2024-04-29",
+          "holdingPrice": 108454.0,
+          "subsidiaryPrice": 20871.0,
+          "holdingValue": 4620.0,
+          "marketCap": 4564.6,
+          "ratio": 101.21
+        },
+        {
+          "date": "2024-04-30",
+          "holdingPrice": 106346.0,
+          "subsidiaryPrice": 20871.0,
+          "holdingValue": 4620.0,
+          "marketCap": 4475.9,
+          "ratio": 103.22
+        },
+        {
+          "date": "2024-05-02",
+          "holdingPrice": 104142.0,
+          "subsidiaryPrice": 20072.0,
+          "holdingValue": 4443.1,
+          "marketCap": 4383.2,
+          "ratio": 101.37
+        },
+        {
+          "date": "2024-05-03",
+          "holdingPrice": 102322.0,
+          "subsidiaryPrice": 21106.0,
+          "holdingValue": 4672.0,
+          "marketCap": 4306.6,
+          "ratio": 108.49
+        },
+        {
+          "date": "2024-05-07",
+          "holdingPrice": 101364.0,
+          "subsidiaryPrice": 20918.0,
+          "holdingValue": 4630.4,
+          "marketCap": 4266.3,
+          "ratio": 108.54
+        },
+        {
+          "date": "2024-05-08",
+          "holdingPrice": 101651.0,
+          "subsidiaryPrice": 21106.0,
+          "holdingValue": 4672.0,
+          "marketCap": 4278.3,
+          "ratio": 109.2
+        },
+        {
+          "date": "2024-05-09",
+          "holdingPrice": 100023.0,
+          "subsidiaryPrice": 20636.0,
+          "holdingValue": 4568.0,
+          "marketCap": 4209.8,
+          "ratio": 108.51
+        },
+        {
+          "date": "2024-05-10",
+          "holdingPrice": 98777.0,
+          "subsidiaryPrice": 20730.0,
+          "holdingValue": 4588.8,
+          "marketCap": 4157.4,
+          "ratio": 110.38
+        },
+        {
+          "date": "2024-05-13",
+          "holdingPrice": 99065.0,
+          "subsidiaryPrice": 20730.0,
+          "holdingValue": 4588.8,
+          "marketCap": 4169.5,
+          "ratio": 110.06
+        },
+        {
+          "date": "2024-05-14",
+          "holdingPrice": 98298.0,
+          "subsidiaryPrice": 22423.0,
+          "holdingValue": 4963.4,
+          "marketCap": 4137.2,
+          "ratio": 119.97
+        },
+        {
+          "date": "2024-05-16",
+          "holdingPrice": 97723.0,
+          "subsidiaryPrice": 23081.0,
+          "holdingValue": 5109.1,
+          "marketCap": 4113.0,
+          "ratio": 124.22
+        },
+        {
+          "date": "2024-05-17",
+          "holdingPrice": 97819.0,
+          "subsidiaryPrice": 22376.0,
+          "holdingValue": 4953.0,
+          "marketCap": 4117.1,
+          "ratio": 120.3
+        },
+        {
+          "date": "2024-05-20",
+          "holdingPrice": 97915.0,
+          "subsidiaryPrice": 22423.0,
+          "holdingValue": 4963.4,
+          "marketCap": 4121.1,
+          "ratio": 120.44
+        },
+        {
+          "date": "2024-05-21",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 21905.0,
+          "holdingValue": 4848.9,
+          "marketCap": 4080.8,
+          "ratio": 118.82
+        },
+        {
+          "date": "2024-05-22",
+          "holdingPrice": 98490.0,
+          "subsidiaryPrice": 22094.0,
+          "holdingValue": 4890.5,
+          "marketCap": 4145.3,
+          "ratio": 117.98
+        },
+        {
+          "date": "2024-05-23",
+          "holdingPrice": 98106.0,
+          "subsidiaryPrice": 22235.0,
+          "holdingValue": 4921.8,
+          "marketCap": 4129.2,
+          "ratio": 119.2
+        },
+        {
+          "date": "2024-05-24",
+          "holdingPrice": 97148.0,
+          "subsidiaryPrice": 21858.0,
+          "holdingValue": 4838.5,
+          "marketCap": 4088.8,
+          "ratio": 118.33
+        },
+        {
+          "date": "2024-05-27",
+          "holdingPrice": 96286.0,
+          "subsidiaryPrice": 22094.0,
+          "holdingValue": 4890.5,
+          "marketCap": 4052.5,
+          "ratio": 120.68
+        },
+        {
+          "date": "2024-05-28",
+          "holdingPrice": 97340.0,
+          "subsidiaryPrice": 21435.0,
+          "holdingValue": 4744.9,
+          "marketCap": 4096.9,
+          "ratio": 115.82
+        },
+        {
+          "date": "2024-05-29",
+          "holdingPrice": 96382.0,
+          "subsidiaryPrice": 21529.0,
+          "holdingValue": 4765.7,
+          "marketCap": 4056.6,
+          "ratio": 117.48
+        },
+        {
+          "date": "2024-05-30",
+          "holdingPrice": 97053.0,
+          "subsidiaryPrice": 20871.0,
+          "holdingValue": 4620.0,
+          "marketCap": 4084.8,
+          "ratio": 113.1
+        },
+        {
+          "date": "2024-05-31",
+          "holdingPrice": 97819.0,
+          "subsidiaryPrice": 21435.0,
+          "holdingValue": 4744.9,
+          "marketCap": 4117.1,
+          "ratio": 115.25
+        },
+        {
+          "date": "2024-06-03",
+          "holdingPrice": 98106.0,
+          "subsidiaryPrice": 21482.0,
+          "holdingValue": 4755.3,
+          "marketCap": 4129.2,
+          "ratio": 115.16
+        },
+        {
+          "date": "2024-06-04",
+          "holdingPrice": 99639.0,
+          "subsidiaryPrice": 21247.0,
+          "holdingValue": 4703.2,
+          "marketCap": 4193.7,
+          "ratio": 112.15
+        },
+        {
+          "date": "2024-06-05",
+          "holdingPrice": 99927.0,
+          "subsidiaryPrice": 21341.0,
+          "holdingValue": 4724.1,
+          "marketCap": 4205.8,
+          "ratio": 112.32
+        },
+        {
+          "date": "2024-06-07",
+          "holdingPrice": 99735.0,
+          "subsidiaryPrice": 20918.0,
+          "holdingValue": 4630.4,
+          "marketCap": 4197.7,
+          "ratio": 110.31
+        },
+        {
+          "date": "2024-06-10",
+          "holdingPrice": 97627.0,
+          "subsidiaryPrice": 20307.0,
+          "holdingValue": 4495.1,
+          "marketCap": 4109.0,
+          "ratio": 109.4
+        },
+        {
+          "date": "2024-06-11",
+          "holdingPrice": 98011.0,
+          "subsidiaryPrice": 19837.0,
+          "holdingValue": 4391.1,
+          "marketCap": 4125.1,
+          "ratio": 106.45
+        },
+        {
+          "date": "2024-06-12",
+          "holdingPrice": 97627.0,
+          "subsidiaryPrice": 19884.0,
+          "holdingValue": 4401.5,
+          "marketCap": 4109.0,
+          "ratio": 107.12
+        },
+        {
+          "date": "2024-06-13",
+          "holdingPrice": 96574.0,
+          "subsidiaryPrice": 19790.0,
+          "holdingValue": 4380.7,
+          "marketCap": 4064.6,
+          "ratio": 107.78
+        },
+        {
+          "date": "2024-06-14",
+          "holdingPrice": 103280.0,
+          "subsidiaryPrice": 19508.0,
+          "holdingValue": 4318.2,
+          "marketCap": 4346.9,
+          "ratio": 99.34
+        },
+        {
+          "date": "2024-06-17",
+          "holdingPrice": 100789.0,
+          "subsidiaryPrice": 19602.0,
+          "holdingValue": 4339.1,
+          "marketCap": 4242.1,
+          "ratio": 102.29
+        },
+        {
+          "date": "2024-06-18",
+          "holdingPrice": 104526.0,
+          "subsidiaryPrice": 20448.0,
+          "holdingValue": 4526.4,
+          "marketCap": 4399.3,
+          "ratio": 102.89
+        },
+        {
+          "date": "2024-06-19",
+          "holdingPrice": 101077.0,
+          "subsidiaryPrice": 19884.0,
+          "holdingValue": 4401.5,
+          "marketCap": 4254.2,
+          "ratio": 103.46
+        },
+        {
+          "date": "2024-06-20",
+          "holdingPrice": 100118.0,
+          "subsidiaryPrice": 19602.0,
+          "holdingValue": 4339.1,
+          "marketCap": 4213.8,
+          "ratio": 102.97
+        },
+        {
+          "date": "2024-06-21",
+          "holdingPrice": 99352.0,
+          "subsidiaryPrice": 19649.0,
+          "holdingValue": 4349.5,
+          "marketCap": 4181.6,
+          "ratio": 104.01
+        },
+        {
+          "date": "2024-06-24",
+          "holdingPrice": 99160.0,
+          "subsidiaryPrice": 19461.0,
+          "holdingValue": 4307.8,
+          "marketCap": 4173.5,
+          "ratio": 103.22
+        },
+        {
+          "date": "2024-06-25",
+          "holdingPrice": 99065.0,
+          "subsidiaryPrice": 19649.0,
+          "holdingValue": 4349.5,
+          "marketCap": 4169.5,
+          "ratio": 104.32
+        },
+        {
+          "date": "2024-06-26",
+          "holdingPrice": 98202.0,
+          "subsidiaryPrice": 19179.0,
+          "holdingValue": 4245.4,
+          "marketCap": 4133.2,
+          "ratio": 102.72
+        },
+        {
+          "date": "2024-06-27",
+          "holdingPrice": 98586.0,
+          "subsidiaryPrice": 19085.0,
+          "holdingValue": 4224.6,
+          "marketCap": 4149.3,
+          "ratio": 101.81
+        },
+        {
+          "date": "2024-06-28",
+          "holdingPrice": 101651.0,
+          "subsidiaryPrice": 19508.0,
+          "holdingValue": 4318.2,
+          "marketCap": 4278.3,
+          "ratio": 100.93
+        },
+        {
+          "date": "2024-07-01",
+          "holdingPrice": 102035.0,
+          "subsidiaryPrice": 19508.0,
+          "holdingValue": 4318.2,
+          "marketCap": 4294.5,
+          "ratio": 100.55
+        },
+        {
+          "date": "2024-07-02",
+          "holdingPrice": 102609.0,
+          "subsidiaryPrice": 19085.0,
+          "holdingValue": 4224.6,
+          "marketCap": 4318.7,
+          "ratio": 97.82
+        },
+        {
+          "date": "2024-07-03",
+          "holdingPrice": 99831.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 4201.7,
+          "ratio": 100.3
+        },
+        {
+          "date": "2024-07-04",
+          "holdingPrice": 97819.0,
+          "subsidiaryPrice": 18991.0,
+          "holdingValue": 4203.8,
+          "marketCap": 4117.1,
+          "ratio": 102.11
+        },
+        {
+          "date": "2024-07-05",
+          "holdingPrice": 97915.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4121.1,
+          "ratio": 101.5
+        },
+        {
+          "date": "2024-07-08",
+          "holdingPrice": 97340.0,
+          "subsidiaryPrice": 18634.0,
+          "holdingValue": 4124.7,
+          "marketCap": 4096.9,
+          "ratio": 100.68
+        },
+        {
+          "date": "2024-07-09",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 18427.0,
+          "holdingValue": 4078.9,
+          "marketCap": 4080.8,
+          "ratio": 99.95
+        },
+        {
+          "date": "2024-07-10",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 18530.0,
+          "holdingValue": 4101.8,
+          "marketCap": 4072.7,
+          "ratio": 100.71
+        },
+        {
+          "date": "2024-07-11",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 4072.7,
+          "ratio": 103.47
+        },
+        {
+          "date": "2024-07-12",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 19273.0,
+          "holdingValue": 4266.2,
+          "marketCap": 4080.8,
+          "ratio": 104.54
+        },
+        {
+          "date": "2024-07-15",
+          "holdingPrice": 97627.0,
+          "subsidiaryPrice": 19508.0,
+          "holdingValue": 4318.2,
+          "marketCap": 4109.0,
+          "ratio": 105.09
+        },
+        {
+          "date": "2024-07-16",
+          "holdingPrice": 97627.0,
+          "subsidiaryPrice": 19085.0,
+          "holdingValue": 4224.6,
+          "marketCap": 4109.0,
+          "ratio": 102.81
+        },
+        {
+          "date": "2024-07-17",
+          "holdingPrice": 97340.0,
+          "subsidiaryPrice": 19132.0,
+          "holdingValue": 4235.0,
+          "marketCap": 4096.9,
+          "ratio": 103.37
+        },
+        {
+          "date": "2024-07-18",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 19743.0,
+          "holdingValue": 4370.3,
+          "marketCap": 4080.8,
+          "ratio": 107.09
+        },
+        {
+          "date": "2024-07-19",
+          "holdingPrice": 98106.0,
+          "subsidiaryPrice": 19179.0,
+          "holdingValue": 4245.4,
+          "marketCap": 4129.2,
+          "ratio": 102.82
+        },
+        {
+          "date": "2024-07-22",
+          "holdingPrice": 98969.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 4165.4,
+          "ratio": 100.17
+        },
+        {
+          "date": "2024-07-23",
+          "holdingPrice": 99160.0,
+          "subsidiaryPrice": 18784.0,
+          "holdingValue": 4158.0,
+          "marketCap": 4173.5,
+          "ratio": 99.63
+        },
+        {
+          "date": "2024-07-24",
+          "holdingPrice": 100214.0,
+          "subsidiaryPrice": 18483.0,
+          "holdingValue": 4091.4,
+          "marketCap": 4217.9,
+          "ratio": 97.0
+        },
+        {
+          "date": "2024-07-25",
+          "holdingPrice": 99352.0,
+          "subsidiaryPrice": 18088.0,
+          "holdingValue": 4004.0,
+          "marketCap": 4181.6,
+          "ratio": 95.75
+        },
+        {
+          "date": "2024-07-26",
+          "holdingPrice": 99160.0,
+          "subsidiaryPrice": 18013.0,
+          "holdingValue": 3987.4,
+          "marketCap": 4173.5,
+          "ratio": 95.54
+        },
+        {
+          "date": "2024-07-29",
+          "holdingPrice": 98490.0,
+          "subsidiaryPrice": 18013.0,
+          "holdingValue": 3987.4,
+          "marketCap": 4145.3,
+          "ratio": 96.19
+        },
+        {
+          "date": "2024-07-30",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 17703.0,
+          "holdingValue": 3918.7,
+          "marketCap": 4080.8,
+          "ratio": 96.03
+        },
+        {
+          "date": "2024-07-31",
+          "holdingPrice": 100214.0,
+          "subsidiaryPrice": 17806.0,
+          "holdingValue": 3941.6,
+          "marketCap": 4217.9,
+          "ratio": 93.45
+        },
+        {
+          "date": "2024-08-01",
+          "holdingPrice": 102322.0,
+          "subsidiaryPrice": 18709.0,
+          "holdingValue": 4141.4,
+          "marketCap": 4306.6,
+          "ratio": 96.16
+        },
+        {
+          "date": "2024-08-02",
+          "holdingPrice": 100885.0,
+          "subsidiaryPrice": 18314.0,
+          "holdingValue": 4053.9,
+          "marketCap": 4246.1,
+          "ratio": 95.47
+        },
+        {
+          "date": "2024-08-05",
+          "holdingPrice": 92741.0,
+          "subsidiaryPrice": 16340.0,
+          "holdingValue": 3616.9,
+          "marketCap": 3903.3,
+          "ratio": 92.66
+        },
+        {
+          "date": "2024-08-06",
+          "holdingPrice": 93412.0,
+          "subsidiaryPrice": 16979.0,
+          "holdingValue": 3758.4,
+          "marketCap": 3931.6,
+          "ratio": 95.6
+        },
+        {
+          "date": "2024-08-07",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 16866.0,
+          "holdingValue": 3733.5,
+          "marketCap": 4080.8,
+          "ratio": 91.49
+        },
+        {
+          "date": "2024-08-08",
+          "holdingPrice": 97723.0,
+          "subsidiaryPrice": 16979.0,
+          "holdingValue": 3758.4,
+          "marketCap": 4113.0,
+          "ratio": 91.38
+        },
+        {
+          "date": "2024-08-09",
+          "holdingPrice": 98586.0,
+          "subsidiaryPrice": 16989.0,
+          "holdingValue": 3760.5,
+          "marketCap": 4149.3,
+          "ratio": 90.63
+        },
+        {
+          "date": "2024-08-12",
+          "holdingPrice": 100023.0,
+          "subsidiaryPrice": 17289.0,
+          "holdingValue": 3827.1,
+          "marketCap": 4209.8,
+          "ratio": 90.91
+        },
+        {
+          "date": "2024-08-13",
+          "holdingPrice": 98681.0,
+          "subsidiaryPrice": 17195.0,
+          "holdingValue": 3806.3,
+          "marketCap": 4153.3,
+          "ratio": 91.64
+        },
+        {
+          "date": "2024-08-14",
+          "holdingPrice": 99639.0,
+          "subsidiaryPrice": 17487.0,
+          "holdingValue": 3870.8,
+          "marketCap": 4193.7,
+          "ratio": 92.3
+        },
+        {
+          "date": "2024-08-16",
+          "holdingPrice": 98298.0,
+          "subsidiaryPrice": 17637.0,
+          "holdingValue": 3904.1,
+          "marketCap": 4137.2,
+          "ratio": 94.37
+        },
+        {
+          "date": "2024-08-19",
+          "holdingPrice": 97244.0,
+          "subsidiaryPrice": 18154.0,
+          "holdingValue": 4018.6,
+          "marketCap": 4092.9,
+          "ratio": 98.18
+        },
+        {
+          "date": "2024-08-20",
+          "holdingPrice": 96957.0,
+          "subsidiaryPrice": 18220.0,
+          "holdingValue": 4033.1,
+          "marketCap": 4080.8,
+          "ratio": 98.83
+        },
+        {
+          "date": "2024-08-21",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 18418.0,
+          "holdingValue": 4076.8,
+          "marketCap": 4072.7,
+          "ratio": 100.1
+        },
+        {
+          "date": "2024-08-22",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 18314.0,
+          "holdingValue": 4053.9,
+          "marketCap": 4072.7,
+          "ratio": 99.54
+        },
+        {
+          "date": "2024-08-23",
+          "holdingPrice": 94657.0,
+          "subsidiaryPrice": 18418.0,
+          "holdingValue": 4076.8,
+          "marketCap": 3984.0,
+          "ratio": 102.33
+        },
+        {
+          "date": "2024-08-26",
+          "holdingPrice": 95328.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4012.2,
+          "ratio": 104.26
+        },
+        {
+          "date": "2024-08-27",
+          "holdingPrice": 95328.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4012.2,
+          "ratio": 104.26
+        },
+        {
+          "date": "2024-08-28",
+          "holdingPrice": 95232.0,
+          "subsidiaryPrice": 18587.0,
+          "holdingValue": 4114.3,
+          "marketCap": 4008.2,
+          "ratio": 102.65
+        },
+        {
+          "date": "2024-08-29",
+          "holdingPrice": 95999.0,
+          "subsidiaryPrice": 18530.0,
+          "holdingValue": 4101.8,
+          "marketCap": 4040.4,
+          "ratio": 101.52
+        },
+        {
+          "date": "2024-08-30",
+          "holdingPrice": 96382.0,
+          "subsidiaryPrice": 18794.0,
+          "holdingValue": 4160.1,
+          "marketCap": 4056.6,
+          "ratio": 102.55
+        },
+        {
+          "date": "2024-09-02",
+          "holdingPrice": 96669.0,
+          "subsidiaryPrice": 18606.0,
+          "holdingValue": 4118.5,
+          "marketCap": 4068.7,
+          "ratio": 101.22
+        },
+        {
+          "date": "2024-09-03",
+          "holdingPrice": 99831.0,
+          "subsidiaryPrice": 18803.0,
+          "holdingValue": 4162.2,
+          "marketCap": 4201.7,
+          "ratio": 99.06
+        },
+        {
+          "date": "2024-09-04",
+          "holdingPrice": 103376.0,
+          "subsidiaryPrice": 18333.0,
+          "holdingValue": 4058.1,
+          "marketCap": 4350.9,
+          "ratio": 93.27
+        },
+        {
+          "date": "2024-09-05",
+          "holdingPrice": 102418.0,
+          "subsidiaryPrice": 18333.0,
+          "holdingValue": 4058.1,
+          "marketCap": 4310.6,
+          "ratio": 94.14
+        },
+        {
+          "date": "2024-09-06",
+          "holdingPrice": 99160.0,
+          "subsidiaryPrice": 17778.0,
+          "holdingValue": 3935.3,
+          "marketCap": 4173.5,
+          "ratio": 94.29
+        },
+        {
+          "date": "2024-09-09",
+          "holdingPrice": 100502.0,
+          "subsidiaryPrice": 17910.0,
+          "holdingValue": 3964.5,
+          "marketCap": 4230.0,
+          "ratio": 93.72
+        },
+        {
+          "date": "2024-09-10",
+          "holdingPrice": 97819.0,
+          "subsidiaryPrice": 17712.0,
+          "holdingValue": 3920.8,
+          "marketCap": 4117.1,
+          "ratio": 95.23
+        },
+        {
+          "date": "2024-09-11",
+          "holdingPrice": 98969.0,
+          "subsidiaryPrice": 17844.0,
+          "holdingValue": 3949.9,
+          "marketCap": 4165.4,
+          "ratio": 94.83
+        },
+        {
+          "date": "2024-09-12",
+          "holdingPrice": 98681.0,
+          "subsidiaryPrice": 17985.0,
+          "holdingValue": 3981.1,
+          "marketCap": 4153.3,
+          "ratio": 95.85
+        },
+        {
+          "date": "2024-09-13",
+          "holdingPrice": 98490.0,
+          "subsidiaryPrice": 18371.0,
+          "holdingValue": 4066.4,
+          "marketCap": 4145.3,
+          "ratio": 98.1
+        },
+        {
+          "date": "2024-09-19",
+          "holdingPrice": 99065.0,
+          "subsidiaryPrice": 18455.0,
+          "holdingValue": 4085.2,
+          "marketCap": 4169.5,
+          "ratio": 97.98
+        },
+        {
+          "date": "2024-09-20",
+          "holdingPrice": 98394.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4141.2,
+          "ratio": 101.01
+        },
+        {
+          "date": "2024-09-23",
+          "holdingPrice": 98394.0,
+          "subsidiaryPrice": 18756.0,
+          "holdingValue": 4151.8,
+          "marketCap": 4141.2,
+          "ratio": 100.25
+        },
+        {
+          "date": "2024-09-24",
+          "holdingPrice": 97819.0,
+          "subsidiaryPrice": 19226.0,
+          "holdingValue": 4255.8,
+          "marketCap": 4117.1,
+          "ratio": 103.37
+        },
+        {
+          "date": "2024-09-25",
+          "holdingPrice": 97436.0,
+          "subsidiaryPrice": 18803.0,
+          "holdingValue": 4162.2,
+          "marketCap": 4100.9,
+          "ratio": 101.49
+        },
+        {
+          "date": "2024-09-26",
+          "holdingPrice": 98202.0,
+          "subsidiaryPrice": 19367.0,
+          "holdingValue": 4287.0,
+          "marketCap": 4133.2,
+          "ratio": 103.72
+        },
+        {
+          "date": "2024-09-27",
+          "holdingPrice": 98298.0,
+          "subsidiaryPrice": 19649.0,
+          "holdingValue": 4349.5,
+          "marketCap": 4137.2,
+          "ratio": 105.13
+        },
+        {
+          "date": "2024-09-30",
+          "holdingPrice": 96669.0,
+          "subsidiaryPrice": 19320.0,
+          "holdingValue": 4276.6,
+          "marketCap": 4068.7,
+          "ratio": 105.11
+        },
+        {
+          "date": "2024-10-02",
+          "holdingPrice": 96669.0,
+          "subsidiaryPrice": 19132.0,
+          "holdingValue": 4235.0,
+          "marketCap": 4068.7,
+          "ratio": 104.09
+        },
+        {
+          "date": "2024-10-04",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4072.7,
+          "ratio": 102.71
+        },
+        {
+          "date": "2024-10-07",
+          "holdingPrice": 96765.0,
+          "subsidiaryPrice": 19649.0,
+          "holdingValue": 4349.5,
+          "marketCap": 4072.7,
+          "ratio": 106.8
+        },
+        {
+          "date": "2024-10-08",
+          "holdingPrice": 96478.0,
+          "subsidiaryPrice": 19696.0,
+          "holdingValue": 4359.9,
+          "marketCap": 4060.6,
+          "ratio": 107.37
+        },
+        {
+          "date": "2024-10-10",
+          "holdingPrice": 97340.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 4096.9,
+          "ratio": 102.1
+        },
+        {
+          "date": "2024-10-11",
+          "holdingPrice": 98011.0,
+          "subsidiaryPrice": 18662.0,
+          "holdingValue": 4130.9,
+          "marketCap": 4125.1,
+          "ratio": 100.14
+        },
+        {
+          "date": "2024-10-14",
+          "holdingPrice": 95520.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 4020.3,
+          "ratio": 103.79
+        },
+        {
+          "date": "2024-10-15",
+          "holdingPrice": 96382.0,
+          "subsidiaryPrice": 18728.0,
+          "holdingValue": 4145.5,
+          "marketCap": 4056.6,
+          "ratio": 102.19
+        },
+        {
+          "date": "2024-10-16",
+          "holdingPrice": 94849.0,
+          "subsidiaryPrice": 19649.0,
+          "holdingValue": 4349.5,
+          "marketCap": 3992.0,
+          "ratio": 108.95
+        },
+        {
+          "date": "2024-10-17",
+          "holdingPrice": 93029.0,
+          "subsidiaryPrice": 19226.0,
+          "holdingValue": 4255.8,
+          "marketCap": 3915.4,
+          "ratio": 108.69
+        },
+        {
+          "date": "2024-10-18",
+          "holdingPrice": 93029.0,
+          "subsidiaryPrice": 18803.0,
+          "holdingValue": 4162.2,
+          "marketCap": 3915.4,
+          "ratio": 106.3
+        },
+        {
+          "date": "2024-10-21",
+          "holdingPrice": 92645.0,
+          "subsidiaryPrice": 18728.0,
+          "holdingValue": 4145.5,
+          "marketCap": 3899.3,
+          "ratio": 106.31
+        },
+        {
+          "date": "2024-10-22",
+          "holdingPrice": 93891.0,
+          "subsidiaryPrice": 18512.0,
+          "holdingValue": 4097.6,
+          "marketCap": 3951.7,
+          "ratio": 103.69
+        },
+        {
+          "date": "2024-10-23",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 18512.0,
+          "holdingValue": 4097.6,
+          "marketCap": 3798.5,
+          "ratio": 107.88
+        },
+        {
+          "date": "2024-10-24",
+          "holdingPrice": 93508.0,
+          "subsidiaryPrice": 18587.0,
+          "holdingValue": 4114.3,
+          "marketCap": 3935.6,
+          "ratio": 104.54
+        },
+        {
+          "date": "2024-10-25",
+          "holdingPrice": 94274.0,
+          "subsidiaryPrice": 18408.0,
+          "holdingValue": 4074.8,
+          "marketCap": 3967.9,
+          "ratio": 102.69
+        },
+        {
+          "date": "2024-10-28",
+          "holdingPrice": 98106.0,
+          "subsidiaryPrice": 18775.0,
+          "holdingValue": 4155.9,
+          "marketCap": 4129.2,
+          "ratio": 100.65
+        },
+        {
+          "date": "2024-10-29",
+          "holdingPrice": 96190.0,
+          "subsidiaryPrice": 18577.0,
+          "holdingValue": 4112.2,
+          "marketCap": 4048.5,
+          "ratio": 101.57
+        },
+        {
+          "date": "2024-10-30",
+          "holdingPrice": 95520.0,
+          "subsidiaryPrice": 18483.0,
+          "holdingValue": 4091.4,
+          "marketCap": 4020.3,
+          "ratio": 101.77
+        },
+        {
+          "date": "2024-10-31",
+          "holdingPrice": 96861.0,
+          "subsidiaryPrice": 18653.0,
+          "holdingValue": 4128.9,
+          "marketCap": 4076.7,
+          "ratio": 101.28
+        },
+        {
+          "date": "2024-11-01",
+          "holdingPrice": 97244.0,
+          "subsidiaryPrice": 18295.0,
+          "holdingValue": 4049.8,
+          "marketCap": 4092.9,
+          "ratio": 98.95
+        },
+        {
+          "date": "2024-11-04",
+          "holdingPrice": 96478.0,
+          "subsidiaryPrice": 18107.0,
+          "holdingValue": 4008.2,
+          "marketCap": 4060.6,
+          "ratio": 98.71
+        },
+        {
+          "date": "2024-11-05",
+          "holdingPrice": 96478.0,
+          "subsidiaryPrice": 18182.0,
+          "holdingValue": 4024.8,
+          "marketCap": 4060.6,
+          "ratio": 99.12
+        },
+        {
+          "date": "2024-11-06",
+          "holdingPrice": 95711.0,
+          "subsidiaryPrice": 18295.0,
+          "holdingValue": 4049.8,
+          "marketCap": 4028.3,
+          "ratio": 100.53
+        },
+        {
+          "date": "2024-11-07",
+          "holdingPrice": 95711.0,
+          "subsidiaryPrice": 22188.0,
+          "holdingValue": 4911.4,
+          "marketCap": 4028.3,
+          "ratio": 121.92
+        },
+        {
+          "date": "2024-11-08",
+          "holdingPrice": 97244.0,
+          "subsidiaryPrice": 22517.0,
+          "holdingValue": 4984.2,
+          "marketCap": 4092.9,
+          "ratio": 121.78
+        },
+        {
+          "date": "2024-11-11",
+          "holdingPrice": 97244.0,
+          "subsidiaryPrice": 23034.0,
+          "holdingValue": 5098.6,
+          "marketCap": 4092.9,
+          "ratio": 124.57
+        },
+        {
+          "date": "2024-11-12",
+          "holdingPrice": 95328.0,
+          "subsidiaryPrice": 22235.0,
+          "holdingValue": 4921.8,
+          "marketCap": 4012.2,
+          "ratio": 122.67
+        },
+        {
+          "date": "2024-11-13",
+          "holdingPrice": 91975.0,
+          "subsidiaryPrice": 20965.0,
+          "holdingValue": 4640.8,
+          "marketCap": 3871.1,
+          "ratio": 119.88
+        },
+        {
+          "date": "2024-11-14",
+          "holdingPrice": 95711.0,
+          "subsidiaryPrice": 22376.0,
+          "holdingValue": 4953.0,
+          "marketCap": 4028.3,
+          "ratio": 122.95
+        },
+        {
+          "date": "2024-11-15",
+          "holdingPrice": 94274.0,
+          "subsidiaryPrice": 21623.0,
+          "holdingValue": 4786.5,
+          "marketCap": 3967.9,
+          "ratio": 120.63
+        },
+        {
+          "date": "2024-11-18",
+          "holdingPrice": 95041.0,
+          "subsidiaryPrice": 22564.0,
+          "holdingValue": 4994.6,
+          "marketCap": 4000.1,
+          "ratio": 124.86
+        },
+        {
+          "date": "2024-11-19",
+          "holdingPrice": 96574.0,
+          "subsidiaryPrice": 22423.0,
+          "holdingValue": 4963.4,
+          "marketCap": 4064.6,
+          "ratio": 122.11
+        },
+        {
+          "date": "2024-11-20",
+          "holdingPrice": 95616.0,
+          "subsidiaryPrice": 21247.0,
+          "holdingValue": 4703.2,
+          "marketCap": 4024.3,
+          "ratio": 116.87
+        },
+        {
+          "date": "2024-11-21",
+          "holdingPrice": 97148.0,
+          "subsidiaryPrice": 20683.0,
+          "holdingValue": 4578.4,
+          "marketCap": 4088.8,
+          "ratio": 111.97
+        },
+        {
+          "date": "2024-11-22",
+          "holdingPrice": 96286.0,
+          "subsidiaryPrice": 19884.0,
+          "holdingValue": 4401.5,
+          "marketCap": 4052.5,
+          "ratio": 108.61
+        },
+        {
+          "date": "2024-11-25",
+          "holdingPrice": 95041.0,
+          "subsidiaryPrice": 19837.0,
+          "holdingValue": 4391.1,
+          "marketCap": 4000.1,
+          "ratio": 109.77
+        },
+        {
+          "date": "2024-11-26",
+          "holdingPrice": 95328.0,
+          "subsidiaryPrice": 20119.0,
+          "holdingValue": 4453.5,
+          "marketCap": 4012.2,
+          "ratio": 111.0
+        },
+        {
+          "date": "2024-11-27",
+          "holdingPrice": 94370.0,
+          "subsidiaryPrice": 20683.0,
+          "holdingValue": 4578.4,
+          "marketCap": 3971.9,
+          "ratio": 115.27
+        },
+        {
+          "date": "2024-11-28",
+          "holdingPrice": 95520.0,
+          "subsidiaryPrice": 20589.0,
+          "holdingValue": 4557.6,
+          "marketCap": 4020.3,
+          "ratio": 113.36
+        },
+        {
+          "date": "2024-11-29",
+          "holdingPrice": 96190.0,
+          "subsidiaryPrice": 21623.0,
+          "holdingValue": 4786.5,
+          "marketCap": 4048.5,
+          "ratio": 118.23
+        },
+        {
+          "date": "2024-12-02",
+          "holdingPrice": 95424.0,
+          "subsidiaryPrice": 21153.0,
+          "holdingValue": 4682.4,
+          "marketCap": 4016.2,
+          "ratio": 116.59
+        },
+        {
+          "date": "2024-12-03",
+          "holdingPrice": 94657.0,
+          "subsidiaryPrice": 21200.0,
+          "holdingValue": 4692.8,
+          "marketCap": 3984.0,
+          "ratio": 117.79
+        },
+        {
+          "date": "2024-12-04",
+          "holdingPrice": 92550.0,
+          "subsidiaryPrice": 19696.0,
+          "holdingValue": 4359.9,
+          "marketCap": 3895.3,
+          "ratio": 111.93
+        },
+        {
+          "date": "2024-12-05",
+          "holdingPrice": 92454.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 3891.2,
+          "ratio": 107.23
+        },
+        {
+          "date": "2024-12-06",
+          "holdingPrice": 92262.0,
+          "subsidiaryPrice": 18803.0,
+          "holdingValue": 4162.2,
+          "marketCap": 3883.2,
+          "ratio": 107.18
+        },
+        {
+          "date": "2024-12-09",
+          "holdingPrice": 90634.0,
+          "subsidiaryPrice": 17825.0,
+          "holdingValue": 3945.7,
+          "marketCap": 3814.6,
+          "ratio": 103.44
+        },
+        {
+          "date": "2024-12-10",
+          "holdingPrice": 91017.0,
+          "subsidiaryPrice": 18897.0,
+          "holdingValue": 4183.0,
+          "marketCap": 3830.8,
+          "ratio": 109.19
+        },
+        {
+          "date": "2024-12-11",
+          "holdingPrice": 95328.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 4012.2,
+          "ratio": 105.03
+        },
+        {
+          "date": "2024-12-12",
+          "holdingPrice": 100597.0,
+          "subsidiaryPrice": 18944.0,
+          "holdingValue": 4193.4,
+          "marketCap": 4234.0,
+          "ratio": 99.04
+        },
+        {
+          "date": "2024-12-13",
+          "holdingPrice": 92166.0,
+          "subsidiaryPrice": 19085.0,
+          "holdingValue": 4224.6,
+          "marketCap": 3879.1,
+          "ratio": 108.91
+        },
+        {
+          "date": "2024-12-16",
+          "holdingPrice": 92741.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 3903.3,
+          "ratio": 106.9
+        },
+        {
+          "date": "2024-12-17",
+          "holdingPrice": 91783.0,
+          "subsidiaryPrice": 19743.0,
+          "holdingValue": 4370.3,
+          "marketCap": 3863.0,
+          "ratio": 113.13
+        },
+        {
+          "date": "2024-12-18",
+          "holdingPrice": 92454.0,
+          "subsidiaryPrice": 19508.0,
+          "holdingValue": 4318.2,
+          "marketCap": 3891.2,
+          "ratio": 110.97
+        },
+        {
+          "date": "2024-12-19",
+          "holdingPrice": 92933.0,
+          "subsidiaryPrice": 19273.0,
+          "holdingValue": 4266.2,
+          "marketCap": 3911.4,
+          "ratio": 109.07
+        },
+        {
+          "date": "2024-12-20",
+          "holdingPrice": 93412.0,
+          "subsidiaryPrice": 18794.0,
+          "holdingValue": 4160.1,
+          "marketCap": 3931.6,
+          "ratio": 105.81
+        },
+        {
+          "date": "2024-12-23",
+          "holdingPrice": 92933.0,
+          "subsidiaryPrice": 19226.0,
+          "holdingValue": 4255.8,
+          "marketCap": 3911.4,
+          "ratio": 108.81
+        },
+        {
+          "date": "2024-12-24",
+          "holdingPrice": 93029.0,
+          "subsidiaryPrice": 19085.0,
+          "holdingValue": 4224.6,
+          "marketCap": 3915.4,
+          "ratio": 107.9
+        },
+        {
+          "date": "2024-12-26",
+          "holdingPrice": 92837.0,
+          "subsidiaryPrice": 19038.0,
+          "holdingValue": 4214.2,
+          "marketCap": 3907.4,
+          "ratio": 107.85
+        },
+        {
+          "date": "2024-12-27",
+          "holdingPrice": 91975.0,
+          "subsidiaryPrice": 18662.0,
+          "holdingValue": 4130.9,
+          "marketCap": 3871.1,
+          "ratio": 106.71
+        },
+        {
+          "date": "2024-12-30",
+          "holdingPrice": 91592.0,
+          "subsidiaryPrice": 18577.0,
+          "holdingValue": 4112.2,
+          "marketCap": 3854.9,
+          "ratio": 106.67
+        },
+        {
+          "date": "2025-01-02",
+          "holdingPrice": 90634.0,
+          "subsidiaryPrice": 18277.0,
+          "holdingValue": 4045.6,
+          "marketCap": 3814.6,
+          "ratio": 106.06
+        },
+        {
+          "date": "2025-01-03",
+          "holdingPrice": 89867.0,
+          "subsidiaryPrice": 18079.0,
+          "holdingValue": 4001.9,
+          "marketCap": 3782.4,
+          "ratio": 105.8
+        },
+        {
+          "date": "2025-01-06",
+          "holdingPrice": 91592.0,
+          "subsidiaryPrice": 18013.0,
+          "holdingValue": 3987.4,
+          "marketCap": 3854.9,
+          "ratio": 103.43
+        },
+        {
+          "date": "2025-01-07",
+          "holdingPrice": 91400.0,
+          "subsidiaryPrice": 18098.0,
+          "holdingValue": 4006.1,
+          "marketCap": 3846.9,
+          "ratio": 104.14
+        },
+        {
+          "date": "2025-01-08",
+          "holdingPrice": 91400.0,
+          "subsidiaryPrice": 17900.0,
+          "holdingValue": 3962.4,
+          "marketCap": 3846.9,
+          "ratio": 103.0
+        },
+        {
+          "date": "2025-01-09",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 17853.0,
+          "holdingValue": 3952.0,
+          "marketCap": 3810.6,
+          "ratio": 103.71
+        },
+        {
+          "date": "2025-01-10",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 17863.0,
+          "holdingValue": 3954.1,
+          "marketCap": 3810.6,
+          "ratio": 103.76
+        },
+        {
+          "date": "2025-01-13",
+          "holdingPrice": 91017.0,
+          "subsidiaryPrice": 17759.0,
+          "holdingValue": 3931.2,
+          "marketCap": 3830.8,
+          "ratio": 102.62
+        },
+        {
+          "date": "2025-01-14",
+          "holdingPrice": 90442.0,
+          "subsidiaryPrice": 17712.0,
+          "holdingValue": 3920.8,
+          "marketCap": 3806.6,
+          "ratio": 103.0
+        },
+        {
+          "date": "2025-01-15",
+          "holdingPrice": 90155.0,
+          "subsidiaryPrice": 17515.0,
+          "holdingValue": 3877.1,
+          "marketCap": 3794.5,
+          "ratio": 102.18
+        },
+        {
+          "date": "2025-01-16",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 17524.0,
+          "holdingValue": 3879.1,
+          "marketCap": 3798.5,
+          "ratio": 102.12
+        },
+        {
+          "date": "2025-01-17",
+          "holdingPrice": 91400.0,
+          "subsidiaryPrice": 17590.0,
+          "holdingValue": 3893.7,
+          "marketCap": 3846.9,
+          "ratio": 101.22
+        },
+        {
+          "date": "2025-01-20",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 18079.0,
+          "holdingValue": 4001.9,
+          "marketCap": 3810.6,
+          "ratio": 105.02
+        },
+        {
+          "date": "2025-01-21",
+          "holdingPrice": 90729.0,
+          "subsidiaryPrice": 18220.0,
+          "holdingValue": 4033.1,
+          "marketCap": 3818.7,
+          "ratio": 105.62
+        },
+        {
+          "date": "2025-01-22",
+          "holdingPrice": 90346.0,
+          "subsidiaryPrice": 18944.0,
+          "holdingValue": 4193.4,
+          "marketCap": 3802.5,
+          "ratio": 110.28
+        },
+        {
+          "date": "2025-01-23",
+          "holdingPrice": 89867.0,
+          "subsidiaryPrice": 18747.0,
+          "holdingValue": 4149.7,
+          "marketCap": 3782.4,
+          "ratio": 109.71
+        },
+        {
+          "date": "2025-01-24",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 18559.0,
+          "holdingValue": 4108.1,
+          "marketCap": 3798.5,
+          "ratio": 108.15
+        },
+        {
+          "date": "2025-01-31",
+          "holdingPrice": 91304.0,
+          "subsidiaryPrice": 18126.0,
+          "holdingValue": 4012.3,
+          "marketCap": 3842.9,
+          "ratio": 104.41
+        },
+        {
+          "date": "2025-02-03",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 17553.0,
+          "holdingValue": 3885.4,
+          "marketCap": 3810.6,
+          "ratio": 101.96
+        },
+        {
+          "date": "2025-02-04",
+          "holdingPrice": 91783.0,
+          "subsidiaryPrice": 18192.0,
+          "holdingValue": 4026.9,
+          "marketCap": 3863.0,
+          "ratio": 104.24
+        },
+        {
+          "date": "2025-02-05",
+          "holdingPrice": 90921.0,
+          "subsidiaryPrice": 18117.0,
+          "holdingValue": 4010.2,
+          "marketCap": 3826.7,
+          "ratio": 104.8
+        },
+        {
+          "date": "2025-02-06",
+          "holdingPrice": 91975.0,
+          "subsidiaryPrice": 18164.0,
+          "holdingValue": 4020.6,
+          "marketCap": 3871.1,
+          "ratio": 103.86
+        },
+        {
+          "date": "2025-02-07",
+          "holdingPrice": 90729.0,
+          "subsidiaryPrice": 17741.0,
+          "holdingValue": 3927.0,
+          "marketCap": 3818.7,
+          "ratio": 102.84
+        },
+        {
+          "date": "2025-02-10",
+          "holdingPrice": 91304.0,
+          "subsidiaryPrice": 17092.0,
+          "holdingValue": 3783.4,
+          "marketCap": 3842.9,
+          "ratio": 98.45
+        },
+        {
+          "date": "2025-02-11",
+          "holdingPrice": 92645.0,
+          "subsidiaryPrice": 16904.0,
+          "holdingValue": 3741.8,
+          "marketCap": 3899.3,
+          "ratio": 95.96
+        },
+        {
+          "date": "2025-02-12",
+          "holdingPrice": 90921.0,
+          "subsidiaryPrice": 17252.0,
+          "holdingValue": 3818.8,
+          "marketCap": 3826.7,
+          "ratio": 99.79
+        },
+        {
+          "date": "2025-02-13",
+          "holdingPrice": 89771.0,
+          "subsidiaryPrice": 17130.0,
+          "holdingValue": 3791.7,
+          "marketCap": 3778.3,
+          "ratio": 100.35
+        },
+        {
+          "date": "2025-02-14",
+          "holdingPrice": 89771.0,
+          "subsidiaryPrice": 17214.0,
+          "holdingValue": 3810.5,
+          "marketCap": 3778.3,
+          "ratio": 100.85
+        },
+        {
+          "date": "2025-02-17",
+          "holdingPrice": 90155.0,
+          "subsidiaryPrice": 17835.0,
+          "holdingValue": 3947.8,
+          "marketCap": 3794.5,
+          "ratio": 104.04
+        },
+        {
+          "date": "2025-02-18",
+          "holdingPrice": 90921.0,
+          "subsidiaryPrice": 18107.0,
+          "holdingValue": 4008.2,
+          "marketCap": 3826.7,
+          "ratio": 104.74
+        },
+        {
+          "date": "2025-02-19",
+          "holdingPrice": 90825.0,
+          "subsidiaryPrice": 18192.0,
+          "holdingValue": 4026.9,
+          "marketCap": 3822.7,
+          "ratio": 105.34
+        },
+        {
+          "date": "2025-02-20",
+          "holdingPrice": 89963.0,
+          "subsidiaryPrice": 18483.0,
+          "holdingValue": 4091.4,
+          "marketCap": 3786.4,
+          "ratio": 108.06
+        },
+        {
+          "date": "2025-02-21",
+          "holdingPrice": 89963.0,
+          "subsidiaryPrice": 18653.0,
+          "holdingValue": 4128.9,
+          "marketCap": 3786.4,
+          "ratio": 109.04
+        },
+        {
+          "date": "2025-02-24",
+          "holdingPrice": 89963.0,
+          "subsidiaryPrice": 18662.0,
+          "holdingValue": 4130.9,
+          "marketCap": 3786.4,
+          "ratio": 109.1
+        },
+        {
+          "date": "2025-02-25",
+          "holdingPrice": 89675.0,
+          "subsidiaryPrice": 18465.0,
+          "holdingValue": 4087.2,
+          "marketCap": 3774.3,
+          "ratio": 108.29
+        },
+        {
+          "date": "2025-02-26",
+          "holdingPrice": 90059.0,
+          "subsidiaryPrice": 18634.0,
+          "holdingValue": 4124.7,
+          "marketCap": 3790.4,
+          "ratio": 108.82
+        },
+        {
+          "date": "2025-02-27",
+          "holdingPrice": 92837.0,
+          "subsidiaryPrice": 18653.0,
+          "holdingValue": 4128.9,
+          "marketCap": 3907.4,
+          "ratio": 105.67
+        },
+        {
+          "date": "2025-02-28",
+          "holdingPrice": 92645.0,
+          "subsidiaryPrice": 18521.0,
+          "holdingValue": 4099.7,
+          "marketCap": 3899.3,
+          "ratio": 105.14
+        },
+        {
+          "date": "2025-03-04",
+          "holdingPrice": 91304.0,
+          "subsidiaryPrice": 18239.0,
+          "holdingValue": 4037.3,
+          "marketCap": 3842.9,
+          "ratio": 105.06
+        },
+        {
+          "date": "2025-03-05",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 19461.0,
+          "holdingValue": 4307.8,
+          "marketCap": 3810.6,
+          "ratio": 113.05
+        },
+        {
+          "date": "2025-03-06",
+          "holdingPrice": 90059.0,
+          "subsidiaryPrice": 19743.0,
+          "holdingValue": 4370.3,
+          "marketCap": 3790.4,
+          "ratio": 115.3
+        },
+        {
+          "date": "2025-03-07",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 19790.0,
+          "holdingValue": 4380.7,
+          "marketCap": 3798.5,
+          "ratio": 115.33
+        },
+        {
+          "date": "2025-03-10",
+          "holdingPrice": 92454.0,
+          "subsidiaryPrice": 19837.0,
+          "holdingValue": 4391.1,
+          "marketCap": 3891.2,
+          "ratio": 112.85
+        },
+        {
+          "date": "2025-03-11",
+          "holdingPrice": 91496.0,
+          "subsidiaryPrice": 19273.0,
+          "holdingValue": 4266.2,
+          "marketCap": 3850.9,
+          "ratio": 110.78
+        },
+        {
+          "date": "2025-03-12",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 19555.0,
+          "holdingValue": 4328.6,
+          "marketCap": 3810.6,
+          "ratio": 113.6
+        },
+        {
+          "date": "2025-03-13",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 19320.0,
+          "holdingValue": 4276.6,
+          "marketCap": 3810.6,
+          "ratio": 112.23
+        },
+        {
+          "date": "2025-03-14",
+          "holdingPrice": 90729.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 3818.7,
+          "ratio": 109.27
+        },
+        {
+          "date": "2025-03-17",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 19132.0,
+          "holdingValue": 4235.0,
+          "marketCap": 3798.5,
+          "ratio": 111.49
+        },
+        {
+          "date": "2025-03-18",
+          "holdingPrice": 90634.0,
+          "subsidiaryPrice": 18728.0,
+          "holdingValue": 4145.5,
+          "marketCap": 3814.6,
+          "ratio": 108.67
+        },
+        {
+          "date": "2025-03-19",
+          "holdingPrice": 91017.0,
+          "subsidiaryPrice": 18615.0,
+          "holdingValue": 4120.5,
+          "marketCap": 3830.8,
+          "ratio": 107.56
+        },
+        {
+          "date": "2025-03-20",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 18568.0,
+          "holdingValue": 4110.1,
+          "marketCap": 3798.5,
+          "ratio": 108.2
+        },
+        {
+          "date": "2025-03-21",
+          "holdingPrice": 90538.0,
+          "subsidiaryPrice": 18389.0,
+          "holdingValue": 4070.6,
+          "marketCap": 3810.6,
+          "ratio": 106.82
+        },
+        {
+          "date": "2025-03-24",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 18634.0,
+          "holdingValue": 4124.7,
+          "marketCap": 3798.5,
+          "ratio": 108.59
+        },
+        {
+          "date": "2025-03-25",
+          "holdingPrice": 90250.0,
+          "subsidiaryPrice": 18408.0,
+          "holdingValue": 4074.8,
+          "marketCap": 3798.5,
+          "ratio": 107.27
+        },
+        {
+          "date": "2025-03-26",
+          "holdingPrice": 91400.0,
+          "subsidiaryPrice": 18850.0,
+          "holdingValue": 4172.6,
+          "marketCap": 3846.9,
+          "ratio": 108.47
+        },
+        {
+          "date": "2025-03-27",
+          "holdingPrice": 93500.0,
+          "subsidiaryPrice": 18500.0,
+          "holdingValue": 4095.1,
+          "marketCap": 3935.3,
+          "ratio": 104.06
+        },
+        {
+          "date": "2025-03-28",
+          "holdingPrice": 93200.0,
+          "subsidiaryPrice": 18030.0,
+          "holdingValue": 3991.1,
+          "marketCap": 3922.6,
+          "ratio": 101.74
+        },
+        {
+          "date": "2025-03-31",
+          "holdingPrice": 94500.0,
+          "subsidiaryPrice": 17480.0,
+          "holdingValue": 3869.3,
+          "marketCap": 3977.4,
+          "ratio": 97.28
+        },
+        {
+          "date": "2025-04-01",
+          "holdingPrice": 94400.0,
+          "subsidiaryPrice": 17160.0,
+          "holdingValue": 3798.5,
+          "marketCap": 3973.1,
+          "ratio": 95.6
+        },
+        {
+          "date": "2025-04-02",
+          "holdingPrice": 93500.0,
+          "subsidiaryPrice": 17090.0,
+          "holdingValue": 3783.0,
+          "marketCap": 3935.3,
+          "ratio": 96.13
+        },
+        {
+          "date": "2025-04-03",
+          "holdingPrice": 94700.0,
+          "subsidiaryPrice": 17090.0,
+          "holdingValue": 3783.0,
+          "marketCap": 3985.8,
+          "ratio": 94.91
+        },
+        {
+          "date": "2025-04-04",
+          "holdingPrice": 91200.0,
+          "subsidiaryPrice": 16900.0,
+          "holdingValue": 3740.9,
+          "marketCap": 3838.5,
+          "ratio": 97.46
+        },
+        {
+          "date": "2025-04-07",
+          "holdingPrice": 89100.0,
+          "subsidiaryPrice": 15670.0,
+          "holdingValue": 3468.7,
+          "marketCap": 3750.1,
+          "ratio": 92.5
+        },
+        {
+          "date": "2025-04-08",
+          "holdingPrice": 93800.0,
+          "subsidiaryPrice": 15140.0,
+          "holdingValue": 3351.3,
+          "marketCap": 3947.9,
+          "ratio": 84.89
+        },
+        {
+          "date": "2025-04-09",
+          "holdingPrice": 93700.0,
+          "subsidiaryPrice": 15200.0,
+          "holdingValue": 3364.6,
+          "marketCap": 3943.7,
+          "ratio": 85.32
+        },
+        {
+          "date": "2025-04-10",
+          "holdingPrice": 94700.0,
+          "subsidiaryPrice": 15640.0,
+          "holdingValue": 3462.0,
+          "marketCap": 3985.8,
+          "ratio": 86.86
+        },
+        {
+          "date": "2025-04-11",
+          "holdingPrice": 94400.0,
+          "subsidiaryPrice": 15710.0,
+          "holdingValue": 3477.5,
+          "marketCap": 3973.1,
+          "ratio": 87.53
+        },
+        {
+          "date": "2025-04-14",
+          "holdingPrice": 93500.0,
+          "subsidiaryPrice": 15670.0,
+          "holdingValue": 3468.7,
+          "marketCap": 3935.3,
+          "ratio": 88.14
+        },
+        {
+          "date": "2025-04-15",
+          "holdingPrice": 93500.0,
+          "subsidiaryPrice": 16080.0,
+          "holdingValue": 3559.4,
+          "marketCap": 3935.3,
+          "ratio": 90.45
+        },
+        {
+          "date": "2025-04-16",
+          "holdingPrice": 93800.0,
+          "subsidiaryPrice": 15790.0,
+          "holdingValue": 3495.2,
+          "marketCap": 3947.9,
+          "ratio": 88.53
+        },
+        {
+          "date": "2025-04-17",
+          "holdingPrice": 90800.0,
+          "subsidiaryPrice": 16230.0,
+          "holdingValue": 3592.6,
+          "marketCap": 3821.6,
+          "ratio": 94.01
+        },
+        {
+          "date": "2025-04-18",
+          "holdingPrice": 90400.0,
+          "subsidiaryPrice": 16410.0,
+          "holdingValue": 3632.5,
+          "marketCap": 3804.8,
+          "ratio": 95.47
+        },
+        {
+          "date": "2025-04-21",
+          "holdingPrice": 91300.0,
+          "subsidiaryPrice": 17070.0,
+          "holdingValue": 3778.6,
+          "marketCap": 3842.7,
+          "ratio": 98.33
+        },
+        {
+          "date": "2025-04-22",
+          "holdingPrice": 91200.0,
+          "subsidiaryPrice": 17170.0,
+          "holdingValue": 3800.7,
+          "marketCap": 3838.5,
+          "ratio": 99.02
+        },
+        {
+          "date": "2025-04-23",
+          "holdingPrice": 90200.0,
+          "subsidiaryPrice": 17510.0,
+          "holdingValue": 3875.9,
+          "marketCap": 3796.4,
+          "ratio": 102.1
+        },
+        {
+          "date": "2025-04-24",
+          "holdingPrice": 90200.0,
+          "subsidiaryPrice": 17460.0,
+          "holdingValue": 3864.9,
+          "marketCap": 3796.4,
+          "ratio": 101.8
+        },
+        {
+          "date": "2025-04-25",
+          "holdingPrice": 90500.0,
+          "subsidiaryPrice": 17640.0,
+          "holdingValue": 3904.7,
+          "marketCap": 3809.0,
+          "ratio": 102.51
+        },
+        {
+          "date": "2025-04-28",
+          "holdingPrice": 91200.0,
+          "subsidiaryPrice": 17550.0,
+          "holdingValue": 3884.8,
+          "marketCap": 3838.5,
+          "ratio": 101.21
+        },
+        {
+          "date": "2025-04-29",
+          "holdingPrice": 92100.0,
+          "subsidiaryPrice": 17710.0,
+          "holdingValue": 3920.2,
+          "marketCap": 3876.3,
+          "ratio": 101.13
+        },
+        {
+          "date": "2025-04-30",
+          "holdingPrice": 92100.0,
+          "subsidiaryPrice": 17860.0,
+          "holdingValue": 3953.4,
+          "marketCap": 3876.3,
+          "ratio": 101.99
+        },
+        {
+          "date": "2025-05-02",
+          "holdingPrice": 91400.0,
+          "subsidiaryPrice": 17650.0,
+          "holdingValue": 3906.9,
+          "marketCap": 3846.9,
+          "ratio": 101.56
+        },
+        {
+          "date": "2025-05-07",
+          "holdingPrice": 93900.0,
+          "subsidiaryPrice": 17690.0,
+          "holdingValue": 3915.8,
+          "marketCap": 3952.1,
+          "ratio": 99.08
+        },
+        {
+          "date": "2025-05-08",
+          "holdingPrice": 94200.0,
+          "subsidiaryPrice": 18200.0,
+          "holdingValue": 4028.7,
+          "marketCap": 3964.7,
+          "ratio": 101.61
+        },
+        {
+          "date": "2025-05-09",
+          "holdingPrice": 92400.0,
+          "subsidiaryPrice": 18000.0,
+          "holdingValue": 3984.4,
+          "marketCap": 3889.0,
+          "ratio": 102.45
+        },
+        {
+          "date": "2025-05-12",
+          "holdingPrice": 95800.0,
+          "subsidiaryPrice": 18370.0,
+          "holdingValue": 4066.3,
+          "marketCap": 4032.1,
+          "ratio": 100.85
+        },
+        {
+          "date": "2025-05-13",
+          "holdingPrice": 94200.0,
+          "subsidiaryPrice": 18070.0,
+          "holdingValue": 3999.9,
+          "marketCap": 3964.7,
+          "ratio": 100.89
+        },
+        {
+          "date": "2025-05-14",
+          "holdingPrice": 97700.0,
+          "subsidiaryPrice": 18410.0,
+          "holdingValue": 4075.2,
+          "marketCap": 4112.0,
+          "ratio": 99.1
+        },
+        {
+          "date": "2025-05-15",
+          "holdingPrice": 97400.0,
+          "subsidiaryPrice": 18470.0,
+          "holdingValue": 4088.5,
+          "marketCap": 4099.4,
+          "ratio": 99.73
+        },
+        {
+          "date": "2025-05-16",
+          "holdingPrice": 95100.0,
+          "subsidiaryPrice": 18630.0,
+          "holdingValue": 4123.9,
+          "marketCap": 4002.6,
+          "ratio": 103.03
+        },
+        {
+          "date": "2025-05-19",
+          "holdingPrice": 95000.0,
+          "subsidiaryPrice": 18470.0,
+          "holdingValue": 4088.5,
+          "marketCap": 3998.4,
+          "ratio": 102.25
+        },
+        {
+          "date": "2025-05-20",
+          "holdingPrice": 96800.0,
+          "subsidiaryPrice": 19340.0,
+          "holdingValue": 4281.0,
+          "marketCap": 4074.2,
+          "ratio": 105.08
+        },
+        {
+          "date": "2025-05-21",
+          "holdingPrice": 97100.0,
+          "subsidiaryPrice": 19110.0,
+          "holdingValue": 4230.1,
+          "marketCap": 4086.8,
+          "ratio": 103.51
+        },
+        {
+          "date": "2025-05-22",
+          "holdingPrice": 95300.0,
+          "subsidiaryPrice": 18890.0,
+          "holdingValue": 4181.4,
+          "marketCap": 4011.0,
+          "ratio": 104.25
+        },
+        {
+          "date": "2025-05-23",
+          "holdingPrice": 98200.0,
+          "subsidiaryPrice": 19330.0,
+          "holdingValue": 4278.8,
+          "marketCap": 4133.1,
+          "ratio": 103.53
+        },
+        {
+          "date": "2025-05-26",
+          "holdingPrice": 98700.0,
+          "subsidiaryPrice": 19520.0,
+          "holdingValue": 4320.9,
+          "marketCap": 4154.1,
+          "ratio": 104.01
+        },
+        {
+          "date": "2025-05-27",
+          "holdingPrice": 94700.0,
+          "subsidiaryPrice": 20350.0,
+          "holdingValue": 4504.6,
+          "marketCap": 3985.8,
+          "ratio": 113.02
+        },
+        {
+          "date": "2025-05-28",
+          "holdingPrice": 94600.0,
+          "subsidiaryPrice": 21200.0,
+          "holdingValue": 4692.8,
+          "marketCap": 3981.6,
+          "ratio": 117.86
+        },
+        {
+          "date": "2025-05-29",
+          "holdingPrice": 99600.0,
+          "subsidiaryPrice": 22250.0,
+          "holdingValue": 4925.2,
+          "marketCap": 4192.0,
+          "ratio": 117.49
+        },
+        {
+          "date": "2025-05-30",
+          "holdingPrice": 98900.0,
+          "subsidiaryPrice": 23400.0,
+          "holdingValue": 5179.7,
+          "marketCap": 4162.5,
+          "ratio": 124.44
+        },
+        {
+          "date": "2025-06-02",
+          "holdingPrice": 98600.0,
+          "subsidiaryPrice": 22700.0,
+          "holdingValue": 5024.8,
+          "marketCap": 4149.9,
+          "ratio": 121.08
+        },
+        {
+          "date": "2025-06-04",
+          "holdingPrice": 102300.0,
+          "subsidiaryPrice": 23150.0,
+          "holdingValue": 5124.4,
+          "marketCap": 4305.6,
+          "ratio": 119.02
+        },
+        {
+          "date": "2025-06-05",
+          "holdingPrice": 104700.0,
+          "subsidiaryPrice": 23200.0,
+          "holdingValue": 5135.5,
+          "marketCap": 4406.7,
+          "ratio": 116.54
+        },
+        {
+          "date": "2025-06-09",
+          "holdingPrice": 108000.0,
+          "subsidiaryPrice": 22900.0,
+          "holdingValue": 5069.1,
+          "marketCap": 4545.6,
+          "ratio": 111.52
+        },
+        {
+          "date": "2025-06-10",
+          "holdingPrice": 109100.0,
+          "subsidiaryPrice": 23400.0,
+          "holdingValue": 5179.7,
+          "marketCap": 4591.8,
+          "ratio": 112.8
+        },
+        {
+          "date": "2025-06-11",
+          "holdingPrice": 108800.0,
+          "subsidiaryPrice": 23300.0,
+          "holdingValue": 5157.6,
+          "marketCap": 4579.2,
+          "ratio": 112.63
+        },
+        {
+          "date": "2025-06-12",
+          "holdingPrice": 106700.0,
+          "subsidiaryPrice": 23300.0,
+          "holdingValue": 5157.6,
+          "marketCap": 4490.8,
+          "ratio": 114.85
+        },
+        {
+          "date": "2025-06-13",
+          "holdingPrice": 100800.0,
+          "subsidiaryPrice": 22850.0,
+          "holdingValue": 5058.0,
+          "marketCap": 4242.5,
+          "ratio": 119.22
+        },
+        {
+          "date": "2025-06-16",
+          "holdingPrice": 103700.0,
+          "subsidiaryPrice": 23250.0,
+          "holdingValue": 5146.5,
+          "marketCap": 4364.6,
+          "ratio": 117.92
+        },
+        {
+          "date": "2025-06-17",
+          "holdingPrice": 101700.0,
+          "subsidiaryPrice": 23350.0,
+          "holdingValue": 5168.7,
+          "marketCap": 4280.4,
+          "ratio": 120.75
+        },
+        {
+          "date": "2025-06-18",
+          "holdingPrice": 103600.0,
+          "subsidiaryPrice": 24700.0,
+          "holdingValue": 5467.5,
+          "marketCap": 4360.4,
+          "ratio": 125.39
+        },
+        {
+          "date": "2025-06-19",
+          "holdingPrice": 103800.0,
+          "subsidiaryPrice": 26550.0,
+          "holdingValue": 5877.0,
+          "marketCap": 4368.8,
+          "ratio": 134.52
+        },
+        {
+          "date": "2025-06-20",
+          "holdingPrice": 106000.0,
+          "subsidiaryPrice": 25700.0,
+          "holdingValue": 5688.9,
+          "marketCap": 4461.4,
+          "ratio": 127.51
+        },
+        {
+          "date": "2025-06-23",
+          "holdingPrice": 107000.0,
+          "subsidiaryPrice": 25000.0,
+          "holdingValue": 5533.9,
+          "marketCap": 4503.5,
+          "ratio": 122.88
+        },
+        {
+          "date": "2025-06-24",
+          "holdingPrice": 107900.0,
+          "subsidiaryPrice": 26900.0,
+          "holdingValue": 5954.5,
+          "marketCap": 4541.3,
+          "ratio": 131.12
+        },
+        {
+          "date": "2025-06-25",
+          "holdingPrice": 106900.0,
+          "subsidiaryPrice": 30100.0,
+          "holdingValue": 6662.8,
+          "marketCap": 4499.3,
+          "ratio": 148.09
+        },
+        {
+          "date": "2025-06-26",
+          "holdingPrice": 108600.0,
+          "subsidiaryPrice": 30850.0,
+          "holdingValue": 6828.8,
+          "marketCap": 4570.8,
+          "ratio": 149.4
+        },
+        {
+          "date": "2025-06-27",
+          "holdingPrice": 107000.0,
+          "subsidiaryPrice": 31650.0,
+          "holdingValue": 7005.9,
+          "marketCap": 4503.5,
+          "ratio": 155.57
+        },
+        {
+          "date": "2025-06-30",
+          "holdingPrice": 124300.0,
+          "subsidiaryPrice": 32900.0,
+          "holdingValue": 7282.6,
+          "marketCap": 5231.6,
+          "ratio": 139.2
+        },
+        {
+          "date": "2025-07-01",
+          "holdingPrice": 128900.0,
+          "subsidiaryPrice": 30750.0,
+          "holdingValue": 6806.7,
+          "marketCap": 5425.2,
+          "ratio": 125.46
+        },
+        {
+          "date": "2025-07-02",
+          "holdingPrice": 137400.0,
+          "subsidiaryPrice": 31100.0,
+          "holdingValue": 6884.2,
+          "marketCap": 5783.0,
+          "ratio": 119.04
+        },
+        {
+          "date": "2025-07-03",
+          "holdingPrice": 131000.0,
+          "subsidiaryPrice": 31750.0,
+          "holdingValue": 7028.1,
+          "marketCap": 5513.6,
+          "ratio": 127.47
+        },
+        {
+          "date": "2025-07-04",
+          "holdingPrice": 133400.0,
+          "subsidiaryPrice": 30900.0,
+          "holdingValue": 6839.9,
+          "marketCap": 5614.6,
+          "ratio": 121.82
+        },
+        {
+          "date": "2025-07-07",
+          "holdingPrice": 134100.0,
+          "subsidiaryPrice": 33450.0,
+          "holdingValue": 7404.4,
+          "marketCap": 5644.1,
+          "ratio": 131.19
+        },
+        {
+          "date": "2025-07-08",
+          "holdingPrice": 134800.0,
+          "subsidiaryPrice": 32200.0,
+          "holdingValue": 7127.7,
+          "marketCap": 5673.5,
+          "ratio": 125.63
+        },
+        {
+          "date": "2025-07-09",
+          "holdingPrice": 141200.0,
+          "subsidiaryPrice": 32300.0,
+          "holdingValue": 7149.8,
+          "marketCap": 5942.9,
+          "ratio": 120.31
+        },
+        {
+          "date": "2025-07-10",
+          "holdingPrice": 141600.0,
+          "subsidiaryPrice": 31350.0,
+          "holdingValue": 6939.5,
+          "marketCap": 5959.7,
+          "ratio": 116.44
+        },
+        {
+          "date": "2025-07-11",
+          "holdingPrice": 140500.0,
+          "subsidiaryPrice": 31000.0,
+          "holdingValue": 6862.0,
+          "marketCap": 5913.4,
+          "ratio": 116.04
+        },
+        {
+          "date": "2025-07-14",
+          "holdingPrice": 141900.0,
+          "subsidiaryPrice": 32250.0,
+          "holdingValue": 7138.7,
+          "marketCap": 5972.4,
+          "ratio": 119.53
+        },
+        {
+          "date": "2025-07-15",
+          "holdingPrice": 142300.0,
+          "subsidiaryPrice": 33350.0,
+          "holdingValue": 7382.2,
+          "marketCap": 5989.2,
+          "ratio": 123.26
+        },
+        {
+          "date": "2025-07-16",
+          "holdingPrice": 141000.0,
+          "subsidiaryPrice": 33050.0,
+          "holdingValue": 7315.8,
+          "marketCap": 5934.5,
+          "ratio": 123.28
+        },
+        {
+          "date": "2025-07-17",
+          "holdingPrice": 135800.0,
+          "subsidiaryPrice": 32900.0,
+          "holdingValue": 7282.6,
+          "marketCap": 5715.6,
+          "ratio": 127.42
+        },
+        {
+          "date": "2025-07-18",
+          "holdingPrice": 133000.0,
+          "subsidiaryPrice": 33650.0,
+          "holdingValue": 7448.6,
+          "marketCap": 5597.8,
+          "ratio": 133.06
+        },
+        {
+          "date": "2025-07-21",
+          "holdingPrice": 135000.0,
+          "subsidiaryPrice": 34200.0,
+          "holdingValue": 7570.4,
+          "marketCap": 5681.9,
+          "ratio": 133.24
+        },
+        {
+          "date": "2025-07-22",
+          "holdingPrice": 131800.0,
+          "subsidiaryPrice": 34350.0,
+          "holdingValue": 7603.6,
+          "marketCap": 5547.3,
+          "ratio": 137.07
+        },
+        {
+          "date": "2025-07-23",
+          "holdingPrice": 132000.0,
+          "subsidiaryPrice": 34250.0,
+          "holdingValue": 7581.5,
+          "marketCap": 5555.7,
+          "ratio": 136.46
+        },
+        {
+          "date": "2025-07-24",
+          "holdingPrice": 129700.0,
+          "subsidiaryPrice": 33950.0,
+          "holdingValue": 7515.0,
+          "marketCap": 5458.9,
+          "ratio": 137.67
+        },
+        {
+          "date": "2025-07-25",
+          "holdingPrice": 131900.0,
+          "subsidiaryPrice": 33400.0,
+          "holdingValue": 7393.3,
+          "marketCap": 5551.5,
+          "ratio": 133.18
+        },
+        {
+          "date": "2025-07-28",
+          "holdingPrice": 127100.0,
+          "subsidiaryPrice": 32700.0,
+          "holdingValue": 7238.4,
+          "marketCap": 5349.4,
+          "ratio": 135.31
+        },
+        {
+          "date": "2025-07-29",
+          "holdingPrice": 131300.0,
+          "subsidiaryPrice": 32400.0,
+          "holdingValue": 7171.9,
+          "marketCap": 5526.2,
+          "ratio": 129.78
+        },
+        {
+          "date": "2025-07-30",
+          "holdingPrice": 131300.0,
+          "subsidiaryPrice": 31300.0,
+          "holdingValue": 6928.5,
+          "marketCap": 5526.2,
+          "ratio": 125.37
+        },
+        {
+          "date": "2025-07-31",
+          "holdingPrice": 130100.0,
+          "subsidiaryPrice": 31350.0,
+          "holdingValue": 6939.5,
+          "marketCap": 5475.7,
+          "ratio": 126.73
+        },
+        {
+          "date": "2025-08-01",
+          "holdingPrice": 126900.0,
+          "subsidiaryPrice": 30750.0,
+          "holdingValue": 6806.7,
+          "marketCap": 5341.0,
+          "ratio": 127.44
+        },
+        {
+          "date": "2025-08-04",
+          "holdingPrice": 132700.0,
+          "subsidiaryPrice": 30200.0,
+          "holdingValue": 6685.0,
+          "marketCap": 5585.1,
+          "ratio": 119.69
+        },
+        {
+          "date": "2025-08-05",
+          "holdingPrice": 130500.0,
+          "subsidiaryPrice": 29100.0,
+          "holdingValue": 6441.5,
+          "marketCap": 5492.5,
+          "ratio": 117.28
+        },
+        {
+          "date": "2025-08-06",
+          "holdingPrice": 133600.0,
+          "subsidiaryPrice": 30500.0,
+          "holdingValue": 6751.4,
+          "marketCap": 5623.0,
+          "ratio": 120.07
+        },
+        {
+          "date": "2025-08-07",
+          "holdingPrice": 131900.0,
+          "subsidiaryPrice": 29650.0,
+          "holdingValue": 6563.2,
+          "marketCap": 5551.5,
+          "ratio": 118.22
+        },
+        {
+          "date": "2025-08-08",
+          "holdingPrice": 132100.0,
+          "subsidiaryPrice": 29250.0,
+          "holdingValue": 6474.7,
+          "marketCap": 5559.9,
+          "ratio": 116.45
+        },
+        {
+          "date": "2025-08-11",
+          "holdingPrice": 136600.0,
+          "subsidiaryPrice": 28900.0,
+          "holdingValue": 6397.2,
+          "marketCap": 5749.3,
+          "ratio": 111.27
+        },
+        {
+          "date": "2025-08-12",
+          "holdingPrice": 138300.0,
+          "subsidiaryPrice": 28850.0,
+          "holdingValue": 6386.1,
+          "marketCap": 5820.8,
+          "ratio": 109.71
+        },
+        {
+          "date": "2025-08-13",
+          "holdingPrice": 135400.0,
+          "subsidiaryPrice": 28400.0,
+          "holdingValue": 6286.5,
+          "marketCap": 5698.8,
+          "ratio": 110.31
+        },
+        {
+          "date": "2025-08-14",
+          "holdingPrice": 133300.0,
+          "subsidiaryPrice": 27950.0,
+          "holdingValue": 6186.9,
+          "marketCap": 5610.4,
+          "ratio": 110.28
+        },
+        {
+          "date": "2025-08-18",
+          "holdingPrice": 131200.0,
+          "subsidiaryPrice": 28650.0,
+          "holdingValue": 6341.9,
+          "marketCap": 5522.0,
+          "ratio": 114.85
+        },
+        {
+          "date": "2025-08-19",
+          "holdingPrice": 132200.0,
+          "subsidiaryPrice": 28250.0,
+          "holdingValue": 6253.3,
+          "marketCap": 5564.1,
+          "ratio": 112.39
+        },
+        {
+          "date": "2025-08-20",
+          "holdingPrice": 125000.0,
+          "subsidiaryPrice": 26950.0,
+          "holdingValue": 5965.6,
+          "marketCap": 5261.1,
+          "ratio": 113.39
+        },
+        {
+          "date": "2025-08-21",
+          "holdingPrice": 125500.0,
+          "subsidiaryPrice": 26950.0,
+          "holdingValue": 5965.6,
+          "marketCap": 5282.1,
+          "ratio": 112.94
+        },
+        {
+          "date": "2025-08-22",
+          "holdingPrice": 124200.0,
+          "subsidiaryPrice": 27300.0,
+          "holdingValue": 6043.0,
+          "marketCap": 5227.4,
+          "ratio": 115.6
+        },
+        {
+          "date": "2025-08-25",
+          "holdingPrice": 125200.0,
+          "subsidiaryPrice": 27750.0,
+          "holdingValue": 6142.6,
+          "marketCap": 5269.5,
+          "ratio": 116.57
+        },
+        {
+          "date": "2025-08-26",
+          "holdingPrice": 126000.0,
+          "subsidiaryPrice": 27500.0,
+          "holdingValue": 6087.3,
+          "marketCap": 5303.1,
+          "ratio": 114.79
+        },
+        {
+          "date": "2025-08-27",
+          "holdingPrice": 130300.0,
+          "subsidiaryPrice": 27350.0,
+          "holdingValue": 6054.1,
+          "marketCap": 5484.1,
+          "ratio": 110.39
+        },
+        {
+          "date": "2025-08-28",
+          "holdingPrice": 131500.0,
+          "subsidiaryPrice": 27600.0,
+          "holdingValue": 6109.4,
+          "marketCap": 5534.6,
+          "ratio": 110.39
+        },
+        {
+          "date": "2025-08-29",
+          "holdingPrice": 128600.0,
+          "subsidiaryPrice": 27900.0,
+          "holdingValue": 6175.8,
+          "marketCap": 5412.6,
+          "ratio": 114.1
+        },
+        {
+          "date": "2025-09-01",
+          "holdingPrice": 126600.0,
+          "subsidiaryPrice": 27200.0,
+          "holdingValue": 6020.9,
+          "marketCap": 5328.4,
+          "ratio": 113.0
+        },
+        {
+          "date": "2025-09-02",
+          "holdingPrice": 126900.0,
+          "subsidiaryPrice": 26400.0,
+          "holdingValue": 5843.8,
+          "marketCap": 5341.0,
+          "ratio": 109.41
+        },
+        {
+          "date": "2025-09-03",
+          "holdingPrice": 125600.0,
+          "subsidiaryPrice": 26500.0,
+          "holdingValue": 5865.9,
+          "marketCap": 5286.3,
+          "ratio": 110.96
+        },
+        {
+          "date": "2025-09-04",
+          "holdingPrice": 127400.0,
+          "subsidiaryPrice": 27050.0,
+          "holdingValue": 5987.7,
+          "marketCap": 5362.1,
+          "ratio": 111.67
+        },
+        {
+          "date": "2025-09-05",
+          "holdingPrice": 125800.0,
+          "subsidiaryPrice": 27350.0,
+          "holdingValue": 6054.1,
+          "marketCap": 5294.7,
+          "ratio": 114.34
+        },
+        {
+          "date": "2025-09-08",
+          "holdingPrice": 124500.0,
+          "subsidiaryPrice": 27900.0,
+          "holdingValue": 6175.8,
+          "marketCap": 5240.0,
+          "ratio": 117.86
+        },
+        {
+          "date": "2025-09-09",
+          "holdingPrice": 126700.0,
+          "subsidiaryPrice": 27650.0,
+          "holdingValue": 6120.5,
+          "marketCap": 5332.6,
+          "ratio": 114.78
+        },
+        {
+          "date": "2025-09-10",
+          "holdingPrice": 126500.0,
+          "subsidiaryPrice": 27400.0,
+          "holdingValue": 6065.2,
+          "marketCap": 5324.2,
+          "ratio": 113.92
+        },
+        {
+          "date": "2025-09-11",
+          "holdingPrice": 124500.0,
+          "subsidiaryPrice": 26900.0,
+          "holdingValue": 5954.5,
+          "marketCap": 5240.0,
+          "ratio": 113.63
+        },
+        {
+          "date": "2025-09-12",
+          "holdingPrice": 132500.0,
+          "subsidiaryPrice": 26700.0,
+          "holdingValue": 5910.2,
+          "marketCap": 5576.7,
+          "ratio": 105.98
+        },
+        {
+          "date": "2025-09-15",
+          "holdingPrice": 132000.0,
+          "subsidiaryPrice": 26950.0,
+          "holdingValue": 5965.6,
+          "marketCap": 5555.7,
+          "ratio": 107.38
+        },
+        {
+          "date": "2025-09-16",
+          "holdingPrice": 129900.0,
+          "subsidiaryPrice": 26400.0,
+          "holdingValue": 5843.8,
+          "marketCap": 5467.3,
+          "ratio": 106.89
+        },
+        {
+          "date": "2025-09-17",
+          "holdingPrice": 127100.0,
+          "subsidiaryPrice": 26450.0,
+          "holdingValue": 5854.9,
+          "marketCap": 5349.4,
+          "ratio": 109.45
+        },
+        {
+          "date": "2025-09-18",
+          "holdingPrice": 125100.0,
+          "subsidiaryPrice": 26050.0,
+          "holdingValue": 5766.3,
+          "marketCap": 5265.3,
+          "ratio": 109.52
+        },
+        {
+          "date": "2025-09-22",
+          "holdingPrice": 125000.0,
+          "subsidiaryPrice": 25900.0,
+          "holdingValue": 5733.1,
+          "marketCap": 5261.1,
+          "ratio": 108.97
+        },
+        {
+          "date": "2025-09-23",
+          "holdingPrice": 123000.0,
+          "subsidiaryPrice": 25600.0,
+          "holdingValue": 5666.7,
+          "marketCap": 5176.9,
+          "ratio": 109.46
+        },
+        {
+          "date": "2025-09-24",
+          "holdingPrice": 123000.0,
+          "subsidiaryPrice": 25700.0,
+          "holdingValue": 5688.9,
+          "marketCap": 5176.9,
+          "ratio": 109.89
+        },
+        {
+          "date": "2025-09-25",
+          "holdingPrice": 123000.0,
+          "subsidiaryPrice": 25300.0,
+          "holdingValue": 5600.3,
+          "marketCap": 5176.9,
+          "ratio": 108.18
+        },
+        {
+          "date": "2025-09-26",
+          "holdingPrice": 121000.0,
+          "subsidiaryPrice": 24950.0,
+          "holdingValue": 5522.8,
+          "marketCap": 5092.7,
+          "ratio": 108.45
+        },
+        {
+          "date": "2025-09-29",
+          "holdingPrice": 122900.0,
+          "subsidiaryPrice": 24850.0,
+          "holdingValue": 5500.7,
+          "marketCap": 5172.7,
+          "ratio": 106.34
+        },
+        {
+          "date": "2025-09-30",
+          "holdingPrice": 121900.0,
+          "subsidiaryPrice": 25200.0,
+          "holdingValue": 5578.2,
+          "marketCap": 5130.6,
+          "ratio": 108.72
+        },
+        {
+          "date": "2025-10-01",
+          "holdingPrice": 121700.0,
+          "subsidiaryPrice": 25100.0,
+          "holdingValue": 5556.0,
+          "marketCap": 5122.2,
+          "ratio": 108.47
+        },
+        {
+          "date": "2025-10-02",
+          "holdingPrice": 122000.0,
+          "subsidiaryPrice": 25600.0,
+          "holdingValue": 5666.7,
+          "marketCap": 5134.8,
+          "ratio": 110.36
+        },
+        {
+          "date": "2025-10-10",
+          "holdingPrice": 118700.0,
+          "subsidiaryPrice": 23500.0,
+          "holdingValue": 5201.9,
+          "marketCap": 4995.9,
+          "ratio": 104.12
+        },
+        {
+          "date": "2025-10-13",
+          "holdingPrice": 116700.0,
+          "subsidiaryPrice": 25000.0,
+          "holdingValue": 5533.9,
+          "marketCap": 4911.7,
+          "ratio": 112.67
+        },
+        {
+          "date": "2025-10-14",
+          "holdingPrice": 117500.0,
+          "subsidiaryPrice": 25200.0,
+          "holdingValue": 5578.2,
+          "marketCap": 4945.4,
+          "ratio": 112.8
+        },
+        {
+          "date": "2025-10-15",
+          "holdingPrice": 119000.0,
+          "subsidiaryPrice": 25850.0,
+          "holdingValue": 5722.1,
+          "marketCap": 5008.5,
+          "ratio": 114.25
+        },
+        {
+          "date": "2025-10-16",
+          "holdingPrice": 117700.0,
+          "subsidiaryPrice": 25500.0,
+          "holdingValue": 5644.6,
+          "marketCap": 4953.8,
+          "ratio": 113.94
+        },
+        {
+          "date": "2025-10-17",
+          "holdingPrice": 119200.0,
+          "subsidiaryPrice": 25200.0,
+          "holdingValue": 5578.2,
+          "marketCap": 5016.9,
+          "ratio": 111.19
+        },
+        {
+          "date": "2025-10-20",
+          "holdingPrice": 120500.0,
+          "subsidiaryPrice": 25300.0,
+          "holdingValue": 5600.3,
+          "marketCap": 5071.7,
+          "ratio": 110.42
+        },
+        {
+          "date": "2025-10-21",
+          "holdingPrice": 121400.0,
+          "subsidiaryPrice": 25450.0,
+          "holdingValue": 5633.5,
+          "marketCap": 5109.5,
+          "ratio": 110.25
+        },
+        {
+          "date": "2025-10-22",
+          "holdingPrice": 120500.0,
+          "subsidiaryPrice": 26950.0,
+          "holdingValue": 5965.6,
+          "marketCap": 5071.7,
+          "ratio": 117.63
+        },
+        {
+          "date": "2025-10-23",
+          "holdingPrice": 120600.0,
+          "subsidiaryPrice": 26550.0,
+          "holdingValue": 5877.0,
+          "marketCap": 5075.9,
+          "ratio": 115.78
+        },
+        {
+          "date": "2025-10-24",
+          "holdingPrice": 118000.0,
+          "subsidiaryPrice": 28300.0,
+          "holdingValue": 6264.4,
+          "marketCap": 4966.4,
+          "ratio": 126.13
+        },
+        {
+          "date": "2025-10-27",
+          "holdingPrice": 119600.0,
+          "subsidiaryPrice": 28150.0,
+          "holdingValue": 6231.2,
+          "marketCap": 5033.8,
+          "ratio": 123.79
+        },
+        {
+          "date": "2025-10-28",
+          "holdingPrice": 121000.0,
+          "subsidiaryPrice": 29550.0,
+          "holdingValue": 6541.1,
+          "marketCap": 5092.7,
+          "ratio": 128.44
+        },
+        {
+          "date": "2025-10-29",
+          "holdingPrice": 119900.0,
+          "subsidiaryPrice": 28600.0,
+          "holdingValue": 6330.8,
+          "marketCap": 5046.4,
+          "ratio": 125.45
+        },
+        {
+          "date": "2025-10-30",
+          "holdingPrice": 120900.0,
+          "subsidiaryPrice": 27500.0,
+          "holdingValue": 6087.3,
+          "marketCap": 5088.5,
+          "ratio": 119.63
+        },
+        {
+          "date": "2025-10-31",
+          "holdingPrice": 120000.0,
+          "subsidiaryPrice": 27500.0,
+          "holdingValue": 6087.3,
+          "marketCap": 5050.6,
+          "ratio": 120.53
+        },
+        {
+          "date": "2025-11-03",
+          "holdingPrice": 117100.0,
+          "subsidiaryPrice": 26850.0,
+          "holdingValue": 5943.4,
+          "marketCap": 4928.6,
+          "ratio": 120.59
+        },
+        {
+          "date": "2025-11-04",
+          "holdingPrice": 115000.0,
+          "subsidiaryPrice": 27600.0,
+          "holdingValue": 6109.4,
+          "marketCap": 4840.2,
+          "ratio": 126.22
+        },
+        {
+          "date": "2025-11-05",
+          "holdingPrice": 113000.0,
+          "subsidiaryPrice": 27300.0,
+          "holdingValue": 6043.0,
+          "marketCap": 4756.0,
+          "ratio": 127.06
+        },
+        {
+          "date": "2025-11-06",
+          "holdingPrice": 116000.0,
+          "subsidiaryPrice": 26300.0,
+          "holdingValue": 5821.7,
+          "marketCap": 4882.3,
+          "ratio": 119.24
+        },
+        {
+          "date": "2025-11-07",
+          "holdingPrice": 117700.0,
+          "subsidiaryPrice": 26200.0,
+          "holdingValue": 5799.5,
+          "marketCap": 4953.8,
+          "ratio": 117.07
+        },
+        {
+          "date": "2025-11-10",
+          "holdingPrice": 119500.0,
+          "subsidiaryPrice": 27650.0,
+          "holdingValue": 6120.5,
+          "marketCap": 5029.6,
+          "ratio": 121.69
+        },
+        {
+          "date": "2025-11-11",
+          "holdingPrice": 116000.0,
+          "subsidiaryPrice": 27200.0,
+          "holdingValue": 6020.9,
+          "marketCap": 4882.3,
+          "ratio": 123.32
+        },
+        {
+          "date": "2025-11-12",
+          "holdingPrice": 116600.0,
+          "subsidiaryPrice": 28850.0,
+          "holdingValue": 6386.1,
+          "marketCap": 4907.5,
+          "ratio": 130.13
+        },
+        {
+          "date": "2025-11-13",
+          "holdingPrice": 116700.0,
+          "subsidiaryPrice": 28750.0,
+          "holdingValue": 6364.0,
+          "marketCap": 4911.7,
+          "ratio": 129.57
+        },
+        {
+          "date": "2025-11-14",
+          "holdingPrice": 115900.0,
+          "subsidiaryPrice": 28200.0,
+          "holdingValue": 6242.2,
+          "marketCap": 4878.1,
+          "ratio": 127.97
+        },
+        {
+          "date": "2025-11-17",
+          "holdingPrice": 115400.0,
+          "subsidiaryPrice": 28050.0,
+          "holdingValue": 6209.0,
+          "marketCap": 4857.0,
+          "ratio": 127.84
+        },
+        {
+          "date": "2025-11-18",
+          "holdingPrice": 113200.0,
+          "subsidiaryPrice": 26750.0,
+          "holdingValue": 5921.3,
+          "marketCap": 4764.4,
+          "ratio": 124.28
+        },
+        {
+          "date": "2025-11-19",
+          "holdingPrice": 114200.0,
+          "subsidiaryPrice": 26400.0,
+          "holdingValue": 5843.8,
+          "marketCap": 4806.5,
+          "ratio": 121.58
+        },
+        {
+          "date": "2025-11-20",
+          "holdingPrice": 116000.0,
+          "subsidiaryPrice": 26850.0,
+          "holdingValue": 5943.4,
+          "marketCap": 4882.3,
+          "ratio": 121.73
+        },
+        {
+          "date": "2025-11-21",
+          "holdingPrice": 116000.0,
+          "subsidiaryPrice": 26500.0,
+          "holdingValue": 5865.9,
+          "marketCap": 4882.3,
+          "ratio": 120.15
+        },
+        {
+          "date": "2025-11-24",
+          "holdingPrice": 117500.0,
+          "subsidiaryPrice": 26350.0,
+          "holdingValue": 5832.7,
+          "marketCap": 4945.4,
+          "ratio": 117.94
+        },
+        {
+          "date": "2025-11-25",
+          "holdingPrice": 116000.0,
+          "subsidiaryPrice": 26900.0,
+          "holdingValue": 5954.5,
+          "marketCap": 4882.3,
+          "ratio": 121.96
+        },
+        {
+          "date": "2025-11-26",
+          "holdingPrice": 115600.0,
+          "subsidiaryPrice": 27450.0,
+          "holdingValue": 6076.2,
+          "marketCap": 4865.4,
+          "ratio": 124.89
+        },
+        {
+          "date": "2025-11-27",
+          "holdingPrice": 117900.0,
+          "subsidiaryPrice": 27750.0,
+          "holdingValue": 6142.6,
+          "marketCap": 4962.2,
+          "ratio": 123.79
+        },
+        {
+          "date": "2025-11-28",
+          "holdingPrice": 120000.0,
+          "subsidiaryPrice": 27900.0,
+          "holdingValue": 6175.8,
+          "marketCap": 5050.6,
+          "ratio": 122.28
+        },
+        {
+          "date": "2025-12-01",
+          "holdingPrice": 118500.0,
+          "subsidiaryPrice": 27550.0,
+          "holdingValue": 6098.4,
+          "marketCap": 4987.5,
+          "ratio": 122.27
+        },
+        {
+          "date": "2025-12-02",
+          "holdingPrice": 119000.0,
+          "subsidiaryPrice": 27700.0,
+          "holdingValue": 6131.6,
+          "marketCap": 5008.5,
+          "ratio": 122.42
+        },
+        {
+          "date": "2025-12-03",
+          "holdingPrice": 120400.0,
+          "subsidiaryPrice": 28250.0,
+          "holdingValue": 6253.3,
+          "marketCap": 5067.4,
+          "ratio": 123.4
+        },
+        {
+          "date": "2025-12-04",
+          "holdingPrice": 118700.0,
+          "subsidiaryPrice": 28050.0,
+          "holdingValue": 6209.0,
+          "marketCap": 4995.9,
+          "ratio": 124.28
+        },
+        {
+          "date": "2025-12-05",
+          "holdingPrice": 119100.0,
+          "subsidiaryPrice": 28100.0,
+          "holdingValue": 6220.1,
+          "marketCap": 5012.7,
+          "ratio": 124.09
+        },
+        {
+          "date": "2025-12-08",
+          "holdingPrice": 120300.0,
+          "subsidiaryPrice": 31400.0,
+          "holdingValue": 6950.6,
+          "marketCap": 5063.2,
+          "ratio": 137.28
+        },
+        {
+          "date": "2025-12-09",
+          "holdingPrice": 120700.0,
+          "subsidiaryPrice": 30650.0,
+          "holdingValue": 6784.6,
+          "marketCap": 5080.1,
+          "ratio": 133.55
+        },
+        {
+          "date": "2025-12-10",
+          "holdingPrice": 120000.0,
+          "subsidiaryPrice": 34950.0,
+          "holdingValue": 7736.4,
+          "marketCap": 5050.6,
+          "ratio": 153.18
+        },
+        {
+          "date": "2025-12-11",
+          "holdingPrice": 121200.0,
+          "subsidiaryPrice": 34450.0,
+          "holdingValue": 7625.7,
+          "marketCap": 5101.1,
+          "ratio": 149.49
+        },
+        {
+          "date": "2025-12-12",
+          "holdingPrice": 129900.0,
+          "subsidiaryPrice": 44750.0,
+          "holdingValue": 9905.7,
+          "marketCap": 5467.3,
+          "ratio": 181.18
+        },
+        {
+          "date": "2025-12-15",
+          "holdingPrice": 125100.0,
+          "subsidiaryPrice": 48950.0,
+          "holdingValue": 10835.4,
+          "marketCap": 5265.3,
+          "ratio": 205.79
+        },
+        {
+          "date": "2025-12-16",
+          "holdingPrice": 121300.0,
+          "subsidiaryPrice": 43150.0,
+          "holdingValue": 9551.5,
+          "marketCap": 5105.3,
+          "ratio": 187.09
+        },
+        {
+          "date": "2025-12-17",
+          "holdingPrice": 126500.0,
+          "subsidiaryPrice": 42850.0,
+          "holdingValue": 9485.1,
+          "marketCap": 5324.2,
+          "ratio": 178.15
+        },
+        {
+          "date": "2025-12-18",
+          "holdingPrice": 124300.0,
+          "subsidiaryPrice": 45350.0,
+          "holdingValue": 10038.5,
+          "marketCap": 5231.6,
+          "ratio": 191.88
+        },
+        {
+          "date": "2025-12-19",
+          "holdingPrice": 129700.0,
+          "subsidiaryPrice": 43950.0,
+          "holdingValue": 9728.6,
+          "marketCap": 5458.9,
+          "ratio": 178.22
+        },
+        {
+          "date": "2025-12-22",
+          "holdingPrice": 133900.0,
+          "subsidiaryPrice": 51300.0,
+          "holdingValue": 11355.6,
+          "marketCap": 5635.6,
+          "ratio": 201.5
+        },
+        {
+          "date": "2025-12-23",
+          "holdingPrice": 129800.0,
+          "subsidiaryPrice": 44500.0,
+          "holdingValue": 9850.4,
+          "marketCap": 5463.1,
+          "ratio": 180.31
+        },
+        {
+          "date": "2025-12-24",
+          "holdingPrice": 133400.0,
+          "subsidiaryPrice": 47000.0,
+          "holdingValue": 10403.7,
+          "marketCap": 5614.6,
+          "ratio": 185.3
+        },
+        {
+          "date": "2025-12-26",
+          "holdingPrice": 139700.0,
+          "subsidiaryPrice": 49300.0,
+          "holdingValue": 10912.9,
+          "marketCap": 5879.8,
+          "ratio": 185.6
+        },
+        {
+          "date": "2025-12-29",
+          "holdingPrice": 145000.0,
+          "subsidiaryPrice": 48650.0,
+          "holdingValue": 10769.0,
+          "marketCap": 6102.8,
+          "ratio": 176.46
+        },
+        {
+          "date": "2025-12-30",
+          "holdingPrice": 144000.0,
+          "subsidiaryPrice": 50200.0,
+          "holdingValue": 11112.1,
+          "marketCap": 6060.7,
+          "ratio": 183.35
+        },
+        {
+          "date": "2026-01-02",
+          "holdingPrice": 141300.0,
+          "subsidiaryPrice": 55900.0,
+          "holdingValue": 12373.8,
+          "marketCap": 5947.1,
+          "ratio": 208.06
+        },
+        {
+          "date": "2026-01-05",
+          "holdingPrice": 135900.0,
+          "subsidiaryPrice": 56300.0,
+          "holdingValue": 12462.4,
+          "marketCap": 5719.8,
+          "ratio": 217.88
+        },
+        {
+          "date": "2026-01-06",
+          "holdingPrice": 136700.0,
+          "subsidiaryPrice": 54800.0,
+          "holdingValue": 12130.3,
+          "marketCap": 5753.5,
+          "ratio": 210.83
+        },
+        {
+          "date": "2026-01-07",
+          "holdingPrice": 136300.0,
+          "subsidiaryPrice": 57200.0,
+          "holdingValue": 12661.6,
+          "marketCap": 5736.7,
+          "ratio": 220.71
+        },
+        {
+          "date": "2026-01-08",
+          "holdingPrice": 129100.0,
+          "subsidiaryPrice": 58000.0,
+          "holdingValue": 12838.7,
+          "marketCap": 5433.6,
+          "ratio": 236.28
+        },
+        {
+          "date": "2026-01-09",
+          "holdingPrice": 129900.0,
+          "subsidiaryPrice": 61700.0,
+          "holdingValue": 13657.7,
+          "marketCap": 5467.3,
+          "ratio": 249.81
+        },
+        {
+          "date": "2026-01-12",
+          "holdingPrice": 129900.0,
+          "subsidiaryPrice": 68300.0,
+          "holdingValue": 15118.6,
+          "marketCap": 5467.3,
+          "ratio": 276.53
+        },
+        {
+          "date": "2026-01-13",
+          "holdingPrice": 135700.0,
+          "subsidiaryPrice": 68800.0,
+          "holdingValue": 15229.3,
+          "marketCap": 5711.4,
+          "ratio": 266.65
+        },
+        {
+          "date": "2026-01-14",
+          "holdingPrice": 148500.0,
+          "subsidiaryPrice": 67900.0,
+          "holdingValue": 15030.1,
+          "marketCap": 6250.1,
+          "ratio": 240.48
+        },
+        {
+          "date": "2026-01-15",
+          "holdingPrice": 145800.0,
+          "subsidiaryPrice": 67200.0,
+          "holdingValue": 14875.1,
+          "marketCap": 6136.5,
+          "ratio": 242.4
+        },
+        {
+          "date": "2026-01-16",
+          "holdingPrice": 143600.0,
+          "subsidiaryPrice": 67900.0,
+          "holdingValue": 15030.1,
+          "marketCap": 6043.9,
+          "ratio": 248.68
+        },
+        {
+          "date": "2026-01-19",
+          "holdingPrice": 146200.0,
+          "subsidiaryPrice": 71500.0,
+          "holdingValue": 15827.0,
+          "marketCap": 6153.3,
+          "ratio": 257.21
+        },
+        {
+          "date": "2026-01-20",
+          "holdingPrice": 155000.0,
+          "subsidiaryPrice": 73600.0,
+          "holdingValue": 16291.8,
+          "marketCap": 6523.7,
+          "ratio": 249.73
+        },
+        {
+          "date": "2026-01-21",
+          "holdingPrice": 153900.0,
+          "subsidiaryPrice": 76500.0,
+          "holdingValue": 16933.8,
+          "marketCap": 6477.4,
+          "ratio": 261.43
+        },
+        {
+          "date": "2026-01-22",
+          "holdingPrice": 156000.0,
+          "subsidiaryPrice": 73300.0,
+          "holdingValue": 16225.4,
+          "marketCap": 6565.8,
+          "ratio": 247.12
+        },
+        {
+          "date": "2026-01-23",
+          "holdingPrice": 174900.0,
+          "subsidiaryPrice": 75000.0,
+          "holdingValue": 16601.7,
+          "marketCap": 7361.3,
+          "ratio": 225.53
+        },
+        {
+          "date": "2026-01-26",
+          "holdingPrice": 174200.0,
+          "subsidiaryPrice": 69100.0,
+          "holdingValue": 15295.7,
+          "marketCap": 7331.8,
+          "ratio": 208.62
+        },
+        {
+          "date": "2026-01-27",
+          "holdingPrice": 165100.0,
+          "subsidiaryPrice": 68100.0,
+          "holdingValue": 15074.4,
+          "marketCap": 6948.8,
+          "ratio": 216.93
+        },
+        {
+          "date": "2026-01-28",
+          "holdingPrice": 160300.0,
+          "subsidiaryPrice": 68300.0,
+          "holdingValue": 15118.6,
+          "marketCap": 6746.8,
+          "ratio": 224.09
+        },
+        {
+          "date": "2026-01-29",
+          "holdingPrice": 158000.0,
+          "subsidiaryPrice": 73100.0,
+          "holdingValue": 16181.1,
+          "marketCap": 6650.0,
+          "ratio": 243.33
+        },
+        {
+          "date": "2026-01-30",
+          "holdingPrice": 161700.0,
+          "subsidiaryPrice": 72800.0,
+          "holdingValue": 16114.7,
+          "marketCap": 6805.7,
+          "ratio": 236.78
+        },
+        {
+          "date": "2026-02-02",
+          "holdingPrice": 157300.0,
+          "subsidiaryPrice": 70900.0,
+          "holdingValue": 15694.2,
+          "marketCap": 6620.5,
+          "ratio": 237.05
+        },
+        {
+          "date": "2026-02-03",
+          "holdingPrice": 169000.0,
+          "subsidiaryPrice": 81500.0,
+          "holdingValue": 18040.5,
+          "marketCap": 7112.9,
+          "ratio": 253.63
+        },
+        {
+          "date": "2026-02-04",
+          "holdingPrice": 181000.0,
+          "subsidiaryPrice": 90300.0,
+          "holdingValue": 19988.5,
+          "marketCap": 7618.0,
+          "ratio": 262.38
+        },
+        {
+          "date": "2026-02-05",
+          "holdingPrice": 174500.0,
+          "subsidiaryPrice": 80300.0,
+          "holdingValue": 17774.9,
+          "marketCap": 7344.4,
+          "ratio": 242.02
+        },
+        {
+          "date": "2026-02-06",
+          "holdingPrice": 165400.0,
+          "subsidiaryPrice": 83800.0,
+          "holdingValue": 18549.7,
+          "marketCap": 6961.4,
+          "ratio": 266.46
+        },
+        {
+          "date": "2026-02-09",
+          "holdingPrice": 167800.0,
+          "subsidiaryPrice": 84400.0,
+          "holdingValue": 18682.5,
+          "marketCap": 7062.4,
+          "ratio": 264.53
+        },
+        {
+          "date": "2026-02-10",
+          "holdingPrice": 161000.0,
+          "subsidiaryPrice": 80700.0,
+          "holdingValue": 17863.5,
+          "marketCap": 6776.2,
+          "ratio": 263.62
+        },
+        {
+          "date": "2026-02-11",
+          "holdingPrice": 160700.0,
+          "subsidiaryPrice": 75300.0,
+          "holdingValue": 16668.1,
+          "marketCap": 6763.6,
+          "ratio": 246.44
+        },
+        {
+          "date": "2026-02-12",
+          "holdingPrice": 152300.0,
+          "subsidiaryPrice": 73900.0,
+          "holdingValue": 16358.2,
+          "marketCap": 6410.1,
+          "ratio": 255.2
+        },
+        {
+          "date": "2026-02-13",
+          "holdingPrice": 152600.0,
+          "subsidiaryPrice": 74100.0,
+          "holdingValue": 16402.5,
+          "marketCap": 6422.7,
+          "ratio": 255.38
+        },
+        {
+          "date": "2026-02-19",
+          "holdingPrice": 155700.0,
+          "subsidiaryPrice": 74100.0,
+          "holdingValue": 16402.5,
+          "marketCap": 6553.2,
+          "ratio": 250.3
+        },
+        {
+          "date": "2026-02-20",
+          "holdingPrice": 161500.0,
+          "subsidiaryPrice": 74300.0,
+          "holdingValue": 16446.8,
+          "marketCap": 6797.3,
+          "ratio": 241.96
+        },
+        {
+          "date": "2026-02-23",
+          "holdingPrice": 163000.0,
+          "subsidiaryPrice": 70500.0,
+          "holdingValue": 15605.6,
+          "marketCap": 6860.4,
+          "ratio": 227.47
+        },
+        {
+          "date": "2026-02-24",
+          "holdingPrice": 158700.0,
+          "subsidiaryPrice": 70500.0,
+          "holdingValue": 15605.6,
+          "marketCap": 6679.4,
+          "ratio": 233.64
+        },
+        {
+          "date": "2026-02-25",
+          "holdingPrice": 164000.0,
+          "subsidiaryPrice": 70500.0,
+          "holdingValue": 15605.6,
+          "marketCap": 6902.5,
+          "ratio": 226.09
+        },
+        {
+          "date": "2026-02-26",
+          "holdingPrice": 159000.0,
+          "subsidiaryPrice": 68800.0,
+          "holdingValue": 15229.3,
+          "marketCap": 6692.1,
+          "ratio": 227.57
+        },
+        {
+          "date": "2026-02-27",
+          "holdingPrice": 159300.0,
+          "subsidiaryPrice": 69100.0,
+          "holdingValue": 15295.7,
+          "marketCap": 6704.7,
+          "ratio": 228.13
+        },
+        {
+          "date": "2026-03-03",
+          "holdingPrice": 155000.0,
+          "subsidiaryPrice": 67000.0,
+          "holdingValue": 14830.9,
+          "marketCap": 6523.7,
+          "ratio": 227.34
+        },
+        {
+          "date": "2026-03-04",
+          "holdingPrice": 142600.0,
+          "subsidiaryPrice": 58500.0,
+          "holdingValue": 12949.3,
+          "marketCap": 6001.8,
+          "ratio": 215.76
+        },
+        {
+          "date": "2026-03-05",
+          "holdingPrice": 146900.0,
+          "subsidiaryPrice": 61000.0,
+          "holdingValue": 13502.7,
+          "marketCap": 6182.8,
+          "ratio": 218.39
+        },
+        {
+          "date": "2026-03-06",
+          "holdingPrice": 159500.0,
+          "subsidiaryPrice": 61900.0,
+          "holdingValue": 13702.0,
+          "marketCap": 6713.1,
+          "ratio": 204.11
+        },
+        {
+          "date": "2026-03-09",
+          "holdingPrice": 157400.0,
+          "subsidiaryPrice": 58500.0,
+          "holdingValue": 12949.3,
+          "marketCap": 6624.7,
+          "ratio": 195.47
+        },
+        {
+          "date": "2026-03-10",
+          "holdingPrice": 153500.0,
+          "subsidiaryPrice": 61900.0,
+          "holdingValue": 13702.0,
+          "marketCap": 6460.6,
+          "ratio": 212.09
+        },
+        {
+          "date": "2026-03-11",
+          "holdingPrice": 154500.0,
+          "subsidiaryPrice": 69700.0,
+          "holdingValue": 15428.5,
+          "marketCap": 6502.7,
+          "ratio": 237.26
+        },
+        {
+          "date": "2026-03-12",
+          "holdingPrice": 153300.0,
+          "subsidiaryPrice": 71300.0,
+          "holdingValue": 15782.7,
+          "marketCap": 6452.2,
+          "ratio": 244.61
+        },
+        {
+          "date": "2026-03-13",
+          "holdingPrice": 155500.0,
+          "subsidiaryPrice": 70500.0,
+          "holdingValue": 15605.6,
+          "marketCap": 6544.8,
+          "ratio": 238.44
+        },
+        {
+          "date": "2026-03-16",
+          "holdingPrice": 151500.0,
+          "subsidiaryPrice": 67300.0,
+          "holdingValue": 14897.3,
+          "marketCap": 6376.4,
+          "ratio": 233.63
+        },
+        {
+          "date": "2026-03-17",
+          "holdingPrice": 152000.0,
+          "subsidiaryPrice": 68200.0,
+          "holdingValue": 15096.5,
+          "marketCap": 6397.4,
+          "ratio": 235.98
+        },
+        {
+          "date": "2026-03-18",
+          "holdingPrice": 155292.0,
+          "subsidiaryPrice": 66874.0,
+          "holdingValue": 14803.1,
+          "marketCap": 6536.0,
+          "ratio": 226.49
+        },
+        {
+          "date": "2026-03-19",
+          "holdingPrice": 152177.0,
+          "subsidiaryPrice": 64022.0,
+          "holdingValue": 14171.8,
+          "marketCap": 6404.9,
+          "ratio": 221.27
+        },
+        {
+          "date": "2026-03-20",
+          "holdingPrice": 154416.0,
+          "subsidiaryPrice": 65104.0,
+          "holdingValue": 14411.2,
+          "marketCap": 6499.1,
+          "ratio": 221.74
+        },
+        {
+          "date": "2026-03-23",
+          "holdingPrice": 148282.0,
+          "subsidiaryPrice": 59400.0,
+          "holdingValue": 13148.6,
+          "marketCap": 6241.0,
+          "ratio": 210.68
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 155584.0,
+          "subsidiaryPrice": 67760.0,
+          "holdingValue": 14999.0,
+          "marketCap": 6548.3,
+          "ratio": 229.05
         }
       ]
     },
@@ -45554,12 +51722,12 @@ const STOCK_DATA = {
       "holdingName": "삼성생명",
       "subsidiaryName": "삼성전자",
       "current": {
-        "holdingPrice": 217500.0,
-        "subsidiaryPrice": 186300.0,
-        "holdingValue": 946697.5,
-        "marketCap": 435000.0,
-        "ratio": 217.63,
-        "ratioChange": -1.22
+        "holdingPrice": 222000.0,
+        "subsidiaryPrice": 189700.0,
+        "holdingValue": 963974.8,
+        "marketCap": 444000.0,
+        "ratio": 217.11,
+        "ratioChange": -0.52
       },
       "history": [
         {
@@ -51641,6 +57809,14 @@ const STOCK_DATA = {
           "holdingValue": 946697.5,
           "marketCap": 435000.0,
           "ratio": 217.63
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 222000.0,
+          "subsidiaryPrice": 189700.0,
+          "holdingValue": 963974.8,
+          "marketCap": 444000.0,
+          "ratio": 217.11
         }
       ]
     },
@@ -51650,22 +57826,22 @@ const STOCK_DATA = {
       "holdingName": "SK디스커버리",
       "subsidiaryName": "SK가스+SK케미칼",
       "current": {
-        "holdingPrice": 60100.0,
+        "holdingPrice": 59000.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 21906.3,
-        "marketCap": 10286.3,
-        "ratio": 212.97,
-        "ratioChange": 2.71,
+        "holdingValue": 20639.2,
+        "marketCap": 10098.1,
+        "ratio": 204.39,
+        "ratioChange": -3.51,
         "subsidiaries": [
           {
             "name": "SK가스",
-            "price": 254500.0,
-            "value": 18379.6
+            "price": 236599.0,
+            "value": 17086.8
           },
           {
             "name": "SK케미칼",
-            "price": 55100.0,
-            "value": 3526.7
+            "price": 55500.0,
+            "value": 3552.3
           }
         ]
       },
@@ -57722,6129 +63898,41 @@ const STOCK_DATA = {
           "date": "2026-03-18",
           "holdingPrice": 61500.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 20490.8,
+          "holdingValue": 20018.0,
           "marketCap": 10525.9,
-          "ratio": 194.67
+          "ratio": 190.18
         },
         {
           "date": "2026-03-19",
           "holdingPrice": 60300.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 21637.1,
+          "holdingValue": 21127.5,
           "marketCap": 10320.6,
-          "ratio": 209.65
+          "ratio": 204.71
         },
         {
           "date": "2026-03-20",
           "holdingPrice": 62600.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 22527.6,
+          "holdingValue": 21995.4,
           "marketCap": 10714.2,
-          "ratio": 210.26
+          "ratio": 205.29
         },
         {
           "date": "2026-03-23",
           "holdingPrice": 60100.0,
           "subsidiaryPrice": 0,
-          "holdingValue": 21906.3,
+          "holdingValue": 21385.4,
           "marketCap": 10286.3,
-          "ratio": 212.97
-        }
-      ]
-    },
-    {
-      "id": "seah_holdings",
-      "name": "세아홀딩스→세아베스틸지주",
-      "holdingName": "세아홀딩스",
-      "subsidiaryName": "세아베스틸지주",
-      "current": {
-        "holdingPrice": 152300.0,
-        "subsidiaryPrice": 60400.0,
-        "holdingValue": 13369.9,
-        "marketCap": 6410.1,
-        "ratio": 208.58,
-        "ratioChange": -10.94
-      },
-      "history": [
-        {
-          "date": "2023-02-06",
-          "holdingPrice": 100540.0,
-          "subsidiaryPrice": 14388.0,
-          "holdingValue": 3184.8,
-          "marketCap": 4231.6,
-          "ratio": 75.26
-        },
-        {
-          "date": "2023-02-07",
-          "holdingPrice": 97128.0,
-          "subsidiaryPrice": 14450.0,
-          "holdingValue": 3198.7,
-          "marketCap": 4087.9,
-          "ratio": 78.25
-        },
-        {
-          "date": "2023-02-08",
-          "holdingPrice": 96390.0,
-          "subsidiaryPrice": 14343.0,
-          "holdingValue": 3174.9,
-          "marketCap": 4056.9,
-          "ratio": 78.26
-        },
-        {
-          "date": "2023-02-09",
-          "holdingPrice": 95836.0,
-          "subsidiaryPrice": 14316.0,
-          "holdingValue": 3168.9,
-          "marketCap": 4033.6,
-          "ratio": 78.56
-        },
-        {
-          "date": "2023-02-10",
-          "holdingPrice": 95744.0,
-          "subsidiaryPrice": 14361.0,
-          "holdingValue": 3178.8,
-          "marketCap": 4029.7,
-          "ratio": 78.88
-        },
-        {
-          "date": "2023-02-13",
-          "holdingPrice": 96574.0,
-          "subsidiaryPrice": 14746.0,
-          "holdingValue": 3264.2,
-          "marketCap": 4064.7,
-          "ratio": 80.31
-        },
-        {
-          "date": "2023-02-14",
-          "holdingPrice": 97035.0,
-          "subsidiaryPrice": 14701.0,
-          "holdingValue": 3254.2,
-          "marketCap": 4084.1,
-          "ratio": 79.68
-        },
-        {
-          "date": "2023-02-15",
-          "holdingPrice": 95744.0,
-          "subsidiaryPrice": 15096.0,
-          "holdingValue": 3341.5,
-          "marketCap": 4029.7,
-          "ratio": 82.92
-        },
-        {
-          "date": "2023-02-16",
-          "holdingPrice": 95652.0,
-          "subsidiaryPrice": 15105.0,
-          "holdingValue": 3343.5,
-          "marketCap": 4025.8,
-          "ratio": 83.05
-        },
-        {
-          "date": "2023-02-17",
-          "holdingPrice": 96759.0,
-          "subsidiaryPrice": 16270.0,
-          "holdingValue": 3601.5,
-          "marketCap": 4072.4,
-          "ratio": 88.44
-        },
-        {
-          "date": "2023-02-20",
-          "holdingPrice": 99618.0,
-          "subsidiaryPrice": 17184.0,
-          "holdingValue": 3803.9,
-          "marketCap": 4192.8,
-          "ratio": 90.72
-        },
-        {
-          "date": "2023-02-21",
-          "holdingPrice": 99802.0,
-          "subsidiaryPrice": 17444.0,
-          "holdingValue": 3861.4,
-          "marketCap": 4200.5,
-          "ratio": 91.93
-        },
-        {
-          "date": "2023-02-22",
-          "holdingPrice": 100633.0,
-          "subsidiaryPrice": 17525.0,
-          "holdingValue": 3879.3,
-          "marketCap": 4235.5,
-          "ratio": 91.59
-        },
-        {
-          "date": "2023-02-23",
-          "holdingPrice": 99710.0,
-          "subsidiaryPrice": 16826.0,
-          "holdingValue": 3724.5,
-          "marketCap": 4196.6,
-          "ratio": 88.75
-        },
-        {
-          "date": "2023-02-24",
-          "holdingPrice": 98234.0,
-          "subsidiaryPrice": 16467.0,
-          "holdingValue": 3645.1,
-          "marketCap": 4134.5,
-          "ratio": 88.16
-        },
-        {
-          "date": "2023-02-27",
-          "holdingPrice": 106813.0,
-          "subsidiaryPrice": 21380.0,
-          "holdingValue": 4732.5,
-          "marketCap": 4495.6,
-          "ratio": 105.27
-        },
-        {
-          "date": "2023-02-28",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 20169.0,
-          "holdingValue": 4464.6,
-          "marketCap": 4282.1,
-          "ratio": 104.26
-        },
-        {
-          "date": "2023-03-02",
-          "holdingPrice": 102662.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4320.9,
-          "ratio": 105.62
-        },
-        {
-          "date": "2023-03-03",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 21066.0,
-          "holdingValue": 4663.1,
-          "marketCap": 4282.1,
-          "ratio": 108.9
-        },
-        {
-          "date": "2023-03-06",
-          "holdingPrice": 100540.0,
-          "subsidiaryPrice": 20169.0,
-          "holdingValue": 4464.6,
-          "marketCap": 4231.6,
-          "ratio": 105.51
-        },
-        {
-          "date": "2023-03-07",
-          "holdingPrice": 101832.0,
-          "subsidiaryPrice": 21290.0,
-          "holdingValue": 4712.7,
-          "marketCap": 4285.9,
-          "ratio": 109.96
-        },
-        {
-          "date": "2023-03-08",
-          "holdingPrice": 100540.0,
-          "subsidiaryPrice": 22142.0,
-          "holdingValue": 4901.2,
-          "marketCap": 4231.6,
-          "ratio": 115.82
-        },
-        {
-          "date": "2023-03-09",
-          "holdingPrice": 104322.0,
-          "subsidiaryPrice": 22769.0,
-          "holdingValue": 5040.1,
-          "marketCap": 4390.8,
-          "ratio": 114.79
-        },
-        {
-          "date": "2023-03-10",
-          "holdingPrice": 101463.0,
-          "subsidiaryPrice": 21559.0,
-          "holdingValue": 4772.2,
-          "marketCap": 4270.4,
-          "ratio": 111.75
-        },
-        {
-          "date": "2023-03-13",
-          "holdingPrice": 103308.0,
-          "subsidiaryPrice": 20304.0,
-          "holdingValue": 4494.4,
-          "marketCap": 4348.1,
-          "ratio": 103.37
-        },
-        {
-          "date": "2023-03-14",
-          "holdingPrice": 98788.0,
-          "subsidiaryPrice": 19318.0,
-          "holdingValue": 4276.1,
-          "marketCap": 4157.8,
-          "ratio": 102.85
-        },
-        {
-          "date": "2023-03-15",
-          "holdingPrice": 99618.0,
-          "subsidiaryPrice": 19587.0,
-          "holdingValue": 4335.7,
-          "marketCap": 4192.8,
-          "ratio": 103.41
-        },
-        {
-          "date": "2023-03-16",
-          "holdingPrice": 99341.0,
-          "subsidiaryPrice": 18870.0,
-          "holdingValue": 4176.9,
-          "marketCap": 4181.1,
-          "ratio": 99.9
-        },
-        {
-          "date": "2023-03-17",
-          "holdingPrice": 99895.0,
-          "subsidiaryPrice": 18421.0,
-          "holdingValue": 4077.7,
-          "marketCap": 4204.4,
-          "ratio": 96.99
-        },
-        {
-          "date": "2023-03-20",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 19811.0,
-          "holdingValue": 4385.3,
-          "marketCap": 4247.1,
-          "ratio": 103.25
-        },
-        {
-          "date": "2023-03-21",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 20438.0,
-          "holdingValue": 4524.2,
-          "marketCap": 4247.1,
-          "ratio": 106.52
-        },
-        {
-          "date": "2023-03-22",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4247.1,
-          "ratio": 107.46
-        },
-        {
-          "date": "2023-03-23",
-          "holdingPrice": 100079.0,
-          "subsidiaryPrice": 20887.0,
-          "holdingValue": 4623.4,
-          "marketCap": 4212.2,
-          "ratio": 109.76
-        },
-        {
-          "date": "2023-03-24",
-          "holdingPrice": 99802.0,
-          "subsidiaryPrice": 21559.0,
-          "holdingValue": 4772.2,
-          "marketCap": 4200.5,
-          "ratio": 113.61
-        },
-        {
-          "date": "2023-03-27",
-          "holdingPrice": 99618.0,
-          "subsidiaryPrice": 22142.0,
-          "holdingValue": 4901.2,
-          "marketCap": 4192.8,
-          "ratio": 116.9
-        },
-        {
-          "date": "2023-03-28",
-          "holdingPrice": 102108.0,
-          "subsidiaryPrice": 21514.0,
-          "holdingValue": 4762.3,
-          "marketCap": 4297.6,
-          "ratio": 110.81
-        },
-        {
-          "date": "2023-03-29",
-          "holdingPrice": 102201.0,
-          "subsidiaryPrice": 22097.0,
-          "holdingValue": 4891.3,
-          "marketCap": 4301.5,
-          "ratio": 113.71
-        },
-        {
-          "date": "2023-03-30",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 20125.0,
-          "holdingValue": 4454.7,
-          "marketCap": 4282.1,
-          "ratio": 104.03
-        },
-        {
-          "date": "2023-03-31",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 20304.0,
-          "holdingValue": 4494.4,
-          "marketCap": 4247.1,
-          "ratio": 105.82
-        },
-        {
-          "date": "2023-04-03",
-          "holdingPrice": 101094.0,
-          "subsidiaryPrice": 21111.0,
-          "holdingValue": 4673.0,
-          "marketCap": 4254.9,
-          "ratio": 109.83
-        },
-        {
-          "date": "2023-04-04",
-          "holdingPrice": 100817.0,
-          "subsidiaryPrice": 20663.0,
-          "holdingValue": 4573.8,
-          "marketCap": 4243.2,
-          "ratio": 107.79
-        },
-        {
-          "date": "2023-04-05",
-          "holdingPrice": 101832.0,
-          "subsidiaryPrice": 20169.0,
-          "holdingValue": 4464.6,
-          "marketCap": 4285.9,
-          "ratio": 104.17
-        },
-        {
-          "date": "2023-04-06",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 20125.0,
-          "holdingValue": 4454.7,
-          "marketCap": 4282.1,
-          "ratio": 104.03
-        },
-        {
-          "date": "2023-04-07",
-          "holdingPrice": 101647.0,
-          "subsidiaryPrice": 20797.0,
-          "holdingValue": 4603.5,
-          "marketCap": 4278.2,
-          "ratio": 107.61
-        },
-        {
-          "date": "2023-04-10",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 20887.0,
-          "holdingValue": 4623.4,
-          "marketCap": 4282.1,
-          "ratio": 107.97
-        },
-        {
-          "date": "2023-04-11",
-          "holdingPrice": 101555.0,
-          "subsidiaryPrice": 21918.0,
-          "holdingValue": 4851.6,
-          "marketCap": 4274.3,
-          "ratio": 113.51
-        },
-        {
-          "date": "2023-04-12",
-          "holdingPrice": 102201.0,
-          "subsidiaryPrice": 21918.0,
-          "holdingValue": 4851.6,
-          "marketCap": 4301.5,
-          "ratio": 112.79
-        },
-        {
-          "date": "2023-04-13",
-          "holdingPrice": 103123.0,
-          "subsidiaryPrice": 22411.0,
-          "holdingValue": 4960.7,
-          "marketCap": 4340.3,
-          "ratio": 114.29
-        },
-        {
-          "date": "2023-04-14",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 22859.0,
-          "holdingValue": 5059.9,
-          "marketCap": 4386.9,
-          "ratio": 115.34
-        },
-        {
-          "date": "2023-04-17",
-          "holdingPrice": 106075.0,
-          "subsidiaryPrice": 23531.0,
-          "holdingValue": 5208.8,
-          "marketCap": 4464.5,
-          "ratio": 116.67
-        },
-        {
-          "date": "2023-04-18",
-          "holdingPrice": 104507.0,
-          "subsidiaryPrice": 22186.0,
-          "holdingValue": 4911.1,
-          "marketCap": 4398.5,
-          "ratio": 111.65
-        },
-        {
-          "date": "2023-04-19",
-          "holdingPrice": 104876.0,
-          "subsidiaryPrice": 22455.0,
-          "holdingValue": 4970.6,
-          "marketCap": 4414.1,
-          "ratio": 112.61
-        },
-        {
-          "date": "2023-04-20",
-          "holdingPrice": 105337.0,
-          "subsidiaryPrice": 22948.0,
-          "holdingValue": 5079.8,
-          "marketCap": 4433.5,
-          "ratio": 114.58
-        },
-        {
-          "date": "2023-04-21",
-          "holdingPrice": 104414.0,
-          "subsidiaryPrice": 21200.0,
-          "holdingValue": 4692.8,
-          "marketCap": 4394.6,
-          "ratio": 106.79
-        },
-        {
-          "date": "2023-04-24",
-          "holdingPrice": 105429.0,
-          "subsidiaryPrice": 21514.0,
-          "holdingValue": 4762.3,
-          "marketCap": 4437.3,
-          "ratio": 107.32
-        },
-        {
-          "date": "2023-04-25",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 21693.0,
-          "holdingValue": 4802.0,
-          "marketCap": 4386.9,
-          "ratio": 109.46
-        },
-        {
-          "date": "2023-04-26",
-          "holdingPrice": 103677.0,
-          "subsidiaryPrice": 20707.0,
-          "holdingValue": 4583.7,
-          "marketCap": 4363.6,
-          "ratio": 105.04
-        },
-        {
-          "date": "2023-04-27",
-          "holdingPrice": 104414.0,
-          "subsidiaryPrice": 21245.0,
-          "holdingValue": 4702.8,
-          "marketCap": 4394.6,
-          "ratio": 107.01
-        },
-        {
-          "date": "2023-04-28",
-          "holdingPrice": 105060.0,
-          "subsidiaryPrice": 20752.0,
-          "holdingValue": 4593.6,
-          "marketCap": 4421.8,
-          "ratio": 103.89
-        },
-        {
-          "date": "2023-05-02",
-          "holdingPrice": 104322.0,
-          "subsidiaryPrice": 20394.0,
-          "holdingValue": 4514.3,
-          "marketCap": 4390.8,
-          "ratio": 102.81
-        },
-        {
-          "date": "2023-05-03",
-          "holdingPrice": 104322.0,
-          "subsidiaryPrice": 21245.0,
-          "holdingValue": 4702.8,
-          "marketCap": 4390.8,
-          "ratio": 107.11
-        },
-        {
-          "date": "2023-05-04",
-          "holdingPrice": 104968.0,
-          "subsidiaryPrice": 22142.0,
-          "holdingValue": 4901.2,
-          "marketCap": 4417.9,
-          "ratio": 110.94
-        },
-        {
-          "date": "2023-05-08",
-          "holdingPrice": 104599.0,
-          "subsidiaryPrice": 20707.0,
-          "holdingValue": 4583.7,
-          "marketCap": 4402.4,
-          "ratio": 104.12
-        },
-        {
-          "date": "2023-05-09",
-          "holdingPrice": 104599.0,
-          "subsidiaryPrice": 21111.0,
-          "holdingValue": 4673.0,
-          "marketCap": 4402.4,
-          "ratio": 106.15
-        },
-        {
-          "date": "2023-05-10",
-          "holdingPrice": 104783.0,
-          "subsidiaryPrice": 20707.0,
-          "holdingValue": 4583.7,
-          "marketCap": 4410.2,
-          "ratio": 103.93
-        },
-        {
-          "date": "2023-05-11",
-          "holdingPrice": 106351.0,
-          "subsidiaryPrice": 20707.0,
-          "holdingValue": 4583.7,
-          "marketCap": 4476.2,
-          "ratio": 102.4
-        },
-        {
-          "date": "2023-05-12",
-          "holdingPrice": 104414.0,
-          "subsidiaryPrice": 20797.0,
-          "holdingValue": 4603.5,
-          "marketCap": 4394.6,
-          "ratio": 104.75
-        },
-        {
-          "date": "2023-05-15",
-          "holdingPrice": 104414.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4394.6,
-          "ratio": 103.85
-        },
-        {
-          "date": "2023-05-16",
-          "holdingPrice": 104691.0,
-          "subsidiaryPrice": 20752.0,
-          "holdingValue": 4593.6,
-          "marketCap": 4406.3,
-          "ratio": 104.25
-        },
-        {
-          "date": "2023-05-17",
-          "holdingPrice": 104783.0,
-          "subsidiaryPrice": 21156.0,
-          "holdingValue": 4682.9,
-          "marketCap": 4410.2,
-          "ratio": 106.18
-        },
-        {
-          "date": "2023-05-18",
-          "holdingPrice": 105060.0,
-          "subsidiaryPrice": 21918.0,
-          "holdingValue": 4851.6,
-          "marketCap": 4421.8,
-          "ratio": 109.72
-        },
-        {
-          "date": "2023-05-19",
-          "holdingPrice": 104968.0,
-          "subsidiaryPrice": 21828.0,
-          "holdingValue": 4831.7,
-          "marketCap": 4417.9,
-          "ratio": 109.37
-        },
-        {
-          "date": "2023-05-22",
-          "holdingPrice": 104876.0,
-          "subsidiaryPrice": 21380.0,
-          "holdingValue": 4732.5,
-          "marketCap": 4414.1,
-          "ratio": 107.21
-        },
-        {
-          "date": "2023-05-23",
-          "holdingPrice": 104783.0,
-          "subsidiaryPrice": 21962.0,
-          "holdingValue": 4861.5,
-          "marketCap": 4410.2,
-          "ratio": 110.23
-        },
-        {
-          "date": "2023-05-24",
-          "holdingPrice": 104783.0,
-          "subsidiaryPrice": 22052.0,
-          "holdingValue": 4881.3,
-          "marketCap": 4410.2,
-          "ratio": 110.68
-        },
-        {
-          "date": "2023-05-25",
-          "holdingPrice": 104599.0,
-          "subsidiaryPrice": 22052.0,
-          "holdingValue": 4881.3,
-          "marketCap": 4402.4,
-          "ratio": 110.88
-        },
-        {
-          "date": "2023-05-26",
-          "holdingPrice": 103769.0,
-          "subsidiaryPrice": 21514.0,
-          "holdingValue": 4762.3,
-          "marketCap": 4367.5,
-          "ratio": 109.04
-        },
-        {
-          "date": "2023-05-30",
-          "holdingPrice": 103953.0,
-          "subsidiaryPrice": 21335.0,
-          "holdingValue": 4722.6,
-          "marketCap": 4375.2,
-          "ratio": 107.94
-        },
-        {
-          "date": "2023-05-31",
-          "holdingPrice": 104138.0,
-          "subsidiaryPrice": 21649.0,
-          "holdingValue": 4792.1,
-          "marketCap": 4383.0,
-          "ratio": 109.33
-        },
-        {
-          "date": "2023-06-01",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 22635.0,
-          "holdingValue": 5010.3,
-          "marketCap": 4386.9,
-          "ratio": 114.21
-        },
-        {
-          "date": "2023-06-02",
-          "holdingPrice": 104691.0,
-          "subsidiaryPrice": 22948.0,
-          "holdingValue": 5079.8,
-          "marketCap": 4406.3,
-          "ratio": 115.28
-        },
-        {
-          "date": "2023-06-05",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 22769.0,
-          "holdingValue": 5040.1,
-          "marketCap": 4386.9,
-          "ratio": 114.89
-        },
-        {
-          "date": "2023-06-07",
-          "holdingPrice": 104045.0,
-          "subsidiaryPrice": 23172.0,
-          "holdingValue": 5129.4,
-          "marketCap": 4379.1,
-          "ratio": 117.13
-        },
-        {
-          "date": "2023-06-08",
-          "holdingPrice": 104045.0,
-          "subsidiaryPrice": 22590.0,
-          "holdingValue": 5000.4,
-          "marketCap": 4379.1,
-          "ratio": 114.19
-        },
-        {
-          "date": "2023-06-09",
-          "holdingPrice": 104968.0,
-          "subsidiaryPrice": 22276.0,
-          "holdingValue": 4931.0,
-          "marketCap": 4417.9,
-          "ratio": 111.61
-        },
-        {
-          "date": "2023-06-12",
-          "holdingPrice": 104138.0,
-          "subsidiaryPrice": 21873.0,
-          "holdingValue": 4841.7,
-          "marketCap": 4383.0,
-          "ratio": 110.46
-        },
-        {
-          "date": "2023-06-13",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 21245.0,
-          "holdingValue": 4702.8,
-          "marketCap": 4386.9,
-          "ratio": 107.2
-        },
-        {
-          "date": "2023-06-14",
-          "holdingPrice": 105245.0,
-          "subsidiaryPrice": 21111.0,
-          "holdingValue": 4673.0,
-          "marketCap": 4429.6,
-          "ratio": 105.5
-        },
-        {
-          "date": "2023-06-15",
-          "holdingPrice": 103584.0,
-          "subsidiaryPrice": 20842.0,
-          "holdingValue": 4613.5,
-          "marketCap": 4359.7,
-          "ratio": 105.82
-        },
-        {
-          "date": "2023-06-16",
-          "holdingPrice": 104322.0,
-          "subsidiaryPrice": 20797.0,
-          "holdingValue": 4603.5,
-          "marketCap": 4390.8,
-          "ratio": 104.85
-        },
-        {
-          "date": "2023-06-19",
-          "holdingPrice": 103861.0,
-          "subsidiaryPrice": 20976.0,
-          "holdingValue": 4643.2,
-          "marketCap": 4371.3,
-          "ratio": 106.22
-        },
-        {
-          "date": "2023-06-20",
-          "holdingPrice": 103861.0,
-          "subsidiaryPrice": 20394.0,
-          "holdingValue": 4514.3,
-          "marketCap": 4371.3,
-          "ratio": 103.27
-        },
-        {
-          "date": "2023-06-21",
-          "holdingPrice": 103584.0,
-          "subsidiaryPrice": 20349.0,
-          "holdingValue": 4504.3,
-          "marketCap": 4359.7,
-          "ratio": 103.32
-        },
-        {
-          "date": "2023-06-22",
-          "holdingPrice": 104138.0,
-          "subsidiaryPrice": 19901.0,
-          "holdingValue": 4405.1,
-          "marketCap": 4383.0,
-          "ratio": 100.5
-        },
-        {
-          "date": "2023-06-23",
-          "holdingPrice": 103677.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4363.6,
-          "ratio": 104.59
-        },
-        {
-          "date": "2023-06-26",
-          "holdingPrice": 103769.0,
-          "subsidiaryPrice": 20438.0,
-          "holdingValue": 4524.2,
-          "marketCap": 4367.5,
-          "ratio": 103.59
-        },
-        {
-          "date": "2023-06-27",
-          "holdingPrice": 104691.0,
-          "subsidiaryPrice": 21738.0,
-          "holdingValue": 4811.9,
-          "marketCap": 4406.3,
-          "ratio": 109.21
-        },
-        {
-          "date": "2023-06-28",
-          "holdingPrice": 104322.0,
-          "subsidiaryPrice": 22411.0,
-          "holdingValue": 4960.7,
-          "marketCap": 4390.8,
-          "ratio": 112.98
-        },
-        {
-          "date": "2023-06-29",
-          "holdingPrice": 103677.0,
-          "subsidiaryPrice": 22545.0,
-          "holdingValue": 4990.5,
-          "marketCap": 4363.6,
-          "ratio": 114.37
-        },
-        {
-          "date": "2023-06-30",
-          "holdingPrice": 104691.0,
-          "subsidiaryPrice": 23083.0,
-          "holdingValue": 5109.5,
-          "marketCap": 4406.3,
-          "ratio": 115.96
-        },
-        {
-          "date": "2023-07-03",
-          "holdingPrice": 103953.0,
-          "subsidiaryPrice": 23038.0,
-          "holdingValue": 5099.6,
-          "marketCap": 4375.2,
-          "ratio": 116.56
-        },
-        {
-          "date": "2023-07-04",
-          "holdingPrice": 103584.0,
-          "subsidiaryPrice": 22724.0,
-          "holdingValue": 5030.2,
-          "marketCap": 4359.7,
-          "ratio": 115.38
-        },
-        {
-          "date": "2023-07-05",
-          "holdingPrice": 103308.0,
-          "subsidiaryPrice": 22186.0,
-          "holdingValue": 4911.1,
-          "marketCap": 4348.1,
-          "ratio": 112.95
-        },
-        {
-          "date": "2023-07-06",
-          "holdingPrice": 104507.0,
-          "subsidiaryPrice": 22904.0,
-          "holdingValue": 5069.9,
-          "marketCap": 4398.5,
-          "ratio": 115.26
-        },
-        {
-          "date": "2023-07-07",
-          "holdingPrice": 105429.0,
-          "subsidiaryPrice": 22724.0,
-          "holdingValue": 5030.2,
-          "marketCap": 4437.3,
-          "ratio": 113.36
-        },
-        {
-          "date": "2023-07-10",
-          "holdingPrice": 104230.0,
-          "subsidiaryPrice": 23441.0,
-          "holdingValue": 5188.9,
-          "marketCap": 4386.9,
-          "ratio": 118.28
-        },
-        {
-          "date": "2023-07-11",
-          "holdingPrice": 103861.0,
-          "subsidiaryPrice": 23934.0,
-          "holdingValue": 5298.0,
-          "marketCap": 4371.3,
-          "ratio": 121.2
-        },
-        {
-          "date": "2023-07-12",
-          "holdingPrice": 104138.0,
-          "subsidiaryPrice": 26310.0,
-          "holdingValue": 5823.9,
-          "marketCap": 4383.0,
-          "ratio": 132.87
-        },
-        {
-          "date": "2023-07-13",
-          "holdingPrice": 103492.0,
-          "subsidiaryPrice": 25503.0,
-          "holdingValue": 5645.3,
-          "marketCap": 4355.8,
-          "ratio": 129.6
-        },
-        {
-          "date": "2023-07-14",
-          "holdingPrice": 102939.0,
-          "subsidiaryPrice": 26310.0,
-          "holdingValue": 5823.9,
-          "marketCap": 4332.5,
-          "ratio": 134.42
-        },
-        {
-          "date": "2023-07-17",
-          "holdingPrice": 102662.0,
-          "subsidiaryPrice": 25055.0,
-          "holdingValue": 5546.1,
-          "marketCap": 4320.9,
-          "ratio": 128.36
-        },
-        {
-          "date": "2023-07-18",
-          "holdingPrice": 104691.0,
-          "subsidiaryPrice": 25010.0,
-          "holdingValue": 5536.2,
-          "marketCap": 4406.3,
-          "ratio": 125.64
-        },
-        {
-          "date": "2023-07-19",
-          "holdingPrice": 103400.0,
-          "subsidiaryPrice": 25638.0,
-          "holdingValue": 5675.1,
-          "marketCap": 4351.9,
-          "ratio": 130.4
-        },
-        {
-          "date": "2023-07-20",
-          "holdingPrice": 102477.0,
-          "subsidiaryPrice": 25727.0,
-          "holdingValue": 5694.9,
-          "marketCap": 4313.1,
-          "ratio": 132.04
-        },
-        {
-          "date": "2023-07-21",
-          "holdingPrice": 103584.0,
-          "subsidiaryPrice": 25862.0,
-          "holdingValue": 5724.7,
-          "marketCap": 4359.7,
-          "ratio": 131.31
-        },
-        {
-          "date": "2023-07-24",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 25548.0,
-          "holdingValue": 5655.2,
-          "marketCap": 4282.1,
-          "ratio": 132.07
-        },
-        {
-          "date": "2023-07-25",
-          "holdingPrice": 101740.0,
-          "subsidiaryPrice": 25862.0,
-          "holdingValue": 5724.7,
-          "marketCap": 4282.1,
-          "ratio": 133.69
-        },
-        {
-          "date": "2023-07-26",
-          "holdingPrice": 98603.0,
-          "subsidiaryPrice": 24517.0,
-          "holdingValue": 5427.0,
-          "marketCap": 4150.1,
-          "ratio": 130.77
-        },
-        {
-          "date": "2023-07-27",
-          "holdingPrice": 100817.0,
-          "subsidiaryPrice": 25951.0,
-          "holdingValue": 5744.5,
-          "marketCap": 4243.2,
-          "ratio": 135.38
-        },
-        {
-          "date": "2023-07-28",
-          "holdingPrice": 100171.0,
-          "subsidiaryPrice": 25100.0,
-          "holdingValue": 5556.0,
-          "marketCap": 4216.1,
-          "ratio": 131.78
-        },
-        {
-          "date": "2023-07-31",
-          "holdingPrice": 100356.0,
-          "subsidiaryPrice": 25189.0,
-          "holdingValue": 5575.8,
-          "marketCap": 4223.8,
-          "ratio": 132.01
-        },
-        {
-          "date": "2023-08-01",
-          "holdingPrice": 102570.0,
-          "subsidiaryPrice": 23845.0,
-          "holdingValue": 5278.2,
-          "marketCap": 4317.0,
-          "ratio": 122.27
-        },
-        {
-          "date": "2023-08-02",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 23352.0,
-          "holdingValue": 5169.1,
-          "marketCap": 4247.1,
-          "ratio": 121.71
-        },
-        {
-          "date": "2023-08-03",
-          "holdingPrice": 103492.0,
-          "subsidiaryPrice": 23217.0,
-          "holdingValue": 5139.3,
-          "marketCap": 4355.8,
-          "ratio": 117.99
-        },
-        {
-          "date": "2023-08-04",
-          "holdingPrice": 103492.0,
-          "subsidiaryPrice": 22186.0,
-          "holdingValue": 4911.1,
-          "marketCap": 4355.8,
-          "ratio": 112.75
-        },
-        {
-          "date": "2023-08-07",
-          "holdingPrice": 103308.0,
-          "subsidiaryPrice": 22007.0,
-          "holdingValue": 4871.4,
-          "marketCap": 4348.1,
-          "ratio": 112.04
-        },
-        {
-          "date": "2023-08-08",
-          "holdingPrice": 103123.0,
-          "subsidiaryPrice": 22500.0,
-          "holdingValue": 4980.6,
-          "marketCap": 4340.3,
-          "ratio": 114.75
-        },
-        {
-          "date": "2023-08-09",
-          "holdingPrice": 103123.0,
-          "subsidiaryPrice": 22142.0,
-          "holdingValue": 4901.2,
-          "marketCap": 4340.3,
-          "ratio": 112.92
-        },
-        {
-          "date": "2023-08-10",
-          "holdingPrice": 100540.0,
-          "subsidiaryPrice": 21604.0,
-          "holdingValue": 4782.1,
-          "marketCap": 4231.6,
-          "ratio": 113.01
-        },
-        {
-          "date": "2023-08-11",
-          "holdingPrice": 99895.0,
-          "subsidiaryPrice": 21604.0,
-          "holdingValue": 4782.1,
-          "marketCap": 4204.4,
-          "ratio": 113.74
-        },
-        {
-          "date": "2023-08-14",
-          "holdingPrice": 99802.0,
-          "subsidiaryPrice": 21649.0,
-          "holdingValue": 4792.1,
-          "marketCap": 4200.5,
-          "ratio": 114.08
-        },
-        {
-          "date": "2023-08-16",
-          "holdingPrice": 98696.0,
-          "subsidiaryPrice": 20752.0,
-          "holdingValue": 4593.6,
-          "marketCap": 4153.9,
-          "ratio": 110.58
-        },
-        {
-          "date": "2023-08-17",
-          "holdingPrice": 97773.0,
-          "subsidiaryPrice": 20394.0,
-          "holdingValue": 4514.3,
-          "marketCap": 4115.1,
-          "ratio": 109.7
-        },
-        {
-          "date": "2023-08-18",
-          "holdingPrice": 96666.0,
-          "subsidiaryPrice": 20573.0,
-          "holdingValue": 4553.9,
-          "marketCap": 4068.5,
-          "ratio": 111.93
-        },
-        {
-          "date": "2023-08-21",
-          "holdingPrice": 96390.0,
-          "subsidiaryPrice": 20438.0,
-          "holdingValue": 4524.2,
-          "marketCap": 4056.9,
-          "ratio": 111.52
-        },
-        {
-          "date": "2023-08-22",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 20349.0,
-          "holdingValue": 4504.3,
-          "marketCap": 4076.3,
-          "ratio": 110.5
-        },
-        {
-          "date": "2023-08-23",
-          "holdingPrice": 97773.0,
-          "subsidiaryPrice": 20349.0,
-          "holdingValue": 4504.3,
-          "marketCap": 4115.1,
-          "ratio": 109.46
-        },
-        {
-          "date": "2023-08-24",
-          "holdingPrice": 98142.0,
-          "subsidiaryPrice": 20663.0,
-          "holdingValue": 4573.8,
-          "marketCap": 4130.7,
-          "ratio": 110.73
-        },
-        {
-          "date": "2023-08-25",
-          "holdingPrice": 100079.0,
-          "subsidiaryPrice": 20394.0,
-          "holdingValue": 4514.3,
-          "marketCap": 4212.2,
-          "ratio": 107.17
-        },
-        {
-          "date": "2023-08-28",
-          "holdingPrice": 99157.0,
-          "subsidiaryPrice": 21066.0,
-          "holdingValue": 4663.1,
-          "marketCap": 4173.4,
-          "ratio": 111.73
-        },
-        {
-          "date": "2023-08-29",
-          "holdingPrice": 99618.0,
-          "subsidiaryPrice": 21200.0,
-          "holdingValue": 4692.8,
-          "marketCap": 4192.8,
-          "ratio": 111.93
-        },
-        {
-          "date": "2023-08-30",
-          "holdingPrice": 100817.0,
-          "subsidiaryPrice": 20931.0,
-          "holdingValue": 4633.3,
-          "marketCap": 4243.2,
-          "ratio": 109.19
-        },
-        {
-          "date": "2023-08-31",
-          "holdingPrice": 101094.0,
-          "subsidiaryPrice": 21156.0,
-          "holdingValue": 4682.9,
-          "marketCap": 4254.9,
-          "ratio": 110.06
-        },
-        {
-          "date": "2023-09-01",
-          "holdingPrice": 100356.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4223.8,
-          "ratio": 108.05
-        },
-        {
-          "date": "2023-09-04",
-          "holdingPrice": 101371.0,
-          "subsidiaryPrice": 21111.0,
-          "holdingValue": 4673.0,
-          "marketCap": 4266.5,
-          "ratio": 109.53
-        },
-        {
-          "date": "2023-09-05",
-          "holdingPrice": 97958.0,
-          "subsidiaryPrice": 21021.0,
-          "holdingValue": 4653.2,
-          "marketCap": 4122.9,
-          "ratio": 112.86
-        },
-        {
-          "date": "2023-09-06",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 20259.0,
-          "holdingValue": 4484.5,
-          "marketCap": 4076.3,
-          "ratio": 110.01
-        },
-        {
-          "date": "2023-09-07",
-          "holdingPrice": 95006.0,
-          "subsidiaryPrice": 20438.0,
-          "holdingValue": 4524.2,
-          "marketCap": 3998.7,
-          "ratio": 113.14
-        },
-        {
-          "date": "2023-09-08",
-          "holdingPrice": 95006.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 3998.7,
-          "ratio": 114.13
-        },
-        {
-          "date": "2023-09-11",
-          "holdingPrice": 95467.0,
-          "subsidiaryPrice": 21021.0,
-          "holdingValue": 4653.2,
-          "marketCap": 4018.1,
-          "ratio": 115.81
-        },
-        {
-          "date": "2023-09-12",
-          "holdingPrice": 95467.0,
-          "subsidiaryPrice": 20483.0,
-          "holdingValue": 4534.1,
-          "marketCap": 4018.1,
-          "ratio": 112.84
-        },
-        {
-          "date": "2023-09-13",
-          "holdingPrice": 95191.0,
-          "subsidiaryPrice": 20663.0,
-          "holdingValue": 4573.8,
-          "marketCap": 4006.4,
-          "ratio": 114.16
-        },
-        {
-          "date": "2023-09-14",
-          "holdingPrice": 95283.0,
-          "subsidiaryPrice": 20483.0,
-          "holdingValue": 4534.1,
-          "marketCap": 4010.3,
-          "ratio": 113.06
-        },
-        {
-          "date": "2023-09-15",
-          "holdingPrice": 95836.0,
-          "subsidiaryPrice": 21380.0,
-          "holdingValue": 4732.5,
-          "marketCap": 4033.6,
-          "ratio": 117.33
-        },
-        {
-          "date": "2023-09-18",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 21380.0,
-          "holdingValue": 4732.5,
-          "marketCap": 4076.3,
-          "ratio": 116.1
-        },
-        {
-          "date": "2023-09-19",
-          "holdingPrice": 96574.0,
-          "subsidiaryPrice": 22142.0,
-          "holdingValue": 4901.2,
-          "marketCap": 4064.7,
-          "ratio": 120.58
-        },
-        {
-          "date": "2023-09-20",
-          "holdingPrice": 95006.0,
-          "subsidiaryPrice": 21873.0,
-          "holdingValue": 4841.7,
-          "marketCap": 3998.7,
-          "ratio": 121.08
-        },
-        {
-          "date": "2023-09-21",
-          "holdingPrice": 95283.0,
-          "subsidiaryPrice": 21156.0,
-          "holdingValue": 4682.9,
-          "marketCap": 4010.3,
-          "ratio": 116.77
-        },
-        {
-          "date": "2023-09-22",
-          "holdingPrice": 95283.0,
-          "subsidiaryPrice": 22411.0,
-          "holdingValue": 4960.7,
-          "marketCap": 4010.3,
-          "ratio": 123.7
-        },
-        {
-          "date": "2023-09-25",
-          "holdingPrice": 95098.0,
-          "subsidiaryPrice": 21559.0,
-          "holdingValue": 4772.2,
-          "marketCap": 4002.5,
-          "ratio": 119.23
-        },
-        {
-          "date": "2023-09-26",
-          "holdingPrice": 94545.0,
-          "subsidiaryPrice": 21424.0,
-          "holdingValue": 4742.4,
-          "marketCap": 3979.2,
-          "ratio": 119.18
-        },
-        {
-          "date": "2023-09-27",
-          "holdingPrice": 95467.0,
-          "subsidiaryPrice": 22052.0,
-          "holdingValue": 4881.3,
-          "marketCap": 4018.1,
-          "ratio": 121.48
-        },
-        {
-          "date": "2023-10-04",
-          "holdingPrice": 95467.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4018.1,
-          "ratio": 113.58
-        },
-        {
-          "date": "2023-10-05",
-          "holdingPrice": 95928.0,
-          "subsidiaryPrice": 20887.0,
-          "holdingValue": 4623.4,
-          "marketCap": 4037.5,
-          "ratio": 114.51
-        },
-        {
-          "date": "2023-10-06",
-          "holdingPrice": 96021.0,
-          "subsidiaryPrice": 20483.0,
-          "holdingValue": 4534.1,
-          "marketCap": 4041.4,
-          "ratio": 112.19
-        },
-        {
-          "date": "2023-10-10",
-          "holdingPrice": 97589.0,
-          "subsidiaryPrice": 20483.0,
-          "holdingValue": 4534.1,
-          "marketCap": 4107.4,
-          "ratio": 110.39
-        },
-        {
-          "date": "2023-10-11",
-          "holdingPrice": 96759.0,
-          "subsidiaryPrice": 20707.0,
-          "holdingValue": 4583.7,
-          "marketCap": 4072.4,
-          "ratio": 112.55
-        },
-        {
-          "date": "2023-10-12",
-          "holdingPrice": 96205.0,
-          "subsidiaryPrice": 20618.0,
-          "holdingValue": 4563.9,
-          "marketCap": 4049.1,
-          "ratio": 112.71
-        },
-        {
-          "date": "2023-10-13",
-          "holdingPrice": 95928.0,
-          "subsidiaryPrice": 20349.0,
-          "holdingValue": 4504.3,
-          "marketCap": 4037.5,
-          "ratio": 111.56
-        },
-        {
-          "date": "2023-10-16",
-          "holdingPrice": 96943.0,
-          "subsidiaryPrice": 19766.0,
-          "holdingValue": 4375.4,
-          "marketCap": 4080.2,
-          "ratio": 107.23
-        },
-        {
-          "date": "2023-10-17",
-          "holdingPrice": 97035.0,
-          "subsidiaryPrice": 19228.0,
-          "holdingValue": 4256.3,
-          "marketCap": 4084.1,
-          "ratio": 104.22
-        },
-        {
-          "date": "2023-10-18",
-          "holdingPrice": 97681.0,
-          "subsidiaryPrice": 19228.0,
-          "holdingValue": 4256.3,
-          "marketCap": 4111.2,
-          "ratio": 103.53
-        },
-        {
-          "date": "2023-10-19",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 19183.0,
-          "holdingValue": 4246.4,
-          "marketCap": 4076.3,
-          "ratio": 104.17
-        },
-        {
-          "date": "2023-10-20",
-          "holdingPrice": 96574.0,
-          "subsidiaryPrice": 18377.0,
-          "holdingValue": 4067.8,
-          "marketCap": 4064.7,
-          "ratio": 100.08
-        },
-        {
-          "date": "2023-10-23",
-          "holdingPrice": 95559.0,
-          "subsidiaryPrice": 18646.0,
-          "holdingValue": 4127.3,
-          "marketCap": 4022.0,
-          "ratio": 102.62
-        },
-        {
-          "date": "2023-10-24",
-          "holdingPrice": 96666.0,
-          "subsidiaryPrice": 18780.0,
-          "holdingValue": 4157.1,
-          "marketCap": 4068.5,
-          "ratio": 102.18
-        },
-        {
-          "date": "2023-10-25",
-          "holdingPrice": 96666.0,
-          "subsidiaryPrice": 18914.0,
-          "holdingValue": 4186.8,
-          "marketCap": 4068.5,
-          "ratio": 102.91
-        },
-        {
-          "date": "2023-10-26",
-          "holdingPrice": 95744.0,
-          "subsidiaryPrice": 18287.0,
-          "holdingValue": 4047.9,
-          "marketCap": 4029.7,
-          "ratio": 100.45
-        },
-        {
-          "date": "2023-10-27",
-          "holdingPrice": 97404.0,
-          "subsidiaryPrice": 19228.0,
-          "holdingValue": 4256.3,
-          "marketCap": 4099.6,
-          "ratio": 103.82
-        },
-        {
-          "date": "2023-10-30",
-          "holdingPrice": 98234.0,
-          "subsidiaryPrice": 20080.0,
-          "holdingValue": 4444.8,
-          "marketCap": 4134.5,
-          "ratio": 107.5
-        },
-        {
-          "date": "2023-10-31",
-          "holdingPrice": 97958.0,
-          "subsidiaryPrice": 19497.0,
-          "holdingValue": 4315.8,
-          "marketCap": 4122.9,
-          "ratio": 104.68
-        },
-        {
-          "date": "2023-11-01",
-          "holdingPrice": 97773.0,
-          "subsidiaryPrice": 19901.0,
-          "holdingValue": 4405.1,
-          "marketCap": 4115.1,
-          "ratio": 107.05
-        },
-        {
-          "date": "2023-11-02",
-          "holdingPrice": 97312.0,
-          "subsidiaryPrice": 20752.0,
-          "holdingValue": 4593.6,
-          "marketCap": 4095.7,
-          "ratio": 112.16
-        },
-        {
-          "date": "2023-11-03",
-          "holdingPrice": 97220.0,
-          "subsidiaryPrice": 19094.0,
-          "holdingValue": 4226.5,
-          "marketCap": 4091.8,
-          "ratio": 103.29
-        },
-        {
-          "date": "2023-11-06",
-          "holdingPrice": 97497.0,
-          "subsidiaryPrice": 19228.0,
-          "holdingValue": 4256.3,
-          "marketCap": 4103.5,
-          "ratio": 103.72
-        },
-        {
-          "date": "2023-11-07",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 19856.0,
-          "holdingValue": 4395.2,
-          "marketCap": 4076.3,
-          "ratio": 107.82
-        },
-        {
-          "date": "2023-11-08",
-          "holdingPrice": 95928.0,
-          "subsidiaryPrice": 19990.0,
-          "holdingValue": 4425.0,
-          "marketCap": 4037.5,
-          "ratio": 109.6
-        },
-        {
-          "date": "2023-11-09",
-          "holdingPrice": 95467.0,
-          "subsidiaryPrice": 20304.0,
-          "holdingValue": 4494.4,
-          "marketCap": 4018.1,
-          "ratio": 111.85
-        },
-        {
-          "date": "2023-11-10",
-          "holdingPrice": 97497.0,
-          "subsidiaryPrice": 19811.0,
-          "holdingValue": 4385.3,
-          "marketCap": 4103.5,
-          "ratio": 106.87
-        },
-        {
-          "date": "2023-11-13",
-          "holdingPrice": 95652.0,
-          "subsidiaryPrice": 20304.0,
-          "holdingValue": 4494.4,
-          "marketCap": 4025.8,
-          "ratio": 111.64
-        },
-        {
-          "date": "2023-11-14",
-          "holdingPrice": 95928.0,
-          "subsidiaryPrice": 21290.0,
-          "holdingValue": 4712.7,
-          "marketCap": 4037.5,
-          "ratio": 116.72
-        },
-        {
-          "date": "2023-11-15",
-          "holdingPrice": 95928.0,
-          "subsidiaryPrice": 22186.0,
-          "holdingValue": 4911.1,
-          "marketCap": 4037.5,
-          "ratio": 121.64
-        },
-        {
-          "date": "2023-11-16",
-          "holdingPrice": 94637.0,
-          "subsidiaryPrice": 21962.0,
-          "holdingValue": 4861.5,
-          "marketCap": 3983.1,
-          "ratio": 122.05
-        },
-        {
-          "date": "2023-11-17",
-          "holdingPrice": 95559.0,
-          "subsidiaryPrice": 21469.0,
-          "holdingValue": 4752.4,
-          "marketCap": 4022.0,
-          "ratio": 118.16
-        },
-        {
-          "date": "2023-11-20",
-          "holdingPrice": 96482.0,
-          "subsidiaryPrice": 21156.0,
-          "holdingValue": 4682.9,
-          "marketCap": 4060.8,
-          "ratio": 115.32
-        },
-        {
-          "date": "2023-11-21",
-          "holdingPrice": 98696.0,
-          "subsidiaryPrice": 22904.0,
-          "holdingValue": 5069.9,
-          "marketCap": 4153.9,
-          "ratio": 122.05
-        },
-        {
-          "date": "2023-11-22",
-          "holdingPrice": 99157.0,
-          "subsidiaryPrice": 22635.0,
-          "holdingValue": 5010.3,
-          "marketCap": 4173.4,
-          "ratio": 120.05
-        },
-        {
-          "date": "2023-11-23",
-          "holdingPrice": 100079.0,
-          "subsidiaryPrice": 23128.0,
-          "holdingValue": 5119.5,
-          "marketCap": 4212.2,
-          "ratio": 121.54
-        },
-        {
-          "date": "2023-11-24",
-          "holdingPrice": 100171.0,
-          "subsidiaryPrice": 24293.0,
-          "holdingValue": 5377.4,
-          "marketCap": 4216.1,
-          "ratio": 127.55
-        },
-        {
-          "date": "2023-11-27",
-          "holdingPrice": 100079.0,
-          "subsidiaryPrice": 23755.0,
-          "holdingValue": 5258.4,
-          "marketCap": 4212.2,
-          "ratio": 124.84
-        },
-        {
-          "date": "2023-11-28",
-          "holdingPrice": 98788.0,
-          "subsidiaryPrice": 22993.0,
-          "holdingValue": 5089.7,
-          "marketCap": 4157.8,
-          "ratio": 122.41
-        },
-        {
-          "date": "2023-11-29",
-          "holdingPrice": 99065.0,
-          "subsidiaryPrice": 22545.0,
-          "holdingValue": 4990.5,
-          "marketCap": 4169.5,
-          "ratio": 119.69
-        },
-        {
-          "date": "2023-11-30",
-          "holdingPrice": 99802.0,
-          "subsidiaryPrice": 22052.0,
-          "holdingValue": 4881.3,
-          "marketCap": 4200.5,
-          "ratio": 116.21
-        },
-        {
-          "date": "2023-12-01",
-          "holdingPrice": 98788.0,
-          "subsidiaryPrice": 22769.0,
-          "holdingValue": 5040.1,
-          "marketCap": 4157.8,
-          "ratio": 121.22
-        },
-        {
-          "date": "2023-12-04",
-          "holdingPrice": 98142.0,
-          "subsidiaryPrice": 22635.0,
-          "holdingValue": 5010.3,
-          "marketCap": 4130.7,
-          "ratio": 121.3
-        },
-        {
-          "date": "2023-12-05",
-          "holdingPrice": 97773.0,
-          "subsidiaryPrice": 22276.0,
-          "holdingValue": 4931.0,
-          "marketCap": 4115.1,
-          "ratio": 119.83
-        },
-        {
-          "date": "2023-12-06",
-          "holdingPrice": 96759.0,
-          "subsidiaryPrice": 22321.0,
-          "holdingValue": 4940.9,
-          "marketCap": 4072.4,
-          "ratio": 121.33
-        },
-        {
-          "date": "2023-12-07",
-          "holdingPrice": 96851.0,
-          "subsidiaryPrice": 22007.0,
-          "holdingValue": 4871.4,
-          "marketCap": 4076.3,
-          "ratio": 119.51
-        },
-        {
-          "date": "2023-12-08",
-          "holdingPrice": 98972.0,
-          "subsidiaryPrice": 22904.0,
-          "holdingValue": 5069.9,
-          "marketCap": 4165.6,
-          "ratio": 121.71
-        },
-        {
-          "date": "2023-12-11",
-          "holdingPrice": 98419.0,
-          "subsidiaryPrice": 23576.0,
-          "holdingValue": 5218.7,
-          "marketCap": 4142.3,
-          "ratio": 125.98
-        },
-        {
-          "date": "2023-12-12",
-          "holdingPrice": 98419.0,
-          "subsidiaryPrice": 23262.0,
-          "holdingValue": 5149.2,
-          "marketCap": 4142.3,
-          "ratio": 124.31
-        },
-        {
-          "date": "2023-12-13",
-          "holdingPrice": 98788.0,
-          "subsidiaryPrice": 23845.0,
-          "holdingValue": 5278.2,
-          "marketCap": 4157.8,
-          "ratio": 126.95
-        },
-        {
-          "date": "2023-12-14",
-          "holdingPrice": 98419.0,
-          "subsidiaryPrice": 24024.0,
-          "holdingValue": 5317.9,
-          "marketCap": 4142.3,
-          "ratio": 128.38
-        },
-        {
-          "date": "2023-12-15",
-          "holdingPrice": 103123.0,
-          "subsidiaryPrice": 23666.0,
-          "holdingValue": 5238.5,
-          "marketCap": 4340.3,
-          "ratio": 120.7
-        },
-        {
-          "date": "2023-12-18",
-          "holdingPrice": 100909.0,
-          "subsidiaryPrice": 24427.0,
-          "holdingValue": 5407.2,
-          "marketCap": 4247.1,
-          "ratio": 127.31
-        },
-        {
-          "date": "2023-12-19",
-          "holdingPrice": 102016.0,
-          "subsidiaryPrice": 22679.0,
-          "holdingValue": 5020.2,
-          "marketCap": 4293.7,
-          "ratio": 116.92
-        },
-        {
-          "date": "2023-12-20",
-          "holdingPrice": 104045.0,
-          "subsidiaryPrice": 23397.0,
-          "holdingValue": 5179.0,
-          "marketCap": 4379.1,
-          "ratio": 118.27
-        },
-        {
-          "date": "2023-12-21",
-          "holdingPrice": 99987.0,
-          "subsidiaryPrice": 23262.0,
-          "holdingValue": 5149.2,
-          "marketCap": 4208.3,
-          "ratio": 122.36
-        },
-        {
-          "date": "2023-12-22",
-          "holdingPrice": 101278.0,
-          "subsidiaryPrice": 23083.0,
-          "holdingValue": 5109.5,
-          "marketCap": 4262.6,
-          "ratio": 119.87
-        },
-        {
-          "date": "2023-12-26",
-          "holdingPrice": 99065.0,
-          "subsidiaryPrice": 23128.0,
-          "holdingValue": 5119.5,
-          "marketCap": 4169.5,
-          "ratio": 122.78
-        },
-        {
-          "date": "2023-12-27",
-          "holdingPrice": 103855.0,
-          "subsidiaryPrice": 22752.0,
-          "holdingValue": 5036.2,
-          "marketCap": 4371.1,
-          "ratio": 115.22
-        },
-        {
-          "date": "2023-12-28",
-          "holdingPrice": 103472.0,
-          "subsidiaryPrice": 23363.0,
-          "holdingValue": 5171.5,
-          "marketCap": 4355.0,
-          "ratio": 118.75
-        },
-        {
-          "date": "2024-01-02",
-          "holdingPrice": 103759.0,
-          "subsidiaryPrice": 22846.0,
-          "holdingValue": 5057.0,
-          "marketCap": 4367.1,
-          "ratio": 115.8
-        },
-        {
-          "date": "2024-01-03",
-          "holdingPrice": 101843.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4286.4,
-          "ratio": 111.18
-        },
-        {
-          "date": "2024-01-04",
-          "holdingPrice": 101556.0,
-          "subsidiaryPrice": 21576.0,
-          "holdingValue": 4776.1,
-          "marketCap": 4274.3,
-          "ratio": 111.74
-        },
-        {
-          "date": "2024-01-05",
-          "holdingPrice": 101172.0,
-          "subsidiaryPrice": 22282.0,
-          "holdingValue": 4932.2,
-          "marketCap": 4258.2,
-          "ratio": 115.83
-        },
-        {
-          "date": "2024-01-08",
-          "holdingPrice": 100789.0,
-          "subsidiaryPrice": 21952.0,
-          "holdingValue": 4859.3,
-          "marketCap": 4242.1,
-          "ratio": 114.55
-        },
-        {
-          "date": "2024-01-09",
-          "holdingPrice": 102609.0,
-          "subsidiaryPrice": 22047.0,
-          "holdingValue": 4880.1,
-          "marketCap": 4318.7,
-          "ratio": 113.0
-        },
-        {
-          "date": "2024-01-10",
-          "holdingPrice": 100885.0,
-          "subsidiaryPrice": 21952.0,
-          "holdingValue": 4859.3,
-          "marketCap": 4246.1,
-          "ratio": 114.44
-        },
-        {
-          "date": "2024-01-11",
-          "holdingPrice": 102130.0,
-          "subsidiaryPrice": 21059.0,
-          "holdingValue": 4661.6,
-          "marketCap": 4298.5,
-          "ratio": 108.45
-        },
-        {
-          "date": "2024-01-12",
-          "holdingPrice": 103088.0,
-          "subsidiaryPrice": 20824.0,
-          "holdingValue": 4609.6,
-          "marketCap": 4338.8,
-          "ratio": 106.24
-        },
-        {
-          "date": "2024-01-15",
-          "holdingPrice": 103184.0,
-          "subsidiaryPrice": 20354.0,
-          "holdingValue": 4505.5,
-          "marketCap": 4342.9,
-          "ratio": 103.75
-        },
-        {
-          "date": "2024-01-16",
-          "holdingPrice": 103951.0,
-          "subsidiaryPrice": 20119.0,
-          "holdingValue": 4453.5,
-          "marketCap": 4375.1,
-          "ratio": 101.79
-        },
-        {
-          "date": "2024-01-17",
-          "holdingPrice": 102514.0,
-          "subsidiaryPrice": 19555.0,
-          "holdingValue": 4328.6,
-          "marketCap": 4314.6,
-          "ratio": 100.32
-        },
-        {
-          "date": "2024-01-18",
-          "holdingPrice": 101556.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 4274.3,
-          "ratio": 98.59
-        },
-        {
-          "date": "2024-01-19",
-          "holdingPrice": 101268.0,
-          "subsidiaryPrice": 19179.0,
-          "holdingValue": 4245.4,
-          "marketCap": 4262.2,
-          "ratio": 99.61
-        },
-        {
-          "date": "2024-01-22",
-          "holdingPrice": 100693.0,
-          "subsidiaryPrice": 18991.0,
-          "holdingValue": 4203.8,
-          "marketCap": 4238.0,
-          "ratio": 99.19
-        },
-        {
-          "date": "2024-01-23",
-          "holdingPrice": 100023.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 4209.8,
-          "ratio": 100.1
-        },
-        {
-          "date": "2024-01-24",
-          "holdingPrice": 99544.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4189.6,
-          "ratio": 99.84
-        },
-        {
-          "date": "2024-01-25",
-          "holdingPrice": 98681.0,
-          "subsidiaryPrice": 19367.0,
-          "holdingValue": 4287.0,
-          "marketCap": 4153.3,
-          "ratio": 103.22
-        },
-        {
-          "date": "2024-01-26",
-          "holdingPrice": 99448.0,
-          "subsidiaryPrice": 19837.0,
-          "holdingValue": 4391.1,
-          "marketCap": 4185.6,
-          "ratio": 104.91
-        },
-        {
-          "date": "2024-01-29",
-          "holdingPrice": 101460.0,
-          "subsidiaryPrice": 20683.0,
-          "holdingValue": 4578.4,
-          "marketCap": 4270.3,
-          "ratio": 107.21
-        },
-        {
-          "date": "2024-01-30",
-          "holdingPrice": 109124.0,
-          "subsidiaryPrice": 20495.0,
-          "holdingValue": 4536.8,
-          "marketCap": 4592.9,
-          "ratio": 98.78
-        },
-        {
-          "date": "2024-01-31",
-          "holdingPrice": 105484.0,
-          "subsidiaryPrice": 20636.0,
-          "holdingValue": 4568.0,
-          "marketCap": 4439.6,
-          "ratio": 102.89
-        },
-        {
-          "date": "2024-02-01",
-          "holdingPrice": 110370.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4645.3,
-          "ratio": 102.59
-        },
-        {
-          "date": "2024-02-02",
-          "holdingPrice": 113723.0,
-          "subsidiaryPrice": 21388.0,
-          "holdingValue": 4734.5,
-          "marketCap": 4786.4,
-          "ratio": 98.91
-        },
-        {
-          "date": "2024-02-05",
-          "holdingPrice": 112669.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4742.1,
-          "ratio": 100.5
-        },
-        {
-          "date": "2024-02-06",
-          "holdingPrice": 111520.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4693.7,
-          "ratio": 101.53
-        },
-        {
-          "date": "2024-02-07",
-          "holdingPrice": 108837.0,
-          "subsidiaryPrice": 22611.0,
-          "holdingValue": 5005.0,
-          "marketCap": 4580.8,
-          "ratio": 109.26
-        },
-        {
-          "date": "2024-02-08",
-          "holdingPrice": 110178.0,
-          "subsidiaryPrice": 23410.0,
-          "holdingValue": 5181.9,
-          "marketCap": 4637.2,
-          "ratio": 111.75
-        },
-        {
-          "date": "2024-02-13",
-          "holdingPrice": 109699.0,
-          "subsidiaryPrice": 23410.0,
-          "holdingValue": 5181.9,
-          "marketCap": 4617.1,
-          "ratio": 112.23
-        },
-        {
-          "date": "2024-02-14",
-          "holdingPrice": 110753.0,
-          "subsidiaryPrice": 23457.0,
-          "holdingValue": 5192.3,
-          "marketCap": 4661.4,
-          "ratio": 111.39
-        },
-        {
-          "date": "2024-02-15",
-          "holdingPrice": 113627.0,
-          "subsidiaryPrice": 23410.0,
-          "holdingValue": 5181.9,
-          "marketCap": 4782.4,
-          "ratio": 108.35
-        },
-        {
-          "date": "2024-02-16",
-          "holdingPrice": 113052.0,
-          "subsidiaryPrice": 23551.0,
-          "holdingValue": 5213.1,
-          "marketCap": 4758.2,
-          "ratio": 109.56
-        },
-        {
-          "date": "2024-02-19",
-          "holdingPrice": 114969.0,
-          "subsidiaryPrice": 23410.0,
-          "holdingValue": 5181.9,
-          "marketCap": 4838.8,
-          "ratio": 107.09
-        },
-        {
-          "date": "2024-02-20",
-          "holdingPrice": 118897.0,
-          "subsidiaryPrice": 23598.0,
-          "holdingValue": 5223.5,
-          "marketCap": 5004.2,
-          "ratio": 104.38
-        },
-        {
-          "date": "2024-02-21",
-          "holdingPrice": 116501.0,
-          "subsidiaryPrice": 23128.0,
-          "holdingValue": 5119.5,
-          "marketCap": 4903.4,
-          "ratio": 104.41
-        },
-        {
-          "date": "2024-02-22",
-          "holdingPrice": 116789.0,
-          "subsidiaryPrice": 22987.0,
-          "holdingValue": 5088.2,
-          "marketCap": 4915.5,
-          "ratio": 103.52
-        },
-        {
-          "date": "2024-02-23",
-          "holdingPrice": 115639.0,
-          "subsidiaryPrice": 24726.0,
-          "holdingValue": 5473.2,
-          "marketCap": 4867.1,
-          "ratio": 112.45
-        },
-        {
-          "date": "2024-02-26",
-          "holdingPrice": 114490.0,
-          "subsidiaryPrice": 24632.0,
-          "holdingValue": 5452.4,
-          "marketCap": 4818.7,
-          "ratio": 113.15
-        },
-        {
-          "date": "2024-02-27",
-          "holdingPrice": 110178.0,
-          "subsidiaryPrice": 24444.0,
-          "holdingValue": 5410.8,
-          "marketCap": 4637.2,
-          "ratio": 116.68
-        },
-        {
-          "date": "2024-02-28",
-          "holdingPrice": 109987.0,
-          "subsidiaryPrice": 24491.0,
-          "holdingValue": 5421.2,
-          "marketCap": 4629.2,
-          "ratio": 117.11
-        },
-        {
-          "date": "2024-02-29",
-          "holdingPrice": 105579.0,
-          "subsidiaryPrice": 24256.0,
-          "holdingValue": 5369.2,
-          "marketCap": 4443.7,
-          "ratio": 120.83
-        },
-        {
-          "date": "2024-03-04",
-          "holdingPrice": 105771.0,
-          "subsidiaryPrice": 22705.0,
-          "holdingValue": 5025.8,
-          "marketCap": 4451.7,
-          "ratio": 112.9
-        },
-        {
-          "date": "2024-03-05",
-          "holdingPrice": 107975.0,
-          "subsidiaryPrice": 22423.0,
-          "holdingValue": 4963.4,
-          "marketCap": 4544.5,
-          "ratio": 109.22
-        },
-        {
-          "date": "2024-03-06",
-          "holdingPrice": 106442.0,
-          "subsidiaryPrice": 22752.0,
-          "holdingValue": 5036.2,
-          "marketCap": 4480.0,
-          "ratio": 112.42
-        },
-        {
-          "date": "2024-03-07",
-          "holdingPrice": 109124.0,
-          "subsidiaryPrice": 21576.0,
-          "holdingValue": 4776.1,
-          "marketCap": 4592.9,
-          "ratio": 103.99
-        },
-        {
-          "date": "2024-03-08",
-          "holdingPrice": 108454.0,
-          "subsidiaryPrice": 22094.0,
-          "holdingValue": 4890.5,
-          "marketCap": 4564.6,
-          "ratio": 107.14
-        },
-        {
-          "date": "2024-03-11",
-          "holdingPrice": 110466.0,
-          "subsidiaryPrice": 21576.0,
-          "holdingValue": 4776.1,
-          "marketCap": 4649.3,
-          "ratio": 102.73
-        },
-        {
-          "date": "2024-03-12",
-          "holdingPrice": 110466.0,
-          "subsidiaryPrice": 22423.0,
-          "holdingValue": 4963.4,
-          "marketCap": 4649.3,
-          "ratio": 106.75
-        },
-        {
-          "date": "2024-03-13",
-          "holdingPrice": 105579.0,
-          "subsidiaryPrice": 22235.0,
-          "holdingValue": 4921.8,
-          "marketCap": 4443.7,
-          "ratio": 110.76
-        },
-        {
-          "date": "2024-03-14",
-          "holdingPrice": 106825.0,
-          "subsidiaryPrice": 21905.0,
-          "holdingValue": 4848.9,
-          "marketCap": 4496.1,
-          "ratio": 107.85
-        },
-        {
-          "date": "2024-03-15",
-          "holdingPrice": 107687.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4532.4,
-          "ratio": 105.15
-        },
-        {
-          "date": "2024-03-18",
-          "holdingPrice": 106442.0,
-          "subsidiaryPrice": 21670.0,
-          "holdingValue": 4796.9,
-          "marketCap": 4480.0,
-          "ratio": 107.07
-        },
-        {
-          "date": "2024-03-19",
-          "holdingPrice": 105867.0,
-          "subsidiaryPrice": 22000.0,
-          "holdingValue": 4869.7,
-          "marketCap": 4455.8,
-          "ratio": 109.29
-        },
-        {
-          "date": "2024-03-20",
-          "holdingPrice": 107208.0,
-          "subsidiaryPrice": 22564.0,
-          "holdingValue": 4994.6,
-          "marketCap": 4512.2,
-          "ratio": 110.69
-        },
-        {
-          "date": "2024-03-21",
-          "holdingPrice": 107496.0,
-          "subsidiaryPrice": 22470.0,
-          "holdingValue": 4973.8,
-          "marketCap": 4524.3,
-          "ratio": 109.93
-        },
-        {
-          "date": "2024-03-22",
-          "holdingPrice": 106346.0,
-          "subsidiaryPrice": 21858.0,
-          "holdingValue": 4838.5,
-          "marketCap": 4475.9,
-          "ratio": 108.1
-        },
-        {
-          "date": "2024-03-25",
-          "holdingPrice": 105675.0,
-          "subsidiaryPrice": 21717.0,
-          "holdingValue": 4807.3,
-          "marketCap": 4447.7,
-          "ratio": 108.08
-        },
-        {
-          "date": "2024-03-26",
-          "holdingPrice": 107208.0,
-          "subsidiaryPrice": 21952.0,
-          "holdingValue": 4859.3,
-          "marketCap": 4512.2,
-          "ratio": 107.69
-        },
-        {
-          "date": "2024-03-27",
-          "holdingPrice": 103280.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4346.9,
-          "ratio": 109.63
-        },
-        {
-          "date": "2024-03-28",
-          "holdingPrice": 104047.0,
-          "subsidiaryPrice": 21294.0,
-          "holdingValue": 4713.6,
-          "marketCap": 4379.2,
-          "ratio": 107.64
-        },
-        {
-          "date": "2024-03-29",
-          "holdingPrice": 104238.0,
-          "subsidiaryPrice": 21435.0,
-          "holdingValue": 4744.9,
-          "marketCap": 4387.2,
-          "ratio": 108.15
-        },
-        {
-          "date": "2024-04-01",
-          "holdingPrice": 107783.0,
-          "subsidiaryPrice": 21811.0,
-          "holdingValue": 4828.1,
-          "marketCap": 4536.4,
-          "ratio": 106.43
-        },
-        {
-          "date": "2024-04-02",
-          "holdingPrice": 104526.0,
-          "subsidiaryPrice": 21200.0,
-          "holdingValue": 4692.8,
-          "marketCap": 4399.3,
-          "ratio": 106.67
-        },
-        {
-          "date": "2024-04-03",
-          "holdingPrice": 107304.0,
-          "subsidiaryPrice": 20871.0,
-          "holdingValue": 4620.0,
-          "marketCap": 4516.3,
-          "ratio": 102.3
-        },
-        {
-          "date": "2024-04-04",
-          "holdingPrice": 107017.0,
-          "subsidiaryPrice": 20824.0,
-          "holdingValue": 4609.6,
-          "marketCap": 4504.2,
-          "ratio": 102.34
-        },
-        {
-          "date": "2024-04-05",
-          "holdingPrice": 104047.0,
-          "subsidiaryPrice": 20495.0,
-          "holdingValue": 4536.8,
-          "marketCap": 4379.2,
-          "ratio": 103.6
-        },
-        {
-          "date": "2024-04-08",
-          "holdingPrice": 103951.0,
-          "subsidiaryPrice": 20119.0,
-          "holdingValue": 4453.5,
-          "marketCap": 4375.1,
-          "ratio": 101.79
-        },
-        {
-          "date": "2024-04-09",
-          "holdingPrice": 102705.0,
-          "subsidiaryPrice": 20965.0,
-          "holdingValue": 4640.8,
-          "marketCap": 4322.7,
-          "ratio": 107.36
-        },
-        {
-          "date": "2024-04-11",
-          "holdingPrice": 102035.0,
-          "subsidiaryPrice": 20589.0,
-          "holdingValue": 4557.6,
-          "marketCap": 4294.5,
-          "ratio": 106.13
-        },
-        {
-          "date": "2024-04-12",
-          "holdingPrice": 101364.0,
-          "subsidiaryPrice": 20495.0,
-          "holdingValue": 4536.8,
-          "marketCap": 4266.3,
-          "ratio": 106.34
-        },
-        {
-          "date": "2024-04-15",
-          "holdingPrice": 101172.0,
-          "subsidiaryPrice": 20213.0,
-          "holdingValue": 4474.3,
-          "marketCap": 4258.2,
-          "ratio": 105.08
-        },
-        {
-          "date": "2024-04-16",
-          "holdingPrice": 100406.0,
-          "subsidiaryPrice": 19696.0,
-          "holdingValue": 4359.9,
-          "marketCap": 4225.9,
-          "ratio": 103.17
-        },
-        {
-          "date": "2024-04-17",
-          "holdingPrice": 101460.0,
-          "subsidiaryPrice": 19132.0,
-          "holdingValue": 4235.0,
-          "marketCap": 4270.3,
-          "ratio": 99.17
-        },
-        {
-          "date": "2024-04-18",
-          "holdingPrice": 102609.0,
-          "subsidiaryPrice": 19226.0,
-          "holdingValue": 4255.8,
-          "marketCap": 4318.7,
-          "ratio": 98.54
-        },
-        {
-          "date": "2024-04-19",
-          "holdingPrice": 103280.0,
-          "subsidiaryPrice": 19320.0,
-          "holdingValue": 4276.6,
-          "marketCap": 4346.9,
-          "ratio": 98.38
-        },
-        {
-          "date": "2024-04-22",
-          "holdingPrice": 102801.0,
-          "subsidiaryPrice": 19602.0,
-          "holdingValue": 4339.1,
-          "marketCap": 4326.7,
-          "ratio": 100.28
-        },
-        {
-          "date": "2024-04-23",
-          "holdingPrice": 103472.0,
-          "subsidiaryPrice": 19884.0,
-          "holdingValue": 4401.5,
-          "marketCap": 4355.0,
-          "ratio": 101.07
-        },
-        {
-          "date": "2024-04-24",
-          "holdingPrice": 104047.0,
-          "subsidiaryPrice": 19837.0,
-          "holdingValue": 4391.1,
-          "marketCap": 4379.2,
-          "ratio": 100.27
-        },
-        {
-          "date": "2024-04-25",
-          "holdingPrice": 104621.0,
-          "subsidiaryPrice": 20354.0,
-          "holdingValue": 4505.5,
-          "marketCap": 4403.4,
-          "ratio": 102.32
-        },
-        {
-          "date": "2024-04-26",
-          "holdingPrice": 106921.0,
-          "subsidiaryPrice": 20025.0,
-          "holdingValue": 4432.7,
-          "marketCap": 4500.1,
-          "ratio": 98.5
-        },
-        {
-          "date": "2024-04-29",
-          "holdingPrice": 108454.0,
-          "subsidiaryPrice": 20871.0,
-          "holdingValue": 4620.0,
-          "marketCap": 4564.6,
-          "ratio": 101.21
-        },
-        {
-          "date": "2024-04-30",
-          "holdingPrice": 106346.0,
-          "subsidiaryPrice": 20871.0,
-          "holdingValue": 4620.0,
-          "marketCap": 4475.9,
-          "ratio": 103.22
-        },
-        {
-          "date": "2024-05-02",
-          "holdingPrice": 104142.0,
-          "subsidiaryPrice": 20072.0,
-          "holdingValue": 4443.1,
-          "marketCap": 4383.2,
-          "ratio": 101.37
-        },
-        {
-          "date": "2024-05-03",
-          "holdingPrice": 102322.0,
-          "subsidiaryPrice": 21106.0,
-          "holdingValue": 4672.0,
-          "marketCap": 4306.6,
-          "ratio": 108.49
-        },
-        {
-          "date": "2024-05-07",
-          "holdingPrice": 101364.0,
-          "subsidiaryPrice": 20918.0,
-          "holdingValue": 4630.4,
-          "marketCap": 4266.3,
-          "ratio": 108.54
-        },
-        {
-          "date": "2024-05-08",
-          "holdingPrice": 101651.0,
-          "subsidiaryPrice": 21106.0,
-          "holdingValue": 4672.0,
-          "marketCap": 4278.3,
-          "ratio": 109.2
-        },
-        {
-          "date": "2024-05-09",
-          "holdingPrice": 100023.0,
-          "subsidiaryPrice": 20636.0,
-          "holdingValue": 4568.0,
-          "marketCap": 4209.8,
-          "ratio": 108.51
-        },
-        {
-          "date": "2024-05-10",
-          "holdingPrice": 98777.0,
-          "subsidiaryPrice": 20730.0,
-          "holdingValue": 4588.8,
-          "marketCap": 4157.4,
-          "ratio": 110.38
-        },
-        {
-          "date": "2024-05-13",
-          "holdingPrice": 99065.0,
-          "subsidiaryPrice": 20730.0,
-          "holdingValue": 4588.8,
-          "marketCap": 4169.5,
-          "ratio": 110.06
-        },
-        {
-          "date": "2024-05-14",
-          "holdingPrice": 98298.0,
-          "subsidiaryPrice": 22423.0,
-          "holdingValue": 4963.4,
-          "marketCap": 4137.2,
-          "ratio": 119.97
-        },
-        {
-          "date": "2024-05-16",
-          "holdingPrice": 97723.0,
-          "subsidiaryPrice": 23081.0,
-          "holdingValue": 5109.1,
-          "marketCap": 4113.0,
-          "ratio": 124.22
-        },
-        {
-          "date": "2024-05-17",
-          "holdingPrice": 97819.0,
-          "subsidiaryPrice": 22376.0,
-          "holdingValue": 4953.0,
-          "marketCap": 4117.1,
-          "ratio": 120.3
-        },
-        {
-          "date": "2024-05-20",
-          "holdingPrice": 97915.0,
-          "subsidiaryPrice": 22423.0,
-          "holdingValue": 4963.4,
-          "marketCap": 4121.1,
-          "ratio": 120.44
-        },
-        {
-          "date": "2024-05-21",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 21905.0,
-          "holdingValue": 4848.9,
-          "marketCap": 4080.8,
-          "ratio": 118.82
-        },
-        {
-          "date": "2024-05-22",
-          "holdingPrice": 98490.0,
-          "subsidiaryPrice": 22094.0,
-          "holdingValue": 4890.5,
-          "marketCap": 4145.3,
-          "ratio": 117.98
-        },
-        {
-          "date": "2024-05-23",
-          "holdingPrice": 98106.0,
-          "subsidiaryPrice": 22235.0,
-          "holdingValue": 4921.8,
-          "marketCap": 4129.2,
-          "ratio": 119.2
-        },
-        {
-          "date": "2024-05-24",
-          "holdingPrice": 97148.0,
-          "subsidiaryPrice": 21858.0,
-          "holdingValue": 4838.5,
-          "marketCap": 4088.8,
-          "ratio": 118.33
-        },
-        {
-          "date": "2024-05-27",
-          "holdingPrice": 96286.0,
-          "subsidiaryPrice": 22094.0,
-          "holdingValue": 4890.5,
-          "marketCap": 4052.5,
-          "ratio": 120.68
-        },
-        {
-          "date": "2024-05-28",
-          "holdingPrice": 97340.0,
-          "subsidiaryPrice": 21435.0,
-          "holdingValue": 4744.9,
-          "marketCap": 4096.9,
-          "ratio": 115.82
-        },
-        {
-          "date": "2024-05-29",
-          "holdingPrice": 96382.0,
-          "subsidiaryPrice": 21529.0,
-          "holdingValue": 4765.7,
-          "marketCap": 4056.6,
-          "ratio": 117.48
-        },
-        {
-          "date": "2024-05-30",
-          "holdingPrice": 97053.0,
-          "subsidiaryPrice": 20871.0,
-          "holdingValue": 4620.0,
-          "marketCap": 4084.8,
-          "ratio": 113.1
-        },
-        {
-          "date": "2024-05-31",
-          "holdingPrice": 97819.0,
-          "subsidiaryPrice": 21435.0,
-          "holdingValue": 4744.9,
-          "marketCap": 4117.1,
-          "ratio": 115.25
-        },
-        {
-          "date": "2024-06-03",
-          "holdingPrice": 98106.0,
-          "subsidiaryPrice": 21482.0,
-          "holdingValue": 4755.3,
-          "marketCap": 4129.2,
-          "ratio": 115.16
-        },
-        {
-          "date": "2024-06-04",
-          "holdingPrice": 99639.0,
-          "subsidiaryPrice": 21247.0,
-          "holdingValue": 4703.2,
-          "marketCap": 4193.7,
-          "ratio": 112.15
-        },
-        {
-          "date": "2024-06-05",
-          "holdingPrice": 99927.0,
-          "subsidiaryPrice": 21341.0,
-          "holdingValue": 4724.1,
-          "marketCap": 4205.8,
-          "ratio": 112.32
-        },
-        {
-          "date": "2024-06-07",
-          "holdingPrice": 99735.0,
-          "subsidiaryPrice": 20918.0,
-          "holdingValue": 4630.4,
-          "marketCap": 4197.7,
-          "ratio": 110.31
-        },
-        {
-          "date": "2024-06-10",
-          "holdingPrice": 97627.0,
-          "subsidiaryPrice": 20307.0,
-          "holdingValue": 4495.1,
-          "marketCap": 4109.0,
-          "ratio": 109.4
-        },
-        {
-          "date": "2024-06-11",
-          "holdingPrice": 98011.0,
-          "subsidiaryPrice": 19837.0,
-          "holdingValue": 4391.1,
-          "marketCap": 4125.1,
-          "ratio": 106.45
-        },
-        {
-          "date": "2024-06-12",
-          "holdingPrice": 97627.0,
-          "subsidiaryPrice": 19884.0,
-          "holdingValue": 4401.5,
-          "marketCap": 4109.0,
-          "ratio": 107.12
-        },
-        {
-          "date": "2024-06-13",
-          "holdingPrice": 96574.0,
-          "subsidiaryPrice": 19790.0,
-          "holdingValue": 4380.7,
-          "marketCap": 4064.6,
-          "ratio": 107.78
-        },
-        {
-          "date": "2024-06-14",
-          "holdingPrice": 103280.0,
-          "subsidiaryPrice": 19508.0,
-          "holdingValue": 4318.2,
-          "marketCap": 4346.9,
-          "ratio": 99.34
-        },
-        {
-          "date": "2024-06-17",
-          "holdingPrice": 100789.0,
-          "subsidiaryPrice": 19602.0,
-          "holdingValue": 4339.1,
-          "marketCap": 4242.1,
-          "ratio": 102.29
-        },
-        {
-          "date": "2024-06-18",
-          "holdingPrice": 104526.0,
-          "subsidiaryPrice": 20448.0,
-          "holdingValue": 4526.4,
-          "marketCap": 4399.3,
-          "ratio": 102.89
-        },
-        {
-          "date": "2024-06-19",
-          "holdingPrice": 101077.0,
-          "subsidiaryPrice": 19884.0,
-          "holdingValue": 4401.5,
-          "marketCap": 4254.2,
-          "ratio": 103.46
-        },
-        {
-          "date": "2024-06-20",
-          "holdingPrice": 100118.0,
-          "subsidiaryPrice": 19602.0,
-          "holdingValue": 4339.1,
-          "marketCap": 4213.8,
-          "ratio": 102.97
-        },
-        {
-          "date": "2024-06-21",
-          "holdingPrice": 99352.0,
-          "subsidiaryPrice": 19649.0,
-          "holdingValue": 4349.5,
-          "marketCap": 4181.6,
-          "ratio": 104.01
-        },
-        {
-          "date": "2024-06-24",
-          "holdingPrice": 99160.0,
-          "subsidiaryPrice": 19461.0,
-          "holdingValue": 4307.8,
-          "marketCap": 4173.5,
-          "ratio": 103.22
-        },
-        {
-          "date": "2024-06-25",
-          "holdingPrice": 99065.0,
-          "subsidiaryPrice": 19649.0,
-          "holdingValue": 4349.5,
-          "marketCap": 4169.5,
-          "ratio": 104.32
-        },
-        {
-          "date": "2024-06-26",
-          "holdingPrice": 98202.0,
-          "subsidiaryPrice": 19179.0,
-          "holdingValue": 4245.4,
-          "marketCap": 4133.2,
-          "ratio": 102.72
-        },
-        {
-          "date": "2024-06-27",
-          "holdingPrice": 98586.0,
-          "subsidiaryPrice": 19085.0,
-          "holdingValue": 4224.6,
-          "marketCap": 4149.3,
-          "ratio": 101.81
-        },
-        {
-          "date": "2024-06-28",
-          "holdingPrice": 101651.0,
-          "subsidiaryPrice": 19508.0,
-          "holdingValue": 4318.2,
-          "marketCap": 4278.3,
-          "ratio": 100.93
-        },
-        {
-          "date": "2024-07-01",
-          "holdingPrice": 102035.0,
-          "subsidiaryPrice": 19508.0,
-          "holdingValue": 4318.2,
-          "marketCap": 4294.5,
-          "ratio": 100.55
-        },
-        {
-          "date": "2024-07-02",
-          "holdingPrice": 102609.0,
-          "subsidiaryPrice": 19085.0,
-          "holdingValue": 4224.6,
-          "marketCap": 4318.7,
-          "ratio": 97.82
-        },
-        {
-          "date": "2024-07-03",
-          "holdingPrice": 99831.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 4201.7,
-          "ratio": 100.3
-        },
-        {
-          "date": "2024-07-04",
-          "holdingPrice": 97819.0,
-          "subsidiaryPrice": 18991.0,
-          "holdingValue": 4203.8,
-          "marketCap": 4117.1,
-          "ratio": 102.11
-        },
-        {
-          "date": "2024-07-05",
-          "holdingPrice": 97915.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4121.1,
-          "ratio": 101.5
-        },
-        {
-          "date": "2024-07-08",
-          "holdingPrice": 97340.0,
-          "subsidiaryPrice": 18634.0,
-          "holdingValue": 4124.7,
-          "marketCap": 4096.9,
-          "ratio": 100.68
-        },
-        {
-          "date": "2024-07-09",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 18427.0,
-          "holdingValue": 4078.9,
-          "marketCap": 4080.8,
-          "ratio": 99.95
-        },
-        {
-          "date": "2024-07-10",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 18530.0,
-          "holdingValue": 4101.8,
-          "marketCap": 4072.7,
-          "ratio": 100.71
-        },
-        {
-          "date": "2024-07-11",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 4072.7,
-          "ratio": 103.47
-        },
-        {
-          "date": "2024-07-12",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 19273.0,
-          "holdingValue": 4266.2,
-          "marketCap": 4080.8,
-          "ratio": 104.54
-        },
-        {
-          "date": "2024-07-15",
-          "holdingPrice": 97627.0,
-          "subsidiaryPrice": 19508.0,
-          "holdingValue": 4318.2,
-          "marketCap": 4109.0,
-          "ratio": 105.09
-        },
-        {
-          "date": "2024-07-16",
-          "holdingPrice": 97627.0,
-          "subsidiaryPrice": 19085.0,
-          "holdingValue": 4224.6,
-          "marketCap": 4109.0,
-          "ratio": 102.81
-        },
-        {
-          "date": "2024-07-17",
-          "holdingPrice": 97340.0,
-          "subsidiaryPrice": 19132.0,
-          "holdingValue": 4235.0,
-          "marketCap": 4096.9,
-          "ratio": 103.37
-        },
-        {
-          "date": "2024-07-18",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 19743.0,
-          "holdingValue": 4370.3,
-          "marketCap": 4080.8,
-          "ratio": 107.09
-        },
-        {
-          "date": "2024-07-19",
-          "holdingPrice": 98106.0,
-          "subsidiaryPrice": 19179.0,
-          "holdingValue": 4245.4,
-          "marketCap": 4129.2,
-          "ratio": 102.82
-        },
-        {
-          "date": "2024-07-22",
-          "holdingPrice": 98969.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 4165.4,
-          "ratio": 100.17
-        },
-        {
-          "date": "2024-07-23",
-          "holdingPrice": 99160.0,
-          "subsidiaryPrice": 18784.0,
-          "holdingValue": 4158.0,
-          "marketCap": 4173.5,
-          "ratio": 99.63
-        },
-        {
-          "date": "2024-07-24",
-          "holdingPrice": 100214.0,
-          "subsidiaryPrice": 18483.0,
-          "holdingValue": 4091.4,
-          "marketCap": 4217.9,
-          "ratio": 97.0
-        },
-        {
-          "date": "2024-07-25",
-          "holdingPrice": 99352.0,
-          "subsidiaryPrice": 18088.0,
-          "holdingValue": 4004.0,
-          "marketCap": 4181.6,
-          "ratio": 95.75
-        },
-        {
-          "date": "2024-07-26",
-          "holdingPrice": 99160.0,
-          "subsidiaryPrice": 18013.0,
-          "holdingValue": 3987.4,
-          "marketCap": 4173.5,
-          "ratio": 95.54
-        },
-        {
-          "date": "2024-07-29",
-          "holdingPrice": 98490.0,
-          "subsidiaryPrice": 18013.0,
-          "holdingValue": 3987.4,
-          "marketCap": 4145.3,
-          "ratio": 96.19
-        },
-        {
-          "date": "2024-07-30",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 17703.0,
-          "holdingValue": 3918.7,
-          "marketCap": 4080.8,
-          "ratio": 96.03
-        },
-        {
-          "date": "2024-07-31",
-          "holdingPrice": 100214.0,
-          "subsidiaryPrice": 17806.0,
-          "holdingValue": 3941.6,
-          "marketCap": 4217.9,
-          "ratio": 93.45
-        },
-        {
-          "date": "2024-08-01",
-          "holdingPrice": 102322.0,
-          "subsidiaryPrice": 18709.0,
-          "holdingValue": 4141.4,
-          "marketCap": 4306.6,
-          "ratio": 96.16
-        },
-        {
-          "date": "2024-08-02",
-          "holdingPrice": 100885.0,
-          "subsidiaryPrice": 18314.0,
-          "holdingValue": 4053.9,
-          "marketCap": 4246.1,
-          "ratio": 95.47
-        },
-        {
-          "date": "2024-08-05",
-          "holdingPrice": 92741.0,
-          "subsidiaryPrice": 16340.0,
-          "holdingValue": 3616.9,
-          "marketCap": 3903.3,
-          "ratio": 92.66
-        },
-        {
-          "date": "2024-08-06",
-          "holdingPrice": 93412.0,
-          "subsidiaryPrice": 16979.0,
-          "holdingValue": 3758.4,
-          "marketCap": 3931.6,
-          "ratio": 95.6
-        },
-        {
-          "date": "2024-08-07",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 16866.0,
-          "holdingValue": 3733.5,
-          "marketCap": 4080.8,
-          "ratio": 91.49
-        },
-        {
-          "date": "2024-08-08",
-          "holdingPrice": 97723.0,
-          "subsidiaryPrice": 16979.0,
-          "holdingValue": 3758.4,
-          "marketCap": 4113.0,
-          "ratio": 91.38
-        },
-        {
-          "date": "2024-08-09",
-          "holdingPrice": 98586.0,
-          "subsidiaryPrice": 16989.0,
-          "holdingValue": 3760.5,
-          "marketCap": 4149.3,
-          "ratio": 90.63
-        },
-        {
-          "date": "2024-08-12",
-          "holdingPrice": 100023.0,
-          "subsidiaryPrice": 17289.0,
-          "holdingValue": 3827.1,
-          "marketCap": 4209.8,
-          "ratio": 90.91
-        },
-        {
-          "date": "2024-08-13",
-          "holdingPrice": 98681.0,
-          "subsidiaryPrice": 17195.0,
-          "holdingValue": 3806.3,
-          "marketCap": 4153.3,
-          "ratio": 91.64
-        },
-        {
-          "date": "2024-08-14",
-          "holdingPrice": 99639.0,
-          "subsidiaryPrice": 17487.0,
-          "holdingValue": 3870.8,
-          "marketCap": 4193.7,
-          "ratio": 92.3
-        },
-        {
-          "date": "2024-08-16",
-          "holdingPrice": 98298.0,
-          "subsidiaryPrice": 17637.0,
-          "holdingValue": 3904.1,
-          "marketCap": 4137.2,
-          "ratio": 94.37
-        },
-        {
-          "date": "2024-08-19",
-          "holdingPrice": 97244.0,
-          "subsidiaryPrice": 18154.0,
-          "holdingValue": 4018.6,
-          "marketCap": 4092.9,
-          "ratio": 98.18
-        },
-        {
-          "date": "2024-08-20",
-          "holdingPrice": 96957.0,
-          "subsidiaryPrice": 18220.0,
-          "holdingValue": 4033.1,
-          "marketCap": 4080.8,
-          "ratio": 98.83
-        },
-        {
-          "date": "2024-08-21",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 18418.0,
-          "holdingValue": 4076.8,
-          "marketCap": 4072.7,
-          "ratio": 100.1
-        },
-        {
-          "date": "2024-08-22",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 18314.0,
-          "holdingValue": 4053.9,
-          "marketCap": 4072.7,
-          "ratio": 99.54
-        },
-        {
-          "date": "2024-08-23",
-          "holdingPrice": 94657.0,
-          "subsidiaryPrice": 18418.0,
-          "holdingValue": 4076.8,
-          "marketCap": 3984.0,
-          "ratio": 102.33
-        },
-        {
-          "date": "2024-08-26",
-          "holdingPrice": 95328.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4012.2,
-          "ratio": 104.26
-        },
-        {
-          "date": "2024-08-27",
-          "holdingPrice": 95328.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4012.2,
-          "ratio": 104.26
-        },
-        {
-          "date": "2024-08-28",
-          "holdingPrice": 95232.0,
-          "subsidiaryPrice": 18587.0,
-          "holdingValue": 4114.3,
-          "marketCap": 4008.2,
-          "ratio": 102.65
-        },
-        {
-          "date": "2024-08-29",
-          "holdingPrice": 95999.0,
-          "subsidiaryPrice": 18530.0,
-          "holdingValue": 4101.8,
-          "marketCap": 4040.4,
-          "ratio": 101.52
-        },
-        {
-          "date": "2024-08-30",
-          "holdingPrice": 96382.0,
-          "subsidiaryPrice": 18794.0,
-          "holdingValue": 4160.1,
-          "marketCap": 4056.6,
-          "ratio": 102.55
-        },
-        {
-          "date": "2024-09-02",
-          "holdingPrice": 96669.0,
-          "subsidiaryPrice": 18606.0,
-          "holdingValue": 4118.5,
-          "marketCap": 4068.7,
-          "ratio": 101.22
-        },
-        {
-          "date": "2024-09-03",
-          "holdingPrice": 99831.0,
-          "subsidiaryPrice": 18803.0,
-          "holdingValue": 4162.2,
-          "marketCap": 4201.7,
-          "ratio": 99.06
-        },
-        {
-          "date": "2024-09-04",
-          "holdingPrice": 103376.0,
-          "subsidiaryPrice": 18333.0,
-          "holdingValue": 4058.1,
-          "marketCap": 4350.9,
-          "ratio": 93.27
-        },
-        {
-          "date": "2024-09-05",
-          "holdingPrice": 102418.0,
-          "subsidiaryPrice": 18333.0,
-          "holdingValue": 4058.1,
-          "marketCap": 4310.6,
-          "ratio": 94.14
-        },
-        {
-          "date": "2024-09-06",
-          "holdingPrice": 99160.0,
-          "subsidiaryPrice": 17778.0,
-          "holdingValue": 3935.3,
-          "marketCap": 4173.5,
-          "ratio": 94.29
-        },
-        {
-          "date": "2024-09-09",
-          "holdingPrice": 100502.0,
-          "subsidiaryPrice": 17910.0,
-          "holdingValue": 3964.5,
-          "marketCap": 4230.0,
-          "ratio": 93.72
-        },
-        {
-          "date": "2024-09-10",
-          "holdingPrice": 97819.0,
-          "subsidiaryPrice": 17712.0,
-          "holdingValue": 3920.8,
-          "marketCap": 4117.1,
-          "ratio": 95.23
-        },
-        {
-          "date": "2024-09-11",
-          "holdingPrice": 98969.0,
-          "subsidiaryPrice": 17844.0,
-          "holdingValue": 3949.9,
-          "marketCap": 4165.4,
-          "ratio": 94.83
-        },
-        {
-          "date": "2024-09-12",
-          "holdingPrice": 98681.0,
-          "subsidiaryPrice": 17985.0,
-          "holdingValue": 3981.1,
-          "marketCap": 4153.3,
-          "ratio": 95.85
-        },
-        {
-          "date": "2024-09-13",
-          "holdingPrice": 98490.0,
-          "subsidiaryPrice": 18371.0,
-          "holdingValue": 4066.4,
-          "marketCap": 4145.3,
-          "ratio": 98.1
-        },
-        {
-          "date": "2024-09-19",
-          "holdingPrice": 99065.0,
-          "subsidiaryPrice": 18455.0,
-          "holdingValue": 4085.2,
-          "marketCap": 4169.5,
-          "ratio": 97.98
-        },
-        {
-          "date": "2024-09-20",
-          "holdingPrice": 98394.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4141.2,
-          "ratio": 101.01
-        },
-        {
-          "date": "2024-09-23",
-          "holdingPrice": 98394.0,
-          "subsidiaryPrice": 18756.0,
-          "holdingValue": 4151.8,
-          "marketCap": 4141.2,
-          "ratio": 100.25
-        },
-        {
-          "date": "2024-09-24",
-          "holdingPrice": 97819.0,
-          "subsidiaryPrice": 19226.0,
-          "holdingValue": 4255.8,
-          "marketCap": 4117.1,
-          "ratio": 103.37
-        },
-        {
-          "date": "2024-09-25",
-          "holdingPrice": 97436.0,
-          "subsidiaryPrice": 18803.0,
-          "holdingValue": 4162.2,
-          "marketCap": 4100.9,
-          "ratio": 101.49
-        },
-        {
-          "date": "2024-09-26",
-          "holdingPrice": 98202.0,
-          "subsidiaryPrice": 19367.0,
-          "holdingValue": 4287.0,
-          "marketCap": 4133.2,
-          "ratio": 103.72
-        },
-        {
-          "date": "2024-09-27",
-          "holdingPrice": 98298.0,
-          "subsidiaryPrice": 19649.0,
-          "holdingValue": 4349.5,
-          "marketCap": 4137.2,
-          "ratio": 105.13
-        },
-        {
-          "date": "2024-09-30",
-          "holdingPrice": 96669.0,
-          "subsidiaryPrice": 19320.0,
-          "holdingValue": 4276.6,
-          "marketCap": 4068.7,
-          "ratio": 105.11
-        },
-        {
-          "date": "2024-10-02",
-          "holdingPrice": 96669.0,
-          "subsidiaryPrice": 19132.0,
-          "holdingValue": 4235.0,
-          "marketCap": 4068.7,
-          "ratio": 104.09
-        },
-        {
-          "date": "2024-10-04",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4072.7,
-          "ratio": 102.71
-        },
-        {
-          "date": "2024-10-07",
-          "holdingPrice": 96765.0,
-          "subsidiaryPrice": 19649.0,
-          "holdingValue": 4349.5,
-          "marketCap": 4072.7,
-          "ratio": 106.8
-        },
-        {
-          "date": "2024-10-08",
-          "holdingPrice": 96478.0,
-          "subsidiaryPrice": 19696.0,
-          "holdingValue": 4359.9,
-          "marketCap": 4060.6,
-          "ratio": 107.37
-        },
-        {
-          "date": "2024-10-10",
-          "holdingPrice": 97340.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 4096.9,
-          "ratio": 102.1
-        },
-        {
-          "date": "2024-10-11",
-          "holdingPrice": 98011.0,
-          "subsidiaryPrice": 18662.0,
-          "holdingValue": 4130.9,
-          "marketCap": 4125.1,
-          "ratio": 100.14
-        },
-        {
-          "date": "2024-10-14",
-          "holdingPrice": 95520.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 4020.3,
-          "ratio": 103.79
-        },
-        {
-          "date": "2024-10-15",
-          "holdingPrice": 96382.0,
-          "subsidiaryPrice": 18728.0,
-          "holdingValue": 4145.5,
-          "marketCap": 4056.6,
-          "ratio": 102.19
-        },
-        {
-          "date": "2024-10-16",
-          "holdingPrice": 94849.0,
-          "subsidiaryPrice": 19649.0,
-          "holdingValue": 4349.5,
-          "marketCap": 3992.0,
-          "ratio": 108.95
-        },
-        {
-          "date": "2024-10-17",
-          "holdingPrice": 93029.0,
-          "subsidiaryPrice": 19226.0,
-          "holdingValue": 4255.8,
-          "marketCap": 3915.4,
-          "ratio": 108.69
-        },
-        {
-          "date": "2024-10-18",
-          "holdingPrice": 93029.0,
-          "subsidiaryPrice": 18803.0,
-          "holdingValue": 4162.2,
-          "marketCap": 3915.4,
-          "ratio": 106.3
-        },
-        {
-          "date": "2024-10-21",
-          "holdingPrice": 92645.0,
-          "subsidiaryPrice": 18728.0,
-          "holdingValue": 4145.5,
-          "marketCap": 3899.3,
-          "ratio": 106.31
-        },
-        {
-          "date": "2024-10-22",
-          "holdingPrice": 93891.0,
-          "subsidiaryPrice": 18512.0,
-          "holdingValue": 4097.6,
-          "marketCap": 3951.7,
-          "ratio": 103.69
-        },
-        {
-          "date": "2024-10-23",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 18512.0,
-          "holdingValue": 4097.6,
-          "marketCap": 3798.5,
-          "ratio": 107.88
-        },
-        {
-          "date": "2024-10-24",
-          "holdingPrice": 93508.0,
-          "subsidiaryPrice": 18587.0,
-          "holdingValue": 4114.3,
-          "marketCap": 3935.6,
-          "ratio": 104.54
-        },
-        {
-          "date": "2024-10-25",
-          "holdingPrice": 94274.0,
-          "subsidiaryPrice": 18408.0,
-          "holdingValue": 4074.8,
-          "marketCap": 3967.9,
-          "ratio": 102.69
-        },
-        {
-          "date": "2024-10-28",
-          "holdingPrice": 98106.0,
-          "subsidiaryPrice": 18775.0,
-          "holdingValue": 4155.9,
-          "marketCap": 4129.2,
-          "ratio": 100.65
-        },
-        {
-          "date": "2024-10-29",
-          "holdingPrice": 96190.0,
-          "subsidiaryPrice": 18577.0,
-          "holdingValue": 4112.2,
-          "marketCap": 4048.5,
-          "ratio": 101.57
-        },
-        {
-          "date": "2024-10-30",
-          "holdingPrice": 95520.0,
-          "subsidiaryPrice": 18483.0,
-          "holdingValue": 4091.4,
-          "marketCap": 4020.3,
-          "ratio": 101.77
-        },
-        {
-          "date": "2024-10-31",
-          "holdingPrice": 96861.0,
-          "subsidiaryPrice": 18653.0,
-          "holdingValue": 4128.9,
-          "marketCap": 4076.7,
-          "ratio": 101.28
-        },
-        {
-          "date": "2024-11-01",
-          "holdingPrice": 97244.0,
-          "subsidiaryPrice": 18295.0,
-          "holdingValue": 4049.8,
-          "marketCap": 4092.9,
-          "ratio": 98.95
-        },
-        {
-          "date": "2024-11-04",
-          "holdingPrice": 96478.0,
-          "subsidiaryPrice": 18107.0,
-          "holdingValue": 4008.2,
-          "marketCap": 4060.6,
-          "ratio": 98.71
-        },
-        {
-          "date": "2024-11-05",
-          "holdingPrice": 96478.0,
-          "subsidiaryPrice": 18182.0,
-          "holdingValue": 4024.8,
-          "marketCap": 4060.6,
-          "ratio": 99.12
-        },
-        {
-          "date": "2024-11-06",
-          "holdingPrice": 95711.0,
-          "subsidiaryPrice": 18295.0,
-          "holdingValue": 4049.8,
-          "marketCap": 4028.3,
-          "ratio": 100.53
-        },
-        {
-          "date": "2024-11-07",
-          "holdingPrice": 95711.0,
-          "subsidiaryPrice": 22188.0,
-          "holdingValue": 4911.4,
-          "marketCap": 4028.3,
-          "ratio": 121.92
-        },
-        {
-          "date": "2024-11-08",
-          "holdingPrice": 97244.0,
-          "subsidiaryPrice": 22517.0,
-          "holdingValue": 4984.2,
-          "marketCap": 4092.9,
-          "ratio": 121.78
-        },
-        {
-          "date": "2024-11-11",
-          "holdingPrice": 97244.0,
-          "subsidiaryPrice": 23034.0,
-          "holdingValue": 5098.6,
-          "marketCap": 4092.9,
-          "ratio": 124.57
-        },
-        {
-          "date": "2024-11-12",
-          "holdingPrice": 95328.0,
-          "subsidiaryPrice": 22235.0,
-          "holdingValue": 4921.8,
-          "marketCap": 4012.2,
-          "ratio": 122.67
-        },
-        {
-          "date": "2024-11-13",
-          "holdingPrice": 91975.0,
-          "subsidiaryPrice": 20965.0,
-          "holdingValue": 4640.8,
-          "marketCap": 3871.1,
-          "ratio": 119.88
-        },
-        {
-          "date": "2024-11-14",
-          "holdingPrice": 95711.0,
-          "subsidiaryPrice": 22376.0,
-          "holdingValue": 4953.0,
-          "marketCap": 4028.3,
-          "ratio": 122.95
-        },
-        {
-          "date": "2024-11-15",
-          "holdingPrice": 94274.0,
-          "subsidiaryPrice": 21623.0,
-          "holdingValue": 4786.5,
-          "marketCap": 3967.9,
-          "ratio": 120.63
-        },
-        {
-          "date": "2024-11-18",
-          "holdingPrice": 95041.0,
-          "subsidiaryPrice": 22564.0,
-          "holdingValue": 4994.6,
-          "marketCap": 4000.1,
-          "ratio": 124.86
-        },
-        {
-          "date": "2024-11-19",
-          "holdingPrice": 96574.0,
-          "subsidiaryPrice": 22423.0,
-          "holdingValue": 4963.4,
-          "marketCap": 4064.6,
-          "ratio": 122.11
-        },
-        {
-          "date": "2024-11-20",
-          "holdingPrice": 95616.0,
-          "subsidiaryPrice": 21247.0,
-          "holdingValue": 4703.2,
-          "marketCap": 4024.3,
-          "ratio": 116.87
-        },
-        {
-          "date": "2024-11-21",
-          "holdingPrice": 97148.0,
-          "subsidiaryPrice": 20683.0,
-          "holdingValue": 4578.4,
-          "marketCap": 4088.8,
-          "ratio": 111.97
-        },
-        {
-          "date": "2024-11-22",
-          "holdingPrice": 96286.0,
-          "subsidiaryPrice": 19884.0,
-          "holdingValue": 4401.5,
-          "marketCap": 4052.5,
-          "ratio": 108.61
-        },
-        {
-          "date": "2024-11-25",
-          "holdingPrice": 95041.0,
-          "subsidiaryPrice": 19837.0,
-          "holdingValue": 4391.1,
-          "marketCap": 4000.1,
-          "ratio": 109.77
-        },
-        {
-          "date": "2024-11-26",
-          "holdingPrice": 95328.0,
-          "subsidiaryPrice": 20119.0,
-          "holdingValue": 4453.5,
-          "marketCap": 4012.2,
-          "ratio": 111.0
-        },
-        {
-          "date": "2024-11-27",
-          "holdingPrice": 94370.0,
-          "subsidiaryPrice": 20683.0,
-          "holdingValue": 4578.4,
-          "marketCap": 3971.9,
-          "ratio": 115.27
-        },
-        {
-          "date": "2024-11-28",
-          "holdingPrice": 95520.0,
-          "subsidiaryPrice": 20589.0,
-          "holdingValue": 4557.6,
-          "marketCap": 4020.3,
-          "ratio": 113.36
-        },
-        {
-          "date": "2024-11-29",
-          "holdingPrice": 96190.0,
-          "subsidiaryPrice": 21623.0,
-          "holdingValue": 4786.5,
-          "marketCap": 4048.5,
-          "ratio": 118.23
-        },
-        {
-          "date": "2024-12-02",
-          "holdingPrice": 95424.0,
-          "subsidiaryPrice": 21153.0,
-          "holdingValue": 4682.4,
-          "marketCap": 4016.2,
-          "ratio": 116.59
-        },
-        {
-          "date": "2024-12-03",
-          "holdingPrice": 94657.0,
-          "subsidiaryPrice": 21200.0,
-          "holdingValue": 4692.8,
-          "marketCap": 3984.0,
-          "ratio": 117.79
-        },
-        {
-          "date": "2024-12-04",
-          "holdingPrice": 92550.0,
-          "subsidiaryPrice": 19696.0,
-          "holdingValue": 4359.9,
-          "marketCap": 3895.3,
-          "ratio": 111.93
-        },
-        {
-          "date": "2024-12-05",
-          "holdingPrice": 92454.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 3891.2,
-          "ratio": 107.23
-        },
-        {
-          "date": "2024-12-06",
-          "holdingPrice": 92262.0,
-          "subsidiaryPrice": 18803.0,
-          "holdingValue": 4162.2,
-          "marketCap": 3883.2,
-          "ratio": 107.18
-        },
-        {
-          "date": "2024-12-09",
-          "holdingPrice": 90634.0,
-          "subsidiaryPrice": 17825.0,
-          "holdingValue": 3945.7,
-          "marketCap": 3814.6,
-          "ratio": 103.44
-        },
-        {
-          "date": "2024-12-10",
-          "holdingPrice": 91017.0,
-          "subsidiaryPrice": 18897.0,
-          "holdingValue": 4183.0,
-          "marketCap": 3830.8,
-          "ratio": 109.19
-        },
-        {
-          "date": "2024-12-11",
-          "holdingPrice": 95328.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 4012.2,
-          "ratio": 105.03
-        },
-        {
-          "date": "2024-12-12",
-          "holdingPrice": 100597.0,
-          "subsidiaryPrice": 18944.0,
-          "holdingValue": 4193.4,
-          "marketCap": 4234.0,
-          "ratio": 99.04
-        },
-        {
-          "date": "2024-12-13",
-          "holdingPrice": 92166.0,
-          "subsidiaryPrice": 19085.0,
-          "holdingValue": 4224.6,
-          "marketCap": 3879.1,
-          "ratio": 108.91
-        },
-        {
-          "date": "2024-12-16",
-          "holdingPrice": 92741.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 3903.3,
-          "ratio": 106.9
-        },
-        {
-          "date": "2024-12-17",
-          "holdingPrice": 91783.0,
-          "subsidiaryPrice": 19743.0,
-          "holdingValue": 4370.3,
-          "marketCap": 3863.0,
-          "ratio": 113.13
-        },
-        {
-          "date": "2024-12-18",
-          "holdingPrice": 92454.0,
-          "subsidiaryPrice": 19508.0,
-          "holdingValue": 4318.2,
-          "marketCap": 3891.2,
-          "ratio": 110.97
-        },
-        {
-          "date": "2024-12-19",
-          "holdingPrice": 92933.0,
-          "subsidiaryPrice": 19273.0,
-          "holdingValue": 4266.2,
-          "marketCap": 3911.4,
-          "ratio": 109.07
-        },
-        {
-          "date": "2024-12-20",
-          "holdingPrice": 93412.0,
-          "subsidiaryPrice": 18794.0,
-          "holdingValue": 4160.1,
-          "marketCap": 3931.6,
-          "ratio": 105.81
-        },
-        {
-          "date": "2024-12-23",
-          "holdingPrice": 92933.0,
-          "subsidiaryPrice": 19226.0,
-          "holdingValue": 4255.8,
-          "marketCap": 3911.4,
-          "ratio": 108.81
-        },
-        {
-          "date": "2024-12-24",
-          "holdingPrice": 93029.0,
-          "subsidiaryPrice": 19085.0,
-          "holdingValue": 4224.6,
-          "marketCap": 3915.4,
-          "ratio": 107.9
-        },
-        {
-          "date": "2024-12-26",
-          "holdingPrice": 92837.0,
-          "subsidiaryPrice": 19038.0,
-          "holdingValue": 4214.2,
-          "marketCap": 3907.4,
-          "ratio": 107.85
-        },
-        {
-          "date": "2024-12-27",
-          "holdingPrice": 91975.0,
-          "subsidiaryPrice": 18662.0,
-          "holdingValue": 4130.9,
-          "marketCap": 3871.1,
-          "ratio": 106.71
-        },
-        {
-          "date": "2024-12-30",
-          "holdingPrice": 91592.0,
-          "subsidiaryPrice": 18577.0,
-          "holdingValue": 4112.2,
-          "marketCap": 3854.9,
-          "ratio": 106.67
-        },
-        {
-          "date": "2025-01-02",
-          "holdingPrice": 90634.0,
-          "subsidiaryPrice": 18277.0,
-          "holdingValue": 4045.6,
-          "marketCap": 3814.6,
-          "ratio": 106.06
-        },
-        {
-          "date": "2025-01-03",
-          "holdingPrice": 89867.0,
-          "subsidiaryPrice": 18079.0,
-          "holdingValue": 4001.9,
-          "marketCap": 3782.4,
-          "ratio": 105.8
-        },
-        {
-          "date": "2025-01-06",
-          "holdingPrice": 91592.0,
-          "subsidiaryPrice": 18013.0,
-          "holdingValue": 3987.4,
-          "marketCap": 3854.9,
-          "ratio": 103.43
-        },
-        {
-          "date": "2025-01-07",
-          "holdingPrice": 91400.0,
-          "subsidiaryPrice": 18098.0,
-          "holdingValue": 4006.1,
-          "marketCap": 3846.9,
-          "ratio": 104.14
-        },
-        {
-          "date": "2025-01-08",
-          "holdingPrice": 91400.0,
-          "subsidiaryPrice": 17900.0,
-          "holdingValue": 3962.4,
-          "marketCap": 3846.9,
-          "ratio": 103.0
-        },
-        {
-          "date": "2025-01-09",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 17853.0,
-          "holdingValue": 3952.0,
-          "marketCap": 3810.6,
-          "ratio": 103.71
-        },
-        {
-          "date": "2025-01-10",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 17863.0,
-          "holdingValue": 3954.1,
-          "marketCap": 3810.6,
-          "ratio": 103.76
-        },
-        {
-          "date": "2025-01-13",
-          "holdingPrice": 91017.0,
-          "subsidiaryPrice": 17759.0,
-          "holdingValue": 3931.2,
-          "marketCap": 3830.8,
-          "ratio": 102.62
-        },
-        {
-          "date": "2025-01-14",
-          "holdingPrice": 90442.0,
-          "subsidiaryPrice": 17712.0,
-          "holdingValue": 3920.8,
-          "marketCap": 3806.6,
-          "ratio": 103.0
-        },
-        {
-          "date": "2025-01-15",
-          "holdingPrice": 90155.0,
-          "subsidiaryPrice": 17515.0,
-          "holdingValue": 3877.1,
-          "marketCap": 3794.5,
-          "ratio": 102.18
-        },
-        {
-          "date": "2025-01-16",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 17524.0,
-          "holdingValue": 3879.1,
-          "marketCap": 3798.5,
-          "ratio": 102.12
-        },
-        {
-          "date": "2025-01-17",
-          "holdingPrice": 91400.0,
-          "subsidiaryPrice": 17590.0,
-          "holdingValue": 3893.7,
-          "marketCap": 3846.9,
-          "ratio": 101.22
-        },
-        {
-          "date": "2025-01-20",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 18079.0,
-          "holdingValue": 4001.9,
-          "marketCap": 3810.6,
-          "ratio": 105.02
-        },
-        {
-          "date": "2025-01-21",
-          "holdingPrice": 90729.0,
-          "subsidiaryPrice": 18220.0,
-          "holdingValue": 4033.1,
-          "marketCap": 3818.7,
-          "ratio": 105.62
-        },
-        {
-          "date": "2025-01-22",
-          "holdingPrice": 90346.0,
-          "subsidiaryPrice": 18944.0,
-          "holdingValue": 4193.4,
-          "marketCap": 3802.5,
-          "ratio": 110.28
-        },
-        {
-          "date": "2025-01-23",
-          "holdingPrice": 89867.0,
-          "subsidiaryPrice": 18747.0,
-          "holdingValue": 4149.7,
-          "marketCap": 3782.4,
-          "ratio": 109.71
-        },
-        {
-          "date": "2025-01-24",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 18559.0,
-          "holdingValue": 4108.1,
-          "marketCap": 3798.5,
-          "ratio": 108.15
-        },
-        {
-          "date": "2025-01-31",
-          "holdingPrice": 91304.0,
-          "subsidiaryPrice": 18126.0,
-          "holdingValue": 4012.3,
-          "marketCap": 3842.9,
-          "ratio": 104.41
-        },
-        {
-          "date": "2025-02-03",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 17553.0,
-          "holdingValue": 3885.4,
-          "marketCap": 3810.6,
-          "ratio": 101.96
-        },
-        {
-          "date": "2025-02-04",
-          "holdingPrice": 91783.0,
-          "subsidiaryPrice": 18192.0,
-          "holdingValue": 4026.9,
-          "marketCap": 3863.0,
-          "ratio": 104.24
-        },
-        {
-          "date": "2025-02-05",
-          "holdingPrice": 90921.0,
-          "subsidiaryPrice": 18117.0,
-          "holdingValue": 4010.2,
-          "marketCap": 3826.7,
-          "ratio": 104.8
-        },
-        {
-          "date": "2025-02-06",
-          "holdingPrice": 91975.0,
-          "subsidiaryPrice": 18164.0,
-          "holdingValue": 4020.6,
-          "marketCap": 3871.1,
-          "ratio": 103.86
-        },
-        {
-          "date": "2025-02-07",
-          "holdingPrice": 90729.0,
-          "subsidiaryPrice": 17741.0,
-          "holdingValue": 3927.0,
-          "marketCap": 3818.7,
-          "ratio": 102.84
-        },
-        {
-          "date": "2025-02-10",
-          "holdingPrice": 91304.0,
-          "subsidiaryPrice": 17092.0,
-          "holdingValue": 3783.4,
-          "marketCap": 3842.9,
-          "ratio": 98.45
-        },
-        {
-          "date": "2025-02-11",
-          "holdingPrice": 92645.0,
-          "subsidiaryPrice": 16904.0,
-          "holdingValue": 3741.8,
-          "marketCap": 3899.3,
-          "ratio": 95.96
-        },
-        {
-          "date": "2025-02-12",
-          "holdingPrice": 90921.0,
-          "subsidiaryPrice": 17252.0,
-          "holdingValue": 3818.8,
-          "marketCap": 3826.7,
-          "ratio": 99.79
-        },
-        {
-          "date": "2025-02-13",
-          "holdingPrice": 89771.0,
-          "subsidiaryPrice": 17130.0,
-          "holdingValue": 3791.7,
-          "marketCap": 3778.3,
-          "ratio": 100.35
-        },
-        {
-          "date": "2025-02-14",
-          "holdingPrice": 89771.0,
-          "subsidiaryPrice": 17214.0,
-          "holdingValue": 3810.5,
-          "marketCap": 3778.3,
-          "ratio": 100.85
-        },
-        {
-          "date": "2025-02-17",
-          "holdingPrice": 90155.0,
-          "subsidiaryPrice": 17835.0,
-          "holdingValue": 3947.8,
-          "marketCap": 3794.5,
-          "ratio": 104.04
-        },
-        {
-          "date": "2025-02-18",
-          "holdingPrice": 90921.0,
-          "subsidiaryPrice": 18107.0,
-          "holdingValue": 4008.2,
-          "marketCap": 3826.7,
-          "ratio": 104.74
-        },
-        {
-          "date": "2025-02-19",
-          "holdingPrice": 90825.0,
-          "subsidiaryPrice": 18192.0,
-          "holdingValue": 4026.9,
-          "marketCap": 3822.7,
-          "ratio": 105.34
-        },
-        {
-          "date": "2025-02-20",
-          "holdingPrice": 89963.0,
-          "subsidiaryPrice": 18483.0,
-          "holdingValue": 4091.4,
-          "marketCap": 3786.4,
-          "ratio": 108.06
-        },
-        {
-          "date": "2025-02-21",
-          "holdingPrice": 89963.0,
-          "subsidiaryPrice": 18653.0,
-          "holdingValue": 4128.9,
-          "marketCap": 3786.4,
-          "ratio": 109.04
-        },
-        {
-          "date": "2025-02-24",
-          "holdingPrice": 89963.0,
-          "subsidiaryPrice": 18662.0,
-          "holdingValue": 4130.9,
-          "marketCap": 3786.4,
-          "ratio": 109.1
-        },
-        {
-          "date": "2025-02-25",
-          "holdingPrice": 89675.0,
-          "subsidiaryPrice": 18465.0,
-          "holdingValue": 4087.2,
-          "marketCap": 3774.3,
-          "ratio": 108.29
-        },
-        {
-          "date": "2025-02-26",
-          "holdingPrice": 90059.0,
-          "subsidiaryPrice": 18634.0,
-          "holdingValue": 4124.7,
-          "marketCap": 3790.4,
-          "ratio": 108.82
-        },
-        {
-          "date": "2025-02-27",
-          "holdingPrice": 92837.0,
-          "subsidiaryPrice": 18653.0,
-          "holdingValue": 4128.9,
-          "marketCap": 3907.4,
-          "ratio": 105.67
-        },
-        {
-          "date": "2025-02-28",
-          "holdingPrice": 92645.0,
-          "subsidiaryPrice": 18521.0,
-          "holdingValue": 4099.7,
-          "marketCap": 3899.3,
-          "ratio": 105.14
-        },
-        {
-          "date": "2025-03-04",
-          "holdingPrice": 91304.0,
-          "subsidiaryPrice": 18239.0,
-          "holdingValue": 4037.3,
-          "marketCap": 3842.9,
-          "ratio": 105.06
-        },
-        {
-          "date": "2025-03-05",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 19461.0,
-          "holdingValue": 4307.8,
-          "marketCap": 3810.6,
-          "ratio": 113.05
-        },
-        {
-          "date": "2025-03-06",
-          "holdingPrice": 90059.0,
-          "subsidiaryPrice": 19743.0,
-          "holdingValue": 4370.3,
-          "marketCap": 3790.4,
-          "ratio": 115.3
-        },
-        {
-          "date": "2025-03-07",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 19790.0,
-          "holdingValue": 4380.7,
-          "marketCap": 3798.5,
-          "ratio": 115.33
-        },
-        {
-          "date": "2025-03-10",
-          "holdingPrice": 92454.0,
-          "subsidiaryPrice": 19837.0,
-          "holdingValue": 4391.1,
-          "marketCap": 3891.2,
-          "ratio": 112.85
-        },
-        {
-          "date": "2025-03-11",
-          "holdingPrice": 91496.0,
-          "subsidiaryPrice": 19273.0,
-          "holdingValue": 4266.2,
-          "marketCap": 3850.9,
-          "ratio": 110.78
-        },
-        {
-          "date": "2025-03-12",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 19555.0,
-          "holdingValue": 4328.6,
-          "marketCap": 3810.6,
-          "ratio": 113.6
-        },
-        {
-          "date": "2025-03-13",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 19320.0,
-          "holdingValue": 4276.6,
-          "marketCap": 3810.6,
-          "ratio": 112.23
-        },
-        {
-          "date": "2025-03-14",
-          "holdingPrice": 90729.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 3818.7,
-          "ratio": 109.27
-        },
-        {
-          "date": "2025-03-17",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 19132.0,
-          "holdingValue": 4235.0,
-          "marketCap": 3798.5,
-          "ratio": 111.49
-        },
-        {
-          "date": "2025-03-18",
-          "holdingPrice": 90634.0,
-          "subsidiaryPrice": 18728.0,
-          "holdingValue": 4145.5,
-          "marketCap": 3814.6,
-          "ratio": 108.67
-        },
-        {
-          "date": "2025-03-19",
-          "holdingPrice": 91017.0,
-          "subsidiaryPrice": 18615.0,
-          "holdingValue": 4120.5,
-          "marketCap": 3830.8,
-          "ratio": 107.56
-        },
-        {
-          "date": "2025-03-20",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 18568.0,
-          "holdingValue": 4110.1,
-          "marketCap": 3798.5,
-          "ratio": 108.2
-        },
-        {
-          "date": "2025-03-21",
-          "holdingPrice": 90538.0,
-          "subsidiaryPrice": 18389.0,
-          "holdingValue": 4070.6,
-          "marketCap": 3810.6,
-          "ratio": 106.82
-        },
-        {
-          "date": "2025-03-24",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 18634.0,
-          "holdingValue": 4124.7,
-          "marketCap": 3798.5,
-          "ratio": 108.59
-        },
-        {
-          "date": "2025-03-25",
-          "holdingPrice": 90250.0,
-          "subsidiaryPrice": 18408.0,
-          "holdingValue": 4074.8,
-          "marketCap": 3798.5,
-          "ratio": 107.27
-        },
-        {
-          "date": "2025-03-26",
-          "holdingPrice": 91400.0,
-          "subsidiaryPrice": 18850.0,
-          "holdingValue": 4172.6,
-          "marketCap": 3846.9,
-          "ratio": 108.47
-        },
-        {
-          "date": "2025-03-27",
-          "holdingPrice": 93500.0,
-          "subsidiaryPrice": 18500.0,
-          "holdingValue": 4095.1,
-          "marketCap": 3935.3,
-          "ratio": 104.06
-        },
-        {
-          "date": "2025-03-28",
-          "holdingPrice": 93200.0,
-          "subsidiaryPrice": 18030.0,
-          "holdingValue": 3991.1,
-          "marketCap": 3922.6,
-          "ratio": 101.74
-        },
-        {
-          "date": "2025-03-31",
-          "holdingPrice": 94500.0,
-          "subsidiaryPrice": 17480.0,
-          "holdingValue": 3869.3,
-          "marketCap": 3977.4,
-          "ratio": 97.28
-        },
-        {
-          "date": "2025-04-01",
-          "holdingPrice": 94400.0,
-          "subsidiaryPrice": 17160.0,
-          "holdingValue": 3798.5,
-          "marketCap": 3973.1,
-          "ratio": 95.6
-        },
-        {
-          "date": "2025-04-02",
-          "holdingPrice": 93500.0,
-          "subsidiaryPrice": 17090.0,
-          "holdingValue": 3783.0,
-          "marketCap": 3935.3,
-          "ratio": 96.13
-        },
-        {
-          "date": "2025-04-03",
-          "holdingPrice": 94700.0,
-          "subsidiaryPrice": 17090.0,
-          "holdingValue": 3783.0,
-          "marketCap": 3985.8,
-          "ratio": 94.91
-        },
-        {
-          "date": "2025-04-04",
-          "holdingPrice": 91200.0,
-          "subsidiaryPrice": 16900.0,
-          "holdingValue": 3740.9,
-          "marketCap": 3838.5,
-          "ratio": 97.46
-        },
-        {
-          "date": "2025-04-07",
-          "holdingPrice": 89100.0,
-          "subsidiaryPrice": 15670.0,
-          "holdingValue": 3468.7,
-          "marketCap": 3750.1,
-          "ratio": 92.5
-        },
-        {
-          "date": "2025-04-08",
-          "holdingPrice": 93800.0,
-          "subsidiaryPrice": 15140.0,
-          "holdingValue": 3351.3,
-          "marketCap": 3947.9,
-          "ratio": 84.89
-        },
-        {
-          "date": "2025-04-09",
-          "holdingPrice": 93700.0,
-          "subsidiaryPrice": 15200.0,
-          "holdingValue": 3364.6,
-          "marketCap": 3943.7,
-          "ratio": 85.32
-        },
-        {
-          "date": "2025-04-10",
-          "holdingPrice": 94700.0,
-          "subsidiaryPrice": 15640.0,
-          "holdingValue": 3462.0,
-          "marketCap": 3985.8,
-          "ratio": 86.86
-        },
-        {
-          "date": "2025-04-11",
-          "holdingPrice": 94400.0,
-          "subsidiaryPrice": 15710.0,
-          "holdingValue": 3477.5,
-          "marketCap": 3973.1,
-          "ratio": 87.53
-        },
-        {
-          "date": "2025-04-14",
-          "holdingPrice": 93500.0,
-          "subsidiaryPrice": 15670.0,
-          "holdingValue": 3468.7,
-          "marketCap": 3935.3,
-          "ratio": 88.14
-        },
-        {
-          "date": "2025-04-15",
-          "holdingPrice": 93500.0,
-          "subsidiaryPrice": 16080.0,
-          "holdingValue": 3559.4,
-          "marketCap": 3935.3,
-          "ratio": 90.45
-        },
-        {
-          "date": "2025-04-16",
-          "holdingPrice": 93800.0,
-          "subsidiaryPrice": 15790.0,
-          "holdingValue": 3495.2,
-          "marketCap": 3947.9,
-          "ratio": 88.53
-        },
-        {
-          "date": "2025-04-17",
-          "holdingPrice": 90800.0,
-          "subsidiaryPrice": 16230.0,
-          "holdingValue": 3592.6,
-          "marketCap": 3821.6,
-          "ratio": 94.01
-        },
-        {
-          "date": "2025-04-18",
-          "holdingPrice": 90400.0,
-          "subsidiaryPrice": 16410.0,
-          "holdingValue": 3632.5,
-          "marketCap": 3804.8,
-          "ratio": 95.47
-        },
-        {
-          "date": "2025-04-21",
-          "holdingPrice": 91300.0,
-          "subsidiaryPrice": 17070.0,
-          "holdingValue": 3778.6,
-          "marketCap": 3842.7,
-          "ratio": 98.33
-        },
-        {
-          "date": "2025-04-22",
-          "holdingPrice": 91200.0,
-          "subsidiaryPrice": 17170.0,
-          "holdingValue": 3800.7,
-          "marketCap": 3838.5,
-          "ratio": 99.02
-        },
-        {
-          "date": "2025-04-23",
-          "holdingPrice": 90200.0,
-          "subsidiaryPrice": 17510.0,
-          "holdingValue": 3875.9,
-          "marketCap": 3796.4,
-          "ratio": 102.1
-        },
-        {
-          "date": "2025-04-24",
-          "holdingPrice": 90200.0,
-          "subsidiaryPrice": 17460.0,
-          "holdingValue": 3864.9,
-          "marketCap": 3796.4,
-          "ratio": 101.8
-        },
-        {
-          "date": "2025-04-25",
-          "holdingPrice": 90500.0,
-          "subsidiaryPrice": 17640.0,
-          "holdingValue": 3904.7,
-          "marketCap": 3809.0,
-          "ratio": 102.51
-        },
-        {
-          "date": "2025-04-28",
-          "holdingPrice": 91200.0,
-          "subsidiaryPrice": 17550.0,
-          "holdingValue": 3884.8,
-          "marketCap": 3838.5,
-          "ratio": 101.21
-        },
-        {
-          "date": "2025-04-29",
-          "holdingPrice": 92100.0,
-          "subsidiaryPrice": 17710.0,
-          "holdingValue": 3920.2,
-          "marketCap": 3876.3,
-          "ratio": 101.13
-        },
-        {
-          "date": "2025-04-30",
-          "holdingPrice": 92100.0,
-          "subsidiaryPrice": 17860.0,
-          "holdingValue": 3953.4,
-          "marketCap": 3876.3,
-          "ratio": 101.99
-        },
-        {
-          "date": "2025-05-02",
-          "holdingPrice": 91400.0,
-          "subsidiaryPrice": 17650.0,
-          "holdingValue": 3906.9,
-          "marketCap": 3846.9,
-          "ratio": 101.56
-        },
-        {
-          "date": "2025-05-07",
-          "holdingPrice": 93900.0,
-          "subsidiaryPrice": 17690.0,
-          "holdingValue": 3915.8,
-          "marketCap": 3952.1,
-          "ratio": 99.08
-        },
-        {
-          "date": "2025-05-08",
-          "holdingPrice": 94200.0,
-          "subsidiaryPrice": 18200.0,
-          "holdingValue": 4028.7,
-          "marketCap": 3964.7,
-          "ratio": 101.61
-        },
-        {
-          "date": "2025-05-09",
-          "holdingPrice": 92400.0,
-          "subsidiaryPrice": 18000.0,
-          "holdingValue": 3984.4,
-          "marketCap": 3889.0,
-          "ratio": 102.45
-        },
-        {
-          "date": "2025-05-12",
-          "holdingPrice": 95800.0,
-          "subsidiaryPrice": 18370.0,
-          "holdingValue": 4066.3,
-          "marketCap": 4032.1,
-          "ratio": 100.85
-        },
-        {
-          "date": "2025-05-13",
-          "holdingPrice": 94200.0,
-          "subsidiaryPrice": 18070.0,
-          "holdingValue": 3999.9,
-          "marketCap": 3964.7,
-          "ratio": 100.89
-        },
-        {
-          "date": "2025-05-14",
-          "holdingPrice": 97700.0,
-          "subsidiaryPrice": 18410.0,
-          "holdingValue": 4075.2,
-          "marketCap": 4112.0,
-          "ratio": 99.1
-        },
-        {
-          "date": "2025-05-15",
-          "holdingPrice": 97400.0,
-          "subsidiaryPrice": 18470.0,
-          "holdingValue": 4088.5,
-          "marketCap": 4099.4,
-          "ratio": 99.73
-        },
-        {
-          "date": "2025-05-16",
-          "holdingPrice": 95100.0,
-          "subsidiaryPrice": 18630.0,
-          "holdingValue": 4123.9,
-          "marketCap": 4002.6,
-          "ratio": 103.03
-        },
-        {
-          "date": "2025-05-19",
-          "holdingPrice": 95000.0,
-          "subsidiaryPrice": 18470.0,
-          "holdingValue": 4088.5,
-          "marketCap": 3998.4,
-          "ratio": 102.25
-        },
-        {
-          "date": "2025-05-20",
-          "holdingPrice": 96800.0,
-          "subsidiaryPrice": 19340.0,
-          "holdingValue": 4281.0,
-          "marketCap": 4074.2,
-          "ratio": 105.08
-        },
-        {
-          "date": "2025-05-21",
-          "holdingPrice": 97100.0,
-          "subsidiaryPrice": 19110.0,
-          "holdingValue": 4230.1,
-          "marketCap": 4086.8,
-          "ratio": 103.51
-        },
-        {
-          "date": "2025-05-22",
-          "holdingPrice": 95300.0,
-          "subsidiaryPrice": 18890.0,
-          "holdingValue": 4181.4,
-          "marketCap": 4011.0,
-          "ratio": 104.25
-        },
-        {
-          "date": "2025-05-23",
-          "holdingPrice": 98200.0,
-          "subsidiaryPrice": 19330.0,
-          "holdingValue": 4278.8,
-          "marketCap": 4133.1,
-          "ratio": 103.53
-        },
-        {
-          "date": "2025-05-26",
-          "holdingPrice": 98700.0,
-          "subsidiaryPrice": 19520.0,
-          "holdingValue": 4320.9,
-          "marketCap": 4154.1,
-          "ratio": 104.01
-        },
-        {
-          "date": "2025-05-27",
-          "holdingPrice": 94700.0,
-          "subsidiaryPrice": 20350.0,
-          "holdingValue": 4504.6,
-          "marketCap": 3985.8,
-          "ratio": 113.02
-        },
-        {
-          "date": "2025-05-28",
-          "holdingPrice": 94600.0,
-          "subsidiaryPrice": 21200.0,
-          "holdingValue": 4692.8,
-          "marketCap": 3981.6,
-          "ratio": 117.86
-        },
-        {
-          "date": "2025-05-29",
-          "holdingPrice": 99600.0,
-          "subsidiaryPrice": 22250.0,
-          "holdingValue": 4925.2,
-          "marketCap": 4192.0,
-          "ratio": 117.49
-        },
-        {
-          "date": "2025-05-30",
-          "holdingPrice": 98900.0,
-          "subsidiaryPrice": 23400.0,
-          "holdingValue": 5179.7,
-          "marketCap": 4162.5,
-          "ratio": 124.44
-        },
-        {
-          "date": "2025-06-02",
-          "holdingPrice": 98600.0,
-          "subsidiaryPrice": 22700.0,
-          "holdingValue": 5024.8,
-          "marketCap": 4149.9,
-          "ratio": 121.08
-        },
-        {
-          "date": "2025-06-04",
-          "holdingPrice": 102300.0,
-          "subsidiaryPrice": 23150.0,
-          "holdingValue": 5124.4,
-          "marketCap": 4305.6,
-          "ratio": 119.02
-        },
-        {
-          "date": "2025-06-05",
-          "holdingPrice": 104700.0,
-          "subsidiaryPrice": 23200.0,
-          "holdingValue": 5135.5,
-          "marketCap": 4406.7,
-          "ratio": 116.54
-        },
-        {
-          "date": "2025-06-09",
-          "holdingPrice": 108000.0,
-          "subsidiaryPrice": 22900.0,
-          "holdingValue": 5069.1,
-          "marketCap": 4545.6,
-          "ratio": 111.52
-        },
-        {
-          "date": "2025-06-10",
-          "holdingPrice": 109100.0,
-          "subsidiaryPrice": 23400.0,
-          "holdingValue": 5179.7,
-          "marketCap": 4591.8,
-          "ratio": 112.8
-        },
-        {
-          "date": "2025-06-11",
-          "holdingPrice": 108800.0,
-          "subsidiaryPrice": 23300.0,
-          "holdingValue": 5157.6,
-          "marketCap": 4579.2,
-          "ratio": 112.63
-        },
-        {
-          "date": "2025-06-12",
-          "holdingPrice": 106700.0,
-          "subsidiaryPrice": 23300.0,
-          "holdingValue": 5157.6,
-          "marketCap": 4490.8,
-          "ratio": 114.85
-        },
-        {
-          "date": "2025-06-13",
-          "holdingPrice": 100800.0,
-          "subsidiaryPrice": 22850.0,
-          "holdingValue": 5058.0,
-          "marketCap": 4242.5,
-          "ratio": 119.22
-        },
-        {
-          "date": "2025-06-16",
-          "holdingPrice": 103700.0,
-          "subsidiaryPrice": 23250.0,
-          "holdingValue": 5146.5,
-          "marketCap": 4364.6,
-          "ratio": 117.92
-        },
-        {
-          "date": "2025-06-17",
-          "holdingPrice": 101700.0,
-          "subsidiaryPrice": 23350.0,
-          "holdingValue": 5168.7,
-          "marketCap": 4280.4,
-          "ratio": 120.75
-        },
-        {
-          "date": "2025-06-18",
-          "holdingPrice": 103600.0,
-          "subsidiaryPrice": 24700.0,
-          "holdingValue": 5467.5,
-          "marketCap": 4360.4,
-          "ratio": 125.39
-        },
-        {
-          "date": "2025-06-19",
-          "holdingPrice": 103800.0,
-          "subsidiaryPrice": 26550.0,
-          "holdingValue": 5877.0,
-          "marketCap": 4368.8,
-          "ratio": 134.52
-        },
-        {
-          "date": "2025-06-20",
-          "holdingPrice": 106000.0,
-          "subsidiaryPrice": 25700.0,
-          "holdingValue": 5688.9,
-          "marketCap": 4461.4,
-          "ratio": 127.51
-        },
-        {
-          "date": "2025-06-23",
-          "holdingPrice": 107000.0,
-          "subsidiaryPrice": 25000.0,
-          "holdingValue": 5533.9,
-          "marketCap": 4503.5,
-          "ratio": 122.88
-        },
-        {
-          "date": "2025-06-24",
-          "holdingPrice": 107900.0,
-          "subsidiaryPrice": 26900.0,
-          "holdingValue": 5954.5,
-          "marketCap": 4541.3,
-          "ratio": 131.12
-        },
-        {
-          "date": "2025-06-25",
-          "holdingPrice": 106900.0,
-          "subsidiaryPrice": 30100.0,
-          "holdingValue": 6662.8,
-          "marketCap": 4499.3,
-          "ratio": 148.09
-        },
-        {
-          "date": "2025-06-26",
-          "holdingPrice": 108600.0,
-          "subsidiaryPrice": 30850.0,
-          "holdingValue": 6828.8,
-          "marketCap": 4570.8,
-          "ratio": 149.4
-        },
-        {
-          "date": "2025-06-27",
-          "holdingPrice": 107000.0,
-          "subsidiaryPrice": 31650.0,
-          "holdingValue": 7005.9,
-          "marketCap": 4503.5,
-          "ratio": 155.57
-        },
-        {
-          "date": "2025-06-30",
-          "holdingPrice": 124300.0,
-          "subsidiaryPrice": 32900.0,
-          "holdingValue": 7282.6,
-          "marketCap": 5231.6,
-          "ratio": 139.2
-        },
-        {
-          "date": "2025-07-01",
-          "holdingPrice": 128900.0,
-          "subsidiaryPrice": 30750.0,
-          "holdingValue": 6806.7,
-          "marketCap": 5425.2,
-          "ratio": 125.46
-        },
-        {
-          "date": "2025-07-02",
-          "holdingPrice": 137400.0,
-          "subsidiaryPrice": 31100.0,
-          "holdingValue": 6884.2,
-          "marketCap": 5783.0,
-          "ratio": 119.04
-        },
-        {
-          "date": "2025-07-03",
-          "holdingPrice": 131000.0,
-          "subsidiaryPrice": 31750.0,
-          "holdingValue": 7028.1,
-          "marketCap": 5513.6,
-          "ratio": 127.47
-        },
-        {
-          "date": "2025-07-04",
-          "holdingPrice": 133400.0,
-          "subsidiaryPrice": 30900.0,
-          "holdingValue": 6839.9,
-          "marketCap": 5614.6,
-          "ratio": 121.82
-        },
-        {
-          "date": "2025-07-07",
-          "holdingPrice": 134100.0,
-          "subsidiaryPrice": 33450.0,
-          "holdingValue": 7404.4,
-          "marketCap": 5644.1,
-          "ratio": 131.19
-        },
-        {
-          "date": "2025-07-08",
-          "holdingPrice": 134800.0,
-          "subsidiaryPrice": 32200.0,
-          "holdingValue": 7127.7,
-          "marketCap": 5673.5,
-          "ratio": 125.63
-        },
-        {
-          "date": "2025-07-09",
-          "holdingPrice": 141200.0,
-          "subsidiaryPrice": 32300.0,
-          "holdingValue": 7149.8,
-          "marketCap": 5942.9,
-          "ratio": 120.31
-        },
-        {
-          "date": "2025-07-10",
-          "holdingPrice": 141600.0,
-          "subsidiaryPrice": 31350.0,
-          "holdingValue": 6939.5,
-          "marketCap": 5959.7,
-          "ratio": 116.44
-        },
-        {
-          "date": "2025-07-11",
-          "holdingPrice": 140500.0,
-          "subsidiaryPrice": 31000.0,
-          "holdingValue": 6862.0,
-          "marketCap": 5913.4,
-          "ratio": 116.04
-        },
-        {
-          "date": "2025-07-14",
-          "holdingPrice": 141900.0,
-          "subsidiaryPrice": 32250.0,
-          "holdingValue": 7138.7,
-          "marketCap": 5972.4,
-          "ratio": 119.53
-        },
-        {
-          "date": "2025-07-15",
-          "holdingPrice": 142300.0,
-          "subsidiaryPrice": 33350.0,
-          "holdingValue": 7382.2,
-          "marketCap": 5989.2,
-          "ratio": 123.26
-        },
-        {
-          "date": "2025-07-16",
-          "holdingPrice": 141000.0,
-          "subsidiaryPrice": 33050.0,
-          "holdingValue": 7315.8,
-          "marketCap": 5934.5,
-          "ratio": 123.28
-        },
-        {
-          "date": "2025-07-17",
-          "holdingPrice": 135800.0,
-          "subsidiaryPrice": 32900.0,
-          "holdingValue": 7282.6,
-          "marketCap": 5715.6,
-          "ratio": 127.42
-        },
-        {
-          "date": "2025-07-18",
-          "holdingPrice": 133000.0,
-          "subsidiaryPrice": 33650.0,
-          "holdingValue": 7448.6,
-          "marketCap": 5597.8,
-          "ratio": 133.06
-        },
-        {
-          "date": "2025-07-21",
-          "holdingPrice": 135000.0,
-          "subsidiaryPrice": 34200.0,
-          "holdingValue": 7570.4,
-          "marketCap": 5681.9,
-          "ratio": 133.24
-        },
-        {
-          "date": "2025-07-22",
-          "holdingPrice": 131800.0,
-          "subsidiaryPrice": 34350.0,
-          "holdingValue": 7603.6,
-          "marketCap": 5547.3,
-          "ratio": 137.07
-        },
-        {
-          "date": "2025-07-23",
-          "holdingPrice": 132000.0,
-          "subsidiaryPrice": 34250.0,
-          "holdingValue": 7581.5,
-          "marketCap": 5555.7,
-          "ratio": 136.46
-        },
-        {
-          "date": "2025-07-24",
-          "holdingPrice": 129700.0,
-          "subsidiaryPrice": 33950.0,
-          "holdingValue": 7515.0,
-          "marketCap": 5458.9,
-          "ratio": 137.67
-        },
-        {
-          "date": "2025-07-25",
-          "holdingPrice": 131900.0,
-          "subsidiaryPrice": 33400.0,
-          "holdingValue": 7393.3,
-          "marketCap": 5551.5,
-          "ratio": 133.18
-        },
-        {
-          "date": "2025-07-28",
-          "holdingPrice": 127100.0,
-          "subsidiaryPrice": 32700.0,
-          "holdingValue": 7238.4,
-          "marketCap": 5349.4,
-          "ratio": 135.31
-        },
-        {
-          "date": "2025-07-29",
-          "holdingPrice": 131300.0,
-          "subsidiaryPrice": 32400.0,
-          "holdingValue": 7171.9,
-          "marketCap": 5526.2,
-          "ratio": 129.78
-        },
-        {
-          "date": "2025-07-30",
-          "holdingPrice": 131300.0,
-          "subsidiaryPrice": 31300.0,
-          "holdingValue": 6928.5,
-          "marketCap": 5526.2,
-          "ratio": 125.37
-        },
-        {
-          "date": "2025-07-31",
-          "holdingPrice": 130100.0,
-          "subsidiaryPrice": 31350.0,
-          "holdingValue": 6939.5,
-          "marketCap": 5475.7,
-          "ratio": 126.73
-        },
-        {
-          "date": "2025-08-01",
-          "holdingPrice": 126900.0,
-          "subsidiaryPrice": 30750.0,
-          "holdingValue": 6806.7,
-          "marketCap": 5341.0,
-          "ratio": 127.44
-        },
-        {
-          "date": "2025-08-04",
-          "holdingPrice": 132700.0,
-          "subsidiaryPrice": 30200.0,
-          "holdingValue": 6685.0,
-          "marketCap": 5585.1,
-          "ratio": 119.69
-        },
-        {
-          "date": "2025-08-05",
-          "holdingPrice": 130500.0,
-          "subsidiaryPrice": 29100.0,
-          "holdingValue": 6441.5,
-          "marketCap": 5492.5,
-          "ratio": 117.28
-        },
-        {
-          "date": "2025-08-06",
-          "holdingPrice": 133600.0,
-          "subsidiaryPrice": 30500.0,
-          "holdingValue": 6751.4,
-          "marketCap": 5623.0,
-          "ratio": 120.07
-        },
-        {
-          "date": "2025-08-07",
-          "holdingPrice": 131900.0,
-          "subsidiaryPrice": 29650.0,
-          "holdingValue": 6563.2,
-          "marketCap": 5551.5,
-          "ratio": 118.22
-        },
-        {
-          "date": "2025-08-08",
-          "holdingPrice": 132100.0,
-          "subsidiaryPrice": 29250.0,
-          "holdingValue": 6474.7,
-          "marketCap": 5559.9,
-          "ratio": 116.45
-        },
-        {
-          "date": "2025-08-11",
-          "holdingPrice": 136600.0,
-          "subsidiaryPrice": 28900.0,
-          "holdingValue": 6397.2,
-          "marketCap": 5749.3,
-          "ratio": 111.27
-        },
-        {
-          "date": "2025-08-12",
-          "holdingPrice": 138300.0,
-          "subsidiaryPrice": 28850.0,
-          "holdingValue": 6386.1,
-          "marketCap": 5820.8,
-          "ratio": 109.71
-        },
-        {
-          "date": "2025-08-13",
-          "holdingPrice": 135400.0,
-          "subsidiaryPrice": 28400.0,
-          "holdingValue": 6286.5,
-          "marketCap": 5698.8,
-          "ratio": 110.31
-        },
-        {
-          "date": "2025-08-14",
-          "holdingPrice": 133300.0,
-          "subsidiaryPrice": 27950.0,
-          "holdingValue": 6186.9,
-          "marketCap": 5610.4,
-          "ratio": 110.28
-        },
-        {
-          "date": "2025-08-18",
-          "holdingPrice": 131200.0,
-          "subsidiaryPrice": 28650.0,
-          "holdingValue": 6341.9,
-          "marketCap": 5522.0,
-          "ratio": 114.85
-        },
-        {
-          "date": "2025-08-19",
-          "holdingPrice": 132200.0,
-          "subsidiaryPrice": 28250.0,
-          "holdingValue": 6253.3,
-          "marketCap": 5564.1,
-          "ratio": 112.39
-        },
-        {
-          "date": "2025-08-20",
-          "holdingPrice": 125000.0,
-          "subsidiaryPrice": 26950.0,
-          "holdingValue": 5965.6,
-          "marketCap": 5261.1,
-          "ratio": 113.39
-        },
-        {
-          "date": "2025-08-21",
-          "holdingPrice": 125500.0,
-          "subsidiaryPrice": 26950.0,
-          "holdingValue": 5965.6,
-          "marketCap": 5282.1,
-          "ratio": 112.94
-        },
-        {
-          "date": "2025-08-22",
-          "holdingPrice": 124200.0,
-          "subsidiaryPrice": 27300.0,
-          "holdingValue": 6043.0,
-          "marketCap": 5227.4,
-          "ratio": 115.6
-        },
-        {
-          "date": "2025-08-25",
-          "holdingPrice": 125200.0,
-          "subsidiaryPrice": 27750.0,
-          "holdingValue": 6142.6,
-          "marketCap": 5269.5,
-          "ratio": 116.57
-        },
-        {
-          "date": "2025-08-26",
-          "holdingPrice": 126000.0,
-          "subsidiaryPrice": 27500.0,
-          "holdingValue": 6087.3,
-          "marketCap": 5303.1,
-          "ratio": 114.79
-        },
-        {
-          "date": "2025-08-27",
-          "holdingPrice": 130300.0,
-          "subsidiaryPrice": 27350.0,
-          "holdingValue": 6054.1,
-          "marketCap": 5484.1,
-          "ratio": 110.39
-        },
-        {
-          "date": "2025-08-28",
-          "holdingPrice": 131500.0,
-          "subsidiaryPrice": 27600.0,
-          "holdingValue": 6109.4,
-          "marketCap": 5534.6,
-          "ratio": 110.39
-        },
-        {
-          "date": "2025-08-29",
-          "holdingPrice": 128600.0,
-          "subsidiaryPrice": 27900.0,
-          "holdingValue": 6175.8,
-          "marketCap": 5412.6,
-          "ratio": 114.1
-        },
-        {
-          "date": "2025-09-01",
-          "holdingPrice": 126600.0,
-          "subsidiaryPrice": 27200.0,
-          "holdingValue": 6020.9,
-          "marketCap": 5328.4,
-          "ratio": 113.0
-        },
-        {
-          "date": "2025-09-02",
-          "holdingPrice": 126900.0,
-          "subsidiaryPrice": 26400.0,
-          "holdingValue": 5843.8,
-          "marketCap": 5341.0,
-          "ratio": 109.41
-        },
-        {
-          "date": "2025-09-03",
-          "holdingPrice": 125600.0,
-          "subsidiaryPrice": 26500.0,
-          "holdingValue": 5865.9,
-          "marketCap": 5286.3,
-          "ratio": 110.96
-        },
-        {
-          "date": "2025-09-04",
-          "holdingPrice": 127400.0,
-          "subsidiaryPrice": 27050.0,
-          "holdingValue": 5987.7,
-          "marketCap": 5362.1,
-          "ratio": 111.67
-        },
-        {
-          "date": "2025-09-05",
-          "holdingPrice": 125800.0,
-          "subsidiaryPrice": 27350.0,
-          "holdingValue": 6054.1,
-          "marketCap": 5294.7,
-          "ratio": 114.34
-        },
-        {
-          "date": "2025-09-08",
-          "holdingPrice": 124500.0,
-          "subsidiaryPrice": 27900.0,
-          "holdingValue": 6175.8,
-          "marketCap": 5240.0,
-          "ratio": 117.86
-        },
-        {
-          "date": "2025-09-09",
-          "holdingPrice": 126700.0,
-          "subsidiaryPrice": 27650.0,
-          "holdingValue": 6120.5,
-          "marketCap": 5332.6,
-          "ratio": 114.78
-        },
-        {
-          "date": "2025-09-10",
-          "holdingPrice": 126500.0,
-          "subsidiaryPrice": 27400.0,
-          "holdingValue": 6065.2,
-          "marketCap": 5324.2,
-          "ratio": 113.92
-        },
-        {
-          "date": "2025-09-11",
-          "holdingPrice": 124500.0,
-          "subsidiaryPrice": 26900.0,
-          "holdingValue": 5954.5,
-          "marketCap": 5240.0,
-          "ratio": 113.63
-        },
-        {
-          "date": "2025-09-12",
-          "holdingPrice": 132500.0,
-          "subsidiaryPrice": 26700.0,
-          "holdingValue": 5910.2,
-          "marketCap": 5576.7,
-          "ratio": 105.98
-        },
-        {
-          "date": "2025-09-15",
-          "holdingPrice": 132000.0,
-          "subsidiaryPrice": 26950.0,
-          "holdingValue": 5965.6,
-          "marketCap": 5555.7,
-          "ratio": 107.38
-        },
-        {
-          "date": "2025-09-16",
-          "holdingPrice": 129900.0,
-          "subsidiaryPrice": 26400.0,
-          "holdingValue": 5843.8,
-          "marketCap": 5467.3,
-          "ratio": 106.89
-        },
-        {
-          "date": "2025-09-17",
-          "holdingPrice": 127100.0,
-          "subsidiaryPrice": 26450.0,
-          "holdingValue": 5854.9,
-          "marketCap": 5349.4,
-          "ratio": 109.45
-        },
-        {
-          "date": "2025-09-18",
-          "holdingPrice": 125100.0,
-          "subsidiaryPrice": 26050.0,
-          "holdingValue": 5766.3,
-          "marketCap": 5265.3,
-          "ratio": 109.52
-        },
-        {
-          "date": "2025-09-22",
-          "holdingPrice": 125000.0,
-          "subsidiaryPrice": 25900.0,
-          "holdingValue": 5733.1,
-          "marketCap": 5261.1,
-          "ratio": 108.97
-        },
-        {
-          "date": "2025-09-23",
-          "holdingPrice": 123000.0,
-          "subsidiaryPrice": 25600.0,
-          "holdingValue": 5666.7,
-          "marketCap": 5176.9,
-          "ratio": 109.46
-        },
-        {
-          "date": "2025-09-24",
-          "holdingPrice": 123000.0,
-          "subsidiaryPrice": 25700.0,
-          "holdingValue": 5688.9,
-          "marketCap": 5176.9,
-          "ratio": 109.89
-        },
-        {
-          "date": "2025-09-25",
-          "holdingPrice": 123000.0,
-          "subsidiaryPrice": 25300.0,
-          "holdingValue": 5600.3,
-          "marketCap": 5176.9,
-          "ratio": 108.18
-        },
-        {
-          "date": "2025-09-26",
-          "holdingPrice": 121000.0,
-          "subsidiaryPrice": 24950.0,
-          "holdingValue": 5522.8,
-          "marketCap": 5092.7,
-          "ratio": 108.45
-        },
-        {
-          "date": "2025-09-29",
-          "holdingPrice": 122900.0,
-          "subsidiaryPrice": 24850.0,
-          "holdingValue": 5500.7,
-          "marketCap": 5172.7,
-          "ratio": 106.34
-        },
-        {
-          "date": "2025-09-30",
-          "holdingPrice": 121900.0,
-          "subsidiaryPrice": 25200.0,
-          "holdingValue": 5578.2,
-          "marketCap": 5130.6,
-          "ratio": 108.72
-        },
-        {
-          "date": "2025-10-01",
-          "holdingPrice": 121700.0,
-          "subsidiaryPrice": 25100.0,
-          "holdingValue": 5556.0,
-          "marketCap": 5122.2,
-          "ratio": 108.47
-        },
-        {
-          "date": "2025-10-02",
-          "holdingPrice": 122000.0,
-          "subsidiaryPrice": 25600.0,
-          "holdingValue": 5666.7,
-          "marketCap": 5134.8,
-          "ratio": 110.36
-        },
-        {
-          "date": "2025-10-10",
-          "holdingPrice": 118700.0,
-          "subsidiaryPrice": 23500.0,
-          "holdingValue": 5201.9,
-          "marketCap": 4995.9,
-          "ratio": 104.12
-        },
-        {
-          "date": "2025-10-13",
-          "holdingPrice": 116700.0,
-          "subsidiaryPrice": 25000.0,
-          "holdingValue": 5533.9,
-          "marketCap": 4911.7,
-          "ratio": 112.67
-        },
-        {
-          "date": "2025-10-14",
-          "holdingPrice": 117500.0,
-          "subsidiaryPrice": 25200.0,
-          "holdingValue": 5578.2,
-          "marketCap": 4945.4,
-          "ratio": 112.8
-        },
-        {
-          "date": "2025-10-15",
-          "holdingPrice": 119000.0,
-          "subsidiaryPrice": 25850.0,
-          "holdingValue": 5722.1,
-          "marketCap": 5008.5,
-          "ratio": 114.25
-        },
-        {
-          "date": "2025-10-16",
-          "holdingPrice": 117700.0,
-          "subsidiaryPrice": 25500.0,
-          "holdingValue": 5644.6,
-          "marketCap": 4953.8,
-          "ratio": 113.94
-        },
-        {
-          "date": "2025-10-17",
-          "holdingPrice": 119200.0,
-          "subsidiaryPrice": 25200.0,
-          "holdingValue": 5578.2,
-          "marketCap": 5016.9,
-          "ratio": 111.19
-        },
-        {
-          "date": "2025-10-20",
-          "holdingPrice": 120500.0,
-          "subsidiaryPrice": 25300.0,
-          "holdingValue": 5600.3,
-          "marketCap": 5071.7,
-          "ratio": 110.42
-        },
-        {
-          "date": "2025-10-21",
-          "holdingPrice": 121400.0,
-          "subsidiaryPrice": 25450.0,
-          "holdingValue": 5633.5,
-          "marketCap": 5109.5,
-          "ratio": 110.25
-        },
-        {
-          "date": "2025-10-22",
-          "holdingPrice": 120500.0,
-          "subsidiaryPrice": 26950.0,
-          "holdingValue": 5965.6,
-          "marketCap": 5071.7,
-          "ratio": 117.63
-        },
-        {
-          "date": "2025-10-23",
-          "holdingPrice": 120600.0,
-          "subsidiaryPrice": 26550.0,
-          "holdingValue": 5877.0,
-          "marketCap": 5075.9,
-          "ratio": 115.78
-        },
-        {
-          "date": "2025-10-24",
-          "holdingPrice": 118000.0,
-          "subsidiaryPrice": 28300.0,
-          "holdingValue": 6264.4,
-          "marketCap": 4966.4,
-          "ratio": 126.13
-        },
-        {
-          "date": "2025-10-27",
-          "holdingPrice": 119600.0,
-          "subsidiaryPrice": 28150.0,
-          "holdingValue": 6231.2,
-          "marketCap": 5033.8,
-          "ratio": 123.79
-        },
-        {
-          "date": "2025-10-28",
-          "holdingPrice": 121000.0,
-          "subsidiaryPrice": 29550.0,
-          "holdingValue": 6541.1,
-          "marketCap": 5092.7,
-          "ratio": 128.44
-        },
-        {
-          "date": "2025-10-29",
-          "holdingPrice": 119900.0,
-          "subsidiaryPrice": 28600.0,
-          "holdingValue": 6330.8,
-          "marketCap": 5046.4,
-          "ratio": 125.45
-        },
-        {
-          "date": "2025-10-30",
-          "holdingPrice": 120900.0,
-          "subsidiaryPrice": 27500.0,
-          "holdingValue": 6087.3,
-          "marketCap": 5088.5,
-          "ratio": 119.63
-        },
-        {
-          "date": "2025-10-31",
-          "holdingPrice": 120000.0,
-          "subsidiaryPrice": 27500.0,
-          "holdingValue": 6087.3,
-          "marketCap": 5050.6,
-          "ratio": 120.53
-        },
-        {
-          "date": "2025-11-03",
-          "holdingPrice": 117100.0,
-          "subsidiaryPrice": 26850.0,
-          "holdingValue": 5943.4,
-          "marketCap": 4928.6,
-          "ratio": 120.59
-        },
-        {
-          "date": "2025-11-04",
-          "holdingPrice": 115000.0,
-          "subsidiaryPrice": 27600.0,
-          "holdingValue": 6109.4,
-          "marketCap": 4840.2,
-          "ratio": 126.22
-        },
-        {
-          "date": "2025-11-05",
-          "holdingPrice": 113000.0,
-          "subsidiaryPrice": 27300.0,
-          "holdingValue": 6043.0,
-          "marketCap": 4756.0,
-          "ratio": 127.06
-        },
-        {
-          "date": "2025-11-06",
-          "holdingPrice": 116000.0,
-          "subsidiaryPrice": 26300.0,
-          "holdingValue": 5821.7,
-          "marketCap": 4882.3,
-          "ratio": 119.24
-        },
-        {
-          "date": "2025-11-07",
-          "holdingPrice": 117700.0,
-          "subsidiaryPrice": 26200.0,
-          "holdingValue": 5799.5,
-          "marketCap": 4953.8,
-          "ratio": 117.07
-        },
-        {
-          "date": "2025-11-10",
-          "holdingPrice": 119500.0,
-          "subsidiaryPrice": 27650.0,
-          "holdingValue": 6120.5,
-          "marketCap": 5029.6,
-          "ratio": 121.69
-        },
-        {
-          "date": "2025-11-11",
-          "holdingPrice": 116000.0,
-          "subsidiaryPrice": 27200.0,
-          "holdingValue": 6020.9,
-          "marketCap": 4882.3,
-          "ratio": 123.32
-        },
-        {
-          "date": "2025-11-12",
-          "holdingPrice": 116600.0,
-          "subsidiaryPrice": 28850.0,
-          "holdingValue": 6386.1,
-          "marketCap": 4907.5,
-          "ratio": 130.13
-        },
-        {
-          "date": "2025-11-13",
-          "holdingPrice": 116700.0,
-          "subsidiaryPrice": 28750.0,
-          "holdingValue": 6364.0,
-          "marketCap": 4911.7,
-          "ratio": 129.57
-        },
-        {
-          "date": "2025-11-14",
-          "holdingPrice": 115900.0,
-          "subsidiaryPrice": 28200.0,
-          "holdingValue": 6242.2,
-          "marketCap": 4878.1,
-          "ratio": 127.97
-        },
-        {
-          "date": "2025-11-17",
-          "holdingPrice": 115400.0,
-          "subsidiaryPrice": 28050.0,
-          "holdingValue": 6209.0,
-          "marketCap": 4857.0,
-          "ratio": 127.84
-        },
-        {
-          "date": "2025-11-18",
-          "holdingPrice": 113200.0,
-          "subsidiaryPrice": 26750.0,
-          "holdingValue": 5921.3,
-          "marketCap": 4764.4,
-          "ratio": 124.28
-        },
-        {
-          "date": "2025-11-19",
-          "holdingPrice": 114200.0,
-          "subsidiaryPrice": 26400.0,
-          "holdingValue": 5843.8,
-          "marketCap": 4806.5,
-          "ratio": 121.58
-        },
-        {
-          "date": "2025-11-20",
-          "holdingPrice": 116000.0,
-          "subsidiaryPrice": 26850.0,
-          "holdingValue": 5943.4,
-          "marketCap": 4882.3,
-          "ratio": 121.73
-        },
-        {
-          "date": "2025-11-21",
-          "holdingPrice": 116000.0,
-          "subsidiaryPrice": 26500.0,
-          "holdingValue": 5865.9,
-          "marketCap": 4882.3,
-          "ratio": 120.15
-        },
-        {
-          "date": "2025-11-24",
-          "holdingPrice": 117500.0,
-          "subsidiaryPrice": 26350.0,
-          "holdingValue": 5832.7,
-          "marketCap": 4945.4,
-          "ratio": 117.94
-        },
-        {
-          "date": "2025-11-25",
-          "holdingPrice": 116000.0,
-          "subsidiaryPrice": 26900.0,
-          "holdingValue": 5954.5,
-          "marketCap": 4882.3,
-          "ratio": 121.96
-        },
-        {
-          "date": "2025-11-26",
-          "holdingPrice": 115600.0,
-          "subsidiaryPrice": 27450.0,
-          "holdingValue": 6076.2,
-          "marketCap": 4865.4,
-          "ratio": 124.89
-        },
-        {
-          "date": "2025-11-27",
-          "holdingPrice": 117900.0,
-          "subsidiaryPrice": 27750.0,
-          "holdingValue": 6142.6,
-          "marketCap": 4962.2,
-          "ratio": 123.79
-        },
-        {
-          "date": "2025-11-28",
-          "holdingPrice": 120000.0,
-          "subsidiaryPrice": 27900.0,
-          "holdingValue": 6175.8,
-          "marketCap": 5050.6,
-          "ratio": 122.28
-        },
-        {
-          "date": "2025-12-01",
-          "holdingPrice": 118500.0,
-          "subsidiaryPrice": 27550.0,
-          "holdingValue": 6098.4,
-          "marketCap": 4987.5,
-          "ratio": 122.27
-        },
-        {
-          "date": "2025-12-02",
-          "holdingPrice": 119000.0,
-          "subsidiaryPrice": 27700.0,
-          "holdingValue": 6131.6,
-          "marketCap": 5008.5,
-          "ratio": 122.42
-        },
-        {
-          "date": "2025-12-03",
-          "holdingPrice": 120400.0,
-          "subsidiaryPrice": 28250.0,
-          "holdingValue": 6253.3,
-          "marketCap": 5067.4,
-          "ratio": 123.4
-        },
-        {
-          "date": "2025-12-04",
-          "holdingPrice": 118700.0,
-          "subsidiaryPrice": 28050.0,
-          "holdingValue": 6209.0,
-          "marketCap": 4995.9,
-          "ratio": 124.28
-        },
-        {
-          "date": "2025-12-05",
-          "holdingPrice": 119100.0,
-          "subsidiaryPrice": 28100.0,
-          "holdingValue": 6220.1,
-          "marketCap": 5012.7,
-          "ratio": 124.09
-        },
-        {
-          "date": "2025-12-08",
-          "holdingPrice": 120300.0,
-          "subsidiaryPrice": 31400.0,
-          "holdingValue": 6950.6,
-          "marketCap": 5063.2,
-          "ratio": 137.28
-        },
-        {
-          "date": "2025-12-09",
-          "holdingPrice": 120700.0,
-          "subsidiaryPrice": 30650.0,
-          "holdingValue": 6784.6,
-          "marketCap": 5080.1,
-          "ratio": 133.55
-        },
-        {
-          "date": "2025-12-10",
-          "holdingPrice": 120000.0,
-          "subsidiaryPrice": 34950.0,
-          "holdingValue": 7736.4,
-          "marketCap": 5050.6,
-          "ratio": 153.18
-        },
-        {
-          "date": "2025-12-11",
-          "holdingPrice": 121200.0,
-          "subsidiaryPrice": 34450.0,
-          "holdingValue": 7625.7,
-          "marketCap": 5101.1,
-          "ratio": 149.49
-        },
-        {
-          "date": "2025-12-12",
-          "holdingPrice": 129900.0,
-          "subsidiaryPrice": 44750.0,
-          "holdingValue": 9905.7,
-          "marketCap": 5467.3,
-          "ratio": 181.18
-        },
-        {
-          "date": "2025-12-15",
-          "holdingPrice": 125100.0,
-          "subsidiaryPrice": 48950.0,
-          "holdingValue": 10835.4,
-          "marketCap": 5265.3,
-          "ratio": 205.79
-        },
-        {
-          "date": "2025-12-16",
-          "holdingPrice": 121300.0,
-          "subsidiaryPrice": 43150.0,
-          "holdingValue": 9551.5,
-          "marketCap": 5105.3,
-          "ratio": 187.09
-        },
-        {
-          "date": "2025-12-17",
-          "holdingPrice": 126500.0,
-          "subsidiaryPrice": 42850.0,
-          "holdingValue": 9485.1,
-          "marketCap": 5324.2,
-          "ratio": 178.15
-        },
-        {
-          "date": "2025-12-18",
-          "holdingPrice": 124300.0,
-          "subsidiaryPrice": 45350.0,
-          "holdingValue": 10038.5,
-          "marketCap": 5231.6,
-          "ratio": 191.88
-        },
-        {
-          "date": "2025-12-19",
-          "holdingPrice": 129700.0,
-          "subsidiaryPrice": 43950.0,
-          "holdingValue": 9728.6,
-          "marketCap": 5458.9,
-          "ratio": 178.22
-        },
-        {
-          "date": "2025-12-22",
-          "holdingPrice": 133900.0,
-          "subsidiaryPrice": 51300.0,
-          "holdingValue": 11355.6,
-          "marketCap": 5635.6,
-          "ratio": 201.5
-        },
-        {
-          "date": "2025-12-23",
-          "holdingPrice": 129800.0,
-          "subsidiaryPrice": 44500.0,
-          "holdingValue": 9850.4,
-          "marketCap": 5463.1,
-          "ratio": 180.31
-        },
-        {
-          "date": "2025-12-24",
-          "holdingPrice": 133400.0,
-          "subsidiaryPrice": 47000.0,
-          "holdingValue": 10403.7,
-          "marketCap": 5614.6,
-          "ratio": 185.3
-        },
-        {
-          "date": "2025-12-26",
-          "holdingPrice": 139700.0,
-          "subsidiaryPrice": 49300.0,
-          "holdingValue": 10912.9,
-          "marketCap": 5879.8,
-          "ratio": 185.6
-        },
-        {
-          "date": "2025-12-29",
-          "holdingPrice": 145000.0,
-          "subsidiaryPrice": 48650.0,
-          "holdingValue": 10769.0,
-          "marketCap": 6102.8,
-          "ratio": 176.46
-        },
-        {
-          "date": "2025-12-30",
-          "holdingPrice": 144000.0,
-          "subsidiaryPrice": 50200.0,
-          "holdingValue": 11112.1,
-          "marketCap": 6060.7,
-          "ratio": 183.35
-        },
-        {
-          "date": "2026-01-02",
-          "holdingPrice": 141300.0,
-          "subsidiaryPrice": 55900.0,
-          "holdingValue": 12373.8,
-          "marketCap": 5947.1,
-          "ratio": 208.06
-        },
-        {
-          "date": "2026-01-05",
-          "holdingPrice": 135900.0,
-          "subsidiaryPrice": 56300.0,
-          "holdingValue": 12462.4,
-          "marketCap": 5719.8,
-          "ratio": 217.88
-        },
-        {
-          "date": "2026-01-06",
-          "holdingPrice": 136700.0,
-          "subsidiaryPrice": 54800.0,
-          "holdingValue": 12130.3,
-          "marketCap": 5753.5,
-          "ratio": 210.83
-        },
-        {
-          "date": "2026-01-07",
-          "holdingPrice": 136300.0,
-          "subsidiaryPrice": 57200.0,
-          "holdingValue": 12661.6,
-          "marketCap": 5736.7,
-          "ratio": 220.71
-        },
-        {
-          "date": "2026-01-08",
-          "holdingPrice": 129100.0,
-          "subsidiaryPrice": 58000.0,
-          "holdingValue": 12838.7,
-          "marketCap": 5433.6,
-          "ratio": 236.28
-        },
-        {
-          "date": "2026-01-09",
-          "holdingPrice": 129900.0,
-          "subsidiaryPrice": 61700.0,
-          "holdingValue": 13657.7,
-          "marketCap": 5467.3,
-          "ratio": 249.81
-        },
-        {
-          "date": "2026-01-12",
-          "holdingPrice": 129900.0,
-          "subsidiaryPrice": 68300.0,
-          "holdingValue": 15118.6,
-          "marketCap": 5467.3,
-          "ratio": 276.53
-        },
-        {
-          "date": "2026-01-13",
-          "holdingPrice": 135700.0,
-          "subsidiaryPrice": 68800.0,
-          "holdingValue": 15229.3,
-          "marketCap": 5711.4,
-          "ratio": 266.65
-        },
-        {
-          "date": "2026-01-14",
-          "holdingPrice": 148500.0,
-          "subsidiaryPrice": 67900.0,
-          "holdingValue": 15030.1,
-          "marketCap": 6250.1,
-          "ratio": 240.48
-        },
-        {
-          "date": "2026-01-15",
-          "holdingPrice": 145800.0,
-          "subsidiaryPrice": 67200.0,
-          "holdingValue": 14875.1,
-          "marketCap": 6136.5,
-          "ratio": 242.4
-        },
-        {
-          "date": "2026-01-16",
-          "holdingPrice": 143600.0,
-          "subsidiaryPrice": 67900.0,
-          "holdingValue": 15030.1,
-          "marketCap": 6043.9,
-          "ratio": 248.68
-        },
-        {
-          "date": "2026-01-19",
-          "holdingPrice": 146200.0,
-          "subsidiaryPrice": 71500.0,
-          "holdingValue": 15827.0,
-          "marketCap": 6153.3,
-          "ratio": 257.21
-        },
-        {
-          "date": "2026-01-20",
-          "holdingPrice": 155000.0,
-          "subsidiaryPrice": 73600.0,
-          "holdingValue": 16291.8,
-          "marketCap": 6523.7,
-          "ratio": 249.73
-        },
-        {
-          "date": "2026-01-21",
-          "holdingPrice": 153900.0,
-          "subsidiaryPrice": 76500.0,
-          "holdingValue": 16933.8,
-          "marketCap": 6477.4,
-          "ratio": 261.43
-        },
-        {
-          "date": "2026-01-22",
-          "holdingPrice": 156000.0,
-          "subsidiaryPrice": 73300.0,
-          "holdingValue": 16225.4,
-          "marketCap": 6565.8,
-          "ratio": 247.12
-        },
-        {
-          "date": "2026-01-23",
-          "holdingPrice": 174900.0,
-          "subsidiaryPrice": 75000.0,
-          "holdingValue": 16601.7,
-          "marketCap": 7361.3,
-          "ratio": 225.53
-        },
-        {
-          "date": "2026-01-26",
-          "holdingPrice": 174200.0,
-          "subsidiaryPrice": 69100.0,
-          "holdingValue": 15295.7,
-          "marketCap": 7331.8,
-          "ratio": 208.62
-        },
-        {
-          "date": "2026-01-27",
-          "holdingPrice": 165100.0,
-          "subsidiaryPrice": 68100.0,
-          "holdingValue": 15074.4,
-          "marketCap": 6948.8,
-          "ratio": 216.93
-        },
-        {
-          "date": "2026-01-28",
-          "holdingPrice": 160300.0,
-          "subsidiaryPrice": 68300.0,
-          "holdingValue": 15118.6,
-          "marketCap": 6746.8,
-          "ratio": 224.09
-        },
-        {
-          "date": "2026-01-29",
-          "holdingPrice": 158000.0,
-          "subsidiaryPrice": 73100.0,
-          "holdingValue": 16181.1,
-          "marketCap": 6650.0,
-          "ratio": 243.33
-        },
-        {
-          "date": "2026-01-30",
-          "holdingPrice": 161700.0,
-          "subsidiaryPrice": 72800.0,
-          "holdingValue": 16114.7,
-          "marketCap": 6805.7,
-          "ratio": 236.78
-        },
-        {
-          "date": "2026-02-02",
-          "holdingPrice": 157300.0,
-          "subsidiaryPrice": 70900.0,
-          "holdingValue": 15694.2,
-          "marketCap": 6620.5,
-          "ratio": 237.05
-        },
-        {
-          "date": "2026-02-03",
-          "holdingPrice": 169000.0,
-          "subsidiaryPrice": 81500.0,
-          "holdingValue": 18040.5,
-          "marketCap": 7112.9,
-          "ratio": 253.63
-        },
-        {
-          "date": "2026-02-04",
-          "holdingPrice": 181000.0,
-          "subsidiaryPrice": 90300.0,
-          "holdingValue": 19988.5,
-          "marketCap": 7618.0,
-          "ratio": 262.38
-        },
-        {
-          "date": "2026-02-05",
-          "holdingPrice": 174500.0,
-          "subsidiaryPrice": 80300.0,
-          "holdingValue": 17774.9,
-          "marketCap": 7344.4,
-          "ratio": 242.02
-        },
-        {
-          "date": "2026-02-06",
-          "holdingPrice": 165400.0,
-          "subsidiaryPrice": 83800.0,
-          "holdingValue": 18549.7,
-          "marketCap": 6961.4,
-          "ratio": 266.46
-        },
-        {
-          "date": "2026-02-09",
-          "holdingPrice": 167800.0,
-          "subsidiaryPrice": 84400.0,
-          "holdingValue": 18682.5,
-          "marketCap": 7062.4,
-          "ratio": 264.53
-        },
-        {
-          "date": "2026-02-10",
-          "holdingPrice": 161000.0,
-          "subsidiaryPrice": 80700.0,
-          "holdingValue": 17863.5,
-          "marketCap": 6776.2,
-          "ratio": 263.62
-        },
-        {
-          "date": "2026-02-11",
-          "holdingPrice": 160700.0,
-          "subsidiaryPrice": 75300.0,
-          "holdingValue": 16668.1,
-          "marketCap": 6763.6,
-          "ratio": 246.44
-        },
-        {
-          "date": "2026-02-12",
-          "holdingPrice": 152300.0,
-          "subsidiaryPrice": 73900.0,
-          "holdingValue": 16358.2,
-          "marketCap": 6410.1,
-          "ratio": 255.2
-        },
-        {
-          "date": "2026-02-13",
-          "holdingPrice": 152600.0,
-          "subsidiaryPrice": 74100.0,
-          "holdingValue": 16402.5,
-          "marketCap": 6422.7,
-          "ratio": 255.38
-        },
-        {
-          "date": "2026-02-19",
-          "holdingPrice": 155700.0,
-          "subsidiaryPrice": 74100.0,
-          "holdingValue": 16402.5,
-          "marketCap": 6553.2,
-          "ratio": 250.3
-        },
-        {
-          "date": "2026-02-20",
-          "holdingPrice": 161500.0,
-          "subsidiaryPrice": 74300.0,
-          "holdingValue": 16446.8,
-          "marketCap": 6797.3,
-          "ratio": 241.96
-        },
-        {
-          "date": "2026-02-23",
-          "holdingPrice": 163000.0,
-          "subsidiaryPrice": 70500.0,
-          "holdingValue": 15605.6,
-          "marketCap": 6860.4,
-          "ratio": 227.47
-        },
-        {
-          "date": "2026-02-24",
-          "holdingPrice": 158700.0,
-          "subsidiaryPrice": 70500.0,
-          "holdingValue": 15605.6,
-          "marketCap": 6679.4,
-          "ratio": 233.64
-        },
-        {
-          "date": "2026-02-25",
-          "holdingPrice": 164000.0,
-          "subsidiaryPrice": 70500.0,
-          "holdingValue": 15605.6,
-          "marketCap": 6902.5,
-          "ratio": 226.09
-        },
-        {
-          "date": "2026-02-26",
-          "holdingPrice": 159000.0,
-          "subsidiaryPrice": 68800.0,
-          "holdingValue": 15229.3,
-          "marketCap": 6692.1,
-          "ratio": 227.57
-        },
-        {
-          "date": "2026-02-27",
-          "holdingPrice": 159300.0,
-          "subsidiaryPrice": 69100.0,
-          "holdingValue": 15295.7,
-          "marketCap": 6704.7,
-          "ratio": 228.13
-        },
-        {
-          "date": "2026-03-03",
-          "holdingPrice": 155000.0,
-          "subsidiaryPrice": 67000.0,
-          "holdingValue": 14830.9,
-          "marketCap": 6523.7,
-          "ratio": 227.34
-        },
-        {
-          "date": "2026-03-04",
-          "holdingPrice": 142600.0,
-          "subsidiaryPrice": 58500.0,
-          "holdingValue": 12949.3,
-          "marketCap": 6001.8,
-          "ratio": 215.76
-        },
-        {
-          "date": "2026-03-05",
-          "holdingPrice": 146900.0,
-          "subsidiaryPrice": 61000.0,
-          "holdingValue": 13502.7,
-          "marketCap": 6182.8,
-          "ratio": 218.39
-        },
-        {
-          "date": "2026-03-06",
-          "holdingPrice": 159500.0,
-          "subsidiaryPrice": 61900.0,
-          "holdingValue": 13702.0,
-          "marketCap": 6713.1,
-          "ratio": 204.11
-        },
-        {
-          "date": "2026-03-09",
-          "holdingPrice": 157400.0,
-          "subsidiaryPrice": 58500.0,
-          "holdingValue": 12949.3,
-          "marketCap": 6624.7,
-          "ratio": 195.47
-        },
-        {
-          "date": "2026-03-10",
-          "holdingPrice": 153500.0,
-          "subsidiaryPrice": 61900.0,
-          "holdingValue": 13702.0,
-          "marketCap": 6460.6,
-          "ratio": 212.09
-        },
-        {
-          "date": "2026-03-11",
-          "holdingPrice": 154500.0,
-          "subsidiaryPrice": 69700.0,
-          "holdingValue": 15428.5,
-          "marketCap": 6502.7,
-          "ratio": 237.26
-        },
-        {
-          "date": "2026-03-12",
-          "holdingPrice": 153300.0,
-          "subsidiaryPrice": 71300.0,
-          "holdingValue": 15782.7,
-          "marketCap": 6452.2,
-          "ratio": 244.61
-        },
-        {
-          "date": "2026-03-13",
-          "holdingPrice": 155500.0,
-          "subsidiaryPrice": 70500.0,
-          "holdingValue": 15605.6,
-          "marketCap": 6544.8,
-          "ratio": 238.44
-        },
-        {
-          "date": "2026-03-16",
-          "holdingPrice": 151500.0,
-          "subsidiaryPrice": 67300.0,
-          "holdingValue": 14897.3,
-          "marketCap": 6376.4,
-          "ratio": 233.63
-        },
-        {
-          "date": "2026-03-17",
-          "holdingPrice": 152000.0,
-          "subsidiaryPrice": 68200.0,
-          "holdingValue": 15096.5,
-          "marketCap": 6397.4,
-          "ratio": 235.98
-        },
-        {
-          "date": "2026-03-18",
-          "holdingPrice": 159500.0,
-          "subsidiaryPrice": 68000.0,
-          "holdingValue": 15052.2,
-          "marketCap": 6713.1,
-          "ratio": 224.22
-        },
-        {
-          "date": "2026-03-19",
-          "holdingPrice": 156300.0,
-          "subsidiaryPrice": 65100.0,
-          "holdingValue": 14410.3,
-          "marketCap": 6578.4,
-          "ratio": 219.05
-        },
-        {
-          "date": "2026-03-20",
-          "holdingPrice": 158600.0,
-          "subsidiaryPrice": 66200.0,
-          "holdingValue": 14653.8,
-          "marketCap": 6675.2,
-          "ratio": 219.52
-        },
-        {
-          "date": "2026-03-23",
-          "holdingPrice": 152300.0,
-          "subsidiaryPrice": 60400.0,
-          "holdingValue": 13369.9,
-          "marketCap": 6410.1,
-          "ratio": 208.58
+          "ratio": 207.9
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 59000.0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 20639.2,
+          "marketCap": 10098.1,
+          "ratio": 204.39
         }
       ]
     },
@@ -63854,12 +63942,12 @@ const STOCK_DATA = {
       "holdingName": "풍산홀딩스",
       "subsidiaryName": "풍산",
       "current": {
-        "holdingPrice": 35900.0,
-        "subsidiaryPrice": 89700.0,
-        "holdingValue": 9553.0,
-        "marketCap": 4928.7,
-        "ratio": 193.83,
-        "ratioChange": -10.51
+        "holdingPrice": 36450.0,
+        "subsidiaryPrice": 93500.0,
+        "holdingValue": 9957.8,
+        "marketCap": 5004.2,
+        "ratio": 198.99,
+        "ratioChange": 5.16
       },
       "history": [
         {
@@ -69941,6 +70029,14 @@ const STOCK_DATA = {
           "holdingValue": 9553.0,
           "marketCap": 4928.7,
           "ratio": 193.83
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 36450.0,
+          "subsidiaryPrice": 93500.0,
+          "holdingValue": 9957.8,
+          "marketCap": 5004.2,
+          "ratio": 198.99
         }
       ]
     },
@@ -69950,12 +70046,12 @@ const STOCK_DATA = {
       "holdingName": "SK스퀘어",
       "subsidiaryName": "SK하이닉스",
       "current": {
-        "holdingPrice": 557000.0,
-        "subsidiaryPrice": 933000.0,
-        "holdingValue": 1362639.7,
-        "marketCap": 733520.8,
-        "ratio": 185.77,
-        "ratioChange": 2.09
+        "holdingPrice": 595000.0,
+        "subsidiaryPrice": 986000.0,
+        "holdingValue": 1440045.9,
+        "marketCap": 783563.5,
+        "ratio": 183.78,
+        "ratioChange": -1.99
       },
       "history": [
         {
@@ -76037,6 +76133,14 @@ const STOCK_DATA = {
           "holdingValue": 1362639.7,
           "marketCap": 733520.8,
           "ratio": 185.77
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 595000.0,
+          "subsidiaryPrice": 986000.0,
+          "holdingValue": 1440045.9,
+          "marketCap": 783563.5,
+          "ratio": 183.78
         }
       ]
     },
@@ -76046,22 +76150,22 @@ const STOCK_DATA = {
       "holdingName": "조광피혁",
       "subsidiaryName": "버크셔해서웨이+애플",
       "current": {
-        "holdingPrice": 68600.0,
+        "holdingPrice": 68200.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 4307.9,
-        "marketCap": 2437.3,
-        "ratio": 176.75,
-        "ratioChange": 5.74,
+        "holdingValue": 4247.2,
+        "marketCap": 2423.1,
+        "ratio": 175.28,
+        "ratioChange": -1.47,
         "subsidiaries": [
           {
             "name": "버크셔해서웨이",
-            "price": 1083031172.0,
-            "value": 3097.5
+            "price": 1066859809.0,
+            "value": 3051.2
           },
           {
             "name": "애플",
-            "price": 378294.0,
-            "value": 1210.5
+            "price": 373776.0,
+            "value": 1196.0
           }
         ]
       },
@@ -81945,6 +82049,14 @@ const STOCK_DATA = {
           "holdingValue": 4307.9,
           "marketCap": 2437.3,
           "ratio": 176.75
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 68200.0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 4247.2,
+          "marketCap": 2423.1,
+          "ratio": 175.28
         }
       ]
     },
@@ -81954,12 +82066,12 @@ const STOCK_DATA = {
       "holdingName": "세방",
       "subsidiaryName": "세방전지",
       "current": {
-        "holdingPrice": 15240.0,
-        "subsidiaryPrice": 59100.0,
-        "holdingValue": 3291.4,
-        "marketCap": 1990.3,
-        "ratio": 165.37,
-        "ratioChange": -0.39
+        "holdingPrice": 15380.0,
+        "subsidiaryPrice": 60000.0,
+        "holdingValue": 3341.5,
+        "marketCap": 2008.6,
+        "ratio": 166.36,
+        "ratioChange": 0.99
       },
       "history": [
         {
@@ -88041,6 +88153,14 @@ const STOCK_DATA = {
           "holdingValue": 3291.4,
           "marketCap": 1990.3,
           "ratio": 165.37
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 15380.0,
+          "subsidiaryPrice": 60000.0,
+          "holdingValue": 3341.5,
+          "marketCap": 2008.6,
+          "ratio": 166.36
         }
       ]
     },
@@ -88050,12 +88170,12 @@ const STOCK_DATA = {
       "holdingName": "아모레퍼시픽홀딩스",
       "subsidiaryName": "아모레퍼시픽",
       "current": {
-        "holdingPrice": 27300.0,
-        "subsidiaryPrice": 136000.0,
-        "holdingValue": 32316.2,
-        "marketCap": 24502.1,
-        "ratio": 131.89,
-        "ratioChange": -0.3
+        "holdingPrice": 27750.0,
+        "subsidiaryPrice": 135700.0,
+        "holdingValue": 32244.9,
+        "marketCap": 24906.0,
+        "ratio": 129.47,
+        "ratioChange": -2.42
       },
       "history": [
         {
@@ -88177,6 +88297,14 @@ const STOCK_DATA = {
           "holdingValue": 32316.2,
           "marketCap": 24502.1,
           "ratio": 131.89
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 27750.0,
+          "subsidiaryPrice": 135700.0,
+          "holdingValue": 32244.9,
+          "marketCap": 24906.0,
+          "ratio": 129.47
         }
       ]
     },
@@ -88186,27 +88314,27 @@ const STOCK_DATA = {
       "holdingName": "SNT홀딩스",
       "subsidiaryName": "SNT다이내믹스+SNT모티브+SNT에너지",
       "current": {
-        "holdingPrice": 62900.0,
+        "holdingPrice": 62700.0,
         "subsidiaryPrice": 0,
-        "holdingValue": 8605.6,
-        "marketCap": 7422.2,
-        "ratio": 115.94,
-        "ratioChange": 6.82,
+        "holdingValue": 8470.7,
+        "marketCap": 7398.6,
+        "ratio": 114.49,
+        "ratioChange": -1.45,
         "subsidiaries": [
           {
             "name": "SNT다이내믹스",
-            "price": 48050.0,
-            "value": 4833.8
+            "price": 47400.0,
+            "value": 4768.4
           },
           {
             "name": "SNT모티브",
-            "price": 31300.0,
-            "value": 1603.8
+            "price": 33650.0,
+            "value": 1724.2
           },
           {
             "name": "SNT에너지",
-            "price": 54200.0,
-            "value": 2168.0
+            "price": 49450.0,
+            "value": 1978.0
           }
         ]
       },
@@ -94290,6 +94418,14 @@ const STOCK_DATA = {
           "holdingValue": 8605.6,
           "marketCap": 7422.2,
           "ratio": 115.94
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 62700.0,
+          "subsidiaryPrice": 0,
+          "holdingValue": 8470.7,
+          "marketCap": 7398.6,
+          "ratio": 114.49
         }
       ]
     },
@@ -94299,12 +94435,12 @@ const STOCK_DATA = {
       "holdingName": "유성티엔에스",
       "subsidiaryName": "서희건설",
       "current": {
-        "holdingPrice": 3875.0,
+        "holdingPrice": 3880.0,
         "subsidiaryPrice": 1623.0,
         "holdingValue": 1287.8,
-        "marketCap": 1294.2,
-        "ratio": 99.5,
-        "ratioChange": 4.65
+        "marketCap": 1295.9,
+        "ratio": 99.38,
+        "ratioChange": -0.12
       },
       "history": [
         {
@@ -100314,6 +100450,14 @@ const STOCK_DATA = {
           "holdingValue": 1287.8,
           "marketCap": 1294.2,
           "ratio": 99.5
+        },
+        {
+          "date": "2026-03-24",
+          "holdingPrice": 3880.0,
+          "subsidiaryPrice": 1623.0,
+          "holdingValue": 1287.8,
+          "marketCap": 1295.9,
+          "ratio": 99.38
         }
       ]
     }
