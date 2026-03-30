@@ -82,6 +82,7 @@ def main():
                 "name": sub["name"],
                 "price": round(sp, 0),
                 "value": round(sv / 1e8, 1),
+                "rawValue": sv,
             })
 
         if skip:
@@ -89,6 +90,9 @@ def main():
 
         market_cap = adjusted_shares * holding_price
         ratio = holding_value / market_cap * 100
+        for detail in sub_details:
+            detail["ratio"] = round(detail["rawValue"] / market_cap * 100, 2)
+            del detail["rawValue"]
 
         entry = {
             "id": pair["id"],

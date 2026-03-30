@@ -199,9 +199,37 @@ body {
   flex-wrap: wrap;
   gap: 12px;
 }
+.chart-header-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .chart-title {
   font-size: 17px;
   font-weight: 600;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  min-height: 18px;
+}
+.chart-legend:empty {
+  min-height: 0;
+}
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 .period-btns {
   display: flex;
@@ -354,7 +382,10 @@ tr:hover { background: var(--surface2); }
 
   <div class="chart-section" id="ratioChartSection">
     <div class="chart-header">
-      <div class="chart-title" id="chartTitle">비율 추이</div>
+      <div class="chart-header-main">
+        <div class="chart-title" id="chartTitle">비율 추이</div>
+        <div class="chart-legend" id="chartLegend"></div>
+      </div>
       <div class="period-btns" id="periodBtns">
         <button data-days="30">1M</button>
         <button data-days="90">3M</button>
@@ -593,6 +624,7 @@ tr:hover { background: var(--surface2); }
   function renderChart() {
     const p = pairs[selectedIdx];
     document.getElementById('chartTitle').textContent = p.name + ' 비율 추이';
+    const legendEl = document.getElementById('chartLegend');
 
     const canvas = document.getElementById('chart');
     const container = canvas.parentElement;
@@ -609,14 +641,19 @@ tr:hover { background: var(--surface2); }
     const H = rect.height;
 
     const hist = getFilteredHistory(p);
-    if (hist.length < 2) return;
+    if (hist.length < 2) {
+      renderChartLegend([], [], legendEl);
+      return;
+    }
 
+    const stackedSubs = getStackedSubsidiarySeries(hist);
     const ratios = hist.map(h => h.ratio);
-    const minS = Math.min(...ratios);
     const maxS = Math.max(...ratios);
-    // Ensure 100% line is visible if data is near it
-    const chartMin = Math.min(minS, 100) - (maxS - minS) * 0.05;
-    const chartMax = Math.max(maxS, 100) + (maxS - minS) * 0.05;
+    const isStacked = stackedSubs.length > 1;
+    const minS = isStacked ? 0 : Math.min(...ratios);
+    const chartPadding = Math.max(maxS - minS, maxS, 1) * 0.05;
+    const chartMin = isStacked ? 0 : Math.min(minS, 100) - chartPadding;
+    const chartMax = Math.max(maxS, 100) + chartPadding;
     const rangeS = chartMax - chartMin || 1;
     const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length;
 
@@ -624,9 +661,11 @@ tr:hover { background: var(--surface2); }
     const cW = W - pad.left - pad.right;
     const cH = H - pad.top - pad.bottom;
     const colors = getThemeColors();
+    const palette = getStackPalette();
 
     // Clear
     ctx.clearRect(0, 0, W, H);
+    renderChartLegend(stackedSubs, palette, legendEl);
 
     // Y axis grid
     ctx.strokeStyle = colors.grid;
@@ -684,36 +723,11 @@ tr:hover { background: var(--surface2); }
       ctx.fillText(hist[idx].date.slice(2), x, H - pad.bottom + 20);
     }
 
-    // Gradient fill
-    const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
-    gradient.addColorStop(0, colors.ratioFillStart);
-    gradient.addColorStop(1, colors.ratioFillEnd);
-
-    ctx.beginPath();
-    for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
-      const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+    if (isStacked) {
+      drawStackedRatioChart(ctx, hist, stackedSubs, palette, colors, pad, cW, cH, chartMin, rangeS);
+    } else {
+      drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS);
     }
-    const lastX = pad.left + cW;
-    ctx.lineTo(lastX, pad.top + cH);
-    ctx.lineTo(pad.left, pad.top + cH);
-    ctx.closePath();
-    ctx.fillStyle = gradient;
-    ctx.fill();
-
-    // Line
-    ctx.beginPath();
-    for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
-      const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = colors.accent;
-    ctx.lineWidth = 2;
-    ctx.stroke();
 
     // Tooltip interaction
     const tooltip = document.getElementById('tooltip');
@@ -736,6 +750,12 @@ tr:hover { background: var(--surface2); }
       let ttRows;
       if (p.isAverage) {
         ttRows = `<div class="tt-row"><span><strong>비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
+      } else if (Array.isArray(d.subsidiaries) && d.subsidiaries.length > 1) {
+        ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
+        d.subsidiaries.forEach(function(sub) {
+          ttRows += `<div class="tt-row"><span>${sub.name}</span><span>${sub.ratio.toFixed(2)}% (${formatOk(sub.value)})</span></div>`;
+        });
+        ttRows += `<div class="tt-row"><span><strong>총 비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
       } else {
         ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
         if (d.subsidiaryPrice) {
@@ -753,11 +773,16 @@ tr:hover { background: var(--surface2); }
 
       let tx = dotX + 12;
       let ty = dotY - 80;
-      if (tx + 210 > W) tx = dotX - 210;
+      tooltip.style.left = '0px';
+      tooltip.style.top = '0px';
+      tooltip.classList.add('visible');
+      const ttWidth = tooltip.offsetWidth || 210;
+      const ttHeight = tooltip.offsetHeight || 80;
+      if (tx + ttWidth + 12 > W) tx = dotX - ttWidth - 12;
+      ty = dotY - ttHeight - 12;
       if (ty < 0) ty = dotY + 12;
       tooltip.style.left = tx + 'px';
       tooltip.style.top = ty + 'px';
-      tooltip.classList.add('visible');
     };
     canvas.onmouseleave = function() {
       tooltip.classList.remove('visible');
@@ -947,6 +972,16 @@ tr:hover { background: var(--surface2); }
   }
 
   // --- Helpers ---
+  function getStackedSubsidiarySeries(hist) {
+    const sample = hist.find(function(entry) {
+      return Array.isArray(entry.subsidiaries) && entry.subsidiaries.length > 1;
+    });
+    if (!sample) return [];
+    return sample.subsidiaries.map(function(sub) {
+      return { name: sub.name };
+    });
+  }
+
   function getInitialSelectedIdx() {
     if (!initialCode) return 0;
     const normalized = initialCode.toUpperCase();
@@ -1107,6 +1142,7 @@ tr:hover { background: var(--surface2); }
       accent: styles.getPropertyValue('--accent').trim(),
       up: styles.getPropertyValue('--up').trim(),
       down: styles.getPropertyValue('--down').trim(),
+      text: styles.getPropertyValue('--text').trim(),
       textDim: styles.getPropertyValue('--text-dim').trim(),
       grid: styles.getPropertyValue('--grid').trim(),
       warnLine: styles.getPropertyValue('--warn-line').trim(),
@@ -1120,6 +1156,115 @@ tr:hover { background: var(--surface2); }
       priceDownFillStart: styles.getPropertyValue('--price-down-fill-start').trim(),
       priceDownFillEnd: styles.getPropertyValue('--price-down-fill-end').trim(),
     };
+  }
+
+  function getStackPalette() {
+    if ((document.documentElement.dataset.theme || 'dark') === 'light') {
+      return ['#2d66d6', '#1f9b57', '#d1433f', '#b7791f', '#7c4dff', '#118ab2'];
+    }
+    return ['#6c8cff', '#38c96a', '#f0615e', '#f5a623', '#8a63ff', '#4dc7ff'];
+  }
+
+  function renderChartLegend(series, palette, el) {
+    if (!el) return;
+    if (!series || series.length <= 1) {
+      el.innerHTML = '';
+      return;
+    }
+    el.innerHTML = series.map(function(sub, idx) {
+      return `<span class="chart-legend-item"><span class="legend-swatch" style="background:${palette[idx % palette.length]}"></span>${sub.name}</span>`;
+    }).join('');
+  }
+
+  function drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS) {
+    const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
+    gradient.addColorStop(0, colors.ratioFillStart);
+    gradient.addColorStop(1, colors.ratioFillEnd);
+
+    ctx.beginPath();
+    for (let i = 0; i < hist.length; i++) {
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    const lastX = pad.left + cW;
+    ctx.lineTo(lastX, pad.top + cH);
+    ctx.lineTo(pad.left, pad.top + cH);
+    ctx.closePath();
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    ctx.beginPath();
+    for (let i = 0; i < hist.length; i++) {
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = colors.accent;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  function drawStackedRatioChart(ctx, hist, series, palette, colors, pad, cW, cH, chartMin, rangeS) {
+    let cumulative = new Array(hist.length).fill(0);
+    series.forEach(function(sub, subIdx) {
+      const color = palette[subIdx % palette.length];
+      const nextCumulative = hist.map(function(entry, idx) {
+        const contribution = entry.subsidiaries && entry.subsidiaries[subIdx] ? entry.subsidiaries[subIdx].ratio : 0;
+        return cumulative[idx] + contribution;
+      });
+
+      ctx.beginPath();
+      for (let i = 0; i < hist.length; i++) {
+        const x = pad.left + (i / (hist.length - 1)) * cW;
+        const y = pad.top + cH - ((nextCumulative[i] - chartMin) / rangeS * cH);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      for (let i = hist.length - 1; i >= 0; i--) {
+        const x = pad.left + (i / (hist.length - 1)) * cW;
+        const y = pad.top + cH - ((cumulative[i] - chartMin) / rangeS * cH);
+        ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = withAlpha(color, 0.22);
+      ctx.fill();
+
+      ctx.beginPath();
+      for (let i = 0; i < hist.length; i++) {
+        const x = pad.left + (i / (hist.length - 1)) * cW;
+        const y = pad.top + cH - ((nextCumulative[i] - chartMin) / rangeS * cH);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = withAlpha(color, 0.9);
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      cumulative = nextCumulative;
+    });
+
+    ctx.beginPath();
+    for (let i = 0; i < hist.length; i++) {
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = colors.text;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  function withAlpha(color, alpha) {
+    const hex = color.replace('#', '');
+    if (hex.length !== 6) return color;
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
   }
 
   function formatPrice(n) {

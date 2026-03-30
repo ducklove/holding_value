@@ -40,12 +40,31 @@ def is_korean(ticker):
     return ticker.endswith(".KS") or ticker.endswith(".KQ")
 
 
+def needs_multi_sub_backfill(existing, pair_config_map):
+    """기존 data.js에 다중 자회사별 히스토리 분해가 없으면 전체 재생성한다."""
+    for pair in existing.get("pairs", []):
+        if pair.get("isAverage"):
+            continue
+        pair_id = pair.get("id")
+        config = pair_config_map.get(pair_id)
+        if not config or len(config.get("subsidiaries", [])) <= 1:
+            continue
+        history = pair.get("history", [])
+        if any("subsidiaries" not in entry for entry in history):
+            return True
+    return False
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--full', action='store_true', help='전체 3년 데이터 재다운로드')
     args = parser.parse_args()
 
     existing = None if args.full else parse_existing_data()
+    pair_config_map = {pair["id"]: pair for pair in PAIRS}
+    if existing and needs_multi_sub_backfill(existing, pair_config_map):
+        print("다중 자회사 히스토리 확장을 위해 전체 데이터를 다시 생성합니다.")
+        existing = None
     existing_history = {}
     if existing:
         for p in existing.get('pairs', []):
@@ -144,15 +163,22 @@ def main():
 
         # 보유지분가치 합산 (모든 자회사)
         holding_value_series = pd.Series(0.0, index=common_dates)
+        sub_value_series = {}
+        sub_ratio_series = {}
         for sub in subs:
             st = sub["ticker"]
             s = sub_series[st].loc[common_dates]
             if not is_korean(st) and fx_rate is not None:
                 s = s * fx_rate.loc[common_dates]
-            holding_value_series = holding_value_series + sub["sharesHeld"] * s
+            value_series = sub["sharesHeld"] * s
+            sub_value_series[st] = value_series
+            holding_value_series = holding_value_series + value_series
 
         market_cap_series = adjusted_shares * h
         ratio_series = holding_value_series / market_cap_series * 100
+        for sub in subs:
+            st = sub["ticker"]
+            sub_ratio_series[st] = sub_value_series[st] / market_cap_series * 100
 
         # 자회사 이름 구성
         if len(subs) == 1:
@@ -182,6 +208,21 @@ def main():
                 if not is_korean(subs[0]["ticker"]) and fx_rate is not None:
                     sp *= float(fx_rate.loc[date])
                 entry["subsidiaryPrice"] = round(sp, 0)
+            else:
+                entry["subsidiaries"] = []
+                for sub in subs:
+                    st = sub["ticker"]
+                    sp = float(sub_series[st].loc[date])
+                    if not is_korean(st) and fx_rate is not None:
+                        sp *= float(fx_rate.loc[date])
+                    sv = float(sub_value_series[st].loc[date]) / 1e8
+                    sr = float(sub_ratio_series[st].loc[date])
+                    entry["subsidiaries"].append({
+                        "name": sub["name"],
+                        "price": round(sp, 0),
+                        "value": round(sv, 1),
+                        "ratio": round(sr, 2),
+                    })
 
             history.append(entry)
 
@@ -224,6 +265,7 @@ def main():
                     "name": sub["name"],
                     "price": round(sp, 0),
                     "value": sv,
+                    "ratio": round(float(sub_ratio_series[st].loc[last_date]), 2),
                 })
             current["subsidiaries"] = current_subs
 
