@@ -1,5 +1,5 @@
 const STOCK_DATA = {
-  "lastUpdated": "2026-03-29 20:23:35",
+  "lastUpdated": "2026-03-30 20:37:36",
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
