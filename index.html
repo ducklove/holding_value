@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>보유지분가치/시가총액 비율 대시보드</title>
+<script>
+document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
+</script>
 <style>
 :root {
+  color-scheme: dark;
   --bg: #0f1117;
   --surface: #1a1d27;
   --surface2: #232733;
@@ -17,6 +21,42 @@
   --down: #4a90d9;
   --green: #38c96a;
   --warn: #f5a623;
+  --grid: rgba(255,255,255,0.06);
+  --warn-line: rgba(245,166,35,0.5);
+  --warn-text: rgba(245,166,35,0.7);
+  --avg-line: rgba(108,140,255,0.3);
+  --avg-text: rgba(108,140,255,0.6);
+  --ratio-fill-start: rgba(108,140,255,0.25);
+  --ratio-fill-end: rgba(108,140,255,0);
+  --price-up-fill-start: rgba(240,97,94,0.25);
+  --price-up-fill-end: rgba(240,97,94,0);
+  --price-down-fill-start: rgba(74,144,217,0.25);
+  --price-down-fill-end: rgba(74,144,217,0);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface2: #eef3fb;
+  --border: #d5ddea;
+  --text: #1d2738;
+  --text-dim: #66758c;
+  --accent: #2d66d6;
+  --up: #d1433f;
+  --down: #2a78c9;
+  --green: #1f9b57;
+  --warn: #b7791f;
+  --grid: rgba(29,39,56,0.08);
+  --warn-line: rgba(183,121,31,0.45);
+  --warn-text: rgba(183,121,31,0.8);
+  --avg-line: rgba(45,102,214,0.28);
+  --avg-text: rgba(45,102,214,0.72);
+  --ratio-fill-start: rgba(45,102,214,0.2);
+  --ratio-fill-end: rgba(45,102,214,0);
+  --price-up-fill-start: rgba(209,67,63,0.18);
+  --price-up-fill-end: rgba(209,67,63,0);
+  --price-down-fill-start: rgba(42,120,201,0.18);
+  --price-down-fill-end: rgba(42,120,201,0);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -30,6 +70,12 @@ body {
   padding: 24px 32px 16px;
   border-bottom: 1px solid var(--border);
 }
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
 .header h1 {
   font-size: 22px;
   font-weight: 700;
@@ -39,6 +85,38 @@ body {
   font-size: 13px;
   color: var(--text-dim);
   margin-top: 4px;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.theme-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+}
+.theme-toggle button:hover {
+  color: var(--text);
+}
+.theme-toggle button.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 .container {
@@ -247,6 +325,8 @@ tr:hover { background: var(--surface2); }
 
 @media (max-width: 768px) {
   .header, .container { padding-left: 16px; padding-right: 16px; }
+  .header-row { flex-direction: column; align-items: stretch; }
+  .header-actions { justify-content: flex-start; }
   .cards { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
   .chart-container { height: 280px; }
 }
@@ -255,14 +335,24 @@ tr:hover { background: var(--surface2); }
 <body>
 
 <div class="header">
-  <h1>보유지분가치/시가총액 비율 대시보드</h1>
-  <div class="updated" id="lastUpdated"></div>
+  <div class="header-row">
+    <div>
+      <h1>보유지분가치/시가총액 비율 대시보드</h1>
+      <div class="updated" id="lastUpdated"></div>
+    </div>
+    <div class="header-actions">
+      <div class="theme-toggle" id="themeToggle">
+        <button type="button" data-theme="light">주간</button>
+        <button type="button" data-theme="dark">야간</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
   <div class="cards" id="cards"></div>
 
-  <div class="chart-section">
+  <div class="chart-section" id="ratioChartSection">
     <div class="chart-header">
       <div class="chart-title" id="chartTitle">비율 추이</div>
       <div class="period-btns" id="periodBtns">
@@ -324,9 +414,16 @@ tr:hover { background: var(--surface2); }
 <script>
 (function() {
   const pairs = STOCK_DATA.pairs;
-  let selectedIdx = 0;
+  const queryParams = new URLSearchParams(location.search);
+  const initialCode = (queryParams.get('code') || '').trim();
+  const holdingCodeById = buildHoldingCodeMapFromPairs();
+  let holdingCodePromise = null;
+  let hasRendered = false;
+  let selectedIdx = getInitialSelectedIdx();
   let periodDays = 0; // 0 = all
   let pricePeriodDays = 0;
+
+  applyTheme(loadTheme(), false);
 
   // --- Apply live data ---
   applyCurrentData();
@@ -338,8 +435,11 @@ tr:hover { background: var(--surface2); }
   renderChart();
   renderPriceChart();
   renderStats();
+  hasRendered = true;
   bindPeriodBtns();
   bindPricePeriodBtns();
+  bindThemeToggle();
+  resolveSelectionFromQuery();
 
   // --- Auto-refresh every 10 minutes ---
   setInterval(refreshCurrentPrices, 10 * 60 * 1000);
@@ -381,6 +481,8 @@ tr:hover { background: var(--surface2); }
         document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
         renderCards();
         renderTable();
+        renderChart();
+        renderPriceChart();
         renderStats();
       })
       .catch(function(err) { console.warn('현재가 갱신 실패:', err); });
@@ -419,11 +521,7 @@ tr:hover { background: var(--surface2); }
     }).join('');
     el.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
-        selectedIdx = parseInt(card.dataset.idx);
-        renderCards();
-        renderChart();
-        renderPriceChart();
-        renderStats();
+        setSelectedIdx(parseInt(card.dataset.idx), { syncUrl: true });
       });
     });
   }
@@ -525,16 +623,17 @@ tr:hover { background: var(--surface2); }
     const pad = { top: 20, right: 16, bottom: 36, left: 64 };
     const cW = W - pad.left - pad.right;
     const cH = H - pad.top - pad.bottom;
+    const colors = getThemeColors();
 
     // Clear
     ctx.clearRect(0, 0, W, H);
 
     // Y axis grid
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.strokeStyle = colors.grid;
     ctx.lineWidth = 1;
     const yTicks = 5;
     ctx.font = '12px -apple-system, sans-serif';
-    ctx.fillStyle = '#8b90a5';
+    ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'right';
     for (let i = 0; i <= yTicks; i++) {
       const v = chartMin + (rangeS * i / yTicks);
@@ -549,7 +648,7 @@ tr:hover { background: var(--surface2); }
     // 100% reference line
     if (100 >= chartMin && 100 <= chartMax) {
       const refY = pad.top + cH - ((100 - chartMin) / rangeS * cH);
-      ctx.strokeStyle = 'rgba(245,166,35,0.5)';
+      ctx.strokeStyle = colors.warnLine;
       ctx.lineWidth = 1.5;
       ctx.setLineDash([6, 4]);
       ctx.beginPath();
@@ -557,26 +656,26 @@ tr:hover { background: var(--surface2); }
       ctx.lineTo(W - pad.right, refY);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = 'rgba(245,166,35,0.7)';
+      ctx.fillStyle = colors.warnText;
       ctx.textAlign = 'left';
       ctx.fillText('100%', W - pad.right - 40, refY - 6);
     }
 
     // Average line
     const avgY = pad.top + cH - ((avg - chartMin) / rangeS * cH);
-    ctx.strokeStyle = 'rgba(108,140,255,0.3)';
+    ctx.strokeStyle = colors.avgLine;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
     ctx.moveTo(pad.left, avgY);
     ctx.lineTo(W - pad.right, avgY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = 'rgba(108,140,255,0.6)';
+    ctx.fillStyle = colors.avgText;
     ctx.textAlign = 'left';
     ctx.fillText('평균 ' + avg.toFixed(1) + '%', pad.left + 4, avgY - 6);
 
     // X axis labels
-    ctx.fillStyle = '#8b90a5';
+    ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'center';
     const xLabelCount = Math.min(6, hist.length);
     for (let i = 0; i < xLabelCount; i++) {
@@ -587,8 +686,8 @@ tr:hover { background: var(--surface2); }
 
     // Gradient fill
     const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
-    gradient.addColorStop(0, 'rgba(108,140,255,0.25)');
-    gradient.addColorStop(1, 'rgba(108,140,255,0.0)');
+    gradient.addColorStop(0, colors.ratioFillStart);
+    gradient.addColorStop(1, colors.ratioFillEnd);
 
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
@@ -612,7 +711,7 @@ tr:hover { background: var(--surface2); }
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = '#6c8cff';
+    ctx.strokeStyle = colors.accent;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -715,15 +814,16 @@ tr:hover { background: var(--surface2); }
     const pad = { top: 20, right: 16, bottom: 36, left: 80 };
     const cW = W - pad.left - pad.right;
     const cH = H - pad.top - pad.bottom;
+    const colors = getThemeColors();
 
     ctx.clearRect(0, 0, W, H);
 
     // Y axis grid
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.strokeStyle = colors.grid;
     ctx.lineWidth = 1;
     const yTicks = 5;
     ctx.font = '12px -apple-system, sans-serif';
-    ctx.fillStyle = '#8b90a5';
+    ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'right';
     for (let i = 0; i <= yTicks; i++) {
       const v = chartMin + (rangeP * i / yTicks);
@@ -736,7 +836,7 @@ tr:hover { background: var(--surface2); }
     }
 
     // X axis labels
-    ctx.fillStyle = '#8b90a5';
+    ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'center';
     const xLabelCount = Math.min(6, hist.length);
     for (let i = 0; i < xLabelCount; i++) {
@@ -747,9 +847,9 @@ tr:hover { background: var(--surface2); }
 
     // Price change color
     const priceUp = prices[prices.length - 1] >= prices[0];
-    const lineColor = priceUp ? '#f0615e' : '#4a90d9';
-    const fillStart = priceUp ? 'rgba(240,97,94,0.25)' : 'rgba(74,144,217,0.25)';
-    const fillEnd = priceUp ? 'rgba(240,97,94,0.0)' : 'rgba(74,144,217,0.0)';
+    const lineColor = priceUp ? colors.up : colors.down;
+    const fillStart = priceUp ? colors.priceUpFillStart : colors.priceDownFillStart;
+    const fillEnd = priceUp ? colors.priceUpFillEnd : colors.priceDownFillEnd;
 
     // Gradient fill
     const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
@@ -833,23 +933,193 @@ tr:hover { background: var(--surface2); }
     });
   }
 
+  function bindThemeToggle() {
+    const toggle = document.getElementById('themeToggle');
+    updateThemeButtons();
+    toggle.addEventListener('click', function(e) {
+      if (e.target.tagName !== 'BUTTON') return;
+      applyTheme(e.target.dataset.theme, true);
+    });
+  }
+
   function getFilteredPriceHistory(pair) {
-    const hist = pair.history;
-    if (pricePeriodDays === 0) return hist;
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - pricePeriodDays);
-    const cutStr = cutoff.toISOString().slice(0, 10);
-    return hist.filter(h => h.date >= cutStr);
+    return filterHistoryByDays(pair.history, pricePeriodDays);
   }
 
   // --- Helpers ---
+  function getInitialSelectedIdx() {
+    if (!initialCode) return 0;
+    const normalized = initialCode.toUpperCase();
+    const idx = pairs.findIndex(function(pair) {
+      if (pair.isAverage) return false;
+      const code = resolvePairCode(pair).toUpperCase();
+      return code === normalized || pair.id === initialCode;
+    });
+    return idx >= 0 ? idx : 0;
+  }
+
+  function setSelectedIdx(idx, opts) {
+    opts = opts || {};
+    selectedIdx = idx;
+    renderCards();
+    renderChart();
+    renderPriceChart();
+    renderStats();
+    if (opts.syncUrl) syncSelectedCodeToUrl();
+    if (opts.scroll) scrollToRatioChart();
+  }
+
+  function syncSelectedCodeToUrl() {
+    const pair = pairs[selectedIdx];
+    const url = new URL(location.href);
+    const code = pair ? resolvePairCode(pair) : '';
+    if (pair && !pair.isAverage && code) {
+      url.searchParams.set('code', code);
+    } else {
+      url.searchParams.delete('code');
+    }
+    history.replaceState(null, '', url.toString());
+  }
+
+  function scrollToRatioChart() {
+    const section = document.getElementById('ratioChartSection');
+    if (!section) return;
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function resolveSelectionFromQuery() {
+    if (!initialCode) return;
+    const idx = findPairIndexByCode(initialCode);
+    if (idx >= 0) {
+      if (idx !== selectedIdx) {
+        setSelectedIdx(idx);
+      }
+      requestAnimationFrame(function() {
+        scrollToRatioChart();
+      });
+      return;
+    }
+    loadHoldingCodes().then(function() {
+      const resolvedIdx = findPairIndexByCode(initialCode);
+      if (resolvedIdx < 0) return;
+      setSelectedIdx(resolvedIdx);
+      requestAnimationFrame(function() {
+        scrollToRatioChart();
+      });
+    }).catch(function(err) {
+      console.warn('종목 코드 매핑 로드 실패:', err);
+    });
+  }
+
+  function findPairIndexByCode(code) {
+    const normalized = (code || '').trim().toUpperCase();
+    if (!normalized) return -1;
+    return pairs.findIndex(function(pair) {
+      if (pair.isAverage) return false;
+      return resolvePairCode(pair).toUpperCase() === normalized || pair.id === code;
+    });
+  }
+
+  function buildHoldingCodeMapFromPairs() {
+    const map = {};
+    pairs.forEach(function(pair) {
+      if (pair.holdingTicker) {
+        map[pair.id] = pair.holdingTicker.split('.')[0];
+      }
+    });
+    return map;
+  }
+
+  function loadHoldingCodes() {
+    if (holdingCodePromise) return holdingCodePromise;
+    holdingCodePromise = fetch('config.json')
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(config) {
+        config.forEach(function(entry) {
+          if (!entry.id || !entry.holdingTicker) return;
+          holdingCodeById[entry.id] = entry.holdingTicker.split('.')[0];
+        });
+        return holdingCodeById;
+      });
+    return holdingCodePromise;
+  }
+
+  function resolvePairCode(pair) {
+    if (!pair || pair.isAverage) return '';
+    if (pair.holdingTicker) return pair.holdingTicker.split('.')[0];
+    return holdingCodeById[pair.id] || '';
+  }
+
   function getFilteredHistory(pair) {
-    const hist = pair.history;
-    if (periodDays === 0) return hist;
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - periodDays);
-    const cutStr = cutoff.toISOString().slice(0, 10);
-    return hist.filter(h => h.date >= cutStr);
+    return filterHistoryByDays(pair.history, periodDays);
+  }
+
+  function filterHistoryByDays(hist, days) {
+    if (days === 0 || hist.length < 2) return hist;
+    const latest = parseDateKey(hist[hist.length - 1].date);
+    latest.setDate(latest.getDate() - days);
+    const cutoff = formatDateKey(latest);
+    const filtered = hist.filter(h => h.date >= cutoff);
+    return filtered.length >= 2 ? filtered : hist;
+  }
+
+  function parseDateKey(dateStr) {
+    const parts = dateStr.split('-').map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]);
+  }
+
+  function formatDateKey(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + d;
+  }
+
+  function loadTheme() {
+    return localStorage.getItem('theme') || 'dark';
+  }
+
+  function applyTheme(theme, persist) {
+    const nextTheme = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = nextTheme;
+    if (persist) localStorage.setItem('theme', nextTheme);
+    updateThemeButtons();
+    if (hasRendered) {
+      renderChart();
+      renderPriceChart();
+    }
+  }
+
+  function updateThemeButtons() {
+    const theme = document.documentElement.dataset.theme || 'dark';
+    const buttons = document.querySelectorAll('#themeToggle button');
+    buttons.forEach(function(button) {
+      button.classList.toggle('active', button.dataset.theme === theme);
+    });
+  }
+
+  function getThemeColors() {
+    const styles = getComputedStyle(document.documentElement);
+    return {
+      accent: styles.getPropertyValue('--accent').trim(),
+      up: styles.getPropertyValue('--up').trim(),
+      down: styles.getPropertyValue('--down').trim(),
+      textDim: styles.getPropertyValue('--text-dim').trim(),
+      grid: styles.getPropertyValue('--grid').trim(),
+      warnLine: styles.getPropertyValue('--warn-line').trim(),
+      warnText: styles.getPropertyValue('--warn-text').trim(),
+      avgLine: styles.getPropertyValue('--avg-line').trim(),
+      avgText: styles.getPropertyValue('--avg-text').trim(),
+      ratioFillStart: styles.getPropertyValue('--ratio-fill-start').trim(),
+      ratioFillEnd: styles.getPropertyValue('--ratio-fill-end').trim(),
+      priceUpFillStart: styles.getPropertyValue('--price-up-fill-start').trim(),
+      priceUpFillEnd: styles.getPropertyValue('--price-up-fill-end').trim(),
+      priceDownFillStart: styles.getPropertyValue('--price-down-fill-start').trim(),
+      priceDownFillEnd: styles.getPropertyValue('--price-down-fill-end').trim(),
+    };
   }
 
   function formatPrice(n) {

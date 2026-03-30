@@ -231,6 +231,7 @@ def main():
             "id": pair["id"],
             "name": pair["name"],
             "holdingName": pair["holdingName"],
+            "holdingTicker": pair["holdingTicker"],
             "subsidiaryName": subsidiary_name,
             "current": current,
             "history": history,
