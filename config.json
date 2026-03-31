@@ -150,6 +150,31 @@
     ]
   },
   {
+    "id": "wonik_holdings",
+    "name": "원익홀딩스→자회사",
+    "holdingName": "원익홀딩스",
+    "holdingTicker": "030530.KQ",
+    "holdingTotalShares": 77237981,
+    "holdingTreasuryShares": 854976,
+    "subsidiaries": [
+      {
+        "name": "원익IPS",
+        "ticker": "240810.KQ",
+        "sharesHeld": 16148572
+      },
+      {
+        "name": "원익QnC",
+        "ticker": "074600.KQ",
+        "sharesHeld": 5520480
+      },
+      {
+        "name": "원익머트리얼즈",
+        "ticker": "104830.KQ",
+        "sharesHeld": 5760000
+      }
+    ]
+  },
+  {
     "id": "snt_holdings",
     "name": "SNT홀딩스→자회사",
     "holdingName": "SNT홀딩스",
@@ -245,6 +270,36 @@
     ]
   },
   {
+    "id": "sk_inc",
+    "name": "SK→자회사",
+    "holdingName": "SK",
+    "holdingTicker": "034730.KS",
+    "holdingTotalShares": 72502703,
+    "holdingTreasuryShares": 17980699,
+    "subsidiaries": [
+      {
+        "name": "SK이노베이션",
+        "ticker": "096770.KS",
+        "sharesHeld": 88052777
+      },
+      {
+        "name": "SK텔레콤",
+        "ticker": "017670.KS",
+        "sharesHeld": 65668397
+      },
+      {
+        "name": "SK스퀘어",
+        "ticker": "402340.KS",
+        "sharesHeld": 42452202
+      },
+      {
+        "name": "SK바이오팜",
+        "ticker": "326030.KS",
+        "sharesHeld": 50134940
+      }
+    ]
+  },
+  {
     "id": "sk_discovery",
     "name": "SK디스커버리→자회사",
     "holdingName": "SK디스커버리",
@@ -276,6 +331,91 @@
         "name": "SK하이닉스",
         "ticker": "000660.KS",
         "sharesHeld": 146049275
+      }
+    ]
+  },
+  {
+    "id": "harim_holdings",
+    "name": "하림지주→자회사",
+    "holdingName": "하림지주",
+    "holdingTicker": "003380.KS",
+    "holdingTotalShares": 112005621,
+    "holdingTreasuryShares": 14744440,
+    "subsidiaries": [
+      {
+        "name": "하림",
+        "ticker": "136480.KQ",
+        "sharesHeld": 60928422
+      },
+      {
+        "name": "선진",
+        "ticker": "136490.KS",
+        "sharesHeld": 11890211
+      },
+      {
+        "name": "팜스코",
+        "ticker": "036580.KS",
+        "sharesHeld": 20692662
+      },
+      {
+        "name": "팬오션",
+        "ticker": "028670.KS",
+        "sharesHeld": 292533115
+      }
+    ]
+  },
+  {
+    "id": "lg_corp",
+    "name": "LG→자회사",
+    "holdingName": "LG",
+    "holdingTicker": "003550.KS",
+    "holdingTotalShares": 154221585,
+    "holdingTreasuryShares": 3029581,
+    "subsidiaries": [
+      {
+        "name": "LG전자",
+        "ticker": "066570.KS",
+        "sharesHeld": 57433029
+      },
+      {
+        "name": "LG화학",
+        "ticker": "051910.KS",
+        "sharesHeld": 24670331
+      },
+      {
+        "name": "LG유플러스",
+        "ticker": "032640.KS",
+        "sharesHeld": 164422375
+      },
+      {
+        "name": "LG생활건강",
+        "ticker": "051900.KS",
+        "sharesHeld": 5315500
+      }
+    ]
+  },
+  {
+    "id": "lx_holdings",
+    "name": "LX홀딩스→자회사",
+    "holdingName": "LX홀딩스",
+    "holdingTicker": "383800.KS",
+    "holdingTotalShares": 76280690,
+    "holdingTreasuryShares": 45761,
+    "subsidiaries": [
+      {
+        "name": "LX인터내셔널",
+        "ticker": "001120.KS",
+        "sharesHeld": 10787300
+      },
+      {
+        "name": "LX세미콘",
+        "ticker": "108320.KS",
+        "sharesHeld": 5380524
+      },
+      {
+        "name": "LX하우시스",
+        "ticker": "108670.KS",
+        "sharesHeld": 3006673
       }
     ]
   },
