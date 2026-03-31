@@ -2,9 +2,18 @@ name: Update Stock Data
 
 on:
   schedule:
-    # 매일 오전 5시 KST (UTC 전일 20시)
+    # Daily 05:00 KST refresh.
     - cron: '0 20 * * *'
-  workflow_dispatch: # 수동 실행 가능
+  workflow_dispatch:
+    inputs:
+      full_rebuild:
+        description: Run a full rebuild instead of the incremental update
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 permissions:
   contents: write
@@ -24,7 +33,14 @@ jobs:
         run: pip install yfinance pandas
 
       - name: Fetch data
-        run: python fetch_data.py
+        env:
+          FULL_REBUILD: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.full_rebuild || 'false' }}
+        run: |
+          if [ "$FULL_REBUILD" = "true" ]; then
+            python fetch_data.py --full
+          else
+            python fetch_data.py
+          fi
 
       - name: Commit and push if changed
         run: |
@@ -32,6 +48,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet data.js || {
             git add data.js
-            git commit -m "자동 업데이트: $(date -u +%Y-%m-%d) 데이터 갱신"
+            git commit -m "자동 업데이트: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M') 데이터 갱신"
             git push
           }

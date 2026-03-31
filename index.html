@@ -91,6 +91,28 @@ body {
   align-items: center;
   gap: 8px;
 }
+.refresh-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-dim);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.refresh-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.refresh-btn.is-refreshing,
+.refresh-btn:disabled {
+  cursor: wait;
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--surface2);
+}
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -369,6 +391,7 @@ tr:hover { background: var(--surface2); }
       <div class="updated" id="lastUpdated"></div>
     </div>
     <div class="header-actions">
+      <button type="button" class="refresh-btn" id="refreshBtn">새로고침</button>
       <div class="theme-toggle" id="themeToggle">
         <button type="button" data-theme="light">주간</button>
         <button type="button" data-theme="dark">야간</button>
@@ -448,19 +471,24 @@ tr:hover { background: var(--surface2); }
   const queryParams = new URLSearchParams(location.search);
   const initialCode = (queryParams.get('code') || '').trim();
   const holdingCodeById = buildHoldingCodeMapFromPairs();
+  const REFRESH_INTERVAL_MS = 10 * 60 * 1000;
   let holdingCodePromise = null;
   let hasRendered = false;
   let selectedIdx = getInitialSelectedIdx();
   let periodDays = 0; // 0 = all
   let pricePeriodDays = 0;
+  let refreshInFlight = false;
+  let latestSnapshotVersion = getSnapshotVersion(window.CURRENT_DATA) || getSnapshotVersion(STOCK_DATA);
+  let lastRefreshStartedAt = 0;
 
   applyTheme(loadTheme(), false);
 
   // --- Apply live data ---
   applyCurrentData();
+  sortPairsByCurrentRatio();
 
   // --- Init ---
-  document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
+  updateLastUpdatedText();
   renderCards();
   renderTable();
   renderChart();
@@ -469,11 +497,12 @@ tr:hover { background: var(--surface2); }
   hasRendered = true;
   bindPeriodBtns();
   bindPricePeriodBtns();
+  bindRefreshButton();
   bindThemeToggle();
   resolveSelectionFromQuery();
 
-  // --- Auto-refresh every 10 minutes ---
-  setInterval(refreshCurrentPrices, 10 * 60 * 1000);
+  // --- Auto-refresh ---
+  bindAutoRefresh();
 
   function applyCurrentData() {
     if (!window.CURRENT_DATA) return;
@@ -502,21 +531,147 @@ tr:hover { background: var(--surface2); }
     STOCK_DATA.lastUpdated = CURRENT_DATA.lastUpdated;
   }
 
-  function refreshCurrentPrices() {
-    fetch('current.js?t=' + Date.now())
-      .then(function(res) { return res.text(); })
+  function refreshCurrentPrices(opts) {
+    opts = opts || {};
+    const manual = !!opts.manual;
+
+    if (!manual && document.visibilityState !== 'visible') {
+      return Promise.resolve(false);
+    }
+    if (refreshInFlight) {
+      return Promise.resolve(false);
+    }
+
+    refreshInFlight = true;
+    lastRefreshStartedAt = Date.now();
+    updateRefreshButton();
+
+    return fetch('current.js?t=' + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
       .then(function(text) {
         var json = text.replace(/^const CURRENT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
-        window.CURRENT_DATA = JSON.parse(json);
+        var nextSnapshot = JSON.parse(json);
+        var nextVersion = getSnapshotVersion(nextSnapshot);
+        if (nextVersion && latestSnapshotVersion && nextVersion < latestSnapshotVersion) {
+          console.warn('Ignored stale current snapshot.', {
+            current: latestSnapshotVersion,
+            incoming: nextVersion
+          });
+          return false;
+        }
+        if (nextVersion && latestSnapshotVersion && nextVersion === latestSnapshotVersion) {
+          return false;
+        }
+
+        window.CURRENT_DATA = nextSnapshot;
+        latestSnapshotVersion = nextVersion || latestSnapshotVersion;
         applyCurrentData();
-        document.getElementById('lastUpdated').textContent = '최종 업데이트: ' + STOCK_DATA.lastUpdated;
+        sortPairsByCurrentRatio();
+        updateLastUpdatedText();
         renderCards();
         renderTable();
         renderChart();
         renderPriceChart();
         renderStats();
+        return true;
       })
-      .catch(function(err) { console.warn('현재가 갱신 실패:', err); });
+      .catch(function(err) {
+        console.warn('현재가 갱신 실패:', err);
+        return false;
+      })
+      .finally(function() {
+        refreshInFlight = false;
+        updateRefreshButton();
+      });
+  }
+
+  function bindAutoRefresh() {
+    setInterval(function() {
+      refreshCurrentPrices();
+    }, REFRESH_INTERVAL_MS);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - lastRefreshStartedAt < REFRESH_INTERVAL_MS / 3) return;
+      refreshCurrentPrices();
+    });
+  }
+
+  function bindRefreshButton() {
+    var button = document.getElementById('refreshBtn');
+    if (!button) return;
+    button.addEventListener('click', function() {
+      refreshCurrentPrices({ manual: true });
+    });
+    updateRefreshButton();
+  }
+
+  function updateRefreshButton() {
+    var button = document.getElementById('refreshBtn');
+    if (!button) return;
+    button.disabled = refreshInFlight;
+    button.classList.toggle('is-refreshing', refreshInFlight);
+    button.textContent = refreshInFlight ? '새로고침 중...' : '새로고침';
+  }
+
+  function updateLastUpdatedText() {
+    var parts = ['최종 업데이트: ' + STOCK_DATA.lastUpdated];
+    if (window.CURRENT_DATA && window.CURRENT_DATA.isPartial) {
+      var preserved = (window.CURRENT_DATA.preservedPairIds || []).length;
+      var missing = (window.CURRENT_DATA.missingPairIds || []).length;
+      if (preserved > 0) {
+        parts.push('일부 종목은 직전 정상값 유지');
+      }
+      if (missing > 0) {
+        parts.push('미반영 종목 ' + missing + '개');
+      }
+    }
+    document.getElementById('lastUpdated').textContent = parts.join(' · ');
+  }
+
+  function getSnapshotVersion(snapshot) {
+    if (!snapshot) return 0;
+    if (typeof snapshot.snapshotTimestamp === 'number') return snapshot.snapshotTimestamp;
+    if (typeof snapshot.generatedAt === 'string') {
+      var generated = Date.parse(snapshot.generatedAt);
+      if (!Number.isNaN(generated)) return generated;
+    }
+    return parseSeoulTimestamp(snapshot.lastUpdated || '');
+  }
+
+  function parseSeoulTimestamp(value) {
+    var match = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/.exec(value);
+    if (!match) return 0;
+    return Date.UTC(
+      Number(match[1]),
+      Number(match[2]) - 1,
+      Number(match[3]),
+      Number(match[4]) - 9,
+      Number(match[5]),
+      Number(match[6])
+    );
+  }
+
+  function sortPairsByCurrentRatio() {
+    var selectedPairId = pairs[selectedIdx] ? pairs[selectedIdx].id : '';
+    pairs.sort(comparePairOrder);
+    if (!selectedPairId) return;
+    var nextIdx = pairs.findIndex(function(pair) {
+      return pair.id === selectedPairId;
+    });
+    if (nextIdx >= 0) {
+      selectedIdx = nextIdx;
+    }
+  }
+
+  function comparePairOrder(a, b) {
+    if (a.isAverage) return b.isAverage ? 0 : -1;
+    if (b.isAverage) return 1;
+    if (b.current.ratio !== a.current.ratio) return b.current.ratio - a.current.ratio;
+    return a.name.localeCompare(b.name, 'ko');
   }
 
   // --- Cards ---

@@ -2,8 +2,12 @@ name: Update Current Prices
 
 on:
   schedule:
-    # KRX 장중 10분 간격 (09:00~15:30 KST = 00:00~06:30 UTC), 월~금
+    # KRX session every 10 minutes (09:00-15:59 KST).
     - cron: '*/10 0-6 * * 1-5'
+    # US night-sensitive holdings every 30 minutes (21:00-05:30 KST).
+    - cron: '0,30 12-20 * * 1-5'
+    # One final post-session refresh around 06:00 KST.
+    - cron: '0 21 * * 1-5'
   workflow_dispatch:
 
 permissions:

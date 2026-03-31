@@ -11,6 +11,7 @@ import re
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import yfinance as yf
 import pandas as pd
@@ -21,6 +22,7 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
 
 
 OUTPUT_PATH = Path(__file__).parent / "data.js"
+SEOUL_TZ = ZoneInfo("Asia/Seoul")
 
 
 def parse_existing_data():
@@ -55,6 +57,17 @@ def needs_multi_sub_backfill(existing, pair_config_map):
     return False
 
 
+def has_new_pair_ids(existing, pair_config_map):
+    """Trigger a full rebuild when config.json contains brand-new pairs."""
+    existing_ids = {
+        pair.get("id")
+        for pair in existing.get("pairs", [])
+        if pair.get("id") and not pair.get("isAverage")
+    }
+    current_ids = set(pair_config_map.keys())
+    return any(pair_id not in existing_ids for pair_id in current_ids)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--full', action='store_true', help='전체 3년 데이터 재다운로드')
@@ -65,6 +78,10 @@ def main():
     if existing and needs_multi_sub_backfill(existing, pair_config_map):
         print("다중 자회사 히스토리 확장을 위해 전체 데이터를 다시 생성합니다.")
         existing = None
+    if existing and has_new_pair_ids(existing, pair_config_map):
+        print("New pair ids detected in config.json. Switching to a full rebuild.")
+        existing = None
+
     existing_history = {}
     if existing:
         for p in existing.get('pairs', []):
@@ -85,7 +102,8 @@ def main():
     if needs_fx:
         all_tickers.append("USDKRW=X")
 
-    end_date = datetime.now()
+    now_local = datetime.now(SEOUL_TZ)
+    end_date = now_local
     if existing_history:
         last_dates = [h[-1]['date'] for h in existing_history.values() if h]
         latest = max(last_dates)
@@ -343,7 +361,7 @@ def main():
     pairs_result.sort(key=lambda p: p["current"]["ratio"], reverse=True)
 
     stock_data = {
-        "lastUpdated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "lastUpdated": now_local.strftime("%Y-%m-%d %H:%M:%S"),
         "pairs": pairs_result,
     }
 

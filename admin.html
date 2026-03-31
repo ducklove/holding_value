@@ -248,6 +248,7 @@ body {
   <div class="header-actions">
     <button class="btn btn-primary" onclick="openAddModal()">+ 종목 추가</button>
     <button class="btn btn-green" id="saveBtn" onclick="saveToGithub()">GitHub 저장</button>
+    <button class="btn" onclick="triggerWorkflow(true)">전체 재생성</button>
     <button class="btn" onclick="downloadConfig()">다운로드</button>
     <button class="btn" onclick="openSettingsModal()">설정</button>
   </div>
@@ -347,7 +348,7 @@ body {
 <script>
 (function() {
   var config = [];
-  var fileSha = null;
+  var fileShas = {};
   var ghToken = localStorage.getItem('gh_token') || '';
   var ghOwner = localStorage.getItem('gh_owner') || '';
   var ghRepo = localStorage.getItem('gh_repo') || '';
@@ -399,16 +400,24 @@ body {
   }
 
   function fetchGithubSha() {
-    ghApi('/contents/config.json')
+    Promise.all([
+      fetchContentSha('config.json'),
+      fetchContentSha('api/holdings.json')
+    ]).catch(function(err) {
+      console.warn('GitHub SHA 가져오기 실패:', err.message);
+    });
+  }
+
+  function fetchContentSha(path) {
+    return ghApi('/contents/' + path)
       .then(function(r) {
+        if (r.status === 404) return null;
         if (!r.ok) throw new Error('API ' + r.status);
         return r.json();
       })
       .then(function(data) {
-        fileSha = data.sha;
-      })
-      .catch(function(err) {
-        console.warn('GitHub SHA 가져오기 실패:', err.message);
+        fileShas[path] = data ? data.sha : null;
+        return fileShas[path];
       });
   }
 
@@ -438,29 +447,17 @@ body {
     btn.disabled = true;
     btn.textContent = '저장 중...';
 
-    var content = btoa(unescape(encodeURIComponent(JSON.stringify(config, null, 2) + '\n')));
+    var configJson = JSON.stringify(config, null, 2) + '\n';
+    var holdingsJson = JSON.stringify(buildHoldingsApiPayload(), null, 2) + '\n';
+    var message = '종목 설정 변경 (admin)';
 
-    // SHA가 없으면 먼저 가져오기
-    var getSha = fileSha
-      ? Promise.resolve(fileSha)
-      : ghApi('/contents/config.json').then(function(r) { return r.json(); }).then(function(d) { return d.sha; });
-
-    getSha.then(function(sha) {
-      return ghApi('/contents/config.json', {
-        method: 'PUT',
-        body: JSON.stringify({
-          message: '종목 설정 변경 (admin)',
-          content: content,
-          sha: sha
-        })
-      });
-    })
-    .then(function(r) {
-      if (!r.ok) return r.json().then(function(d) { throw new Error(d.message || r.status); });
-      return r.json();
-    })
-    .then(function(data) {
-      fileSha = data.content.sha;
+    Promise.all([
+      upsertRepoFile('config.json', configJson, message),
+      upsertRepoFile('api/holdings.json', holdingsJson, message)
+    ])
+    .then(function(results) {
+      fileShas['config.json'] = results[0].content.sha;
+      fileShas['api/holdings.json'] = results[1].content.sha;
       showToast('GitHub에 저장되었습니다.');
       triggerWorkflow();
     })
@@ -473,13 +470,102 @@ body {
     });
   }
 
-  function triggerWorkflow() {
+  function upsertRepoFile(path, text, message) {
+    var shaPromise = typeof fileShas[path] !== 'undefined'
+      ? Promise.resolve(fileShas[path])
+      : fetchContentSha(path);
+
+    return shaPromise.then(function(sha) {
+      var body = {
+        message: message,
+        content: btoa(unescape(encodeURIComponent(text)))
+      };
+      if (sha) body.sha = sha;
+      return ghApi('/contents/' + path, {
+        method: 'PUT',
+        body: JSON.stringify(body)
+      });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(d) { throw new Error(d.message || r.status); });
+      return r.json();
+    });
+  }
+
+  function buildHoldingsApiPayload() {
+    var timestamps = getSeoulTimestamps();
+    var items = config.map(function(entry) {
+      var subsidiaries = entry.subsidiaries.map(function(sub) {
+        return {
+          name: sub.name,
+          ticker: sub.ticker,
+          code: tickerCode(sub.ticker),
+          sharesHeld: sub.sharesHeld
+        };
+      });
+
+      return {
+        id: entry.id,
+        name: entry.name,
+        holdingName: entry.holdingName,
+        holdingTicker: entry.holdingTicker,
+        holdingCode: tickerCode(entry.holdingTicker),
+        holdingTotalShares: entry.holdingTotalShares,
+        holdingTreasuryShares: entry.holdingTreasuryShares,
+        subsidiaryCount: subsidiaries.length,
+        subsidiaries: subsidiaries
+      };
+    });
+
+    return {
+      generatedAt: timestamps.generatedAt,
+      lastUpdated: timestamps.lastUpdated,
+      count: items.length,
+      items: items
+    };
+  }
+
+  function getSeoulTimestamps() {
+    var parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23'
+    }).formatToParts(new Date()).reduce(function(acc, part) {
+      if (part.type !== 'literal') acc[part.type] = part.value;
+      return acc;
+    }, {});
+
+    return {
+      generatedAt: parts.year + '-' + parts.month + '-' + parts.day + 'T' + parts.hour + ':' + parts.minute + ':' + parts.second + '+09:00',
+      lastUpdated: parts.year + '-' + parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute + ':' + parts.second
+    };
+  }
+
+  function tickerCode(ticker) {
+    return (ticker || '').split('.')[0];
+  }
+
+  function triggerWorkflow(fullRebuild) {
+    if (!ghToken || !ghOwner || !ghRepo) {
+      openSettingsModal();
+      return;
+    }
+
     ghApi('/actions/workflows/update-data.yml/dispatches', {
       method: 'POST',
-      body: JSON.stringify({ ref: 'master' })
+      body: JSON.stringify({
+        ref: 'master',
+        inputs: {
+          full_rebuild: fullRebuild ? 'true' : 'false'
+        }
+      })
     }).then(function(r) {
       if (r.status === 204) {
-        showToast('데이터 갱신 워크플로우가 시작되었습니다.');
+        showToast(fullRebuild ? '전체 데이터 재생성 워크플로우가 시작되었습니다.' : '데이터 갱신 워크플로우가 시작되었습니다.');
       }
     }).catch(function() {});
   }
@@ -524,7 +610,7 @@ body {
       updateStatus();
       closeSettings();
       showToast('GitHub 연결 완료');
-      fileSha = null;
+      fileShas = {};
       fetchGithubSha();
     })
     .catch(function(err) {
@@ -540,7 +626,7 @@ body {
     ghToken = '';
     ghOwner = '';
     ghRepo = '';
-    fileSha = null;
+    fileShas = {};
     updateStatus();
     closeSettings();
     showToast('토큰이 삭제되었습니다.');
