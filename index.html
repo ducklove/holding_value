@@ -26,6 +26,8 @@ document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark'
   --warn-text: rgba(245,166,35,0.7);
   --avg-line: rgba(108,140,255,0.3);
   --avg-text: rgba(108,140,255,0.6);
+  --sma-line: rgba(56,201,106,0.95);
+  --ema-line: rgba(245,166,35,0.95);
   --ratio-fill-start: rgba(108,140,255,0.25);
   --ratio-fill-end: rgba(108,140,255,0);
   --price-up-fill-start: rgba(240,97,94,0.25);
@@ -51,6 +53,8 @@ document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark'
   --warn-text: rgba(183,121,31,0.8);
   --avg-line: rgba(45,102,214,0.28);
   --avg-text: rgba(45,102,214,0.72);
+  --sma-line: rgba(31,155,87,0.95);
+  --ema-line: rgba(183,121,31,0.95);
   --ratio-fill-start: rgba(45,102,214,0.2);
   --ratio-fill-end: rgba(45,102,214,0);
   --price-up-fill-start: rgba(209,67,63,0.18);
@@ -797,15 +801,20 @@ tr:hover { background: var(--surface2); }
 
     const hist = getFilteredHistory(p);
     if (hist.length < 2) {
-      renderChartLegend([], [], legendEl);
+      renderChartLegend([], legendEl);
       return;
     }
 
     const stackedSubs = getStackedSubsidiarySeries(hist);
     const ratios = hist.map(h => h.ratio);
-    const maxS = Math.max(...ratios);
+    const trendLines = buildRatioTrendLines(p.history, hist);
+    const trendValues = [trendLines.sma.values, trendLines.ema.values]
+      .flat()
+      .filter(function(value) { return value !== null; });
+    const rangeValues = ratios.concat(trendValues);
+    const maxS = Math.max(...rangeValues);
     const isStacked = stackedSubs.length > 1;
-    const minS = isStacked ? 0 : Math.min(...ratios);
+    const minS = isStacked ? 0 : Math.min(...rangeValues);
     const chartPadding = Math.max(maxS - minS, maxS, 1) * 0.05;
     const chartMin = isStacked ? 0 : Math.min(minS, 100) - chartPadding;
     const chartMax = Math.max(maxS, 100) + chartPadding;
@@ -817,10 +826,11 @@ tr:hover { background: var(--surface2); }
     const cH = H - pad.top - pad.bottom;
     const colors = getThemeColors();
     const palette = getStackPalette();
+    const legendItems = buildChartLegendItems(stackedSubs, palette, colors);
 
     // Clear
     ctx.clearRect(0, 0, W, H);
-    renderChartLegend(stackedSubs, palette, legendEl);
+    renderChartLegend(legendItems, legendEl);
 
     // Y axis grid
     ctx.strokeStyle = colors.grid;
@@ -883,6 +893,9 @@ tr:hover { background: var(--surface2); }
     } else {
       drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS);
     }
+
+    drawTrendLine(ctx, hist, trendLines.sma.values, colors.smaLine, pad, cW, cH, chartMin, rangeS, [10, 6], 2);
+    drawTrendLine(ctx, hist, trendLines.ema.values, colors.emaLine, pad, cW, cH, chartMin, rangeS, [], 2);
 
     // Tooltip interaction
     const tooltip = document.getElementById('tooltip');
@@ -1304,6 +1317,8 @@ tr:hover { background: var(--surface2); }
       warnText: styles.getPropertyValue('--warn-text').trim(),
       avgLine: styles.getPropertyValue('--avg-line').trim(),
       avgText: styles.getPropertyValue('--avg-text').trim(),
+      smaLine: styles.getPropertyValue('--sma-line').trim(),
+      emaLine: styles.getPropertyValue('--ema-line').trim(),
       ratioFillStart: styles.getPropertyValue('--ratio-fill-start').trim(),
       ratioFillEnd: styles.getPropertyValue('--ratio-fill-end').trim(),
       priceUpFillStart: styles.getPropertyValue('--price-up-fill-start').trim(),
@@ -1320,15 +1335,85 @@ tr:hover { background: var(--surface2); }
     return ['#6c8cff', '#38c96a', '#f0615e', '#f5a623', '#8a63ff', '#4dc7ff'];
   }
 
-  function renderChartLegend(series, palette, el) {
+  function buildChartLegendItems(series, palette, colors) {
+    const items = [];
+    if (series && series.length > 1) {
+      series.forEach(function(sub, idx) {
+        items.push({
+          label: sub.name,
+          color: palette[idx % palette.length]
+        });
+      });
+      items.push({ label: '총 비율', color: colors.text });
+    } else {
+      items.push({ label: '비율', color: colors.accent });
+    }
+    items.push({ label: '전체 평균', color: colors.avgLine });
+    items.push({ label: 'SMA 250일', color: colors.smaLine });
+    items.push({ label: 'EMA α=0.1', color: colors.emaLine });
+    return items;
+  }
+
+  function renderChartLegend(items, el) {
     if (!el) return;
-    if (!series || series.length <= 1) {
+    if (!items || items.length === 0) {
       el.innerHTML = '';
       return;
     }
-    el.innerHTML = series.map(function(sub, idx) {
-      return `<span class="chart-legend-item"><span class="legend-swatch" style="background:${palette[idx % palette.length]}"></span>${sub.name}</span>`;
+    el.innerHTML = items.map(function(item) {
+      return `<span class="chart-legend-item"><span class="legend-swatch" style="background:${item.color}"></span>${item.label}</span>`;
     }).join('');
+  }
+
+  function buildRatioTrendLines(fullHist, visibleHist) {
+    const hasPrecomputed = visibleHist.some(function(entry) {
+      return typeof entry.sma250 === 'number' || typeof entry.ema01 === 'number';
+    });
+
+    if (hasPrecomputed) {
+      return {
+        sma: {
+          values: visibleHist.map(function(entry) {
+            return typeof entry.sma250 === 'number' ? entry.sma250 : null;
+          })
+        },
+        ema: {
+          values: visibleHist.map(function(entry) {
+            return typeof entry.ema01 === 'number' ? entry.ema01 : null;
+          })
+        }
+      };
+    }
+
+    const alpha = 0.1;
+    const smaByDate = new Map();
+    const emaByDate = new Map();
+    let rollingSum = 0;
+    let ema = null;
+
+    fullHist.forEach(function(entry, idx) {
+      const ratio = entry.ratio;
+      rollingSum += ratio;
+      if (idx >= 250) {
+        rollingSum -= fullHist[idx - 250].ratio;
+      }
+      smaByDate.set(entry.date, idx >= 249 ? rollingSum / 250 : null);
+      ema = ema === null ? ratio : (alpha * ratio) + ((1 - alpha) * ema);
+      emaByDate.set(entry.date, ema);
+    });
+
+    return {
+      sma: {
+        values: visibleHist.map(function(entry) {
+          return smaByDate.has(entry.date) ? smaByDate.get(entry.date) : null;
+        })
+      },
+      ema: {
+        values: visibleHist.map(function(entry) {
+          return emaByDate.has(entry.date) ? emaByDate.get(entry.date) : null;
+        })
+      }
+    };
   }
 
   function drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS) {
@@ -1411,6 +1496,36 @@ tr:hover { background: var(--surface2); }
     ctx.strokeStyle = colors.text;
     ctx.lineWidth = 1.5;
     ctx.stroke();
+  }
+
+  function drawTrendLine(ctx, hist, values, color, pad, cW, cH, chartMin, rangeS, dash, lineWidth) {
+    if (!values || values.every(function(value) { return value === null; })) {
+      return;
+    }
+
+    ctx.save();
+    ctx.beginPath();
+    let hasStarted = false;
+    for (let i = 0; i < hist.length; i++) {
+      const value = values[i];
+      if (value === null) {
+        hasStarted = false;
+        continue;
+      }
+      const x = pad.left + (i / (hist.length - 1)) * cW;
+      const y = pad.top + cH - ((value - chartMin) / rangeS * cH);
+      if (!hasStarted) {
+        ctx.moveTo(x, y);
+        hasStarted = true;
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.setLineDash(dash || []);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth || 2;
+    ctx.stroke();
+    ctx.restore();
   }
 
   function withAlpha(color, alpha) {

@@ -8,7 +8,7 @@ Yahoo Finance에서 지주사/자회사 가격 데이터를 가져와 data.js를
 import argparse
 import json
 import re
-from collections import defaultdict
+from collections import defaultdict, deque
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -23,6 +23,9 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
 
 OUTPUT_PATH = Path(__file__).parent / "data.js"
 SEOUL_TZ = ZoneInfo("Asia/Seoul")
+DAILY_RETENTION_DAYS = 730
+SMA_WINDOW = 250
+EMA_ALPHA = 0.1
 
 
 def parse_existing_data():
@@ -68,9 +71,79 @@ def has_new_pair_ids(existing, pair_config_map):
     return any(pair_id not in existing_ids for pair_id in current_ids)
 
 
+def parse_date_key(date_str):
+    return datetime.strptime(date_str, "%Y-%m-%d").date()
+
+
+def annotate_history_with_trends(history, start_idx=0):
+    if not history:
+        return history
+
+    start_idx = max(0, min(start_idx, len(history) - 1))
+
+    if start_idx > 0 and history[start_idx - 1].get("ema01") is not None:
+        ema = float(history[start_idx - 1]["ema01"])
+    else:
+        ema = None
+        start_idx = 0
+
+    window_start = max(0, start_idx - (SMA_WINDOW - 1))
+    window = deque(
+        (history[idx]["ratio"] for idx in range(window_start, start_idx)),
+        maxlen=SMA_WINDOW,
+    )
+    rolling_sum = sum(window)
+
+    for idx in range(start_idx, len(history)):
+        ratio = history[idx]["ratio"]
+        if len(window) == SMA_WINDOW:
+            rolling_sum -= window[0]
+        window.append(ratio)
+        rolling_sum += ratio
+
+        history[idx]["sma250"] = round(rolling_sum / SMA_WINDOW, 2) if len(window) == SMA_WINDOW else None
+        ema = ratio if ema is None else (EMA_ALPHA * ratio) + ((1 - EMA_ALPHA) * ema)
+        history[idx]["ema01"] = round(ema, 2)
+
+    return history
+
+
+def downsample_history(history):
+    if len(history) < 2:
+        return history
+
+    latest_date = parse_date_key(history[-1]["date"])
+    cutoff_date = latest_date - timedelta(days=DAILY_RETENTION_DAYS)
+
+    older = []
+    recent = []
+    for entry in history:
+        if parse_date_key(entry["date"]) < cutoff_date:
+            older.append(entry)
+        else:
+            recent.append(entry)
+
+    if not older:
+        return history
+
+    weekly = []
+    current_week = None
+    for entry in older:
+        date = parse_date_key(entry["date"])
+        iso = date.isocalendar()
+        week_key = (iso.year, iso.week)
+        if weekly and week_key == current_week:
+            weekly[-1] = entry
+        else:
+            weekly.append(entry)
+            current_week = week_key
+
+    return weekly + recent
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--full', action='store_true', help='전체 3년 데이터 재다운로드')
+    parser.add_argument('--full', action='store_true', help='전체 최대 기간 데이터를 다시 다운로드')
     args = parser.parse_args()
 
     existing = None if args.full else parse_existing_data()
@@ -104,23 +177,28 @@ def main():
 
     now_local = datetime.now(SEOUL_TZ)
     end_date = now_local
+    download_kwargs = {
+        "auto_adjust": True,
+        "progress": True,
+    }
+
     if existing_history:
         last_dates = [h[-1]['date'] for h in existing_history.values() if h]
         latest = max(last_dates)
         start_date = datetime.strptime(latest, '%Y-%m-%d') - timedelta(days=5)
         print(f"증분 모드: {start_date.strftime('%Y-%m-%d')}부터 다운로드")
+        download_kwargs["start"] = start_date.strftime("%Y-%m-%d")
+        download_kwargs["end"] = end_date.strftime("%Y-%m-%d")
+        print(f"Period: {start_date.strftime('%Y-%m-%d')} ~ {end_date.strftime('%Y-%m-%d')}")
     else:
-        start_date = end_date - timedelta(days=3 * 365 + 30)
+        print("전체 모드: Yahoo Finance에서 가능한 최대 기간을 다운로드합니다.")
+        download_kwargs["period"] = "max"
 
     print(f"Downloading data for {len(all_tickers)} tickers...")
-    print(f"Period: {start_date.strftime('%Y-%m-%d')} ~ {end_date.strftime('%Y-%m-%d')}")
 
     data = yf.download(
         all_tickers,
-        start=start_date.strftime("%Y-%m-%d"),
-        end=end_date.strftime("%Y-%m-%d"),
-        auto_adjust=True,
-        progress=True,
+        **download_kwargs,
     )
 
     if data.empty:
@@ -244,6 +322,8 @@ def main():
 
             history.append(entry)
 
+        trend_recompute_idx = 0
+
         # 기존 히스토리와 병합
         if pair["id"] in existing_history:
             old_hist = existing_history[pair["id"]]
@@ -252,9 +332,19 @@ def main():
             merged.extend(history)
             merged.sort(key=lambda e: e["date"])
             history = merged
+            if new_dates:
+                first_changed_date = min(new_dates)
+                changed_idx = next(
+                    (idx for idx, entry in enumerate(history) if entry["date"] >= first_changed_date),
+                    0,
+                )
+                trend_recompute_idx = max(0, changed_idx - (SMA_WINDOW - 1))
 
         if not history:
             continue
+
+        annotate_history_with_trends(history, trend_recompute_idx)
+        history = downsample_history(history)
 
         latest = history[-1]
         prev = history[-2] if len(history) >= 2 else latest
@@ -329,6 +419,9 @@ def main():
             "marketCap": 0,
             "ratio": round(sum(ratios) / len(ratios), 2),
         })
+
+    annotate_history_with_trends(avg_history)
+    avg_history = downsample_history(avg_history)
 
     if avg_history:
         latest_avg = avg_history[-1]
