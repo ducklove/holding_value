@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-03 06:02:20",
-  "generatedAt": "2026-04-03T06:02:20+09:00",
-  "snapshotTimestamp": 1775163740196,
+  "lastUpdated": "2026-04-03 06:32:43",
+  "generatedAt": "2026-04-03T06:32:43+09:00",
+  "snapshotTimestamp": 1775165563379,
   "session": {
-    "name": "us_night",
-    "date": "2026-04-02",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-04-03",
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
