@@ -1,20 +1,18 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-04 01:01:20",
-  "generatedAt": "2026-04-04T01:01:20+09:00",
-  "snapshotTimestamp": 1775232080797,
+  "lastUpdated": "2026-04-04 02:03:52",
+  "generatedAt": "2026-04-04T02:03:52+09:00",
+  "snapshotTimestamp": 1775235832389,
   "session": {
     "name": "us_night",
     "date": "2026-04-03",
     "label": "US night session"
   },
-  "isPartial": true,
-  "preservedPairIds": [
-    "youngpoong_koreazinc"
-  ],
+  "isPartial": false,
+  "preservedPairIds": [],
   "missingPairIds": [],
   "summary": {
     "pairCount": 22,
-    "preservedCount": 1,
+    "preservedCount": 0,
     "missingCount": 0,
     "averageRatio": 242.8
   },
@@ -25,7 +23,7 @@ const CURRENT_DATA = {
       "holdingValue": 77252.8,
       "marketCap": 10170.6,
       "ratio": 759.57,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1468000.0
     },
     {
@@ -58,22 +56,22 @@ const CURRENT_DATA = {
     {
       "id": "chokwang_brk",
       "holdingPrice": 65600.0,
-      "holdingValue": 4330.4,
+      "holdingValue": 4331.4,
       "marketCap": 2330.7,
-      "ratio": 185.8,
+      "ratio": 185.84,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1081720462.0,
-          "value": 3093.7,
-          "ratio": 132.74
+          "price": 1081985490.0,
+          "value": 3094.5,
+          "ratio": 132.77
         },
         {
           "name": "애플",
-          "price": 386478.0,
-          "value": 1236.7,
-          "ratio": 53.06
+          "price": 386572.0,
+          "value": 1237.0,
+          "ratio": 53.07
         }
       ]
     },
