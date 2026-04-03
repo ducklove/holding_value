@@ -1,20 +1,22 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-04 00:09:11",
-  "generatedAt": "2026-04-04T00:09:11+09:00",
-  "snapshotTimestamp": 1775228951616,
+  "lastUpdated": "2026-04-04 01:01:20",
+  "generatedAt": "2026-04-04T01:01:20+09:00",
+  "snapshotTimestamp": 1775232080797,
   "session": {
     "name": "us_night",
     "date": "2026-04-03",
     "label": "US night session"
   },
-  "isPartial": false,
-  "preservedPairIds": [],
+  "isPartial": true,
+  "preservedPairIds": [
+    "youngpoong_koreazinc"
+  ],
   "missingPairIds": [],
   "summary": {
     "pairCount": 22,
-    "preservedCount": 0,
+    "preservedCount": 1,
     "missingCount": 0,
-    "averageRatio": 242.4
+    "averageRatio": 242.8
   },
   "pairs": [
     {
@@ -23,7 +25,7 @@ const CURRENT_DATA = {
       "holdingValue": 77252.8,
       "marketCap": 10170.6,
       "ratio": 759.57,
-      "quoteSource": "yfinance",
+      "quoteSource": "cached_same_session",
       "subsidiaryPrice": 1468000.0
     },
     {
@@ -56,42 +58,42 @@ const CURRENT_DATA = {
     {
       "id": "chokwang_brk",
       "holdingPrice": 65600.0,
-      "holdingValue": 4331.4,
+      "holdingValue": 4330.4,
       "marketCap": 2330.7,
-      "ratio": 185.84,
+      "ratio": 185.8,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1081985490.0,
-          "value": 3094.5,
-          "ratio": 132.77
+          "price": 1081720462.0,
+          "value": 3093.7,
+          "ratio": 132.74
         },
         {
           "name": "애플",
-          "price": 386572.0,
-          "value": 1237.0,
-          "ratio": 53.07
+          "price": 386478.0,
+          "value": 1236.7,
+          "ratio": 53.06
         }
       ]
     },
     {
       "id": "yoosung_seohee",
-      "holdingPrice": 3850.0,
+      "holdingPrice": 3845.0,
       "holdingValue": 1287.8,
-      "marketCap": 1285.9,
-      "ratio": 100.15,
+      "marketCap": 1284.2,
+      "ratio": 100.28,
       "quoteSource": "yfinance",
       "subsidiaryPrice": 1623.0
     },
     {
       "id": "simmtech_holdings",
       "holdingPrice": 2365.0,
-      "holdingValue": 6092.8,
+      "holdingValue": 6167.5,
       "marketCap": 1249.4,
-      "ratio": 487.67,
+      "ratio": 493.64,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 48950.0
+      "subsidiaryPrice": 49550.0
     },
     {
       "id": "samsung_ct",
@@ -123,38 +125,38 @@ const CURRENT_DATA = {
     },
     {
       "id": "wonik",
-      "holdingPrice": 8900.0,
-      "holdingValue": 3960.5,
-      "marketCap": 1784.5,
-      "ratio": 221.95,
+      "holdingPrice": 8820.0,
+      "holdingValue": 3874.0,
+      "marketCap": 1768.4,
+      "ratio": 219.06,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 27450.0
+      "subsidiaryPrice": 26850.0
     },
     {
       "id": "wonik_holdings",
-      "holdingPrice": 27450.0,
-      "holdingValue": 21638.4,
-      "marketCap": 20967.1,
-      "ratio": 103.2,
+      "holdingPrice": 26850.0,
+      "holdingValue": 22269.7,
+      "marketCap": 20508.8,
+      "ratio": 108.59,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "원익IPS",
-          "price": 109300.0,
-          "value": 17650.4,
-          "ratio": 84.18
+          "price": 113500.0,
+          "value": 18328.6,
+          "ratio": 89.37
         },
         {
           "name": "원익QnC",
-          "price": 30400.0,
-          "value": 1678.2,
-          "ratio": 8.0
+          "price": 29550.0,
+          "value": 1631.3,
+          "ratio": 7.95
         },
         {
           "name": "원익머트리얼즈",
           "price": 40100.0,
           "value": 2309.8,
-          "ratio": 11.02
+          "ratio": 11.26
         }
       ]
     },
@@ -216,9 +218,9 @@ const CURRENT_DATA = {
     {
       "id": "hanwha",
       "holdingPrice": 110900.0,
-      "holdingValue": 264718.0,
+      "holdingValue": 264872.3,
       "marketCap": 80951.6,
-      "ratio": 327.01,
+      "ratio": 327.2,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
@@ -235,9 +237,9 @@ const CURRENT_DATA = {
         },
         {
           "name": "한화비전",
-          "price": 71800.0,
-          "value": 12307.6,
-          "ratio": 15.2
+          "price": 72700.0,
+          "value": 12461.9,
+          "ratio": 15.39
         }
       ]
     },
@@ -309,16 +311,16 @@ const CURRENT_DATA = {
     {
       "id": "harim_holdings",
       "holdingPrice": 13620.0,
-      "holdingValue": 18171.3,
+      "holdingValue": 18162.1,
       "marketCap": 13247.0,
-      "ratio": 137.17,
+      "ratio": 137.1,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "하림",
-          "price": 3200.0,
-          "value": 1949.7,
-          "ratio": 14.72
+          "price": 3185.0,
+          "value": 1940.6,
+          "ratio": 14.65
         },
         {
           "name": "선진",
@@ -413,7 +415,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 242.4,
+      "ratio": 242.8,
       "quoteSource": "derived"
     }
   ]
