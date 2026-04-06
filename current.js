@@ -1,22 +1,20 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-07 04:01:09",
-  "generatedAt": "2026-04-07T04:01:09+09:00",
-  "snapshotTimestamp": 1775502069017,
+  "lastUpdated": "2026-04-07 05:05:03",
+  "generatedAt": "2026-04-07T05:05:03+09:00",
+  "snapshotTimestamp": 1775505903816,
   "session": {
     "name": "us_night",
     "date": "2026-04-06",
     "label": "US night session"
   },
-  "isPartial": true,
-  "preservedPairIds": [
-    "lg_chem_ensol"
-  ],
+  "isPartial": false,
+  "preservedPairIds": [],
   "missingPairIds": [],
   "summary": {
     "pairCount": 22,
-    "preservedCount": 1,
+    "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 242.51
+    "averageRatio": 242.43
   },
   "pairs": [
     {
@@ -58,22 +56,22 @@ const CURRENT_DATA = {
     {
       "id": "chokwang_brk",
       "holdingPrice": 66400.0,
-      "holdingValue": 4336.0,
+      "holdingValue": 4344.9,
       "marketCap": 2359.1,
-      "ratio": 183.8,
+      "ratio": 184.18,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1078571516.0,
-          "value": 3084.7,
-          "ratio": 130.76
+          "price": 1082464310.0,
+          "value": 3095.8,
+          "ratio": 131.23
         },
         {
           "name": "애플",
-          "price": 391060.0,
-          "value": 1251.3,
-          "ratio": 53.04
+          "price": 390366.0,
+          "value": 1249.1,
+          "ratio": 52.95
         }
       ]
     },
@@ -199,12 +197,12 @@ const CURRENT_DATA = {
     },
     {
       "id": "lg_chem_ensol",
-      "holdingPrice": 304500.0,
-      "holdingValue": 763124.2,
-      "marketCap": 208863.7,
-      "ratio": 365.37,
-      "quoteSource": "cached_same_session",
-      "subsidiaryPrice": 398500.0
+      "holdingPrice": 317000.0,
+      "holdingValue": 789934.1,
+      "marketCap": 217437.7,
+      "ratio": 363.29,
+      "quoteSource": "yfinance",
+      "subsidiaryPrice": 412500.0
     },
     {
       "id": "sebang_battery",
@@ -415,7 +413,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 242.51,
+      "ratio": 242.43,
       "quoteSource": "derived"
     }
   ]
