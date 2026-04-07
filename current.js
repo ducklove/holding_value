@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-07 23:53:06",
-  "generatedAt": "2026-04-07T23:53:06+09:00",
-  "snapshotTimestamp": 1775573586837,
+  "lastUpdated": "2026-04-08 01:10:34",
+  "generatedAt": "2026-04-08T01:10:34+09:00",
+  "snapshotTimestamp": 1775578234699,
   "session": {
     "name": "us_night",
     "date": "2026-04-07",
@@ -14,64 +14,64 @@ const CURRENT_DATA = {
     "pairCount": 22,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 242.61
+    "averageRatio": 243.86
   },
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 57700.0,
-      "holdingValue": 77515.9,
-      "marketCap": 10313.6,
-      "ratio": 751.59,
+      "holdingPrice": 59000.0,
+      "holdingValue": 77936.9,
+      "marketCap": 10545.9,
+      "ratio": 739.02,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 1473000.0
+      "subsidiaryPrice": 1481000.0
     },
     {
       "id": "poongsan_holdings",
-      "holdingPrice": 54800.0,
-      "holdingValue": 10873.6,
-      "marketCap": 7523.4,
-      "ratio": 144.53,
+      "holdingPrice": 47250.0,
+      "holdingValue": 11640.5,
+      "marketCap": 6486.9,
+      "ratio": 179.45,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 102100.0
+      "subsidiaryPrice": 109300.0
     },
     {
       "id": "seah_holdings",
-      "holdingPrice": 156200.0,
-      "holdingValue": 14631.7,
-      "marketCap": 6574.2,
-      "ratio": 222.56,
+      "holdingPrice": 156600.0,
+      "holdingValue": 14609.5,
+      "marketCap": 6591.1,
+      "ratio": 221.66,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 66100.0
+      "subsidiaryPrice": 66000.0
     },
     {
       "id": "hyosung_heavy",
-      "holdingPrice": 141000.0,
-      "holdingValue": 79022.6,
-      "marketCap": 23571.8,
-      "ratio": 335.24,
+      "holdingPrice": 138100.0,
+      "holdingValue": 79718.9,
+      "marketCap": 23087.0,
+      "ratio": 345.3,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 2610000.0
+      "subsidiaryPrice": 2633000.0
     },
     {
       "id": "chokwang_brk",
-      "holdingPrice": 65900.0,
-      "holdingValue": 4272.5,
-      "marketCap": 2341.4,
-      "ratio": 182.48,
+      "holdingPrice": 66400.0,
+      "holdingValue": 4268.9,
+      "marketCap": 2359.1,
+      "ratio": 180.95,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1079337923.0,
-          "value": 3086.9,
-          "ratio": 131.84
+          "price": 1074431073.0,
+          "value": 3072.9,
+          "ratio": 130.25
         },
         {
           "name": "애플",
-          "price": 370513.0,
-          "value": 1185.6,
-          "ratio": 50.64
+          "price": 373764.0,
+          "value": 1196.0,
+          "ratio": 50.7
         }
       ]
     },
@@ -95,29 +95,29 @@ const CURRENT_DATA = {
     },
     {
       "id": "samsung_ct",
-      "holdingPrice": 274000.0,
-      "holdingValue": 1159579.9,
-      "marketCap": 442761.2,
-      "ratio": 261.9,
+      "holdingPrice": 269500.0,
+      "holdingValue": 1141458.7,
+      "marketCap": 435489.6,
+      "ratio": 262.11,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
-          "price": 1586000.0,
-          "value": 486006.4,
-          "ratio": 109.77
+          "price": 1555000.0,
+          "value": 476507.0,
+          "ratio": 109.42
         },
         {
           "name": "삼성전자",
-          "price": 196500.0,
-          "value": 587703.8,
-          "ratio": 132.74
+          "price": 193100.0,
+          "value": 577534.9,
+          "ratio": 132.62
         },
         {
           "name": "삼성생명",
-          "price": 222000.0,
-          "value": 85869.6,
-          "ratio": 19.39
+          "price": 226000.0,
+          "value": 87416.8,
+          "ratio": 20.07
         }
       ]
     },
@@ -160,158 +160,158 @@ const CURRENT_DATA = {
     },
     {
       "id": "snt_holdings",
-      "holdingPrice": 57700.0,
-      "holdingValue": 8666.1,
-      "marketCap": 6808.6,
-      "ratio": 127.28,
+      "holdingPrice": 58600.0,
+      "holdingValue": 9138.6,
+      "marketCap": 6914.8,
+      "ratio": 132.16,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
-          "price": 49100.0,
-          "value": 4939.5,
-          "ratio": 72.55
+          "price": 52000.0,
+          "value": 5231.2,
+          "ratio": 75.65
         },
         {
           "name": "SNT모티브",
-          "price": 33150.0,
-          "value": 1698.6,
-          "ratio": 24.95
+          "price": 33400.0,
+          "value": 1711.4,
+          "ratio": 24.75
         },
         {
           "name": "SNT에너지",
-          "price": 50700.0,
-          "value": 2028.0,
-          "ratio": 29.79
+          "price": 54900.0,
+          "value": 2196.0,
+          "ratio": 31.76
         }
       ]
     },
     {
       "id": "samsung_life",
-      "holdingPrice": 222000.0,
-      "holdingValue": 998529.5,
-      "marketCap": 444000.0,
-      "ratio": 224.89,
+      "holdingPrice": 226000.0,
+      "holdingValue": 981252.2,
+      "marketCap": 452000.0,
+      "ratio": 217.09,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 196500.0
+      "subsidiaryPrice": 193100.0
     },
     {
       "id": "lg_chem_ensol",
-      "holdingPrice": 323500.0,
-      "holdingValue": 782274.1,
-      "marketCap": 221896.2,
-      "ratio": 352.54,
+      "holdingPrice": 317000.0,
+      "holdingValue": 789934.1,
+      "marketCap": 217437.7,
+      "ratio": 363.29,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 408500.0
+      "subsidiaryPrice": 412500.0
     },
     {
       "id": "sebang_battery",
-      "holdingPrice": 14900.0,
-      "holdingValue": 3319.3,
-      "marketCap": 1945.9,
-      "ratio": 170.57,
+      "holdingPrice": 14800.0,
+      "holdingValue": 3330.4,
+      "marketCap": 1932.9,
+      "ratio": 172.3,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 59600.0
+      "subsidiaryPrice": 59800.0
     },
     {
       "id": "hanwha",
-      "holdingPrice": 115500.0,
-      "holdingValue": 284482.9,
-      "marketCap": 84309.4,
-      "ratio": 337.43,
+      "holdingPrice": 115100.0,
+      "holdingValue": 270477.1,
+      "marketCap": 84017.4,
+      "ratio": 321.93,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
-          "price": 1537000.0,
-          "value": 255036.0,
-          "ratio": 302.5
+          "price": 1450000.0,
+          "value": 240600.0,
+          "ratio": 286.37
         },
         {
           "name": "한화생명보험",
-          "price": 4400.0,
-          "value": 17207.9,
-          "ratio": 20.41
+          "price": 4510.0,
+          "value": 17638.1,
+          "ratio": 20.99
         },
         {
           "name": "한화비전",
           "price": 71400.0,
           "value": 12239.1,
-          "ratio": 14.52
+          "ratio": 14.57
         }
       ]
     },
     {
       "id": "sk_inc",
-      "holdingPrice": 312500.0,
-      "holdingValue": 420348.5,
-      "marketCap": 170381.3,
-      "ratio": 246.71,
+      "holdingPrice": 314000.0,
+      "holdingValue": 416049.9,
+      "marketCap": 171199.1,
+      "ratio": 243.02,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
-          "price": 121800.0,
-          "value": 107248.3,
-          "ratio": 62.95
+          "price": 123200.0,
+          "value": 108481.0,
+          "ratio": 63.37
         },
         {
           "name": "SK텔레콤",
-          "price": 81600.0,
-          "value": 53585.4,
-          "ratio": 31.45
+          "price": 80400.0,
+          "value": 52797.4,
+          "ratio": 30.84
         },
         {
           "name": "SK스퀘어",
-          "price": 499000.0,
-          "value": 211836.5,
-          "ratio": 124.33
+          "price": 487000.0,
+          "value": 206742.2,
+          "ratio": 120.76
         },
         {
           "name": "SK바이오팜",
-          "price": 95100.0,
-          "value": 47678.3,
-          "ratio": 27.98
+          "price": 95800.0,
+          "value": 48029.3,
+          "ratio": 28.05
         }
       ]
     },
     {
       "id": "sk_discovery",
-      "holdingPrice": 51600.0,
-      "holdingValue": 21922.3,
-      "marketCap": 8831.5,
-      "ratio": 248.23,
+      "holdingPrice": 51200.0,
+      "holdingValue": 22079.5,
+      "marketCap": 8763.1,
+      "ratio": 251.96,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SK가스",
-          "price": 258000.0,
-          "value": 18632.4,
-          "ratio": 210.98
+          "price": 260000.0,
+          "value": 18776.8,
+          "ratio": 214.27
         },
         {
           "name": "SK케미칼",
-          "price": 51400.0,
-          "value": 3289.9,
-          "ratio": 37.25
+          "price": 51600.0,
+          "value": 3302.7,
+          "ratio": 37.69
         }
       ]
     },
     {
       "id": "sk_square",
-      "holdingPrice": 499000.0,
-      "holdingValue": 1337811.4,
-      "marketCap": 657139.8,
-      "ratio": 203.58,
+      "holdingPrice": 487000.0,
+      "holdingValue": 1293996.6,
+      "marketCap": 641336.8,
+      "ratio": 201.77,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 916000.0
+      "subsidiaryPrice": 886000.0
     },
     {
       "id": "harim_holdings",
       "holdingPrice": 13220.0,
-      "holdingValue": 18829.5,
+      "holdingValue": 19163.7,
       "marketCap": 12857.9,
-      "ratio": 146.44,
+      "ratio": 149.04,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
@@ -322,98 +322,98 @@ const CURRENT_DATA = {
         },
         {
           "name": "선진",
-          "price": 9900.0,
-          "value": 1177.1,
-          "ratio": 9.15
+          "price": 9950.0,
+          "value": 1183.1,
+          "ratio": 9.2
         },
         {
           "name": "팜스코",
-          "price": 3250.0,
-          "value": 672.5,
-          "ratio": 5.23
+          "price": 3140.0,
+          "value": 649.7,
+          "ratio": 5.05
         },
         {
           "name": "팬오션",
-          "price": 5140.0,
-          "value": 15036.2,
-          "ratio": 116.94
+          "price": 5260.0,
+          "value": 15387.2,
+          "ratio": 119.67
         }
       ]
     },
     {
       "id": "lg_corp",
-      "holdingPrice": 87600.0,
-      "holdingValue": 179974.1,
-      "marketCap": 132444.2,
-      "ratio": 135.89,
+      "holdingPrice": 88400.0,
+      "holdingValue": 179407.1,
+      "marketCap": 133653.7,
+      "ratio": 134.23,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "LG전자",
-          "price": 107100.0,
-          "value": 61510.8,
-          "ratio": 46.44
+          "price": 109400.0,
+          "value": 62831.7,
+          "ratio": 47.01
         },
         {
           "name": "LG화학",
-          "price": 323500.0,
-          "value": 79808.5,
-          "ratio": 60.26
+          "price": 317000.0,
+          "value": 78204.9,
+          "ratio": 58.51
         },
         {
           "name": "LG유플러스",
-          "price": 15880.0,
-          "value": 26110.3,
-          "ratio": 19.71
+          "price": 15610.0,
+          "value": 25666.3,
+          "ratio": 19.2
         },
         {
           "name": "LG생활건강",
-          "price": 236000.0,
-          "value": 12544.6,
-          "ratio": 9.47
+          "price": 239000.0,
+          "value": 12704.0,
+          "ratio": 9.51
         }
       ]
     },
     {
       "id": "lx_holdings",
-      "holdingPrice": 8000.0,
-      "holdingValue": 8930.7,
-      "marketCap": 6098.8,
-      "ratio": 146.43,
+      "holdingPrice": 8020.0,
+      "holdingValue": 9134.7,
+      "marketCap": 6114.0,
+      "ratio": 149.41,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
-          "price": 50600.0,
-          "value": 5458.4,
-          "ratio": 89.5
+          "price": 52200.0,
+          "value": 5631.0,
+          "ratio": 92.1
         },
         {
           "name": "LX세미콘",
-          "price": 49000.0,
-          "value": 2636.5,
-          "ratio": 43.23
+          "price": 49500.0,
+          "value": 2663.4,
+          "ratio": 43.56
         },
         {
           "name": "LX하우시스",
-          "price": 27800.0,
-          "value": 835.9,
-          "ratio": 13.71
+          "price": 27950.0,
+          "value": 840.4,
+          "ratio": 13.74
         }
       ]
     },
     {
       "id": "amore",
-      "holdingPrice": 26650.0,
-      "holdingValue": 30343.9,
-      "marketCap": 23918.7,
-      "ratio": 126.86,
+      "holdingPrice": 27150.0,
+      "holdingValue": 31175.6,
+      "marketCap": 24367.5,
+      "ratio": 127.94,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 127700.0
+      "subsidiaryPrice": 131200.0
     },
     {
       "id": "_average",
-      "ratio": 242.61,
+      "ratio": 243.86,
       "quoteSource": "derived"
     }
   ]
