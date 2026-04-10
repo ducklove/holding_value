@@ -1,22 +1,20 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-11 05:38:14",
-  "generatedAt": "2026-04-11T05:38:14+09:00",
-  "snapshotTimestamp": 1775853494785,
+  "lastUpdated": "2026-04-11 06:32:37",
+  "generatedAt": "2026-04-11T06:32:37+09:00",
+  "snapshotTimestamp": 1775856757703,
   "session": {
-    "name": "us_night",
-    "date": "2026-04-10",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-04-11",
+    "label": "Off hours"
   },
-  "isPartial": true,
-  "preservedPairIds": [
-    "simmtech_holdings"
-  ],
+  "isPartial": false,
+  "preservedPairIds": [],
   "missingPairIds": [],
   "summary": {
     "pairCount": 22,
-    "preservedCount": 1,
+    "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 239.05
+    "averageRatio": 239.06
   },
   "pairs": [
     {
@@ -67,24 +65,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 67700.0,
       "holdingChange": 1.35,
-      "holdingValue": 4290.2,
+      "holdingValue": 4296.8,
       "marketCap": 2405.3,
-      "ratio": 178.36,
+      "ratio": 178.64,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1067836432.0,
-          "change": -0.71,
-          "value": 3054.0,
-          "ratio": 126.97
+          "price": 1069499681.0,
+          "change": -0.56,
+          "value": 3058.8,
+          "ratio": 127.17
         },
         {
           "name": "애플",
-          "price": 386318.0,
-          "change": 0.37,
-          "value": 1236.1,
-          "ratio": 51.39
+          "price": 386920.0,
+          "change": 0.52,
+          "value": 1238.1,
+          "ratio": 51.47
         }
       ]
     },
@@ -106,7 +104,7 @@ const CURRENT_DATA = {
       "holdingValue": 8476.4,
       "marketCap": 1563.7,
       "ratio": 542.07,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 68100.0,
       "subsidiaryChange": -0.44
     },
@@ -480,7 +478,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 239.05,
+      "ratio": 239.06,
       "quoteSource": "derived"
     }
   ]
