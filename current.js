@@ -1,20 +1,22 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-11 04:44:33",
-  "generatedAt": "2026-04-11T04:44:33+09:00",
-  "snapshotTimestamp": 1775850273526,
+  "lastUpdated": "2026-04-11 05:38:14",
+  "generatedAt": "2026-04-11T05:38:14+09:00",
+  "snapshotTimestamp": 1775853494785,
   "session": {
     "name": "us_night",
     "date": "2026-04-10",
     "label": "US night session"
   },
-  "isPartial": false,
-  "preservedPairIds": [],
+  "isPartial": true,
+  "preservedPairIds": [
+    "simmtech_holdings"
+  ],
   "missingPairIds": [],
   "summary": {
     "pairCount": 22,
-    "preservedCount": 0,
+    "preservedCount": 1,
     "missingCount": 0,
-    "averageRatio": 239.04
+    "averageRatio": 239.05
   },
   "pairs": [
     {
@@ -65,24 +67,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 67700.0,
       "holdingChange": 1.35,
-      "holdingValue": 4284.9,
+      "holdingValue": 4290.2,
       "marketCap": 2405.3,
-      "ratio": 178.14,
+      "ratio": 178.36,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1067317888.0,
-          "change": -0.76,
-          "value": 3052.5,
-          "ratio": 126.91
+          "price": 1067836432.0,
+          "change": -0.71,
+          "value": 3054.0,
+          "ratio": 126.97
         },
         {
           "name": "애플",
-          "price": 385145.0,
-          "change": 0.06,
-          "value": 1232.4,
-          "ratio": 51.24
+          "price": 386318.0,
+          "change": 0.37,
+          "value": 1236.1,
+          "ratio": 51.39
         }
       ]
     },
@@ -104,7 +106,7 @@ const CURRENT_DATA = {
       "holdingValue": 8476.4,
       "marketCap": 1563.7,
       "ratio": 542.07,
-      "quoteSource": "yfinance",
+      "quoteSource": "cached_same_session",
       "subsidiaryPrice": 68100.0,
       "subsidiaryChange": -0.44
     },
@@ -478,7 +480,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 239.04,
+      "ratio": 239.05,
       "quoteSource": "derived"
     }
   ]
