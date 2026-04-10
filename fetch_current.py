@@ -90,12 +90,35 @@ def build_previous_pair_map(previous_snapshot, current_session):
     }
 
 
-def build_pair_entry(pair, prices, fx_rate):
+def calculate_pct_change(current_price, previous_price):
+    if current_price is None or previous_price in (None, 0):
+        return None
+    return round((current_price - previous_price) / previous_price * 100, 2)
+
+
+def build_price_maps(close, tickers):
+    prices = {}
+    previous_prices = {}
+
+    for ticker in tickers:
+        if ticker not in close.columns:
+            continue
+        series = close[ticker].dropna()
+        if len(series) > 0:
+            prices[ticker] = float(series.iloc[-1])
+        if len(series) > 1:
+            previous_prices[ticker] = float(series.iloc[-2])
+
+    return prices, previous_prices
+
+
+def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
     holding_ticker = pair["holdingTicker"]
     if holding_ticker not in prices:
         return None
 
     holding_price = prices[holding_ticker]
+    previous_holding_price = previous_prices.get(holding_ticker)
     total_shares = pair["holdingTotalShares"]
     treasury_shares = pair["holdingTreasuryShares"]
     adjusted_shares = total_shares - treasury_shares
@@ -109,10 +132,15 @@ def build_pair_entry(pair, prices, fx_rate):
             return None
 
         sub_price = prices[sub_ticker]
+        previous_sub_price = previous_prices.get(sub_ticker)
         if not is_korean(sub_ticker):
             if fx_rate is None:
                 return None
             sub_price *= fx_rate
+            if previous_sub_price is None or previous_fx_rate is None:
+                previous_sub_price = None
+            else:
+                previous_sub_price *= previous_fx_rate
 
         sub_value = sub["sharesHeld"] * sub_price
         holding_value += sub_value
@@ -120,6 +148,7 @@ def build_pair_entry(pair, prices, fx_rate):
             {
                 "name": sub["name"],
                 "price": round(sub_price, 0),
+                "change": calculate_pct_change(sub_price, previous_sub_price),
                 "value": round(sub_value / 1e8, 1),
                 "rawValue": sub_value,
             }
@@ -135,6 +164,7 @@ def build_pair_entry(pair, prices, fx_rate):
     entry = {
         "id": pair["id"],
         "holdingPrice": round(holding_price, 0),
+        "holdingChange": calculate_pct_change(holding_price, previous_holding_price),
         "holdingValue": round(holding_value / 1e8, 1),
         "marketCap": round(market_cap / 1e8, 1),
         "ratio": round(ratio, 2),
@@ -143,6 +173,7 @@ def build_pair_entry(pair, prices, fx_rate):
 
     if len(sub_details) == 1:
         entry["subsidiaryPrice"] = sub_details[0]["price"]
+        entry["subsidiaryChange"] = sub_details[0]["change"]
     else:
         entry["subsidiaries"] = sub_details
 
@@ -193,21 +224,15 @@ def main():
     if getattr(close, "ndim", 1) == 1:
         close = close.to_frame(name=all_tickers[0])
 
-    prices = {}
-    for ticker in all_tickers:
-        if ticker not in close.columns:
-            continue
-        series = close[ticker].dropna()
-        if len(series) > 0:
-            prices[ticker] = float(series.iloc[-1])
-
+    prices, previous_prices = build_price_maps(close, all_tickers)
     fx_rate = prices.get("USDKRW=X")
+    previous_fx_rate = previous_prices.get("USDKRW=X")
     pairs_result = []
     preserved_pair_ids = []
     missing_pair_ids = []
 
     for pair in PAIRS:
-        entry = build_pair_entry(pair, prices, fx_rate)
+        entry = build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate)
         if entry is None:
             previous_entry = previous_pairs.get(pair["id"])
             if previous_entry is not None:

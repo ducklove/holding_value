@@ -75,6 +75,12 @@ def parse_date_key(date_str):
     return datetime.strptime(date_str, "%Y-%m-%d").date()
 
 
+def calculate_pct_change(current_price, previous_price):
+    if current_price is None or previous_price in (None, 0):
+        return None
+    return round((current_price - previous_price) / previous_price * 100, 2)
+
+
 def annotate_history_with_trends(history, start_idx=0):
     if not history:
         return history
@@ -349,9 +355,11 @@ def main():
         latest = history[-1]
         prev = history[-2] if len(history) >= 2 else latest
         ratio_change = round(latest["ratio"] - prev["ratio"], 2)
+        holding_change = calculate_pct_change(latest["holdingPrice"], prev["holdingPrice"])
 
         current = {
             "holdingPrice": latest["holdingPrice"],
+            "holdingChange": holding_change,
             "subsidiaryPrice": latest.get("subsidiaryPrice", 0),
             "holdingValue": latest["holdingValue"],
             "marketCap": latest["marketCap"],
@@ -359,21 +367,24 @@ def main():
             "ratioChange": ratio_change,
         }
 
+        if len(subs) == 1:
+            current["subsidiaryChange"] = calculate_pct_change(
+                latest.get("subsidiaryPrice"),
+                prev.get("subsidiaryPrice"),
+            )
+
         # 다중 자회사 상세 정보
         if len(subs) > 1:
+            prev_sub_map = {sub["name"]: sub for sub in prev.get("subsidiaries", [])}
             current_subs = []
-            last_date = common_dates[-1]
-            for sub in subs:
-                st = sub["ticker"]
-                sp = float(sub_series[st].loc[last_date])
-                if not is_korean(st) and fx_rate is not None:
-                    sp *= float(fx_rate.loc[last_date])
-                sv = round(sub["sharesHeld"] * sp / 1e8, 1)
+            for sub in latest.get("subsidiaries", []):
+                previous_sub = prev_sub_map.get(sub["name"], {})
                 current_subs.append({
                     "name": sub["name"],
-                    "price": round(sp, 0),
-                    "value": sv,
-                    "ratio": round(float(sub_ratio_series[st].loc[last_date]), 2),
+                    "price": sub["price"],
+                    "change": calculate_pct_change(sub["price"], previous_sub.get("price")),
+                    "value": sub["value"],
+                    "ratio": sub["ratio"],
                 })
             current["subsidiaries"] = current_subs
 

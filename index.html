@@ -345,6 +345,12 @@ tr:last-child td { border-bottom: none; }
 tr:hover { background: var(--surface2); }
 .up-color { color: var(--up); }
 .down-color { color: var(--down); }
+.flat-color { color: var(--text-dim); }
+.price-change {
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
 
 /* Bar in table */
 .bar-cell {
@@ -522,10 +528,16 @@ tr:hover { background: var(--surface2); }
       pair.current.ratioChange = lastHist ? +(live.ratio - lastHist.ratio).toFixed(2) : 0;
       if (!pair.isAverage) {
         pair.current.holdingPrice = live.holdingPrice;
+        if (live.holdingChange !== undefined) {
+          pair.current.holdingChange = live.holdingChange;
+        }
         pair.current.holdingValue = live.holdingValue;
         pair.current.marketCap = live.marketCap;
         if (live.subsidiaryPrice !== undefined) {
           pair.current.subsidiaryPrice = live.subsidiaryPrice;
+        }
+        if (live.subsidiaryChange !== undefined) {
+          pair.current.subsidiaryChange = live.subsidiaryChange;
         }
         if (live.subsidiaries) {
           pair.current.subsidiaries = live.subsidiaries;
@@ -678,6 +690,35 @@ tr:hover { background: var(--surface2); }
     return a.name.localeCompare(b.name, 'ko');
   }
 
+  function getPriceChangeClass(change) {
+    if (typeof change !== 'number' || !Number.isFinite(change)) return 'flat-color';
+    if (change > 0) return 'up-color';
+    if (change < 0) return 'down-color';
+    return 'flat-color';
+  }
+
+  function formatPriceChange(change) {
+    if (typeof change !== 'number' || !Number.isFinite(change)) return '';
+    const normalized = Math.abs(change) < 0.005 ? 0 : change;
+    const sign = normalized > 0 ? '+' : '';
+    return sign + normalized.toFixed(2) + '%';
+  }
+
+  function renderPriceLine(label, price, change, suffix) {
+    const changeText = formatPriceChange(change);
+    const changeHtml = changeText
+      ? ` <span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`
+      : '';
+    const suffixText = suffix ? ` ${suffix}` : '';
+    return `<span>${label} ${formatPrice(price)}${changeHtml}${suffixText}</span>`;
+  }
+
+  function renderPriceCell(price, change) {
+    const changeText = formatPriceChange(change);
+    if (!changeText) return formatPrice(price);
+    return `${formatPrice(price)} <span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`;
+  }
+
   // --- Cards ---
   function renderCards() {
     const el = document.getElementById('cards');
@@ -689,12 +730,12 @@ tr:hover { background: var(--surface2); }
       if (!p.isAverage) {
         let subLines = '';
         if (c.subsidiaries) {
-          subLines = c.subsidiaries.map(s => `<span>${s.name} ${formatPrice(s.price)} (${formatOk(s.value)})</span>`).join('');
+          subLines = c.subsidiaries.map(s => renderPriceLine(s.name, s.price, s.change, `(${formatOk(s.value)})`)).join('');
         } else {
-          subLines = `<span>${p.subsidiaryName} ${formatPrice(c.subsidiaryPrice)}</span>`;
+          subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange);
         }
         prices = `<div class="prices">
-          <span>${p.holdingName} ${formatPrice(c.holdingPrice)}</span>
+          ${renderPriceLine(p.holdingName, c.holdingPrice, c.holdingChange)}
           ${subLines}
         </div>
         <div class="amounts">
@@ -738,11 +779,11 @@ tr:hover { background: var(--surface2); }
         </tr>`;
       }
       const subPrice = c.subsidiaries
-        ? c.subsidiaries.map(s => `${s.name} ${formatPrice(s.price)}`).join('<br>')
-        : formatPrice(c.subsidiaryPrice);
+        ? c.subsidiaries.map(s => `${s.name} ${renderPriceCell(s.price, s.change)}`).join('<br>')
+        : renderPriceCell(c.subsidiaryPrice, c.subsidiaryChange);
       return `<tr>
         <td><strong>${p.name}</strong></td>
-        <td>${formatPrice(c.holdingPrice)}</td>
+        <td>${renderPriceCell(c.holdingPrice, c.holdingChange)}</td>
         <td>${subPrice}</td>
         <td>${formatOk(c.holdingValue)}</td>
         <td>${formatOk(c.marketCap)}</td>
