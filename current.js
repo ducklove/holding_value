@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-11 03:54:53",
-  "generatedAt": "2026-04-11T03:54:53+09:00",
-  "snapshotTimestamp": 1775847293635,
+  "lastUpdated": "2026-04-11 04:44:33",
+  "generatedAt": "2026-04-11T04:44:33+09:00",
+  "snapshotTimestamp": 1775850273526,
   "session": {
     "name": "us_night",
     "date": "2026-04-10",
@@ -65,24 +65,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 67700.0,
       "holdingChange": 1.35,
-      "holdingValue": 4286.6,
+      "holdingValue": 4284.9,
       "marketCap": 2405.3,
-      "ratio": 178.21,
+      "ratio": 178.14,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1067716758.0,
-          "change": -0.73,
-          "value": 3053.7,
-          "ratio": 126.95
+          "price": 1067317888.0,
+          "change": -0.76,
+          "value": 3052.5,
+          "ratio": 126.91
         },
         {
           "name": "애플",
-          "price": 385312.0,
-          "change": 0.11,
-          "value": 1232.9,
-          "ratio": 51.26
+          "price": 385145.0,
+          "change": 0.06,
+          "value": 1232.4,
+          "ratio": 51.24
         }
       ]
     },
