@@ -1,22 +1,20 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-14 17:10:03",
-  "generatedAt": "2026-04-14T17:10:03+09:00",
-  "snapshotTimestamp": 1776154203001,
+  "lastUpdated": "2026-04-14 22:27:24",
+  "generatedAt": "2026-04-14T22:27:24+09:00",
+  "snapshotTimestamp": 1776173244285,
   "session": {
-    "name": "offhours",
+    "name": "us_night",
     "date": "2026-04-14",
-    "label": "Off hours"
+    "label": "US night session"
   },
-  "isPartial": true,
+  "isPartial": false,
   "preservedPairIds": [],
-  "missingPairIds": [
-    "sk_discovery"
-  ],
+  "missingPairIds": [],
   "summary": {
-    "pairCount": 21,
+    "pairCount": 22,
     "preservedCount": 0,
-    "missingCount": 1,
-    "averageRatio": 240.73
+    "missingCount": 0,
+    "averageRatio": 238.67
   },
   "pairs": [
     {
@@ -67,24 +65,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 67500.0,
       "holdingChange": 0.6,
-      "holdingValue": 4269.0,
+      "holdingValue": 4252.5,
       "marketCap": 2398.2,
-      "ratio": 178.01,
+      "ratio": 177.32,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1064389206.0,
-          "change": -0.26,
-          "value": 3044.2,
-          "ratio": 126.93
+          "price": 1060280878.0,
+          "change": -0.65,
+          "value": 3032.4,
+          "ratio": 126.44
         },
         {
           "name": "애플",
-          "price": 382781.0,
-          "change": -0.85,
-          "value": 1224.8,
-          "ratio": 51.07
+          "price": 381304.0,
+          "change": -1.24,
+          "value": 1220.1,
+          "ratio": 50.88
         }
       ]
     },
@@ -322,6 +320,31 @@ const CURRENT_DATA = {
       ]
     },
     {
+      "id": "sk_discovery",
+      "holdingPrice": 62700.0,
+      "holdingChange": 4.33,
+      "holdingValue": 21046.6,
+      "marketCap": 10731.3,
+      "ratio": 196.12,
+      "quoteSource": "yfinance",
+      "subsidiaries": [
+        {
+          "name": "SK가스",
+          "price": 241000.0,
+          "change": -1.03,
+          "value": 17404.6,
+          "ratio": 162.19
+        },
+        {
+          "name": "SK케미칼",
+          "price": 56900.0,
+          "change": -0.52,
+          "value": 3641.9,
+          "ratio": 33.94
+        }
+      ]
+    },
+    {
       "id": "sk_square",
       "holdingPrice": 640000.0,
       "holdingChange": 10.34,
@@ -455,7 +478,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 240.73,
+      "ratio": 238.67,
       "quoteSource": "derived"
     }
   ]
