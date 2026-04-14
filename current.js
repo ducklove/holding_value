@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-15 01:40:39",
-  "generatedAt": "2026-04-15T01:40:39+09:00",
-  "snapshotTimestamp": 1776184839940,
+  "lastUpdated": "2026-04-15 03:05:37",
+  "generatedAt": "2026-04-15T03:05:37+09:00",
+  "snapshotTimestamp": 1776189937083,
   "session": {
     "name": "us_night",
     "date": "2026-04-14",
@@ -72,17 +72,17 @@ const CURRENT_DATA = {
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1053230851.0,
-          "change": -1.41,
-          "value": 3012.2,
-          "ratio": 126.35
+          "price": 1052428419.0,
+          "change": -1.48,
+          "value": 3009.9,
+          "ratio": 126.26
         },
         {
           "name": "애플",
-          "price": 380284.0,
-          "change": -1.01,
-          "value": 1216.8,
-          "ratio": 51.04
+          "price": 381007.0,
+          "change": -0.83,
+          "value": 1219.2,
+          "ratio": 51.14
         }
       ]
     },
