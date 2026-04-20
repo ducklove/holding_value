@@ -1,20 +1,22 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-04-20 14:14:02",
-  "generatedAt": "2026-04-20T14:14:02+09:00",
-  "snapshotTimestamp": 1776662042279,
+  "lastUpdated": "2026-04-20 16:24:49",
+  "generatedAt": "2026-04-20T16:24:49+09:00",
+  "snapshotTimestamp": 1776669889476,
   "session": {
-    "name": "kr_day",
+    "name": "offhours",
     "date": "2026-04-20",
-    "label": "KR day session"
+    "label": "Off hours"
   },
-  "isPartial": false,
+  "isPartial": true,
   "preservedPairIds": [],
-  "missingPairIds": [],
+  "missingPairIds": [
+    "snt_holdings"
+  ],
   "summary": {
-    "pairCount": 22,
+    "pairCount": 21,
     "preservedCount": 0,
-    "missingCount": 0,
-    "averageRatio": 237.38
+    "missingCount": 1,
+    "averageRatio": 242.72
   },
   "pairs": [
     {
@@ -65,24 +67,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 68900.0,
       "holdingChange": 0.73,
-      "holdingValue": 4275.0,
+      "holdingValue": 4281.1,
       "marketCap": 2448.0,
-      "ratio": 174.64,
+      "ratio": 174.89,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1049037223.0,
-          "change": -0.41,
-          "value": 3000.2,
-          "ratio": 122.56
+          "price": 1050531480.0,
+          "change": -0.26,
+          "value": 3004.5,
+          "ratio": 122.74
         },
         {
           "name": "애플",
-          "price": 398395.0,
-          "change": 2.34,
-          "value": 1274.8,
-          "ratio": 52.08
+          "price": 398962.0,
+          "change": 2.49,
+          "value": 1276.6,
+          "ratio": 52.15
         }
       ]
     },
@@ -180,38 +182,6 @@ const CURRENT_DATA = {
           "change": -1.15,
           "value": 2972.2,
           "ratio": 12.27
-        }
-      ]
-    },
-    {
-      "id": "snt_holdings",
-      "holdingPrice": 64000.0,
-      "holdingChange": -0.16,
-      "holdingValue": 9473.1,
-      "marketCap": 7552.0,
-      "ratio": 125.44,
-      "quoteSource": "yfinance",
-      "subsidiaries": [
-        {
-          "name": "SNT다이내믹스",
-          "price": 54900.0,
-          "change": -2.49,
-          "value": 5522.9,
-          "ratio": 73.13
-        },
-        {
-          "name": "SNT모티브",
-          "price": 34000.0,
-          "change": 0.44,
-          "value": 1742.2,
-          "ratio": 23.07
-        },
-        {
-          "name": "SNT에너지",
-          "price": 55200.0,
-          "change": 1.1,
-          "value": 2208.0,
-          "ratio": 29.24
         }
       ]
     },
@@ -478,7 +448,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 237.38,
+      "ratio": 242.72,
       "quoteSource": "derived"
     }
   ]
