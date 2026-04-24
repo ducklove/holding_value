@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>보유지분가치/시가총액 비율 대시보드</title>
 <script>
-document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
+try {
+  const theme = localStorage.getItem('theme') || 'light';
+  document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+} catch (e) {
+  document.documentElement.dataset.theme = 'light';
+}
 </script>
 <style>
 :root {
@@ -118,31 +123,26 @@ body {
   background: var(--surface2);
 }
 .theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
   background: var(--surface);
-}
-.theme-toggle button {
-  border: none;
-  background: transparent;
-  color: var(--text-dim);
-  padding: 7px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  transition: background 0.15s, color 0.15s;
-}
-.theme-toggle button:hover {
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: var(--text);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  min-height: 38px;
+  padding: 8px 14px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
-.theme-toggle button.active {
-  background: var(--accent);
-  color: #fff;
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface2);
+}
+.theme-toggle:focus-visible,
+.refresh-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .container {
@@ -402,10 +402,7 @@ tr:hover { background: var(--surface2); }
     </div>
     <div class="header-actions">
       <button type="button" class="refresh-btn" id="refreshBtn">새로고침</button>
-      <div class="theme-toggle" id="themeToggle">
-        <button type="button" data-theme="light">주간</button>
-        <button type="button" data-theme="dark">야간</button>
-      </div>
+      <button type="button" class="theme-toggle" id="themeToggle" title="테마 전환" aria-label="테마 전환">🌓</button>
     </div>
   </div>
 </div>
@@ -473,8 +470,10 @@ tr:hover { background: var(--surface2); }
 </div>
 
 <script src="data.js"></script>
-<script>var CURRENT_DATA = null;</script>
 <script src="current.js" onerror=""></script>
+<script>
+window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
+</script>
 <script>
 (function() {
   const pairs = STOCK_DATA.pairs;
@@ -1170,10 +1169,13 @@ tr:hover { background: var(--surface2); }
   function bindThemeToggle() {
     const toggle = document.getElementById('themeToggle');
     updateThemeButtons();
-    toggle.addEventListener('click', function(e) {
-      if (e.target.tagName !== 'BUTTON') return;
-      applyTheme(e.target.dataset.theme, true);
-    });
+    if (!toggle) return;
+    toggle.addEventListener('click', toggleTheme);
+  }
+
+  function toggleTheme() {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+    applyTheme(theme === 'dark' ? 'light' : 'dark', true);
   }
 
   function getFilteredPriceHistory(pair) {
@@ -1323,7 +1325,7 @@ tr:hover { background: var(--surface2); }
   }
 
   function loadTheme() {
-    return localStorage.getItem('theme') || 'dark';
+    return localStorage.getItem('theme') || 'light';
   }
 
   function applyTheme(theme, persist) {
@@ -1338,11 +1340,11 @@ tr:hover { background: var(--surface2); }
   }
 
   function updateThemeButtons() {
-    const theme = document.documentElement.dataset.theme || 'dark';
-    const buttons = document.querySelectorAll('#themeToggle button');
-    buttons.forEach(function(button) {
-      button.classList.toggle('active', button.dataset.theme === theme);
-    });
+    const theme = document.documentElement.dataset.theme || 'light';
+    const button = document.getElementById('themeToggle');
+    if (!button) return;
+    button.setAttribute('aria-label', theme === 'dark' ? '일반 모드로 전환' : '다크 모드로 전환');
+    button.title = '테마 전환';
   }
 
   function getThemeColors() {
