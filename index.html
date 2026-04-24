@@ -838,7 +838,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       if (!p.isAverage) {
         let subLines = '';
         if (c.subsidiaries) {
-          subLines = c.subsidiaries.map(s => renderPriceLine(s.name, s.price, s.change, `(${formatOk(s.value)})`)).join('');
+          subLines = c.subsidiaries.map(s => renderPriceLine(s.name, s.price, s.change, `(${formatRatio(s.ratio)})`)).join('');
         } else {
           subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange);
         }
@@ -1072,7 +1072,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       } else if (Array.isArray(d.subsidiaries) && d.subsidiaries.length > 1) {
         ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
         d.subsidiaries.forEach(function(sub) {
-          ttRows += `<div class="tt-row"><span>${sub.name}</span><span>${sub.ratio.toFixed(2)}% (${formatOk(sub.value)})</span></div>`;
+          ttRows += `<div class="tt-row"><span>${sub.name}</span><span>${formatRatio(sub.ratio)}</span></div>`;
         });
         ttRows += `<div class="tt-row"><span><strong>총 비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
       } else {
@@ -1864,6 +1864,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
   function formatOk(n) {
     return n.toLocaleString('ko-KR') + '억원';
+  }
+
+  function formatRatio(n) {
+    return typeof n === 'number' && Number.isFinite(n) ? n.toFixed(2) + '%' : '-';
   }
 
   // Resize
