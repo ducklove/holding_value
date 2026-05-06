@@ -1,30 +1,20 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-06 22:16:22",
-  "generatedAt": "2026-05-06T22:16:22+09:00",
-  "snapshotTimestamp": 1778073382431,
+  "lastUpdated": "2026-05-06 23:12:10",
+  "generatedAt": "2026-05-06T23:12:10+09:00",
+  "snapshotTimestamp": 1778076730800,
   "session": {
     "name": "us_night",
     "date": "2026-05-06",
     "label": "US night session"
   },
-  "isPartial": true,
-  "preservedPairIds": [
-    "youngpoong_koreazinc",
-    "chokwang_brk",
-    "wonik_holdings",
-    "snt_holdings",
-    "hanwha",
-    "sk_discovery",
-    "harim_holdings",
-    "seronics",
-    "donga_soc_holdings"
-  ],
+  "isPartial": false,
+  "preservedPairIds": [],
   "missingPairIds": [],
   "summary": {
     "pairCount": 47,
-    "preservedCount": 9,
+    "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 219.64
+    "averageRatio": 219.67
   },
   "pairs": [
     {
@@ -34,7 +24,7 @@ const CURRENT_DATA = {
       "holdingValue": 91935.0,
       "marketCap": 12512.1,
       "ratio": 734.77,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1747000.0,
       "subsidiaryChange": 7.24
     },
@@ -103,24 +93,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 66900.0,
       "holdingChange": -2.9,
-      "holdingValue": 4217.4,
+      "holdingValue": 4250.7,
       "marketCap": 2376.9,
-      "ratio": 177.43,
-      "quoteSource": "cached_same_session",
+      "ratio": 178.83,
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1014025334.0,
-          "change": -2.25,
-          "value": 2900.1,
-          "ratio": 122.01
+          "price": 1022156684.0,
+          "change": -1.07,
+          "value": 2923.4,
+          "ratio": 122.99
         },
         {
           "name": "애플",
-          "price": 411686.0,
-          "change": 0.75,
-          "value": 1317.3,
-          "ratio": 55.42
+          "price": 414823.0,
+          "change": -1.11,
+          "value": 1327.4,
+          "ratio": 55.84
         }
       ]
     },
@@ -203,7 +193,7 @@ const CURRENT_DATA = {
       "holdingValue": 26063.0,
       "marketCap": 25588.3,
       "ratio": 101.86,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "원익IPS",
@@ -235,7 +225,7 @@ const CURRENT_DATA = {
       "holdingValue": 9924.8,
       "marketCap": 7115.4,
       "ratio": 139.48,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
@@ -335,7 +325,7 @@ const CURRENT_DATA = {
       "holdingValue": 310360.6,
       "marketCap": 102631.2,
       "ratio": 302.4,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -427,7 +417,7 @@ const CURRENT_DATA = {
       "holdingValue": 22646.4,
       "marketCap": 10765.6,
       "ratio": 210.36,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SK가스",
@@ -463,7 +453,7 @@ const CURRENT_DATA = {
       "holdingValue": 20456.3,
       "marketCap": 13130.3,
       "ratio": 155.8,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "하림",
@@ -634,7 +624,7 @@ const CURRENT_DATA = {
       "holdingValue": 11024.5,
       "marketCap": 2629.6,
       "ratio": 419.25,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 212500.0,
       "subsidiaryChange": -0.23
     },
@@ -831,7 +821,7 @@ const CURRENT_DATA = {
       "holdingValue": 10168.1,
       "marketCap": 6241.5,
       "ratio": 162.91,
-      "quoteSource": "cached_same_session",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "에스티팜",
@@ -1169,7 +1159,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 219.64,
+      "ratio": 219.67,
       "quoteSource": "derived"
     }
   ]
