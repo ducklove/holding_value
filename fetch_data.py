@@ -8,6 +8,7 @@ Yahoo Finance에서 지주사/자회사 가격 데이터를 가져와 data.js를
 import argparse
 import json
 import re
+import time
 from collections import defaultdict, deque
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -147,6 +148,130 @@ def downsample_history(history):
     return weekly + recent
 
 
+def normalize_close_frame(data, tickers):
+    if data.empty or "Close" not in data:
+        return pd.DataFrame()
+
+    close = data["Close"]
+    if getattr(close, "ndim", 1) == 1:
+        close = close.to_frame(name=tickers[0])
+    return close
+
+
+def alternate_korean_ticker(ticker):
+    if ticker.endswith(".KS"):
+        return ticker[:-3] + ".KQ"
+    if ticker.endswith(".KQ"):
+        return ticker[:-3] + ".KS"
+    return None
+
+
+def merge_close_frames(base, frames):
+    if not frames:
+        return base
+
+    extra = pd.concat(frames, axis=1)
+    extra = extra.loc[:, ~extra.columns.duplicated()]
+    if base.empty:
+        return extra
+
+    replace_columns = [
+        column for column in extra.columns
+        if column in base.columns
+        and base[column].dropna().empty
+        and not extra[column].dropna().empty
+    ]
+    if replace_columns:
+        base = base.drop(columns=replace_columns)
+
+    merged = pd.concat([base, extra], axis=1)
+    return merged.loc[:, ~merged.columns.duplicated()]
+
+
+def download_close_prices(tickers, download_kwargs, chunk_size=20):
+    frames = []
+    kwargs = dict(download_kwargs)
+    kwargs["progress"] = False
+
+    for start in range(0, len(tickers), chunk_size):
+        chunk = tickers[start:start + chunk_size]
+        data = yf.download(chunk, **kwargs)
+        close = normalize_close_frame(data, chunk)
+        if not close.empty:
+            frames.append(close)
+
+    close = merge_close_frames(pd.DataFrame(), frames)
+
+    missing = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    if missing:
+        print(f"Retrying {len(missing)} tickers individually...")
+
+    for attempt in range(6):
+        retry_targets = [
+            ticker for ticker in tickers
+            if ticker not in close.columns or close[ticker].dropna().empty
+        ]
+        if not retry_targets:
+            break
+        if attempt > 0:
+            print(f"Retry pass {attempt + 1}: {len(retry_targets)} tickers...")
+            time.sleep(2)
+
+        retry_frames = []
+        for ticker in retry_targets:
+            time.sleep(0.2)
+            data = yf.download(ticker, threads=False, **kwargs)
+            retry_close = normalize_close_frame(data, [ticker])
+            if not retry_close.empty and ticker in retry_close.columns and not retry_close[ticker].dropna().empty:
+                retry_frames.append(retry_close[[ticker]])
+
+        if retry_frames:
+            close = merge_close_frames(close, retry_frames)
+
+    fallback_targets = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    if fallback_targets:
+        print(f"Trying alternate Korean suffix for {len(fallback_targets)} tickers...")
+
+    fallback_frames = []
+    for ticker in fallback_targets:
+        alternate = alternate_korean_ticker(ticker)
+        if not alternate:
+            continue
+
+        for attempt in range(3):
+            time.sleep(0.2 if attempt == 0 else 1)
+            data = yf.download(alternate, threads=False, **kwargs)
+            fallback_close = normalize_close_frame(data, [alternate])
+            if (
+                not fallback_close.empty
+                and alternate in fallback_close.columns
+                and not fallback_close[alternate].dropna().empty
+            ):
+                print(f"  {ticker}: using {alternate} as Yahoo fallback")
+                fallback_frames.append(
+                    fallback_close[[alternate]].rename(columns={alternate: ticker})
+                )
+                break
+
+    if fallback_frames:
+        close = merge_close_frames(close, fallback_frames)
+
+    unresolved = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    if unresolved:
+        print("WARNING: Unresolved tickers after retry: " + ", ".join(unresolved))
+
+    return close
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--full', action='store_true', help='전체 최대 기간 데이터를 다시 다운로드')
@@ -198,23 +323,19 @@ def main():
         print(f"Period: {start_date.strftime('%Y-%m-%d')} ~ {end_date.strftime('%Y-%m-%d')}")
     else:
         print("전체 모드: Yahoo Finance에서 가능한 최대 기간을 다운로드합니다.")
-        download_kwargs["period"] = "max"
+        download_kwargs["start"] = "2000-01-01"
+        download_kwargs["end"] = end_date.strftime("%Y-%m-%d")
 
     print(f"Downloading data for {len(all_tickers)} tickers...")
 
-    data = yf.download(
-        all_tickers,
-        **download_kwargs,
-    )
+    close = download_close_prices(all_tickers, download_kwargs)
 
-    if data.empty:
+    if close.empty:
         if existing:
             print("새 데이터 없음. 기존 data.js를 유지합니다.")
             return
         print("ERROR: 데이터를 다운로드하지 못했습니다.")
         return
-
-    close = data["Close"]
 
     fx_rate = None
     if needs_fx and "USDKRW=X" in close.columns:

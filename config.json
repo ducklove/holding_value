@@ -56,6 +56,21 @@
         "name": "효성중공업",
         "ticker": "298040.KS",
         "sharesHeld": 3027685
+      },
+      {
+        "name": "효성티앤씨",
+        "ticker": "298020.KS",
+        "sharesHeld": 899090
+      },
+      {
+        "name": "효성ITX",
+        "ticker": "094280.KS",
+        "sharesHeld": 4382245
+      },
+      {
+        "name": "효성화학",
+        "ticker": "298000.KS",
+        "sharesHeld": 1245166
       }
     ]
   },
@@ -131,6 +146,11 @@
         "name": "삼성생명",
         "ticker": "032830.KS",
         "sharesHeld": 38680000
+      },
+      {
+        "name": "삼성에스디에스",
+        "ticker": "018260.KS",
+        "sharesHeld": 13215822
       }
     ]
   },
@@ -211,6 +231,26 @@
         "name": "삼성전자",
         "ticker": "005930.KS",
         "sharesHeld": 508157528
+      },
+      {
+        "name": "삼성카드",
+        "ticker": "029780.KS",
+        "sharesHeld": 83259000
+      },
+      {
+        "name": "삼성화재",
+        "ticker": "000810.KS",
+        "sharesHeld": 7099000
+      },
+      {
+        "name": "삼성증권",
+        "ticker": "016360.KS",
+        "sharesHeld": 26246000
+      },
+      {
+        "name": "삼성중공업",
+        "ticker": "010140.KS",
+        "sharesHeld": 25701000
       }
     ]
   },
@@ -266,6 +306,21 @@
         "name": "한화비전",
         "ticker": "489790.KS",
         "sharesHeld": 17141530
+      },
+      {
+        "name": "한화솔루션",
+        "ticker": "009830.KS",
+        "sharesHeld": 63062206
+      },
+      {
+        "name": "고려아연",
+        "ticker": "010130.KS",
+        "sharesHeld": 238358
+      },
+      {
+        "name": "한화갤러리아",
+        "ticker": "452260.KS",
+        "sharesHeld": 71121265
       }
     ]
   },
@@ -431,6 +486,516 @@
         "name": "아모레퍼시픽",
         "ticker": "090430.KS",
         "sharesHeld": 23761899
+      }
+    ]
+  },
+  {
+    "id": "kpf_tmc",
+    "name": "케이피에프→자회사",
+    "holdingName": "케이피에프",
+    "holdingTicker": "024880.KQ",
+    "holdingTotalShares": 20015447,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "티엠씨",
+        "ticker": "217590.KS",
+        "sharesHeld": 11749215
+      },
+      {
+        "name": "에스비비테크",
+        "ticker": "389500.KQ",
+        "sharesHeld": 2321230
+      }
+    ]
+  },
+  {
+    "id": "cosmax_bti",
+    "name": "코스맥스비티아이→자회사",
+    "holdingName": "코스맥스비티아이",
+    "holdingTicker": "044820.KS",
+    "holdingTotalShares": 9554786,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "코스맥스",
+        "ticker": "192820.KS",
+        "sharesHeld": 3090301
+      },
+      {
+        "name": "코스맥스엔비티",
+        "ticker": "222040.KQ",
+        "sharesHeld": 8979250
+      }
+    ]
+  },
+  {
+    "id": "seronics",
+    "name": "새로닉스→엘앤에프",
+    "holdingName": "새로닉스",
+    "holdingTicker": "042600.KQ",
+    "holdingTotalShares": 12230635,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "엘앤에프",
+        "ticker": "066970.KS",
+        "sharesHeld": 5188000
+      }
+    ]
+  },
+  {
+    "id": "ty_holdings",
+    "name": "티와이홀딩스→자회사",
+    "holdingName": "티와이홀딩스",
+    "holdingTicker": "363280.KS",
+    "holdingTotalShares": 40402962,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "태영건설",
+        "ticker": "009410.KS",
+        "sharesHeld": 173268000
+      },
+      {
+        "name": "SBS",
+        "ticker": "034120.KS",
+        "sharesHeld": 6738000
+      }
+    ]
+  },
+  {
+    "id": "nongshim_holdings",
+    "name": "농심홀딩스→자회사",
+    "holdingName": "농심홀딩스",
+    "holdingTicker": "072710.KS",
+    "holdingTotalShares": 4638334,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "농심",
+        "ticker": "004370.KS",
+        "sharesHeld": 1990000
+      },
+      {
+        "name": "율촌화학",
+        "ticker": "008730.KS",
+        "sharesHeld": 7922000
+      }
+    ]
+  },
+  {
+    "id": "kolmar_holdings",
+    "name": "콜마홀딩스→자회사",
+    "holdingName": "콜마홀딩스",
+    "holdingTicker": "024720.KS",
+    "holdingTotalShares": 34289607,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "한국콜마",
+        "ticker": "161890.KS",
+        "sharesHeld": 6209889
+      },
+      {
+        "name": "콜마비앤에이치",
+        "ticker": "200130.KQ",
+        "sharesHeld": 13129267
+      }
+    ]
+  },
+  {
+    "id": "seah_mechanics",
+    "name": "세아메카닉스→두산에너빌리티",
+    "holdingName": "세아메카닉스",
+    "holdingTicker": "396300.KQ",
+    "holdingTotalShares": 26489688,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "두산에너빌리티",
+        "ticker": "034020.KS",
+        "sharesHeld": 2550000
+      }
+    ]
+  },
+  {
+    "id": "iljin_diamond",
+    "name": "일진다이아→일진하이솔루스",
+    "holdingName": "일진다이아",
+    "holdingTicker": "081000.KS",
+    "holdingTotalShares": 14199511,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "일진하이솔루스",
+        "ticker": "271940.KS",
+        "sharesHeld": 21627500
+      }
+    ]
+  },
+  {
+    "id": "telcon_rf",
+    "name": "텔콘RF제약→자회사",
+    "holdingName": "텔콘RF제약",
+    "holdingTicker": "200230.KQ",
+    "holdingTotalShares": 68524245,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "에이비온",
+        "ticker": "203400.KQ",
+        "sharesHeld": 16396104
+      },
+      {
+        "name": "케이피엠테크",
+        "ticker": "042040.KQ",
+        "sharesHeld": 28821307
+      }
+    ]
+  },
+  {
+    "id": "aps",
+    "name": "APS→자회사",
+    "holdingName": "APS",
+    "holdingTicker": "054620.KQ",
+    "holdingTotalShares": 16845801,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "AP시스템",
+        "ticker": "265520.KQ",
+        "sharesHeld": 3820369
+      },
+      {
+        "name": "넥스틴",
+        "ticker": "348210.KQ",
+        "sharesHeld": 932030
+      },
+      {
+        "name": "코닉오토메이션",
+        "ticker": "391710.KQ",
+        "sharesHeld": 17807102
+      }
+    ]
+  },
+  {
+    "id": "inveni",
+    "name": "INVENI→자회사",
+    "holdingName": "INVENI",
+    "holdingTicker": "015360.KS",
+    "holdingTotalShares": 5111964,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "우리금융지주",
+        "ticker": "316140.KS",
+        "sharesHeld": 2773000
+      },
+      {
+        "name": "삼성증권",
+        "ticker": "016360.KS",
+        "sharesHeld": 324000
+      },
+      {
+        "name": "피에스텍",
+        "ticker": "002230.KQ",
+        "sharesHeld": 906000
+      }
+    ]
+  },
+  {
+    "id": "donga_soc_holdings",
+    "name": "동아쏘시오홀딩스→자회사",
+    "holdingName": "동아쏘시오홀딩스",
+    "holdingTicker": "000640.KS",
+    "holdingTotalShares": 6434578,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "에스티팜",
+        "ticker": "237690.KQ",
+        "sharesHeld": 6096552
+      },
+      {
+        "name": "동아에스티",
+        "ticker": "170900.KS",
+        "sharesHeld": 2377047
+      }
+    ]
+  },
+  {
+    "id": "hd_hyundai",
+    "name": "HD현대→자회사",
+    "holdingName": "HD현대",
+    "holdingTicker": "267250.KS",
+    "holdingTotalShares": 70664197,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "HD현대일렉트릭",
+        "ticker": "267260.KS",
+        "sharesHeld": 12883087
+      },
+      {
+        "name": "HD한국조선해양",
+        "ticker": "009540.KS",
+        "sharesHeld": 24807124
+      },
+      {
+        "name": "HD현대마린솔루션",
+        "ticker": "443060.KS",
+        "sharesHeld": 24800000
+      }
+    ]
+  },
+  {
+    "id": "dongsung_chemical",
+    "name": "동성케미컬→자회사",
+    "holdingName": "동성케미컬",
+    "holdingTicker": "102260.KS",
+    "holdingTotalShares": 49291617,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "동성화인텍",
+        "ticker": "033500.KQ",
+        "sharesHeld": 11378299
+      },
+      {
+        "name": "한국석유",
+        "ticker": "004090.KS",
+        "sharesHeld": 251440
+      }
+    ]
+  },
+  {
+    "id": "bio_smart",
+    "name": "바이오스마트→자회사",
+    "holdingName": "바이오스마트",
+    "holdingTicker": "038460.KQ",
+    "holdingTotalShares": 25275307,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "티씨머티리얼즈",
+        "ticker": "125020.KQ",
+        "sharesHeld": 16681137
+      },
+      {
+        "name": "더라미",
+        "ticker": "032860.KQ",
+        "sharesHeld": 11428571
+      },
+      {
+        "name": "옴니시스템",
+        "ticker": "057540.KQ",
+        "sharesHeld": 13889705
+      }
+    ]
+  },
+  {
+    "id": "eyesvision",
+    "name": "아이즈비전→자회사",
+    "holdingName": "아이즈비전",
+    "holdingTicker": "031310.KQ",
+    "holdingTotalShares": 26311301,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "머큐리",
+        "ticker": "100590.KQ",
+        "sharesHeld": 8490000
+      },
+      {
+        "name": "한성크린텍",
+        "ticker": "066980.KQ",
+        "sharesHeld": 4537479
+      },
+      {
+        "name": "위지트",
+        "ticker": "036090.KQ",
+        "sharesHeld": 7920517
+      }
+    ]
+  },
+  {
+    "id": "orion_holdings",
+    "name": "오리온홀딩스→자회사",
+    "holdingName": "오리온홀딩스",
+    "holdingTicker": "001800.KS",
+    "holdingTotalShares": 60139362,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "오리온",
+        "ticker": "271560.KS",
+        "sharesHeld": 14775000
+      },
+      {
+        "name": "쇼박스",
+        "ticker": "086980.KQ",
+        "sharesHeld": 35998000
+      }
+    ]
+  },
+  {
+    "id": "yes24",
+    "name": "예스24→카카오뱅크",
+    "holdingName": "예스24",
+    "holdingTicker": "053280.KQ",
+    "holdingTotalShares": 24988212,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "카카오뱅크",
+        "ticker": "323410.KS",
+        "sharesHeld": 5123893
+      }
+    ]
+  },
+  {
+    "id": "hwaseung_ind",
+    "name": "화승인더→자회사",
+    "holdingName": "화승인더",
+    "holdingTicker": "006060.KS",
+    "holdingTotalShares": 47935571,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "화승엔터프라이즈",
+        "ticker": "241590.KS",
+        "sharesHeld": 41424000
+      },
+      {
+        "name": "화승코퍼레이션",
+        "ticker": "013520.KS",
+        "sharesHeld": 4632000
+      },
+      {
+        "name": "성창기업지주",
+        "ticker": "000180.KS",
+        "sharesHeld": 1789000
+      },
+      {
+        "name": "대림바스",
+        "ticker": "005750.KS",
+        "sharesHeld": 440000
+      }
+    ]
+  },
+  {
+    "id": "kcc",
+    "name": "KCC→자회사",
+    "holdingName": "KCC",
+    "holdingTicker": "002380.KS",
+    "holdingTotalShares": 8887974,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "삼성물산",
+        "ticker": "028260.KS",
+        "sharesHeld": 17010000
+      },
+      {
+        "name": "HD한국조선해양",
+        "ticker": "009540.KS",
+        "sharesHeld": 2764000
+      }
+    ]
+  },
+  {
+    "id": "neowiz_holdings",
+    "name": "네오위즈홀딩스→네오위즈",
+    "holdingName": "네오위즈홀딩스",
+    "holdingTicker": "042420.KQ",
+    "holdingTotalShares": 6167222,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "네오위즈",
+        "ticker": "095660.KQ",
+        "sharesHeld": 6776000
+      }
+    ]
+  },
+  {
+    "id": "dongkoo_bio",
+    "name": "동구바이오제약→자회사",
+    "holdingName": "동구바이오제약",
+    "holdingTicker": "006620.KQ",
+    "holdingTotalShares": 28464855,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "큐리언트",
+        "ticker": "115180.KQ",
+        "sharesHeld": 4075630
+      },
+      {
+        "name": "HLB이노베이션",
+        "ticker": "024850.KQ",
+        "sharesHeld": 1085033
+      },
+      {
+        "name": "지놈앤컴퍼니",
+        "ticker": "314130.KQ",
+        "sharesHeld": 252338
+      }
+    ]
+  },
+  {
+    "id": "samsung_fire",
+    "name": "삼성화재→삼성전자",
+    "holdingName": "삼성화재",
+    "holdingTicker": "000810.KS",
+    "holdingTotalShares": 39830191,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930.KS",
+        "sharesHeld": 88058948
+      }
+    ]
+  },
+  {
+    "id": "linked",
+    "name": "링크드→자회사",
+    "holdingName": "링크드",
+    "holdingTicker": "193250.KS",
+    "holdingTotalShares": 64605196,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "넥써쓰",
+        "ticker": "205500.KQ",
+        "sharesHeld": 13526473
+      },
+      {
+        "name": "상상인증권",
+        "ticker": "001290.KS",
+        "sharesHeld": 350000
+      },
+      {
+        "name": "상상인",
+        "ticker": "038540.KQ",
+        "sharesHeld": 150807
+      }
+    ]
+  },
+  {
+    "id": "inbiogen",
+    "name": "인바이오젠→비덴트",
+    "holdingName": "인바이오젠",
+    "holdingTicker": "101140.KS",
+    "holdingTotalShares": 9988623,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "비덴트",
+        "ticker": "121800.KQ",
+        "sharesHeld": 26438000
       }
     ]
   }

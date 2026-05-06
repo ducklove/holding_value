@@ -90,6 +90,23 @@ def build_previous_pair_map(previous_snapshot, current_session):
     }
 
 
+def is_cached_entry_compatible(pair, previous_entry):
+    if previous_entry is None:
+        return False
+
+    expected_names = [sub["name"] for sub in pair["subsidiaries"]]
+    cached_subs = previous_entry.get("subsidiaries")
+
+    if len(expected_names) == 1:
+        return not cached_subs
+
+    if not isinstance(cached_subs, list):
+        return False
+
+    cached_names = [sub.get("name") for sub in cached_subs]
+    return cached_names == expected_names
+
+
 def calculate_pct_change(current_price, previous_price):
     if current_price is None or previous_price in (None, 0):
         return None
@@ -235,7 +252,7 @@ def main():
         entry = build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate)
         if entry is None:
             previous_entry = previous_pairs.get(pair["id"])
-            if previous_entry is not None:
+            if is_cached_entry_compatible(pair, previous_entry):
                 previous_entry["quoteSource"] = "cached_same_session"
                 pairs_result.append(previous_entry)
                 preserved_pair_ids.append(pair["id"])
