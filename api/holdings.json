@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-06T22:18:15+09:00",
-  "lastUpdated": "2026-05-06 22:18:15",
+  "generatedAt": "2026-05-07T08:26:44+09:00",
+  "lastUpdated": "2026-05-07 08:26:44",
   "count": 47,
   "items": [
     {
@@ -11,6 +11,7 @@
       "holdingCode": "000670",
       "holdingTotalShares": 18077950,
       "holdingTreasuryShares": 203500,
+      "holdingAdjustedShares": 17874450,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -29,6 +30,7 @@
       "holdingCode": "005810",
       "holdingTotalShares": 14417292,
       "holdingTreasuryShares": 688429,
+      "holdingAdjustedShares": 13726082,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -47,13 +49,14 @@
       "holdingCode": "058650",
       "holdingTotalShares": 4313236,
       "holdingTreasuryShares": 104391,
+      "holdingAdjustedShares": 3896177,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
           "name": "세아베스틸지주",
           "ticker": "001430.KS",
           "code": "001430",
-          "sharesHeld": 22135633
+          "sharesHeld": 22136000
         }
       ]
     },
@@ -65,13 +68,14 @@
       "holdingCode": "004800",
       "holdingTotalShares": 16740407,
       "holdingTreasuryShares": 22803,
+      "holdingAdjustedShares": 16741227,
       "subsidiaryCount": 4,
       "subsidiaries": [
         {
           "name": "효성중공업",
           "ticker": "298040.KS",
           "code": "298040",
-          "sharesHeld": 3027685
+          "sharesHeld": 3027801
         },
         {
           "name": "효성티앤씨",
@@ -101,6 +105,7 @@
       "holdingCode": "004700",
       "holdingTotalShares": 6649138,
       "holdingTreasuryShares": 3096215,
+      "holdingAdjustedShares": 3552923,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -125,6 +130,7 @@
       "holdingCode": "024800",
       "holdingTotalShares": 37051812,
       "holdingTreasuryShares": 3652884,
+      "holdingAdjustedShares": 33398928,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -143,13 +149,14 @@
       "holdingCode": "036710",
       "holdingTotalShares": 52827754,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 52831668,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
           "name": "심텍",
           "ticker": "222800.KQ",
           "code": "222800",
-          "sharesHeld": 12446967
+          "sharesHeld": 12395602
         }
       ]
     },
@@ -161,25 +168,20 @@
       "holdingCode": "028260",
       "holdingTotalShares": 177784107,
       "holdingTreasuryShares": 16192437,
-      "subsidiaryCount": 4,
+      "holdingAdjustedShares": 162139063,
+      "subsidiaryCount": 3,
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
           "ticker": "207940.KS",
           "code": "207940",
-          "sharesHeld": 30643534
+          "sharesHeld": 19932350
         },
         {
           "name": "삼성전자",
           "ticker": "005930.KS",
           "code": "005930",
-          "sharesHeld": 299085914
-        },
-        {
-          "name": "삼성생명",
-          "ticker": "032830.KS",
-          "code": "032830",
-          "sharesHeld": 38680000
+          "sharesHeld": 298818100
         },
         {
           "name": "삼성에스디에스",
@@ -197,6 +199,7 @@
       "holdingCode": "032940",
       "holdingTotalShares": 20610195,
       "holdingTreasuryShares": 560000,
+      "holdingAdjustedShares": 20050195,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -215,6 +218,7 @@
       "holdingCode": "030530",
       "holdingTotalShares": 77237981,
       "holdingTreasuryShares": 854976,
+      "holdingAdjustedShares": 76383005,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -245,6 +249,7 @@
       "holdingCode": "036530",
       "holdingTotalShares": 12000000,
       "holdingTreasuryShares": 200000,
+      "holdingAdjustedShares": 11800000,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -275,13 +280,14 @@
       "holdingCode": "032830",
       "holdingTotalShares": 200000000,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 179578510,
       "subsidiaryCount": 5,
       "subsidiaries": [
         {
           "name": "삼성전자",
           "ticker": "005930.KS",
           "code": "005930",
-          "sharesHeld": 508157528
+          "sharesHeld": 503905000
         },
         {
           "name": "삼성카드",
@@ -317,6 +323,7 @@
       "holdingCode": "051910",
       "holdingTotalShares": 70592343,
       "holdingTreasuryShares": 2000000,
+      "holdingAdjustedShares": 68592343,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -335,6 +342,7 @@
       "holdingCode": "004360",
       "holdingTotalShares": 13860000,
       "holdingTreasuryShares": 800000,
+      "holdingAdjustedShares": 13060000,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -353,19 +361,14 @@
       "holdingCode": "000880",
       "holdingTotalShares": 75495175,
       "holdingTreasuryShares": 2500000,
-      "subsidiaryCount": 6,
+      "holdingAdjustedShares": 74957051,
+      "subsidiaryCount": 5,
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
           "ticker": "012450.KS",
           "code": "012450",
-          "sharesHeld": 16593103
-        },
-        {
-          "name": "한화생명보험",
-          "ticker": "088350.KS",
-          "code": "088350",
-          "sharesHeld": 391088536
+          "sharesHeld": 16595161
         },
         {
           "name": "한화비전",
@@ -401,6 +404,7 @@
       "holdingCode": "034730",
       "holdingTotalShares": 72502703,
       "holdingTreasuryShares": 17980699,
+      "holdingAdjustedShares": 54522004,
       "subsidiaryCount": 4,
       "subsidiaries": [
         {
@@ -437,6 +441,7 @@
       "holdingCode": "006120",
       "holdingTotalShares": 18348000,
       "holdingTreasuryShares": 1232637,
+      "holdingAdjustedShares": 17115363,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -461,6 +466,7 @@
       "holdingCode": "402340",
       "holdingTotalShares": 132087115,
       "holdingTreasuryShares": 395777,
+      "holdingAdjustedShares": 131691338,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -479,6 +485,7 @@
       "holdingCode": "003380",
       "holdingTotalShares": 112005621,
       "holdingTreasuryShares": 14744440,
+      "holdingAdjustedShares": 97261181,
       "subsidiaryCount": 4,
       "subsidiaries": [
         {
@@ -515,6 +522,7 @@
       "holdingCode": "003550",
       "holdingTotalShares": 154221585,
       "holdingTreasuryShares": 3029581,
+      "holdingAdjustedShares": 151192004,
       "subsidiaryCount": 4,
       "subsidiaries": [
         {
@@ -551,6 +559,7 @@
       "holdingCode": "383800",
       "holdingTotalShares": 76280690,
       "holdingTreasuryShares": 45761,
+      "holdingAdjustedShares": 76234929,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -581,6 +590,7 @@
       "holdingCode": "002790",
       "holdingTotalShares": 89994150,
       "holdingTreasuryShares": 242770,
+      "holdingAdjustedShares": 89751380,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -599,6 +609,7 @@
       "holdingCode": "024880",
       "holdingTotalShares": 20015447,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 20015447,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -623,6 +634,7 @@
       "holdingCode": "044820",
       "holdingTotalShares": 9554786,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 9554786,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -647,6 +659,7 @@
       "holdingCode": "042600",
       "holdingTotalShares": 12230635,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 12230635,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -665,6 +678,7 @@
       "holdingCode": "363280",
       "holdingTotalShares": 40402962,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 40402962,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -689,6 +703,7 @@
       "holdingCode": "072710",
       "holdingTotalShares": 4638334,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 4638334,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -713,6 +728,7 @@
       "holdingCode": "024720",
       "holdingTotalShares": 34289607,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 34289607,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -737,6 +753,7 @@
       "holdingCode": "396300",
       "holdingTotalShares": 26489688,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 26489688,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -755,6 +772,7 @@
       "holdingCode": "081000",
       "holdingTotalShares": 14199511,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 14199511,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -773,6 +791,7 @@
       "holdingCode": "200230",
       "holdingTotalShares": 68524245,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 68524245,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -797,6 +816,7 @@
       "holdingCode": "054620",
       "holdingTotalShares": 16845801,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 16845801,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -827,6 +847,7 @@
       "holdingCode": "015360",
       "holdingTotalShares": 5111964,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 5111964,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -857,6 +878,7 @@
       "holdingCode": "000640",
       "holdingTotalShares": 6434578,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 6434578,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -881,6 +903,7 @@
       "holdingCode": "267250",
       "holdingTotalShares": 70664197,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 70664197,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -911,6 +934,7 @@
       "holdingCode": "102260",
       "holdingTotalShares": 49291617,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 49291617,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -935,6 +959,7 @@
       "holdingCode": "038460",
       "holdingTotalShares": 25275307,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 25275307,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -965,6 +990,7 @@
       "holdingCode": "031310",
       "holdingTotalShares": 26311301,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 26311301,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -995,6 +1021,7 @@
       "holdingCode": "001800",
       "holdingTotalShares": 60139362,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 60139362,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -1019,6 +1046,7 @@
       "holdingCode": "053280",
       "holdingTotalShares": 24988212,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 24988212,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -1037,6 +1065,7 @@
       "holdingCode": "006060",
       "holdingTotalShares": 47935571,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 47935571,
       "subsidiaryCount": 4,
       "subsidiaries": [
         {
@@ -1073,6 +1102,7 @@
       "holdingCode": "002380",
       "holdingTotalShares": 8887974,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 8887974,
       "subsidiaryCount": 2,
       "subsidiaries": [
         {
@@ -1097,6 +1127,7 @@
       "holdingCode": "042420",
       "holdingTotalShares": 6167222,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 6167222,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -1115,6 +1146,7 @@
       "holdingCode": "006620",
       "holdingTotalShares": 28464855,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 28464855,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -1127,7 +1159,7 @@
           "name": "HLB이노베이션",
           "ticker": "024850.KQ",
           "code": "024850",
-          "sharesHeld": 1085033
+          "sharesHeld": 217007
         },
         {
           "name": "지놈앤컴퍼니",
@@ -1145,6 +1177,7 @@
       "holdingCode": "000810",
       "holdingTotalShares": 39830191,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 39830191,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {
@@ -1163,6 +1196,7 @@
       "holdingCode": "193250",
       "holdingTotalShares": 64605196,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 64605196,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
@@ -1193,6 +1227,7 @@
       "holdingCode": "101140",
       "holdingTotalShares": 9988623,
       "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 9988623,
       "subsidiaryCount": 1,
       "subsidiaries": [
         {

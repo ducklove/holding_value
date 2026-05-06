@@ -113,6 +113,13 @@ def calculate_pct_change(current_price, previous_price):
     return round((current_price - previous_price) / previous_price * 100, 2)
 
 
+def get_holding_adjusted_shares(pair):
+    return pair.get(
+        "holdingAdjustedShares",
+        pair["holdingTotalShares"] - pair["holdingTreasuryShares"],
+    )
+
+
 def build_price_maps(close, tickers):
     prices = {}
     previous_prices = {}
@@ -136,9 +143,7 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
 
     holding_price = prices[holding_ticker]
     previous_holding_price = previous_prices.get(holding_ticker)
-    total_shares = pair["holdingTotalShares"]
-    treasury_shares = pair["holdingTreasuryShares"]
-    adjusted_shares = total_shares - treasury_shares
+    adjusted_shares = get_holding_adjusted_shares(pair)
 
     holding_value = 0.0
     sub_details = []

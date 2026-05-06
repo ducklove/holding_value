@@ -31,6 +31,10 @@ def build_subsidiary_item(entry):
 def build_holding_item(entry):
     holding_ticker = entry["holdingTicker"]
     subsidiaries = [build_subsidiary_item(sub) for sub in entry["subsidiaries"]]
+    adjusted_shares = entry.get(
+        "holdingAdjustedShares",
+        entry["holdingTotalShares"] - entry["holdingTreasuryShares"],
+    )
     return {
         "id": entry["id"],
         "name": entry["name"],
@@ -39,6 +43,7 @@ def build_holding_item(entry):
         "holdingCode": ticker_code(holding_ticker),
         "holdingTotalShares": entry["holdingTotalShares"],
         "holdingTreasuryShares": entry["holdingTreasuryShares"],
+        "holdingAdjustedShares": adjusted_shares,
         "subsidiaryCount": len(subsidiaries),
         "subsidiaries": subsidiaries,
     }

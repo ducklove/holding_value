@@ -327,6 +327,11 @@ body {
         <input type="number" id="fTreasuryShares" min="0" value="0" required>
       </div>
 
+      <div class="form-group">
+        <label>조정주식수 (선택)</label>
+        <input type="number" id="fAdjustedShares" min="0" placeholder="비워두면 발행주식수 - 자사주">
+      </div>
+
       <div class="sub-section">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <h3>자회사 목록</h3>
@@ -644,7 +649,7 @@ body {
       return;
     }
     el.innerHTML = config.map(function(p, i) {
-      var adjShares = (p.holdingTotalShares - p.holdingTreasuryShares).toLocaleString('ko-KR');
+      var adjShares = (p.holdingAdjustedShares || (p.holdingTotalShares - p.holdingTreasuryShares)).toLocaleString('ko-KR');
       var subs = p.subsidiaries.map(function(s) {
         return '<span class="sub-item">' + esc(s.name) + ' (' + esc(s.ticker) + ') ' + s.sharesHeld.toLocaleString('ko-KR') + '주</span>';
       }).join('');
@@ -684,6 +689,7 @@ body {
     document.getElementById('editIdx').value = -1;
     document.getElementById('pairForm').reset();
     document.getElementById('fTreasuryShares').value = 0;
+    document.getElementById('fAdjustedShares').value = '';
     document.getElementById('subEntries').innerHTML = '';
     addSubEntry();
     document.getElementById('modalOverlay').classList.add('visible');
@@ -698,6 +704,7 @@ body {
     document.getElementById('fHoldingTicker').value = p.holdingTicker;
     document.getElementById('fTotalShares').value = p.holdingTotalShares;
     document.getElementById('fTreasuryShares').value = p.holdingTreasuryShares;
+    document.getElementById('fAdjustedShares').value = p.holdingAdjustedShares || '';
     document.getElementById('subEntries').innerHTML = '';
     p.subsidiaries.forEach(function(s) { addSubEntry(s.name, s.ticker, s.sharesHeld); });
     document.getElementById('modalOverlay').classList.add('visible');
@@ -751,6 +758,7 @@ body {
       });
     }
 
+    var adjustedShares = parseInt(document.getElementById('fAdjustedShares').value);
     var pair = {
       id: document.getElementById('fId').value.trim(),
       name: buildName(document.getElementById('fHoldingName').value.trim(), subs),
@@ -760,6 +768,9 @@ body {
       holdingTreasuryShares: parseInt(document.getElementById('fTreasuryShares').value),
       subsidiaries: subs
     };
+    if (!isNaN(adjustedShares) && adjustedShares > 0) {
+      pair.holdingAdjustedShares = adjustedShares;
+    }
 
     var idx = parseInt(document.getElementById('editIdx').value);
 

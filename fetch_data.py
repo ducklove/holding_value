@@ -82,6 +82,13 @@ def calculate_pct_change(current_price, previous_price):
     return round((current_price - previous_price) / previous_price * 100, 2)
 
 
+def get_holding_adjusted_shares(pair):
+    return pair.get(
+        "holdingAdjustedShares",
+        pair["holdingTotalShares"] - pair["holdingTreasuryShares"],
+    )
+
+
 def annotate_history_with_trends(history, start_idx=0):
     if not history:
         return history
@@ -380,9 +387,7 @@ def main():
             continue
 
         h = holding_close.loc[common_dates]
-        total_shares = pair["holdingTotalShares"]
-        treasury_shares = pair["holdingTreasuryShares"]
-        adjusted_shares = total_shares - treasury_shares
+        adjusted_shares = get_holding_adjusted_shares(pair)
 
         # 보유지분가치 합산 (모든 자회사)
         holding_value_series = pd.Series(0.0, index=common_dates)
