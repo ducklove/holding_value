@@ -1,20 +1,22 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-07 06:18:02",
-  "generatedAt": "2026-05-07T06:18:02+09:00",
-  "snapshotTimestamp": 1778102282904,
+  "lastUpdated": "2026-05-07 06:52:34",
+  "generatedAt": "2026-05-07T06:52:34+09:00",
+  "snapshotTimestamp": 1778104354171,
   "session": {
-    "name": "us_night",
-    "date": "2026-05-06",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-05-07",
+    "label": "Off hours"
   },
-  "isPartial": false,
+  "isPartial": true,
   "preservedPairIds": [],
-  "missingPairIds": [],
+  "missingPairIds": [
+    "kolmar_holdings"
+  ],
   "summary": {
-    "pairCount": 47,
+    "pairCount": 46,
     "preservedCount": 0,
-    "missingCount": 0,
-    "averageRatio": 218.92
+    "missingCount": 1,
+    "averageRatio": 219.15
   },
   "pairs": [
     {
@@ -93,24 +95,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 66900.0,
       "holdingChange": -2.9,
-      "holdingValue": 4249.1,
+      "holdingValue": 4248.5,
       "marketCap": 2376.9,
-      "ratio": 178.76,
+      "ratio": 178.74,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1020626888.0,
-          "change": -1.22,
-          "value": 2919.0,
-          "ratio": 122.81
+          "price": 1020485648.0,
+          "change": -1.23,
+          "value": 2918.6,
+          "ratio": 122.79
         },
         {
           "name": "애플",
-          "price": 415673.0,
-          "change": -0.9,
-          "value": 1330.1,
-          "ratio": 55.96
+          "price": 415616.0,
+          "change": -0.92,
+          "value": 1329.9,
+          "ratio": 55.95
         }
       ]
     },
@@ -679,31 +681,6 @@ const CURRENT_DATA = {
       ]
     },
     {
-      "id": "kolmar_holdings",
-      "holdingPrice": 9580.0,
-      "holdingChange": -2.44,
-      "holdingValue": 6843.2,
-      "marketCap": 3284.9,
-      "ratio": 208.32,
-      "quoteSource": "yfinance",
-      "subsidiaries": [
-        {
-          "name": "한국콜마",
-          "price": 86900.0,
-          "change": -2.03,
-          "value": 5396.4,
-          "ratio": 164.28
-        },
-        {
-          "name": "콜마비앤에이치",
-          "price": 11020.0,
-          "change": -3.5,
-          "value": 1446.8,
-          "ratio": 44.04
-        }
-      ]
-    },
-    {
       "id": "seah_mechanics",
       "holdingPrice": 6500.0,
       "holdingChange": -0.15,
@@ -1159,7 +1136,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 218.92,
+      "ratio": 219.15,
       "quoteSource": "derived"
     }
   ]
