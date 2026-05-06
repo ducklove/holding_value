@@ -10,6 +10,9 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import yfinance as yf
+import pandas as pd
+
+from price_api import download_close_frame as download_internal_close_frame
 
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "config.json"
@@ -120,6 +123,62 @@ def get_holding_adjusted_shares(pair):
     )
 
 
+def normalize_close_frame(data, tickers):
+    if data.empty or "Close" not in data:
+        return pd.DataFrame()
+
+    close = data["Close"]
+    if getattr(close, "ndim", 1) == 1:
+        close = close.to_frame(name=tickers[0])
+    return close
+
+
+def merge_close_frames(base, frames):
+    if not frames:
+        return base
+
+    extra = pd.concat(frames, axis=1)
+    extra = extra.loc[:, ~extra.columns.duplicated()]
+    if base.empty:
+        return extra
+
+    replace_columns = [
+        column for column in extra.columns
+        if column in base.columns
+        and base[column].dropna().empty
+        and not extra[column].dropna().empty
+    ]
+    if replace_columns:
+        base = base.drop(columns=replace_columns)
+
+    merged = pd.concat([base, extra], axis=1)
+    return merged.loc[:, ~merged.columns.duplicated()]
+
+
+def download_close_prices(tickers, now_local):
+    since = (now_local - timedelta(days=14)).strftime("%Y-%m-%d")
+    until = now_local.strftime("%Y-%m-%d")
+    internal_close, internal_loaded = download_internal_close_frame(tickers, since, until)
+    close = merge_close_frames(pd.DataFrame(), [internal_close] if not internal_close.empty else [])
+    sources = {ticker: "internal_close_api" for ticker in internal_loaded}
+    if internal_loaded:
+        print(f"Loaded {len(internal_loaded)} Korean tickers from internal price API.")
+
+    yfinance_targets = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    if yfinance_targets:
+        data = yf.download(yfinance_targets, period="5d", auto_adjust=True, progress=False)
+        yfinance_close = normalize_close_frame(data, yfinance_targets)
+        close = merge_close_frames(close, [yfinance_close] if not yfinance_close.empty else [])
+        for ticker in yfinance_targets:
+            if ticker in close.columns and not close[ticker].dropna().empty:
+                sources[ticker] = "yfinance"
+
+    return close, sources
+
+
 def build_price_maps(close, tickers):
     prices = {}
     previous_prices = {}
@@ -136,7 +195,7 @@ def build_price_maps(close, tickers):
     return prices, previous_prices
 
 
-def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
+def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, price_sources):
     holding_ticker = pair["holdingTicker"]
     if holding_ticker not in prices:
         return None
@@ -146,6 +205,7 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
     adjusted_shares = get_holding_adjusted_shares(pair)
 
     holding_value = 0.0
+    used_sources = {price_sources.get(holding_ticker, "unknown")}
     sub_details = []
 
     for sub in pair["subsidiaries"]:
@@ -153,6 +213,7 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
         if sub_ticker not in prices:
             return None
 
+        used_sources.add(price_sources.get(sub_ticker, "unknown"))
         sub_price = prices[sub_ticker]
         previous_sub_price = previous_prices.get(sub_ticker)
         if not is_korean(sub_ticker):
@@ -190,7 +251,11 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate):
         "holdingValue": round(holding_value / 1e8, 1),
         "marketCap": round(market_cap / 1e8, 1),
         "ratio": round(ratio, 2),
-        "quoteSource": "yfinance",
+        "quoteSource": (
+            "internal_close_api"
+            if used_sources == {"internal_close_api"}
+            else "yfinance" if used_sources == {"yfinance"} else "mixed"
+        ),
     }
 
     if len(sub_details) == 1:
@@ -236,15 +301,11 @@ def main():
 
     print(f"Fetching current prices for {len(all_tickers)} tickers...")
 
-    data = yf.download(all_tickers, period="5d", auto_adjust=True, progress=False)
+    close, price_sources = download_close_prices(all_tickers, now_local)
 
-    if data.empty:
+    if close.empty:
         print("ERROR: No data downloaded.")
         return
-
-    close = data["Close"]
-    if getattr(close, "ndim", 1) == 1:
-        close = close.to_frame(name=all_tickers[0])
 
     prices, previous_prices = build_price_maps(close, all_tickers)
     fx_rate = prices.get("USDKRW=X")
@@ -254,7 +315,7 @@ def main():
     missing_pair_ids = []
 
     for pair in PAIRS:
-        entry = build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate)
+        entry = build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, price_sources)
         if entry is None:
             previous_entry = previous_pairs.get(pair["id"])
             if is_cached_entry_compatible(pair, previous_entry):

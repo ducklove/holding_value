@@ -17,6 +17,8 @@ from zoneinfo import ZoneInfo
 import yfinance as yf
 import pandas as pd
 
+from price_api import download_close_frame as download_internal_close_frame
+
 CONFIG_PATH = Path(__file__).parent / "config.json"
 with open(CONFIG_PATH, encoding="utf-8") as f:
     PAIRS = json.load(f)
@@ -196,18 +198,29 @@ def merge_close_frames(base, frames):
 
 
 def download_close_prices(tickers, download_kwargs, chunk_size=20):
-    frames = []
     kwargs = dict(download_kwargs)
     kwargs["progress"] = False
 
-    for start in range(0, len(tickers), chunk_size):
-        chunk = tickers[start:start + chunk_size]
-        data = yf.download(chunk, **kwargs)
-        close = normalize_close_frame(data, chunk)
-        if not close.empty:
-            frames.append(close)
+    since = kwargs.get("start")
+    until = kwargs.get("end")
+    internal_close, internal_loaded = download_internal_close_frame(tickers, since, until)
+    close = merge_close_frames(pd.DataFrame(), [internal_close] if not internal_close.empty else [])
+    if internal_loaded:
+        print(f"Loaded {len(internal_loaded)} Korean tickers from internal price API.")
 
-    close = merge_close_frames(pd.DataFrame(), frames)
+    yfinance_targets = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    frames = []
+    for start in range(0, len(yfinance_targets), chunk_size):
+        chunk = yfinance_targets[start:start + chunk_size]
+        data = yf.download(chunk, **kwargs)
+        chunk_close = normalize_close_frame(data, chunk)
+        if not chunk_close.empty:
+            frames.append(chunk_close)
+
+    close = merge_close_frames(close, frames)
 
     missing = [
         ticker for ticker in tickers
