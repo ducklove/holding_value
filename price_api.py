@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Internal close-price API helpers.
+Internal close-price API helpers used as a fallback source.
 """
 
 import json

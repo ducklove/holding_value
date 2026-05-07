@@ -203,24 +203,15 @@ def download_close_prices(tickers, download_kwargs, chunk_size=20):
 
     since = kwargs.get("start")
     until = kwargs.get("end")
-    internal_close, internal_loaded = download_internal_close_frame(tickers, since, until)
-    close = merge_close_frames(pd.DataFrame(), [internal_close] if not internal_close.empty else [])
-    if internal_loaded:
-        print(f"Loaded {len(internal_loaded)} Korean tickers from internal price API.")
-
-    yfinance_targets = [
-        ticker for ticker in tickers
-        if ticker not in close.columns or close[ticker].dropna().empty
-    ]
     frames = []
-    for start in range(0, len(yfinance_targets), chunk_size):
-        chunk = yfinance_targets[start:start + chunk_size]
+    for start in range(0, len(tickers), chunk_size):
+        chunk = tickers[start:start + chunk_size]
         data = yf.download(chunk, **kwargs)
         chunk_close = normalize_close_frame(data, chunk)
         if not chunk_close.empty:
             frames.append(chunk_close)
 
-    close = merge_close_frames(close, frames)
+    close = merge_close_frames(pd.DataFrame(), frames)
 
     missing = [
         ticker for ticker in tickers
@@ -281,6 +272,16 @@ def download_close_prices(tickers, download_kwargs, chunk_size=20):
 
     if fallback_frames:
         close = merge_close_frames(close, fallback_frames)
+
+    backup_targets = [
+        ticker for ticker in tickers
+        if ticker not in close.columns or close[ticker].dropna().empty
+    ]
+    if backup_targets:
+        internal_close, internal_loaded = download_internal_close_frame(backup_targets, since, until)
+        if internal_loaded:
+            print(f"Backfilled {len(internal_loaded)} Korean tickers from internal price API.")
+            close = merge_close_frames(close, [internal_close])
 
     unresolved = [
         ticker for ticker in tickers
