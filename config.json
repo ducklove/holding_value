@@ -906,7 +906,7 @@
     "holdingName": "KCC",
     "holdingTicker": "002380.KS",
     "holdingTotalShares": 8887974,
-    "holdingTreasuryShares": 0,
+    "holdingTreasuryShares": 1532300,
     "subsidiaries": [
       {
         "name": "삼성물산",
@@ -919,7 +919,7 @@
         "sharesHeld": 2764000
       }
     ],
-    "holdingAdjustedShares": 8887974
+    "holdingAdjustedShares": 7355674
   },
   {
     "id": "neowiz_holdings",

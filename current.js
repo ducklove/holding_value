@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-07 08:46:21",
-  "generatedAt": "2026-05-07T08:46:21+09:00",
-  "snapshotTimestamp": 1778111181225,
+  "lastUpdated": "2026-05-07 09:01:02",
+  "generatedAt": "2026-05-07T09:01:02+09:00",
+  "snapshotTimestamp": 1778112062173,
   "session": {
-    "name": "offhours",
+    "name": "kr_day",
     "date": "2026-05-07",
-    "label": "Off hours"
+    "label": "KR day session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 47,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 214.43
+    "averageRatio": 214.93
   },
   "pairs": [
     {
@@ -93,24 +93,24 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 69000.0,
       "holdingChange": -0.86,
-      "holdingValue": 4331.9,
+      "holdingValue": 4255.0,
       "marketCap": 2451.5,
-      "ratio": 176.7,
+      "ratio": 173.57,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1040527295.0,
-          "change": 0.71,
-          "value": 2975.9,
-          "ratio": 121.39
+          "price": 1022045834.0,
+          "change": -0.94,
+          "value": 2923.1,
+          "ratio": 119.23
         },
         {
           "name": "애플",
-          "price": 423778.0,
-          "change": 1.03,
-          "value": 1356.0,
-          "ratio": 55.31
+          "price": 416251.0,
+          "change": -0.63,
+          "value": 1331.9,
+          "ratio": 54.33
         }
       ]
     },
@@ -1026,8 +1026,8 @@ const CURRENT_DATA = {
       "holdingPrice": 555000.0,
       "holdingChange": -3.65,
       "holdingValue": 63530.7,
-      "marketCap": 49328.3,
-      "ratio": 128.79,
+      "marketCap": 40824.0,
+      "ratio": 155.62,
       "quoteSource": "internal_close_api",
       "subsidiaries": [
         {
@@ -1035,14 +1035,14 @@ const CURRENT_DATA = {
           "price": 298500.0,
           "change": -3.24,
           "value": 50774.8,
-          "ratio": 102.93
+          "ratio": 124.38
         },
         {
           "name": "HD한국조선해양",
           "price": 461500.0,
           "change": -2.22,
           "value": 12755.9,
-          "ratio": 25.86
+          "ratio": 31.25
         }
       ]
     },
@@ -1145,7 +1145,7 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 214.43,
+      "ratio": 214.93,
       "quoteSource": "derived"
     }
   ]
