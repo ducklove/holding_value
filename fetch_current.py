@@ -205,6 +205,8 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
     adjusted_shares = get_holding_adjusted_shares(pair)
 
     holding_value = 0.0
+    previous_holding_value = 0.0
+    has_previous_ratio = previous_holding_price not in (None, 0)
     used_sources = {price_sources.get(holding_ticker, "unknown")}
     sub_details = []
 
@@ -227,6 +229,10 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
 
         sub_value = sub["sharesHeld"] * sub_price
         holding_value += sub_value
+        if previous_sub_price is None:
+            has_previous_ratio = False
+        else:
+            previous_holding_value += sub["sharesHeld"] * previous_sub_price
         sub_details.append(
             {
                 "name": sub["name"],
@@ -239,6 +245,11 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
 
     market_cap = adjusted_shares * holding_price
     ratio = holding_value / market_cap * 100
+    previous_ratio = None
+    if has_previous_ratio:
+        previous_market_cap = adjusted_shares * previous_holding_price
+        if previous_market_cap:
+            previous_ratio = previous_holding_value / previous_market_cap * 100
 
     for detail in sub_details:
         detail["ratio"] = round(detail["rawValue"] / market_cap * 100, 2)
@@ -251,6 +262,7 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
         "holdingValue": round(holding_value / 1e8, 1),
         "marketCap": round(market_cap / 1e8, 1),
         "ratio": round(ratio, 2),
+        "ratioChange": round(ratio - previous_ratio, 2) if previous_ratio is not None else None,
         "quoteSource": (
             "internal_price_api"
             if used_sources == {"internal_price_api"}

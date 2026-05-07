@@ -633,7 +633,9 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       if (!live) continue;
       const lastHist = pair.history.length > 0 ? pair.history[pair.history.length - 1] : null;
       pair.current.ratio = live.ratio;
-      pair.current.ratioChange = lastHist ? +(live.ratio - lastHist.ratio).toFixed(2) : 0;
+      pair.current.ratioChange = live.ratioChange !== undefined && live.ratioChange !== null
+        ? live.ratioChange
+        : lastHist ? +(live.ratio - lastHist.ratio).toFixed(2) : 0;
       if (!pair.isAverage) {
         pair.current.holdingPrice = live.holdingPrice;
         if (live.holdingChange !== undefined) {

@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-07 21:21:30",
-  "generatedAt": "2026-05-07T21:21:30+09:00",
-  "snapshotTimestamp": 1778156490770,
+  "lastUpdated": "2026-05-07 22:00:50",
+  "generatedAt": "2026-05-07T22:00:50+09:00",
+  "snapshotTimestamp": 1778158850707,
   "session": {
     "name": "us_night",
     "date": "2026-05-07",
@@ -24,6 +24,7 @@ const CURRENT_DATA = {
       "holdingValue": 82094.2,
       "marketCap": 12333.4,
       "ratio": 665.63,
+      "ratioChange": -69.14,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 1560000.0,
       "subsidiaryChange": -10.7
@@ -35,6 +36,7 @@ const CURRENT_DATA = {
       "holdingValue": 10277.2,
       "marketCap": 5991.4,
       "ratio": 171.53,
+      "ratioChange": -0.45,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 96500.0,
       "subsidiaryChange": -2.82
@@ -46,6 +48,7 @@ const CURRENT_DATA = {
       "holdingValue": 15428.8,
       "marketCap": 6000.1,
       "ratio": 257.14,
+      "ratioChange": -2.77,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 69700.0,
       "subsidiaryChange": -1.83
@@ -57,6 +60,7 @@ const CURRENT_DATA = {
       "holdingValue": 144696.6,
       "marketCap": 46205.8,
       "ratio": 313.16,
+      "ratioChange": -21.37,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -96,6 +100,7 @@ const CURRENT_DATA = {
       "holdingValue": 4263.1,
       "marketCap": 2366.2,
       "ratio": 180.16,
+      "ratioChange": -0.37,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
@@ -121,6 +126,7 @@ const CURRENT_DATA = {
       "holdingValue": 2146.3,
       "marketCap": 1538.0,
       "ratio": 139.55,
+      "ratioChange": -2.46,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 2705.0,
       "subsidiaryChange": 1.12
@@ -132,6 +138,7 @@ const CURRENT_DATA = {
       "holdingValue": 13201.3,
       "marketCap": 2208.4,
       "ratio": 597.79,
+      "ratioChange": 51.69,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 106500.0,
       "subsidiaryChange": 13.54
@@ -143,6 +150,7 @@ const CURRENT_DATA = {
       "holdingValue": 1127237.2,
       "marketCap": 656663.2,
       "ratio": 171.66,
+      "ratioChange": -11.04,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -175,6 +183,7 @@ const CURRENT_DATA = {
       "holdingValue": 4783.0,
       "marketCap": 2229.6,
       "ratio": 214.52,
+      "ratioChange": 0.81,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 33150.0,
       "subsidiaryChange": -1.04
@@ -186,6 +195,7 @@ const CURRENT_DATA = {
       "holdingValue": 26688.8,
       "marketCap": 25321.0,
       "ratio": 105.4,
+      "ratioChange": 3.55,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -218,6 +228,7 @@ const CURRENT_DATA = {
       "holdingValue": 9455.6,
       "marketCap": 7056.4,
       "ratio": 134.0,
+      "ratioChange": -5.48,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -250,6 +261,7 @@ const CURRENT_DATA = {
       "holdingValue": 1492619.2,
       "marketCap": 538735.5,
       "ratio": 277.06,
+      "ratioChange": 3.32,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -296,6 +308,7 @@ const CURRENT_DATA = {
       "holdingValue": 924941.0,
       "marketCap": 291517.5,
       "ratio": 317.28,
+      "ratioChange": -0.46,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 483000.0,
       "subsidiaryChange": 0.21
@@ -307,6 +320,7 @@ const CURRENT_DATA = {
       "holdingValue": 3597.7,
       "marketCap": 2079.2,
       "ratio": 173.04,
+      "ratioChange": -0.15,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 64600.0,
       "subsidiaryChange": -0.46
@@ -318,6 +332,7 @@ const CURRENT_DATA = {
       "holdingValue": 268493.7,
       "marketCap": 104565.1,
       "ratio": 256.77,
+      "ratioChange": -18.26,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -364,6 +379,7 @@ const CURRENT_DATA = {
       "holdingValue": 699023.8,
       "marketCap": 296054.5,
       "ratio": 236.11,
+      "ratioChange": -12.05,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -403,6 +419,7 @@ const CURRENT_DATA = {
       "holdingValue": 22386.7,
       "marketCap": 10337.7,
       "ratio": 216.55,
+      "ratioChange": 6.2,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -428,6 +445,7 @@ const CURRENT_DATA = {
       "holdingValue": 2415655.0,
       "marketCap": 1447287.8,
       "ratio": 166.91,
+      "ratioChange": 3.86,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 1654000.0,
       "subsidiaryChange": 3.31
@@ -439,6 +457,7 @@ const CURRENT_DATA = {
       "holdingValue": 21591.3,
       "marketCap": 12420.3,
       "ratio": 173.84,
+      "ratioChange": 17.23,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -478,6 +497,7 @@ const CURRENT_DATA = {
       "holdingValue": 230141.2,
       "marketCap": 158146.8,
       "ratio": 145.52,
+      "ratioChange": -4.09,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -517,6 +537,7 @@ const CURRENT_DATA = {
       "holdingValue": 9758.2,
       "marketCap": 6929.8,
       "ratio": 140.82,
+      "ratioChange": -1.41,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -549,6 +570,7 @@ const CURRENT_DATA = {
       "holdingValue": 30866.7,
       "marketCap": 24322.6,
       "ratio": 126.91,
+      "ratioChange": 1.29,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 129900.0,
       "subsidiaryChange": -0.08
@@ -560,6 +582,7 @@ const CURRENT_DATA = {
       "holdingValue": 5418.1,
       "marketCap": 1124.9,
       "ratio": 481.67,
+      "ratioChange": 15.78,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -585,6 +608,7 @@ const CURRENT_DATA = {
       "holdingValue": 6897.4,
       "marketCap": 1743.7,
       "ratio": 395.55,
+      "ratioChange": -7.94,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -610,6 +634,7 @@ const CURRENT_DATA = {
       "holdingValue": 10946.7,
       "marketCap": 2605.1,
       "ratio": 420.2,
+      "ratioChange": 0.95,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 211000.0,
       "subsidiaryChange": -0.71
@@ -621,6 +646,7 @@ const CURRENT_DATA = {
       "holdingValue": 4549.2,
       "marketCap": 1111.1,
       "ratio": 409.44,
+      "ratioChange": 17.98,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -646,6 +672,7 @@ const CURRENT_DATA = {
       "holdingValue": 9393.3,
       "marketCap": 4443.5,
       "ratio": 211.39,
+      "ratioChange": -3.85,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -671,6 +698,7 @@ const CURRENT_DATA = {
       "holdingValue": 6840.6,
       "marketCap": 3233.5,
       "ratio": 211.55,
+      "ratioChange": 3.23,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -696,6 +724,7 @@ const CURRENT_DATA = {
       "holdingValue": 3478.2,
       "marketCap": 1713.9,
       "ratio": 202.94,
+      "ratioChange": 14.86,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 136400.0,
       "subsidiaryChange": 7.4
@@ -707,6 +736,7 @@ const CURRENT_DATA = {
       "holdingValue": 3938.4,
       "marketCap": 1997.9,
       "ratio": 197.13,
+      "ratioChange": -4.6,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 18210.0,
       "subsidiaryChange": -3.85
@@ -718,6 +748,7 @@ const CURRENT_DATA = {
       "holdingValue": 699.9,
       "marketCap": 398.8,
       "ratio": 175.49,
+      "ratioChange": 0.9,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -743,6 +774,7 @@ const CURRENT_DATA = {
       "holdingValue": 2058.2,
       "marketCap": 1095.0,
       "ratio": 187.97,
+      "ratioChange": 6.67,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -775,6 +807,7 @@ const CURRENT_DATA = {
       "holdingValue": 1482.4,
       "marketCap": 827.1,
       "ratio": 179.23,
+      "ratioChange": -0.31,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -807,6 +840,7 @@ const CURRENT_DATA = {
       "holdingValue": 10406.9,
       "marketCap": 6112.8,
       "ratio": 170.25,
+      "ratioChange": 7.34,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -832,6 +866,7 @@ const CURRENT_DATA = {
       "holdingValue": 365749.1,
       "marketCap": 204926.2,
       "ratio": 178.48,
+      "ratioChange": 2.12,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -864,6 +899,7 @@ const CURRENT_DATA = {
       "holdingValue": 3211.7,
       "marketCap": 2112.1,
       "ratio": 152.06,
+      "ratioChange": -0.06,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -889,6 +925,7 @@ const CURRENT_DATA = {
       "holdingValue": 1542.2,
       "marketCap": 1032.5,
       "ratio": 149.36,
+      "ratioChange": -1.81,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -921,6 +958,7 @@ const CURRENT_DATA = {
       "holdingValue": 962.5,
       "marketCap": 459.7,
       "ratio": 209.39,
+      "ratioChange": 24.96,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -953,6 +991,7 @@ const CURRENT_DATA = {
       "holdingValue": 21775.7,
       "marketCap": 14884.5,
       "ratio": 146.3,
+      "ratioChange": -2.39,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -978,6 +1017,7 @@ const CURRENT_DATA = {
       "holdingValue": 1224.6,
       "marketCap": 840.9,
       "ratio": 145.64,
+      "ratioChange": -6.48,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 23900.0,
       "subsidiaryChange": -4.4
@@ -989,6 +1029,7 @@ const CURRENT_DATA = {
       "holdingValue": 2228.2,
       "marketCap": 1625.0,
       "ratio": 137.12,
+      "ratioChange": -0.9,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -1028,6 +1069,7 @@ const CURRENT_DATA = {
       "holdingValue": 81812.2,
       "marketCap": 43472.0,
       "ratio": 188.2,
+      "ratioChange": 21.52,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -1053,6 +1095,7 @@ const CURRENT_DATA = {
       "holdingValue": 1423.0,
       "marketCap": 1276.6,
       "ratio": 111.46,
+      "ratioChange": 0.02,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 21000.0,
       "subsidiaryChange": -1.41
@@ -1064,6 +1107,7 @@ const CURRENT_DATA = {
       "holdingValue": 1562.9,
       "marketCap": 1410.4,
       "ratio": 110.81,
+      "ratioChange": -6.91,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -1096,6 +1140,7 @@ const CURRENT_DATA = {
       "holdingValue": 239080.0,
       "marketCap": 195167.9,
       "ratio": 122.5,
+      "ratioChange": 0.11,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 271500.0,
       "subsidiaryChange": 2.07
@@ -1107,6 +1152,7 @@ const CURRENT_DATA = {
       "holdingValue": 245.1,
       "marketCap": 255.8,
       "ratio": 95.82,
+      "ratioChange": -3.51,
       "quoteSource": "internal_price_api",
       "subsidiaries": [
         {
@@ -1139,6 +1185,7 @@ const CURRENT_DATA = {
       "holdingValue": 877.7,
       "marketCap": 791.1,
       "ratio": 110.95,
+      "ratioChange": 0.42,
       "quoteSource": "internal_price_api",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
