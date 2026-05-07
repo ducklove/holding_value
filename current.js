@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-07 22:00:50",
-  "generatedAt": "2026-05-07T22:00:50+09:00",
-  "snapshotTimestamp": 1778158850707,
+  "lastUpdated": "2026-05-07 23:09:29",
+  "generatedAt": "2026-05-07T23:09:29+09:00",
+  "snapshotTimestamp": 1778162969860,
   "session": {
     "name": "us_night",
     "date": "2026-05-07",
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 47,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 218.77
+    "averageRatio": 218.59
   },
   "pairs": [
     {
@@ -25,7 +25,7 @@ const CURRENT_DATA = {
       "marketCap": 12333.4,
       "ratio": 665.63,
       "ratioChange": -69.14,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1560000.0,
       "subsidiaryChange": -10.7
     },
@@ -37,7 +37,7 @@ const CURRENT_DATA = {
       "marketCap": 5991.4,
       "ratio": 171.53,
       "ratioChange": -0.45,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 96500.0,
       "subsidiaryChange": -2.82
     },
@@ -49,7 +49,7 @@ const CURRENT_DATA = {
       "marketCap": 6000.1,
       "ratio": 257.14,
       "ratioChange": -2.77,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 69700.0,
       "subsidiaryChange": -1.83
     },
@@ -61,7 +61,7 @@ const CURRENT_DATA = {
       "marketCap": 46205.8,
       "ratio": 313.16,
       "ratioChange": -21.37,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -97,25 +97,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 66600.0,
       "holdingChange": -0.45,
-      "holdingValue": 4263.1,
+      "holdingValue": 4304.1,
       "marketCap": 2366.2,
-      "ratio": 180.16,
-      "ratioChange": -0.37,
-      "quoteSource": "mixed",
+      "ratio": 181.89,
+      "ratioChange": -0.36,
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1023994235.0,
-          "change": -0.75,
-          "value": 2928.6,
-          "ratio": 123.77
+          "price": 1032202603.0,
+          "change": -0.8,
+          "value": 2952.1,
+          "ratio": 124.76
         },
         {
           "name": "애플",
-          "price": 417045.0,
-          "change": -0.44,
-          "value": 1334.5,
-          "ratio": 56.4
+          "price": 422518.0,
+          "change": -0.3,
+          "value": 1352.0,
+          "ratio": 57.14
         }
       ]
     },
@@ -123,13 +123,13 @@ const CURRENT_DATA = {
       "id": "yoosung_seohee",
       "holdingPrice": 4605.0,
       "holdingChange": 2.91,
-      "holdingValue": 2146.3,
+      "holdingValue": 2122.5,
       "marketCap": 1538.0,
-      "ratio": 139.55,
-      "ratioChange": -2.46,
-      "quoteSource": "internal_price_api",
-      "subsidiaryPrice": 2705.0,
-      "subsidiaryChange": 1.12
+      "ratio": 138.0,
+      "ratioChange": -39.84,
+      "quoteSource": "yfinance",
+      "subsidiaryPrice": 2675.0,
+      "subsidiaryChange": -20.15
     },
     {
       "id": "simmtech_holdings",
@@ -139,7 +139,7 @@ const CURRENT_DATA = {
       "marketCap": 2208.4,
       "ratio": 597.79,
       "ratioChange": 51.69,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 106500.0,
       "subsidiaryChange": 13.54
     },
@@ -151,7 +151,7 @@ const CURRENT_DATA = {
       "marketCap": 656663.2,
       "ratio": 171.66,
       "ratioChange": -11.04,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
@@ -184,7 +184,7 @@ const CURRENT_DATA = {
       "marketCap": 2229.6,
       "ratio": 214.52,
       "ratioChange": 0.81,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 33150.0,
       "subsidiaryChange": -1.04
     },
@@ -196,7 +196,7 @@ const CURRENT_DATA = {
       "marketCap": 25321.0,
       "ratio": 105.4,
       "ratioChange": 3.55,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "원익IPS",
@@ -229,7 +229,7 @@ const CURRENT_DATA = {
       "marketCap": 7056.4,
       "ratio": 134.0,
       "ratioChange": -5.48,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
@@ -262,7 +262,7 @@ const CURRENT_DATA = {
       "marketCap": 538735.5,
       "ratio": 277.06,
       "ratioChange": 3.32,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "삼성전자",
@@ -309,7 +309,7 @@ const CURRENT_DATA = {
       "marketCap": 291517.5,
       "ratio": 317.28,
       "ratioChange": -0.46,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 483000.0,
       "subsidiaryChange": 0.21
     },
@@ -321,7 +321,7 @@ const CURRENT_DATA = {
       "marketCap": 2079.2,
       "ratio": 173.04,
       "ratioChange": -0.15,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 64600.0,
       "subsidiaryChange": -0.46
     },
@@ -333,7 +333,7 @@ const CURRENT_DATA = {
       "marketCap": 104565.1,
       "ratio": 256.77,
       "ratioChange": -18.26,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -380,7 +380,7 @@ const CURRENT_DATA = {
       "marketCap": 296054.5,
       "ratio": 236.11,
       "ratioChange": -12.05,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
@@ -420,7 +420,7 @@ const CURRENT_DATA = {
       "marketCap": 10337.7,
       "ratio": 216.55,
       "ratioChange": 6.2,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "SK가스",
@@ -446,47 +446,47 @@ const CURRENT_DATA = {
       "marketCap": 1447287.8,
       "ratio": 166.91,
       "ratioChange": 3.86,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1654000.0,
       "subsidiaryChange": 3.31
     },
     {
       "id": "harim_holdings",
-      "holdingPrice": 12770.0,
-      "holdingChange": -4.91,
+      "holdingPrice": 13430.0,
+      "holdingChange": -0.52,
       "holdingValue": 21591.3,
-      "marketCap": 12420.3,
-      "ratio": 173.84,
-      "ratioChange": 17.23,
-      "quoteSource": "internal_price_api",
+      "marketCap": 13062.2,
+      "ratio": 165.3,
+      "ratioChange": 9.5,
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "하림",
           "price": 3140.0,
           "change": -1.72,
           "value": 1913.2,
-          "ratio": 15.4
+          "ratio": 14.65
         },
         {
           "name": "선진",
           "price": 11070.0,
           "change": -1.69,
           "value": 1316.2,
-          "ratio": 10.6
+          "ratio": 10.08
         },
         {
           "name": "팜스코",
           "price": 3490.0,
           "change": -1.13,
           "value": 722.2,
-          "ratio": 5.81
+          "ratio": 5.53
         },
         {
           "name": "팬오션",
           "price": 6030.0,
           "change": 7.3,
           "value": 17639.7,
-          "ratio": 142.02
+          "ratio": 135.04
         }
       ]
     },
@@ -498,7 +498,7 @@ const CURRENT_DATA = {
       "marketCap": 158146.8,
       "ratio": 145.52,
       "ratioChange": -4.09,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "LG전자",
@@ -538,7 +538,7 @@ const CURRENT_DATA = {
       "marketCap": 6929.8,
       "ratio": 140.82,
       "ratioChange": -1.41,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
@@ -571,7 +571,7 @@ const CURRENT_DATA = {
       "marketCap": 24322.6,
       "ratio": 126.91,
       "ratioChange": 1.29,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 129900.0,
       "subsidiaryChange": -0.08
     },
@@ -583,7 +583,7 @@ const CURRENT_DATA = {
       "marketCap": 1124.9,
       "ratio": 481.67,
       "ratioChange": 15.78,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "티엠씨",
@@ -609,7 +609,7 @@ const CURRENT_DATA = {
       "marketCap": 1743.7,
       "ratio": 395.55,
       "ratioChange": -7.94,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "코스맥스",
@@ -635,7 +635,7 @@ const CURRENT_DATA = {
       "marketCap": 2605.1,
       "ratio": 420.2,
       "ratioChange": 0.95,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 211000.0,
       "subsidiaryChange": -0.71
     },
@@ -647,7 +647,7 @@ const CURRENT_DATA = {
       "marketCap": 1111.1,
       "ratio": 409.44,
       "ratioChange": 17.98,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "태영건설",
@@ -673,7 +673,7 @@ const CURRENT_DATA = {
       "marketCap": 4443.5,
       "ratio": 211.39,
       "ratioChange": -3.85,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "농심",
@@ -699,7 +699,7 @@ const CURRENT_DATA = {
       "marketCap": 3233.5,
       "ratio": 211.55,
       "ratioChange": 3.23,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "한국콜마",
@@ -725,7 +725,7 @@ const CURRENT_DATA = {
       "marketCap": 1713.9,
       "ratio": 202.94,
       "ratioChange": 14.86,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 136400.0,
       "subsidiaryChange": 7.4
     },
@@ -737,7 +737,7 @@ const CURRENT_DATA = {
       "marketCap": 1997.9,
       "ratio": 197.13,
       "ratioChange": -4.6,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 18210.0,
       "subsidiaryChange": -3.85
     },
@@ -749,7 +749,7 @@ const CURRENT_DATA = {
       "marketCap": 398.8,
       "ratio": 175.49,
       "ratioChange": 0.9,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "에이비온",
@@ -775,7 +775,7 @@ const CURRENT_DATA = {
       "marketCap": 1095.0,
       "ratio": 187.97,
       "ratioChange": 6.67,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "AP시스템",
@@ -808,7 +808,7 @@ const CURRENT_DATA = {
       "marketCap": 827.1,
       "ratio": 179.23,
       "ratioChange": -0.31,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "우리금융지주",
@@ -841,7 +841,7 @@ const CURRENT_DATA = {
       "marketCap": 6112.8,
       "ratio": 170.25,
       "ratioChange": 7.34,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "에스티팜",
@@ -867,7 +867,7 @@ const CURRENT_DATA = {
       "marketCap": 204926.2,
       "ratio": 178.48,
       "ratioChange": 2.12,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "HD현대일렉트릭",
@@ -900,7 +900,7 @@ const CURRENT_DATA = {
       "marketCap": 2112.1,
       "ratio": 152.06,
       "ratioChange": -0.06,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "동성화인텍",
@@ -926,7 +926,7 @@ const CURRENT_DATA = {
       "marketCap": 1032.5,
       "ratio": 149.36,
       "ratioChange": -1.81,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "티씨머티리얼즈",
@@ -958,8 +958,8 @@ const CURRENT_DATA = {
       "holdingValue": 962.5,
       "marketCap": 459.7,
       "ratio": 209.39,
-      "ratioChange": 24.96,
-      "quoteSource": "internal_price_api",
+      "ratioChange": null,
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "머큐리",
@@ -978,7 +978,7 @@ const CURRENT_DATA = {
         {
           "name": "위지트",
           "price": 710.0,
-          "change": 0.0,
+          "change": null,
           "value": 56.2,
           "ratio": 12.23
         }
@@ -992,7 +992,7 @@ const CURRENT_DATA = {
       "marketCap": 14884.5,
       "ratio": 146.3,
       "ratioChange": -2.39,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "오리온",
@@ -1018,7 +1018,7 @@ const CURRENT_DATA = {
       "marketCap": 840.9,
       "ratio": 145.64,
       "ratioChange": -6.48,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 23900.0,
       "subsidiaryChange": -4.4
     },
@@ -1030,7 +1030,7 @@ const CURRENT_DATA = {
       "marketCap": 1625.0,
       "ratio": 137.12,
       "ratioChange": -0.9,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
@@ -1070,7 +1070,7 @@ const CURRENT_DATA = {
       "marketCap": 43472.0,
       "ratio": 188.2,
       "ratioChange": 21.52,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "삼성물산",
@@ -1096,7 +1096,7 @@ const CURRENT_DATA = {
       "marketCap": 1276.6,
       "ratio": 111.46,
       "ratioChange": 0.02,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 21000.0,
       "subsidiaryChange": -1.41
     },
@@ -1108,7 +1108,7 @@ const CURRENT_DATA = {
       "marketCap": 1410.4,
       "ratio": 110.81,
       "ratioChange": -6.91,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "큐리언트",
@@ -1141,7 +1141,7 @@ const CURRENT_DATA = {
       "marketCap": 195167.9,
       "ratio": 122.5,
       "ratioChange": 0.11,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 271500.0,
       "subsidiaryChange": 2.07
     },
@@ -1153,7 +1153,7 @@ const CURRENT_DATA = {
       "marketCap": 255.8,
       "ratio": 95.82,
       "ratioChange": -3.51,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "넥써쓰",
@@ -1186,13 +1186,13 @@ const CURRENT_DATA = {
       "marketCap": 791.1,
       "ratio": 110.95,
       "ratioChange": 0.42,
-      "quoteSource": "internal_price_api",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
     },
     {
       "id": "_average",
-      "ratio": 218.77,
+      "ratio": 218.59,
       "quoteSource": "derived"
     }
   ]
