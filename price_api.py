@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Internal close-price API helpers used as a fallback source.
+Internal close-price API helpers used as the primary Korean price source.
 """
 
 import json
 import os
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
@@ -13,11 +13,13 @@ import pandas as pd
 
 PRICE_API_URL = os.environ.get(
     "HOLDING_VALUE_PRICE_API_URL",
-    "http://192.168.68.84/api/prices/close",
+    "http://192.168.68.84:8400/api/prices/close",
 )
+PRICE_API_BASE_URL = PRICE_API_URL.rsplit("/api/", 1)[0]
 PRICE_API_TIMEOUT = float(os.environ.get("HOLDING_VALUE_PRICE_API_TIMEOUT", "30"))
 PRICE_API_HEALTH_TIMEOUT = float(os.environ.get("HOLDING_VALUE_PRICE_API_HEALTH_TIMEOUT", "8"))
-PRICE_API_WORKERS = int(os.environ.get("HOLDING_VALUE_PRICE_API_WORKERS", "1"))
+PRICE_API_MAX_DAYS = int(os.environ.get("HOLDING_VALUE_PRICE_API_MAX_DAYS", "3700"))
+PRICE_API_MAX_TICKERS = int(os.environ.get("HOLDING_VALUE_PRICE_API_MAX_TICKERS", "500"))
 _PRICE_API_AVAILABLE = None
 
 
@@ -46,15 +48,10 @@ def is_price_api_available():
         _PRICE_API_AVAILABLE = False
         return _PRICE_API_AVAILABLE
 
-    query = urlencode({
-        "ticker": "005930",
-        "since": "2026-04-28",
-        "until": "2026-04-30",
-    })
     try:
-        with urlopen(f"{PRICE_API_URL}?{query}", timeout=PRICE_API_HEALTH_TIMEOUT) as response:
+        with urlopen(f"{PRICE_API_BASE_URL}/api/health", timeout=PRICE_API_HEALTH_TIMEOUT) as response:
             payload = json.loads(response.read().decode("utf-8"))
-        _PRICE_API_AVAILABLE = bool(payload.get("prices"))
+        _PRICE_API_AVAILABLE = payload.get("status") == "ok"
     except Exception as exc:
         print(f"Internal price API unavailable; falling back to yfinance ({exc})")
         _PRICE_API_AVAILABLE = False
@@ -62,19 +59,22 @@ def is_price_api_available():
     return _PRICE_API_AVAILABLE
 
 
-def fetch_close_series(ticker, since, until):
-    if not is_price_api_available() or not is_korean_ticker(ticker):
-        return None
+def date_chunks(since, until):
+    start = datetime.strptime(since, "%Y-%m-%d").date()
+    end = datetime.strptime(until, "%Y-%m-%d").date()
+    cursor = start
+    while cursor <= end:
+        chunk_end = min(cursor + timedelta(days=PRICE_API_MAX_DAYS - 1), end)
+        yield cursor.strftime("%Y-%m-%d"), chunk_end.strftime("%Y-%m-%d")
+        cursor = chunk_end + timedelta(days=1)
 
-    code = ticker_code(ticker)
-    if not code.isalnum():
-        return None
 
-    query = urlencode({"ticker": code, "since": since, "until": until})
-    with urlopen(f"{PRICE_API_URL}?{query}", timeout=PRICE_API_TIMEOUT) as response:
-        payload = json.loads(response.read().decode("utf-8"))
+def batched(values, size):
+    for start in range(0, len(values), size):
+        yield values[start:start + size]
 
-    rows = payload.get("prices") or []
+
+def series_from_rows(ticker, rows):
     if not rows:
         return None
 
@@ -87,33 +87,93 @@ def fetch_close_series(ticker, since, until):
     return series[~series.index.duplicated(keep="last")].sort_index()
 
 
-def download_close_frame(tickers, since, until):
-    targets = [ticker for ticker in tickers if is_korean_ticker(ticker)]
-    if not targets or not since or not until or not is_price_api_available():
-        return pd.DataFrame(), []
+def fetch_close_batch(code_to_tickers, since, until):
+    query = urlencode({
+        "tickers": ",".join(code_to_tickers.keys()),
+        "since": since,
+        "until": until,
+    })
+    with urlopen(f"{PRICE_API_URL}?{query}", timeout=PRICE_API_TIMEOUT) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+
+    payload_prices = payload.get("prices") or {}
+    if isinstance(payload_prices, list):
+        payload_prices = {payload.get("ticker"): payload_prices}
 
     frames = []
     loaded = []
-    workers = min(PRICE_API_WORKERS, len(targets))
-    with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {
-            executor.submit(fetch_close_series, ticker, since, until): ticker
-            for ticker in targets
-        }
-        for future in as_completed(futures):
-            ticker = futures[future]
-            try:
-                series = future.result()
-            except Exception as exc:
-                print(f"  {ticker}: internal price API failed ({exc})")
-                continue
+    for code, rows in payload_prices.items():
+        for ticker in code_to_tickers.get(code, []):
+            series = series_from_rows(ticker, rows)
             if series is None or series.dropna().empty:
                 continue
             frames.append(series.to_frame())
             loaded.append(ticker)
 
+    return frames, loaded
+
+
+def fetch_fx_series(since, until):
+    query = urlencode({
+        "series_id": "USD_KRW",
+        "since": since,
+        "until": until,
+    })
+    with urlopen(f"{PRICE_API_BASE_URL}/api/macro/fx?{query}", timeout=PRICE_API_TIMEOUT) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+
+    rows = payload.get("fx") or []
+    if not rows:
+        return None
+
+    series = pd.Series(
+        (float(row["value"]) for row in rows),
+        index=pd.to_datetime([row["date"] for row in rows]),
+        name="USDKRW=X",
+        dtype="float64",
+    )
+    return series[~series.index.duplicated(keep="last")].sort_index()
+
+
+def download_close_frame(tickers, since, until):
+    if not since or not until or not is_price_api_available():
+        return pd.DataFrame(), []
+
+    frames = []
+    loaded = []
+
+    code_to_tickers = {}
+    for ticker in tickers:
+        if not is_korean_ticker(ticker):
+            continue
+        code = ticker_code(ticker)
+        if code.isalnum():
+            code_to_tickers.setdefault(code, []).append(ticker)
+
+    for chunk_since, chunk_until in date_chunks(since, until):
+        for code_batch in batched(list(code_to_tickers), PRICE_API_MAX_TICKERS):
+            batch_map = {code: code_to_tickers[code] for code in code_batch}
+            try:
+                batch_frames, batch_loaded = fetch_close_batch(batch_map, chunk_since, chunk_until)
+            except Exception as exc:
+                print(f"  internal price API batch failed ({chunk_since}~{chunk_until}: {exc})")
+                continue
+            frames.extend(batch_frames)
+            loaded.extend(batch_loaded)
+
+        if "USDKRW=X" in tickers:
+            try:
+                fx_series = fetch_fx_series(chunk_since, chunk_until)
+            except Exception as exc:
+                print(f"  internal FX API failed ({chunk_since}~{chunk_until}: {exc})")
+            else:
+                if fx_series is not None and not fx_series.dropna().empty:
+                    frames.append(fx_series.to_frame())
+                    loaded.append("USDKRW=X")
+
     if not frames:
         return pd.DataFrame(), loaded
 
-    close = pd.concat(frames, axis=1)
-    return close.loc[:, ~close.columns.duplicated()], loaded
+    close = pd.concat(frames, axis=1).sort_index()
+    close = close.T.groupby(level=0).last().T
+    return close, sorted(set(loaded))

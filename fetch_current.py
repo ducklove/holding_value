@@ -158,27 +158,23 @@ def merge_close_frames(base, frames):
 def download_close_prices(tickers, now_local):
     since = (now_local - timedelta(days=14)).strftime("%Y-%m-%d")
     until = now_local.strftime("%Y-%m-%d")
-    data = yf.download(tickers, period="5d", auto_adjust=True, progress=False)
-    yfinance_close = normalize_close_frame(data, tickers)
-    close = merge_close_frames(pd.DataFrame(), [yfinance_close] if not yfinance_close.empty else [])
-    sources = {
-        ticker: "yfinance"
-        for ticker in tickers
-        if ticker in close.columns and not close[ticker].dropna().empty
-    }
+    internal_close, internal_loaded = download_internal_close_frame(tickers, since, until)
+    close = merge_close_frames(pd.DataFrame(), [internal_close] if not internal_close.empty else [])
+    sources = {ticker: "internal_price_api" for ticker in internal_loaded}
+    if internal_loaded:
+        print(f"Loaded {len(internal_loaded)} tickers from internal price API.")
 
-    backup_targets = [
+    yfinance_targets = [
         ticker for ticker in tickers
         if ticker not in close.columns or close[ticker].dropna().empty
     ]
-    if backup_targets:
-        internal_close, internal_loaded = download_internal_close_frame(backup_targets, since, until)
-        if internal_loaded:
-            print(f"Backfilled {len(internal_loaded)} Korean tickers from internal price API.")
-            close = merge_close_frames(close, [internal_close])
-        for ticker in internal_loaded:
+    if yfinance_targets:
+        data = yf.download(yfinance_targets, period="5d", auto_adjust=True, progress=False)
+        yfinance_close = normalize_close_frame(data, yfinance_targets)
+        close = merge_close_frames(close, [yfinance_close] if not yfinance_close.empty else [])
+        for ticker in yfinance_targets:
             if ticker in close.columns and not close[ticker].dropna().empty:
-                sources[ticker] = "internal_close_api"
+                sources[ticker] = "yfinance"
 
     return close, sources
 
@@ -256,8 +252,8 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
         "marketCap": round(market_cap / 1e8, 1),
         "ratio": round(ratio, 2),
         "quoteSource": (
-            "internal_close_api"
-            if used_sources == {"internal_close_api"}
+            "internal_price_api"
+            if used_sources == {"internal_price_api"}
             else "yfinance" if used_sources == {"yfinance"} else "mixed"
         ),
     }
