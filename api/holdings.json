@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-07T09:05:30+09:00",
-  "lastUpdated": "2026-05-07 09:05:30",
+  "generatedAt": "2026-05-09T01:20:17+09:00",
+  "lastUpdated": "2026-05-09 01:20:17",
   "count": 47,
   "items": [
     {
@@ -169,7 +169,7 @@
       "holdingTotalShares": 177784107,
       "holdingTreasuryShares": 16192437,
       "holdingAdjustedShares": 162139063,
-      "subsidiaryCount": 3,
+      "subsidiaryCount": 4,
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
@@ -188,6 +188,12 @@
           "ticker": "018260.KS",
           "code": "018260",
           "sharesHeld": 13215822
+        },
+        {
+          "name": "삼성생명",
+          "ticker": "032830.KS",
+          "code": "032830",
+          "sharesHeld": 38688000
         }
       ]
     },

@@ -4,20 +4,40 @@ Generate the current.js snapshot for the holding value dashboard.
 """
 
 import json
+import os
 import re
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 import yfinance as yf
 import pandas as pd
 
-from price_api import download_close_frame as download_internal_close_frame
-
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "config.json"
 OUTPUT_PATH = BASE_DIR / "current.js"
 SEOUL_TZ = ZoneInfo("Asia/Seoul")
+KIS_BASE_URL = os.environ.get("KIS_BASE_URL", "https://openapi.koreainvestment.com:9443")
+KIS_APP_KEY = (
+    os.environ.get("KIS_APP_KEY")
+    or os.environ.get("KIS_APPKEY")
+    or os.environ.get("KOREAINVESTMENT_APP_KEY")
+)
+KIS_APP_SECRET = (
+    os.environ.get("KIS_APP_SECRET")
+    or os.environ.get("KIS_APPSECRET")
+    or os.environ.get("KOREAINVESTMENT_APP_SECRET")
+)
+KIS_TOKEN_PATH = Path(os.environ.get("KIS_TOKEN_PATH", BASE_DIR / ".kis_token.json"))
+KIS_TIMEOUT = float(os.environ.get("KIS_TIMEOUT", "10"))
+KIS_REQUEST_INTERVAL = float(os.environ.get("KIS_REQUEST_INTERVAL", "0.05"))
+KIS_DOMESTIC_QUOTE_TR_ID = os.environ.get("KIS_DOMESTIC_QUOTE_TR_ID", "FHKST01010100")
+KIS_PROXY_BASE_URL = os.environ.get("KIS_PROXY_BASE_URL", "http://cantabile.tplinkdns.com:3288")
+KIS_PROXY_TIMEOUT = float(os.environ.get("KIS_PROXY_TIMEOUT", "10"))
+KIS_PROXY_REQUEST_INTERVAL = float(os.environ.get("KIS_PROXY_REQUEST_INTERVAL", "0.06"))
 
 with open(CONFIG_PATH, encoding="utf-8") as f:
     PAIRS = json.load(f)
@@ -25,6 +45,248 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
 
 def is_korean(ticker):
     return ticker.endswith(".KS") or ticker.endswith(".KQ")
+
+
+def ticker_code(ticker):
+    return ticker.split(".", 1)[0]
+
+
+def batched(values, size):
+    for start in range(0, len(values), size):
+        yield values[start:start + size]
+
+
+def parse_number(value):
+    if value in (None, ""):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    try:
+        return float(str(value).replace(",", ""))
+    except ValueError:
+        return None
+
+
+def request_json(url, method="GET", headers=None, payload=None, params=None, timeout=KIS_TIMEOUT):
+    if params:
+        url = f"{url}?{urlencode(params)}"
+    data = None
+    request_headers = dict(headers or {})
+    if payload is not None:
+        data = json.dumps(payload).encode("utf-8")
+        request_headers.setdefault("content-type", "application/json; charset=utf-8")
+
+    request = Request(url, data=data, headers=request_headers, method=method)
+    with urlopen(request, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def parse_kis_expiry(value):
+    if not value:
+        return None
+    try:
+        return datetime.strptime(value, "%Y-%m-%d %H:%M:%S").replace(tzinfo=SEOUL_TZ).timestamp()
+    except ValueError:
+        return None
+
+
+def read_cached_kis_token():
+    try:
+        payload = json.loads(KIS_TOKEN_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    expires_at = payload.get("expires_at", 0)
+    if payload.get("access_token") and expires_at > time.time() + 300:
+        return payload["access_token"]
+    return None
+
+
+def write_cached_kis_token(access_token, expires_at):
+    try:
+        KIS_TOKEN_PATH.write_text(
+            json.dumps({"access_token": access_token, "expires_at": expires_at}, indent=2),
+            encoding="utf-8",
+        )
+    except OSError as exc:
+        print(f"  KIS token cache write failed: {exc}")
+
+
+def get_kis_access_token():
+    if not KIS_APP_KEY or not KIS_APP_SECRET:
+        print("KIS credentials are not set; falling back to KIS proxy/yfinance for Korean quotes.")
+        return None
+
+    cached = read_cached_kis_token()
+    if cached:
+        return cached
+
+    payload = {
+        "grant_type": "client_credentials",
+        "appkey": KIS_APP_KEY,
+        "appsecret": KIS_APP_SECRET,
+    }
+    token_response = request_json(f"{KIS_BASE_URL}/oauth2/tokenP", method="POST", payload=payload)
+    access_token = token_response.get("access_token")
+    if not access_token:
+        raise RuntimeError(f"KIS token response missing access_token: {token_response}")
+
+    expires_at = parse_kis_expiry(token_response.get("access_token_token_expired"))
+    if expires_at is None:
+        expires_at = time.time() + int(token_response.get("expires_in", 86400))
+    write_cached_kis_token(access_token, expires_at)
+    return access_token
+
+
+def signed_kis_value(value, sign_code):
+    number = parse_number(value)
+    if number is None:
+        return None
+
+    sign_code = str(sign_code or "")
+    if sign_code in {"4", "5"}:
+        return -abs(number)
+    if sign_code in {"1", "2"}:
+        return abs(number)
+    if sign_code == "3":
+        return 0.0
+    return number
+
+
+def fetch_kis_domestic_quote(ticker, access_token):
+    code = ticker_code(ticker)
+    headers = {
+        "authorization": f"Bearer {access_token}",
+        "appkey": KIS_APP_KEY,
+        "appsecret": KIS_APP_SECRET,
+        "tr_id": KIS_DOMESTIC_QUOTE_TR_ID,
+        "custtype": "P",
+    }
+    params = {
+        "fid_cond_mrkt_div_code": "J",
+        "fid_input_iscd": code,
+    }
+    payload = request_json(
+        f"{KIS_BASE_URL}/uapi/domestic-stock/v1/quotations/inquire-price",
+        headers=headers,
+        params=params,
+    )
+    if payload.get("rt_cd") != "0":
+        message = payload.get("msg1") or payload.get("msg_cd") or payload
+        raise RuntimeError(f"KIS quote failed for {ticker}: {message}")
+
+    output = payload.get("output") or {}
+    current_price = parse_number(output.get("stck_prpr"))
+    if current_price is None:
+        raise RuntimeError(f"KIS quote missing current price for {ticker}")
+
+    change_amount = signed_kis_value(output.get("prdy_vrss"), output.get("prdy_vrss_sign"))
+    previous_price = parse_number(output.get("stck_sdpr")) or parse_number(output.get("prdy_clpr"))
+    if previous_price is None and change_amount is not None:
+        previous_price = current_price - change_amount
+
+    return current_price, previous_price
+
+
+def frame_from_price_maps(prices, previous_prices, now_local):
+    if not prices:
+        return pd.DataFrame()
+
+    previous_date = pd.Timestamp((now_local - timedelta(days=1)).date())
+    current_date = pd.Timestamp(now_local.date())
+    return pd.DataFrame(
+        {
+            ticker: [previous_prices.get(ticker), price]
+            for ticker, price in prices.items()
+        },
+        index=[previous_date, current_date],
+    )
+
+
+def fetch_kis_domestic_frame(tickers, now_local):
+    domestic_tickers = [ticker for ticker in tickers if is_korean(ticker)]
+    if not domestic_tickers:
+        return pd.DataFrame(), []
+
+    try:
+        access_token = get_kis_access_token()
+    except Exception as exc:
+        print(f"KIS token request failed; falling back to yfinance ({exc})")
+        return pd.DataFrame(), []
+
+    if not access_token:
+        return pd.DataFrame(), []
+
+    prices = {}
+    previous_prices = {}
+    loaded = []
+    for ticker in domestic_tickers:
+        try:
+            price, previous_price = fetch_kis_domestic_quote(ticker, access_token)
+        except Exception as exc:
+            print(f"  KIS quote failed for {ticker}: {exc}")
+            continue
+
+        prices[ticker] = price
+        if previous_price is not None:
+            previous_prices[ticker] = previous_price
+        loaded.append(ticker)
+        if KIS_REQUEST_INTERVAL > 0:
+            time.sleep(KIS_REQUEST_INTERVAL)
+
+    return frame_from_price_maps(prices, previous_prices, now_local), loaded
+
+
+def fetch_kis_proxy_domestic_quote(ticker):
+    code = ticker_code(ticker)
+    payload = request_json(
+        f"{KIS_PROXY_BASE_URL}/v1/stocks/{code}/quote",
+        timeout=KIS_PROXY_TIMEOUT,
+    )
+    summary = payload.get("summary") or {}
+    raw = payload.get("raw") or {}
+
+    current_price = parse_number(summary.get("current_price")) or parse_number(raw.get("stck_prpr"))
+    if current_price is None:
+        raise RuntimeError(f"KIS proxy quote missing current price for {ticker}")
+
+    previous_price = parse_number(raw.get("stck_sdpr"))
+    if previous_price is None:
+        change_amount = parse_number(summary.get("change"))
+        if change_amount is None:
+            change_amount = signed_kis_value(raw.get("prdy_vrss"), raw.get("prdy_vrss_sign"))
+        if change_amount is not None:
+            previous_price = current_price - change_amount
+
+    return current_price, previous_price
+
+
+def fetch_kis_proxy_domestic_frame(tickers, now_local):
+    if not KIS_PROXY_BASE_URL:
+        return pd.DataFrame(), []
+
+    domestic_tickers = [ticker for ticker in tickers if is_korean(ticker)]
+    if not domestic_tickers:
+        return pd.DataFrame(), []
+
+    prices = {}
+    previous_prices = {}
+    loaded = []
+    for ticker in domestic_tickers:
+        try:
+            price, previous_price = fetch_kis_proxy_domestic_quote(ticker)
+        except Exception as exc:
+            print(f"  KIS proxy quote failed for {ticker}: {exc}")
+            continue
+
+        prices[ticker] = price
+        if previous_price is not None:
+            previous_prices[ticker] = previous_price
+        loaded.append(ticker)
+        if KIS_PROXY_REQUEST_INTERVAL > 0:
+            time.sleep(KIS_PROXY_REQUEST_INTERVAL)
+
+    return frame_from_price_maps(prices, previous_prices, now_local), loaded
 
 
 def parse_existing_current():
@@ -156,13 +418,23 @@ def merge_close_frames(base, frames):
 
 
 def download_close_prices(tickers, now_local):
-    since = (now_local - timedelta(days=14)).strftime("%Y-%m-%d")
-    until = now_local.strftime("%Y-%m-%d")
-    internal_close, internal_loaded = download_internal_close_frame(tickers, since, until)
-    close = merge_close_frames(pd.DataFrame(), [internal_close] if not internal_close.empty else [])
-    sources = {ticker: "internal_price_api" for ticker in internal_loaded}
-    if internal_loaded:
-        print(f"Loaded {len(internal_loaded)} tickers from internal price API.")
+    kis_close, kis_loaded = fetch_kis_domestic_frame(tickers, now_local)
+    close = merge_close_frames(pd.DataFrame(), [kis_close] if not kis_close.empty else [])
+    sources = {ticker: "kis_openapi" for ticker in kis_loaded}
+    if kis_loaded:
+        print(f"Loaded {len(kis_loaded)} Korean tickers from KIS Open API.")
+
+    proxy_targets = [
+        ticker for ticker in tickers
+        if is_korean(ticker)
+        and (ticker not in close.columns or close[ticker].dropna().empty)
+    ]
+    proxy_close, proxy_loaded = fetch_kis_proxy_domestic_frame(proxy_targets, now_local)
+    close = merge_close_frames(close, [proxy_close] if not proxy_close.empty else [])
+    for ticker in proxy_loaded:
+        sources[ticker] = "kis_proxy"
+    if proxy_loaded:
+        print(f"Loaded {len(proxy_loaded)} Korean tickers from KIS proxy.")
 
     yfinance_targets = [
         ticker for ticker in tickers
@@ -264,9 +536,9 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
         "ratio": round(ratio, 2),
         "ratioChange": round(ratio - previous_ratio, 2) if previous_ratio is not None else None,
         "quoteSource": (
-            "internal_price_api"
-            if used_sources == {"internal_price_api"}
-            else "yfinance" if used_sources == {"yfinance"} else "mixed"
+            "kis_openapi"
+            if used_sources == {"kis_openapi"}
+            else "kis_proxy" if used_sources == {"kis_proxy"} else "yfinance" if used_sources == {"yfinance"} else "mixed"
         ),
     }
 

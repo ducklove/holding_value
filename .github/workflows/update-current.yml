@@ -2,12 +2,12 @@ name: Update Current Prices
 
 on:
   schedule:
-    # KRX session every 10 minutes (09:00-15:59 KST).
-    - cron: '*/10 0-6 * * 1-5'
-    # US night-sensitive holdings every 30 minutes (21:00-05:30 KST).
-    - cron: '0,30 12-20 * * 1-5'
-    # One final post-session refresh around 06:00 KST.
-    - cron: '0 21 * * 1-5'
+    # KRX session every 5 minutes (09:02-15:57 KST / 00:02-06:57 UTC), offset to reduce schedule drops.
+    - cron: '2/5 0-6 * * 1-5'
+    # US night-sensitive holdings every 15 minutes (21:02-05:47 KST / 12:02-20:47 UTC).
+    - cron: '2/15 12-20 * * 1-5'
+    # One final post-session refresh around 06:02 KST / 21:02 UTC.
+    - cron: '2 21 * * 1-5'
   workflow_dispatch:
 
 permissions:
@@ -28,6 +28,9 @@ jobs:
         run: pip install yfinance pandas
 
       - name: Fetch current prices
+        env:
+          KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
         run: python fetch_current.py
 
       - name: Commit and push if changed

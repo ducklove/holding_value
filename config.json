@@ -150,6 +150,11 @@
         "name": "삼성에스디에스",
         "ticker": "018260.KS",
         "sharesHeld": 13215822
+      },
+      {
+        "name": "삼성생명",
+        "ticker": "032830.KS",
+        "sharesHeld": 38688000
       }
     ],
     "holdingAdjustedShares": 162139063
