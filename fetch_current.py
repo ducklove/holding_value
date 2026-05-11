@@ -289,6 +289,44 @@ def fetch_kis_proxy_domestic_frame(tickers, now_local):
     return frame_from_price_maps(prices, previous_prices, now_local), loaded
 
 
+def fetch_kis_proxy_index(index_id):
+    if not KIS_PROXY_BASE_URL:
+        return None
+
+    try:
+        payload = request_json(
+            f"{KIS_PROXY_BASE_URL}/v1/indexes/{index_id}/quote",
+            timeout=KIS_PROXY_TIMEOUT,
+        )
+    except Exception as exc:
+        print(f"  KIS proxy index failed for {index_id}: {exc}")
+        return None
+
+    summary = payload.get("summary") or {}
+    raw = payload.get("raw") or {}
+    price = parse_number(summary.get("current_price")) or parse_number(raw.get("bstp_nmix_prpr"))
+    if price is None:
+        return None
+
+    return {
+        "id": index_id,
+        "name": index_id,
+        "price": price,
+        "change": parse_number(summary.get("change")) or parse_number(raw.get("bstp_nmix_prdy_vrss")),
+        "changePct": parse_number(summary.get("change_rate")) or parse_number(raw.get("bstp_nmix_prdy_ctrt")),
+        "source": "KIS proxy",
+        "priceDecimals": 2,
+    }
+
+
+def fetch_market_summary():
+    kospi = fetch_kis_proxy_index("KOSPI")
+    kosdaq = fetch_kis_proxy_index("KOSDAQ")
+    if kospi and kosdaq:
+        kospi["extras"] = [kosdaq]
+    return kospi
+
+
 def parse_existing_current():
     if not OUTPUT_PATH.exists():
         return None
@@ -557,9 +595,15 @@ def build_average_entry(pairs_result):
         return None
 
     avg_ratio = sum(pair["ratio"] for pair in live_pairs) / len(live_pairs)
+    ratio_changes = [
+        pair["ratioChange"]
+        for pair in live_pairs
+        if isinstance(pair.get("ratioChange"), (int, float))
+    ]
     return {
         "id": "_average",
         "ratio": round(avg_ratio, 2),
+        "ratioChange": round(sum(ratio_changes) / len(ratio_changes), 2) if ratio_changes else None,
         "quoteSource": "derived",
     }
 
@@ -618,6 +662,7 @@ def main():
     average_entry = build_average_entry(pairs_result)
     if average_entry is not None:
         pairs_result.append(average_entry)
+    market = fetch_market_summary()
 
     current_data = {
         "lastUpdated": now_local.strftime("%Y-%m-%d %H:%M:%S"),
@@ -633,6 +678,7 @@ def main():
             "missingCount": len(missing_pair_ids),
             "averageRatio": average_entry["ratio"] if average_entry else None,
         },
+        "market": market,
         "pairs": pairs_result,
     }
 

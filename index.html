@@ -29,6 +29,17 @@ try {
   --grid: rgba(255,255,255,0.06);
   --warn-line: rgba(245,166,35,0.5);
   --warn-text: rgba(245,166,35,0.7);
+  --today-bg: linear-gradient(135deg, rgba(108,140,255,0.12), rgba(56,201,106,0.08));
+  --today-border: rgba(108,140,255,0.35);
+  --overview-card-bg: rgba(15,17,23,0.38);
+  --overview-card-hover-bg: rgba(15,17,23,0.54);
+  --overview-card-active-bg: rgba(108,140,255,0.1);
+  --overview-card-border: rgba(255,255,255,0.08);
+  --overview-primary-bg: rgba(15,17,23,0.26);
+  --overview-primary-border: rgba(56,201,106,0.28);
+  --soft-border: rgba(255,255,255,0.08);
+  --avg-card-bg: rgba(56,201,106,0.06);
+  --avg-card-bg-active: rgba(56,201,106,0.12);
   --avg-line: rgba(108,140,255,0.3);
   --avg-text: rgba(108,140,255,0.6);
   --sma-line: rgba(56,201,106,0.95);
@@ -56,6 +67,17 @@ try {
   --grid: rgba(29,39,56,0.08);
   --warn-line: rgba(183,121,31,0.45);
   --warn-text: rgba(183,121,31,0.8);
+  --today-bg: linear-gradient(135deg, rgba(45,102,214,0.1), rgba(31,155,87,0.08));
+  --today-border: rgba(45,102,214,0.28);
+  --overview-card-bg: rgba(255,255,255,0.82);
+  --overview-card-hover-bg: rgba(241,245,255,0.98);
+  --overview-card-active-bg: rgba(45,102,214,0.12);
+  --overview-card-border: rgba(29,39,56,0.1);
+  --overview-primary-bg: rgba(255,255,255,0.9);
+  --overview-primary-border: rgba(31,155,87,0.28);
+  --soft-border: rgba(29,39,56,0.1);
+  --avg-card-bg: rgba(31,155,87,0.07);
+  --avg-card-bg-active: rgba(31,155,87,0.14);
   --avg-line: rgba(45,102,214,0.28);
   --avg-text: rgba(45,102,214,0.72);
   --sma-line: rgba(31,155,87,0.95);
@@ -151,47 +173,226 @@ body {
   padding: 20px 32px;
 }
 
+/* Today overview */
+.today-overview {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid var(--today-border);
+  border-radius: 18px;
+  background: var(--today-bg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+.today-overview-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.today-overview-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+.today-overview-meta {
+  color: var(--text-dim);
+  font-size: 12px;
+  text-align: right;
+}
+.today-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.overview-card {
+  min-height: 128px;
+  padding: 16px;
+  border: 1px solid var(--overview-card-border);
+  border-radius: 14px;
+  background: var(--overview-card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  overflow: hidden;
+}
+.overview-card.primary {
+  background: var(--overview-primary-bg);
+  border-color: var(--overview-primary-border);
+}
+.overview-card.clickable {
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.overview-card.clickable:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: var(--overview-card-hover-bg);
+}
+.overview-card.active {
+  border-color: var(--accent);
+  background: var(--overview-card-active-bg);
+}
+.overview-label {
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.overview-value {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.05;
+}
+.overview-change {
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.overview-change.up { color: var(--up); }
+.overview-change.down { color: var(--down); }
+.overview-change.flat { color: var(--text-dim); }
+.overview-detail,
+.overview-points {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.overview-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.overview-stat {
+  border-top: 1px solid var(--soft-border);
+  padding-top: 10px;
+}
+.overview-stat-label {
+  margin-bottom: 4px;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+.overview-stat-value {
+  font-size: 15px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.overview-stat-value.up { color: var(--up); }
+.overview-stat-value.down { color: var(--down); }
+.overview-stat-value.flat { color: var(--text-dim); }
+.overview-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 132px;
+  gap: 12px;
+}
+.overview-split.no-side {
+  grid-template-columns: minmax(0, 1fr);
+}
+.overview-main-copy {
+  min-width: 0;
+}
+.overview-rank-list {
+  border-left: 1px solid var(--soft-border);
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.overview-rank-item {
+  appearance: none;
+  width: 100%;
+  padding: 1px 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: color 0.15s, transform 0.15s;
+}
+.overview-rank-item:hover,
+.overview-rank-item.active {
+  color: var(--accent);
+  transform: translateX(1px);
+}
+.overview-rank-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.overview-rank-value {
+  color: var(--text-dim);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Summary cards */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 12px;
   margin-bottom: 24px;
 }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 16px;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s, box-shadow 0.15s;
 }
-.card:hover { border-color: var(--accent); }
-.card.avg-card { border-color: var(--green); background: rgba(56,201,106,0.06); }
-.card.avg-card.active { border-color: var(--green); background: rgba(56,201,106,0.12); }
+.card:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.card.avg-card { border-color: var(--green); background: var(--avg-card-bg); }
+.card.avg-card.active { border-color: var(--green); background: var(--avg-card-bg-active); }
 .card.active {
   border-color: var(--accent);
   background: var(--surface2);
 }
-.card .name {
+.card .name,
+.overview-card .name {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card .ratio-val {
+.ratio-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.card .ratio-val,
+.overview-card .ratio-val {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
 }
-.card .ratio-change {
+.card .ratio-change,
+.overview-card .ratio-change {
   font-size: 13px;
+  font-weight: 700;
   margin-top: 2px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
-.card .ratio-change.up { color: var(--up); }
-.card .ratio-change.down { color: var(--down); }
+.card .ratio-change.up,
+.overview-card .ratio-change.up { color: var(--up); }
+.card .ratio-change.down,
+.overview-card .ratio-change.down { color: var(--down); }
+.card .ratio-change.flat,
+.overview-card .ratio-change.flat { color: var(--text-dim); }
 .card .prices {
   margin-top: 10px;
   font-size: 12px;
@@ -461,6 +662,17 @@ tr:hover { background: var(--surface2); }
   .header, .container { padding-left: 16px; padding-right: 16px; }
   .header-row { flex-direction: column; align-items: stretch; }
   .header-actions { justify-content: flex-start; }
+  .today-overview { padding: 14px; }
+  .today-overview-head { flex-direction: column; align-items: flex-start; }
+  .today-overview-meta { text-align: left; }
+  .today-overview-title { font-size: 20px; }
+  .overview-split { grid-template-columns: minmax(0, 1fr); }
+  .overview-rank-list {
+    border-left: none;
+    border-top: 1px solid var(--soft-border);
+    padding-left: 0;
+    padding-top: 10px;
+  }
   .cards { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
   .chart-section.featured-chart { padding: 18px; }
   .chart-container { height: 280px; }
@@ -487,6 +699,7 @@ tr:hover { background: var(--surface2); }
 </div>
 
 <div class="container">
+  <div class="today-overview" id="todayOverview"></div>
   <div class="cards" id="cards"></div>
 
   <div class="chart-section featured-chart" id="ratioChartSection">
@@ -585,9 +798,21 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   const queryParams = new URLSearchParams(location.search);
   const initialCode = (queryParams.get('code') || '').trim();
   const holdingCodeById = buildHoldingCodeMapFromPairs();
-  const REFRESH_INTERVAL_MS = 10 * 60 * 1000;
+  const REFRESH_INTERVAL_MS = 300 * 1000;
+  const LIVE_REFRESH_MAX_AGE_MS = 60 * 1000;
+  const LIVE_REFRESH_RETRY_DELAY_MS = 1500;
+  const LIVE_REFRESH_RETRY_ATTEMPTS = 2;
+  const LIVE_REFRESH_FORCE_ATTEMPTS = 1;
+  const LIVE_FETCH_TIMEOUT_MS = 7000;
+  const LIVE_REFRESH_TIMEOUT_MS = 45000;
+  const LIVE_PROXY_URL = 'https://api.codetabs.com/v1/proxy?quest=';
+  const KIS_PROXY_BASE_URL = 'http://cantabile.tplinkdns.com:3288';
+  const KIS_PROXY_BATCH_CONCURRENCY = 4;
+  const KIS_PROXY_LAUNCH_INTERVAL_MS = 60;
   const MIN_ZOOM_SPAN = 0.04;
   let holdingCodePromise = null;
+  let holdingConfigPromise = null;
+  let holdingConfigById = null;
   let hasRendered = false;
   let selectedIdx = getInitialSelectedIdx();
   let periodDays = 0; // 0 = all
@@ -596,16 +821,21 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   const priceZoom = createZoomState();
   let refreshInFlight = false;
   let latestSnapshotVersion = getSnapshotVersion(window.CURRENT_DATA) || getSnapshotVersion(STOCK_DATA);
+  let latestAppliedSnapshotMs = latestSnapshotVersion || 0;
   let lastRefreshStartedAt = 0;
+  let liveRefreshPromise = null;
+  let todayOverviewData = null;
 
   applyTheme(loadTheme(), false);
 
   // --- Apply live data ---
   applyCurrentData();
   sortPairsByCurrentRatio();
+  todayOverviewData = buildTodaySummary();
 
   // --- Init ---
   updateLastUpdatedText();
+  renderTodayOverview();
   renderCards();
   renderTable();
   renderChart();
@@ -621,13 +851,20 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
   // --- Auto-refresh ---
   bindAutoRefresh();
+  refreshCurrentPrices();
 
-  function applyCurrentData() {
-    if (!window.CURRENT_DATA) return;
+  function applyCurrentData(snapshot) {
+    const currentData = snapshot || window.CURRENT_DATA;
+    if (!currentData) return false;
+    const incomingVersion = getSnapshotVersion(currentData);
+    if (incomingVersion && latestAppliedSnapshotMs && incomingVersion < latestAppliedSnapshotMs) {
+      return false;
+    }
     const currentMap = {};
-    for (const p of CURRENT_DATA.pairs) {
+    for (const p of currentData.pairs || []) {
       currentMap[p.id] = p;
     }
+    const today = (currentData.lastUpdated || STOCK_DATA.lastUpdated || '').slice(0, 10);
     for (const pair of pairs) {
       const live = currentMap[pair.id];
       if (!live) continue;
@@ -653,70 +890,75 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
           pair.current.subsidiaries = live.subsidiaries;
         }
       }
+      upsertTodayHistory(pair, live, today);
     }
-    STOCK_DATA.lastUpdated = CURRENT_DATA.lastUpdated;
+    if (currentData.lastUpdated) {
+      STOCK_DATA.lastUpdated = currentData.lastUpdated;
+    }
+    window.CURRENT_DATA = currentData;
+    latestAppliedSnapshotMs = incomingVersion || Date.now();
+    latestSnapshotVersion = Math.max(latestSnapshotVersion || 0, latestAppliedSnapshotMs || 0);
+    todayOverviewData = buildTodaySummary(currentData);
+    return true;
   }
 
-  function refreshCurrentPrices(opts) {
+  async function refreshCurrentPrices(opts) {
     opts = opts || {};
     const manual = !!opts.manual;
 
     if (!manual && document.visibilityState !== 'visible') {
-      return Promise.resolve(false);
+      return false;
     }
     if (refreshInFlight) {
-      return Promise.resolve(false);
+      return false;
     }
 
     refreshInFlight = true;
     lastRefreshStartedAt = Date.now();
     updateRefreshButton();
 
-    return fetch('current.js?t=' + Date.now())
-      .then(function(res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text();
-      })
-      .then(function(text) {
-        var json = text.replace(/^const CURRENT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
-        var nextSnapshot = JSON.parse(json);
-        var nextVersion = getSnapshotVersion(nextSnapshot);
-        if (nextVersion && latestSnapshotVersion && nextVersion < latestSnapshotVersion) {
-          console.warn('Ignored stale current snapshot.', {
-            current: latestSnapshotVersion,
-            incoming: nextVersion
-          });
-          return false;
-        }
-        if (nextVersion && latestSnapshotVersion && nextVersion === latestSnapshotVersion) {
-          return false;
-        }
+    try {
+      let baseSnapshot = {
+        lastUpdated: STOCK_DATA.lastUpdated,
+        snapshotTimestamp: latestAppliedSnapshotMs || getSnapshotVersion(STOCK_DATA),
+      };
 
-        window.CURRENT_DATA = nextSnapshot;
-        latestSnapshotVersion = nextVersion || latestSnapshotVersion;
-        applyCurrentData();
-        sortPairsByCurrentRatio();
-        updateLastUpdatedText();
-        renderCards();
-        renderTable();
-        renderChart();
-        renderPriceChart();
-        renderStats();
-        return true;
-      })
-      .catch(function(err) {
-        console.warn('현재가 갱신 실패:', err);
-        return false;
-      })
-      .finally(function() {
-        refreshInFlight = false;
-        updateRefreshButton();
-      });
+      try {
+        const res = await fetch('current.js?t=' + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          const text = await res.text();
+          const json = text.replace(/^const CURRENT_DATA\s*=\s*/, '').replace(/;\s*$/, '');
+          const nextSnapshot = JSON.parse(json);
+          if (applyCurrentData(nextSnapshot)) {
+            baseSnapshot = nextSnapshot;
+          }
+        }
+      } catch (err) {
+        console.warn('current.js 로드 실패:', err);
+      }
+
+      await refreshLivePricesWithRetry(
+        baseSnapshot,
+        manual ? LIVE_REFRESH_FORCE_ATTEMPTS : LIVE_REFRESH_RETRY_ATTEMPTS,
+        { forceRefresh: manual },
+      );
+
+      renderAll();
+      return true;
+    } catch (err) {
+      console.warn('현재가 갱신 실패:', err);
+      return false;
+    } finally {
+      refreshInFlight = false;
+      updateRefreshButton();
+    }
   }
 
   function bindAutoRefresh() {
-    setInterval(function() {
-      refreshCurrentPrices();
+    setTimeout(function tick() {
+      refreshCurrentPrices().finally(function() {
+        setTimeout(tick, REFRESH_INTERVAL_MS);
+      });
     }, REFRESH_INTERVAL_MS);
 
     document.addEventListener('visibilitychange', function() {
@@ -781,6 +1023,17 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     );
   }
 
+  function parseRawNumber(value) {
+    if (value === null || value === undefined || value === '') return null;
+    const parsed = parseFloat(String(value).replace(/,/g, ''));
+    return Number.isNaN(parsed) ? null : parsed;
+  }
+
+  function formatKstTimestamp(date) {
+    const kst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+    return kst.toISOString().slice(0, 19).replace('T', ' ');
+  }
+
   function sortPairsByCurrentRatio() {
     var selectedPairId = pairs[selectedIdx] ? pairs[selectedIdx].id : '';
     pairs.sort(comparePairOrder);
@@ -829,13 +1082,573 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     return `${formatPrice(price)} <span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`;
   }
 
+  function getDirectionClass(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value) || Math.abs(value) < 0.005) return 'flat';
+    return value > 0 ? 'up' : 'down';
+  }
+
+  function formatSignedPercent(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    const normalized = Math.abs(value) < 0.005 ? 0 : value;
+    const sign = normalized > 0 ? '+' : '';
+    return sign + normalized.toFixed(2) + '%';
+  }
+
+  function formatSignedPoints(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    const normalized = Math.abs(value) < 0.005 ? 0 : value;
+    const sign = normalized > 0 ? '+' : '';
+    return sign + normalized.toFixed(2) + '%p';
+  }
+
+  function formatMarketNumber(value, decimals) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    return value.toLocaleString('ko-KR', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
+  }
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderAll() {
+    sortPairsByCurrentRatio();
+    updateLastUpdatedText();
+    renderTodayOverview();
+    renderCards();
+    renderTable();
+    renderChart();
+    renderPriceChart();
+    renderStats();
+  }
+
+  function upsertTodayHistory(pair, live, today) {
+    if (!today || !pair.history || !pair.history.length) return;
+    if (pair.isAverage) {
+      const averageEntry = { date: today, ratio: live.ratio };
+      const lastAverage = pair.history[pair.history.length - 1];
+      if (lastAverage && lastAverage.date === today) {
+        Object.assign(lastAverage, averageEntry);
+      } else {
+        pair.history.push(averageEntry);
+      }
+      return;
+    }
+    const entry = {
+      date: today,
+      holdingPrice: live.holdingPrice,
+      holdingValue: live.holdingValue,
+      marketCap: live.marketCap,
+      ratio: live.ratio,
+    };
+    if (live.subsidiaryPrice !== undefined) entry.subsidiaryPrice = live.subsidiaryPrice;
+    if (live.subsidiaries) entry.subsidiaries = live.subsidiaries;
+
+    const last = pair.history[pair.history.length - 1];
+    if (last && last.date === today) {
+      Object.assign(last, entry);
+    } else {
+      pair.history.push(entry);
+    }
+  }
+
+  function buildTodaySummary(snapshot) {
+    const livePairs = pairs.filter(function(pair) { return !pair.isAverage; });
+    const avgPair = pairs.find(function(pair) { return pair.isAverage; });
+    const ratioPairs = livePairs.filter(function(pair) {
+      return typeof pair.current.ratio === 'number' && Number.isFinite(pair.current.ratio);
+    });
+    const changePairs = livePairs.filter(function(pair) {
+      return typeof pair.current.ratioChange === 'number' && Number.isFinite(pair.current.ratioChange);
+    });
+    const holdingChangePairs = livePairs.filter(function(pair) {
+      return typeof pair.current.holdingChange === 'number' && Number.isFinite(pair.current.holdingChange);
+    });
+    const subsidiaryChangePairs = livePairs.flatMap(function(pair) {
+      if (Array.isArray(pair.current.subsidiaries)) {
+        return pair.current.subsidiaries.map(function(sub) { return sub.change; });
+      }
+      return [pair.current.subsidiaryChange];
+    }).filter(function(value) {
+      return typeof value === 'number' && Number.isFinite(value);
+    });
+    const sortedByExpansion = changePairs.slice().sort(function(a, b) {
+      return b.current.ratioChange - a.current.ratioChange;
+    });
+    const sortedByContraction = changePairs.slice().sort(function(a, b) {
+      return a.current.ratioChange - b.current.ratioChange;
+    });
+    const averageRatio = avgPair && typeof avgPair.current.ratio === 'number'
+      ? avgPair.current.ratio
+      : ratioPairs.reduce(function(sum, pair) { return sum + pair.current.ratio; }, 0) / Math.max(1, ratioPairs.length);
+    const averageRatioChange = avgPair && typeof avgPair.current.ratioChange === 'number'
+      ? avgPair.current.ratioChange
+      : changePairs.reduce(function(sum, pair) { return sum + pair.current.ratioChange; }, 0) / Math.max(1, changePairs.length);
+    const averageHoldingChange = holdingChangePairs.reduce(function(sum, pair) {
+      return sum + pair.current.holdingChange;
+    }, 0) / Math.max(1, holdingChangePairs.length);
+    const averageSubsidiaryChange = subsidiaryChangePairs.reduce(function(sum, value) {
+      return sum + value;
+    }, 0) / Math.max(1, subsidiaryChangePairs.length);
+    const market = snapshot?.market || snapshot?.summary?.market || todayOverviewData?.market || null;
+
+    return {
+      source: snapshot?.source || inferSnapshotSource(snapshot) || todayOverviewData?.source || 'current.js',
+      market,
+      averageRatio,
+      averageRatioChange,
+      averageHoldingChange,
+      averageSubsidiaryChange,
+      representativeCount: ratioPairs.length,
+      topExpansion: sortedByExpansion[0] || null,
+      expansionRunners: sortedByExpansion.slice(1, 5),
+      topContraction: sortedByContraction[0] || null,
+      contractionRunners: sortedByContraction.slice(1, 5),
+    };
+  }
+
+  function inferSnapshotSource(snapshot) {
+    if (!snapshot || !Array.isArray(snapshot.pairs)) return '';
+    const sources = [...new Set(snapshot.pairs.map(function(pair) { return pair.quoteSource; }).filter(Boolean))];
+    if (!sources.length) return '';
+    if (sources.includes('kis_proxy_browser')) return 'KIS 프록시 실시간';
+    if (sources.includes('kis_proxy')) return 'KIS 프록시';
+    if (sources.includes('kis_openapi')) return '한국투자증권 Open API';
+    if (sources.includes('yfinance')) return 'yfinance';
+    return sources.join(', ');
+  }
+
+  function renderTodayOverview() {
+    const el = document.getElementById('todayOverview');
+    if (!el) return;
+    const summary = todayOverviewData || buildTodaySummary(window.CURRENT_DATA);
+    const avgDir = getDirectionClass(summary.averageRatioChange);
+    const holdingDir = getDirectionClass(summary.averageHoldingChange);
+    const subDir = getDirectionClass(summary.averageSubsidiaryChange);
+    const market = summary.market || {};
+    const marketDir = getDirectionClass(market.changePct);
+
+    el.innerHTML = `
+      <div class="today-overview-head">
+        <div class="today-overview-title">오늘의 지주회사 현황</div>
+        <div class="today-overview-meta">${escapeHtml(summary.source || 'current.js')} · 대표 ${summary.representativeCount || 0}개 그룹 기준</div>
+      </div>
+      <div class="today-overview-grid">
+        <div class="overview-card primary">
+          <div>
+            <div class="overview-label">평균 지분가치 비율</div>
+            <div class="ratio-line">
+              <div class="overview-value">${formatRatio(summary.averageRatio)}</div>
+              <div class="overview-change ${avgDir}">${formatSignedPoints(summary.averageRatioChange)}</div>
+            </div>
+          </div>
+          <div class="overview-summary-grid">
+            <div class="overview-stat">
+              <div class="overview-stat-label">지주사 평균 상승률</div>
+              <div class="overview-stat-value ${holdingDir}">${formatSignedPercent(summary.averageHoldingChange)}</div>
+            </div>
+            <div class="overview-stat">
+              <div class="overview-stat-label">자회사 평균 상승률</div>
+              <div class="overview-stat-value ${subDir}">${formatSignedPercent(summary.averageSubsidiaryChange)}</div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-card">
+          <div>
+            <div class="overview-label">KOSPI</div>
+            <div class="ratio-line">
+              <div class="overview-value">${formatMarketNumber(market.price, 2)}</div>
+              <div class="overview-change ${marketDir}">${formatSignedPercent(market.changePct)}</div>
+            </div>
+          </div>
+          <div class="overview-detail">변화폭 ${formatMarketNumber(market.change, 2)} · ${escapeHtml(market.source || market.marketStatus || 'KIS proxy')}</div>
+        </div>
+        ${renderLeaderCard('최고 비율 확대', summary.topExpansion, summary.expansionRunners)}
+        ${renderLeaderCard('최고 비율 축소', summary.topContraction, summary.contractionRunners)}
+      </div>`;
+
+    el.querySelectorAll('[data-pair-id]').forEach(function(node) {
+      node.addEventListener('click', function(event) {
+        event.stopPropagation();
+        setSelectedPairById(node.dataset.pairId);
+      });
+    });
+  }
+
+  function renderLeaderCard(label, pair, runners) {
+    if (!pair) {
+      return `<div class="overview-card"><div class="overview-label">${label}</div><div class="overview-detail">표시할 데이터가 없습니다.</div></div>`;
+    }
+    const dir = getDirectionClass(pair.current.ratioChange);
+    const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
+    const sideClass = runners && runners.length ? '' : ' no-side';
+    return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}">
+      <div class="overview-split${sideClass}">
+        <div class="overview-main-copy">
+          <div class="overview-label">${label}</div>
+          <div class="name">${escapeHtml(pair.name)}</div>
+          <div class="ratio-line">
+            <div class="ratio-val">${formatRatio(pair.current.ratio)}</div>
+            <div class="ratio-change ${dir}">${formatSignedPoints(pair.current.ratioChange)}</div>
+          </div>
+          <div class="overview-detail">${escapeHtml(pair.holdingName || '')} 기준</div>
+        </div>
+        ${renderRankList(runners)}
+      </div>
+    </div>`;
+  }
+
+  function renderRankList(runners) {
+    if (!runners || !runners.length) return '';
+    return `<div class="overview-rank-list">${runners.map(function(pair) {
+      const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
+      return `<button type="button" class="overview-rank-item${active}" data-pair-id="${escapeHtml(pair.id)}">
+        <span class="overview-rank-name">${escapeHtml(pair.name)}</span>
+        <span class="overview-rank-value">${formatSignedPoints(pair.current.ratioChange)}</span>
+      </button>`;
+    }).join('')}</div>`;
+  }
+
+  function setSelectedPairById(pairId) {
+    const idx = pairs.findIndex(function(pair) { return pair.id === pairId; });
+    if (idx < 0) return;
+    setSelectedIdx(idx, { syncUrl: true, scroll: true });
+  }
+
+  function isSnapshotMsStale(snapshotMs) {
+    return !snapshotMs || Date.now() - snapshotMs > LIVE_REFRESH_MAX_AGE_MS;
+  }
+
+  function delay(ms) {
+    return new Promise(function(resolve) { setTimeout(resolve, ms); });
+  }
+
+  function withCacheBustingParam(url) {
+    return url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+  }
+
+  async function fetchWithTimeout(url, responseType, timeoutMs) {
+    const controller = new AbortController();
+    const timer = setTimeout(function() { controller.abort(); }, timeoutMs || LIVE_FETCH_TIMEOUT_MS);
+    try {
+      const resp = await fetch(LIVE_PROXY_URL + encodeURIComponent(withCacheBustingParam(url)), {
+        signal: controller.signal,
+        cache: 'no-store',
+      });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return responseType === 'text' ? await resp.text() : await resp.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function runWithTimeout(task, timeoutMs, errorMessage) {
+    let timer = null;
+    try {
+      return await Promise.race([
+        task,
+        new Promise(function(_, reject) {
+          timer = setTimeout(function() { reject(new Error(errorMessage)); }, timeoutMs);
+        }),
+      ]);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function fetchKisProxyJson(path, timeoutMs) {
+    return fetchWithTimeout(KIS_PROXY_BASE_URL + path, 'json', timeoutMs || LIVE_FETCH_TIMEOUT_MS);
+  }
+
+  async function mapWithRateLimit(items, concurrency, launchIntervalMs, mapper) {
+    const results = new Array(items.length);
+    let nextIndex = 0;
+    let launchChain = Promise.resolve();
+
+    async function waitForSlot() {
+      const previous = launchChain;
+      let release;
+      launchChain = new Promise(function(resolve) { release = resolve; });
+      await previous;
+      await delay(launchIntervalMs);
+      release();
+    }
+
+    async function worker() {
+      while (true) {
+        const idx = nextIndex;
+        nextIndex += 1;
+        if (idx >= items.length) return;
+        await waitForSlot();
+        try {
+          results[idx] = await mapper(items[idx], idx);
+        } catch (err) {
+          results[idx] = null;
+        }
+      }
+    }
+
+    await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, worker));
+    return results;
+  }
+
+  async function fetchKisProxyQuoteMap(codes) {
+    const uniqueCodes = [...new Set(codes.filter(Boolean))];
+    const rows = await mapWithRateLimit(
+      uniqueCodes,
+      KIS_PROXY_BATCH_CONCURRENCY,
+      KIS_PROXY_LAUNCH_INTERVAL_MS,
+      async function(code) {
+        const payload = await fetchKisProxyJson('/v1/stocks/' + encodeURIComponent(code) + '/quote');
+        return [code, parseKisProxyQuote(payload)];
+      },
+    );
+    return new Map(rows.filter(Boolean));
+  }
+
+  function parseKisProxyQuote(payload) {
+    const summary = payload?.summary || {};
+    const raw = payload?.raw || {};
+    const price = parseRawNumber(summary.current_price ?? raw.stck_prpr);
+    const change = parseRawNumber(summary.change ?? raw.prdy_vrss);
+    const previousPrice = parseRawNumber(raw.stck_sdpr) || (price != null && change != null ? price - change : null);
+    return {
+      price,
+      previousPrice,
+      changePct: parseRawNumber(summary.change_rate ?? raw.prdy_ctrt),
+    };
+  }
+
+  async function loadHoldingConfigMap() {
+    if (holdingConfigPromise) return holdingConfigPromise;
+    holdingConfigPromise = fetch('config.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(config) {
+        holdingConfigById = new Map();
+        config.forEach(function(entry) {
+          if (!entry.id) return;
+          holdingConfigById.set(entry.id, entry);
+          if (entry.holdingTicker) {
+            holdingCodeById[entry.id] = getTickerCode(entry.holdingTicker);
+          }
+        });
+        return holdingConfigById;
+      });
+    return holdingConfigPromise;
+  }
+
+  async function buildLiveSnapshot() {
+    const configMap = await loadHoldingConfigMap();
+    const codes = [];
+    pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
+      const config = configMap.get(pair.id);
+      if (!config) return;
+      if (isKoreanTicker(config.holdingTicker)) codes.push(getTickerCode(config.holdingTicker));
+      (config.subsidiaries || []).forEach(function(sub) {
+        if (isKoreanTicker(sub.ticker)) codes.push(getTickerCode(sub.ticker));
+      });
+    });
+
+    const [quoteMap, market] = await Promise.all([
+      fetchKisProxyQuoteMap(codes),
+      buildLiveMarketSummary().catch(function() { return null; }),
+    ]);
+    const livePairs = [];
+    pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
+      const config = configMap.get(pair.id);
+      const entry = config ? buildLivePairEntry(pair, config, quoteMap) : null;
+      if (entry) livePairs.push(entry);
+    });
+    if (!livePairs.length) throw new Error('KIS 프록시 현재가를 가져오지 못했습니다.');
+    const averageRatio = livePairs.reduce(function(sum, pair) { return sum + pair.ratio; }, 0) / livePairs.length;
+    const ratioChangePairs = livePairs.filter(function(pair) {
+      return typeof pair.ratioChange === 'number' && Number.isFinite(pair.ratioChange);
+    });
+    const averageRatioChange = ratioChangePairs.length
+      ? ratioChangePairs.reduce(function(sum, pair) { return sum + pair.ratioChange; }, 0) / ratioChangePairs.length
+      : null;
+    livePairs.push({
+      id: '_average',
+      ratio: +averageRatio.toFixed(2),
+      ratioChange: averageRatioChange == null ? null : +averageRatioChange.toFixed(2),
+      quoteSource: 'derived',
+    });
+    const now = new Date();
+    return {
+      source: 'KIS 프록시 실시간',
+      lastUpdated: formatKstTimestamp(now),
+      generatedAt: now.toISOString(),
+      snapshotTimestamp: Date.now(),
+      market,
+      pairs: livePairs,
+    };
+  }
+
+  async function buildLiveMarketSummary() {
+    const [kospiPayload, kosdaqPayload] = await Promise.all([
+      fetchKisProxyJson('/v1/indexes/KOSPI/quote'),
+      fetchKisProxyJson('/v1/indexes/KOSDAQ/quote').catch(function() { return null; }),
+    ]);
+    const kospi = parseKisProxyIndex(kospiPayload, 'KOSPI', 'KOSPI');
+    const kosdaq = parseKisProxyIndex(kosdaqPayload, 'KOSDAQ', 'KOSDAQ');
+    if (!kospi) return null;
+    if (kosdaq) kospi.extras = [kosdaq];
+    return kospi;
+  }
+
+  function parseKisProxyIndex(payload, id, name) {
+    const summary = payload?.summary || {};
+    const raw = payload?.raw || {};
+    const price = parseRawNumber(summary.current_price ?? raw.bstp_nmix_prpr);
+    if (price == null) return null;
+    return {
+      id,
+      name,
+      price,
+      change: parseRawNumber(summary.change ?? raw.bstp_nmix_prdy_vrss),
+      changePct: parseRawNumber(summary.change_rate ?? raw.bstp_nmix_prdy_ctrt),
+      source: 'KIS proxy',
+      priceDecimals: 2,
+    };
+  }
+
+  function buildLivePairEntry(pair, config, quoteMap) {
+    const holdingCode = getTickerCode(config.holdingTicker);
+    const holdingQuote = quoteMap.get(holdingCode);
+    if (!holdingQuote || holdingQuote.price == null) return null;
+    const adjustedShares = config.holdingAdjustedShares || ((config.holdingTotalShares || 0) - (config.holdingTreasuryShares || 0));
+    if (!adjustedShares) return null;
+
+    const marketCap = adjustedShares * holdingQuote.price;
+    let holdingValue = 0;
+    let previousHoldingValue = 0;
+    let hasPreviousRatio = holdingQuote.previousPrice != null && holdingQuote.previousPrice !== 0;
+    let usedFallback = false;
+    const subDetails = [];
+    const currentSubMap = new Map((pair.current.subsidiaries || []).map(function(sub) { return [sub.name, sub]; }));
+
+    (config.subsidiaries || []).forEach(function(sub) {
+      const quote = isKoreanTicker(sub.ticker) ? quoteMap.get(getTickerCode(sub.ticker)) : null;
+      const fallback = currentSubMap.get(sub.name) || null;
+      const fallbackPrice = fallback ? fallback.price : pair.current.subsidiaryPrice;
+      const fallbackChange = fallback ? fallback.change : pair.current.subsidiaryChange;
+      const price = quote && quote.price != null ? quote.price : fallbackPrice;
+      if (price == null) return;
+      const previousPrice = quote && quote.previousPrice != null
+        ? quote.previousPrice
+        : derivePreviousPrice(price, fallbackChange);
+      if (!quote) usedFallback = true;
+
+      const value = sub.sharesHeld * price;
+      holdingValue += value;
+      if (previousPrice == null) {
+        hasPreviousRatio = false;
+      } else {
+        previousHoldingValue += sub.sharesHeld * previousPrice;
+      }
+      subDetails.push({
+        name: sub.name,
+        price: Math.round(price),
+        change: quote && quote.changePct != null ? quote.changePct : fallbackChange,
+        value: +(value / 1e8).toFixed(1),
+        rawValue: value,
+      });
+    });
+
+    if (!subDetails.length || !holdingValue || !marketCap) return null;
+    const ratio = holdingValue / marketCap * 100;
+    let previousRatio = null;
+    if (hasPreviousRatio) {
+      const previousMarketCap = adjustedShares * holdingQuote.previousPrice;
+      if (previousMarketCap) previousRatio = previousHoldingValue / previousMarketCap * 100;
+    }
+    subDetails.forEach(function(sub) {
+      sub.ratio = +(sub.rawValue / marketCap * 100).toFixed(2);
+      delete sub.rawValue;
+    });
+
+    const entry = {
+      id: pair.id,
+      holdingPrice: Math.round(holdingQuote.price),
+      holdingChange: holdingQuote.changePct,
+      holdingValue: +(holdingValue / 1e8).toFixed(1),
+      marketCap: +(marketCap / 1e8).toFixed(1),
+      ratio: +ratio.toFixed(2),
+      ratioChange: previousRatio != null ? +(ratio - previousRatio).toFixed(2) : null,
+      quoteSource: usedFallback ? 'mixed' : 'kis_proxy_browser',
+    };
+    if (subDetails.length === 1) {
+      entry.subsidiaryPrice = subDetails[0].price;
+      entry.subsidiaryChange = subDetails[0].change;
+    } else {
+      entry.subsidiaries = subDetails;
+    }
+    return entry;
+  }
+
+  function derivePreviousPrice(price, changePct) {
+    if (typeof price !== 'number' || !Number.isFinite(price)) return null;
+    if (typeof changePct !== 'number' || !Number.isFinite(changePct)) return null;
+    const denominator = 1 + changePct / 100;
+    return denominator ? price / denominator : null;
+  }
+
+  function isKoreanTicker(ticker) {
+    return /\.K[QS]$/.test(String(ticker || ''));
+  }
+
+  async function refreshLivePricesIfNeeded(baseSnapshot, opts) {
+    opts = opts || {};
+    const baseSnapshotMs = getSnapshotVersion(baseSnapshot);
+    const referenceSnapshotMs = Math.max(baseSnapshotMs || 0, latestAppliedSnapshotMs || 0);
+    if (!opts.forceRefresh && !isSnapshotMsStale(referenceSnapshotMs)) return false;
+    if (liveRefreshPromise) return liveRefreshPromise;
+
+    liveRefreshPromise = (async function() {
+      try {
+        const liveSnapshot = await runWithTimeout(
+          buildLiveSnapshot(),
+          LIVE_REFRESH_TIMEOUT_MS,
+          '실시간 갱신 시간이 초과되었습니다.',
+        );
+        return applyCurrentData(liveSnapshot);
+      } catch (err) {
+        console.warn('브라우저 실시간 갱신 실패:', err);
+        return false;
+      } finally {
+        liveRefreshPromise = null;
+      }
+    })();
+    return liveRefreshPromise;
+  }
+
+  async function refreshLivePricesWithRetry(baseSnapshot, attempts, opts) {
+    for (let attempt = 0; attempt < attempts; attempt += 1) {
+      const refreshed = await refreshLivePricesIfNeeded(baseSnapshot, opts);
+      if (refreshed || (!opts?.forceRefresh && !isSnapshotMsStale(latestAppliedSnapshotMs || 0))) {
+        return refreshed;
+      }
+      if (attempt < attempts - 1) await delay(LIVE_REFRESH_RETRY_DELAY_MS);
+    }
+    return false;
+  }
+
   // --- Cards ---
   function renderCards() {
     const el = document.getElementById('cards');
     el.innerHTML = pairs.map((p, i) => {
       const c = p.current;
-      const dir = c.ratioChange >= 0 ? 'up' : 'down';
-      const arrow = c.ratioChange >= 0 ? '▲' : '▼';
+      const dir = getDirectionClass(c.ratioChange);
       let prices = '';
       if (!p.isAverage) {
         let subLines = '';
@@ -854,9 +1667,11 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
         </div>`;
       }
       return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}">
-        <div class="name">${p.name}</div>
-        <div class="ratio-val">${c.ratio.toFixed(1)}%</div>
-        <div class="ratio-change ${dir}">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</div>
+        <div class="name">${escapeHtml(p.name)}</div>
+        <div class="ratio-line">
+          <div class="ratio-val">${formatRatio(c.ratio)}</div>
+          <div class="ratio-change ${dir}">${formatSignedPoints(c.ratioChange)}</div>
+        </div>
         ${prices}
       </div>`;
     }).join('');
@@ -1479,6 +2294,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   function setSelectedIdx(idx, opts) {
     opts = opts || {};
     selectedIdx = idx;
+    renderTodayOverview();
     renderCards();
     renderChart();
     renderPriceChart();
