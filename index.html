@@ -377,6 +377,57 @@ body {
 .market-main {
   min-width: 0;
 }
+.market-card {
+  justify-content: flex-start;
+}
+.market-headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.market-row-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--soft-border);
+}
+.market-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+.market-row-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+.market-row-value {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.market-row-change {
+  white-space: nowrap;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.market-row-change.up { color: var(--up); }
+.market-row-change.down { color: var(--down); }
+.market-row-change.flat { color: var(--text-dim); }
+.market-summary {
+  margin-top: auto;
+}
+.market-summary .overview-stat-value {
+  font-size: 13px;
+}
 .overview-side-list,
 .overview-rank-list {
   border-left: 1px solid var(--soft-border);
@@ -1449,43 +1500,47 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   function renderMarketMiniItems(market) {
     const extras = Array.isArray(market.extras) ? market.extras.slice(0, 4) : [];
     if (!extras.length) {
-      return `<div class="overview-mini-item">
-        <div class="overview-mini-label">보조 지표</div>
-        <div class="overview-mini-data">
-          <span class="overview-mini-value">-</span>
-          <span class="overview-mini-change flat">대기</span>
-        </div>
+      return `<div class="market-row">
+        <span class="market-row-name">보조 지표</span>
+        <span class="market-row-value">-</span>
+        <span class="market-row-change flat">대기</span>
       </div>`;
     }
     return extras.map(function(item) {
       const dir = getDirectionClass(item.changePct);
       const decimals = typeof item.priceDecimals === 'number' ? item.priceDecimals : 2;
-      return `<div class="overview-mini-item">
-        <div class="overview-mini-label">${escapeHtml(item.name || item.id || '지표')}</div>
-        <div class="overview-mini-data">
-          <span class="overview-mini-value">${formatMarketNumber(item.price, decimals)}</span>
-          <span class="overview-mini-change ${dir}">${formatSignedPercent(item.changePct)}</span>
-        </div>
+      return `<div class="market-row">
+        <span class="market-row-name">${escapeHtml(item.name || item.id || '지표')}</span>
+        <span class="market-row-value">${formatMarketNumber(item.price, decimals)}</span>
+        <span class="market-row-change ${dir}">${formatSignedPercent(item.changePct)}</span>
       </div>`;
     }).join('');
   }
 
   function renderMarketCard(market, marketDir) {
+    const source = market.source || market.marketStatus || 'KIS proxy';
     return `<div class="overview-card market-card">
-      <div class="overview-split market">
-        <div class="market-main">
-          <div class="overview-label">KOSPI</div>
-          <div class="ratio-line">
-            <div class="overview-value">${formatMarketNumber(market.price, 2)}</div>
-            <div class="overview-change ${marketDir}">${formatSignedPercent(market.changePct)}</div>
-          </div>
-          <div class="overview-detail">변화폭 ${formatMarketNumber(market.change, 2)}</div>
+      <div class="market-main">
+        <div class="overview-label">KOSPI</div>
+        <div class="market-headline">
+          <div class="overview-value">${formatMarketNumber(market.price, 2)}</div>
+          <div class="overview-change ${marketDir}">${formatSignedPercent(market.changePct)}</div>
         </div>
-        <div class="overview-side-list">
-          ${renderMarketMiniItems(market)}
+        <div class="overview-detail">국내 시장 대표 지수</div>
+      </div>
+      <div class="market-row-list">
+        ${renderMarketMiniItems(market)}
+      </div>
+      <div class="overview-summary-grid market-summary">
+        <div class="overview-stat">
+          <div class="overview-stat-label">변화폭</div>
+          <div class="overview-stat-value ${marketDir}">${formatMarketNumber(market.change, 2)}pt</div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-label">출처</div>
+          <div class="overview-stat-value flat">${escapeHtml(source)}</div>
         </div>
       </div>
-      <div class="overview-detail">${escapeHtml(market.source || market.marketStatus || 'KIS proxy')}</div>
     </div>`;
   }
 
