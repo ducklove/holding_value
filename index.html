@@ -3015,11 +3015,19 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   }
 
   function formatPrice(n) {
-    return n.toLocaleString('ko-KR') + '원';
+    if (typeof n !== 'number' || !Number.isFinite(n)) return '-';
+    if (Math.abs(n) >= 100000000) {
+      return (n / 100000000).toLocaleString('ko-KR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }) + '억';
+    }
+    return n.toLocaleString('ko-KR', { maximumFractionDigits: 0 });
   }
 
   function formatOk(n) {
-    return n.toLocaleString('ko-KR') + '억원';
+    if (typeof n !== 'number' || !Number.isFinite(n)) return '-';
+    return n.toLocaleString('ko-KR') + '억';
   }
 
   function formatRatio(n) {
