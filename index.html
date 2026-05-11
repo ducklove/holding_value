@@ -526,7 +526,7 @@ body {
 /* Summary cards */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 12px;
   margin-bottom: 24px;
 }
@@ -598,10 +598,10 @@ body {
   gap: 5px;
 }
 .price-line {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8.2ch 7ch 9.4ch;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
+  column-gap: 4px;
 }
 .price-label {
   min-width: 0;
@@ -611,14 +611,25 @@ body {
   line-height: 1.2;
 }
 .price-value {
-  margin-left: auto;
   text-align: right;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+.price-change {
+  display: inline-block;
+  text-align: right;
+}
+.price-meta {
+  display: contents;
+}
 .price-suffix {
   color: var(--green);
   font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .card .amounts {
   margin-top: auto;
@@ -626,9 +637,17 @@ body {
   border-top: 1px solid var(--soft-border);
   font-size: 11px;
   color: var(--text-dim);
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 8px;
+  font-variant-numeric: tabular-nums;
+}
+.amount-label {
+  white-space: nowrap;
+}
+.amount-value {
+  text-align: right;
+  white-space: nowrap;
 }
 
 /* Chart area */
@@ -1301,12 +1320,13 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   function renderPriceLine(label, price, change, suffix) {
     const changeText = formatPriceChange(change);
     const changeHtml = changeText
-      ? ` <span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`
-      : '';
-    const suffixText = suffix ? ` <span class="price-suffix">${suffix}</span>` : '';
+      ? `<span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`
+      : '<span class="price-change flat-color">-</span>';
+    const suffixText = suffix ? `<span class="price-suffix">${suffix}</span>` : '<span class="price-suffix"></span>';
     return `<div class="price-line">
       <span class="price-label">${escapeHtml(label)}</span>
-      <span class="price-value">${formatPrice(price)}${changeHtml}${suffixText}</span>
+      <span class="price-value">${formatPrice(price)}</span>
+      <span class="price-meta">${changeHtml}${suffixText}</span>
     </div>`;
   }
 
@@ -1980,8 +2000,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
           ${subLines}
         </div>
         <div class="amounts">
-          <span>보유지분 ${formatOk(c.holdingValue)}</span>
-          <span>조정시총 ${formatOk(c.marketCap)}</span>
+          <span class="amount-label">보유지분</span><span class="amount-value">${formatOk(c.holdingValue)}</span>
+          <span class="amount-label">조정시총</span><span class="amount-value">${formatOk(c.marketCap)}</span>
         </div>`;
       }
       return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}">
