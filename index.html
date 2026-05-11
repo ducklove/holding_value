@@ -176,36 +176,53 @@ body {
 /* Today overview */
 .today-overview {
   margin-bottom: 18px;
-  padding: 18px;
+  padding: 22px;
   border: 1px solid var(--today-border);
   border-radius: 18px;
-  background: var(--today-bg);
+  background:
+    radial-gradient(circle at 78% 10%, rgba(108,140,255,0.16), transparent 34%),
+    radial-gradient(circle at 18% 92%, rgba(56,201,106,0.1), transparent 30%),
+    var(--today-bg);
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 .today-overview-head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+}
+.today-overview-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.today-overview-kicker {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 .today-overview-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.8px;
+  line-height: 1.05;
 }
 .today-overview-meta {
   color: var(--text-dim);
   font-size: 12px;
   text-align: right;
+  line-height: 1.5;
 }
 .today-overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1.08fr 1fr 1.08fr 1.08fr;
   gap: 12px;
+  align-items: stretch;
 }
 .overview-card {
-  min-height: 128px;
+  min-height: 206px;
   padding: 16px;
   border: 1px solid var(--overview-card-border);
   border-radius: 14px;
@@ -219,6 +236,61 @@ body {
 .overview-card.primary {
   background: var(--overview-primary-bg);
   border-color: var(--overview-primary-border);
+}
+.overview-card.average-card {
+  align-items: stretch;
+}
+.overview-card.average-card .overview-value {
+  font-size: 38px;
+  line-height: 1;
+}
+.average-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(96px, 132px);
+  align-items: center;
+  gap: 14px;
+}
+.average-main-metric {
+  min-width: 0;
+}
+.average-sparkline {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.average-sparkline-label {
+  margin-bottom: 5px;
+  color: var(--text-dim);
+  font-size: 11px;
+  line-height: 1;
+  text-align: right;
+}
+.average-sparkline svg {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+.average-sparkline-fill {
+  fill: var(--accent);
+  opacity: 0.1;
+}
+.average-sparkline-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}
+.average-sparkline.up .average-sparkline-fill { fill: var(--up); }
+.average-sparkline.up .average-sparkline-line { stroke: var(--up); }
+.average-sparkline.down .average-sparkline-fill { fill: var(--down); }
+.average-sparkline.down .average-sparkline-line { stroke: var(--down); }
+.average-sparkline.empty {
+  min-height: 56px;
+  align-items: flex-end;
+  color: var(--text-dim);
+  font-size: 11px;
 }
 .overview-card.clickable {
   cursor: pointer;
@@ -262,7 +334,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 8px;
+  margin-top: auto;
 }
 .overview-stat {
   border-top: 1px solid var(--soft-border);
@@ -283,21 +355,83 @@ body {
 .overview-stat-value.flat { color: var(--text-dim); }
 .overview-split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 132px;
+  grid-template-columns: minmax(0, 1fr) 148px;
   gap: 12px;
+  align-items: start;
 }
 .overview-split.no-side {
+  grid-template-columns: minmax(0, 1fr);
+}
+.overview-split.market {
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 0.72fr);
+}
+.overview-split.runners {
+  grid-template-columns: minmax(0, 1fr) 148px;
+}
+.overview-split.runners.no-side {
   grid-template-columns: minmax(0, 1fr);
 }
 .overview-main-copy {
   min-width: 0;
 }
+.market-main {
+  min-width: 0;
+}
+.overview-side-list,
 .overview-rank-list {
   border-left: 1px solid var(--soft-border);
   padding-left: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-height: 0;
+}
+.overview-mini-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.overview-mini-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+.overview-mini-data {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8px;
+}
+.overview-mini-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.overview-mini-change {
+  font-size: 11px;
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.overview-mini-change.up { color: var(--up); }
+.overview-mini-change.down { color: var(--down); }
+.overview-mini-change.flat { color: var(--text-dim); }
+.leader-ratio-block {
+  margin-top: 12px;
+}
+.leader-ratio-block .ratio-val {
+  font-size: 30px;
+  line-height: 1;
+}
+.leader-ratio-block .ratio-change {
+  display: block;
+  margin-top: 7px;
 }
 .overview-rank-item {
   appearance: none;
@@ -329,6 +463,14 @@ body {
   font-size: 11px;
   font-variant-numeric: tabular-nums;
 }
+.overview-rank-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  color: var(--text-dim);
+  font-size: 10.5px;
+  flex-wrap: wrap;
+}
 
 /* Summary cards */
 .cards {
@@ -343,6 +485,9 @@ body {
   border-radius: 14px;
   padding: 16px;
   cursor: pointer;
+  min-height: 198px;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.15s, border-color 0.15s, background 0.15s, box-shadow 0.15s;
 }
 .card:hover {
@@ -394,20 +539,45 @@ body {
 .card .ratio-change.flat,
 .overview-card .ratio-change.flat { color: var(--text-dim); }
 .card .prices {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 12px;
   color: var(--text-dim);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
+}
+.price-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.price-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.price-value {
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.price-suffix {
+  color: var(--green);
+  font-size: 11px;
 }
 .card .amounts {
-  margin-top: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--soft-border);
   font-size: 11px;
   color: var(--text-dim);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 /* Chart area */
@@ -666,7 +836,13 @@ tr:hover { background: var(--surface2); }
   .today-overview-head { flex-direction: column; align-items: flex-start; }
   .today-overview-meta { text-align: left; }
   .today-overview-title { font-size: 20px; }
-  .overview-split { grid-template-columns: minmax(0, 1fr); }
+  .today-overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .average-card-body { grid-template-columns: minmax(0, 1fr); }
+  .average-sparkline-label { text-align: left; }
+  .overview-split,
+  .overview-split.market,
+  .overview-split.runners { grid-template-columns: minmax(0, 1fr); }
+  .overview-side-list,
   .overview-rank-list {
     border-left: none;
     border-top: 1px solid var(--soft-border);
@@ -680,6 +856,10 @@ tr:hover { background: var(--surface2); }
   .price-chart-container { height: 260px; }
   .data-zoom-labels { grid-template-columns: 1fr 1fr; }
   .data-zoom-labels span:nth-child(2) { display: none; }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .today-overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 </style>
 </head>
@@ -1072,8 +1252,11 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     const changeHtml = changeText
       ? ` <span class="price-change ${getPriceChangeClass(change)}">${changeText}</span>`
       : '';
-    const suffixText = suffix ? ` ${suffix}` : '';
-    return `<span>${label} ${formatPrice(price)}${changeHtml}${suffixText}</span>`;
+    const suffixText = suffix ? ` <span class="price-suffix">${suffix}</span>` : '';
+    return `<div class="price-line">
+      <span class="price-label">${escapeHtml(label)}</span>
+      <span class="price-value">${formatPrice(price)}${changeHtml}${suffixText}</span>
+    </div>`;
   }
 
   function renderPriceCell(price, change) {
@@ -1225,6 +1408,87 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     return sources.join(', ');
   }
 
+  function renderAverageSparkline() {
+    const avgPair = pairs.find(function(pair) { return pair.isAverage; });
+    const history = (avgPair?.history || [])
+      .filter(function(row) { return typeof row.ratio === 'number' && Number.isFinite(row.ratio); })
+      .slice(-18);
+    if (history.length < 2) {
+      return `<div class="average-sparkline empty">추이 데이터 대기</div>`;
+    }
+
+    const width = 128;
+    const height = 56;
+    const pad = 4;
+    const values = history.map(function(row) { return row.ratio; });
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const span = max - min || 1;
+    const points = values.map(function(value, idx) {
+      const x = pad + (idx / (values.length - 1)) * (width - pad * 2);
+      const y = pad + (1 - (value - min) / span) * (height - pad * 2);
+      return [x.toFixed(1), y.toFixed(1)];
+    });
+    const line = points.map(function(point) { return point.join(','); }).join(' ');
+    const area = [
+      `${pad},${height - pad}`,
+      line,
+      `${width - pad},${height - pad}`,
+    ].join(' ');
+    const direction = values[values.length - 1] - values[0];
+    const dir = getDirectionClass(direction);
+    return `<div class="average-sparkline ${dir}">
+      <div class="average-sparkline-label">최근 ${history.length}개 관측치</div>
+      <svg viewBox="0 0 ${width} ${height}" aria-hidden="true">
+        <polygon class="average-sparkline-fill" points="${area}"></polygon>
+        <polyline class="average-sparkline-line" points="${line}"></polyline>
+      </svg>
+    </div>`;
+  }
+
+  function renderMarketMiniItems(market) {
+    const extras = Array.isArray(market.extras) ? market.extras.slice(0, 4) : [];
+    if (!extras.length) {
+      return `<div class="overview-mini-item">
+        <div class="overview-mini-label">보조 지표</div>
+        <div class="overview-mini-data">
+          <span class="overview-mini-value">-</span>
+          <span class="overview-mini-change flat">대기</span>
+        </div>
+      </div>`;
+    }
+    return extras.map(function(item) {
+      const dir = getDirectionClass(item.changePct);
+      const decimals = typeof item.priceDecimals === 'number' ? item.priceDecimals : 2;
+      return `<div class="overview-mini-item">
+        <div class="overview-mini-label">${escapeHtml(item.name || item.id || '지표')}</div>
+        <div class="overview-mini-data">
+          <span class="overview-mini-value">${formatMarketNumber(item.price, decimals)}</span>
+          <span class="overview-mini-change ${dir}">${formatSignedPercent(item.changePct)}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderMarketCard(market, marketDir) {
+    return `<div class="overview-card market-card">
+      <div class="overview-split market">
+        <div class="market-main">
+          <div class="overview-label">KOSPI</div>
+          <div class="ratio-line">
+            <div class="overview-value">${formatMarketNumber(market.price, 2)}</div>
+            <div class="overview-change ${marketDir}">${formatSignedPercent(market.changePct)}</div>
+          </div>
+          <div class="overview-detail">변화폭 ${formatMarketNumber(market.change, 2)}</div>
+        </div>
+        <div class="overview-side-list">
+          ${renderMarketMiniItems(market)}
+        </div>
+      </div>
+      <div class="overview-detail">${escapeHtml(market.source || market.marketStatus || 'KIS proxy')}</div>
+    </div>`;
+  }
+
   function renderTodayOverview() {
     const el = document.getElementById('todayOverview');
     if (!el) return;
@@ -1237,17 +1501,21 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
     el.innerHTML = `
       <div class="today-overview-head">
-        <div class="today-overview-title">오늘의 지주회사 현황</div>
+        <div class="today-overview-title-wrap">
+          <div class="today-overview-kicker">오늘의 지주회사 현황</div>
+          <div class="today-overview-title">실시간 지분가치 스냅샷</div>
+        </div>
         <div class="today-overview-meta">${escapeHtml(summary.source || 'current.js')} · 대표 ${summary.representativeCount || 0}개 그룹 기준</div>
       </div>
       <div class="today-overview-grid">
-        <div class="overview-card primary">
-          <div>
-            <div class="overview-label">평균 지분가치 비율</div>
-            <div class="ratio-line">
+        <div class="overview-card primary average-card">
+          <div class="average-card-body">
+            <div class="average-main-metric">
+              <div class="overview-label">평균 지분가치 비율</div>
               <div class="overview-value">${formatRatio(summary.averageRatio)}</div>
               <div class="overview-change ${avgDir}">${formatSignedPoints(summary.averageRatioChange)}</div>
             </div>
+            ${renderAverageSparkline()}
           </div>
           <div class="overview-summary-grid">
             <div class="overview-stat">
@@ -1260,16 +1528,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
             </div>
           </div>
         </div>
-        <div class="overview-card">
-          <div>
-            <div class="overview-label">KOSPI</div>
-            <div class="ratio-line">
-              <div class="overview-value">${formatMarketNumber(market.price, 2)}</div>
-              <div class="overview-change ${marketDir}">${formatSignedPercent(market.changePct)}</div>
-            </div>
-          </div>
-          <div class="overview-detail">변화폭 ${formatMarketNumber(market.change, 2)} · ${escapeHtml(market.source || market.marketStatus || 'KIS proxy')}</div>
-        </div>
+        ${renderMarketCard(market, marketDir)}
         ${renderLeaderCard('최고 비율 확대', summary.topExpansion, summary.expansionRunners)}
         ${renderLeaderCard('최고 비율 축소', summary.topContraction, summary.contractionRunners)}
       </div>`;
@@ -1290,11 +1549,11 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
     const sideClass = runners && runners.length ? '' : ' no-side';
     return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}">
-      <div class="overview-split${sideClass}">
+      <div class="overview-split runners${sideClass}">
         <div class="overview-main-copy">
           <div class="overview-label">${label}</div>
           <div class="name">${escapeHtml(pair.name)}</div>
-          <div class="ratio-line">
+          <div class="leader-ratio-block">
             <div class="ratio-val">${formatRatio(pair.current.ratio)}</div>
             <div class="ratio-change ${dir}">${formatSignedPoints(pair.current.ratioChange)}</div>
           </div>
@@ -1309,9 +1568,13 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     if (!runners || !runners.length) return '';
     return `<div class="overview-rank-list">${runners.map(function(pair) {
       const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
+      const dir = getDirectionClass(pair.current.ratioChange);
       return `<button type="button" class="overview-rank-item${active}" data-pair-id="${escapeHtml(pair.id)}">
         <span class="overview-rank-name">${escapeHtml(pair.name)}</span>
-        <span class="overview-rank-value">${formatSignedPoints(pair.current.ratioChange)}</span>
+        <span class="overview-rank-meta">
+          <span>${formatRatio(pair.current.ratio)}</span>
+          <span class="ratio-change ${dir}">${formatSignedPoints(pair.current.ratioChange)}</span>
+        </span>
       </button>`;
     }).join('')}</div>`;
   }
