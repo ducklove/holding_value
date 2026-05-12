@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-12 23:33:36",
-  "generatedAt": "2026-05-12T23:33:36+09:00",
-  "snapshotTimestamp": 1778596416639,
+  "lastUpdated": "2026-05-13 01:57:40",
+  "generatedAt": "2026-05-13T01:57:40+09:00",
+  "snapshotTimestamp": 1778605060870,
   "session": {
     "name": "us_night",
     "date": "2026-05-12",
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 47,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 217.26
+    "averageRatio": 217.31
   },
   "market": {
     "id": "KOSPI",
@@ -45,7 +45,7 @@ const CURRENT_DATA = {
       "marketCap": 11475.4,
       "ratio": 693.38,
       "ratioChange": 1.29,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1512000.0,
       "subsidiaryChange": -1.05
     },
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 61800.0,
       "holdingChange": -5.36,
-      "holdingValue": 4476.7,
+      "holdingValue": 4529.5,
       "marketCap": 2195.7,
-      "ratio": 203.89,
-      "ratioChange": 15.12,
+      "ratio": 206.29,
+      "ratioChange": 17.52,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1075451210.0,
-          "change": 2.13,
-          "value": 3075.8,
-          "ratio": 140.08
+          "price": 1092718365.0,
+          "change": 3.77,
+          "value": 3125.2,
+          "ratio": 142.33
         },
         {
           "name": "애플",
-          "price": 437823.0,
-          "change": 2.42,
-          "value": 1401.0,
-          "ratio": 63.8
+          "price": 438890.0,
+          "change": 2.67,
+          "value": 1404.4,
+          "ratio": 63.96
         }
       ]
     },
@@ -407,7 +407,7 @@ const CURRENT_DATA = {
       "marketCap": 294964.0,
       "ratio": 240.88,
       "ratioChange": 4.89,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
@@ -1219,8 +1219,8 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 217.26,
-      "ratioChange": 0.25,
+      "ratio": 217.31,
+      "ratioChange": 0.3,
       "quoteSource": "derived"
     }
   ]
