@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-12 18:20:22",
-  "generatedAt": "2026-05-12T18:20:22+09:00",
-  "snapshotTimestamp": 1778577622714,
+  "lastUpdated": "2026-05-12 23:33:36",
+  "generatedAt": "2026-05-12T23:33:36+09:00",
+  "snapshotTimestamp": 1778596416639,
   "session": {
-    "name": "offhours",
+    "name": "us_night",
     "date": "2026-05-12",
-    "label": "Off hours"
+    "label": "US night session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -45,7 +45,7 @@ const CURRENT_DATA = {
       "marketCap": 11475.4,
       "ratio": 693.38,
       "ratioChange": 1.29,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 1512000.0,
       "subsidiaryChange": -1.05
     },
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 61800.0,
       "holdingChange": -5.36,
-      "holdingValue": 4472.6,
+      "holdingValue": 4476.7,
       "marketCap": 2195.7,
-      "ratio": 203.7,
-      "ratioChange": 15.5,
+      "ratio": 203.89,
+      "ratioChange": 15.12,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1075429148.0,
-          "change": 2.64,
-          "value": 3075.7,
+          "price": 1075451210.0,
+          "change": 2.13,
+          "value": 3075.8,
           "ratio": 140.08
         },
         {
           "name": "애플",
-          "price": 436556.0,
-          "change": 2.0,
-          "value": 1396.9,
-          "ratio": 63.62
+          "price": 437823.0,
+          "change": 2.42,
+          "value": 1401.0,
+          "ratio": 63.8
         }
       ]
     },
@@ -407,7 +407,7 @@ const CURRENT_DATA = {
       "marketCap": 294964.0,
       "ratio": 240.88,
       "ratioChange": 4.89,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
@@ -1220,7 +1220,7 @@ const CURRENT_DATA = {
     {
       "id": "_average",
       "ratio": 217.26,
-      "ratioChange": 0.26,
+      "ratioChange": 0.25,
       "quoteSource": "derived"
     }
   ]
