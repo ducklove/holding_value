@@ -1,20 +1,18 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-13 05:45:59",
-  "generatedAt": "2026-05-13T05:45:59+09:00",
-  "snapshotTimestamp": 1778618759627,
+  "lastUpdated": "2026-05-13 06:57:40",
+  "generatedAt": "2026-05-13T06:57:40+09:00",
+  "snapshotTimestamp": 1778623060242,
   "session": {
-    "name": "us_night",
-    "date": "2026-05-12",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-05-13",
+    "label": "Off hours"
   },
-  "isPartial": true,
-  "preservedPairIds": [
-    "eyesvision"
-  ],
+  "isPartial": false,
+  "preservedPairIds": [],
   "missingPairIds": [],
   "summary": {
     "pairCount": 47,
-    "preservedCount": 1,
+    "preservedCount": 0,
     "missingCount": 0,
     "averageRatio": 217.3
   },
@@ -119,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 61800.0,
       "holdingChange": 0.0,
-      "holdingValue": 4518.6,
+      "holdingValue": 4516.3,
       "marketCap": 2195.7,
-      "ratio": 205.79,
-      "ratioChange": 6.33,
+      "ratio": 205.69,
+      "ratioChange": 6.23,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1087548499.0,
-          "change": 3.28,
-          "value": 3110.4,
-          "ratio": 141.66
+          "price": 1087002124.0,
+          "change": 3.22,
+          "value": 3108.8,
+          "ratio": 141.59
         },
         {
           "name": "애플",
-          "price": 440095.0,
-          "change": 2.95,
-          "value": 1408.2,
-          "ratio": 64.14
+          "price": 439874.0,
+          "change": 2.9,
+          "value": 1407.5,
+          "ratio": 64.1
         }
       ]
     },
@@ -224,13 +222,13 @@ const CURRENT_DATA = {
       "holdingValue": 25061.5,
       "marketCap": 24022.5,
       "ratio": 104.33,
-      "ratioChange": -11.16,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "원익IPS",
           "price": 125000.0,
-          "change": -11.72,
+          "change": 0.0,
           "value": 20185.7,
           "ratio": 84.03
         },
@@ -361,8 +359,8 @@ const CURRENT_DATA = {
       "holdingValue": 259541.5,
       "marketCap": 106588.9,
       "ratio": 243.5,
-      "ratioChange": -0.04,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -395,7 +393,7 @@ const CURRENT_DATA = {
         {
           "name": "한화갤러리아",
           "price": 2800.0,
-          "change": -2.27,
+          "change": 0.0,
           "value": 1991.4,
           "ratio": 1.87
         }
@@ -404,38 +402,38 @@ const CURRENT_DATA = {
     {
       "id": "sk_inc",
       "holdingPrice": 541000.0,
-      "holdingChange": -5.25,
+      "holdingChange": 0.0,
       "holdingValue": 710499.2,
       "marketCap": 294964.0,
       "ratio": 240.88,
-      "ratioChange": 4.89,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
           "price": 128500.0,
-          "change": -3.17,
+          "change": 0.0,
           "value": 113147.8,
           "ratio": 38.36
         },
         {
           "name": "SK텔레콤",
           "price": 103400.0,
-          "change": 5.3,
+          "change": 0.0,
           "value": 67901.1,
           "ratio": 23.02
         },
         {
           "name": "SK스퀘어",
           "price": 1126000.0,
-          "change": -5.14,
+          "change": 0.0,
           "value": 478011.8,
           "ratio": 162.06
         },
         {
           "name": "SK바이오팜",
           "price": 102600.0,
-          "change": 4.06,
+          "change": 0.0,
           "value": 51438.4,
           "ratio": 17.44
         }
@@ -444,24 +442,24 @@ const CURRENT_DATA = {
     {
       "id": "sk_discovery",
       "holdingPrice": 55500.0,
-      "holdingChange": -2.46,
+      "holdingChange": 0.0,
       "holdingValue": 22695.2,
       "marketCap": 9499.0,
       "ratio": 238.92,
-      "ratioChange": 3.8,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SK가스",
           "price": 269500.0,
-          "change": -0.19,
+          "change": 0.0,
           "value": 19462.9,
           "ratio": 204.89
         },
         {
           "name": "SK케미칼",
           "price": 50500.0,
-          "change": -4.9,
+          "change": 0.0,
           "value": 3232.3,
           "ratio": 34.03
         }
@@ -470,50 +468,50 @@ const CURRENT_DATA = {
     {
       "id": "sk_square",
       "holdingPrice": 1126000.0,
-      "holdingChange": -5.14,
+      "holdingChange": 0.0,
       "holdingValue": 2680004.2,
       "marketCap": 1482844.5,
       "ratio": 180.73,
-      "ratioChange": 5.08,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1835000.0,
-      "subsidiaryChange": -2.39
+      "subsidiaryChange": 0.0
     },
     {
       "id": "harim_holdings",
       "holdingPrice": 12150.0,
-      "holdingChange": -3.57,
+      "holdingChange": 0.0,
       "holdingValue": 20748.2,
       "marketCap": 11817.2,
       "ratio": 175.58,
-      "ratioChange": 5.52,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "하림",
           "price": 3095.0,
-          "change": -1.43,
+          "change": 0.0,
           "value": 1885.7,
           "ratio": 15.96
         },
         {
           "name": "선진",
           "price": 10240.0,
-          "change": -1.35,
+          "change": 0.0,
           "value": 1217.6,
           "ratio": 10.3
         },
         {
           "name": "팜스코",
           "price": 3135.0,
-          "change": -2.79,
+          "change": 0.0,
           "value": 648.7,
           "ratio": 5.49
         },
         {
           "name": "팬오션",
           "price": 5810.0,
-          "change": -0.17,
+          "change": 0.0,
           "value": 16996.2,
           "ratio": 143.83
         }
@@ -522,17 +520,17 @@ const CURRENT_DATA = {
     {
       "id": "lg_corp",
       "holdingPrice": 110400.0,
-      "holdingChange": 5.04,
+      "holdingChange": 0.0,
       "holdingValue": 241934.5,
       "marketCap": 166916.0,
       "ratio": 144.94,
-      "ratioChange": 2.88,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "LG전자",
           "price": 184900.0,
-          "change": 18.0,
+          "change": 0.0,
           "value": 106193.7,
           "ratio": 63.62
         },
@@ -566,8 +564,8 @@ const CURRENT_DATA = {
       "holdingValue": 9297.8,
       "marketCap": 6464.7,
       "ratio": 143.82,
-      "ratioChange": 0.02,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
@@ -586,7 +584,7 @@ const CURRENT_DATA = {
         {
           "name": "LX하우시스",
           "price": 38800.0,
-          "change": 0.13,
+          "change": 0.0,
           "value": 1166.6,
           "ratio": 18.05
         }
@@ -765,20 +763,20 @@ const CURRENT_DATA = {
       "holdingValue": 3564.2,
       "marketCap": 1851.6,
       "ratio": 192.49,
-      "ratioChange": -8.18,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 16480.0,
-      "subsidiaryChange": -4.07
+      "subsidiaryChange": 0.0
     },
     {
       "id": "telcon_rf",
       "holdingPrice": 535.0,
-      "holdingChange": -2.37,
+      "holdingChange": 0.0,
       "holdingValue": 653.3,
       "marketCap": 366.6,
       "ratio": 178.19,
-      "ratioChange": 4.23,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "에이비온",
@@ -803,8 +801,8 @@ const CURRENT_DATA = {
       "holdingValue": 2086.9,
       "marketCap": 1015.8,
       "ratio": 205.44,
-      "ratioChange": -2.28,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "AP시스템",
@@ -823,7 +821,7 @@ const CURRENT_DATA = {
         {
           "name": "코닉오토메이션",
           "price": 2160.0,
-          "change": -5.68,
+          "change": 0.0,
           "value": 384.6,
           "ratio": 37.87
         }
@@ -836,13 +834,13 @@ const CURRENT_DATA = {
       "holdingValue": 1377.1,
       "marketCap": 862.4,
       "ratio": 159.68,
-      "ratioChange": -2.25,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "우리금융지주",
           "price": 31800.0,
-          "change": -2.15,
+          "change": 0.0,
           "value": 881.8,
           "ratio": 102.25
         },
@@ -950,31 +948,31 @@ const CURRENT_DATA = {
     {
       "id": "bio_smart",
       "holdingPrice": 3635.0,
-      "holdingChange": -2.68,
+      "holdingChange": 0.0,
       "holdingValue": 1392.7,
       "marketCap": 918.8,
       "ratio": 151.58,
-      "ratioChange": -2.28,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "티씨머티리얼즈",
           "price": 6890.0,
-          "change": -4.57,
+          "change": 0.0,
           "value": 1149.3,
           "ratio": 125.1
         },
         {
           "name": "더라미",
           "price": 1032.0,
-          "change": -2.92,
+          "change": 0.0,
           "value": 117.9,
           "ratio": 12.84
         },
         {
           "name": "옴니시스템",
           "price": 903.0,
-          "change": -0.99,
+          "change": 0.0,
           "value": 125.4,
           "ratio": 13.65
         }
@@ -983,24 +981,24 @@ const CURRENT_DATA = {
     {
       "id": "eyesvision",
       "holdingPrice": 1678.0,
-      "holdingChange": -5.62,
+      "holdingChange": 0.0,
       "holdingValue": 946.1,
       "marketCap": 441.5,
       "ratio": 214.29,
-      "ratioChange": -10.3,
-      "quoteSource": "cached_same_session",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "머큐리",
           "price": 9670.0,
-          "change": -10.88,
+          "change": 0.0,
           "value": 821.0,
           "ratio": 185.95
         },
         {
           "name": "한성크린텍",
           "price": 1518.0,
-          "change": -6.01,
+          "change": 0.0,
           "value": 68.9,
           "ratio": 15.6
         },
@@ -1016,24 +1014,24 @@ const CURRENT_DATA = {
     {
       "id": "orion_holdings",
       "holdingPrice": 23750.0,
-      "holdingChange": -1.25,
+      "holdingChange": 0.0,
       "holdingValue": 21596.0,
       "marketCap": 14283.1,
       "ratio": 151.2,
-      "ratioChange": 1.34,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "오리온",
           "price": 139100.0,
-          "change": -0.36,
+          "change": 0.0,
           "value": 20552.0,
           "ratio": 143.89
         },
         {
           "name": "쇼박스",
           "price": 2900.0,
-          "change": -0.51,
+          "change": 0.0,
           "value": 1043.9,
           "ratio": 7.31
         }
@@ -1042,43 +1040,43 @@ const CURRENT_DATA = {
     {
       "id": "yes24",
       "holdingPrice": 3220.0,
-      "holdingChange": -2.72,
+      "holdingChange": 0.0,
       "holdingValue": 1155.4,
       "marketCap": 804.6,
       "ratio": 143.6,
-      "ratioChange": 0.19,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 22550.0,
-      "subsidiaryChange": -2.59
+      "subsidiaryChange": 0.0
     },
     {
       "id": "hwaseung_ind",
       "holdingPrice": 3290.0,
-      "holdingChange": -4.5,
+      "holdingChange": 0.0,
       "holdingValue": 2116.6,
       "marketCap": 1577.1,
       "ratio": 134.21,
-      "ratioChange": 1.97,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
           "price": 4425.0,
-          "change": -3.17,
+          "change": 0.0,
           "value": 1833.0,
           "ratio": 116.23
         },
         {
           "name": "화승코퍼레이션",
           "price": 3190.0,
-          "change": -1.24,
+          "change": 0.0,
           "value": 147.8,
           "ratio": 9.37
         },
         {
           "name": "성창기업지주",
           "price": 6340.0,
-          "change": -4.37,
+          "change": 0.0,
           "value": 113.4,
           "ratio": 7.19
         },
@@ -1124,10 +1122,10 @@ const CURRENT_DATA = {
       "holdingValue": 1372.1,
       "marketCap": 1223.0,
       "ratio": 112.2,
-      "ratioChange": 0.28,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 20250.0,
-      "subsidiaryChange": 0.25
+      "subsidiaryChange": 0.0
     },
     {
       "id": "dongkoo_bio",
@@ -1136,13 +1134,13 @@ const CURRENT_DATA = {
       "holdingValue": 1588.7,
       "marketCap": 1384.8,
       "ratio": 114.73,
-      "ratioChange": 2.21,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "큐리언트",
           "price": 32000.0,
-          "change": 2.4,
+          "change": 0.0,
           "value": 1304.2,
           "ratio": 94.18
         },
@@ -1182,7 +1180,7 @@ const CURRENT_DATA = {
       "marketCap": 255.8,
       "ratio": 87.4,
       "ratioChange": 0.0,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "넥써쓰",
@@ -1222,7 +1220,7 @@ const CURRENT_DATA = {
     {
       "id": "_average",
       "ratio": 217.3,
-      "ratioChange": 0.05,
+      "ratioChange": 0.13,
       "quoteSource": "derived"
     }
   ]
