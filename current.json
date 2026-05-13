@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-14 00:19:01",
-  "generatedAt": "2026-05-14T00:19:01+09:00",
-  "snapshotTimestamp": 1778685541779,
+  "lastUpdated": "2026-05-14 02:26:37",
+  "generatedAt": "2026-05-14T02:26:37+09:00",
+  "snapshotTimestamp": 1778693197814,
   "session": {
     "name": "us_night",
     "date": "2026-05-13",
@@ -14,7 +14,7 @@
     "pairCount": 48,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 215.18
+    "averageRatio": 215.06
   },
   "market": {
     "id": "KOSPI",
@@ -39,15 +39,15 @@
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 63100.0,
-      "holdingChange": -1.71,
-      "holdingValue": 78989.4,
-      "marketCap": 11278.8,
-      "ratio": 700.34,
-      "ratioChange": 6.96,
-      "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 1501000.0,
-      "subsidiaryChange": -0.73
+      "holdingPrice": 64200.0,
+      "holdingChange": -1.23,
+      "holdingValue": 79568.2,
+      "marketCap": 11475.4,
+      "ratio": 693.38,
+      "ratioChange": 1.29,
+      "quoteSource": "yfinance",
+      "subsidiaryPrice": 1512000.0,
+      "subsidiaryChange": -1.05
     },
     {
       "id": "poongsan_holdings",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 61400.0,
       "holdingChange": -0.65,
-      "holdingValue": 4502.3,
+      "holdingValue": 4520.1,
       "marketCap": 2181.5,
-      "ratio": 206.39,
-      "ratioChange": 3.13,
+      "ratio": 207.2,
+      "ratioChange": 3.95,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1079280422.0,
-          "change": 0.48,
-          "value": 3086.7,
-          "ratio": 141.5
+          "price": 1081337599.0,
+          "change": 0.67,
+          "value": 3092.6,
+          "ratio": 141.77
         },
         {
           "name": "애플",
-          "price": 442401.0,
-          "change": 1.78,
-          "value": 1415.6,
-          "ratio": 64.89
+          "price": 446118.0,
+          "change": 2.63,
+          "value": 1427.5,
+          "ratio": 65.44
         }
       ]
     },
@@ -389,11 +389,11 @@
       "id": "hanwha",
       "holdingPrice": 140700.0,
       "holdingChange": -1.05,
-      "holdingValue": 260676.3,
+      "holdingValue": 260702.5,
       "marketCap": 105464.6,
-      "ratio": 247.17,
-      "ratioChange": 3.67,
-      "quoteSource": "kis_proxy",
+      "ratio": 247.19,
+      "ratioChange": 3.66,
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -418,10 +418,10 @@
         },
         {
           "name": "고려아연",
-          "price": 1501000.0,
-          "change": -0.73,
-          "value": 3577.8,
-          "ratio": 3.39
+          "price": 1512000.0,
+          "change": -1.05,
+          "value": 3604.0,
+          "ratio": 3.42
         },
         {
           "name": "한화갤러리아",
@@ -1252,8 +1252,8 @@
     },
     {
       "id": "_average",
-      "ratio": 215.18,
-      "ratioChange": -0.08,
+      "ratio": 215.06,
+      "ratioChange": -0.18,
       "quoteSource": "derived"
     }
   ]
