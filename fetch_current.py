@@ -19,6 +19,7 @@ import pandas as pd
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "config.json"
 OUTPUT_PATH = BASE_DIR / "current.js"
+OUTPUT_JSON_PATH = BASE_DIR / "current.json"
 SEOUL_TZ = ZoneInfo("Asia/Seoul")
 KIS_BASE_URL = os.environ.get("KIS_BASE_URL", "https://openapi.koreainvestment.com:9443")
 KIS_APP_KEY = (
@@ -328,13 +329,16 @@ def fetch_market_summary():
 
 
 def parse_existing_current():
-    if not OUTPUT_PATH.exists():
-        return None
-
-    text = OUTPUT_PATH.read_text(encoding="utf-8")
-    json_str = re.sub(r"^const CURRENT_DATA\s*=\s*", "", text)
-    json_str = re.sub(r";\s*$", "", json_str)
     try:
+        if OUTPUT_JSON_PATH.exists():
+            return json.loads(OUTPUT_JSON_PATH.read_text(encoding="utf-8"))
+
+        if not OUTPUT_PATH.exists():
+            return None
+
+        text = OUTPUT_PATH.read_text(encoding="utf-8")
+        json_str = re.sub(r"^const CURRENT_DATA\s*=\s*", "", text)
+        json_str = re.sub(r";\s*$", "", json_str)
         return json.loads(json_str)
     except json.JSONDecodeError:
         return None
@@ -682,11 +686,14 @@ def main():
         "pairs": pairs_result,
     }
 
-    js_content = "const CURRENT_DATA = " + json.dumps(current_data, ensure_ascii=False, indent=2) + ";\n"
+    json_content = json.dumps(current_data, ensure_ascii=False, indent=2)
+    js_content = "const CURRENT_DATA = " + json_content + ";\n"
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(js_content)
+    with open(OUTPUT_JSON_PATH, "w", encoding="utf-8") as f:
+        f.write(json_content + "\n")
 
-    print(f"\nGenerated {OUTPUT_PATH} ({len(pairs_result)} pairs)")
+    print(f"\nGenerated {OUTPUT_PATH} and {OUTPUT_JSON_PATH} ({len(pairs_result)} pairs)")
 
 
 if __name__ == "__main__":

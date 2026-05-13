@@ -2,16 +2,17 @@ name: Update Current Prices
 
 on:
   schedule:
-    # KRX session every 5 minutes (09:02-15:57 KST / 00:02-06:57 UTC), offset to reduce schedule drops.
-    - cron: '2/5 0-6 * * 1-5'
-    # US night-sensitive holdings every 15 minutes (21:02-05:47 KST / 12:02-20:47 UTC).
-    - cron: '2/15 12-20 * * 1-5'
-    # One final post-session refresh around 06:02 KST / 21:02 UTC.
-    - cron: '2 21 * * 1-5'
+    # Server snapshot safety net every 10 minutes on weekdays.
+    # Browser refresh follows common_preferred_spread and refreshes visible tabs every 5 minutes.
+    - cron: '2/10 * * * 1-5'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-current-prices
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -31,14 +32,15 @@ jobs:
         env:
           KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+          KIS_TOKEN_PATH: ${{ runner.temp }}/kis_token.json
         run: python fetch_current.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet current.js 2>/dev/null || {
-            git add current.js
-            git commit -m "실시간 업데이트: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M') 현재가 갱신"
+          git diff --quiet current.js current.json 2>/dev/null || {
+            git add current.js current.json
+            git commit -m "Update current prices ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M'))"
             git push
           }

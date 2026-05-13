@@ -261,6 +261,32 @@
     "holdingAdjustedShares": 179578510
   },
   {
+    "id": "doosan",
+    "name": "두산→자회사",
+    "holdingName": "두산",
+    "holdingTicker": "000150.KS",
+    "holdingTotalShares": 16193835,
+    "holdingTreasuryShares": 2631319,
+    "subsidiaries": [
+      {
+        "name": "두산에너빌리티",
+        "ticker": "034020.KS",
+        "sharesHeld": 194690723
+      },
+      {
+        "name": "오리콤",
+        "ticker": "010470.KS",
+        "sharesHeld": 7291150
+      },
+      {
+        "name": "두산로보틱스",
+        "ticker": "454910.KS",
+        "sharesHeld": 32449065
+      }
+    ],
+    "holdingAdjustedShares": 13562516
+  },
+  {
     "id": "lg_chem_ensol",
     "name": "LG화학→LG에너지솔루션",
     "holdingName": "LG화학",

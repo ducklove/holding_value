@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-09T01:22:07+09:00",
-  "lastUpdated": "2026-05-09 01:22:07",
-  "count": 47,
+  "generatedAt": "2026-05-13T09:28:26+09:00",
+  "lastUpdated": "2026-05-13 09:28:26",
+  "count": 48,
   "items": [
     {
       "id": "youngpoong_koreazinc",
@@ -318,6 +318,37 @@
           "ticker": "010140.KS",
           "code": "010140",
           "sharesHeld": 25701000
+        }
+      ]
+    },
+    {
+      "id": "doosan",
+      "name": "두산→자회사",
+      "holdingName": "두산",
+      "holdingTicker": "000150.KS",
+      "holdingCode": "000150",
+      "holdingTotalShares": 16193835,
+      "holdingTreasuryShares": 2631319,
+      "holdingAdjustedShares": 13562516,
+      "subsidiaryCount": 3,
+      "subsidiaries": [
+        {
+          "name": "두산에너빌리티",
+          "ticker": "034020.KS",
+          "code": "034020",
+          "sharesHeld": 194690723
+        },
+        {
+          "name": "오리콤",
+          "ticker": "010470.KS",
+          "code": "010470",
+          "sharesHeld": 7291150
+        },
+        {
+          "name": "두산로보틱스",
+          "ticker": "454910.KS",
+          "code": "454910",
+          "sharesHeld": 32449065
         }
       ]
     },
