@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-15 07:54:12",
-  "generatedAt": "2026-05-15T07:54:12+09:00",
-  "snapshotTimestamp": 1778799252902,
+  "lastUpdated": "2026-05-15 08:55:03",
+  "generatedAt": "2026-05-15T08:55:03+09:00",
+  "snapshotTimestamp": 1778802903563,
   "session": {
     "name": "offhours",
     "date": "2026-05-15",
@@ -120,20 +120,20 @@ const CURRENT_DATA = {
       "holdingValue": 4528.7,
       "marketCap": 2234.8,
       "ratio": 202.65,
-      "ratioChange": -0.24,
+      "ratioChange": 0.18,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
           "price": 1085447081.0,
-          "change": -0.06,
+          "change": 0.15,
           "value": 3104.4,
           "ratio": 138.91
         },
         {
           "name": "애플",
           "price": 445132.0,
-          "change": -0.24,
+          "change": -0.03,
           "value": 1424.3,
           "ratio": 63.74
         }
@@ -1253,7 +1253,7 @@ const CURRENT_DATA = {
     {
       "id": "_average",
       "ratio": 213.79,
-      "ratioChange": -0.01,
+      "ratioChange": 0.0,
       "quoteSource": "derived"
     }
   ]
