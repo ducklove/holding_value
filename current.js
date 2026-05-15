@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-16 06:30:10",
-  "generatedAt": "2026-05-16T06:30:10+09:00",
-  "snapshotTimestamp": 1778880610519,
+  "lastUpdated": "2026-05-16 07:31:08",
+  "generatedAt": "2026-05-16T07:31:08+09:00",
+  "snapshotTimestamp": 1778884268986,
   "session": {
     "name": "offhours",
     "date": "2026-05-16",
