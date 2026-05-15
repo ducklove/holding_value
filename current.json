@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-16 02:12:28",
-  "generatedAt": "2026-05-16T02:12:28+09:00",
-  "snapshotTimestamp": 1778865148469,
+  "lastUpdated": "2026-05-16 03:57:41",
+  "generatedAt": "2026-05-16T03:57:41+09:00",
+  "snapshotTimestamp": 1778871461398,
   "session": {
     "name": "us_night",
     "date": "2026-05-15",
@@ -14,7 +14,7 @@
     "pairCount": 48,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 209.96
+    "averageRatio": 209.95
   },
   "market": {
     "id": "KOSPI",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 62400.0,
       "holdingChange": -0.79,
-      "holdingValue": 4558.3,
+      "holdingValue": 4543.5,
       "marketCap": 2217.0,
-      "ratio": 205.61,
-      "ratioChange": 3.34,
+      "ratio": 204.94,
+      "ratioChange": 2.67,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1086803806.0,
-          "change": 0.32,
-          "value": 3108.3,
-          "ratio": 140.2
+          "price": 1083272170.0,
+          "change": -0.01,
+          "value": 3098.2,
+          "ratio": 139.74
         },
         {
           "name": "애플",
-          "price": 453172.0,
-          "change": 2.0,
-          "value": 1450.1,
-          "ratio": 65.41
+          "price": 451685.0,
+          "change": 1.67,
+          "value": 1445.3,
+          "ratio": 65.19
         }
       ]
     },
@@ -1252,8 +1252,8 @@
     },
     {
       "id": "_average",
-      "ratio": 209.96,
-      "ratioChange": -3.82,
+      "ratio": 209.95,
+      "ratioChange": -3.83,
       "quoteSource": "derived"
     }
   ]
