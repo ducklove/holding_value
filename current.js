@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-19 02:19:24",
-  "generatedAt": "2026-05-19T02:19:24+09:00",
-  "snapshotTimestamp": 1779124764208,
+  "lastUpdated": "2026-05-19 04:05:52",
+  "generatedAt": "2026-05-19T04:05:52+09:00",
+  "snapshotTimestamp": 1779131152981,
   "session": {
     "name": "us_night",
     "date": "2026-05-18",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62100.0,
       "holdingChange": -0.48,
-      "holdingValue": 4517.5,
+      "holdingValue": 4521.6,
       "marketCap": 2206.4,
-      "ratio": 204.75,
-      "ratioChange": 0.6,
+      "ratio": 204.93,
+      "ratioChange": 0.79,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1085506771.0,
-          "change": 0.43,
-          "value": 3104.5,
-          "ratio": 140.71
+          "price": 1086167053.0,
+          "change": 0.49,
+          "value": 3106.4,
+          "ratio": 140.79
         },
         {
           "name": "애플",
-          "price": 441560.0,
-          "change": -1.51,
-          "value": 1412.9,
-          "ratio": 64.04
+          "price": 442264.0,
+          "change": -1.36,
+          "value": 1415.2,
+          "ratio": 64.14
         }
       ]
     },
@@ -1052,7 +1052,7 @@ const CURRENT_DATA = {
       "marketCap": 15576.1,
       "ratio": 135.59,
       "ratioChange": 7.32,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "오리온",
@@ -1078,7 +1078,7 @@ const CURRENT_DATA = {
       "marketCap": 790.9,
       "ratio": 144.48,
       "ratioChange": 1.51,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 22300.0,
       "subsidiaryChange": -0.67
     },
@@ -1090,7 +1090,7 @@ const CURRENT_DATA = {
       "marketCap": 1517.2,
       "ratio": 138.38,
       "ratioChange": 8.95,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
@@ -1168,7 +1168,7 @@ const CURRENT_DATA = {
       "marketCap": 1317.9,
       "ratio": 100.61,
       "ratioChange": -1.19,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "큐리언트",
