@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-19 05:43:02",
-  "generatedAt": "2026-05-19T05:43:02+09:00",
-  "snapshotTimestamp": 1779136982417,
+  "lastUpdated": "2026-05-19 06:53:36",
+  "generatedAt": "2026-05-19T06:53:36+09:00",
+  "snapshotTimestamp": 1779141216179,
   "session": {
-    "name": "us_night",
-    "date": "2026-05-18",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-05-19",
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,9 +14,28 @@
     "pairCount": 48,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 211.68
+    "averageRatio": 211.67
   },
-  "market": null,
+  "market": {
+    "id": "KOSPI",
+    "name": "KOSPI",
+    "price": 7516.04,
+    "change": 0.0,
+    "changePct": 0.0,
+    "source": "KIS proxy",
+    "priceDecimals": 2,
+    "extras": [
+      {
+        "id": "KOSDAQ",
+        "name": "KOSDAQ",
+        "price": 1111.09,
+        "change": 0.0,
+        "changePct": 0.0,
+        "source": "KIS proxy",
+        "priceDecimals": 2
+      }
+    ]
+  },
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
@@ -98,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 62100.0,
       "holdingChange": 0.0,
-      "holdingValue": 4529.2,
+      "holdingValue": 4525.7,
       "marketCap": 2206.4,
-      "ratio": 205.28,
-      "ratioChange": 0.14,
+      "ratio": 205.12,
+      "ratioChange": -0.02,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1087298464.0,
-          "change": 0.59,
-          "value": 3109.7,
-          "ratio": 140.94
+          "price": 1086459036.0,
+          "change": 0.51,
+          "value": 3107.3,
+          "ratio": 140.83
         },
         {
           "name": "애플",
-          "price": 443618.0,
-          "change": -1.05,
-          "value": 1419.5,
-          "ratio": 64.34
+          "price": 443275.0,
+          "change": -1.13,
+          "value": 1418.4,
+          "ratio": 64.29
         }
       ]
     },
@@ -1193,8 +1212,8 @@
       "holdingValue": 221.6,
       "marketCap": 255.8,
       "ratio": 86.6,
-      "ratioChange": -0.04,
-      "quoteSource": "yfinance",
+      "ratioChange": -0.09,
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "넥써쓰",
@@ -1213,7 +1232,7 @@
         {
           "name": "상상인",
           "price": 2210.0,
-          "change": 3.51,
+          "change": 0.0,
           "value": 3.3,
           "ratio": 1.3
         }
@@ -1222,19 +1241,19 @@
     {
       "id": "inbiogen",
       "holdingPrice": 6680.0,
-      "holdingChange": -0.15,
+      "holdingChange": 0.0,
       "holdingValue": 877.7,
       "marketCap": 667.2,
       "ratio": 131.55,
-      "ratioChange": 0.2,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
     },
     {
       "id": "_average",
-      "ratio": 211.68,
-      "ratioChange": 0.14,
+      "ratio": 211.67,
+      "ratioChange": 0.13,
       "quoteSource": "derived"
     }
   ]
