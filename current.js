@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-18 15:55:03",
-  "generatedAt": "2026-05-18T15:55:03+09:00",
-  "snapshotTimestamp": 1779087303901,
+  "lastUpdated": "2026-05-18 20:05:48",
+  "generatedAt": "2026-05-18T20:05:48+09:00",
+  "snapshotTimestamp": 1779102348135,
   "session": {
-    "name": "kr_day",
+    "name": "offhours",
     "date": "2026-05-18",
-    "label": "KR day session"
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 48,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 211.8
+    "averageRatio": 211.7
   },
   "market": {
     "id": "KOSPI",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62100.0,
       "holdingChange": -0.48,
-      "holdingValue": 4540.9,
+      "holdingValue": 4549.8,
       "marketCap": 2206.4,
-      "ratio": 205.81,
-      "ratioChange": 1.45,
+      "ratio": 206.21,
+      "ratioChange": 1.85,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1084450323.0,
-          "change": -0.14,
-          "value": 3101.5,
-          "ratio": 140.57
+          "price": 1086585648.0,
+          "change": 0.06,
+          "value": 3107.6,
+          "ratio": 140.85
         },
         {
           "name": "애플",
-          "price": 449814.0,
-          "change": 1.01,
-          "value": 1439.3,
-          "ratio": 65.24
+          "price": 450699.0,
+          "change": 1.21,
+          "value": 1442.2,
+          "ratio": 65.36
         }
       ]
     },
@@ -1152,30 +1152,30 @@ const CURRENT_DATA = {
       "id": "neowiz_holdings",
       "holdingPrice": 20450.0,
       "holdingChange": 0.99,
-      "holdingValue": 1402.6,
+      "holdingValue": 1378.9,
       "marketCap": 1261.2,
-      "ratio": 111.21,
-      "ratioChange": -1.1,
+      "ratio": 109.33,
+      "ratioChange": -2.98,
       "quoteSource": "yfinance",
-      "subsidiaryPrice": 20700.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 20350.0,
+      "subsidiaryChange": -1.69
     },
     {
       "id": "dongkoo_bio",
       "holdingPrice": 4630.0,
       "holdingChange": -3.04,
-      "holdingValue": 1366.8,
+      "holdingValue": 1325.9,
       "marketCap": 1317.9,
-      "ratio": 103.71,
-      "ratioChange": 1.91,
+      "ratio": 100.61,
+      "ratioChange": -1.19,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "큐리언트",
-          "price": 27800.0,
-          "change": 0.0,
-          "value": 1133.0,
-          "ratio": 85.97
+          "price": 26800.0,
+          "change": -3.6,
+          "value": 1092.3,
+          "ratio": 82.88
         },
         {
           "name": "HLB이노베이션",
@@ -1186,10 +1186,10 @@ const CURRENT_DATA = {
         },
         {
           "name": "지놈앤컴퍼니",
-          "price": 6630.0,
-          "change": 0.0,
+          "price": 6600.0,
+          "change": -0.45,
           "value": 16.7,
-          "ratio": 1.27
+          "ratio": 1.26
         }
       ]
     },
@@ -1209,18 +1209,18 @@ const CURRENT_DATA = {
       "id": "linked",
       "holdingPrice": 396.0,
       "holdingChange": 0.0,
-      "holdingValue": 222.0,
+      "holdingValue": 221.6,
       "marketCap": 255.8,
-      "ratio": 86.76,
-      "ratioChange": 0.12,
+      "ratio": 86.6,
+      "ratioChange": -0.04,
       "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "넥써쓰",
-          "price": 1586.0,
-          "change": 0.0,
-          "value": 214.5,
-          "ratio": 83.85
+          "price": 1583.0,
+          "change": -0.19,
+          "value": 214.1,
+          "ratio": 83.7
         },
         {
           "name": "상상인증권",
@@ -1246,14 +1246,14 @@ const CURRENT_DATA = {
       "marketCap": 667.2,
       "ratio": 131.55,
       "ratioChange": 0.2,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
     },
     {
       "id": "_average",
-      "ratio": 211.8,
-      "ratioChange": 1.86,
+      "ratio": 211.7,
+      "ratioChange": 1.76,
       "quoteSource": "derived"
     }
   ]
