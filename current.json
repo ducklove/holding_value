@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-18 20:05:48",
-  "generatedAt": "2026-05-18T20:05:48+09:00",
-  "snapshotTimestamp": 1779102348135,
+  "lastUpdated": "2026-05-18 23:38:05",
+  "generatedAt": "2026-05-18T23:38:05+09:00",
+  "snapshotTimestamp": 1779115085000,
   "session": {
-    "name": "offhours",
+    "name": "us_night",
     "date": "2026-05-18",
-    "label": "Off hours"
+    "label": "US night session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@
     "pairCount": 48,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 211.7
+    "averageRatio": 211.68
   },
   "market": {
     "id": "KOSPI",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 62100.0,
       "holdingChange": -0.48,
-      "holdingValue": 4549.8,
+      "holdingValue": 4531.9,
       "marketCap": 2206.4,
-      "ratio": 206.21,
-      "ratioChange": 1.85,
+      "ratio": 205.4,
+      "ratioChange": 1.25,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1086585648.0,
-          "change": 0.06,
-          "value": 3107.6,
-          "ratio": 140.85
+          "price": 1086139457.0,
+          "change": 0.48,
+          "value": 3106.4,
+          "ratio": 140.79
         },
         {
           "name": "애플",
-          "price": 450699.0,
-          "change": 1.21,
-          "value": 1442.2,
-          "ratio": 65.36
+          "price": 445494.0,
+          "change": -0.64,
+          "value": 1425.5,
+          "ratio": 64.61
         }
       ]
     },
@@ -211,7 +211,7 @@
       "marketCap": 1660.2,
       "ratio": 234.22,
       "ratioChange": 3.09,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 26950.0,
       "subsidiaryChange": -4.43
     },
@@ -223,7 +223,7 @@
       "marketCap": 20585.2,
       "ratio": 113.36,
       "ratioChange": 5.87,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "원익IPS",
@@ -1052,7 +1052,7 @@
       "marketCap": 15576.1,
       "ratio": 135.59,
       "ratioChange": 7.32,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "오리온",
@@ -1078,7 +1078,7 @@
       "marketCap": 790.9,
       "ratio": 144.48,
       "ratioChange": 1.51,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 22300.0,
       "subsidiaryChange": -0.67
     },
@@ -1090,7 +1090,7 @@
       "marketCap": 1517.2,
       "ratio": 138.38,
       "ratioChange": 8.95,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
@@ -1130,7 +1130,7 @@
       "marketCap": 38396.6,
       "ratio": 206.5,
       "ratioChange": 5.52,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "삼성물산",
@@ -1156,7 +1156,7 @@
       "marketCap": 1261.2,
       "ratio": 109.33,
       "ratioChange": -2.98,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 20350.0,
       "subsidiaryChange": -1.69
     },
@@ -1168,7 +1168,7 @@
       "marketCap": 1317.9,
       "ratio": 100.61,
       "ratioChange": -1.19,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "큐리언트",
@@ -1213,7 +1213,7 @@
       "marketCap": 255.8,
       "ratio": 86.6,
       "ratioChange": -0.04,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "넥써쓰",
@@ -1246,14 +1246,14 @@
       "marketCap": 667.2,
       "ratio": 131.55,
       "ratioChange": 0.2,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
     },
     {
       "id": "_average",
-      "ratio": 211.7,
-      "ratioChange": 1.76,
+      "ratio": 211.68,
+      "ratioChange": 1.75,
       "quoteSource": "derived"
     }
   ]
