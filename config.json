@@ -403,6 +403,22 @@
     ]
   },
   {
+    "id": "sk_chemical_bioscience",
+    "name": "SK케미칼→SK바이오사이언스",
+    "holdingName": "SK케미칼",
+    "holdingTicker": "285130.KS",
+    "holdingTotalShares": 17298766,
+    "holdingTreasuryShares": 29909,
+    "subsidiaries": [
+      {
+        "name": "SK바이오사이언스",
+        "ticker": "302440.KS",
+        "sharesHeld": 52103428
+      }
+    ],
+    "holdingAdjustedShares": 17268857
+  },
+  {
     "id": "sk_square",
     "name": "SK스퀘어→SK하이닉스",
     "holdingName": "SK스퀘어",

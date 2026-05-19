@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-13T09:33:43+09:00",
-  "lastUpdated": "2026-05-13 09:33:43",
-  "count": 48,
+  "generatedAt": "2026-05-19T09:10:06+09:00",
+  "lastUpdated": "2026-05-19 09:10:06",
+  "count": 49,
   "items": [
     {
       "id": "youngpoong_koreazinc",
@@ -492,6 +492,25 @@
           "ticker": "285130.KS",
           "code": "285130",
           "sharesHeld": 6400615
+        }
+      ]
+    },
+    {
+      "id": "sk_chemical_bioscience",
+      "name": "SK케미칼→SK바이오사이언스",
+      "holdingName": "SK케미칼",
+      "holdingTicker": "285130.KS",
+      "holdingCode": "285130",
+      "holdingTotalShares": 17298766,
+      "holdingTreasuryShares": 29909,
+      "holdingAdjustedShares": 17268857,
+      "subsidiaryCount": 1,
+      "subsidiaries": [
+        {
+          "name": "SK바이오사이언스",
+          "ticker": "302440.KS",
+          "code": "302440",
+          "sharesHeld": 52103428
         }
       ]
     },
