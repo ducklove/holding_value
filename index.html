@@ -1053,12 +1053,13 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   const LIVE_REFRESH_RETRY_DELAY_MS = 1500;
   const LIVE_REFRESH_RETRY_ATTEMPTS = 3;
   const LIVE_REFRESH_FORCE_ATTEMPTS = 1;
-  const LIVE_FETCH_TIMEOUT_MS = 7000;
+  const LIVE_FETCH_TIMEOUT_MS = 15000;
   const LIVE_REFRESH_TIMEOUT_MS = 45000;
+  const LIVE_REFRESH_FORCE_TIMEOUT_MS = 240000;
   const LIVE_PROXY_URL = 'https://api.codetabs.com/v1/proxy?quest=';
   const KIS_PROXY_BASE_URL = 'http://cantabile.tplinkdns.com:3288';
   const KIS_PROXY_BATCH_CONCURRENCY = 4;
-  const KIS_PROXY_LAUNCH_INTERVAL_MS = 60;
+  const KIS_PROXY_LAUNCH_INTERVAL_MS = 700;
   const MIN_ZOOM_SPAN = 0.04;
   let holdingCodePromise = null;
   let holdingConfigPromise = null;
@@ -1070,12 +1071,14 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   const ratioZoom = createZoomState();
   const priceZoom = createZoomState();
   let refreshInFlight = false;
+  let forceRefreshInFlight = false;
   let latestSnapshotVersion = getSnapshotVersion(window.CURRENT_DATA) || getSnapshotVersion(STOCK_DATA);
   let latestAppliedSnapshotMs = latestSnapshotVersion || 0;
   let lastRefreshStartedAt = 0;
   let autoRefreshTimer = null;
   let liveRefreshPromise = null;
   let todayOverviewData = null;
+  let lastRefreshError = '';
 
   applyTheme(loadTheme(), false);
 
@@ -1185,6 +1188,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     }
 
     refreshInFlight = true;
+    forceRefreshInFlight = forceLiveRefresh;
     lastRefreshStartedAt = Date.now();
     updateRefreshButton();
 
@@ -1199,19 +1203,30 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
         baseSnapshot = nextSnapshot;
       }
 
-      await refreshLivePricesWithRetry(
-        baseSnapshot,
-        forceLiveRefresh ? LIVE_REFRESH_FORCE_ATTEMPTS : LIVE_REFRESH_RETRY_ATTEMPTS,
-        { forceRefresh: forceLiveRefresh },
-      );
+      if (forceLiveRefresh) {
+        const refreshed = await refreshLivePricesWithRetry(
+          baseSnapshot,
+          LIVE_REFRESH_FORCE_ATTEMPTS,
+          { forceRefresh: true, requireComplete: true },
+        );
+        if (!refreshed) {
+          throw new Error('모든 현재가를 새로 받지 못했습니다.');
+        }
+      }
 
+      lastRefreshError = '';
       renderAll();
       return true;
     } catch (err) {
       console.warn('현재가 갱신 실패:', err);
+      if (forceLiveRefresh) {
+        lastRefreshError = err && err.message ? err.message : '현재가 갱신 실패';
+        renderAll();
+      }
       return false;
     } finally {
       refreshInFlight = false;
+      forceRefreshInFlight = false;
       updateRefreshButton();
     }
   }
@@ -1260,7 +1275,9 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     if (!button) return;
     button.disabled = refreshInFlight;
     button.classList.toggle('is-refreshing', refreshInFlight);
-    button.textContent = refreshInFlight ? '새로고침 중...' : '새로고침';
+    button.textContent = refreshInFlight
+      ? forceRefreshInFlight ? '전체 현재가 갱신 중...' : '새로고침 중...'
+      : '새로고침';
   }
 
   function updateLastUpdatedText() {
@@ -1274,6 +1291,9 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       if (missing > 0) {
         parts.push('미반영 종목 ' + missing + '개');
       }
+    }
+    if (lastRefreshError) {
+      parts.push('새로고침 실패: ' + lastRefreshError);
     }
     document.getElementById('lastUpdated').textContent = parts.join(' · ');
   }
@@ -1813,7 +1833,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     return holdingConfigPromise;
   }
 
-  async function buildLiveSnapshot() {
+  async function buildLiveSnapshot(options) {
+    options = options || {};
     const configMap = await loadHoldingConfigMap();
     const codes = [];
     pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
@@ -1825,10 +1846,20 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       });
     });
 
+    const uniqueCodes = [...new Set(codes.filter(Boolean))];
     const [quoteMap, market] = await Promise.all([
-      fetchKisProxyQuoteMap(codes),
+      fetchKisProxyQuoteMap(uniqueCodes),
       buildLiveMarketSummary().catch(function() { return null; }),
     ]);
+    if (options.requireComplete) {
+      const missingCodes = uniqueCodes.filter(function(code) { return !quoteMap.has(code); });
+      if (missingCodes.length) {
+        throw new Error('현재가 누락 ' + missingCodes.length + '개: ' + missingCodes.slice(0, 8).join(', '));
+      }
+      if (!market) {
+        throw new Error('시장 지표를 새로 받지 못했습니다.');
+      }
+    }
     const livePairs = [];
     pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
       const config = configMap.get(pair.id);
@@ -1983,8 +2014,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     liveRefreshPromise = (async function() {
       try {
         const liveSnapshot = await runWithTimeout(
-          buildLiveSnapshot(),
-          LIVE_REFRESH_TIMEOUT_MS,
+          buildLiveSnapshot({ requireComplete: !!opts.requireComplete }),
+          opts.forceRefresh ? LIVE_REFRESH_FORCE_TIMEOUT_MS : LIVE_REFRESH_TIMEOUT_MS,
           '실시간 갱신 시간이 초과되었습니다.',
         );
         return applyCurrentData(liveSnapshot);
