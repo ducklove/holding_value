@@ -33,6 +33,7 @@ jobs:
           KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
           KIS_TOKEN_PATH: ${{ runner.temp }}/kis_token.json
+          KIS_PROXY_REQUEST_INTERVAL: "0.7"
         run: python fetch_current.py
 
       - name: Commit and push if changed
