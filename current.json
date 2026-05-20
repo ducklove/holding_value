@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-21 06:49:43",
-  "generatedAt": "2026-05-21T06:49:43+09:00",
-  "snapshotTimestamp": 1779313783053,
+  "lastUpdated": "2026-05-21 08:00:34",
+  "generatedAt": "2026-05-21T08:00:34+09:00",
+  "snapshotTimestamp": 1779318034921,
   "session": {
     "name": "offhours",
     "date": "2026-05-21",
@@ -14,7 +14,7 @@
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 216.45
+    "averageRatio": 216.48
   },
   "market": {
     "id": "KOSPI",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 60100.0,
       "holdingChange": 0.0,
-      "holdingValue": 4532.4,
+      "holdingValue": 4566.9,
       "marketCap": 2135.3,
-      "ratio": 212.26,
-      "ratioChange": 1.37,
+      "ratio": 213.88,
+      "ratioChange": 2.98,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1078708198.0,
-          "change": 0.31,
-          "value": 3085.1,
-          "ratio": 144.48
+          "price": 1086918576.0,
+          "change": 1.07,
+          "value": 3108.6,
+          "ratio": 145.58
         },
         {
           "name": "애플",
-          "price": 452305.0,
-          "change": 1.38,
-          "value": 1447.3,
-          "ratio": 67.78
+          "price": 455748.0,
+          "change": 2.15,
+          "value": 1458.3,
+          "ratio": 68.3
         }
       ]
     },
@@ -766,12 +766,12 @@
     {
       "id": "kolmar_holdings",
       "holdingPrice": 9200.0,
-      "holdingChange": -3.16,
+      "holdingChange": 0.0,
       "holdingValue": 7021.5,
       "marketCap": 3154.6,
       "ratio": 222.58,
-      "ratioChange": 7.03,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한국콜마",
@@ -1175,12 +1175,12 @@
     {
       "id": "dongkoo_bio",
       "holdingPrice": 4540.0,
-      "holdingChange": -4.02,
+      "holdingChange": 0.0,
       "holdingValue": 1284.8,
       "marketCap": 1292.3,
       "ratio": 99.42,
-      "ratioChange": 3.99,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "큐리언트",
@@ -1264,8 +1264,8 @@
     },
     {
       "id": "_average",
-      "ratio": 216.45,
-      "ratioChange": 0.25,
+      "ratio": 216.48,
+      "ratioChange": 0.06,
       "quoteSource": "derived"
     }
   ]
