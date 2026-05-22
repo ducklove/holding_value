@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-23 06:40:36",
-  "generatedAt": "2026-05-23T06:40:36+09:00",
-  "snapshotTimestamp": 1779486036599,
+  "lastUpdated": "2026-05-23 07:39:53",
+  "generatedAt": "2026-05-23T07:39:53+09:00",
+  "snapshotTimestamp": 1779489593385,
   "session": {
     "name": "offhours",
     "date": "2026-05-23",
@@ -45,7 +45,7 @@ const CURRENT_DATA = {
       "marketCap": 9902.4,
       "ratio": 759.94,
       "ratioChange": -6.07,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1430000.0,
       "subsidiaryChange": 1.78
     },
@@ -393,7 +393,7 @@ const CURRENT_DATA = {
       "marketCap": 105314.7,
       "ratio": 241.29,
       "ratioChange": -7.18,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -610,7 +610,7 @@ const CURRENT_DATA = {
       "marketCap": 7585.4,
       "ratio": 124.83,
       "ratioChange": 5.96,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
@@ -771,7 +771,7 @@ const CURRENT_DATA = {
       "marketCap": 3291.8,
       "ratio": 218.15,
       "ratioChange": -1.3,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한국콜마",
@@ -880,7 +880,7 @@ const CURRENT_DATA = {
       "marketCap": 843.0,
       "ratio": 162.44,
       "ratioChange": 3.2,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "우리금융지주",
@@ -1180,7 +1180,7 @@ const CURRENT_DATA = {
       "marketCap": 1360.6,
       "ratio": 103.1,
       "ratioChange": 0.89,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "큐리언트",
