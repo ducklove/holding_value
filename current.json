@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-27 05:33:05",
-  "generatedAt": "2026-05-27T05:33:05+09:00",
-  "snapshotTimestamp": 1779827585170,
+  "lastUpdated": "2026-05-27 07:09:39",
+  "generatedAt": "2026-05-27T07:09:39+09:00",
+  "snapshotTimestamp": 1779833379790,
   "session": {
-    "name": "us_night",
-    "date": "2026-05-26",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-05-27",
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -19,7 +19,7 @@
   "market": {
     "id": "KOSPI",
     "name": "KOSPI",
-    "price": 0.0,
+    "price": 8047.51,
     "change": 0.0,
     "changePct": 0.0,
     "source": "KIS proxy",
@@ -28,7 +28,7 @@
       {
         "id": "KOSDAQ",
         "name": "KOSDAQ",
-        "price": 0.0,
+        "price": 1172.52,
         "change": 0.0,
         "changePct": 0.0,
         "source": "KIS proxy",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 63900.0,
       "holdingChange": 0.0,
-      "holdingValue": 4609.5,
+      "holdingValue": 4613.0,
       "marketCap": 2270.3,
-      "ratio": 203.03,
-      "ratioChange": -1.68,
+      "ratio": 203.19,
+      "ratioChange": -1.52,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1091836004.0,
-          "change": -0.95,
-          "value": 3122.7,
-          "ratio": 137.54
+          "price": 1092669197.0,
+          "change": -0.87,
+          "value": 3125.0,
+          "ratio": 137.65
         },
         {
           "name": "애플",
-          "price": 464659.0,
-          "change": -0.54,
-          "value": 1486.8,
-          "ratio": 65.49
+          "price": 465014.0,
+          "change": -0.47,
+          "value": 1488.0,
+          "ratio": 65.54
         }
       ]
     },
