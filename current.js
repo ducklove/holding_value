@@ -1,18 +1,20 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-27 07:09:39",
-  "generatedAt": "2026-05-27T07:09:39+09:00",
-  "snapshotTimestamp": 1779833379790,
+  "lastUpdated": "2026-05-27 08:21:35",
+  "generatedAt": "2026-05-27T08:21:35+09:00",
+  "snapshotTimestamp": 1779837695984,
   "session": {
     "name": "offhours",
     "date": "2026-05-27",
     "label": "Off hours"
   },
-  "isPartial": false,
-  "preservedPairIds": [],
+  "isPartial": true,
+  "preservedPairIds": [
+    "chokwang_brk"
+  ],
   "missingPairIds": [],
   "summary": {
     "pairCount": 49,
-    "preservedCount": 0,
+    "preservedCount": 1,
     "missingCount": 0,
     "averageRatio": 215.6
   },
@@ -121,7 +123,7 @@ const CURRENT_DATA = {
       "marketCap": 2270.3,
       "ratio": 203.19,
       "ratioChange": -1.52,
-      "quoteSource": "mixed",
+      "quoteSource": "cached_same_session",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
