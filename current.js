@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-05-28 07:28:44",
-  "generatedAt": "2026-05-28T07:28:44+09:00",
-  "snapshotTimestamp": 1779920924668,
+  "lastUpdated": "2026-05-28 08:45:01",
+  "generatedAt": "2026-05-28T08:45:01+09:00",
+  "snapshotTimestamp": 1779925501912,
   "session": {
     "name": "offhours",
     "date": "2026-05-28",
@@ -40,14 +40,14 @@ const CURRENT_DATA = {
     {
       "id": "youngpoong_koreazinc",
       "holdingPrice": 52100.0,
-      "holdingChange": 0.0,
+      "holdingChange": -4.23,
       "holdingValue": 73463.8,
       "marketCap": 9312.6,
       "ratio": 788.87,
-      "ratioChange": -27.12,
+      "ratioChange": 33.35,
       "quoteSource": "mixed",
       "subsidiaryPrice": 1396000.0,
-      "subsidiaryChange": -3.32
+      "subsidiaryChange": 0.0
     },
     {
       "id": "poongsan_holdings",
@@ -120,20 +120,20 @@ const CURRENT_DATA = {
       "holdingValue": 4577.5,
       "marketCap": 2188.6,
       "ratio": 209.15,
-      "ratioChange": -2.55,
+      "ratioChange": -1.24,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
           "price": 1078737238.0,
-          "change": -1.71,
+          "change": -1.1,
           "value": 3085.2,
           "ratio": 140.97
         },
         {
           "name": "애플",
           "price": 466378.0,
-          "change": -0.15,
+          "change": 0.48,
           "value": 1492.3,
           "ratio": 68.19
         }
@@ -210,25 +210,25 @@ const CURRENT_DATA = {
       "holdingValue": 4314.0,
       "marketCap": 1606.0,
       "ratio": 268.62,
-      "ratioChange": -15.72,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 29900.0,
-      "subsidiaryChange": -5.53
+      "subsidiaryChange": 0.0
     },
     {
       "id": "wonik_holdings",
       "holdingPrice": 29900.0,
-      "holdingChange": -5.53,
+      "holdingChange": 0.0,
       "holdingValue": 22756.8,
       "marketCap": 22838.5,
       "ratio": 99.64,
-      "ratioChange": -0.97,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "원익IPS",
           "price": 112300.0,
-          "change": -7.95,
+          "change": 0.0,
           "value": 18134.8,
           "ratio": 79.4
         },
@@ -335,8 +335,8 @@ const CURRENT_DATA = {
       "holdingValue": 245061.5,
       "marketCap": 232597.1,
       "ratio": 105.36,
-      "ratioChange": -0.54,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "두산에너빌리티",
@@ -355,7 +355,7 @@ const CURRENT_DATA = {
         {
           "name": "두산로보틱스",
           "price": 103000.0,
-          "change": -3.65,
+          "change": 0.0,
           "value": 33422.5,
           "ratio": 14.37
         }
@@ -364,12 +364,12 @@ const CURRENT_DATA = {
     {
       "id": "lg_chem_ensol",
       "holdingPrice": 331000.0,
-      "holdingChange": -5.7,
+      "holdingChange": 0.0,
       "holdingValue": 734399.3,
       "marketCap": 227040.7,
       "ratio": 323.47,
-      "ratioChange": 18.43,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 383500.0,
       "subsidiaryChange": 0.0
     },
@@ -392,8 +392,8 @@ const CURRENT_DATA = {
       "holdingValue": 250285.1,
       "marketCap": 113110.2,
       "ratio": 221.28,
-      "ratioChange": -0.1,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -419,7 +419,7 @@ const CURRENT_DATA = {
         {
           "name": "고려아연",
           "price": 1396000.0,
-          "change": -3.32,
+          "change": 0.0,
           "value": 3327.5,
           "ratio": 2.94
         },
@@ -569,8 +569,8 @@ const CURRENT_DATA = {
       "holdingValue": 254941.6,
       "marketCap": 178708.9,
       "ratio": 142.66,
-      "ratioChange": -2.76,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "LG전자",
@@ -582,7 +582,7 @@ const CURRENT_DATA = {
         {
           "name": "LG화학",
           "price": 331000.0,
-          "change": -5.7,
+          "change": 0.0,
           "value": 81658.8,
           "ratio": 45.69
         },
@@ -1265,7 +1265,7 @@ const CURRENT_DATA = {
     {
       "id": "_average",
       "ratio": 215.39,
-      "ratioChange": -0.64,
+      "ratioChange": 0.66,
       "quoteSource": "derived"
     }
   ]
