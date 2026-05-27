@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-28 01:29:05",
-  "generatedAt": "2026-05-28T01:29:05+09:00",
-  "snapshotTimestamp": 1779899345469,
+  "lastUpdated": "2026-05-28 03:38:48",
+  "generatedAt": "2026-05-28T03:38:48+09:00",
+  "snapshotTimestamp": 1779907128520,
   "session": {
     "name": "us_night",
     "date": "2026-05-27",
@@ -14,7 +14,7 @@
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 215.4
+    "averageRatio": 215.39
   },
   "market": {
     "id": "KOSPI",
@@ -45,7 +45,7 @@
       "marketCap": 9312.6,
       "ratio": 788.87,
       "ratioChange": 7.38,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 1396000.0,
       "subsidiaryChange": -3.32
     },
@@ -57,7 +57,7 @@
       "marketCap": 5531.6,
       "ratio": 161.34,
       "ratioChange": -0.85,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 83800.0,
       "subsidiaryChange": -4.66
     },
@@ -69,7 +69,7 @@
       "marketCap": 6136.5,
       "ratio": 220.4,
       "ratioChange": -13.56,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 61100.0,
       "subsidiaryChange": -5.86
     },
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 61600.0,
       "holdingChange": -3.6,
-      "holdingValue": 4588.1,
+      "holdingValue": 4575.8,
       "marketCap": 2188.6,
-      "ratio": 209.64,
-      "ratioChange": 5.56,
+      "ratio": 209.07,
+      "ratioChange": 4.99,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1082599251.0,
-          "change": -1.35,
-          "value": 3096.2,
-          "ratio": 141.47
+          "price": 1078464917.0,
+          "change": -1.73,
+          "value": 3084.4,
+          "ratio": 140.93
         },
         {
           "name": "애플",
-          "price": 466229.0,
-          "change": -0.18,
-          "value": 1491.8,
-          "ratio": 68.16
+          "price": 466071.0,
+          "change": -0.21,
+          "value": 1491.3,
+          "ratio": 68.14
         }
       ]
     },
@@ -393,7 +393,7 @@
       "marketCap": 113110.2,
       "ratio": 221.28,
       "ratioChange": -7.1,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -610,7 +610,7 @@
       "marketCap": 6861.1,
       "ratio": 127.76,
       "ratioChange": 1.09,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
@@ -809,7 +809,7 @@
       "marketCap": 1699.7,
       "ratio": 185.14,
       "ratioChange": -0.57,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaryPrice": 14550.0,
       "subsidiaryChange": -2.35
     },
@@ -1264,8 +1264,8 @@
     },
     {
       "id": "_average",
-      "ratio": 215.4,
-      "ratioChange": -0.22,
+      "ratio": 215.39,
+      "ratioChange": -0.23,
       "quoteSource": "derived"
     }
   ]
