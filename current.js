@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-02 07:35:57",
-  "generatedAt": "2026-06-02T07:35:57+09:00",
-  "snapshotTimestamp": 1780353357772,
+  "lastUpdated": "2026-06-02 08:54:22",
+  "generatedAt": "2026-06-02T08:54:22+09:00",
+  "snapshotTimestamp": 1780358062988,
   "session": {
     "name": "offhours",
     "date": "2026-06-02",
@@ -40,24 +40,24 @@ const CURRENT_DATA = {
     {
       "id": "youngpoong_koreazinc",
       "holdingPrice": 52000.0,
-      "holdingChange": 0.58,
+      "holdingChange": 0.0,
       "holdingValue": 72358.7,
       "marketCap": 9294.7,
       "ratio": 778.49,
-      "ratioChange": -3.38,
-      "quoteSource": "yfinance",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1375000.0,
-      "subsidiaryChange": 0.15
+      "subsidiaryChange": 0.0
     },
     {
       "id": "poongsan_holdings",
       "holdingPrice": 38850.0,
-      "holdingChange": -0.38,
+      "holdingChange": 0.0,
       "holdingValue": 8253.8,
       "marketCap": 5332.6,
       "ratio": 154.78,
-      "ratioChange": 0.6,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 77500.0,
       "subsidiaryChange": 0.0
     },
@@ -120,20 +120,20 @@ const CURRENT_DATA = {
       "holdingValue": 4530.5,
       "marketCap": 2167.3,
       "ratio": 209.04,
-      "ratioChange": -0.13,
+      "ratioChange": -1.75,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
           "price": 1066005966.0,
-          "change": 0.28,
+          "change": -0.49,
           "value": 3048.8,
           "ratio": 140.67
         },
         {
           "name": "애플",
           "price": 463055.0,
-          "change": -0.76,
+          "change": -1.52,
           "value": 1481.7,
           "ratio": 68.37
         }
@@ -393,7 +393,7 @@ const CURRENT_DATA = {
       "marketCap": 96619.6,
       "ratio": 240.04,
       "ratioChange": 0.0,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -419,7 +419,7 @@ const CURRENT_DATA = {
         {
           "name": "고려아연",
           "price": 1375000.0,
-          "change": 0.15,
+          "change": 0.0,
           "value": 3277.4,
           "ratio": 3.39
         },
@@ -1220,12 +1220,12 @@ const CURRENT_DATA = {
     {
       "id": "linked",
       "holdingPrice": 1442.0,
-      "holdingChange": -4.76,
+      "holdingChange": 0.0,
       "holdingValue": 299.9,
       "marketCap": 931.6,
       "ratio": 32.2,
-      "ratioChange": 1.53,
-      "quoteSource": "mixed",
+      "ratioChange": 0.0,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "넥써쓰",
@@ -1265,7 +1265,7 @@ const CURRENT_DATA = {
     {
       "id": "_average",
       "ratio": 216.48,
-      "ratioChange": -0.03,
+      "ratioChange": -0.04,
       "quoteSource": "derived"
     }
   ]
