@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-02 08:54:22",
-  "generatedAt": "2026-06-02T08:54:22+09:00",
-  "snapshotTimestamp": 1780358062988,
+  "lastUpdated": "2026-06-02 12:37:39",
+  "generatedAt": "2026-06-02T12:37:39+09:00",
+  "snapshotTimestamp": 1780371459687,
   "session": {
-    "name": "offhours",
+    "name": "kr_day",
     "date": "2026-06-02",
-    "label": "Off hours"
+    "label": "KR day session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,23 +14,23 @@
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 216.48
+    "averageRatio": 216.23
   },
   "market": {
     "id": "KOSPI",
     "name": "KOSPI",
-    "price": 8788.38,
-    "change": 0.0,
-    "changePct": 0.0,
+    "price": 8569.0,
+    "change": -219.38,
+    "changePct": -2.5,
     "source": "KIS proxy",
     "priceDecimals": 2,
     "extras": [
       {
         "id": "KOSDAQ",
         "name": "KOSDAQ",
-        "price": 1050.03,
-        "change": 0.0,
-        "changePct": 0.0,
+        "price": 1016.67,
+        "change": -33.36,
+        "changePct": -3.18,
         "source": "KIS proxy",
         "priceDecimals": 2
       }
@@ -39,1233 +39,1233 @@
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 52000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 72358.7,
-      "marketCap": 9294.7,
-      "ratio": 778.49,
-      "ratioChange": 0.0,
+      "holdingPrice": 50000.0,
+      "holdingChange": -3.85,
+      "holdingValue": 68885.5,
+      "marketCap": 8937.2,
+      "ratio": 770.77,
+      "ratioChange": -7.72,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 1375000.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 1309000.0,
+      "subsidiaryChange": -4.8
     },
     {
       "id": "poongsan_holdings",
-      "holdingPrice": 38850.0,
-      "holdingChange": 0.0,
-      "holdingValue": 8253.8,
-      "marketCap": 5332.6,
-      "ratio": 154.78,
-      "ratioChange": 0.0,
+      "holdingPrice": 37850.0,
+      "holdingChange": -2.57,
+      "holdingValue": 7955.6,
+      "marketCap": 5195.3,
+      "ratio": 153.13,
+      "ratioChange": -1.65,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 77500.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 74700.0,
+      "subsidiaryChange": -3.61
     },
     {
       "id": "seah_holdings",
       "holdingPrice": 156100.0,
       "holdingChange": 0.0,
-      "holdingValue": 11887.0,
+      "holdingValue": 11034.8,
       "marketCap": 6081.9,
-      "ratio": 195.45,
-      "ratioChange": 0.0,
+      "ratio": 181.44,
+      "ratioChange": -14.01,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 53700.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 49850.0,
+      "subsidiaryChange": -7.17
     },
     {
       "id": "hyosung_heavy",
-      "holdingPrice": 197500.0,
-      "holdingChange": 0.0,
-      "holdingValue": 119733.2,
-      "marketCap": 33063.9,
-      "ratio": 362.13,
-      "ratioChange": 0.0,
+      "holdingPrice": 186000.0,
+      "holdingChange": -5.82,
+      "holdingValue": 110805.6,
+      "marketCap": 31138.7,
+      "ratio": 355.85,
+      "ratioChange": -6.28,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "효성중공업",
-          "price": 3811000.0,
-          "change": 0.0,
-          "value": 115389.5,
-          "ratio": 348.99
+          "price": 3520000.0,
+          "change": -7.64,
+          "value": 106578.6,
+          "ratio": 342.27
         },
         {
           "name": "효성티앤씨",
-          "price": 369000.0,
-          "change": 0.0,
-          "value": 3317.6,
-          "ratio": 10.03
+          "price": 357000.0,
+          "change": -3.25,
+          "value": 3209.8,
+          "ratio": 10.31
         },
         {
           "name": "효성ITX",
-          "price": 12360.0,
-          "change": 0.0,
-          "value": 541.6,
-          "ratio": 1.64
+          "price": 12160.0,
+          "change": -1.62,
+          "value": 532.9,
+          "ratio": 1.71
         },
         {
           "name": "효성화학",
           "price": 38900.0,
           "change": 0.0,
           "value": 484.4,
-          "ratio": 1.46
+          "ratio": 1.56
         }
       ]
     },
     {
       "id": "chokwang_brk",
-      "holdingPrice": 61000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 4530.5,
-      "marketCap": 2167.3,
-      "ratio": 209.04,
-      "ratioChange": -1.75,
+      "holdingPrice": 60600.0,
+      "holdingChange": -0.66,
+      "holdingValue": 4548.0,
+      "marketCap": 2153.1,
+      "ratio": 211.23,
+      "ratioChange": 0.45,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1066005966.0,
-          "change": -0.49,
-          "value": 3048.8,
-          "ratio": 140.67
+          "price": 1070138199.0,
+          "change": -0.1,
+          "value": 3060.6,
+          "ratio": 142.15
         },
         {
           "name": "애플",
-          "price": 463055.0,
-          "change": -1.52,
-          "value": 1481.7,
-          "ratio": 68.37
+          "price": 464850.0,
+          "change": -1.14,
+          "value": 1487.4,
+          "ratio": 69.08
         }
       ]
     },
     {
       "id": "yoosung_seohee",
-      "holdingPrice": 4845.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1690.1,
-      "marketCap": 1618.2,
-      "ratio": 104.44,
-      "ratioChange": 0.0,
-      "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 2130.0,
-      "subsidiaryChange": 0.0
+      "holdingPrice": 4680.0,
+      "holdingChange": -3.41,
+      "holdingValue": 1745.6,
+      "marketCap": 1563.1,
+      "ratio": 111.68,
+      "ratioChange": 7.24,
+      "quoteSource": "mixed",
+      "subsidiaryPrice": 2200.0,
+      "subsidiaryChange": 3.29
     },
     {
       "id": "simmtech_holdings",
-      "holdingPrice": 5040.0,
-      "holdingChange": 0.0,
-      "holdingValue": 12420.4,
-      "marketCap": 2662.7,
-      "ratio": 466.46,
-      "ratioChange": 0.0,
+      "holdingPrice": 4565.0,
+      "holdingChange": -9.42,
+      "holdingValue": 12036.1,
+      "marketCap": 2411.8,
+      "ratio": 499.06,
+      "ratioChange": 32.6,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 100200.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 97100.0,
+      "subsidiaryChange": -3.09
     },
     {
       "id": "samsung_ct",
-      "holdingPrice": 455000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1523805.7,
-      "marketCap": 737732.7,
-      "ratio": 206.55,
-      "ratioChange": 0.0,
+      "holdingPrice": 453000.0,
+      "holdingChange": -0.44,
+      "holdingValue": 1517389.8,
+      "marketCap": 734490.0,
+      "ratio": 206.59,
+      "ratioChange": 0.04,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
-          "price": 1377000.0,
-          "change": 0.0,
-          "value": 274468.5,
-          "ratio": 37.2
+          "price": 1366000.0,
+          "change": -0.8,
+          "value": 272275.9,
+          "ratio": 37.07
         },
         {
           "name": "삼성전자",
-          "price": 349000.0,
-          "change": 0.0,
-          "value": 1042875.2,
-          "ratio": 141.36
+          "price": 349500.0,
+          "change": 0.14,
+          "value": 1044369.3,
+          "ratio": 142.19
         },
         {
           "name": "삼성에스디에스",
-          "price": 362000.0,
-          "change": 0.0,
-          "value": 47841.3,
-          "ratio": 6.48
+          "price": 288000.0,
+          "change": -20.44,
+          "value": 38061.6,
+          "ratio": 5.18
         },
         {
           "name": "삼성생명",
-          "price": 410000.0,
-          "change": 0.0,
-          "value": 158620.8,
-          "ratio": 21.5
+          "price": 420500.0,
+          "change": 2.56,
+          "value": 162683.0,
+          "ratio": 22.15
         }
       ]
     },
     {
       "id": "wonik",
-      "holdingPrice": 7500.0,
-      "holdingChange": 0.0,
-      "holdingValue": 4003.8,
-      "marketCap": 1503.8,
-      "ratio": 266.25,
-      "ratioChange": 0.0,
+      "holdingPrice": 6990.0,
+      "holdingChange": -6.8,
+      "holdingValue": 3664.8,
+      "marketCap": 1401.5,
+      "ratio": 261.49,
+      "ratioChange": -4.77,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 27750.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 25400.0,
+      "subsidiaryChange": -8.47
     },
     {
       "id": "wonik_holdings",
-      "holdingPrice": 27750.0,
-      "holdingChange": 0.0,
-      "holdingValue": 20716.7,
-      "marketCap": 21196.3,
-      "ratio": 97.74,
-      "ratioChange": 0.0,
+      "holdingPrice": 25400.0,
+      "holdingChange": -8.47,
+      "holdingValue": 19601.7,
+      "marketCap": 19401.3,
+      "ratio": 101.03,
+      "ratioChange": 3.3,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "원익IPS",
-          "price": 102700.0,
-          "change": 0.0,
-          "value": 16584.6,
-          "ratio": 78.24
+          "price": 96700.0,
+          "change": -5.84,
+          "value": 15615.7,
+          "ratio": 80.49
         },
         {
           "name": "원익QnC",
-          "price": 31550.0,
-          "change": 0.0,
-          "value": 1741.7,
-          "ratio": 8.22
+          "price": 30000.0,
+          "change": -4.91,
+          "value": 1656.1,
+          "ratio": 8.54
         },
         {
           "name": "원익머트리얼즈",
-          "price": 41500.0,
-          "change": 0.0,
-          "value": 2390.4,
-          "ratio": 11.28
+          "price": 40450.0,
+          "change": -2.53,
+          "value": 2329.9,
+          "ratio": 12.01
         }
       ]
     },
     {
       "id": "snt_holdings",
-      "holdingPrice": 50100.0,
-      "holdingChange": 0.0,
-      "holdingValue": 7359.7,
-      "marketCap": 5911.8,
-      "ratio": 124.49,
-      "ratioChange": 0.0,
+      "holdingPrice": 49500.0,
+      "holdingChange": -1.2,
+      "holdingValue": 6880.9,
+      "marketCap": 5841.0,
+      "ratio": 117.8,
+      "ratioChange": -6.69,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
-          "price": 43500.0,
-          "change": 0.0,
-          "value": 4376.1,
-          "ratio": 74.02
+          "price": 40150.0,
+          "change": -7.7,
+          "value": 4039.1,
+          "ratio": 69.15
         },
         {
           "name": "SNT모티브",
-          "price": 29500.0,
-          "change": 0.0,
-          "value": 1511.6,
-          "ratio": 25.57
+          "price": 28450.0,
+          "change": -3.56,
+          "value": 1457.8,
+          "ratio": 24.96
         },
         {
           "name": "SNT에너지",
-          "price": 36800.0,
-          "change": 0.0,
-          "value": 1472.0,
-          "ratio": 24.9
+          "price": 34600.0,
+          "change": -5.98,
+          "value": 1384.0,
+          "ratio": 23.69
         }
       ]
     },
     {
       "id": "samsung_life",
-      "holdingPrice": 410000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1879437.6,
-      "marketCap": 736271.9,
-      "ratio": 255.26,
-      "ratioChange": 0.0,
+      "holdingPrice": 420500.0,
+      "holdingChange": 2.56,
+      "holdingValue": 1882425.8,
+      "marketCap": 755127.6,
+      "ratio": 249.29,
+      "ratioChange": -5.98,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "삼성전자",
-          "price": 349000.0,
-          "change": 0.0,
-          "value": 1758628.4,
-          "ratio": 238.86
+          "price": 349500.0,
+          "change": 0.14,
+          "value": 1761148.0,
+          "ratio": 233.23
         },
         {
           "name": "삼성카드",
-          "price": 45850.0,
-          "change": 0.0,
-          "value": 38174.3,
-          "ratio": 5.18
+          "price": 46450.0,
+          "change": 1.31,
+          "value": 38673.8,
+          "ratio": 5.12
         },
         {
           "name": "삼성화재",
-          "price": 604000.0,
-          "change": 0.0,
-          "value": 42878.0,
-          "ratio": 5.82
+          "price": 627000.0,
+          "change": 3.81,
+          "value": 44510.7,
+          "ratio": 5.89
         },
         {
           "name": "삼성증권",
-          "price": 124500.0,
-          "change": 0.0,
-          "value": 32676.3,
-          "ratio": 4.44
+          "price": 118700.0,
+          "change": -4.66,
+          "value": 31154.0,
+          "ratio": 4.13
         },
         {
           "name": "삼성중공업",
-          "price": 27550.0,
-          "change": 0.0,
-          "value": 7080.6,
-          "ratio": 0.96
+          "price": 27000.0,
+          "change": -2.0,
+          "value": 6939.3,
+          "ratio": 0.92
         }
       ]
     },
     {
       "id": "doosan",
-      "holdingPrice": 2203000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 253417.4,
-      "marketCap": 298782.2,
-      "ratio": 84.82,
-      "ratioChange": 0.0,
+      "holdingPrice": 1836000.0,
+      "holdingChange": -16.66,
+      "holdingValue": 245130.0,
+      "marketCap": 249007.8,
+      "ratio": 98.44,
+      "ratioChange": 13.63,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "두산에너빌리티",
-          "price": 106900.0,
-          "change": 0.0,
-          "value": 208124.4,
-          "ratio": 69.66
+          "price": 99900.0,
+          "change": -6.55,
+          "value": 194496.0,
+          "ratio": 78.11
         },
         {
           "name": "오리콤",
-          "price": 5260.0,
-          "change": 0.0,
-          "value": 383.5,
-          "ratio": 0.13
+          "price": 5080.0,
+          "change": -3.42,
+          "value": 370.4,
+          "ratio": 0.15
         },
         {
           "name": "두산로보틱스",
-          "price": 138400.0,
-          "change": 0.0,
-          "value": 44909.5,
-          "ratio": 15.03
+          "price": 154900.0,
+          "change": 11.92,
+          "value": 50263.6,
+          "ratio": 20.19
         }
       ]
     },
     {
       "id": "lg_chem_ensol",
-      "holdingPrice": 363500.0,
-      "holdingChange": 0.0,
-      "holdingValue": 871321.2,
-      "marketCap": 249333.2,
-      "ratio": 349.46,
-      "ratioChange": 0.0,
+      "holdingPrice": 357000.0,
+      "holdingChange": -1.79,
+      "holdingValue": 847383.8,
+      "marketCap": 244874.7,
+      "ratio": 346.05,
+      "ratioChange": -3.41,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 455000.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 442500.0,
+      "subsidiaryChange": -2.75
     },
     {
       "id": "sebang_battery",
-      "holdingPrice": 13600.0,
-      "holdingChange": 0.0,
-      "holdingValue": 3051.9,
-      "marketCap": 1776.2,
-      "ratio": 171.83,
-      "ratioChange": 0.0,
+      "holdingPrice": 13200.0,
+      "holdingChange": -2.94,
+      "holdingValue": 2996.2,
+      "marketCap": 1723.9,
+      "ratio": 173.8,
+      "ratioChange": 1.98,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 54800.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 53800.0,
+      "subsidiaryChange": -1.82
     },
     {
       "id": "hanwha",
-      "holdingPrice": 128900.0,
-      "holdingChange": 0.0,
-      "holdingValue": 231928.8,
-      "marketCap": 96619.6,
-      "ratio": 240.04,
-      "ratioChange": 0.0,
+      "holdingPrice": 117900.0,
+      "holdingChange": -8.53,
+      "holdingValue": 220678.0,
+      "marketCap": 88374.4,
+      "ratio": 249.71,
+      "ratioChange": 9.67,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
-          "price": 1138000.0,
-          "change": 0.0,
-          "value": 188852.9,
-          "ratio": 195.46
+          "price": 1077000.0,
+          "change": -5.36,
+          "value": 178729.9,
+          "ratio": 202.24
         },
         {
           "name": "한화비전",
-          "price": 70800.0,
-          "change": 0.0,
-          "value": 12136.2,
-          "ratio": 12.56
+          "price": 64800.0,
+          "change": -8.47,
+          "value": 11107.7,
+          "ratio": 12.57
         },
         {
           "name": "한화솔루션",
-          "price": 40600.0,
-          "change": 0.0,
-          "value": 25603.3,
-          "ratio": 26.5
+          "price": 40850.0,
+          "change": 0.62,
+          "value": 25760.9,
+          "ratio": 29.15
         },
         {
           "name": "고려아연",
-          "price": 1375000.0,
-          "change": 0.0,
-          "value": 3277.4,
-          "ratio": 3.39
+          "price": 1309000.0,
+          "change": -4.8,
+          "value": 3120.1,
+          "ratio": 3.53
         },
         {
           "name": "한화갤러리아",
-          "price": 2895.0,
-          "change": 0.0,
-          "value": 2059.0,
-          "ratio": 2.13
+          "price": 2755.0,
+          "change": -4.84,
+          "value": 1959.4,
+          "ratio": 2.22
         }
       ]
     },
     {
       "id": "sk_inc",
-      "holdingPrice": 657000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 753867.2,
-      "marketCap": 358209.6,
-      "ratio": 210.45,
-      "ratioChange": 0.0,
+      "holdingPrice": 650000.0,
+      "holdingChange": -1.07,
+      "holdingValue": 773035.8,
+      "marketCap": 354393.0,
+      "ratio": 218.13,
+      "ratioChange": 7.68,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SK이노베이션",
-          "price": 116200.0,
-          "change": 0.0,
-          "value": 102317.3,
-          "ratio": 28.56
+          "price": 117000.0,
+          "change": 0.69,
+          "value": 103021.7,
+          "ratio": 29.07
         },
         {
           "name": "SK텔레콤",
-          "price": 112200.0,
-          "change": 0.0,
-          "value": 73679.9,
-          "ratio": 20.57
+          "price": 133700.0,
+          "change": 19.16,
+          "value": 87798.6,
+          "ratio": 24.77
         },
         {
           "name": "SK스퀘어",
-          "price": 1256000.0,
-          "change": 0.0,
-          "value": 533199.7,
-          "ratio": 148.85
+          "price": 1266000.0,
+          "change": 0.8,
+          "value": 537444.9,
+          "ratio": 151.65
         },
         {
           "name": "SK바이오팜",
-          "price": 89100.0,
-          "change": 0.0,
-          "value": 44670.2,
-          "ratio": 12.47
+          "price": 89300.0,
+          "change": 0.22,
+          "value": 44770.5,
+          "ratio": 12.63
         }
       ]
     },
     {
       "id": "sk_discovery",
-      "holdingPrice": 48150.0,
-      "holdingChange": 0.0,
-      "holdingValue": 19089.1,
-      "marketCap": 8241.0,
-      "ratio": 231.63,
-      "ratioChange": 0.0,
+      "holdingPrice": 47250.0,
+      "holdingChange": -1.87,
+      "holdingValue": 18820.4,
+      "marketCap": 8087.0,
+      "ratio": 232.72,
+      "ratioChange": 1.09,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "SK가스",
-          "price": 227500.0,
-          "change": 0.0,
-          "value": 16429.7,
-          "ratio": 199.36
+          "price": 224000.0,
+          "change": -1.54,
+          "value": 16176.9,
+          "ratio": 200.04
         },
         {
           "name": "SK케미칼",
-          "price": 41550.0,
-          "change": 0.0,
-          "value": 2659.5,
-          "ratio": 32.27
+          "price": 41300.0,
+          "change": -0.6,
+          "value": 2643.5,
+          "ratio": 32.69
         }
       ]
     },
     {
       "id": "sk_chemical_bioscience",
-      "holdingPrice": 41550.0,
-      "holdingChange": 0.0,
-      "holdingValue": 20997.7,
-      "marketCap": 7175.2,
-      "ratio": 292.64,
-      "ratioChange": 0.0,
+      "holdingPrice": 41300.0,
+      "holdingChange": -0.6,
+      "holdingValue": 21518.7,
+      "marketCap": 7132.0,
+      "ratio": 301.72,
+      "ratioChange": 9.08,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 40300.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 41300.0,
+      "subsidiaryChange": 2.48
     },
     {
       "id": "sk_square",
-      "holdingPrice": 1256000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 3451144.4,
-      "marketCap": 1654043.2,
-      "ratio": 208.65,
-      "ratioChange": 0.0,
+      "holdingPrice": 1266000.0,
+      "holdingChange": 0.8,
+      "holdingValue": 3354751.8,
+      "marketCap": 1667212.3,
+      "ratio": 201.22,
+      "ratioChange": -7.43,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 2363000.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 2297000.0,
+      "subsidiaryChange": -2.79
     },
     {
       "id": "harim_holdings",
-      "holdingPrice": 11080.0,
-      "holdingChange": 0.0,
-      "holdingValue": 18381.0,
-      "marketCap": 10776.5,
-      "ratio": 170.57,
-      "ratioChange": 0.0,
+      "holdingPrice": 10860.0,
+      "holdingChange": -1.99,
+      "holdingValue": 18126.4,
+      "marketCap": 10562.6,
+      "ratio": 171.61,
+      "ratioChange": 1.04,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "하림",
-          "price": 2860.0,
-          "change": 0.0,
-          "value": 1742.6,
-          "ratio": 16.17
+          "price": 2850.0,
+          "change": -0.35,
+          "value": 1736.5,
+          "ratio": 16.44
         },
         {
           "name": "선진",
-          "price": 9680.0,
-          "change": 0.0,
-          "value": 1151.0,
-          "ratio": 10.68
+          "price": 9850.0,
+          "change": 1.76,
+          "value": 1171.2,
+          "ratio": 11.09
         },
         {
           "name": "팜스코",
-          "price": 2605.0,
-          "change": 0.0,
-          "value": 539.0,
-          "ratio": 5.0
+          "price": 2720.0,
+          "change": 4.41,
+          "value": 562.8,
+          "ratio": 5.33
         },
         {
           "name": "팬오션",
-          "price": 5110.0,
-          "change": 0.0,
-          "value": 14948.4,
-          "ratio": 138.71
+          "price": 5010.0,
+          "change": -1.96,
+          "value": 14655.9,
+          "ratio": 138.75
         }
       ]
     },
     {
       "id": "lg_corp",
-      "holdingPrice": 165800.0,
-      "holdingChange": 0.0,
-      "holdingValue": 348416.5,
-      "marketCap": 250676.3,
-      "ratio": 138.99,
-      "ratioChange": 0.0,
+      "holdingPrice": 136900.0,
+      "holdingChange": -17.43,
+      "holdingValue": 331564.7,
+      "marketCap": 206981.9,
+      "ratio": 160.19,
+      "ratioChange": 21.2,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "LG전자",
-          "price": 380500.0,
-          "change": 0.0,
-          "value": 218532.7,
-          "ratio": 87.18
+          "price": 354750.0,
+          "change": -6.77,
+          "value": 203743.7,
+          "ratio": 98.44
         },
         {
           "name": "LG화학",
-          "price": 363500.0,
-          "change": 0.0,
-          "value": 89676.7,
-          "ratio": 35.77
+          "price": 357000.0,
+          "change": -1.79,
+          "value": 88073.1,
+          "ratio": 42.55
         },
         {
           "name": "LG유플러스",
-          "price": 16420.0,
-          "change": 0.0,
-          "value": 26998.2,
-          "ratio": 10.77
+          "price": 16270.0,
+          "change": -0.91,
+          "value": 26751.5,
+          "ratio": 12.92
         },
         {
           "name": "LG생활건강",
-          "price": 248500.0,
-          "change": 0.0,
-          "value": 13209.0,
-          "ratio": 5.27
+          "price": 244500.0,
+          "change": -1.61,
+          "value": 12996.4,
+          "ratio": 6.28
         }
       ]
     },
     {
       "id": "lx_holdings",
-      "holdingPrice": 8270.0,
-      "holdingChange": 0.0,
-      "holdingValue": 8266.9,
-      "marketCap": 6304.6,
-      "ratio": 131.12,
-      "ratioChange": 0.0,
+      "holdingPrice": 8080.0,
+      "holdingChange": -2.3,
+      "holdingValue": 7897.8,
+      "marketCap": 6159.8,
+      "ratio": 128.22,
+      "ratioChange": -2.91,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "LX인터내셔널",
-          "price": 40000.0,
-          "change": 0.0,
-          "value": 4314.9,
-          "ratio": 68.44
+          "price": 38400.0,
+          "change": -4.0,
+          "value": 4142.3,
+          "ratio": 67.25
         },
         {
           "name": "LX세미콘",
-          "price": 55400.0,
-          "change": 0.0,
-          "value": 2980.8,
-          "ratio": 47.28
+          "price": 52000.0,
+          "change": -6.14,
+          "value": 2797.9,
+          "ratio": 45.42
         },
         {
           "name": "LX하우시스",
-          "price": 32300.0,
-          "change": 0.0,
-          "value": 971.2,
-          "ratio": 15.4
+          "price": 31850.0,
+          "change": -1.39,
+          "value": 957.6,
+          "ratio": 15.55
         }
       ]
     },
     {
       "id": "amore",
-      "holdingPrice": 22400.0,
-      "holdingChange": 0.0,
-      "holdingValue": 26447.0,
-      "marketCap": 20104.3,
-      "ratio": 131.55,
-      "ratioChange": 0.0,
+      "holdingPrice": 22000.0,
+      "holdingChange": -1.79,
+      "holdingValue": 25995.5,
+      "marketCap": 19745.3,
+      "ratio": 131.65,
+      "ratioChange": 0.11,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 111300.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 109400.0,
+      "subsidiaryChange": -1.71
     },
     {
       "id": "kpf_tmc",
-      "holdingPrice": 4805.0,
-      "holdingChange": 0.0,
-      "holdingValue": 4186.1,
-      "marketCap": 961.7,
-      "ratio": 435.27,
-      "ratioChange": 0.0,
+      "holdingPrice": 4570.0,
+      "holdingChange": -4.89,
+      "holdingValue": 3726.2,
+      "marketCap": 914.7,
+      "ratio": 407.36,
+      "ratioChange": -27.9,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "티엠씨",
-          "price": 20950.0,
-          "change": 0.0,
-          "value": 2461.5,
-          "ratio": 255.94
+          "price": 19090.0,
+          "change": -8.88,
+          "value": 2242.9,
+          "ratio": 245.21
         },
         {
           "name": "에스비비테크",
-          "price": 74300.0,
-          "change": 0.0,
-          "value": 1724.7,
-          "ratio": 179.33
+          "price": 63900.0,
+          "change": -14.0,
+          "value": 1483.3,
+          "ratio": 162.16
         }
       ]
     },
     {
       "id": "cosmax_bti",
-      "holdingPrice": 18000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 5984.3,
-      "marketCap": 1719.9,
-      "ratio": 347.95,
-      "ratioChange": 0.0,
+      "holdingPrice": 17840.0,
+      "holdingChange": -0.89,
+      "holdingValue": 5898.3,
+      "marketCap": 1704.6,
+      "ratio": 346.03,
+      "ratioChange": -1.92,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "코스맥스",
-          "price": 172000.0,
-          "change": 0.0,
-          "value": 5315.3,
-          "ratio": 309.05
+          "price": 169800.0,
+          "change": -1.28,
+          "value": 5247.3,
+          "ratio": 307.84
         },
         {
           "name": "코스맥스엔비티",
-          "price": 7450.0,
-          "change": 0.0,
-          "value": 669.0,
-          "ratio": 38.9
+          "price": 7250.0,
+          "change": -2.68,
+          "value": 651.0,
+          "ratio": 38.19
         }
       ]
     },
     {
       "id": "seronics",
-      "holdingPrice": 16300.0,
-      "holdingChange": 0.0,
-      "holdingValue": 8041.4,
-      "marketCap": 1993.6,
-      "ratio": 403.36,
-      "ratioChange": 0.0,
+      "holdingPrice": 15580.0,
+      "holdingChange": -4.42,
+      "holdingValue": 7782.0,
+      "marketCap": 1905.5,
+      "ratio": 408.39,
+      "ratioChange": 5.03,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 155000.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 150000.0,
+      "subsidiaryChange": -3.23
     },
     {
       "id": "ty_holdings",
-      "holdingPrice": 2055.0,
-      "holdingChange": 0.0,
-      "holdingValue": 3703.1,
-      "marketCap": 830.3,
-      "ratio": 446.01,
-      "ratioChange": 0.0,
+      "holdingPrice": 2007.0,
+      "holdingChange": -2.34,
+      "holdingValue": 3679.2,
+      "marketCap": 810.9,
+      "ratio": 453.73,
+      "ratioChange": 7.72,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "태영건설",
-          "price": 1620.0,
-          "change": 0.0,
-          "value": 2806.9,
-          "ratio": 338.07
+          "price": 1614.0,
+          "change": -0.37,
+          "value": 2796.5,
+          "ratio": 344.87
         },
         {
           "name": "SBS",
-          "price": 13300.0,
-          "change": 0.0,
-          "value": 896.2,
-          "ratio": 107.93
+          "price": 13100.0,
+          "change": -1.5,
+          "value": 882.7,
+          "ratio": 108.85
         }
       ]
     },
     {
       "id": "nongshim_holdings",
-      "holdingPrice": 91200.0,
-      "holdingChange": 0.0,
-      "holdingValue": 9095.9,
-      "marketCap": 4230.2,
-      "ratio": 215.02,
-      "ratioChange": 0.0,
+      "holdingPrice": 90300.0,
+      "holdingChange": -0.99,
+      "holdingValue": 8828.5,
+      "marketCap": 4188.4,
+      "ratio": 210.78,
+      "ratioChange": -4.24,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "농심",
-          "price": 382000.0,
-          "change": 0.0,
-          "value": 7601.8,
-          "ratio": 179.7
+          "price": 373500.0,
+          "change": -2.23,
+          "value": 7432.6,
+          "ratio": 177.46
         },
         {
           "name": "율촌화학",
-          "price": 18860.0,
-          "change": 0.0,
-          "value": 1494.1,
-          "ratio": 35.32
+          "price": 17620.0,
+          "change": -6.57,
+          "value": 1395.9,
+          "ratio": 33.33
         }
       ]
     },
     {
       "id": "kolmar_holdings",
-      "holdingPrice": 8880.0,
-      "holdingChange": 0.0,
-      "holdingValue": 6660.5,
-      "marketCap": 3044.9,
-      "ratio": 218.74,
-      "ratioChange": 0.0,
+      "holdingPrice": 8430.0,
+      "holdingChange": -5.07,
+      "holdingValue": 6469.2,
+      "marketCap": 2890.6,
+      "ratio": 223.8,
+      "ratioChange": 5.06,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한국콜마",
-          "price": 85500.0,
-          "change": 0.0,
-          "value": 5309.5,
-          "ratio": 174.37
+          "price": 82800.0,
+          "change": -3.16,
+          "value": 5141.8,
+          "ratio": 177.88
         },
         {
           "name": "콜마비앤에이치",
-          "price": 10290.0,
-          "change": 0.0,
-          "value": 1351.0,
-          "ratio": 44.37
+          "price": 10110.0,
+          "change": -1.75,
+          "value": 1327.4,
+          "ratio": 45.92
         }
       ]
     },
     {
       "id": "seah_mechanics",
-      "holdingPrice": 6070.0,
-      "holdingChange": 0.0,
-      "holdingValue": 2725.9,
-      "marketCap": 1607.9,
-      "ratio": 169.53,
-      "ratioChange": 0.0,
+      "holdingPrice": 5580.0,
+      "holdingChange": -8.07,
+      "holdingValue": 2547.4,
+      "marketCap": 1478.1,
+      "ratio": 172.34,
+      "ratioChange": 2.81,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 106900.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 99900.0,
+      "subsidiaryChange": -6.55
     },
     {
       "id": "iljin_diamond",
-      "holdingPrice": 10850.0,
-      "holdingChange": 0.0,
-      "holdingValue": 3030.0,
-      "marketCap": 1540.6,
-      "ratio": 196.67,
-      "ratioChange": 0.0,
+      "holdingPrice": 10420.0,
+      "holdingChange": -3.96,
+      "holdingValue": 2863.5,
+      "marketCap": 1479.6,
+      "ratio": 193.53,
+      "ratioChange": -3.14,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 14010.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 13240.0,
+      "subsidiaryChange": -5.5
     },
     {
       "id": "telcon_rf",
-      "holdingPrice": 361.0,
-      "holdingChange": 0.0,
-      "holdingValue": 521.8,
-      "marketCap": 247.4,
-      "ratio": 210.95,
-      "ratioChange": 0.0,
+      "holdingPrice": 345.0,
+      "holdingChange": -4.43,
+      "holdingValue": 512.1,
+      "marketCap": 236.4,
+      "ratio": 216.64,
+      "ratioChange": 5.69,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "에이비온",
-          "price": 1866.0,
-          "change": 0.0,
-          "value": 306.0,
-          "ratio": 123.68
+          "price": 1807.0,
+          "change": -3.16,
+          "value": 296.3,
+          "ratio": 125.32
         },
         {
           "name": "케이피엠테크",
           "price": 749.0,
           "change": 0.0,
           "value": 215.9,
-          "ratio": 87.27
+          "ratio": 91.31
         }
       ]
     },
     {
       "id": "aps",
-      "holdingPrice": 4420.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1834.6,
-      "marketCap": 744.6,
-      "ratio": 246.39,
-      "ratioChange": 0.0,
+      "holdingPrice": 4230.0,
+      "holdingChange": -4.3,
+      "holdingValue": 1745.5,
+      "marketCap": 712.6,
+      "ratio": 244.95,
+      "ratioChange": -1.44,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "AP시스템",
-          "price": 23850.0,
-          "change": 0.0,
-          "value": 911.2,
-          "ratio": 122.37
+          "price": 23100.0,
+          "change": -3.14,
+          "value": 882.5,
+          "ratio": 123.85
         },
         {
           "name": "넥스틴",
-          "price": 66100.0,
-          "change": 0.0,
-          "value": 616.1,
-          "ratio": 82.74
+          "price": 60300.0,
+          "change": -8.77,
+          "value": 562.0,
+          "ratio": 78.87
         },
         {
           "name": "코닉오토메이션",
-          "price": 1726.0,
-          "change": 0.0,
-          "value": 307.4,
-          "ratio": 41.28
+          "price": 1690.0,
+          "change": -2.09,
+          "value": 300.9,
+          "ratio": 42.23
         }
       ]
     },
     {
       "id": "inveni",
-      "holdingPrice": 14790.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1279.6,
-      "marketCap": 756.1,
-      "ratio": 169.25,
-      "ratioChange": 0.0,
+      "holdingPrice": 14550.0,
+      "holdingChange": -1.62,
+      "holdingValue": 1262.2,
+      "marketCap": 743.8,
+      "ratio": 169.7,
+      "ratioChange": 0.45,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "우리금융지주",
-          "price": 29400.0,
-          "change": 0.0,
-          "value": 815.3,
-          "ratio": 107.83
+          "price": 29450.0,
+          "change": 0.17,
+          "value": 816.6,
+          "ratio": 109.8
         },
         {
           "name": "삼성증권",
-          "price": 124500.0,
-          "change": 0.0,
-          "value": 403.4,
-          "ratio": 53.35
+          "price": 118700.0,
+          "change": -4.66,
+          "value": 384.6,
+          "ratio": 51.71
         },
         {
           "name": "피에스텍",
           "price": 6730.0,
           "change": 0.0,
           "value": 61.0,
-          "ratio": 8.06
+          "ratio": 8.2
         }
       ]
     },
     {
       "id": "donga_soc_holdings",
-      "holdingPrice": 89600.0,
-      "holdingChange": 0.0,
-      "holdingValue": 8823.3,
-      "marketCap": 5765.4,
-      "ratio": 153.04,
-      "ratioChange": 0.0,
+      "holdingPrice": 87700.0,
+      "holdingChange": -2.12,
+      "holdingValue": 8481.0,
+      "marketCap": 5643.1,
+      "ratio": 150.29,
+      "ratioChange": -2.75,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "에스티팜",
-          "price": 129500.0,
-          "change": 0.0,
-          "value": 7895.0,
-          "ratio": 136.94
+          "price": 124100.0,
+          "change": -4.17,
+          "value": 7565.8,
+          "ratio": 134.07
         },
         {
           "name": "동아에스티",
-          "price": 39050.0,
-          "change": 0.0,
-          "value": 928.2,
-          "ratio": 16.1
+          "price": 38500.0,
+          "change": -1.41,
+          "value": 915.2,
+          "ratio": 16.22
         }
       ]
     },
     {
       "id": "hd_hyundai",
-      "holdingPrice": 281000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 295462.5,
-      "marketCap": 198566.4,
-      "ratio": 148.8,
-      "ratioChange": 0.0,
+      "holdingPrice": 267000.0,
+      "holdingChange": -4.98,
+      "holdingValue": 276608.3,
+      "marketCap": 188673.4,
+      "ratio": 146.61,
+      "ratioChange": -2.19,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "HD현대일렉트릭",
-          "price": 1066000.0,
-          "change": 0.0,
-          "value": 137333.7,
-          "ratio": 69.16
+          "price": 988000.0,
+          "change": -7.32,
+          "value": 127284.9,
+          "ratio": 67.46
         },
         {
           "name": "HD한국조선해양",
-          "price": 404500.0,
-          "change": 0.0,
-          "value": 100344.8,
-          "ratio": 50.53
+          "price": 385000.0,
+          "change": -4.82,
+          "value": 95507.4,
+          "ratio": 50.62
         },
         {
           "name": "HD현대마린솔루션",
-          "price": 233000.0,
-          "change": 0.0,
-          "value": 57784.0,
-          "ratio": 29.1
+          "price": 217000.0,
+          "change": -6.87,
+          "value": 53816.0,
+          "ratio": 28.52
         }
       ]
     },
     {
       "id": "dongsung_chemical",
-      "holdingPrice": 3760.0,
-      "holdingChange": 0.0,
-      "holdingValue": 2330.1,
-      "marketCap": 1853.4,
-      "ratio": 125.72,
-      "ratioChange": 0.0,
+      "holdingPrice": 3785.0,
+      "holdingChange": 0.66,
+      "holdingValue": 2232.5,
+      "marketCap": 1865.7,
+      "ratio": 119.66,
+      "ratioChange": -6.06,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "동성화인텍",
-          "price": 20200.0,
-          "change": 0.0,
-          "value": 2298.4,
-          "ratio": 124.01
+          "price": 19350.0,
+          "change": -4.21,
+          "value": 2201.7,
+          "ratio": 118.01
         },
         {
           "name": "한국석유",
-          "price": 12600.0,
-          "change": 0.0,
-          "value": 31.7,
-          "ratio": 1.71
+          "price": 12240.0,
+          "change": -2.86,
+          "value": 30.8,
+          "ratio": 1.65
         }
       ]
     },
     {
       "id": "bio_smart",
-      "holdingPrice": 3045.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1340.8,
-      "marketCap": 769.6,
-      "ratio": 174.21,
-      "ratioChange": 0.0,
+      "holdingPrice": 3000.0,
+      "holdingChange": -1.48,
+      "holdingValue": 1301.8,
+      "marketCap": 758.3,
+      "ratio": 171.68,
+      "ratioChange": -2.53,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "티씨머티리얼즈",
-          "price": 7010.0,
-          "change": 0.0,
-          "value": 1169.3,
-          "ratio": 151.94
+          "price": 6800.0,
+          "change": -3.0,
+          "value": 1134.3,
+          "ratio": 149.59
         },
         {
           "name": "더라미",
-          "price": 737.0,
-          "change": 0.0,
-          "value": 84.2,
-          "ratio": 10.94
+          "price": 740.0,
+          "change": 0.41,
+          "value": 84.6,
+          "ratio": 11.15
         },
         {
           "name": "옴니시스템",
-          "price": 628.0,
-          "change": 0.0,
-          "value": 87.2,
-          "ratio": 11.33
+          "price": 597.0,
+          "change": -4.94,
+          "value": 82.9,
+          "ratio": 10.94
         }
       ]
     },
     {
       "id": "eyesvision",
-      "holdingPrice": 1197.0,
-      "holdingChange": 0.0,
-      "holdingValue": 686.7,
-      "marketCap": 314.9,
-      "ratio": 218.03,
-      "ratioChange": 0.0,
+      "holdingPrice": 1180.0,
+      "holdingChange": -1.42,
+      "holdingValue": 645.0,
+      "marketCap": 310.5,
+      "ratio": 207.75,
+      "ratioChange": -10.28,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "머큐리",
-          "price": 5720.0,
-          "change": 0.0,
-          "value": 485.6,
-          "ratio": 154.19
+          "price": 5270.0,
+          "change": -7.87,
+          "value": 447.4,
+          "ratio": 144.11
         },
         {
           "name": "한성크린텍",
-          "price": 1987.0,
-          "change": 0.0,
-          "value": 90.2,
-          "ratio": 28.63
+          "price": 1790.0,
+          "change": -9.91,
+          "value": 81.2,
+          "ratio": 26.16
         },
         {
           "name": "위지트",
-          "price": 1400.0,
-          "change": 0.0,
-          "value": 110.9,
-          "ratio": 35.21
+          "price": 1469.0,
+          "change": 4.93,
+          "value": 116.4,
+          "ratio": 37.48
         }
       ]
     },
     {
       "id": "orion_holdings",
-      "holdingPrice": 24850.0,
-      "holdingChange": 0.0,
-      "holdingValue": 19812.6,
-      "marketCap": 14944.6,
-      "ratio": 132.57,
-      "ratioChange": 0.0,
+      "holdingPrice": 25800.0,
+      "holdingChange": 3.82,
+      "holdingValue": 19716.8,
+      "marketCap": 15516.0,
+      "ratio": 127.07,
+      "ratioChange": -5.5,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "오리온",
-          "price": 127700.0,
-          "change": 0.0,
-          "value": 18867.7,
-          "ratio": 126.25
+          "price": 127100.0,
+          "change": -0.47,
+          "value": 18779.0,
+          "ratio": 121.03
         },
         {
           "name": "쇼박스",
-          "price": 2625.0,
-          "change": 0.0,
-          "value": 944.9,
-          "ratio": 6.32
+          "price": 2605.0,
+          "change": -0.76,
+          "value": 937.7,
+          "ratio": 6.04
         }
       ]
     },
     {
       "id": "yes24",
-      "holdingPrice": 2885.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1134.9,
-      "marketCap": 720.9,
-      "ratio": 157.43,
-      "ratioChange": 0.0,
+      "holdingPrice": 2890.0,
+      "holdingChange": 0.17,
+      "holdingValue": 1127.3,
+      "marketCap": 722.2,
+      "ratio": 156.1,
+      "ratioChange": -1.34,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 22150.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 22000.0,
+      "subsidiaryChange": -0.68
     },
     {
       "id": "hwaseung_ind",
-      "holdingPrice": 2690.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1695.5,
-      "marketCap": 1289.5,
-      "ratio": 131.49,
-      "ratioChange": 0.0,
+      "holdingPrice": 2680.0,
+      "holdingChange": -0.37,
+      "holdingValue": 1661.6,
+      "marketCap": 1284.7,
+      "ratio": 129.34,
+      "ratioChange": -2.15,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
-          "price": 3530.0,
-          "change": 0.0,
-          "value": 1462.3,
-          "ratio": 113.4
+          "price": 3465.0,
+          "change": -1.84,
+          "value": 1435.3,
+          "ratio": 111.73
         },
         {
           "name": "화승코퍼레이션",
-          "price": 2500.0,
-          "change": 0.0,
-          "value": 115.8,
-          "ratio": 8.98
+          "price": 2420.0,
+          "change": -3.2,
+          "value": 112.1,
+          "ratio": 8.73
         },
         {
           "name": "성창기업지주",
-          "price": 5480.0,
-          "change": 0.0,
-          "value": 98.0,
-          "ratio": 7.6
+          "price": 5280.0,
+          "change": -3.65,
+          "value": 94.5,
+          "ratio": 7.35
         },
         {
           "name": "대림바스",
-          "price": 4410.0,
-          "change": 0.0,
-          "value": 19.4,
-          "ratio": 1.5
+          "price": 4480.0,
+          "change": 1.59,
+          "value": 19.7,
+          "ratio": 1.53
         }
       ]
     },
     {
       "id": "kcc",
-      "holdingPrice": 554000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 88575.9,
-      "marketCap": 40750.4,
-      "ratio": 217.36,
-      "ratioChange": 0.0,
+      "holdingPrice": 551000.0,
+      "holdingChange": -0.54,
+      "holdingValue": 87696.7,
+      "marketCap": 40529.8,
+      "ratio": 216.38,
+      "ratioChange": -0.99,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "삼성물산",
-          "price": 455000.0,
-          "change": 0.0,
-          "value": 77395.5,
-          "ratio": 189.93
+          "price": 453000.0,
+          "change": -0.44,
+          "value": 77055.3,
+          "ratio": 190.12
         },
         {
           "name": "HD한국조선해양",
-          "price": 404500.0,
-          "change": 0.0,
-          "value": 11180.4,
-          "ratio": 27.44
+          "price": 385000.0,
+          "change": -4.82,
+          "value": 10641.4,
+          "ratio": 26.26
         }
       ]
     },
     {
       "id": "neowiz_holdings",
-      "holdingPrice": 21150.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1326.7,
-      "marketCap": 1304.4,
-      "ratio": 101.72,
-      "ratioChange": 0.0,
+      "holdingPrice": 20900.0,
+      "holdingChange": -1.18,
+      "holdingValue": 1313.2,
+      "marketCap": 1288.9,
+      "ratio": 101.88,
+      "ratioChange": 0.17,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 19580.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 19380.0,
+      "subsidiaryChange": -1.02
     },
     {
       "id": "dongkoo_bio",
-      "holdingPrice": 4190.0,
-      "holdingChange": 0.0,
-      "holdingValue": 1355.7,
-      "marketCap": 1192.7,
-      "ratio": 113.67,
-      "ratioChange": 0.0,
+      "holdingPrice": 4120.0,
+      "holdingChange": -1.67,
+      "holdingValue": 1319.9,
+      "marketCap": 1172.8,
+      "ratio": 112.54,
+      "ratioChange": -1.13,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "큐리언트",
-          "price": 28800.0,
-          "change": 0.0,
-          "value": 1173.8,
-          "ratio": 98.42
+          "price": 28150.0,
+          "change": -2.26,
+          "value": 1147.3,
+          "ratio": 97.83
         },
         {
           "name": "HLB이노베이션",
-          "price": 15490.0,
-          "change": 0.0,
-          "value": 168.1,
-          "ratio": 14.09
+          "price": 14620.0,
+          "change": -5.62,
+          "value": 158.6,
+          "ratio": 13.53
         },
         {
           "name": "지놈앤컴퍼니",
-          "price": 5500.0,
-          "change": 0.0,
+          "price": 5520.0,
+          "change": 0.36,
           "value": 13.9,
-          "ratio": 1.16
+          "ratio": 1.19
         }
       ]
     },
     {
       "id": "samsung_fire",
-      "holdingPrice": 604000.0,
-      "holdingChange": 0.0,
-      "holdingValue": 307325.7,
-      "marketCap": 240574.4,
-      "ratio": 127.75,
-      "ratioChange": 0.0,
+      "holdingPrice": 627000.0,
+      "holdingChange": 3.81,
+      "holdingValue": 307766.0,
+      "marketCap": 249735.3,
+      "ratio": 123.24,
+      "ratioChange": -4.51,
       "quoteSource": "kis_proxy",
-      "subsidiaryPrice": 349000.0,
-      "subsidiaryChange": 0.0
+      "subsidiaryPrice": 349500.0,
+      "subsidiaryChange": 0.14
     },
     {
       "id": "linked",
-      "holdingPrice": 1442.0,
-      "holdingChange": 0.0,
-      "holdingValue": 299.9,
-      "marketCap": 931.6,
-      "ratio": 32.2,
-      "ratioChange": 0.0,
+      "holdingPrice": 1326.0,
+      "holdingChange": -8.04,
+      "holdingValue": 291.0,
+      "marketCap": 856.7,
+      "ratio": 33.97,
+      "ratioChange": 1.78,
       "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "넥써쓰",
-          "price": 2170.0,
-          "change": 0.0,
-          "value": 293.5,
-          "ratio": 31.51
+          "price": 2105.0,
+          "change": -3.0,
+          "value": 284.7,
+          "ratio": 33.24
         },
         {
           "name": "상상인증권",
-          "price": 995.0,
-          "change": 0.0,
-          "value": 3.5,
-          "ratio": 0.37
+          "price": 969.0,
+          "change": -2.61,
+          "value": 3.4,
+          "ratio": 0.4
         },
         {
           "name": "상상인",
-          "price": 1940.0,
-          "change": 0.0,
+          "price": 1939.0,
+          "change": -0.05,
           "value": 2.9,
-          "ratio": 0.31
+          "ratio": 0.34
         }
       ]
     },
     {
       "id": "inbiogen",
-      "holdingPrice": 6680.0,
-      "holdingChange": 0.0,
+      "holdingPrice": 7410.0,
+      "holdingChange": 10.93,
       "holdingValue": 877.7,
-      "marketCap": 667.2,
-      "ratio": 131.55,
-      "ratioChange": 0.0,
+      "marketCap": 740.2,
+      "ratio": 118.59,
+      "ratioChange": -12.96,
       "quoteSource": "kis_proxy",
       "subsidiaryPrice": 3320.0,
       "subsidiaryChange": 0.0
     },
     {
       "id": "_average",
-      "ratio": 216.48,
-      "ratioChange": -0.04,
+      "ratio": 216.23,
+      "ratioChange": -0.29,
       "quoteSource": "derived"
     }
   ]
