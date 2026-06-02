@@ -1,18 +1,20 @@
 {
-  "lastUpdated": "2026-06-03 01:57:07",
-  "generatedAt": "2026-06-03T01:57:07+09:00",
-  "snapshotTimestamp": 1780419427344,
+  "lastUpdated": "2026-06-03 05:06:26",
+  "generatedAt": "2026-06-03T05:06:26+09:00",
+  "snapshotTimestamp": 1780430786645,
   "session": {
     "name": "us_night",
     "date": "2026-06-02",
     "label": "US night session"
   },
-  "isPartial": false,
-  "preservedPairIds": [],
+  "isPartial": true,
+  "preservedPairIds": [
+    "chokwang_brk"
+  ],
   "missingPairIds": [],
   "summary": {
     "pairCount": 49,
-    "preservedCount": 0,
+    "preservedCount": 1,
     "missingCount": 0,
     "averageRatio": 215.02
   },
@@ -121,7 +123,7 @@
       "marketCap": 2202.8,
       "ratio": 208.69,
       "ratioChange": 0.33,
-      "quoteSource": "mixed",
+      "quoteSource": "cached_same_session",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
