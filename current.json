@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-03 19:10:10",
-  "generatedAt": "2026-06-03T19:10:10+09:00",
-  "snapshotTimestamp": 1780481410169,
+  "lastUpdated": "2026-06-04 00:02:09",
+  "generatedAt": "2026-06-04T00:02:09+09:00",
+  "snapshotTimestamp": 1780498929706,
   "session": {
-    "name": "offhours",
+    "name": "us_night",
     "date": "2026-06-03",
-    "label": "Off hours"
+    "label": "US night session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 215.05
+    "averageRatio": 215.04
   },
   "market": {
     "id": "KOSPI",
@@ -45,7 +45,7 @@
       "marketCap": 8990.8,
       "ratio": 773.78,
       "ratioChange": -4.71,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1322000.0,
       "subsidiaryChange": -3.85
     },
@@ -57,7 +57,7 @@
       "marketCap": 5312.0,
       "ratio": 149.57,
       "ratioChange": -5.21,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 74600.0,
       "subsidiaryChange": -3.74
     },
@@ -69,7 +69,7 @@
       "marketCap": 6078.0,
       "ratio": 182.46,
       "ratioChange": -12.99,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 50100.0,
       "subsidiaryChange": -6.7
     },
@@ -81,7 +81,7 @@
       "marketCap": 31691.1,
       "ratio": 351.92,
       "ratioChange": -10.21,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 62000.0,
       "holdingChange": 1.64,
-      "holdingValue": 4631.7,
+      "holdingValue": 4618.7,
       "marketCap": 2202.8,
-      "ratio": 210.26,
-      "ratioChange": 1.29,
-      "quoteSource": "yfinance",
+      "ratio": 209.67,
+      "ratioChange": -1.69,
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1080631038.0,
-          "change": 1.4,
-          "value": 3090.6,
-          "ratio": 140.3
+          "price": 1083189807.0,
+          "change": 1.35,
+          "value": 3097.9,
+          "ratio": 140.63
         },
         {
           "name": "애플",
-          "price": 481632.0,
-          "change": 4.04,
-          "value": 1541.1,
-          "ratio": 69.96
+          "price": 475281.0,
+          "change": -0.22,
+          "value": 1520.8,
+          "ratio": 69.04
         }
       ]
     },
@@ -147,7 +147,7 @@
       "marketCap": 1544.7,
       "ratio": 109.41,
       "ratioChange": 4.97,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 2130.0,
       "subsidiaryChange": 0.0
     },
@@ -159,7 +159,7 @@
       "marketCap": 2612.5,
       "ratio": 495.34,
       "ratioChange": 28.89,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 104400.0,
       "subsidiaryChange": 4.19
     },
@@ -393,7 +393,7 @@
       "marketCap": 89123.9,
       "ratio": 246.87,
       "ratioChange": 6.82,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -1264,8 +1264,8 @@
     },
     {
       "id": "_average",
-      "ratio": 215.05,
-      "ratioChange": -1.42,
+      "ratio": 215.04,
+      "ratioChange": -1.49,
       "quoteSource": "derived"
     }
   ]
