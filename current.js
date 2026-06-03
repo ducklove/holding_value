@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-03 09:10:09",
-  "generatedAt": "2026-06-03T09:10:09+09:00",
-  "snapshotTimestamp": 1780445409375,
+  "lastUpdated": "2026-06-03 14:13:44",
+  "generatedAt": "2026-06-03T14:13:44+09:00",
+  "snapshotTimestamp": 1780463624753,
   "session": {
     "name": "kr_day",
     "date": "2026-06-03",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62000.0,
       "holdingChange": 1.64,
-      "holdingValue": 4601.4,
+      "holdingValue": 4603.7,
       "marketCap": 2202.8,
-      "ratio": 208.89,
-      "ratioChange": -0.09,
+      "ratio": 208.99,
+      "ratioChange": 0.02,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1073558938.0,
-          "change": 0.74,
-          "value": 3070.4,
-          "ratio": 139.38
+          "price": 1074089346.0,
+          "change": 0.79,
+          "value": 3071.9,
+          "ratio": 139.45
         },
         {
           "name": "애플",
-          "price": 478480.0,
-          "change": 3.36,
-          "value": 1531.0,
-          "ratio": 69.5
+          "price": 478716.0,
+          "change": 3.41,
+          "value": 1531.8,
+          "ratio": 69.54
         }
       ]
     },
@@ -171,7 +171,7 @@ const CURRENT_DATA = {
       "marketCap": 787185.2,
       "ratio": 200.1,
       "ratioChange": -6.46,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
