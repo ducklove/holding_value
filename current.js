@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-03 14:13:44",
-  "generatedAt": "2026-06-03T14:13:44+09:00",
-  "snapshotTimestamp": 1780463624753,
+  "lastUpdated": "2026-06-03 19:10:10",
+  "generatedAt": "2026-06-03T19:10:10+09:00",
+  "snapshotTimestamp": 1780481410169,
   "session": {
-    "name": "kr_day",
+    "name": "offhours",
     "date": "2026-06-03",
-    "label": "KR day session"
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 215.03
+    "averageRatio": 215.05
   },
   "market": {
     "id": "KOSPI",
@@ -45,7 +45,7 @@ const CURRENT_DATA = {
       "marketCap": 8990.8,
       "ratio": 773.78,
       "ratioChange": -4.71,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1322000.0,
       "subsidiaryChange": -3.85
     },
@@ -57,7 +57,7 @@ const CURRENT_DATA = {
       "marketCap": 5312.0,
       "ratio": 149.57,
       "ratioChange": -5.21,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 74600.0,
       "subsidiaryChange": -3.74
     },
@@ -69,7 +69,7 @@ const CURRENT_DATA = {
       "marketCap": 6078.0,
       "ratio": 182.46,
       "ratioChange": -12.99,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 50100.0,
       "subsidiaryChange": -6.7
     },
@@ -81,7 +81,7 @@ const CURRENT_DATA = {
       "marketCap": 31691.1,
       "ratio": 351.92,
       "ratioChange": -10.21,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62000.0,
       "holdingChange": 1.64,
-      "holdingValue": 4603.7,
+      "holdingValue": 4631.7,
       "marketCap": 2202.8,
-      "ratio": 208.99,
-      "ratioChange": 0.02,
-      "quoteSource": "mixed",
+      "ratio": 210.26,
+      "ratioChange": 1.29,
+      "quoteSource": "yfinance",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1074089346.0,
-          "change": 0.79,
-          "value": 3071.9,
-          "ratio": 139.45
+          "price": 1080631038.0,
+          "change": 1.4,
+          "value": 3090.6,
+          "ratio": 140.3
         },
         {
           "name": "애플",
-          "price": 478716.0,
-          "change": 3.41,
-          "value": 1531.8,
-          "ratio": 69.54
+          "price": 481632.0,
+          "change": 4.04,
+          "value": 1541.1,
+          "ratio": 69.96
         }
       ]
     },
@@ -147,7 +147,7 @@ const CURRENT_DATA = {
       "marketCap": 1544.7,
       "ratio": 109.41,
       "ratioChange": 4.97,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 2130.0,
       "subsidiaryChange": 0.0
     },
@@ -159,7 +159,7 @@ const CURRENT_DATA = {
       "marketCap": 2612.5,
       "ratio": 495.34,
       "ratioChange": 28.89,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 104400.0,
       "subsidiaryChange": 4.19
     },
@@ -393,7 +393,7 @@ const CURRENT_DATA = {
       "marketCap": 89123.9,
       "ratio": 246.87,
       "ratioChange": 6.82,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -1264,8 +1264,8 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 215.03,
-      "ratioChange": -1.45,
+      "ratio": 215.05,
+      "ratioChange": -1.42,
       "quoteSource": "derived"
     }
   ]
