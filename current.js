@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-05 01:38:26",
-  "generatedAt": "2026-06-05T01:38:26+09:00",
-  "snapshotTimestamp": 1780591106522,
+  "lastUpdated": "2026-06-05 03:39:11",
+  "generatedAt": "2026-06-05T03:39:11+09:00",
+  "snapshotTimestamp": 1780598351900,
   "session": {
     "name": "us_night",
     "date": "2026-06-04",
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 216.91
+    "averageRatio": 216.67
   },
   "market": {
     "id": "KOSPI",
@@ -39,27 +39,27 @@ const CURRENT_DATA = {
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 50300.0,
-      "holdingChange": -3.27,
-      "holdingValue": 69569.6,
-      "marketCap": 8990.8,
-      "ratio": 773.78,
-      "ratioChange": -4.71,
-      "quoteSource": "yfinance",
-      "subsidiaryPrice": 1322000.0,
-      "subsidiaryChange": -3.85
+      "holdingPrice": 50900.0,
+      "holdingChange": 1.19,
+      "holdingValue": 69253.8,
+      "marketCap": 9098.1,
+      "ratio": 761.19,
+      "ratioChange": -12.59,
+      "quoteSource": "kis_proxy",
+      "subsidiaryPrice": 1316000.0,
+      "subsidiaryChange": -0.45
     },
     {
       "id": "poongsan_holdings",
-      "holdingPrice": 38700.0,
-      "holdingChange": -0.39,
-      "holdingValue": 7944.9,
-      "marketCap": 5312.0,
-      "ratio": 149.57,
-      "ratioChange": -5.21,
-      "quoteSource": "yfinance",
-      "subsidiaryPrice": 74600.0,
-      "subsidiaryChange": -3.74
+      "holdingPrice": 38250.0,
+      "holdingChange": -1.16,
+      "holdingValue": 7881.0,
+      "marketCap": 5250.2,
+      "ratio": 150.11,
+      "ratioChange": 0.54,
+      "quoteSource": "kis_proxy",
+      "subsidiaryPrice": 74000.0,
+      "subsidiaryChange": -0.8
     },
     {
       "id": "seah_holdings",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62000.0,
       "holdingChange": 0.0,
-      "holdingValue": 4661.6,
+      "holdingValue": 4659.1,
       "marketCap": 2202.8,
-      "ratio": 211.62,
-      "ratioChange": 2.74,
+      "ratio": 211.51,
+      "ratioChange": 2.63,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1096457459.0,
-          "change": 1.3,
-          "value": 3135.9,
-          "ratio": 142.36
+          "price": 1094461785.0,
+          "change": 1.12,
+          "value": 3130.2,
+          "ratio": 142.1
         },
         {
           "name": "애플",
-          "price": 476816.0,
-          "change": 1.33,
-          "value": 1525.7,
-          "ratio": 69.26
+          "price": 477823.0,
+          "change": 1.55,
+          "value": 1528.9,
+          "ratio": 69.41
         }
       ]
     },
@@ -389,11 +389,11 @@ const CURRENT_DATA = {
       "id": "hanwha",
       "holdingPrice": 130200.0,
       "holdingChange": 9.5,
-      "holdingValue": 221157.5,
+      "holdingValue": 221143.2,
       "marketCap": 97594.1,
-      "ratio": 226.61,
-      "ratioChange": -20.4,
-      "quoteSource": "mixed",
+      "ratio": 226.59,
+      "ratioChange": -20.27,
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -418,10 +418,10 @@ const CURRENT_DATA = {
         },
         {
           "name": "고려아연",
-          "price": 1322000.0,
-          "change": -3.85,
-          "value": 3151.1,
-          "ratio": 3.23
+          "price": 1316000.0,
+          "change": -0.45,
+          "value": 3136.8,
+          "ratio": 3.21
         },
         {
           "name": "한화갤러리아",
@@ -1264,8 +1264,8 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 216.91,
-      "ratioChange": 1.68,
+      "ratio": 216.67,
+      "ratioChange": 1.64,
       "quoteSource": "derived"
     }
   ]
