@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-04 19:37:30",
-  "generatedAt": "2026-06-04T19:37:30+09:00",
-  "snapshotTimestamp": 1780569450484,
+  "lastUpdated": "2026-06-04 22:45:30",
+  "generatedAt": "2026-06-04T22:45:30+09:00",
+  "snapshotTimestamp": 1780580730843,
   "session": {
-    "name": "offhours",
+    "name": "us_night",
     "date": "2026-06-04",
-    "label": "Off hours"
+    "label": "US night session"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 216.66
+    "averageRatio": 216.68
   },
   "market": {
     "id": "KOSPI",
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 62000.0,
       "holdingChange": 0.0,
-      "holdingValue": 4653.3,
+      "holdingValue": 4670.8,
       "marketCap": 2202.8,
-      "ratio": 211.24,
-      "ratioChange": 2.55,
+      "ratio": 212.04,
+      "ratioChange": 3.16,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1094617961.0,
-          "change": 2.06,
-          "value": 3130.6,
-          "ratio": 142.12
+          "price": 1098498156.0,
+          "change": 1.49,
+          "value": 3141.7,
+          "ratio": 142.62
         },
         {
           "name": "애플",
-          "price": 475858.0,
-          "change": -0.45,
-          "value": 1522.7,
-          "ratio": 69.12
+          "price": 477864.0,
+          "change": 1.56,
+          "value": 1529.1,
+          "ratio": 69.41
         }
       ]
     },
@@ -1264,8 +1264,8 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 216.66,
-      "ratioChange": 1.64,
+      "ratio": 216.68,
+      "ratioChange": 1.65,
       "quoteSource": "derived"
     }
   ]
