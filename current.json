@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-06 02:33:24",
-  "generatedAt": "2026-06-06T02:33:24+09:00",
-  "snapshotTimestamp": 1780680804326,
+  "lastUpdated": "2026-06-06 04:22:39",
+  "generatedAt": "2026-06-06T04:22:39+09:00",
+  "snapshotTimestamp": 1780687359056,
   "session": {
     "name": "us_night",
     "date": "2026-06-05",
@@ -14,7 +14,7 @@
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 214.91
+    "averageRatio": 215.45
   },
   "market": {
     "id": "KOSPI",
@@ -39,13 +39,13 @@
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 50900.0,
-      "holdingChange": 1.19,
+      "holdingPrice": 49050.0,
+      "holdingChange": -3.63,
       "holdingValue": 66570.0,
-      "marketCap": 9098.1,
-      "ratio": 731.69,
-      "ratioChange": -38.58,
-      "quoteSource": "mixed",
+      "marketCap": 8767.4,
+      "ratio": 759.29,
+      "ratioChange": -1.9,
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1265000.0,
       "subsidiaryChange": -3.88
     },
@@ -117,25 +117,25 @@
       "id": "chokwang_brk",
       "holdingPrice": 63800.0,
       "holdingChange": 2.9,
-      "holdingValue": 4827.6,
+      "holdingValue": 4805.4,
       "marketCap": 2266.8,
-      "ratio": 212.97,
-      "ratioChange": 1.08,
+      "ratio": 211.99,
+      "ratioChange": 0.1,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1144725714.0,
-          "change": 4.14,
-          "value": 3273.9,
-          "ratio": 144.43
+          "price": 1142359285.0,
+          "change": 3.92,
+          "value": 3267.1,
+          "ratio": 144.13
         },
         {
           "name": "애플",
-          "price": 485551.0,
-          "change": 1.96,
-          "value": 1553.7,
-          "ratio": 68.54
+          "price": 480736.0,
+          "change": 0.95,
+          "value": 1538.3,
+          "ratio": 67.86
         }
       ]
     },
@@ -1264,8 +1264,8 @@
     },
     {
       "id": "_average",
-      "ratio": 214.91,
-      "ratioChange": -1.95,
+      "ratio": 215.45,
+      "ratioChange": -1.22,
       "quoteSource": "derived"
     }
   ]
