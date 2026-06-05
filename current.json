@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-06 07:25:28",
-  "generatedAt": "2026-06-06T07:25:28+09:00",
-  "snapshotTimestamp": 1780698328817,
+  "lastUpdated": "2026-06-06 08:45:17",
+  "generatedAt": "2026-06-06T08:45:17+09:00",
+  "snapshotTimestamp": 1780703117737,
   "session": {
     "name": "offhours",
     "date": "2026-06-06",
@@ -45,7 +45,7 @@
       "marketCap": 8767.4,
       "ratio": 759.29,
       "ratioChange": -1.9,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 1265000.0,
       "subsidiaryChange": -3.88
     },
@@ -57,7 +57,7 @@
       "marketCap": 5099.2,
       "ratio": 151.0,
       "ratioChange": 0.89,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 72300.0,
       "subsidiaryChange": -2.3
     },
@@ -69,7 +69,7 @@
       "marketCap": 5591.0,
       "ratio": 193.8,
       "ratioChange": 10.54,
-      "quoteSource": "yfinance",
+      "quoteSource": "kis_proxy",
       "subsidiaryPrice": 48950.0,
       "subsidiaryChange": -3.83
     },
@@ -81,7 +81,7 @@
       "marketCap": 29966.8,
       "ratio": 355.12,
       "ratioChange": 12.98,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -120,20 +120,20 @@
       "holdingValue": 4803.4,
       "marketCap": 2266.8,
       "ratio": 211.9,
-      "ratioChange": 0.01,
+      "ratioChange": -0.4,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
           "price": 1143487057.0,
-          "change": 4.02,
+          "change": 3.82,
           "value": 3270.4,
           "ratio": 144.27
         },
         {
           "name": "애플",
           "price": 479094.0,
-          "change": 0.6,
+          "change": 0.41,
           "value": 1533.0,
           "ratio": 67.63
         }
@@ -393,7 +393,7 @@
       "marketCap": 93921.2,
       "ratio": 229.36,
       "ratioChange": 2.77,
-      "quoteSource": "mixed",
+      "quoteSource": "kis_proxy",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -1265,7 +1265,7 @@
     {
       "id": "_average",
       "ratio": 215.45,
-      "ratioChange": -1.22,
+      "ratioChange": -1.23,
       "quoteSource": "derived"
     }
   ]
