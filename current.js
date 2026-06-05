@@ -1,11 +1,11 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-06 06:06:54",
-  "generatedAt": "2026-06-06T06:06:54+09:00",
-  "snapshotTimestamp": 1780693614071,
+  "lastUpdated": "2026-06-06 07:25:28",
+  "generatedAt": "2026-06-06T07:25:28+09:00",
+  "snapshotTimestamp": 1780698328817,
   "session": {
-    "name": "us_night",
-    "date": "2026-06-05",
-    "label": "US night session"
+    "name": "offhours",
+    "date": "2026-06-06",
+    "label": "Off hours"
   },
   "isPartial": false,
   "preservedPairIds": [],
@@ -45,7 +45,7 @@ const CURRENT_DATA = {
       "marketCap": 8767.4,
       "ratio": 759.29,
       "ratioChange": -1.9,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 1265000.0,
       "subsidiaryChange": -3.88
     },
@@ -57,7 +57,7 @@ const CURRENT_DATA = {
       "marketCap": 5099.2,
       "ratio": 151.0,
       "ratioChange": 0.89,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 72300.0,
       "subsidiaryChange": -2.3
     },
@@ -69,7 +69,7 @@ const CURRENT_DATA = {
       "marketCap": 5591.0,
       "ratio": 193.8,
       "ratioChange": 10.54,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "yfinance",
       "subsidiaryPrice": 48950.0,
       "subsidiaryChange": -3.83
     },
@@ -81,7 +81,7 @@ const CURRENT_DATA = {
       "marketCap": 29966.8,
       "ratio": 355.12,
       "ratioChange": 12.98,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -393,7 +393,7 @@ const CURRENT_DATA = {
       "marketCap": 93921.2,
       "ratio": 229.36,
       "ratioChange": 2.77,
-      "quoteSource": "kis_proxy",
+      "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
