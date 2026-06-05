@@ -1,7 +1,7 @@
 const CURRENT_DATA = {
-  "lastUpdated": "2026-06-06 00:43:47",
-  "generatedAt": "2026-06-06T00:43:47+09:00",
-  "snapshotTimestamp": 1780674227982,
+  "lastUpdated": "2026-06-06 02:33:24",
+  "generatedAt": "2026-06-06T02:33:24+09:00",
+  "snapshotTimestamp": 1780680804326,
   "session": {
     "name": "us_night",
     "date": "2026-06-05",
@@ -14,7 +14,7 @@ const CURRENT_DATA = {
     "pairCount": 49,
     "preservedCount": 0,
     "missingCount": 0,
-    "averageRatio": 215.47
+    "averageRatio": 214.91
   },
   "market": {
     "id": "KOSPI",
@@ -39,13 +39,13 @@ const CURRENT_DATA = {
   "pairs": [
     {
       "id": "youngpoong_koreazinc",
-      "holdingPrice": 49050.0,
-      "holdingChange": -3.63,
+      "holdingPrice": 50900.0,
+      "holdingChange": 1.19,
       "holdingValue": 66570.0,
-      "marketCap": 8767.4,
-      "ratio": 759.29,
-      "ratioChange": -1.9,
-      "quoteSource": "kis_proxy",
+      "marketCap": 9098.1,
+      "ratio": 731.69,
+      "ratioChange": -38.58,
+      "quoteSource": "mixed",
       "subsidiaryPrice": 1265000.0,
       "subsidiaryChange": -3.88
     },
@@ -117,25 +117,25 @@ const CURRENT_DATA = {
       "id": "chokwang_brk",
       "holdingPrice": 63800.0,
       "holdingChange": 2.9,
-      "holdingValue": 4822.0,
+      "holdingValue": 4827.6,
       "marketCap": 2266.8,
-      "ratio": 212.73,
-      "ratioChange": 0.83,
+      "ratio": 212.97,
+      "ratioChange": 1.08,
       "quoteSource": "mixed",
       "subsidiaries": [
         {
           "name": "버크셔해서웨이",
-          "price": 1140479505.0,
-          "change": 3.75,
-          "value": 3261.8,
-          "ratio": 143.9
+          "price": 1144725714.0,
+          "change": 4.14,
+          "value": 3273.9,
+          "ratio": 144.43
         },
         {
           "name": "애플",
-          "price": 487608.0,
-          "change": 2.39,
-          "value": 1560.3,
-          "ratio": 68.83
+          "price": 485551.0,
+          "change": 1.96,
+          "value": 1553.7,
+          "ratio": 68.54
         }
       ]
     },
@@ -1264,8 +1264,8 @@ const CURRENT_DATA = {
     },
     {
       "id": "_average",
-      "ratio": 215.47,
-      "ratioChange": -1.21,
+      "ratio": 214.91,
+      "ratioChange": -1.95,
       "quoteSource": "derived"
     }
   ]
