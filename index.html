@@ -4,14 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>보유지분가치/시가총액 비율 대시보드</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <script>
-try {
-  const theme = localStorage.getItem('theme') || 'light';
-  document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
-} catch (e) {
-  document.documentElement.dataset.theme = 'light';
-}
+// iframe embed + theme: ?theme=dark|light overrides stored theme; ?embed hides chrome.
+(function() {
+  try {
+    var params = new URLSearchParams(location.search);
+    var urlTheme = params.get('theme');
+    var stored = localStorage.getItem('theme');
+    var theme = (urlTheme === 'dark' || urlTheme === 'light') ? urlTheme : (stored || 'light');
+    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+    var embed = params.get('embed');
+    if (embed !== null && embed !== '0' && embed !== 'false') {
+      document.documentElement.dataset.embed = '1';
+    }
+  } catch (e) {
+    document.documentElement.dataset.theme = 'light';
+  }
+})();
 </script>
+<style>
+/* iframe embed mode: hide standalone chrome so the dashboard fits a host frame */
+html[data-embed] .header,
+html[data-embed] footer { display: none !important; }
+html[data-embed] .container { padding-top: 14px !important; }
+</style>
 <style>
 :root {
   color-scheme: dark;
@@ -2843,6 +2860,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   }
 
   function loadTheme() {
+    const urlTheme = new URLSearchParams(location.search).get('theme');
+    if (urlTheme === 'dark' || urlTheme === 'light') return urlTheme;
     return localStorage.getItem('theme') || 'light';
   }
 
