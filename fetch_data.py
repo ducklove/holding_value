@@ -28,6 +28,8 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
 
 
 OUTPUT_PATH = Path(__file__).parent / "data.js"
+DATA_DIR = Path(__file__).parent / "data"
+HISTORY_DIR = DATA_DIR / "history"
 SEOUL_TZ = ZoneInfo("Asia/Seoul")
 DAILY_RETENTION_DAYS = 730
 SMA_WINDOW = 250
@@ -37,6 +39,20 @@ MIN_AVERAGE_COUNT = 20
 # 이 값을 넘는 비율은 validFrom 미설정/데이터 오류 후보로 경고
 MAX_SANE_RATIO = 1500.0
 STALE_PAIR_WARN_DAYS = 14
+# 증분 수집 시 가장 뒤처진 종목 기준 하한 (무한 후행 방지)
+INCREMENTAL_MAX_LOOKBACK_DAYS = 90
+# 컬럼형 히스토리에 직렬화하는 행 필드 (date·subsidiaries 제외)
+HISTORY_COLUMNS = [
+    "holdingPrice",
+    "subsidiaryPrice",
+    "holdingValue",
+    "marketCap",
+    "ratio",
+    "sma250",
+    "ema01",
+    "mean",
+    "count",
+]
 
 
 def parse_existing_data():
@@ -324,6 +340,87 @@ def write_atomic(path, content):
     os.replace(tmp_path, path)
 
 
+def incremental_start(last_dates, max_lookback_days=INCREMENTAL_MAX_LOOKBACK_DAYS):
+    """증분 수집 시작일. 가장 뒤처진 종목의 마지막 날짜(-5일 중첩)를 기준으로,
+    영구 정지 종목이 창을 무한히 끌어내리지 않도록 최신 종목 기준 하한을 둔다.
+
+    (기존에는 가장 앞선 종목 기준이어서 일시적으로 수집이 끊긴 종목의 공백이
+    영구화되는 잠재 결함이 있었다 — 리뷰 이슈 M5)
+    """
+    newest = datetime.strptime(max(last_dates), "%Y-%m-%d")
+    oldest = datetime.strptime(min(last_dates), "%Y-%m-%d")
+    start = oldest - timedelta(days=5)
+    floor = newest - timedelta(days=max_lookback_days)
+    return max(start, floor)
+
+
+def history_to_columnar(pair_id, history):
+    """행 배열 히스토리를 컬럼형으로 변환한다 (data/history/{id}.json 포맷).
+
+    값이 한 번도 등장하지 않는 컬럼은 생략한다. 다중 자회사는 subs[name] 아래
+    price/value/ratio 배열로 펼친다 (행에 없는 날짜는 null).
+    """
+    cols = {"id": pair_id, "dates": [entry["date"] for entry in history]}
+    for key in HISTORY_COLUMNS:
+        if any(key in entry for entry in history):
+            cols[key] = [entry.get(key) for entry in history]
+
+    sub_names = []
+    for entry in history:
+        for sub in entry.get("subsidiaries") or []:
+            if sub["name"] not in sub_names:
+                sub_names.append(sub["name"])
+    if sub_names:
+        subs = {}
+        for name in sub_names:
+            price, value, ratio = [], [], []
+            for entry in history:
+                row = next(
+                    (s for s in entry.get("subsidiaries") or [] if s["name"] == name),
+                    None,
+                )
+                price.append(row.get("price") if row else None)
+                value.append(row.get("value") if row else None)
+                ratio.append(row.get("ratio") if row else None)
+            subs[name] = {"price": price, "value": value, "ratio": ratio}
+        cols["subs"] = subs
+    return cols
+
+
+def write_split_outputs(stock_data):
+    """분할 산출물 생성: data/summary.json(메타+현재가) + data/history/{id}.json.
+
+    프런트는 summary로 첫 화면을 그리고 선택 종목 히스토리만 지연 로드한다.
+    data.js는 과도기 폴백으로 병행 생성된다.
+    """
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    summary_pairs = []
+    valid_stems = set()
+    for pair_data in stock_data["pairs"]:
+        pair_id = pair_data.get("id") or ""
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", pair_id):
+            print(f"WARNING: 분할 산출물에서 제외 — 허용되지 않는 pair id: {pair_id!r}")
+            continue
+        summary_pairs.append({k: v for k, v in pair_data.items() if k != "history"})
+        valid_stems.add(pair_id)
+        columnar = history_to_columnar(pair_id, pair_data.get("history") or [])
+        write_atomic(
+            HISTORY_DIR / f"{pair_id}.json",
+            json.dumps(columnar, ensure_ascii=False, separators=(",", ":")) + "\n",
+        )
+
+    summary = {"lastUpdated": stock_data["lastUpdated"], "pairs": summary_pairs}
+    write_atomic(
+        DATA_DIR / "summary.json",
+        json.dumps(summary, ensure_ascii=False, separators=(",", ":")) + "\n",
+    )
+
+    # 삭제된 종목의 히스토리 파일 정리
+    for stale in HISTORY_DIR.glob("*.json"):
+        if stale.stem not in valid_stems:
+            stale.unlink()
+
+
 def normalize_close_frame(data, tickers):
     if data.empty or "Close" not in data:
         return pd.DataFrame()
@@ -525,8 +622,7 @@ def main():
     incr_cutoff = None
     if existing_history:
         last_dates = [h[-1]['date'] for h in existing_history.values() if h]
-        latest = max(last_dates)
-        start_date = datetime.strptime(latest, '%Y-%m-%d') - timedelta(days=5)
+        start_date = incremental_start(last_dates)
         incr_cutoff = pd.Timestamp(start_date.date())
         print(f"증분 모드: {start_date.strftime('%Y-%m-%d')}부터 다운로드")
         download_kwargs["start"] = start_date.strftime("%Y-%m-%d")
@@ -811,8 +907,10 @@ def main():
     )
 
     write_atomic(OUTPUT_PATH, js_content)
+    write_split_outputs(stock_data)
 
     print(f"\nGenerated {OUTPUT_PATH} ({len(pairs_result)} pairs, {len(js_content)} bytes)")
+    print(f"Generated {DATA_DIR}/summary.json + {HISTORY_DIR}/*.json ({len(pairs_result)} files)")
 
 
 if __name__ == "__main__":
