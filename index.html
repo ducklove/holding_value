@@ -915,6 +915,19 @@ tr:hover { background: var(--surface2); }
 .tooltip .tt-date { color: var(--text-dim); margin-bottom: 6px; }
 .tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; }
 
+/* Contribution breakdown */
+.contrib-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:12px; }
+.contrib-title { font-size:15px; font-weight:600; }
+.contrib-range { color:var(--text-dim); font-size:12px; }
+.contrib-row { display:grid; grid-template-columns: minmax(0,1fr) 9ch 12ch minmax(60px,160px); gap:10px; align-items:center; padding:6px 0; border-top:1px solid var(--soft-border); font-size:13px; font-variant-numeric:tabular-nums; }
+.contrib-row:first-of-type { border-top:none; }
+.contrib-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.contrib-delta { text-align:right; font-weight:700; }
+.contrib-span { color:var(--text-dim); text-align:right; white-space:nowrap; }
+.contrib-bar-track { height:8px; border-radius:4px; background:var(--surface2); overflow:hidden; }
+.contrib-bar { height:100%; border-radius:4px; }
+.contrib-total { font-weight:700; }
+
 @media (max-width: 768px) {
   .header, .container { padding-left: 16px; padding-right: 16px; }
   .header-row { flex-direction: column; align-items: stretch; }
@@ -982,6 +995,7 @@ tr:hover { background: var(--surface2); }
         <button data-days="365">1Y</button>
         <button data-days="0" class="active">전체</button>
       </div>
+      <div class="period-btns"><button type="button" id="csvExportBtn" title="표시 구간 CSV 다운로드">CSV</button></div>
     </div>
     <div class="chart-container ratio-chart-container">
       <canvas id="chart"></canvas>
@@ -1033,6 +1047,8 @@ tr:hover { background: var(--surface2); }
   </div>
 
   <div class="stats-row" id="statsRow"></div>
+
+  <div class="chart-section" id="contribSection" style="display:none"></div>
 
   <div class="table-section">
     <h2>종목 비교</h2>
@@ -1177,6 +1193,7 @@ function startDashboard(STOCK_DATA) {
   bindPricePeriodBtns();
   bindDataZoomControls();
   bindRefreshButton();
+  bindCsvExport();
   bindThemeToggle();
   resolveSelectionFromQuery();
 
@@ -1420,6 +1437,59 @@ function startDashboard(STOCK_DATA) {
     button.textContent = refreshInFlight
       ? forceRefreshInFlight ? '전체 현재가 갱신 중...' : '새로고침 중...'
       : '새로고침';
+  }
+
+  // 쉼표·따옴표·개행 포함 값은 "..."로 감싸고 내부 따옴표는 ""로 이스케이프
+  function escapeCsvValue(value) {
+    if (value === null || value === undefined) return '';
+    const text = String(value);
+    if (/[",\n]/.test(text)) {
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+    return text;
+  }
+
+  function bindCsvExport() {
+    var button = document.getElementById('csvExportBtn');
+    if (!button) return;
+    button.addEventListener('click', function() {
+      const pair = pairs[selectedIdx];
+      if (!pair) return;
+      const hist = getFilteredHistory(pair);
+      if (!hist.length) return;
+
+      const columns = ['date', 'holdingPrice', 'subsidiaryPrice', 'holdingValue', 'marketCap', 'ratio', 'sma250', 'ema01'];
+      if (pair.isAverage) {
+        columns.push('mean', 'count');
+      }
+      const lastEntry = hist[hist.length - 1];
+      const subNames = Array.isArray(lastEntry.subsidiaries)
+        ? lastEntry.subsidiaries.map(function(sub) { return sub.name; })
+        : [];
+
+      const header = columns.slice();
+      subNames.forEach(function(name) {
+        header.push(name + ' price', name + ' ratio');
+      });
+      const lines = [header.map(escapeCsvValue).join(',')];
+      hist.forEach(function(entry) {
+        const row = columns.map(function(key) { return escapeCsvValue(entry[key]); });
+        subNames.forEach(function(name) {
+          const sub = Array.isArray(entry.subsidiaries)
+            ? entry.subsidiaries.find(function(item) { return item.name === name; })
+            : null;
+          row.push(escapeCsvValue(sub ? sub.price : null), escapeCsvValue(sub ? sub.ratio : null));
+        });
+        lines.push(row.join(','));
+      });
+
+      const blob = new Blob(['\ufeff' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = pair.id + '_' + hist[0].date + '_' + lastEntry.date + '.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
   }
 
   function updateLastUpdatedText() {
@@ -2240,6 +2310,12 @@ function startDashboard(STOCK_DATA) {
         } else {
           subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange);
         }
+        // 백분위(1년/3년) 필드는 파이프라인 표본 부족 시 없을 수 있다 — 둘 다 없으면 행 생략
+        let pctileRow = '';
+        if (typeof c.pctile1y === 'number' || typeof c.pctile3y === 'number') {
+          const pct = (v) => typeof v === 'number' ? v + '%' : '-';
+          pctileRow = `<span class="amount-label">백분위 1y/3y</span><span class="amount-value">${pct(c.pctile1y)} / ${pct(c.pctile3y)}</span>`;
+        }
         prices = `<div class="prices">
           ${renderPriceLine(p.holdingName, c.holdingPrice, c.holdingChange)}
           ${subLines}
@@ -2247,6 +2323,7 @@ function startDashboard(STOCK_DATA) {
         <div class="amounts">
           <span class="amount-label">보유지분</span><span class="amount-value">${formatOk(c.holdingValue)}</span>
           <span class="amount-label">조정시총</span><span class="amount-value">${formatOk(c.marketCap)}</span>
+          ${pctileRow}
         </div>`;
       }
       return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}">
@@ -2308,6 +2385,8 @@ function startDashboard(STOCK_DATA) {
     const hist = getFilteredHistory(p);
     if (!hist.length) {
       document.getElementById('statsRow').innerHTML = '';
+      const contribSection = document.getElementById('contribSection');
+      if (contribSection) contribSection.style.display = 'none';
       return;
     }
     const ratios = hist.map(h => h.ratio);
@@ -2321,6 +2400,11 @@ function startDashboard(STOCK_DATA) {
     const rank = sorted.filter(s => s <= current).length;
     const percentile = (rank / sorted.length * 100).toFixed(0);
 
+    // Z-score (가시 구간 표준편차 기준)
+    const variance = ratios.reduce((s, r) => s + (r - avg) * (r - avg), 0) / ratios.length;
+    const sd = Math.sqrt(variance);
+    const zScore = sd > 0 ? (current - avg) / sd : null;
+
     const statsEl = document.getElementById('statsRow');
     statsEl.innerHTML = `
       <div class="stat-box"><div class="label">현재 비율</div><div class="value">${current.toFixed(2)}%</div></div>
@@ -2328,8 +2412,83 @@ function startDashboard(STOCK_DATA) {
       <div class="stat-box"><div class="label">최저</div><div class="value">${min.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">최고</div><div class="value">${max.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">백분위</div><div class="value">${percentile}%</div></div>
+      <div class="stat-box"><div class="label">Z-SCORE (구간)</div><div class="value">${zScore === null ? '-' : (zScore > 0 ? '+' : '') + zScore.toFixed(2)}</div></div>
       <div class="stat-box"><div class="label">데이터 수</div><div class="value">${hist.length}일</div></div>
     `;
+    renderContribution();
+  }
+
+  // --- 자회사 기여 분해 ---
+  function renderContribution() {
+    const section = document.getElementById('contribSection');
+    if (!section) return;
+    const p = pairs[selectedIdx];
+    const hist = getFilteredHistory(p);
+    const last = hist.length >= 2 ? hist[hist.length - 1] : null;
+    if (p.isAverage || !last || !Array.isArray(last.subsidiaries) || last.subsidiaries.length <= 1) {
+      section.style.display = 'none';
+      return;
+    }
+
+    const rows = [];
+    last.subsidiaries.forEach(function(lastSub) {
+      if (typeof lastSub.ratio !== 'number' || !Number.isFinite(lastSub.ratio)) return;
+      let firstSub = null;
+      for (const entry of hist) {
+        const subs = Array.isArray(entry.subsidiaries) ? entry.subsidiaries : [];
+        const match = subs.find(function(sub) {
+          return sub.name === lastSub.name && typeof sub.ratio === 'number' && Number.isFinite(sub.ratio);
+        });
+        if (match) {
+          firstSub = match;
+          break;
+        }
+      }
+      if (!firstSub) return;
+      rows.push({
+        name: lastSub.name,
+        first: firstSub.ratio,
+        last: lastSub.ratio,
+        delta: lastSub.ratio - firstSub.ratio,
+      });
+    });
+    if (!rows.length) {
+      section.style.display = 'none';
+      return;
+    }
+
+    rows.sort(function(a, b) { return Math.abs(b.delta) - Math.abs(a.delta); });
+    const maxAbs = rows.reduce(function(acc, row) { return Math.max(acc, Math.abs(row.delta)); }, 0) || 1;
+    const totalDelta = last.ratio - hist[0].ratio;
+    const formatDelta = (v) => (v > 0 ? '+' : '') + v.toFixed(1) + '%p';
+
+    const rowsHtml = rows.map(function(row) {
+      const barWidth = (Math.abs(row.delta) / maxAbs * 100).toFixed(1);
+      const barColor = row.delta >= 0 ? 'var(--up)' : 'var(--down)';
+      return `<div class="contrib-row">
+        <span class="contrib-name">${escapeHtml(row.name)}</span>
+        <span class="contrib-span">${row.first.toFixed(1)}% → ${row.last.toFixed(1)}%</span>
+        <span class="contrib-delta ${getDirectionClass(row.delta)}-color">${formatDelta(row.delta)}</span>
+        <div class="contrib-bar-track"><div class="contrib-bar" style="width:${barWidth}%;background:${barColor}"></div></div>
+      </div>`;
+    }).join('');
+
+    // 자회사 Δ는 총 비율과 같은 분모(지주 조정시총)를 쓰므로 Σd ≈ totalDelta (반올림 차이만) — 잔차 행 불필요
+    section.innerHTML = `
+      <div class="contrib-head">
+        <div class="contrib-title">자회사 기여 분해</div>
+        <div class="contrib-range">${hist[0].date} → ${last.date}</div>
+      </div>
+      <div>
+        ${rowsHtml}
+        <div class="contrib-row contrib-total">
+          <span class="contrib-name">합계 (지주가 변동 포함)</span>
+          <span class="contrib-span">${hist[0].ratio}% → ${last.ratio}%</span>
+          <span class="contrib-delta ${getDirectionClass(totalDelta)}-color">${formatDelta(totalDelta)}</span>
+          <span></span>
+        </div>
+      </div>`;
+    section.style.display = '';
   }
 
   // --- Chart ---
@@ -2406,6 +2565,41 @@ function startDashboard(STOCK_DATA) {
       ctx.lineTo(W - pad.right, y);
       ctx.stroke();
       ctx.fillText(v.toFixed(1) + '%', pad.left - 8, y + 4);
+    }
+
+    // ±σ 밴드 (단일 라인 차트 전용) — 평균선/SMA/EMA/데이터 라인보다 먼저 그려 밴드가 바닥에 깔리게 한다
+    if (!isStacked) {
+      const variance = ratios.reduce((s, r) => s + (r - avg) * (r - avg), 0) / ratios.length;
+      const sd = Math.sqrt(variance);
+      if (sd > 0) {
+        ctx.save();
+        const bandTop = Math.max(pad.top, pad.top + cH - ((avg + sd - chartMin) / rangeS * cH));
+        const bandBottom = Math.min(pad.top + cH, pad.top + cH - ((avg - sd - chartMin) / rangeS * cH));
+        if (bandBottom > bandTop) {
+          ctx.fillStyle = withAlpha(colors.accent, 0.08);
+          ctx.fillRect(pad.left, bandTop, cW, bandBottom - bandTop);
+        }
+        ctx.font = '11px -apple-system, sans-serif';
+        [
+          { value: avg + sd * 2, label: '+2σ' },
+          { value: avg - sd * 2, label: '−2σ' },
+        ].forEach(function(sigma) {
+          if (sigma.value < chartMin || sigma.value > chartMax) return;
+          const y = pad.top + cH - ((sigma.value - chartMin) / rangeS * cH);
+          ctx.strokeStyle = withAlpha(colors.accent, 0.45);
+          ctx.lineWidth = 1;
+          ctx.setLineDash([4, 4]);
+          ctx.beginPath();
+          ctx.moveTo(pad.left, y);
+          ctx.lineTo(W - pad.right, y);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = colors.textDim;
+          ctx.textAlign = 'right';
+          ctx.fillText(sigma.label, W - pad.right - 4, y - 4);
+        });
+        ctx.restore();
+      }
     }
 
     // 100% reference line
