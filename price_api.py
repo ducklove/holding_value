@@ -174,6 +174,6 @@ def download_close_frame(tickers, since, until):
     if not frames:
         return pd.DataFrame(), loaded
 
-    close = pd.concat(frames, axis=1).sort_index()
+    close = pd.concat(frames, axis=1, sort=True).sort_index()
     close = close.T.groupby(level=0).last().T
     return close, sorted(set(loaded))
