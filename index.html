@@ -2382,6 +2382,7 @@ function startDashboard(STOCK_DATA) {
     const pad = { top: 20, right: 16, bottom: 36, left: 64 };
     const cW = W - pad.left - pad.right;
     const cH = H - pad.top - pad.bottom;
+    const xs = buildTimeScale(hist, pad.left, cW);
     const colors = getThemeColors();
     const palette = getStackPalette();
     const legendItems = buildChartLegendItems(stackedSubs, palette, colors);
@@ -2436,24 +2437,19 @@ function startDashboard(STOCK_DATA) {
     ctx.textAlign = 'left';
     ctx.fillText('평균 ' + avg.toFixed(1) + '%', pad.left + 4, avgY - 6);
 
-    // X axis labels
+    // X axis labels (시간 위치 기준)
     ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'center';
-    const xLabelCount = Math.min(6, hist.length);
-    for (let i = 0; i < xLabelCount; i++) {
-      const idx = Math.floor(i * (hist.length - 1) / (xLabelCount - 1));
-      const x = pad.left + (idx / (hist.length - 1)) * cW;
-      ctx.fillText(hist[idx].date.slice(2), x, H - pad.bottom + 20);
-    }
+    drawTimeAxisLabels(ctx, hist, xs, pad.left, cW, H - pad.bottom + 20);
 
     if (isStacked) {
-      drawStackedRatioChart(ctx, hist, stackedSubs, palette, colors, pad, cW, cH, chartMin, rangeS);
+      drawStackedRatioChart(ctx, hist, xs, stackedSubs, palette, colors, pad, cW, cH, chartMin, rangeS);
     } else {
-      drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS);
+      drawSingleRatioChart(ctx, hist, xs, colors, pad, cW, cH, chartMin, rangeS);
     }
 
-    drawTrendLine(ctx, hist, trendLines.sma.values, colors.smaLine, pad, cW, cH, chartMin, rangeS, [10, 6], 2);
-    drawTrendLine(ctx, hist, trendLines.ema.values, colors.emaLine, pad, cW, cH, chartMin, rangeS, [], 2);
+    drawTrendLine(ctx, hist, xs, trendLines.sma.values, colors.smaLine, pad, cH, chartMin, rangeS, [10, 6], 2);
+    drawTrendLine(ctx, hist, xs, trendLines.ema.values, colors.emaLine, pad, cH, chartMin, rangeS, [], 2);
 
     // Tooltip interaction
     const tooltip = document.getElementById('tooltip');
@@ -2465,12 +2461,11 @@ function startDashboard(STOCK_DATA) {
         tooltip.classList.remove('visible');
         return;
       }
-      const ratio = (mx - pad.left) / cW;
-      const idx = Math.round(ratio * (hist.length - 1));
+      const idx = nearestIndexForX(xs, mx);
       const d = hist[idx];
       if (!d) return;
 
-      const dotX = pad.left + (idx / (hist.length - 1)) * cW;
+      const dotX = xs[idx];
       const dotY = pad.top + cH - ((d.ratio - chartMin) / rangeS * cH);
 
       let ttRows;
@@ -2574,6 +2569,7 @@ function startDashboard(STOCK_DATA) {
     const pad = { top: 20, right: 16, bottom: 36, left: 80 };
     const cW = W - pad.left - pad.right;
     const cH = H - pad.top - pad.bottom;
+    const xs = buildTimeScale(hist, pad.left, cW);
     const colors = getThemeColors();
 
     ctx.clearRect(0, 0, W, H);
@@ -2595,15 +2591,10 @@ function startDashboard(STOCK_DATA) {
       ctx.fillText(Math.round(v).toLocaleString('ko-KR'), pad.left - 8, y + 4);
     }
 
-    // X axis labels
+    // X axis labels (시간 위치 기준)
     ctx.fillStyle = colors.textDim;
     ctx.textAlign = 'center';
-    const xLabelCount = Math.min(6, hist.length);
-    for (let i = 0; i < xLabelCount; i++) {
-      const idx = Math.floor(i * (hist.length - 1) / (xLabelCount - 1));
-      const x = pad.left + (idx / (hist.length - 1)) * cW;
-      ctx.fillText(hist[idx].date.slice(2), x, H - pad.bottom + 20);
-    }
+    drawTimeAxisLabels(ctx, hist, xs, pad.left, cW, H - pad.bottom + 20);
 
     // Price change color
     const priceUp = prices[prices.length - 1] >= prices[0];
@@ -2618,10 +2609,9 @@ function startDashboard(STOCK_DATA) {
 
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((hist[i].holdingPrice - chartMin) / rangeP * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xs[i], y);
+      else ctx.lineTo(xs[i], y);
     }
     ctx.lineTo(pad.left + cW, pad.top + cH);
     ctx.lineTo(pad.left, pad.top + cH);
@@ -2632,10 +2622,9 @@ function startDashboard(STOCK_DATA) {
     // Line
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((hist[i].holdingPrice - chartMin) / rangeP * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xs[i], y);
+      else ctx.lineTo(xs[i], y);
     }
     ctx.strokeStyle = lineColor;
     ctx.lineWidth = 2;
@@ -2653,12 +2642,11 @@ function startDashboard(STOCK_DATA) {
         tooltip.classList.remove('visible');
         return;
       }
-      const ratio = (mx - pad.left) / cW;
-      const idx = Math.round(ratio * (hist.length - 1));
+      const idx = nearestIndexForX(xs, mx);
       const d = hist[idx];
       if (!d) return;
 
-      const dotX = pad.left + (idx / (hist.length - 1)) * cW;
+      const dotX = xs[idx];
       const dotY = pad.top + cH - ((d.holdingPrice - chartMin) / rangeP * cH);
 
       const change = idx > 0 ? d.holdingPrice - hist[idx - 1].holdingPrice : 0;
@@ -2871,6 +2859,43 @@ function startDashboard(STOCK_DATA) {
     const sorted = values.slice().sort(function(a, b) { return a - b; });
     const mid = Math.floor(sorted.length / 2);
     return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+
+  // 시간축 스케일: 포인트 순번이 아닌 실제 날짜 간격으로 x좌표를 배치한다.
+  // (730일 이전 주간 다운샘플 구간이 일별 구간 대비 5배 압축되어 보이던 왜곡 해소)
+  function buildTimeScale(hist, padLeft, cW) {
+    const xs = new Array(hist.length);
+    if (!hist.length) return xs;
+    const t0 = parseDateKey(hist[0].date).getTime();
+    const span = parseDateKey(hist[hist.length - 1].date).getTime() - t0 || 1;
+    for (let i = 0; i < hist.length; i++) {
+      xs[i] = padLeft + ((parseDateKey(hist[i].date).getTime() - t0) / span) * cW;
+    }
+    return xs;
+  }
+
+  function nearestIndexForX(xs, mx) {
+    if (!xs.length) return -1;
+    let lo = 0;
+    let hi = xs.length - 1;
+    while (hi - lo > 1) {
+      const mid = (lo + hi) >> 1;
+      if (xs[mid] < mx) lo = mid;
+      else hi = mid;
+    }
+    return (mx - xs[lo]) <= (xs[hi] - mx) ? lo : hi;
+  }
+
+  function drawTimeAxisLabels(ctx, hist, xs, padLeft, cW, y) {
+    const labelCount = Math.min(6, hist.length);
+    let lastIdx = -1;
+    for (let i = 0; i < labelCount; i++) {
+      const targetX = padLeft + (labelCount === 1 ? 0 : (i / (labelCount - 1)) * cW);
+      const idx = nearestIndexForX(xs, targetX);
+      if (idx === lastIdx) continue;
+      lastIdx = idx;
+      ctx.fillText(hist[idx].date.slice(2), xs[idx], y);
+    }
   }
 
   function getStackedSubsidiarySeries(hist) {
@@ -3161,17 +3186,16 @@ function startDashboard(STOCK_DATA) {
     };
   }
 
-  function drawSingleRatioChart(ctx, hist, colors, pad, cW, cH, chartMin, rangeS) {
+  function drawSingleRatioChart(ctx, hist, xs, colors, pad, cW, cH, chartMin, rangeS) {
     const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
     gradient.addColorStop(0, colors.ratioFillStart);
     gradient.addColorStop(1, colors.ratioFillEnd);
 
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xs[i], y);
+      else ctx.lineTo(xs[i], y);
     }
     const lastX = pad.left + cW;
     ctx.lineTo(lastX, pad.top + cH);
@@ -3182,10 +3206,9 @@ function startDashboard(STOCK_DATA) {
 
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xs[i], y);
+      else ctx.lineTo(xs[i], y);
     }
     ctx.strokeStyle = colors.accent;
     ctx.lineWidth = 2;
@@ -3194,7 +3217,7 @@ function startDashboard(STOCK_DATA) {
     ctx.stroke();
   }
 
-  function drawStackedRatioChart(ctx, hist, series, palette, colors, pad, cW, cH, chartMin, rangeS) {
+  function drawStackedRatioChart(ctx, hist, xs, series, palette, colors, pad, cW, cH, chartMin, rangeS) {
     let cumulative = new Array(hist.length).fill(0);
     series.forEach(function(sub, subIdx) {
       const color = palette[subIdx % palette.length];
@@ -3205,15 +3228,13 @@ function startDashboard(STOCK_DATA) {
 
       ctx.beginPath();
       for (let i = 0; i < hist.length; i++) {
-        const x = pad.left + (i / (hist.length - 1)) * cW;
         const y = pad.top + cH - ((nextCumulative[i] - chartMin) / rangeS * cH);
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        if (i === 0) ctx.moveTo(xs[i], y);
+        else ctx.lineTo(xs[i], y);
       }
       for (let i = hist.length - 1; i >= 0; i--) {
-        const x = pad.left + (i / (hist.length - 1)) * cW;
         const y = pad.top + cH - ((cumulative[i] - chartMin) / rangeS * cH);
-        ctx.lineTo(x, y);
+        ctx.lineTo(xs[i], y);
       }
       ctx.closePath();
       ctx.fillStyle = withAlpha(color, 0.22);
@@ -3221,10 +3242,9 @@ function startDashboard(STOCK_DATA) {
 
       ctx.beginPath();
       for (let i = 0; i < hist.length; i++) {
-        const x = pad.left + (i / (hist.length - 1)) * cW;
         const y = pad.top + cH - ((nextCumulative[i] - chartMin) / rangeS * cH);
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        if (i === 0) ctx.moveTo(xs[i], y);
+        else ctx.lineTo(xs[i], y);
       }
       ctx.strokeStyle = withAlpha(color, 0.9);
       ctx.lineWidth = 1.2;
@@ -3237,10 +3257,9 @@ function startDashboard(STOCK_DATA) {
 
     ctx.beginPath();
     for (let i = 0; i < hist.length; i++) {
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((hist[i].ratio - chartMin) / rangeS * cH);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xs[i], y);
+      else ctx.lineTo(xs[i], y);
     }
     ctx.strokeStyle = colors.text;
     ctx.lineWidth = 1.5;
@@ -3249,7 +3268,7 @@ function startDashboard(STOCK_DATA) {
     ctx.stroke();
   }
 
-  function drawTrendLine(ctx, hist, values, color, pad, cW, cH, chartMin, rangeS, dash, lineWidth) {
+  function drawTrendLine(ctx, hist, xs, values, color, pad, cH, chartMin, rangeS, dash, lineWidth) {
     if (!values || values.every(function(value) { return value === null; })) {
       return;
     }
@@ -3263,13 +3282,12 @@ function startDashboard(STOCK_DATA) {
         hasStarted = false;
         continue;
       }
-      const x = pad.left + (i / (hist.length - 1)) * cW;
       const y = pad.top + cH - ((value - chartMin) / rangeS * cH);
       if (!hasStarted) {
-        ctx.moveTo(x, y);
+        ctx.moveTo(xs[i], y);
         hasStarted = true;
       } else {
-        ctx.lineTo(x, y);
+        ctx.lineTo(xs[i], y);
       }
     }
     ctx.setLineDash(dash || []);
