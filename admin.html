@@ -332,6 +332,12 @@ body {
         <input type="number" id="fAdjustedShares" min="0" placeholder="비워두면 발행주식수 - 자사주">
       </div>
 
+      <div class="form-group">
+        <label>유효 시작일 (선택)</label>
+        <input type="date" id="fValidFrom">
+        <div class="form-hint">현 지분 구조 성립일. 이 날짜 이전 구간은 비율 히스토리를 생성하지 않습니다 (분할·지주전환 종목의 과거 왜곡 방지).</div>
+      </div>
+
       <div class="sub-section">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <h3>자회사 목록</h3>
@@ -405,10 +411,7 @@ body {
   }
 
   function fetchGithubSha() {
-    Promise.all([
-      fetchContentSha('config.json'),
-      fetchContentSha('api/holdings.json')
-    ]).catch(function(err) {
+    fetchContentSha('config.json').catch(function(err) {
       console.warn('GitHub SHA 가져오기 실패:', err.message);
     });
   }
@@ -453,17 +456,12 @@ body {
     btn.textContent = '저장 중...';
 
     var configJson = JSON.stringify(config, null, 2) + '\n';
-    var holdingsJson = JSON.stringify(buildHoldingsApiPayload(), null, 2) + '\n';
     var message = '종목 설정 변경 (admin)';
 
-    Promise.all([
-      upsertRepoFile('config.json', configJson, message),
-      upsertRepoFile('api/holdings.json', holdingsJson, message)
-    ])
-    .then(function(results) {
-      fileShas['config.json'] = results[0].content.sha;
-      fileShas['api/holdings.json'] = results[1].content.sha;
-      showToast('GitHub에 저장되었습니다.');
+    upsertRepoFile('config.json', configJson, message)
+    .then(function(result) {
+      fileShas['config.json'] = result.content.sha;
+      showToast('GitHub에 저장되었습니다. (holdings API는 워크플로우가 자동 갱신)');
       triggerWorkflow();
     })
     .catch(function(err) {
@@ -494,64 +492,6 @@ body {
       if (!r.ok) return r.json().then(function(d) { throw new Error(d.message || r.status); });
       return r.json();
     });
-  }
-
-  function buildHoldingsApiPayload() {
-    var timestamps = getSeoulTimestamps();
-    var items = config.map(function(entry) {
-      var subsidiaries = entry.subsidiaries.map(function(sub) {
-        return {
-          name: sub.name,
-          ticker: sub.ticker,
-          code: tickerCode(sub.ticker),
-          sharesHeld: sub.sharesHeld
-        };
-      });
-
-      return {
-        id: entry.id,
-        name: entry.name,
-        holdingName: entry.holdingName,
-        holdingTicker: entry.holdingTicker,
-        holdingCode: tickerCode(entry.holdingTicker),
-        holdingTotalShares: entry.holdingTotalShares,
-        holdingTreasuryShares: entry.holdingTreasuryShares,
-        subsidiaryCount: subsidiaries.length,
-        subsidiaries: subsidiaries
-      };
-    });
-
-    return {
-      generatedAt: timestamps.generatedAt,
-      lastUpdated: timestamps.lastUpdated,
-      count: items.length,
-      items: items
-    };
-  }
-
-  function getSeoulTimestamps() {
-    var parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'Asia/Seoul',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hourCycle: 'h23'
-    }).formatToParts(new Date()).reduce(function(acc, part) {
-      if (part.type !== 'literal') acc[part.type] = part.value;
-      return acc;
-    }, {});
-
-    return {
-      generatedAt: parts.year + '-' + parts.month + '-' + parts.day + 'T' + parts.hour + ':' + parts.minute + ':' + parts.second + '+09:00',
-      lastUpdated: parts.year + '-' + parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute + ':' + parts.second
-    };
-  }
-
-  function tickerCode(ticker) {
-    return (ticker || '').split('.')[0];
   }
 
   function triggerWorkflow(fullRebuild) {
@@ -660,6 +600,7 @@ body {
             '<span>ID: ' + esc(p.id) + '</span>' +
             '<span>티커: ' + esc(p.holdingTicker) + '</span>' +
             '<span>조정주식수: ' + adjShares + '</span>' +
+            (p.validFrom ? '<span>유효시작: ' + esc(p.validFrom) + '</span>' : '') +
           '</div>' +
           '<div class="pair-subs">' + subs + '</div>' +
         '</div>' +
@@ -690,6 +631,7 @@ body {
     document.getElementById('pairForm').reset();
     document.getElementById('fTreasuryShares').value = 0;
     document.getElementById('fAdjustedShares').value = '';
+    document.getElementById('fValidFrom').value = '';
     document.getElementById('subEntries').innerHTML = '';
     addSubEntry();
     document.getElementById('modalOverlay').classList.add('visible');
@@ -705,6 +647,7 @@ body {
     document.getElementById('fTotalShares').value = p.holdingTotalShares;
     document.getElementById('fTreasuryShares').value = p.holdingTreasuryShares;
     document.getElementById('fAdjustedShares').value = p.holdingAdjustedShares || '';
+    document.getElementById('fValidFrom').value = p.validFrom || '';
     document.getElementById('subEntries').innerHTML = '';
     p.subsidiaries.forEach(function(s) { addSubEntry(s.name, s.ticker, s.sharesHeld); });
     document.getElementById('modalOverlay').classList.add('visible');
@@ -759,6 +702,7 @@ body {
     }
 
     var adjustedShares = parseInt(document.getElementById('fAdjustedShares').value);
+    var validFrom = document.getElementById('fValidFrom').value.trim();
     var pair = {
       id: document.getElementById('fId').value.trim(),
       name: buildName(document.getElementById('fHoldingName').value.trim(), subs),
@@ -771,6 +715,7 @@ body {
     if (!isNaN(adjustedShares) && adjustedShares > 0) {
       pair.holdingAdjustedShares = adjustedShares;
     }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(validFrom)) pair.validFrom = validFrom;
 
     var idx = parseInt(document.getElementById('editIdx').value);
 

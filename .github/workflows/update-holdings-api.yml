@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -32,5 +36,12 @@ jobs:
           git diff --quiet api/holdings.json || {
             git add api/holdings.json
             git commit -m "자동 업데이트: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M') 지주사 API 갱신"
-            git push
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin master && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push retry ${attempt}"
+              sleep $((attempt * 2))
+            done
+            echo "ERROR: push failed after retries" >&2
+            exit 1
           }

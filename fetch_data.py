@@ -7,7 +7,10 @@ Yahoo Finance에서 지주사/자회사 가격 데이터를 가져와 data.js를
 
 import argparse
 import json
+import os
 import re
+import statistics
+import sys
 import time
 from collections import defaultdict, deque
 from datetime import datetime, timedelta
@@ -29,6 +32,11 @@ SEOUL_TZ = ZoneInfo("Asia/Seoul")
 DAILY_RETENTION_DAYS = 730
 SMA_WINDOW = 250
 EMA_ALPHA = 0.1
+# 전체 지표(중앙값) 산출에 필요한 최소 구성 종목 수 — 미만 날짜는 산출 제외
+MIN_AVERAGE_COUNT = 20
+# 이 값을 넘는 비율은 validFrom 미설정/데이터 오류 후보로 경고
+MAX_SANE_RATIO = 1500.0
+STALE_PAIR_WARN_DAYS = 14
 
 
 def parse_existing_data():
@@ -48,8 +56,9 @@ def is_korean(ticker):
     return ticker.endswith(".KS") or ticker.endswith(".KQ")
 
 
-def needs_multi_sub_backfill(existing, pair_config_map):
-    """기존 data.js에 다중 자회사별 히스토리 분해가 없으면 전체 재생성한다."""
+def find_multi_sub_backfill_ids(existing, pair_config_map):
+    """다중 자회사별 히스토리 분해가 없는 종목만 골라 재수집 대상으로 반환한다."""
+    rebuild_ids = set()
     for pair in existing.get("pairs", []):
         if pair.get("isAverage"):
             continue
@@ -59,19 +68,23 @@ def needs_multi_sub_backfill(existing, pair_config_map):
             continue
         history = pair.get("history", [])
         if any("subsidiaries" not in entry for entry in history):
-            return True
-    return False
+            rebuild_ids.add(pair_id)
+    return rebuild_ids
 
 
-def has_new_pair_ids(existing, pair_config_map):
-    """Trigger a full rebuild when config.json contains brand-new pairs."""
+def find_new_pair_ids(existing, pair_config_map):
+    """기존 데이터에 히스토리가 없는 신규 종목 id 집합을 반환한다.
+
+    과거에는 신규 종목이 감지되면 전 종목을 풀 재빌드해 누적 이력이 통째로
+    재작성되는 문제(C1)가 있었다. 신규 종목만 전체 기간을 수집하고 기존
+    종목은 증분 병합을 유지하기 위해 대상을 집합으로 분리한다.
+    """
     existing_ids = {
         pair.get("id")
         for pair in existing.get("pairs", [])
-        if pair.get("id") and not pair.get("isAverage")
+        if pair.get("id") and pair.get("history") and not pair.get("isAverage")
     }
-    current_ids = set(pair_config_map.keys())
-    return any(pair_id not in existing_ids for pair_id in current_ids)
+    return {pair_id for pair_id in pair_config_map if pair_id not in existing_ids}
 
 
 def parse_date_key(date_str):
@@ -155,6 +168,160 @@ def downsample_history(history):
             current_week = week_key
 
     return weekly + recent
+
+
+def merge_pair_history(new_history, old_history, valid_from=""):
+    """새 구간을 기존 히스토리에 병합한다. validFrom 이전 구간은 양쪽 모두 제거.
+
+    반환: (merged_history, trend_recompute_idx)
+    """
+    if valid_from:
+        new_history = [e for e in new_history if e["date"] >= valid_from]
+    if not old_history:
+        return new_history, 0
+
+    new_dates = {e["date"] for e in new_history}
+    merged = [
+        e for e in old_history
+        if e["date"] not in new_dates and (not valid_from or e["date"] >= valid_from)
+    ]
+    merged.extend(new_history)
+    merged.sort(key=lambda e: e["date"])
+
+    trend_recompute_idx = 0
+    if new_dates:
+        first_changed_date = min(new_dates)
+        changed_idx = next(
+            (idx for idx, entry in enumerate(merged) if entry["date"] >= first_changed_date),
+            0,
+        )
+        trend_recompute_idx = max(0, changed_idx - (SMA_WINDOW - 1))
+    return merged, trend_recompute_idx
+
+
+def build_average_history(pairs_result, min_count=MIN_AVERAGE_COUNT):
+    """전체 지표 히스토리를 만든다. 대표값은 중앙값(ratio), 평균은 mean으로 병기.
+
+    구성 종목이 min_count 미만인 날짜는 제외한다 — 초기 구간의 소표본·
+    구성 드리프트가 장기 곡선을 왜곡하는 문제(H2)의 방어선.
+    """
+    daily_ratios = defaultdict(list)
+    for pair_data in pairs_result:
+        for h in pair_data["history"]:
+            daily_ratios[h["date"]].append(h["ratio"])
+
+    avg_history = []
+    for date in sorted(daily_ratios.keys()):
+        ratios = daily_ratios[date]
+        if len(ratios) < min_count:
+            continue
+        avg_history.append({
+            "date": date,
+            "holdingPrice": 0,
+            "subsidiaryPrice": 0,
+            "holdingValue": 0,
+            "marketCap": 0,
+            "ratio": round(statistics.median(ratios), 2),
+            "mean": round(sum(ratios) / len(ratios), 2),
+            "count": len(ratios),
+        })
+    return avg_history
+
+
+def build_average_pair(pairs_result, min_count=MIN_AVERAGE_COUNT):
+    """전체 지표 pair(_average)를 구성한다. 히스토리가 없으면 None."""
+    avg_history = build_average_history(pairs_result, min_count)
+    annotate_history_with_trends(avg_history)
+    avg_history = downsample_history(avg_history)
+    if not avg_history:
+        return None
+
+    latest_avg = avg_history[-1]
+    prev_avg = avg_history[-2] if len(avg_history) >= 2 else latest_avg
+    avg_change = round(latest_avg["ratio"] - prev_avg["ratio"], 2)
+    return {
+        "id": "_average",
+        "name": "전체 중앙값",
+        "holdingName": "",
+        "subsidiaryName": "",
+        "isAverage": True,
+        "current": {
+            "holdingPrice": 0,
+            "subsidiaryPrice": 0,
+            "holdingValue": 0,
+            "marketCap": 0,
+            "ratio": latest_avg["ratio"],
+            "mean": latest_avg.get("mean"),
+            "count": latest_avg.get("count"),
+            "ratioChange": avg_change,
+        },
+        "history": avg_history,
+    }
+
+
+def check_history_regressions(previous_pairs, pairs_result, rebuild_ids, valid_from_map):
+    """병합 결과가 기존 기록을 후퇴시키지 않는지 검사한다.
+
+    반환: (errors, warnings). errors가 있으면 산출물을 쓰지 않고 실패해야 한다.
+    재수집 대상(rebuild_ids)과 validFrom 의도적 절단은 경고로 완화한다.
+    """
+    errors = []
+    warnings = []
+
+    latest_dates = [
+        p["history"][-1]["date"]
+        for p in pairs_result
+        if p.get("history") and not p.get("isAverage")
+    ]
+    global_latest = max(latest_dates) if latest_dates else ""
+
+    for pair_data in pairs_result:
+        if pair_data.get("isAverage"):
+            continue
+        pair_id = pair_data["id"]
+        history = pair_data.get("history") or []
+        if not history:
+            continue
+
+        if global_latest:
+            gap_days = (parse_date_key(global_latest) - parse_date_key(history[-1]["date"])).days
+            if gap_days > STALE_PAIR_WARN_DAYS:
+                warnings.append(
+                    f"{pair_id}: 마지막 데이터가 전체 최신일보다 {gap_days}일 뒤처짐 ({history[-1]['date']})"
+                )
+
+        max_ratio = max(e["ratio"] for e in history)
+        if max_ratio > MAX_SANE_RATIO:
+            warnings.append(
+                f"{pair_id}: 최대 비율 {max_ratio:.0f}% > {MAX_SANE_RATIO:.0f}% — validFrom 미설정 또는 데이터 오류 후보"
+            )
+
+        previous = previous_pairs.get(pair_id)
+        old_history = (previous or {}).get("history") or []
+        if not old_history:
+            continue
+
+        valid_from = valid_from_map.get(pair_id) or ""
+        truncated_by_valid_from = bool(valid_from and valid_from > old_history[0]["date"])
+        relaxed = pair_id in rebuild_ids or truncated_by_valid_from
+
+        if history[0]["date"] > old_history[0]["date"] and not truncated_by_valid_from:
+            message = (
+                f"{pair_id}: 히스토리 시작일 후퇴 {old_history[0]['date']} -> {history[0]['date']}"
+            )
+            (warnings if relaxed else errors).append(message)
+
+        if len(history) < len(old_history) * 0.9:
+            message = f"{pair_id}: 히스토리 포인트 급감 {len(old_history)} -> {len(history)}"
+            (warnings if relaxed else errors).append(message)
+
+    return errors, warnings
+
+
+def write_atomic(path, content):
+    tmp_path = path.with_name(path.name + ".tmp")
+    tmp_path.write_text(content, encoding="utf-8")
+    os.replace(tmp_path, path)
 
 
 def normalize_close_frame(data, tickers):
@@ -297,19 +464,41 @@ def main():
     parser.add_argument('--full', action='store_true', help='전체 최대 기간 데이터를 다시 다운로드')
     args = parser.parse_args()
 
-    existing = None if args.full else parse_existing_data()
+    # baseline은 --full 여부와 무관하게 품질 가드의 비교 기준으로 사용한다.
+    baseline = parse_existing_data()
+    existing = None if args.full else baseline
     pair_config_map = {pair["id"]: pair for pair in PAIRS}
-    if existing and needs_multi_sub_backfill(existing, pair_config_map):
-        print("다중 자회사 히스토리 확장을 위해 전체 데이터를 다시 생성합니다.")
-        existing = None
-    if existing and has_new_pair_ids(existing, pair_config_map):
-        print("New pair ids detected in config.json. Switching to a full rebuild.")
-        existing = None
+
+    rebuild_ids = set()
+    if args.full:
+        rebuild_ids = set(pair_config_map)
+    elif existing:
+        new_ids = find_new_pair_ids(existing, pair_config_map)
+        backfill_ids = find_multi_sub_backfill_ids(existing, pair_config_map)
+        rebuild_ids = new_ids | backfill_ids
+        if rebuild_ids:
+            print(
+                f"부분 재수집 대상 {len(rebuild_ids)}개: {', '.join(sorted(rebuild_ids))}"
+                " (다른 종목의 누적 히스토리는 유지)"
+            )
+
+    previous_pairs = {}
+    if baseline:
+        previous_pairs = {
+            p["id"]: p
+            for p in baseline.get("pairs", [])
+            if p.get("id") and not p.get("isAverage")
+        }
 
     existing_history = {}
     if existing:
         for p in existing.get('pairs', []):
-            if p.get('id') and p.get('history') and not p.get('isAverage'):
+            if (
+                p.get('id')
+                and p.get('history')
+                and not p.get('isAverage')
+                and p['id'] not in rebuild_ids
+            ):
                 existing_history[p['id']] = p['history']
 
     # 모든 티커 수집 (중복 제거)
@@ -333,10 +522,12 @@ def main():
         "progress": True,
     }
 
+    incr_cutoff = None
     if existing_history:
         last_dates = [h[-1]['date'] for h in existing_history.values() if h]
         latest = max(last_dates)
         start_date = datetime.strptime(latest, '%Y-%m-%d') - timedelta(days=5)
+        incr_cutoff = pd.Timestamp(start_date.date())
         print(f"증분 모드: {start_date.strftime('%Y-%m-%d')}부터 다운로드")
         download_kwargs["start"] = start_date.strftime("%Y-%m-%d")
         download_kwargs["end"] = end_date.strftime("%Y-%m-%d")
@@ -349,6 +540,33 @@ def main():
     print(f"Downloading data for {len(all_tickers)} tickers...")
 
     close = download_close_prices(all_tickers, download_kwargs)
+
+    # 재수집 대상 종목만 전체 기간을 별도로 받아 합류시킨다 (다른 종목은 증분 유지).
+    if rebuild_ids and existing_history:
+        rebuild_tickers = []
+        rebuild_needs_fx = False
+        for pair in PAIRS:
+            if pair["id"] not in rebuild_ids:
+                continue
+            rebuild_tickers.append(pair["holdingTicker"])
+            for sub in pair["subsidiaries"]:
+                rebuild_tickers.append(sub["ticker"])
+                if not is_korean(sub["ticker"]):
+                    rebuild_needs_fx = True
+        rebuild_tickers = list(dict.fromkeys(rebuild_tickers))
+        if rebuild_needs_fx:
+            rebuild_tickers.append("USDKRW=X")
+
+        if rebuild_tickers:
+            full_kwargs = dict(download_kwargs)
+            full_kwargs["start"] = "2000-01-01"
+            print(f"재수집 대상 {len(rebuild_tickers)}개 티커 전체 기간 다운로드...")
+            full_close = download_close_prices(rebuild_tickers, full_kwargs)
+            if not full_close.empty:
+                overlap = [c for c in full_close.columns if c in close.columns]
+                if overlap:
+                    close = close.drop(columns=overlap)
+                close = merge_close_frames(close, [full_close])
 
     if close.empty:
         if existing:
@@ -371,7 +589,17 @@ def main():
             print(f"  WARNING: Holding ticker {ht} not found, skipping {pair['name']}")
             continue
 
-        holding_close = close[ht].dropna()
+        # 재수집 대상이 아닌 기존 종목은 증분 구간만 사용한다.
+        # (재수집 종목과 티커를 공유하는 경우 전체 기간 프레임이 들어와도
+        #  기존 누적 히스토리를 덮어쓰지 않게 하는 안전장치)
+        is_rebuild = pair["id"] in rebuild_ids or pair["id"] not in existing_history
+
+        def window_series(series):
+            if incr_cutoff is None or is_rebuild:
+                return series
+            return series[series.index >= incr_cutoff]
+
+        holding_close = window_series(close[ht].dropna())
         common_dates = holding_close.index
 
         # 각 자회사의 가격 시리즈 수집 및 공통 날짜 계산
@@ -383,12 +611,18 @@ def main():
                 print(f"  WARNING: Subsidiary ticker {st} not found, skipping {pair['name']}")
                 skip = True
                 break
-            s = close[st].dropna()
+            s = window_series(close[st].dropna())
             sub_series[st] = s
             common_dates = common_dates.intersection(s.index)
 
         if skip:
             continue
+
+        # validFrom(현 지분 구조 성립일) 이전 구간은 생성하지 않는다 — 현재
+        # 지분·주식수의 소급 적용으로 생기는 허구 비율(C2) 방지.
+        valid_from = (pair.get("validFrom") or "").strip()
+        if valid_from:
+            common_dates = common_dates[common_dates >= pd.Timestamp(valid_from)]
 
         # 해외 종목이 있으면 환율 데이터와도 교차
         has_foreign = any(not is_korean(sub["ticker"]) for sub in subs)
@@ -467,23 +701,10 @@ def main():
 
             history.append(entry)
 
-        trend_recompute_idx = 0
-
-        # 기존 히스토리와 병합
-        if pair["id"] in existing_history:
-            old_hist = existing_history[pair["id"]]
-            new_dates = {e["date"] for e in history}
-            merged = [e for e in old_hist if e["date"] not in new_dates]
-            merged.extend(history)
-            merged.sort(key=lambda e: e["date"])
-            history = merged
-            if new_dates:
-                first_changed_date = min(new_dates)
-                changed_idx = next(
-                    (idx for idx, entry in enumerate(history) if entry["date"] >= first_changed_date),
-                    0,
-                )
-                trend_recompute_idx = max(0, changed_idx - (SMA_WINDOW - 1))
+        # 기존 히스토리와 병합 (validFrom 이전 구간은 기존 데이터에서도 제거)
+        history, trend_recompute_idx = merge_pair_history(
+            history, existing_history.get(pair["id"]), valid_from
+        )
 
         if not history:
             continue
@@ -552,69 +773,46 @@ def main():
                 pairs_result.append(p)
                 print(f"  {p['name']}: 기존 데이터 유지 ({len(p.get('history', []))} days)")
 
-    # 일별 전체 평균 비율 계산
-    daily_ratios = defaultdict(list)
-    for pair_data in pairs_result:
-        for h in pair_data["history"]:
-            daily_ratios[h["date"]].append(h["ratio"])
-
-    avg_history = []
-    for date in sorted(daily_ratios.keys()):
-        ratios = daily_ratios[date]
-        avg_history.append({
-            "date": date,
-            "holdingPrice": 0,
-            "subsidiaryPrice": 0,
-            "holdingValue": 0,
-            "marketCap": 0,
-            "ratio": round(sum(ratios) / len(ratios), 2),
-        })
-
-    annotate_history_with_trends(avg_history)
-    avg_history = downsample_history(avg_history)
-
-    if avg_history:
-        latest_avg = avg_history[-1]
-        prev_avg = avg_history[-2] if len(avg_history) >= 2 else latest_avg
-        avg_change = round(latest_avg["ratio"] - prev_avg["ratio"], 2)
-        avg_pair = {
-            "id": "_average",
-            "name": "전체 평균",
-            "holdingName": "",
-            "subsidiaryName": "",
-            "isAverage": True,
-            "current": {
-                "holdingPrice": 0,
-                "subsidiaryPrice": 0,
-                "holdingValue": 0,
-                "marketCap": 0,
-                "ratio": latest_avg["ratio"],
-                "ratioChange": avg_change,
-            },
-            "history": avg_history,
-        }
-        print(
-            f"  전체 평균: {len(avg_history)} days, "
-            f"current ratio {latest_avg['ratio']:.2f}% "
-            f"({'↑' if avg_change > 0 else '↓'}{abs(avg_change):.2f}%p)"
-        )
-
-    if avg_history:
+    # 전체 지표(중앙값, 최소 구성 종목 수 필터) 계산
+    avg_pair = build_average_pair(pairs_result)
+    if avg_pair:
         pairs_result.append(avg_pair)
+        avg_current = avg_pair["current"]
+        print(
+            f"  전체 중앙값: {len(avg_pair['history'])} days, "
+            f"current ratio {avg_current['ratio']:.2f}% "
+            f"({'↑' if avg_current['ratioChange'] > 0 else '↓'}{abs(avg_current['ratioChange']):.2f}%p, "
+            f"구성 {avg_current.get('count')}종목)"
+        )
     pairs_result.sort(key=lambda p: p["current"]["ratio"], reverse=True)
+
+    # 데이터 품질 가드 — 기존 기록을 후퇴시키는 결과면 쓰지 않고 실패한다.
+    valid_from_map = {p["id"]: (p.get("validFrom") or "").strip() for p in PAIRS}
+    errors, warnings = check_history_regressions(
+        previous_pairs, pairs_result, rebuild_ids, valid_from_map
+    )
+    for warning in warnings:
+        print(f"WARNING: {warning}")
+    if errors:
+        for error in errors:
+            print(f"ERROR: {error}", file=sys.stderr)
+        print("데이터 품질 가드 실패 — data.js를 변경하지 않고 종료합니다.", file=sys.stderr)
+        sys.exit(1)
 
     stock_data = {
         "lastUpdated": now_local.strftime("%Y-%m-%d %H:%M:%S"),
         "pairs": pairs_result,
     }
 
-    js_content = "const STOCK_DATA = " + json.dumps(stock_data, ensure_ascii=False, indent=2) + ";\n"
+    js_content = (
+        "const STOCK_DATA = "
+        + json.dumps(stock_data, ensure_ascii=False, separators=(",", ":"))
+        + ";\n"
+    )
 
-    output_path = OUTPUT_PATH
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(js_content)
+    write_atomic(OUTPUT_PATH, js_content)
 
-    print(f"\nGenerated {output_path} ({len(pairs_result)} pairs, {len(js_content)} bytes)")
+    print(f"\nGenerated {OUTPUT_PATH} ({len(pairs_result)} pairs, {len(js_content)} bytes)")
 
 
 if __name__ == "__main__":
