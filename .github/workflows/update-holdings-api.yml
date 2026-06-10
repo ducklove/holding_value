@@ -2,6 +2,8 @@ name: Update Holdings API
 
 on:
   push:
+    branches:
+      - master
     paths:
       - config.json
       - build_holdings_api.py
