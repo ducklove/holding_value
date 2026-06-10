@@ -133,6 +133,104 @@ def test_guard_warns_on_insane_ratio_and_stale_pair():
     assert any("stale" in w and "뒤처짐" in w for w in warnings)
 
 
+# --- incremental_start (M5) ---
+
+def test_incremental_start_uses_most_lagging_pair():
+    start = fetch_data.incremental_start(["2026-06-09", "2026-05-25", "2026-06-09"])
+    assert start.strftime("%Y-%m-%d") == "2026-05-20"  # 가장 뒤처진 날짜 - 5일
+
+
+def test_incremental_start_caps_lookback_for_dead_pairs():
+    start = fetch_data.incremental_start(["2026-06-09", "2025-01-01"])
+    assert start.strftime("%Y-%m-%d") == "2026-03-11"  # 최신 - 90일 하한
+
+
+def test_incremental_start_all_fresh():
+    start = fetch_data.incremental_start(["2026-06-09", "2026-06-09"])
+    assert start.strftime("%Y-%m-%d") == "2026-06-04"
+
+
+# --- history_to_columnar 왕복 (JS rowsFromColumnar의 역변환과 동치) ---
+
+def rows_from_columnar(columnar):
+    """index.html rowsFromColumnar와 동일한 복원 규칙 (테스트용 역변환)."""
+    dates = columnar.get("dates") or []
+    sub_names = list((columnar.get("subs") or {}).keys())
+    rows = []
+    for i in range(len(dates)):
+        row = {"date": dates[i]}
+        for key in fetch_data.HISTORY_COLUMNS:
+            if key in columnar:
+                row[key] = columnar[key][i]
+        if sub_names:
+            subs = []
+            for name in sub_names:
+                series = columnar["subs"][name]
+                if series["price"][i] is None and series["value"][i] is None and series["ratio"][i] is None:
+                    continue
+                subs.append({
+                    "name": name,
+                    "price": series["price"][i],
+                    "value": series["value"][i],
+                    "ratio": series["ratio"][i],
+                })
+            if subs:
+                row["subsidiaries"] = subs
+        rows.append(row)
+    return rows
+
+
+def strip_nones(rows):
+    """null과 미존재 키는 렌더 코드에서 동치이므로 비교 전 제거한다."""
+    return [{k: v for k, v in row.items() if v is not None} for row in rows]
+
+
+def test_columnar_roundtrip_single_subsidiary():
+    history = [
+        dict(entry("2026-01-02", 50.0), sma250=None, ema01=49.5),
+        dict(entry("2026-01-03", 51.0), sma250=50.5, ema01=49.7),
+    ]
+    columnar = fetch_data.history_to_columnar("demo", history)
+    assert columnar["id"] == "demo"
+    assert "mean" not in columnar  # 등장하지 않는 컬럼은 생략
+    assert strip_nones(rows_from_columnar(columnar)) == strip_nones(history)
+
+
+def test_columnar_roundtrip_multi_subsidiary_with_gaps():
+    history = [
+        {
+            "date": "2026-01-02", "holdingPrice": 1000, "subsidiaryPrice": 0,
+            "holdingValue": 10.0, "marketCap": 20.0, "ratio": 50.0,
+            "subsidiaries": [
+                {"name": "A", "price": 100, "value": 5.0, "ratio": 25.0},
+                {"name": "B", "price": 200, "value": 5.0, "ratio": 25.0},
+            ],
+        },
+        {
+            "date": "2026-01-03", "holdingPrice": 1010, "subsidiaryPrice": 0,
+            "holdingValue": 11.0, "marketCap": 20.0, "ratio": 55.0,
+            "subsidiaries": [
+                {"name": "A", "price": 101, "value": 11.0, "ratio": 55.0},
+            ],
+        },
+    ]
+    columnar = fetch_data.history_to_columnar("multi", history)
+    assert list(columnar["subs"].keys()) == ["A", "B"]
+    assert columnar["subs"]["B"]["price"] == [200, None]
+    assert strip_nones(rows_from_columnar(columnar)) == strip_nones(history)
+
+
+def test_columnar_roundtrip_average_with_mean_count():
+    history = [
+        {"date": "2026-01-02", "holdingPrice": 0, "subsidiaryPrice": 0, "holdingValue": 0,
+         "marketCap": 0, "ratio": 50.0, "mean": 60.0, "count": 30, "sma250": None, "ema01": 50.0},
+    ]
+    columnar = fetch_data.history_to_columnar("_average", history)
+    assert columnar["mean"] == [60.0]
+    assert columnar["count"] == [30]
+    assert strip_nones(rows_from_columnar(columnar)) == strip_nones(history)
+
+
 # --- downsample_history ---
 
 def test_downsample_collapses_old_region_to_weekly():

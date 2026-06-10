@@ -44,7 +44,8 @@
         "sharesHeld": 22136000
       }
     ],
-    "holdingAdjustedShares": 3896177
+    "holdingAdjustedShares": 3896177,
+    "validFrom": "2004-01-01"
   },
   {
     "id": "hyosung_heavy",
