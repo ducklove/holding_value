@@ -52,6 +52,9 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
   프런트의 `rowsFromColumnar`가 행 배열로 복원하며, 행 포맷과 무손실 동치임을
   pytest와 브라우저 스모크 테스트로 고정해 두었다. data.js 폴백은 분할 로드
   실패 시(배포 전환기·롤백)에만 쓰인다 — 안정화 후 제거 예정.
+- **백분위 칩** (`pctile1y`/`pctile3y`): 일별 빌드 시 현재 비율이 최근 1년/3년 분포에서
+  차지하는 백분위(%). 3년 창은 730일 이전 주간 다운샘플 구간을 포함하므로 근사치다.
+  표본 30개 미만이면 생략.
 
 ## 데이터 품질 가드
 
@@ -87,9 +90,17 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `KIS_PROXY_BASE_URL` (Variable) | KIS 프록시 주소 | `http://cantabile.tplinkdns.com:3288` |
 | `HOLDING_VALUE_PRICE_API_URL` | 내부 가격 API (LAN) | `http://192.168.68.84:8400/...` |
 | `HOLDING_VALUE_PRICE_API` | `0`이면 내부 API 비활성 | `1` |
+| `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` (Secrets) | 비율 임계 교차 알림 (선택) | 미설정 시 알림 비활성 |
 
 > **권고**: 현재 장중 시세의 사실상 전부가 개인 프록시 한 대에 의존한다.
 > 저장소 Secrets에 KIS 키를 설정해 직접 호출을 1차로 승격할 것.
+
+### 비율 임계 알림 (Telegram)
+
+1. 봇 생성(@BotFather) 후 `TELEGRAM_BOT_TOKEN`, 채팅 ID를 `TELEGRAM_CHAT_ID`로 Secrets 등록
+2. admin에서 종목별 알림 하한/상한(%) 설정 (config의 `alertBelow`/`alertAbove`)
+3. 장중 스냅샷(10분 주기)에서 비율이 임계를 **교차하는 순간 1회** 발송
+   (직전 스냅샷과 비교해 같은 쪽이면 재발송하지 않음 — 상태 파일 불필요)
 
 ## 로컬 실행
 

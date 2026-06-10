@@ -133,6 +133,35 @@ def test_guard_warns_on_insane_ratio_and_stale_pair():
     assert any("stale" in w and "뒤처짐" in w for w in warnings)
 
 
+# --- trailing_percentile ---
+
+def test_trailing_percentile_ranks_current_within_window():
+    history = [entry(f"2026-01-{d:02d}", float(d)) for d in range(1, 31)]  # 1..30
+    history.append(entry("2026-01-31", 15.5))
+    pct = fetch_data.trailing_percentile(history, days=365, min_points=10)
+    # 창 31개 중 이하인 값 = 1..15 (15개) + 자기 자신 = 16개 (renderStats와 동일 관례)
+    assert pct == round(16 / 31 * 100)
+
+
+def test_trailing_percentile_excludes_entries_before_cutoff():
+    old = [entry("2020-01-01", 1000.0)] * 5
+    recent = [entry(f"2026-05-{d:02d}", 50.0) for d in range(1, 31)]
+    history = old + recent + [entry("2026-05-31", 60.0)]
+    pct = fetch_data.trailing_percentile(history, days=60, min_points=10)
+    assert pct == 100  # 1000짜리 옛 표본은 창 밖 — 최근 창에서는 최고치
+
+
+def test_trailing_percentile_requires_min_points():
+    history = [entry("2026-06-01", 50.0), entry("2026-06-02", 51.0)]
+    assert fetch_data.trailing_percentile(history, days=365, min_points=30) is None
+
+
+def test_annotate_current_percentiles_omits_when_unavailable():
+    history = [entry("2026-06-01", 50.0)]
+    current = fetch_data.annotate_current_percentiles({"ratio": 50.0}, history)
+    assert "pctile1y" not in current and "pctile3y" not in current
+
+
 # --- incremental_start (M5) ---
 
 def test_incremental_start_uses_most_lagging_pair():

@@ -338,6 +338,18 @@ body {
         <div class="form-hint">현 지분 구조 성립일. 이 날짜 이전 구간은 비율 히스토리를 생성하지 않습니다 (분할·지주전환 종목의 과거 왜곡 방지).</div>
       </div>
 
+      <div class="form-row">
+        <div class="form-group">
+          <label>알림 하한 % (선택)</label>
+          <input type="number" id="fAlertBelow" min="0" step="any" placeholder="예: 80">
+        </div>
+        <div class="form-group">
+          <label>알림 상한 % (선택)</label>
+          <input type="number" id="fAlertAbove" min="0" step="any" placeholder="예: 300">
+        </div>
+      </div>
+      <div class="form-hint" style="margin-top:-8px;margin-bottom:16px">장중 비율이 임계를 교차하면 Telegram 알림 (TELEGRAM_BOT_TOKEN/CHAT_ID Secrets 필요)</div>
+
       <div class="sub-section">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <h3>자회사 목록</h3>
@@ -601,6 +613,7 @@ body {
             '<span>티커: ' + esc(p.holdingTicker) + '</span>' +
             '<span>조정주식수: ' + adjShares + '</span>' +
             (p.validFrom ? '<span>유효시작: ' + esc(p.validFrom) + '</span>' : '') +
+            alertChip(p) +
           '</div>' +
           '<div class="pair-subs">' + subs + '</div>' +
         '</div>' +
@@ -615,6 +628,14 @@ body {
   function subNames(p) {
     if (p.subsidiaries.length === 1) return esc(p.subsidiaries[0].name);
     return p.subsidiaries.map(function(s) { return esc(s.name); }).join(', ');
+  }
+
+  function alertChip(p) {
+    var parts = [];
+    if (p.alertBelow != null) parts.push('&lt;' + String(p.alertBelow) + '%');
+    if (p.alertAbove != null) parts.push('&gt;' + String(p.alertAbove) + '%');
+    if (parts.length === 0) return '';
+    return '<span>알림: ' + parts.join(' · ') + '</span>';
   }
 
   function esc(s) {
@@ -632,6 +653,8 @@ body {
     document.getElementById('fTreasuryShares').value = 0;
     document.getElementById('fAdjustedShares').value = '';
     document.getElementById('fValidFrom').value = '';
+    document.getElementById('fAlertBelow').value = '';
+    document.getElementById('fAlertAbove').value = '';
     document.getElementById('subEntries').innerHTML = '';
     addSubEntry();
     document.getElementById('modalOverlay').classList.add('visible');
@@ -648,6 +671,8 @@ body {
     document.getElementById('fTreasuryShares').value = p.holdingTreasuryShares;
     document.getElementById('fAdjustedShares').value = p.holdingAdjustedShares || '';
     document.getElementById('fValidFrom').value = p.validFrom || '';
+    document.getElementById('fAlertBelow').value = p.alertBelow != null ? p.alertBelow : '';
+    document.getElementById('fAlertAbove').value = p.alertAbove != null ? p.alertAbove : '';
     document.getElementById('subEntries').innerHTML = '';
     p.subsidiaries.forEach(function(s) { addSubEntry(s.name, s.ticker, s.sharesHeld); });
     document.getElementById('modalOverlay').classList.add('visible');
@@ -703,6 +728,8 @@ body {
 
     var adjustedShares = parseInt(document.getElementById('fAdjustedShares').value);
     var validFrom = document.getElementById('fValidFrom').value.trim();
+    var alertBelow = parseFloat(document.getElementById('fAlertBelow').value);
+    var alertAbove = parseFloat(document.getElementById('fAlertAbove').value);
     var pair = {
       id: document.getElementById('fId').value.trim(),
       name: buildName(document.getElementById('fHoldingName').value.trim(), subs),
@@ -716,6 +743,8 @@ body {
       pair.holdingAdjustedShares = adjustedShares;
     }
     if (/^\d{4}-\d{2}-\d{2}$/.test(validFrom)) pair.validFrom = validFrom;
+    if (isFinite(alertBelow) && alertBelow > 0) pair.alertBelow = alertBelow;
+    if (isFinite(alertAbove) && alertAbove > 0) pair.alertAbove = alertAbove;
 
     var idx = parseInt(document.getElementById('editIdx').value);
 

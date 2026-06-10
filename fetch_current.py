@@ -41,6 +41,10 @@ KIS_PROXY_BASE_URL = os.environ.get("KIS_PROXY_BASE_URL", "http://cantabile.tpli
 KIS_PROXY_TIMEOUT = float(os.environ.get("KIS_PROXY_TIMEOUT", "10"))
 KIS_PROXY_REQUEST_INTERVAL = float(os.environ.get("KIS_PROXY_REQUEST_INTERVAL", "0.7"))
 
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
+DASHBOARD_URL = os.environ.get("DASHBOARD_URL", "https://ducklove.github.io/holding_value/")
+
 with open(CONFIG_PATH, encoding="utf-8") as f:
     PAIRS = json.load(f)
 
@@ -74,6 +78,8 @@ def request_json(url, method="GET", headers=None, payload=None, params=None, tim
         url = f"{url}?{urlencode(params)}"
     data = None
     request_headers = dict(headers or {})
+    # 일부 WAF가 urllib 기본 UA를 차단함 (KIS tokenP가 CI에서 403을 반환한 사례)
+    request_headers.setdefault("user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36")
     if payload is not None:
         data = json.dumps(payload).encode("utf-8")
         request_headers.setdefault("content-type", "application/json; charset=utf-8")
@@ -448,7 +454,7 @@ def merge_close_frames(base, frames):
     if not frames:
         return base
 
-    extra = pd.concat(frames, axis=1)
+    extra = pd.concat(frames, axis=1, sort=True)
     extra = extra.loc[:, ~extra.columns.duplicated()]
     if base.empty:
         return extra
@@ -462,7 +468,7 @@ def merge_close_frames(base, frames):
     if replace_columns:
         base = base.drop(columns=replace_columns)
 
-    merged = pd.concat([base, extra], axis=1)
+    merged = pd.concat([base, extra], axis=1, sort=True)
     return merged.loc[:, ~merged.columns.duplicated()]
 
 
@@ -625,6 +631,63 @@ def build_average_entry(pairs_result):
     }
 
 
+def build_alert_messages(pairs_result, previous_pairs_by_id, pair_config_map):
+    """비율이 알림 임계(alertBelow/alertAbove)를 '교차'한 종목의 메시지 목록.
+
+    직전 스냅샷에서 이미 같은 쪽에 있었으면 재발송하지 않는다
+    (10분 주기 중복 방지 — 상태 파일 없이 직전 스냅샷 비교로 해결).
+    """
+    messages = []
+    for entry in pairs_result:
+        pair_id = entry.get("id")
+        config = pair_config_map.get(pair_id)
+        if not config:
+            continue
+        ratio = entry.get("ratio")
+        if not isinstance(ratio, (int, float)):
+            continue
+        previous_ratio = (previous_pairs_by_id.get(pair_id) or {}).get("ratio")
+        below = config.get("alertBelow")
+        above = config.get("alertAbove")
+        name = config.get("name") or pair_id
+        if isinstance(below, (int, float)) and ratio < below:
+            if not (isinstance(previous_ratio, (int, float)) and previous_ratio < below):
+                messages.append(f"🔻 {name}: {ratio:.2f}% < 하한 {below:g}%")
+        if isinstance(above, (int, float)) and ratio > above:
+            if not (isinstance(previous_ratio, (int, float)) and previous_ratio > above):
+                messages.append(f"🔺 {name}: {ratio:.2f}% > 상한 {above:g}%")
+    return messages
+
+
+def maybe_send_alerts(pairs_result, previous_snapshot, now_local):
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    previous_by_id = {
+        pair.get("id"): pair
+        for pair in (previous_snapshot or {}).get("pairs", [])
+        if pair.get("id")
+    }
+    pair_config_map = {pair["id"]: pair for pair in PAIRS}
+    messages = build_alert_messages(pairs_result, previous_by_id, pair_config_map)
+    if not messages:
+        return
+    text = (
+        "📊 보유지분가치 임계 알림 (" + now_local.strftime("%m-%d %H:%M") + ")\n"
+        + "\n".join(messages)
+        + "\n" + DASHBOARD_URL
+    )
+    try:
+        request_json(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            method="POST",
+            payload={"chat_id": TELEGRAM_CHAT_ID, "text": text, "disable_web_page_preview": True},
+        )
+        print(f"  Telegram 알림 {len(messages)}건 발송")
+    except Exception as exc:
+        # 알림 실패가 스냅샷 생성을 막아서는 안 된다
+        print(f"  Telegram 알림 발송 실패: {exc}")
+
+
 def main():
     previous_snapshot = parse_existing_current()
     now_local = datetime.now(SEOUL_TZ)
@@ -705,6 +768,8 @@ def main():
     write_atomic(OUTPUT_JSON_PATH, json_content + "\n")
 
     print(f"\nGenerated {OUTPUT_PATH} and {OUTPUT_JSON_PATH} ({len(pairs_result)} pairs)")
+
+    maybe_send_alerts(pairs_result, previous_snapshot, now_local)
 
 
 if __name__ == "__main__":

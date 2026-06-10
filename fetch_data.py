@@ -41,6 +41,8 @@ MAX_SANE_RATIO = 1500.0
 STALE_PAIR_WARN_DAYS = 14
 # 증분 수집 시 가장 뒤처진 종목 기준 하한 (무한 후행 방지)
 INCREMENTAL_MAX_LOOKBACK_DAYS = 90
+# 백분위 칩 계산에 필요한 최소 표본 수
+PCTILE_MIN_POINTS = 30
 # 컬럼형 히스토리에 직렬화하는 행 필드 (date·subsidiaries 제외)
 HISTORY_COLUMNS = [
     "holdingPrice",
@@ -186,6 +188,34 @@ def downsample_history(history):
     return weekly + recent
 
 
+def trailing_percentile(history, days, min_points=PCTILE_MIN_POINTS):
+    """마지막 비율이 최근 days일 분포에서 차지하는 백분위(0~100, 정수).
+
+    3년(1095일) 창은 730일 이전 주간 다운샘플 구간을 포함하므로 근사치다.
+    표본이 min_points 미만이면 None.
+    """
+    if not history:
+        return None
+    latest = history[-1]
+    cutoff = (parse_date_key(latest["date"]) - timedelta(days=days)).strftime("%Y-%m-%d")
+    window = [entry["ratio"] for entry in history if entry["date"] >= cutoff]
+    if len(window) < min_points:
+        return None
+    rank = sum(1 for ratio in window if ratio <= latest["ratio"])
+    return round(rank / len(window) * 100)
+
+
+def annotate_current_percentiles(current, history):
+    """current에 pctile1y/pctile3y를 추가한다 (계산 불가 시 키 생략)."""
+    pctile_1y = trailing_percentile(history, 365)
+    pctile_3y = trailing_percentile(history, 1095)
+    if pctile_1y is not None:
+        current["pctile1y"] = pctile_1y
+    if pctile_3y is not None:
+        current["pctile3y"] = pctile_3y
+    return current
+
+
 def merge_pair_history(new_history, old_history, valid_from=""):
     """새 구간을 기존 히스토리에 병합한다. validFrom 이전 구간은 양쪽 모두 제거.
 
@@ -255,13 +285,8 @@ def build_average_pair(pairs_result, min_count=MIN_AVERAGE_COUNT):
     latest_avg = avg_history[-1]
     prev_avg = avg_history[-2] if len(avg_history) >= 2 else latest_avg
     avg_change = round(latest_avg["ratio"] - prev_avg["ratio"], 2)
-    return {
-        "id": "_average",
-        "name": "전체 중앙값",
-        "holdingName": "",
-        "subsidiaryName": "",
-        "isAverage": True,
-        "current": {
+    current = annotate_current_percentiles(
+        {
             "holdingPrice": 0,
             "subsidiaryPrice": 0,
             "holdingValue": 0,
@@ -271,6 +296,15 @@ def build_average_pair(pairs_result, min_count=MIN_AVERAGE_COUNT):
             "count": latest_avg.get("count"),
             "ratioChange": avg_change,
         },
+        avg_history,
+    )
+    return {
+        "id": "_average",
+        "name": "전체 중앙값",
+        "holdingName": "",
+        "subsidiaryName": "",
+        "isAverage": True,
+        "current": current,
         "history": avg_history,
     }
 
@@ -443,7 +477,7 @@ def merge_close_frames(base, frames):
     if not frames:
         return base
 
-    extra = pd.concat(frames, axis=1)
+    extra = pd.concat(frames, axis=1, sort=True)
     extra = extra.loc[:, ~extra.columns.duplicated()]
     if base.empty:
         return extra
@@ -457,7 +491,7 @@ def merge_close_frames(base, frames):
     if replace_columns:
         base = base.drop(columns=replace_columns)
 
-    merged = pd.concat([base, extra], axis=1)
+    merged = pd.concat([base, extra], axis=1, sort=True)
     return merged.loc[:, ~merged.columns.duplicated()]
 
 
@@ -843,6 +877,8 @@ def main():
                     "ratio": sub["ratio"],
                 })
             current["subsidiaries"] = current_subs
+
+        annotate_current_percentiles(current, history)
 
         pair_data = {
             "id": pair["id"],
