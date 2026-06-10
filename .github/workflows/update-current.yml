@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-current-prices
+  group: data-commit
   cancel-in-progress: false
 
 jobs:
@@ -24,9 +24,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install yfinance pandas
+        run: pip install -r requirements.txt
 
       - name: Fetch current prices
         env:
@@ -34,6 +35,7 @@ jobs:
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
           KIS_TOKEN_PATH: ${{ runner.temp }}/kis_token.json
           KIS_PROXY_REQUEST_INTERVAL: "0.7"
+          KIS_PROXY_BASE_URL: ${{ vars.KIS_PROXY_BASE_URL || 'http://cantabile.tplinkdns.com:3288' }}
         run: python fetch_current.py
 
       - name: Commit and push if changed
@@ -43,5 +45,12 @@ jobs:
           git diff --quiet current.js current.json 2>/dev/null || {
             git add current.js current.json
             git commit -m "Update current prices ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M'))"
-            git push
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin master && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push retry ${attempt}"
+              sleep $((attempt * 2))
+            done
+            echo "ERROR: push failed after retries" >&2
+            exit 1
           }

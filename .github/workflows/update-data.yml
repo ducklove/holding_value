@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -25,12 +29,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Backup previous data
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-backup-${{ github.run_id }}
+          path: data.js
+          retention-days: 90
+          if-no-files-found: warn
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install yfinance pandas
+        run: pip install -r requirements.txt
 
       - name: Fetch data
         env:
@@ -49,5 +62,12 @@ jobs:
           git diff --quiet data.js || {
             git add data.js
             git commit -m "자동 업데이트: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M') 데이터 갱신"
-            git push
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin master && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push retry ${attempt}"
+              sleep $((attempt * 2))
+            done
+            echo "ERROR: push failed after retries" >&2
+            exit 1
           }
