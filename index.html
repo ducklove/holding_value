@@ -1054,13 +1054,64 @@ tr:hover { background: var(--surface2); }
   </div>
 </div>
 
-<script src="data.js"></script>
 <script src="current.js" onerror=""></script>
 <script>
 window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 </script>
 <script>
-(function() {
+// 분할 데이터(data/summary.json + data/history/*.json 지연 로드) 우선, 실패 시 data.js 폴백.
+// 첫 화면은 요약(~25KB)만으로 그리고, 차트 히스토리는 선택 종목만 받아온다.
+window.__dashboardData = (function() {
+  function fromSplit() {
+    return fetch('data/summary.json', { cache: 'no-store' })
+      .then(function(res) {
+        if (!res.ok) throw new Error('summary HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(summary) {
+        if (!summary || !Array.isArray(summary.pairs) || !summary.pairs.length) {
+          throw new Error('summary 비어 있음');
+        }
+        var pairs = summary.pairs.map(function(pair) {
+          return Object.assign({}, pair, { history: [] });
+        });
+        return {
+          lastUpdated: summary.lastUpdated,
+          pairs: pairs,
+          __split: true,
+          __version: encodeURIComponent(summary.lastUpdated || ''),
+        };
+      });
+  }
+  function fromLegacy() {
+    return new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'data.js';
+      script.onload = function() {
+        if (typeof STOCK_DATA !== 'undefined') resolve(STOCK_DATA);
+        else reject(new Error('STOCK_DATA 없음'));
+      };
+      script.onerror = function() { reject(new Error('data.js 로드 실패')); };
+      document.head.appendChild(script);
+    });
+  }
+  return fromSplit().catch(function(err) {
+    console.warn('분할 데이터 로드 실패, data.js로 폴백:', err);
+    return fromLegacy();
+  });
+})();
+</script>
+<script>
+window.__dashboardData.then(
+  function(stockData) { startDashboard(stockData); },
+  function(err) {
+    document.getElementById('lastUpdated').textContent =
+      '데이터 로드 실패: ' + (err && err.message ? err.message : err);
+  }
+);
+
+function startDashboard(STOCK_DATA) {
+  window.STOCK_DATA = STOCK_DATA; // 콘솔 디버깅/외부 접근용
   const pairs = STOCK_DATA.pairs;
   const queryParams = new URLSearchParams(location.search);
   const initialCode = (queryParams.get('code') || '').trim();
@@ -1077,6 +1128,9 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   const LIVE_FETCH_BATCH_SIZE = 20;
   const LIVE_FETCH_BATCH_CONCURRENCY = 2;
   const MIN_ZOOM_SPAN = 0.04;
+  // 분할 히스토리(컬럼형) 행 필드와 진행 중 요청 캐시 — init에서 바로 쓰므로 상단 선언
+  const HISTORY_COLUMNS = ['holdingPrice', 'subsidiaryPrice', 'holdingValue', 'marketCap', 'ratio', 'sma250', 'ema01', 'mean', 'count'];
+  const historyRequests = {};
   let holdingCodePromise = null;
   let holdingConfigPromise = null;
   let holdingConfigById = null;
@@ -1104,14 +1158,21 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   todayOverviewData = buildTodaySummary();
 
   // --- Init ---
+  // 분할 모드면 카드/표를 즉시 그리고, 평균·선택 종목 히스토리만 받아 차트를 그린다.
   updateLastUpdatedText();
   renderTodayOverview();
   renderCards();
   renderTable();
-  renderChart();
-  renderPriceChart();
-  renderStats();
-  hasRendered = true;
+  Promise.all([
+    ensureHistory(pairs.find(function(pair) { return pair.isAverage; })),
+    ensureHistory(pairs[selectedIdx]),
+  ]).then(function() {
+    renderTodayOverview(); // 평균 스파크라인은 히스토리 하이드레이션 후 갱신
+    renderChart();
+    renderPriceChart();
+    renderStats();
+    hasRendered = true;
+  });
   bindPeriodBtns();
   bindPricePeriodBtns();
   bindDataZoomControls();
@@ -1179,6 +1240,64 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     latestSnapshotVersion = Math.max(latestSnapshotVersion || 0, latestAppliedSnapshotMs || 0);
     todayOverviewData = buildTodaySummary(currentData);
     return true;
+  }
+
+  // --- 분할 히스토리 지연 로드 ---
+  function ensureHistory(pair) {
+    if (!pair || !STOCK_DATA.__split || (pair.history && pair.history.length)) {
+      return Promise.resolve(pair);
+    }
+    if (historyRequests[pair.id]) return historyRequests[pair.id];
+    historyRequests[pair.id] = fetch('data/history/' + encodeURIComponent(pair.id) + '.json?v=' + STOCK_DATA.__version)
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(columnar) {
+        pair.history = rowsFromColumnar(columnar);
+        applyLiveToHistory(pair);
+        return pair;
+      })
+      .catch(function(err) {
+        delete historyRequests[pair.id];
+        console.warn('히스토리 로드 실패: ' + pair.id, err);
+        return pair;
+      });
+    return historyRequests[pair.id];
+  }
+
+  function rowsFromColumnar(columnar) {
+    const dates = columnar.dates || [];
+    const subNames = columnar.subs ? Object.keys(columnar.subs) : [];
+    const rows = new Array(dates.length);
+    for (let i = 0; i < dates.length; i++) {
+      const row = { date: dates[i] };
+      for (const key of HISTORY_COLUMNS) {
+        if (columnar[key]) row[key] = columnar[key][i];
+      }
+      if (subNames.length) {
+        const subs = [];
+        for (const name of subNames) {
+          const series = columnar.subs[name];
+          if (series.price[i] == null && series.value[i] == null && series.ratio[i] == null) continue;
+          subs.push({ name: name, price: series.price[i], value: series.value[i], ratio: series.ratio[i] });
+        }
+        if (subs.length) row.subsidiaries = subs;
+      }
+      rows[i] = row;
+    }
+    return rows;
+  }
+
+  // 늦게 하이드레이션된 히스토리에 최신 스냅샷의 오늘 포인트를 반영
+  function applyLiveToHistory(pair) {
+    const snapshot = window.CURRENT_DATA;
+    if (!snapshot || !Array.isArray(snapshot.pairs)) return;
+    const live = snapshot.pairs.find(function(entry) { return entry.id === pair.id; });
+    if (!live) return;
+    if (pair.isAverage && live.count === undefined) return; // 구버전(단순평균) 스냅샷 제외
+    const today = (snapshot.lastUpdated || STOCK_DATA.lastUpdated || '').slice(0, 10);
+    upsertTodayHistory(pair, live, today);
   }
 
   async function loadCurrentSnapshotFile() {
@@ -2187,6 +2306,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   function renderStats() {
     const p = pairs[selectedIdx];
     const hist = getFilteredHistory(p);
+    if (!hist.length) {
+      document.getElementById('statsRow').innerHTML = '';
+      return;
+    }
     const ratios = hist.map(h => h.ratio);
     const min = Math.min(...ratios);
     const max = Math.max(...ratios);
@@ -2233,6 +2356,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     updateDataZoom('ratio', baseHist, ratioZoom);
     const hist = applyZoomToHistory(baseHist, ratioZoom);
     if (hist.length < 2) {
+      ctx.clearRect(0, 0, W, H); // 하이드레이션 대기 중 직전 종목 차트 잔상 제거
       renderChartLegend([], legendEl);
       return;
     }
@@ -2435,7 +2559,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     const baseHist = filterHistoryByDays(p.history, pricePeriodDays);
     updateDataZoom('price', baseHist, priceZoom);
     const hist = applyZoomToHistory(baseHist, priceZoom);
-    if (hist.length < 2) return;
+    if (hist.length < 2) {
+      ctx.clearRect(0, 0, W, H);
+      return;
+    }
 
     const prices = hist.map(h => h.holdingPrice);
     const minP = Math.min(...prices);
@@ -2775,6 +2902,15 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     renderChart();
     renderPriceChart();
     renderStats();
+    const selectedPair = pairs[selectedIdx];
+    if (selectedPair && (!selectedPair.history || !selectedPair.history.length)) {
+      ensureHistory(selectedPair).then(function() {
+        if (pairs[selectedIdx] !== selectedPair) return; // 대기 중 선택 변경
+        renderChart();
+        renderPriceChart();
+        renderStats();
+      });
+    }
     if (opts.syncUrl) syncSelectedCodeToUrl();
     if (opts.scroll) scrollToRatioChart();
   }
@@ -3176,7 +3312,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
   // Resize
   window.addEventListener('resize', () => { renderChart(); renderPriceChart(); });
-})();
+}
 </script>
 </body>
 </html>
