@@ -1138,11 +1138,20 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     for (const pair of pairs) {
       const live = currentMap[pair.id];
       if (!live) continue;
+      if (pair.isAverage && live.count === undefined) {
+        // 구버전(단순평균) 스냅샷은 중앙값 지표·히스토리를 덮어쓰지 않고 참고값으로만 반영
+        pair.current.mean = live.ratio;
+        continue;
+      }
       const lastHist = pair.history.length > 0 ? pair.history[pair.history.length - 1] : null;
       pair.current.ratio = live.ratio;
       pair.current.ratioChange = live.ratioChange !== undefined && live.ratioChange !== null
         ? live.ratioChange
         : lastHist ? +(live.ratio - lastHist.ratio).toFixed(2) : 0;
+      if (pair.isAverage) {
+        if (live.count !== undefined) pair.current.count = live.count;
+        if (live.mean !== undefined) pair.current.mean = live.mean;
+      }
       if (!pair.isAverage) {
         pair.current.holdingPrice = live.holdingPrice;
         if (live.holdingChange !== undefined) {
@@ -1461,6 +1470,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     if (!today || !pair.history || !pair.history.length) return;
     if (pair.isAverage) {
       const averageEntry = { date: today, ratio: live.ratio };
+      if (live.count !== undefined) averageEntry.count = live.count;
+      if (live.mean !== undefined) averageEntry.mean = live.mean;
       const lastAverage = pair.history[pair.history.length - 1];
       if (lastAverage && lastAverage.date === today) {
         Object.assign(lastAverage, averageEntry);
@@ -1515,10 +1526,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     });
     const averageRatio = avgPair && typeof avgPair.current.ratio === 'number'
       ? avgPair.current.ratio
-      : ratioPairs.reduce(function(sum, pair) { return sum + pair.current.ratio; }, 0) / Math.max(1, ratioPairs.length);
+      : medianOf(ratioPairs.map(function(pair) { return pair.current.ratio; }));
     const averageRatioChange = avgPair && typeof avgPair.current.ratioChange === 'number'
       ? avgPair.current.ratioChange
-      : changePairs.reduce(function(sum, pair) { return sum + pair.current.ratioChange; }, 0) / Math.max(1, changePairs.length);
+      : medianOf(changePairs.map(function(pair) { return pair.current.ratioChange; }));
     const averageHoldingChange = holdingChangePairs.reduce(function(sum, pair) {
       return sum + pair.current.holdingChange;
     }, 0) / Math.max(1, holdingChangePairs.length);
@@ -1642,6 +1653,8 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     const el = document.getElementById('todayOverview');
     if (!el) return;
     const summary = todayOverviewData || buildTodaySummary(window.CURRENT_DATA);
+    const avgPairRef = pairs.find(function(pair) { return pair.isAverage; });
+    const avgCount = (avgPairRef && avgPairRef.current && avgPairRef.current.count) || summary.representativeCount || 0;
     const avgDir = getDirectionClass(summary.averageRatioChange);
     const holdingDir = getDirectionClass(summary.averageHoldingChange);
     const subDir = getDirectionClass(summary.averageSubsidiaryChange);
@@ -1660,9 +1673,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
         <div class="overview-card primary average-card">
           <div class="average-card-body">
             <div class="average-main-metric">
-              <div class="overview-label">평균 지분가치 비율</div>
+              <div class="overview-label">지분가치 비율 중앙값</div>
               <div class="overview-value">${formatRatio(summary.averageRatio)}</div>
               <div class="overview-change ${avgDir}">${formatSignedPoints(summary.averageRatioChange)}</div>
+              <div class="overview-points">${avgCount ? '구성 ' + avgCount + '종목 중앙값' : ''}</div>
             </div>
             ${renderAverageSparkline()}
           </div>
@@ -1933,17 +1947,20 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       if (entry) livePairs.push(entry);
     });
     if (!livePairs.length) throw new Error('KIS 프록시 현재가를 가져오지 못했습니다.');
-    const averageRatio = livePairs.reduce(function(sum, pair) { return sum + pair.ratio; }, 0) / livePairs.length;
     const ratioChangePairs = livePairs.filter(function(pair) {
       return typeof pair.ratioChange === 'number' && Number.isFinite(pair.ratioChange);
     });
-    const averageRatioChange = ratioChangePairs.length
-      ? ratioChangePairs.reduce(function(sum, pair) { return sum + pair.ratioChange; }, 0) / ratioChangePairs.length
-      : null;
+    const ratioValues = livePairs.map(function(pair) { return pair.ratio; });
+    const medianRatio = medianOf(ratioValues);
+    const meanRatio = ratioValues.reduce(function(sum, v) { return sum + v; }, 0) / ratioValues.length;
+    const changeValues = ratioChangePairs.map(function(pair) { return pair.ratioChange; });
+    const medianChange = changeValues.length ? medianOf(changeValues) : null;
     livePairs.push({
       id: '_average',
-      ratio: +averageRatio.toFixed(2),
-      ratioChange: averageRatioChange == null ? null : +averageRatioChange.toFixed(2),
+      ratio: +medianRatio.toFixed(2),
+      mean: +meanRatio.toFixed(2),
+      count: ratioValues.length,
+      ratioChange: medianChange == null ? null : +medianChange.toFixed(2),
       quoteSource: 'derived',
     });
     const now = new Date();
@@ -2140,7 +2157,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       const barW = (c.ratio / maxRatio * 100).toFixed(1);
       if (p.isAverage) {
         return `<tr style="border-top:2px solid var(--accent);border-bottom:2px solid var(--accent);background:var(--surface2)">
-          <td><strong>${p.name}</strong></td>
+          <td><strong>${escapeHtml(p.name)}</strong></td>
           <td></td>
           <td></td>
           <td></td>
@@ -2151,10 +2168,10 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
         </tr>`;
       }
       const subPrice = c.subsidiaries
-        ? c.subsidiaries.map(s => `${s.name} ${renderPriceCell(s.price, s.change)}`).join('<br>')
+        ? c.subsidiaries.map(s => `${escapeHtml(s.name)} ${renderPriceCell(s.price, s.change)}`).join('<br>')
         : renderPriceCell(c.subsidiaryPrice, c.subsidiaryChange);
       return `<tr>
-        <td><strong>${p.name}</strong></td>
+        <td><strong>${escapeHtml(p.name)}</strong></td>
         <td>${renderPriceCell(c.holdingPrice, c.holdingChange)}</td>
         <td>${subPrice}</td>
         <td>${formatOk(c.holdingValue)}</td>
@@ -2230,9 +2247,11 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     const maxS = Math.max(...rangeValues);
     const isStacked = stackedSubs.length > 1;
     const minS = isStacked ? 0 : Math.min(...rangeValues);
-    const chartPadding = Math.max(maxS - minS, maxS, 1) * 0.05;
-    const chartMin = isStacked ? 0 : Math.min(minS, 100) - chartPadding;
-    const chartMax = Math.max(maxS, 100) + chartPadding;
+    const dataSpan = Math.max(maxS - minS, 1);
+    const include100 = 100 >= minS - dataSpan * 0.5 && 100 <= maxS + dataSpan * 0.5;
+    const chartPadding = Math.max(maxS - minS, 1) * 0.05;
+    const chartMin = (isStacked ? 0 : (include100 ? Math.min(minS, 100) : minS) - chartPadding);
+    const chartMax = (include100 ? Math.max(maxS, 100) : maxS) + chartPadding;
     const rangeS = chartMax - chartMin || 1;
     const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length;
 
@@ -2314,7 +2333,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
     // Tooltip interaction
     const tooltip = document.getElementById('tooltip');
-    canvas.onmousemove = function(e) {
+    canvas.onpointermove = function(e) {
       const r = canvas.getBoundingClientRect();
       const mx = e.clientX - r.left;
       const my = e.clientY - r.top;
@@ -2333,16 +2352,19 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       let ttRows;
       if (p.isAverage) {
         ttRows = `<div class="tt-row"><span><strong>비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
+        if (typeof d.count === 'number') {
+          ttRows += `<div class="tt-row"><span>구성 종목</span><span>${d.count}개</span></div>`;
+        }
       } else if (Array.isArray(d.subsidiaries) && d.subsidiaries.length > 1) {
-        ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
+        ttRows = `<div class="tt-row"><span>${escapeHtml(p.holdingName)}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
         d.subsidiaries.forEach(function(sub) {
-          ttRows += `<div class="tt-row"><span>${sub.name}</span><span>${formatRatio(sub.ratio)}</span></div>`;
+          ttRows += `<div class="tt-row"><span>${escapeHtml(sub.name)}</span><span>${formatRatio(sub.ratio)}</span></div>`;
         });
         ttRows += `<div class="tt-row"><span><strong>총 비율</strong></span><span><strong>${d.ratio.toFixed(2)}%</strong></span></div>`;
       } else {
-        ttRows = `<div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
+        ttRows = `<div class="tt-row"><span>${escapeHtml(p.holdingName)}</span><span>${formatPrice(d.holdingPrice)}</span></div>`;
         if (d.subsidiaryPrice) {
-          ttRows += `<div class="tt-row"><span>${p.subsidiaryName}</span><span>${formatPrice(d.subsidiaryPrice)}</span></div>`;
+          ttRows += `<div class="tt-row"><span>${escapeHtml(p.subsidiaryName)}</span><span>${formatPrice(d.subsidiaryPrice)}</span></div>`;
         }
         ttRows += `<div class="tt-row"><span>보유지분가치</span><span>${formatOk(d.holdingValue)}</span></div>
            <div class="tt-row"><span>조정시가총액</span><span>${formatOk(d.marketCap)}</span></div>
@@ -2367,7 +2389,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       tooltip.style.left = tx + 'px';
       tooltip.style.top = ty + 'px';
     };
-    canvas.onmouseleave = function() {
+    canvas.onpointerleave = function() {
       tooltip.classList.remove('visible');
     };
   }
@@ -2496,7 +2518,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
     // Tooltip
     const tooltip = document.getElementById('priceTooltip');
-    canvas.onmousemove = function(e) {
+    canvas.onpointermove = function(e) {
       const r = canvas.getBoundingClientRect();
       const mx = e.clientX - r.left;
       const my = e.clientY - r.top;
@@ -2519,7 +2541,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
 
       tooltip.innerHTML = `
         <div class="tt-date">${d.date}</div>
-        <div class="tt-row"><span>${p.holdingName}</span><span>${formatPrice(d.holdingPrice)}</span></div>
+        <div class="tt-row"><span>${escapeHtml(p.holdingName)}</span><span>${formatPrice(d.holdingPrice)}</span></div>
         <div class="tt-row"><span>전일 대비</span><span class="${changeDir}-color">${arrow} ${Math.abs(changePct).toFixed(2)}%</span></div>
       `;
 
@@ -2531,7 +2553,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
       tooltip.style.top = ty + 'px';
       tooltip.classList.add('visible');
     };
-    canvas.onmouseleave = function() {
+    canvas.onpointerleave = function() {
       tooltip.classList.remove('visible');
     };
   }
@@ -2715,6 +2737,13 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
   // --- Helpers ---
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
+  }
+
+  function medianOf(values) {
+    if (!values || !values.length) return NaN;
+    const sorted = values.slice().sort(function(a, b) { return a - b; });
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   }
 
   function getStackedSubsidiarySeries(hist) {
@@ -2928,7 +2957,7 @@ window.CURRENT_DATA = typeof CURRENT_DATA === 'undefined' ? null : CURRENT_DATA;
     } else {
       items.push({ label: '비율', color: colors.accent });
     }
-    items.push({ label: '전체 평균', color: colors.avgLine });
+    items.push({ label: '기간 평균', color: colors.avgLine });
     items.push({ label: 'SMA 250일', color: colors.smaLine });
     items.push({ label: 'EMA α=0.1', color: colors.emaLine });
     return items;
