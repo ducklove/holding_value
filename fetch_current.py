@@ -78,6 +78,8 @@ def request_json(url, method="GET", headers=None, payload=None, params=None, tim
         url = f"{url}?{urlencode(params)}"
     data = None
     request_headers = dict(headers or {})
+    # 일부 WAF가 urllib 기본 UA를 차단함 (KIS tokenP가 CI에서 403을 반환한 사례)
+    request_headers.setdefault("user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36")
     if payload is not None:
         data = json.dumps(payload).encode("utf-8")
         request_headers.setdefault("content-type", "application/json; charset=utf-8")
