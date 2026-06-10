@@ -6,6 +6,7 @@ Generate the current.js snapshot for the holding value dashboard.
 import json
 import os
 import re
+import statistics
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -386,6 +387,12 @@ def deep_copy_json(value):
     return json.loads(json.dumps(value))
 
 
+def write_atomic(path, content):
+    tmp_path = path.with_name(path.name + ".tmp")
+    tmp_path.write_text(content, encoding="utf-8")
+    os.replace(tmp_path, path)
+
+
 def build_previous_pair_map(previous_snapshot, current_session):
     if not same_session(previous_snapshot, current_session):
         return {}
@@ -594,11 +601,15 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
 
 
 def build_average_entry(pairs_result):
+    """전체 지표 엔트리. 대표값은 중앙값(ratio), 평균은 mean으로 병기.
+
+    일별 배치(fetch_data.build_average_history)와 같은 정의를 유지해야 한다.
+    """
     live_pairs = [pair for pair in pairs_result if pair.get("id") != "_average"]
     if not live_pairs:
         return None
 
-    avg_ratio = sum(pair["ratio"] for pair in live_pairs) / len(live_pairs)
+    ratios = [pair["ratio"] for pair in live_pairs]
     ratio_changes = [
         pair["ratioChange"]
         for pair in live_pairs
@@ -606,8 +617,10 @@ def build_average_entry(pairs_result):
     ]
     return {
         "id": "_average",
-        "ratio": round(avg_ratio, 2),
-        "ratioChange": round(sum(ratio_changes) / len(ratio_changes), 2) if ratio_changes else None,
+        "ratio": round(statistics.median(ratios), 2),
+        "mean": round(sum(ratios) / len(ratios), 2),
+        "count": len(live_pairs),
+        "ratioChange": round(statistics.median(ratio_changes), 2) if ratio_changes else None,
         "quoteSource": "derived",
     }
 
@@ -686,12 +699,10 @@ def main():
         "pairs": pairs_result,
     }
 
-    json_content = json.dumps(current_data, ensure_ascii=False, indent=2)
+    json_content = json.dumps(current_data, ensure_ascii=False, separators=(",", ":"))
     js_content = "const CURRENT_DATA = " + json_content + ";\n"
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        f.write(js_content)
-    with open(OUTPUT_JSON_PATH, "w", encoding="utf-8") as f:
-        f.write(json_content + "\n")
+    write_atomic(OUTPUT_PATH, js_content)
+    write_atomic(OUTPUT_JSON_PATH, json_content + "\n")
 
     print(f"\nGenerated {OUTPUT_PATH} and {OUTPUT_JSON_PATH} ({len(pairs_result)} pairs)")
 
