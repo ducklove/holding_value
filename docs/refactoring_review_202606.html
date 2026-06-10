@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지주사 보유지분가치 대시보드 — 구조·품질 리뷰 및 리팩토링 로드맵 (2026-06)</title>
+<style>
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --border: #d9e0ec;
+  --text: #1b2436;
+  --dim: #5d6880;
+  --accent: #315bdb;
+  --green: #1f9a54;
+  --red: #c93b34;
+  --orange: #d97a1a;
+  --yellow: #b08a00;
+  --code-bg: #eef2f9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px;
+}
+.wrap { max-width: 980px; margin: 0 auto; padding: 36px 24px 80px; }
+header.report-head {
+  border-bottom: 3px solid var(--accent); padding-bottom: 18px; margin-bottom: 28px;
+}
+.kicker { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { font-size: 27px; letter-spacing: -0.5px; margin-top: 6px; }
+.meta { color: var(--dim); font-size: 13px; margin-top: 8px; }
+.meta span + span::before { content: " · "; }
+h2 {
+  font-size: 21px; margin: 44px 0 14px; padding-top: 18px;
+  border-top: 1px solid var(--border); letter-spacing: -0.3px;
+}
+h2 .num { color: var(--accent); margin-right: 8px; }
+h3 { font-size: 16.5px; margin: 26px 0 10px; }
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0 10px 22px; }
+li { margin: 5px 0; }
+section { scroll-margin-top: 16px; }
+code {
+  background: var(--code-bg); border-radius: 4px; padding: 1px 6px;
+  font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 13px;
+}
+pre {
+  background: #182032; color: #dde5f4; border-radius: 10px;
+  padding: 16px 18px; overflow-x: auto; font-size: 12.5px; line-height: 1.55;
+  margin: 12px 0;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13.5px; background: var(--surface); }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #eef2f9; font-size: 12.5px; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; margin: 14px 0;
+}
+.grade-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.grade {
+  flex: 1 1 140px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+}
+.grade .g-label { font-size: 12px; color: var(--dim); }
+.grade .g-value { font-size: 22px; font-weight: 800; margin-top: 2px; }
+.g-a { color: var(--green); } .g-b { color: var(--accent); }
+.g-c { color: var(--orange); } .g-d { color: var(--red); }
+.badge {
+  display: inline-block; border-radius: 999px; font-size: 11px; font-weight: 700;
+  padding: 2px 9px; white-space: nowrap; vertical-align: middle;
+}
+.b-crit { background: #fbe4e2; color: var(--red); border: 1px solid #efb7b3; }
+.b-high { background: #fdeede; color: var(--orange); border: 1px solid #f0cda4; }
+.b-med  { background: #faf3d4; color: var(--yellow); border: 1px solid #e4d391; }
+.b-low  { background: #e3edff; color: var(--accent); border: 1px solid #bcd0f7; }
+.b-good { background: #e0f3e8; color: var(--green); border: 1px solid #b2dfc4; }
+.b-effort { background: #eef2f9; color: var(--dim); border: 1px solid var(--border); }
+.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; }
+.toc ol { margin-left: 18px; }
+.toc a { color: var(--accent); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.flow {
+  display: grid; gap: 10px; margin: 16px 0;
+}
+.flow-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+.node {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; font-size: 13px; flex: 1 1 150px;
+}
+.node b { display: block; font-size: 13.5px; }
+.node small { color: var(--dim); display: block; margin-top: 2px; line-height: 1.45; }
+.node.src { border-left: 4px solid var(--dim); }
+.node.job { border-left: 4px solid var(--accent); }
+.node.art { border-left: 4px solid var(--green); }
+.node.ui  { border-left: 4px solid var(--orange); }
+.arrow { text-align: center; color: var(--dim); font-size: 18px; line-height: 1; }
+.callout { border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 14px 0; }
+.callout.warn { border-left-color: var(--red); }
+.callout.tip { border-left-color: var(--green); }
+.small-dim { color: var(--dim); font-size: 12.5px; }
+.issue-title { font-weight: 700; }
+.file-ref { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 12px; color: var(--dim); }
+@media print {
+  body { background: #fff; }
+  pre { white-space: pre-wrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="report-head">
+  <div class="kicker">Code Review &amp; Roadmap</div>
+  <h1>지주사 보유지분가치 대시보드 — 전체 구조·품질 리뷰 및 리팩토링 로드맵</h1>
+  <div class="meta">
+    <span>저장소: ducklove/holding_value</span>
+    <span>작성일: 2026-06-10</span>
+    <span>분석 범위: 전체 소스 (index.html, admin.html, fetch_data.py, fetch_current.py, price_api.py, build_holdings_api.py, workflows)</span>
+    <span>자매 보고서: common_preferred_spread 리뷰(2026-06)와 동일 체계</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>목차</b>
+  <ol>
+    <li><a href="#summary">요약 (Executive Summary)</a></li>
+    <li><a href="#arch">시스템 아키텍처와 데이터 흐름</a></li>
+    <li><a href="#quality">컴포넌트별 품질 평가</a></li>
+    <li><a href="#issues">발견된 이슈 (심각도순)</a></li>
+    <li><a href="#roadmap">리팩토링 로드맵 (Phase 0~3)</a></li>
+    <li><a href="#features">추가 기능 제언</a></li>
+    <li><a href="#cps">common_preferred_spread와의 정합·공통 모듈 전략</a></li>
+    <li><a href="#appendix">부록: 권장 구조 / 데이터 스키마 / 워크플로우 보강</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<section id="summary">
+<h2><span class="num">1.</span>요약 (Executive Summary)</h2>
+
+<p>
+이 프로젝트는 <b>지주회사의 "상장 자회사 보유지분가치 ÷ 자사 조정시가총액" 비율을 추적하는 정적 대시보드</b>로,
+common_preferred_spread와 동일한 "GitHub Actions 수집 + 저장소 = DB + GitHub Pages 서빙" 구조입니다.
+다중 자회사 스택 차트, 해외 종목 환율 변환(버크셔·애플), 주·야간 세션 인지 스냅샷 보존,
+SMA250/EMA 추세선과 백분위 통계 등 <b>기능 밀도는 높고, 자매 프로젝트의 일부 문제(캐시 무효화, 장중 워크플로우 동시성)는
+이미 개선된 형태</b>로 만들어져 있습니다.
+</p>
+<p>
+반면 이 프로젝트 고유의 구조적 결함이 명확하며, 핵심은 네 가지입니다:
+<b>(1) 현재 시점의 지분 구조를 전 기간에 소급 적용해 헤드라인 지표(전체 평균)가 과거 구간에서 최대 5.3배 왜곡됨(실측)</b>,
+<b>(2) 신규 종목 1개만 추가해도 49개 전 종목 히스토리가 그 시점 Yahoo 조정가로 통째로 재작성되는 파이프라인</b>,
+<b>(3) 27.2MB data.js(이 중 공백 13.5MB)를 매 방문 동기 로드·파싱</b>,
+<b>(4) 시세 수집의 사실상 전부(49종목 중 48개 실측)가 개인 DDNS의 평문 HTTP 프록시 한 대에 의존 + 테스트 0개·의존성 미고정</b>입니다.
+</p>
+
+<div class="grade-row">
+  <div class="grade"><div class="g-label">기능 완성도 / 도메인 로직</div><div class="g-value g-b">B+</div></div>
+  <div class="grade"><div class="g-label">코드 구조 / 유지보수성</div><div class="g-value g-c">C+</div></div>
+  <div class="grade"><div class="g-label">성능 (초기 로드)</div><div class="g-value g-c">C−</div></div>
+  <div class="grade"><div class="g-label">데이터 무결성 / 운영 안전망</div><div class="g-value g-d">D</div></div>
+  <div class="grade"><div class="g-label">보안</div><div class="g-value g-c">C−</div></div>
+</div>
+
+<div class="callout warn">
+<b>지금 당장 확인이 필요한 사실 (저장소 실데이터로 검증 완료):</b><br>
+① <code>data.js</code>의 세아홀딩스 비율은 <b>2002-07-26에 4,006.44%</b>로 기록되어 있습니다.
+자회사로 등록된 세아베스틸지주(001430)는 <b>2022년에 설립</b>된 회사로, 현재 보유주식수 2,214만 주를
+20년 전 가격에 소급 곱한 <b>허구값</b>입니다. 이 한 종목 때문에 그날의 "전체 평균"은
+<b>682.0%</b>로 기록되어 있으며, 세아를 제외하면 <b>127.9%</b>입니다(5.3배 왜곡).
+② 신규 종목 추가는 <code>fetch_data.py</code>의 전체 재빌드를 트리거하므로(2025-05 bio_smart,
+2025-12 kpf_tmc 추가 시 최소 2회 발생), 전 종목의 과거 비율이 재빌드 시점의 배당·분할 조정가로
+매번 다시 계산됩니다. <b>대시보드의 과거 값은 고정된 기록이 아닙니다.</b>
+상세 경로는 <a href="#issues">이슈 C1·C2</a> 참고.
+</div>
+
+<h3>잘 되어 있는 점</h3>
+<ul>
+  <li><b>의존성 제로 프런트엔드 + 풍부한 차트 UX</b> — 다중 자회사 누적(스택) 영역 차트, 데이터줌(드래그·핸들·더블클릭 리셋), SMA250/EMA 오버레이, 백분위 통계 박스, 다크/라이트 테마, iframe 임베드(<code>?embed</code>), URL 상태 공유(<code>?code=</code>).</li>
+  <li><b>세션 인지 스냅샷 보존</b> — <code>fetch_current.py</code>가 KST 주간(kr_day)/미국 야간(us_night) 세션을 판별하고, 같은 세션의 직전 정상값만 재사용(<code>cached_same_session</code>)하며 구성 변경 시 캐시 호환성까지 검사. 스냅샷 버전 단조성 가드(<code>getSnapshotVersion</code>)도 프런트에 있음.</li>
+  <li><b>다층 시세 폴백</b> — 일별: 내부 가격 API → yfinance(청크 → 6패스 개별 재시도 → KS/KQ 접미사 교차 폴백). 장중: KIS Open API → KIS 프록시 → yfinance, 소스 라벨(<code>quoteSource</code>) 추적.</li>
+  <li><b>증분 병합과 추세선 증분 재계산</b> — 마지막 날짜−5일 중첩 재수집, 변경 시작점부터만 SMA/EMA 재계산(<code>trend_recompute_idx</code>), 730일 이전 주간 다운샘플로 데이터 총량 관리.</li>
+  <li><b>자매 프로젝트 대비 이미 개선된 점</b> — data.js에 캐시버스터를 붙이지 않아 브라우저 304 재검증이 동작(전송은 일 1회 ~2.2MB gzip), 장중 워크플로우에 <code>concurrency</code> 그룹 존재, 거대 단일 파일 대신 Python이 4개 파일로 분리.</li>
+</ul>
+
+<h3>핵심 권고 (한 줄씩)</h3>
+<ol>
+  <li><b>Phase 0 (즉시)</b>: 데이터 스냅샷 백업 + "신규 종목만 풀 수집" 전환 + 시작일 후퇴 금지 가드 + 의존성 고정 + 워크플로우 공통 동시성. 코드 구조는 건드리지 않고 안전망부터.</li>
+  <li><b>Phase 1</b>: <code>validFrom</code>(지분 구조 성립일) 도입으로 허구 구간 제거 + 전체 평균을 중앙값·최소 표본 필터 기반으로 재설계. 헤드라인 지표의 정확성 회복이 이 프로젝트의 최우선 가치.</li>
+  <li><b>Phase 2</b>: data.js를 "summary(소형) + 종목별 히스토리(지연 로드)"로 분할 — common_preferred_spread와 동일 스키마 채택으로 공통화 대비.</li>
+  <li><b>Phase 3</b>: ES 모듈 분해 + Python/JS 이중 구현 단일화(admin의 holdings 빌더 제거는 반나절) + pytest 회귀 테스트.</li>
+  <li><b>공통화</b>: 양쪽 Phase 0는 즉시 독립 진행, 공통 모듈 추출은 CPS Phase 2 완료 후 두 저장소를 함께 연결한 세션에서. (<a href="#cps">7장</a>)</li>
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="arch">
+<h2><span class="num">2.</span>시스템 아키텍처와 데이터 흐름</h2>
+
+<h3>2.1 전체 구조</h3>
+<div class="flow">
+  <div class="flow-row">
+    <div class="node src"><b>Yahoo Finance</b><small>yfinance 일별 종가(auto_adjust) + 장중 5d 폴백, USDKRW 환율</small></div>
+    <div class="node src"><b>한국투자증권 KIS API</b><small>국내 현재가 (Secrets 미설정 시 미사용 — 현재 미사용 상태)</small></div>
+    <div class="node src"><b>KIS 프록시</b><small>cantabile.tplinkdns.com:3288 (개인 DDNS, 평문 HTTP) — 현재 시세의 사실상 전담(48/49 실측)</small></div>
+    <div class="node src"><b>내부 가격 API</b><small>192.168.68.84:8400 (사설 LAN — CI에서 도달 불가)</small></div>
+    <div class="node src"><b>네이버 polling API</b><small>브라우저 전용 실시간 폴백 (codetabs CORS 프록시 경유)</small></div>
+  </div>
+  <div class="arrow">▼</div>
+  <div class="flow-row">
+    <div class="node job"><b>fetch_data.py (621줄)</b><small>일 1회 (KST 05:00). 증분 병합, 주간 다운샘플, 환율 변환, 전체 평균 계산 → <code>data.js</code> 커밋</small></div>
+    <div class="node job"><b>fetch_current.py (700줄)</b><small>주중 10분 간격(일 144회 실행). 세션 판별·스냅샷 보존 → <code>current.js</code>+<code>current.json</code> 커밋</small></div>
+    <div class="node job"><b>build_holdings_api.py (74줄)</b><small>config.json push 시 → <code>api/holdings.json</code> (외부 연동용 정적 API)</small></div>
+  </div>
+  <div class="arrow">▼ git commit/push (저장소 = 데이터베이스, 최근 하루 41회 커밋 관측)</div>
+  <div class="flow-row">
+    <div class="node art"><b>data.js — 27.2MB</b><small>49쌍 + 평균 × 50,745 포인트 (공백 13.5MB, gzip 전송 ~2.2MB)</small></div>
+    <div class="node art"><b>current.js / current.json — 각 ~30KB</b><small>동일 내용 이중 산출물</small></div>
+    <div class="node art"><b>config.json — 49쌍</b><small>다중 자회사 31쌍, 해외 자회사 1쌍(조광피혁→버크셔·애플)</small></div>
+    <div class="node art"><b>api/holdings.json — 34KB</b><small>지주사 목록 정적 API</small></div>
+  </div>
+  <div class="arrow">▼ GitHub Pages</div>
+  <div class="flow-row">
+    <div class="node ui"><b>index.html (3,153줄)</b><small>대시보드. data.js 동기 로드 → current.json 폴링(5분) → 오래되면 codetabs 경유 네이버 실시간 직접 계산</small></div>
+    <div class="node ui"><b>admin.html (849줄)</b><small>종목 관리. PAT를 localStorage에 저장, config.json + api/holdings.json 커밋 + workflow_dispatch</small></div>
+  </div>
+</div>
+
+<h3>2.2 파일 인벤토리</h3>
+<table>
+  <thead><tr><th>파일</th><th class="num">규모</th><th>역할</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><code>index.html</code></td><td class="num">3,153줄</td><td>대시보드 (CSS ~950 + HTML ~110 + JS ~2,090)</td><td>단일 파일 모놀리스 (CPS보다 35% 작음)</td></tr>
+    <tr><td><code>fetch_data.py</code></td><td class="num">621줄</td><td>일별 히스토리 파이프라인</td><td>신규 종목 감지 시 전체 재빌드 경로 내장</td></tr>
+    <tr><td><code>fetch_current.py</code></td><td class="num">700줄</td><td>장중 현재가 파이프라인</td><td>세션 보존 로직 양호, 프록시 의존</td></tr>
+    <tr><td><code>price_api.py</code></td><td class="num">179줄</td><td>내부 가격 API 어댑터</td><td>LAN IP 기본값 하드코딩</td></tr>
+    <tr><td><code>build_holdings_api.py</code></td><td class="num">74줄</td><td>holdings.json 생성</td><td>admin.html에 JS 중복 구현 존재(드리프트 확인)</td></tr>
+    <tr><td><code>admin.html</code></td><td class="num">849줄</td><td>config.json 편집 UI</td><td>PAT localStorage 저장</td></tr>
+    <tr><td><code>data.js</code></td><td class="num">27.2MB</td><td>생성 산출물 (매일 커밋)</td><td>들여쓰기 공백이 13.5MB(50%)</td></tr>
+    <tr><td><code>current.js</code> / <code>current.json</code></td><td class="num">~30KB ×2</td><td>생성 산출물 (10분마다)</td><td>같은 내용 두 번 커밋</td></tr>
+    <tr><td><code>config.json</code></td><td class="num">49 pairs</td><td>종목 정의 (admin 관리)</td><td>지분 구조가 단일 현재값 — 이력 없음</td></tr>
+    <tr><td><code>.github/workflows/</code></td><td class="num">3개</td><td>update-data(일별) / update-current(10분) / update-holdings-api(push)</td><td>update-data에 concurrency 없음, 의존성 미고정</td></tr>
+    <tr><td>README / requirements.txt / tests</td><td class="num">0개</td><td>—</td><td>운영 문서·의존성 고정·테스트 부재</td></tr>
+  </tbody>
+</table>
+
+<h3>2.3 같은 로직의 이중 구현 (Python ↔ JS)</h3>
+<p>
+프런트엔드의 "실시간 강제 갱신" 경로가 <code>fetch_current.py</code>의 스냅샷 빌드를 브라우저에서 재구현하고,
+admin.html은 <code>build_holdings_api.py</code>를 재구현합니다. 후자는 <b>이미 드리프트가 실재</b>합니다:
+admin 버전 페이로드에는 <code>holdingAdjustedShares</code> 필드가 없어, admin에서 저장할 때마다
+34개 종목의 조정주식수 필드가 빠진 holdings.json이 커밋되고, 직후 워크플로우가 이를 되돌리는 커밋을 또 만듭니다.
+</p>
+<table>
+  <thead><tr><th>로직</th><th>Python</th><th>JavaScript</th></tr></thead>
+  <tbody>
+    <tr><td>페어 스냅샷 계산 (지분가치·비율·전일대비)</td><td><code>fetch_current.py:512 build_pair_entry</code></td><td><code>index.html:1972 buildLivePairEntry</code></td></tr>
+    <tr><td>전체 평균 산출</td><td><code>fetch_current.py:596 build_average_entry</code></td><td><code>index.html:1936~1948 (buildLiveSnapshot 내)</code></td></tr>
+    <tr><td>시장지표(KOSPI/KOSDAQ) 요약</td><td><code>fetch_current.py:323 fetch_market_summary</code></td><td><code>index.html:1960 buildLiveMarketSummary</code></td></tr>
+    <tr><td>전일가 역산/시세 파싱</td><td><code>fetch_current.py:142~154, 250~261</code></td><td><code>index.html:1849~1860, 2046~2051</code></td></tr>
+    <tr><td>holdings.json 페이로드 생성</td><td><code>build_holdings_api.py:31~49</code></td><td><code>admin.html:499~530</code> <span class="badge b-high">드리프트 확인</span></td></tr>
+    <tr><td>조정주식수 계산</td><td><code>fetch_data.py:87, fetch_current.py:423</code></td><td><code>index.html:1976, admin.html:652</code> (4중)</td></tr>
+  </tbody>
+</table>
+<p class="small-dim">
+참고: <code>index.html:1830</code>의 주석("same as common_preferred_spread")이 보여주듯 네이버 폴링·배치 분할 로직은
+CPS에서 복사된 3중 구현(CPS Python/CPS JS/HV JS)이기도 합니다 — 7장의 공통 모듈 1순위 후보.
+</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="quality">
+<h2><span class="num">3.</span>컴포넌트별 품질 평가</h2>
+
+<div class="card">
+<h3 style="margin-top:0">index.html — 대시보드 <span class="badge b-med">구조 C+ / 기능 B+</span></h3>
+<ul>
+  <li><span class="badge b-good">강점</span> 다중 자회사 누적 차트 + 자회사별 기여 툴팁, 데이터줌 패널(포인터 캡처·핸들·팬), 스냅샷 버전 단조성 가드, 가시성(visibilitychange) 인지 자동 갱신, 부분 반영 상태 표기(<code>isPartial</code>·미반영 종목 수). 포맷/계산 순수 함수들은 추출만 하면 바로 테스트 가능한 품질.</li>
+  <li><span class="badge b-high">약점</span> 약 2,090줄 JS가 하나의 IIFE에 ~90개 함수로 존재. 상태가 최상위 <code>let</code> 10여 개(<code>selectedIdx</code>, <code>periodDays</code>, <code>todayOverviewData</code>…)로 산재하고, 모든 렌더가 <code>innerHTML</code> 전체 재생성 + 리스너 재바인딩(5분 갱신마다 DOM 전체 교체).</li>
+  <li><span class="badge b-med">약점</span> 차트 x축이 인덱스 균등 간격이라 730일 이전 주간 다운샘플 구간이 일별 구간 대비 <b>시간적으로 5배 압축</b>되어 보임 — "전체" 보기에서 기울기 왜곡(이슈 M4). 100% 기준선을 항상 y축 범위에 포함시켜 영풍(771%) 같은 고비율 종목의 분해능 저하.</li>
+  <li><span class="badge b-low">사소</span> <code>renderCards</code>는 <code>escapeHtml</code> 적용, <code>renderTable</code>·툴팁은 미적용(비일관, L1). 캔버스 툴팁 mousemove 전용(터치 미지원). <code>&lt;script src="current.js" onerror=""&gt;</code> 빈 핸들러.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">fetch_data.py — 일별 파이프라인 <span class="badge b-med">구조 B− / 데이터 무결성 D</span></h3>
+<ul>
+  <li><span class="badge b-good">강점</span> 다운로드 견고성(청크 → 6패스 개별 재시도 → KS/KQ 접미사 폴백), 다운로드 전멸 종목의 기존 데이터 유지, SMA/EMA 증분 재계산, ISO 주 단위 다운샘플.</li>
+  <li><span class="badge b-crit">약점</span> 신규 종목 감지 시 <code>existing = None</code> 전체 재빌드(이슈 C1) — 전 종목 히스토리가 그 시점 조정가로 재작성되고 내부 API 기여분은 CI에서 소실. 현재 지분 구조의 소급 적용(이슈 C2)과 결합해 과거 기록의 재현성이 없음.</li>
+  <li><span class="badge b-high">약점</span> 전체 평균이 "그날 데이터가 있는 종목 단순평균" — 최소 표본 필터·이상치 처리 없음(이슈 H2). 다중 자회사 페어는 막내 자회사 상장일로 전체 히스토리가 절단됨(두산 2023-10, HD현대 2024-05, 한화 2024-09 실측 — 의도된 교집합 설계의 부작용).</li>
+  <li><span class="badge b-med">약점</span> 증분 시작일을 전 종목 최신일 기준 단일값으로 공유(<code>max(last_dates)</code>−5일) → 장기 누락 종목의 갭이 영구화되는 잠재 결함(M5). import 시점 config 로드로 단위 테스트 곤란.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">fetch_current.py + price_api.py — 장중 파이프라인 <span class="badge b-low">구조 B / 견고성 B</span></h3>
+<ul>
+  <li><span class="badge b-good">강점</span> 네 파일 중 가장 정돈됨. 세션 판별(kr_day/us_night/offhours)과 같은-세션 캐시 보존, 캐시 호환성 검사(자회사 구성 비교), KIS 토큰 파일 캐시(만료 마진 300초), 소스 라벨링과 부분 반영 메타(<code>preservedPairIds</code>/<code>missingPairIds</code>).</li>
+  <li><span class="badge b-high">약점</span> KIS Secrets 미설정으로 실제 운영은 개인 DDNS 프록시가 49종목 중 48개를 전담(현재 current.json 실측) — 가정용 회선·평문 HTTP 단일 장애점(이슈 H3). 프록시 순차 호출 0.7초 간격으로 1회 실행에 ~75초.</li>
+  <li><span class="badge b-med">약점</span> <code>current.js</code>와 <code>current.json</code> 동일 내용 이중 생성·커밋(L2). 파일 쓰기가 비원자적(tmp→replace 아님 — CPS는 원자적). <code>cantabile.tplinkdns.com</code>·<code>192.168.68.84</code> 기본값 하드코딩.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">admin.html / workflows</h3>
+<ul>
+  <li><b>admin.html</b> <span class="badge b-high">보안</span> — fine-grained PAT를 localStorage에 평문 저장(357행). 같은 오리진 XSS 한 번이면 저장소 쓰기 토큰 유출. <code>ref: 'master'</code> 하드코딩(566행). 기능 자체(SHA 캐시·충돌 처리, 중복 ID 검증, Pages URL에서 owner/repo 자동 감지, 다중 자회사 편집)는 잘 동작하는 수준. 단 holdings.json을 admin에서도 직접 생성·커밋해 Python 구현과 이중화(§2.3) — admin 저장 1회가 커밋 3개(config + holdings + 워크플로우 되돌림)를 유발.</li>
+  <li><b>workflows</b> <span class="badge b-med">운영</span> — <code>pip install yfinance pandas</code> 버전 미고정(yfinance는 파괴적 변경이 잦음), update-data에 <code>concurrency</code> 없음(일별 작업·10분 작업·holdings 작업이 같은 브랜치에 push 경합 가능), push 실패 시 rebase/재시도 없음, pip 캐시 미사용. 주중 10분 간격 스케줄로 연 8천~1만 커밋 페이스(최근 하루 41회 관측).</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="issues">
+<h2><span class="num">4.</span>발견된 이슈 (심각도순)</h2>
+
+<table>
+  <thead><tr><th style="width:70px">ID</th><th style="width:86px">심각도</th><th>요약</th><th style="width:210px">위치</th></tr></thead>
+  <tbody>
+    <tr><td>C1</td><td><span class="badge b-crit">Critical</span></td><td>신규 종목 1개 추가 → 전 종목 전체 재빌드 → 히스토리 전면 재작성·소실 (최근 13개월 최소 2회 발생)</td><td class="file-ref">fetch_data.py:305~307, 66~74</td></tr>
+    <tr><td>C2</td><td><span class="badge b-crit">Critical</span></td><td>현재 지분 구조의 소급 적용 — 성립 이전 구간에 허구 비율 생성, 평균 5.3배 왜곡 실측</td><td class="file-ref">fetch_data.py:414, 418; config.json</td></tr>
+    <tr><td>H1</td><td><span class="badge b-high">High</span></td><td>27.2MB data.js 동기 로드 — 공백 13.5MB, 모바일 파싱 수 초, 1종목 보려고 49종목 전체 수신</td><td class="file-ref">fetch_data.py:611, index.html:1057</td></tr>
+    <tr><td>H2</td><td><span class="badge b-high">High</span></td><td>"전체 평균" 지표의 통계적 취약성 — 구성 드리프트(5→49종목)·동일가중·무필터·소급 재계산</td><td class="file-ref">fetch_data.py:555~571</td></tr>
+    <tr><td>H3</td><td><span class="badge b-high">High</span></td><td>시세 수집이 개인 DDNS 평문 HTTP 프록시에 사실상 전적 의존(48/49) + 사설 엔드포인트 하드코딩</td><td class="file-ref">fetch_current.py:39, price_api.py:14~17</td></tr>
+    <tr><td>H4</td><td><span class="badge b-high">High</span></td><td>GitHub PAT localStorage 평문 저장, 워크플로우 ref 하드코딩</td><td class="file-ref">admin.html:357, 566</td></tr>
+    <tr><td>H5</td><td><span class="badge b-high">High</span></td><td>테스트 0개 + 의존성 미고정 + 매일 자동 덮어쓰기 + 백업 없음 + README 없음</td><td class="file-ref">.github/workflows/*, 저장소 루트</td></tr>
+    <tr><td>M1</td><td><span class="badge b-med">Medium</span></td><td>Python↔JS 이중 구현 6종 — holdings.json 빌더는 드리프트 실확인(필드 누락 + 커밋 3중 발생)</td><td class="file-ref">§2.3 표 참고</td></tr>
+    <tr><td>M2</td><td><span class="badge b-med">Medium</span></td><td>실시간 갱신이 서드파티 CORS 프록시(codetabs)에 의존 — 가용성·프라이버시</td><td class="file-ref">index.html:1076</td></tr>
+    <tr><td>M3</td><td><span class="badge b-med">Medium</span></td><td>update-data 동시성 미제어(3개 워크플로우 push 경합 가능), 재시도 없음, 연 ~1만 커밋 구조</td><td class="file-ref">.github/workflows/update-data.yml</td></tr>
+    <tr><td>M4</td><td><span class="badge b-med">Medium</span></td><td>차트 x축 인덱스 간격 — 주간 다운샘플 구간 5배 시간 압축 왜곡, SMA250/EMA가 주간·일간 혼합 구간에서 정의 불일치</td><td class="file-ref">index.html:3005~3010, fetch_data.py:127~157</td></tr>
+    <tr><td>M5</td><td><span class="badge b-med">Medium</span></td><td>증분 시작일이 전 종목 공유 — 장기 누락 종목 갭 영구화 (잠재, 현재 갭 없음 확인)</td><td class="file-ref">fetch_data.py:337~341</td></tr>
+    <tr><td>L1</td><td><span class="badge b-low">Low</span></td><td>renderTable·차트 툴팁의 HTML 이스케이프 비일관 (카드만 적용)</td><td class="file-ref">index.html:2143~2164, 2337~2349</td></tr>
+    <tr><td>L2</td><td><span class="badge b-low">Low</span></td><td>current.js/current.json 동일 내용 이중 산출물 — 10분마다 2파일 커밋</td><td class="file-ref">fetch_current.py:689~694</td></tr>
+    <tr><td>L3</td><td><span class="badge b-low">Low</span></td><td>캔버스 툴팁 터치 미지원, 100% 기준선 강제 포함으로 고비율 종목 y축 분해능 저하</td><td class="file-ref">index.html:2317, 2234~2235</td></tr>
+    <tr><td>L4</td><td><span class="badge b-low">Low</span></td><td>비원자적 파일 쓰기, import 시점 config 로드, 빈 onerror 핸들러</td><td class="file-ref">fetch_current.py:691, fetch_data.py:22~24</td></tr>
+  </tbody>
+</table>
+
+<h3>C1 — 신규 종목 추가 시 전체 재빌드 (상세)</h3>
+<div class="callout warn">
+<p><b>메커니즘:</b> <code>main()</code>이 config에서 새 pair id를 감지하면(<code>has_new_pair_ids</code>, fetch_data.py:66~74)
+<code>existing = None</code>으로 만들어(305~307행) 49개 전 종목을 2000-01-01부터 Yahoo에서 재다운로드합니다.
+admin.html에서 종목 하나만 추가해도("GitHub 저장" → <code>triggerWorkflow()</code>) 이 경로가 실행됩니다.</p>
+<p><b>영향 세 가지:</b></p>
+<ul>
+  <li><b>과거 값의 비재현성</b> — yfinance <code>auto_adjust=True</code> 가격은 이후의 배당·분할에 따라 소급 변동하므로,
+  재빌드 때마다 전 구간의 비율 값이 미세하게(배당 누적 구간은 유의미하게) 달라집니다. 증분 모드에서 쌓인 값과
+  재빌드 값이 혼재하는 이력이 매번 새로 만들어집니다.</li>
+  <li><b>내부 API 기여분 소실</b> — 재빌드는 CI에서 실행되므로 사설 LAN의 내부 가격 API(192.168.68.84)가
+  공급했던 데이터는 재현 불가. Yahoo 데이터 품질이 나쁜 종목(거래정지·이전상장 이력)은 더 나쁜 데이터로 교체될 수 있습니다.</li>
+  <li><b>전체 평균의 소급 변경</b> — 긴 히스토리를 가진 신규 종목이 들어오면 26년치 평균 곡선 전체가 다시 그려집니다.</li>
+</ul>
+<p><b>발생 빈도(증거):</b> 시작일 분포상 bio_smart(2025-05-15), kpf_tmc(2025-12-15) 추가 시점에
+전체 재빌드가 실행된 것으로 확인됩니다. 종목 추가가 일상 운영 행위이므로 "가끔 있는 사고"가 아니라 상시 경로입니다.</p>
+<p><b>수정 방향:</b> ① 신규 pair만 풀 히스토리 수집 + 기존 pair는 증분 유지(다운로드 대상 분리, 부록 8.4 스케치),
+② 병합 결과의 pair별 시작일이 기존보다 후퇴하거나 포인트 수가 급감하면 실패 처리하는 가드,
+③ 덮어쓰기 전 data.js를 Actions 아티팩트/백업 브랜치에 스냅샷. <code>needs_multi_sub_backfill</code>(51~63행)의
+재빌드 트리거도 같은 가드 아래로.</p>
+</div>
+
+<h3>C2 — 현재 지분 구조의 소급 적용 (상세)</h3>
+<div class="callout warn">
+<p><b>증거 (data.js 실측):</b></p>
+<table>
+  <thead><tr><th>날짜</th><th>항목</th><th class="num">기록값</th><th>실제</th></tr></thead>
+  <tbody>
+    <tr><td>2002-07-26</td><td>세아홀딩스 비율</td><td class="num"><b>4,006.44%</b></td><td>자회사 세아베스틸지주(001430)는 <b>2022년 설립</b> — 2,214만 주 보유를 20년 소급한 허구값</td></tr>
+    <tr><td>2002-07-26</td><td>전체 평균 (7종목)</td><td class="num"><b>682.0%</b></td><td>세아 제외 시 <b>127.9%</b> — 한 종목이 평균을 5.3배 부풀림</td></tr>
+    <tr><td>현재</td><td>유사 노출 종목</td><td class="num">다수</td><td>티와이홀딩스(2020 분할설립, 최대 747%), 코스맥스비티아이(676%) 등 지주 전환 이전 구간 보유</td></tr>
+  </tbody>
+</table>
+<p><b>메커니즘:</b> 비율 = Σ(<code>sharesHeld</code> × 자회사 조정가) ÷ (조정주식수 × 지주사 조정가)에서
+<code>sharesHeld</code>·주식수가 모두 "현재" 단일값(config.json)이고 전 기간에 그대로 곱해집니다(fetch_data.py:414, 418).
+지분 취득 이전·지주 전환 이전·자회사 설립 이전 구간에도 비율이 생성되며, 이 값이 차트·백분위 통계·SMA250·전체 평균을 오염시킵니다.
+다중 자회사 교집합 설계(388행)가 막내 상장일로 히스토리를 절단하는 것(두산·HD현대·한화)은 역설적으로 이 허구를 막는
+안전장치 역할을 하고 있으나, 단일 자회사 페어에는 그 방어조차 없습니다.</p>
+<p><b>수정 방향:</b> ① config에 pair 단위 <code>validFrom</code>(현 지분 구조 성립일) 필드를 추가하고
+그 이전 히스토리는 생성하지 않음(마스킹) — 가장 적은 비용으로 허구 제거,
+② 전체 평균은 validFrom 적용 후 재계산, ③ 장기적으로 자회사별 <code>{from, sharesHeld}</code> 이력 배열로 확장(부록 8.2).
+세아·티와이 등 분할/전환 종목의 validFrom을 우선 채우는 것만으로 헤드라인 지표가 정상화됩니다.</p>
+</div>
+
+<h3>H1 — 27.2MB 초기 페이로드 (상세)</h3>
+<p>
+<code>data.js</code>는 <code>indent=2</code> 직렬화로 27.2MB이며(콤팩트 직렬화 시 13.7MB — <b>13.5MB가 공백</b>),
+<code>&lt;script src="data.js"&gt;</code> 동기 로드라 첫 화면이 전체 파싱을 기다립니다.
+캐시버스터가 없어 둘째 방문부터는 304로 전송이 절약되는 점은 CPS보다 낫지만(전송 ~2.2MB gzip/일),
+<b>파싱 비용 27.2MB는 매 방문 발생</b>하고, 사용자가 차트로 보는 건 한 번에 1종목입니다.
+</p>
+<ul>
+  <li><b>즉효(반나절):</b> <code>json.dumps(..., separators=(",", ":"))</code> — 27.2→13.7MB(−50%). 파싱 시간도 절반 수준으로.</li>
+  <li><b>근본(Phase 2):</b> "메타+현재가" 소형 summary와 pair별 컬럼형 히스토리 분리 + 지연 로드 — 초기 수백 KB. CPS Phase 1과 동일 스키마로 맞추면 공통 로더를 공유(부록 8.2).</li>
+</ul>
+
+<h3>H2 — 전체 평균 지표의 통계적 취약성 (상세)</h3>
+<p>
+"전체 평균"은 <b>그날 데이터가 존재하는 종목들의 단순평균</b>입니다(fetch_data.py:555~571).
+구성 종목 수가 2000년 5개 → 2010년 15개 → 2020년 34개 → 현재 49개로 변해 장기 곡선의 수준 변화가
+상당 부분 구성 효과이고, 최소 표본 필터가 없어 초기 구간은 5~10종목 평균이며,
+동일가중이라 영풍(771%)·세아(194%, 과거 허구 4,006%) 같은 꼬리값이 평균을 지배합니다.
+C2 수정(validFrom) 후에도 남는 문제이므로 별도 이슈로 분리했습니다.
+장중 평균(<code>build_average_entry</code>)도 같은 단순평균이라 방식 자체는 배치와 일관되며(CPS의 H4 같은 방식 불일치는 없음),
+재설계 시 양쪽을 함께 바꾸면 됩니다.
+</p>
+<ul>
+  <li><b>권고:</b> 평균과 함께(또는 대신) <b>중앙값</b>을 기본 지표로, 구성 종목 N≥20 미만 구간은 표시 제외(또는 음영 처리),
+  카드에 "N종목 기준" 표기는 이미 있으므로 차트에도 구성 변화 주석 추가.</li>
+</ul>
+
+<h3>H3 — 단일 개인 프록시 의존 (상세)</h3>
+<p>
+현재 current.json 기준 49종목 중 48개의 <code>quoteSource</code>가 <code>kis_proxy</code>,
+즉 <code>http://cantabile.tplinkdns.com:3288</code>(가정용 DDNS, 평문 HTTP) 한 대가 10분마다 전 시세를 공급합니다.
+KIS Open API 직접 호출 경로는 구현되어 있으나 Actions Secrets(<code>KIS_APP_KEY/SECRET</code>) 미설정으로 비활성 상태입니다.
+프록시가 내려가면 yfinance 지연 시세로 강등되고, 공개 저장소에 개인 엔드포인트가 노출되어 있습니다(price_api.py의 LAN IP 포함).
+<b>권고:</b> Secrets 설정으로 KIS 직접 호출을 1차로 승격 + 프록시는 폴백으로 강등, 엔드포인트 기본값은 코드에서 제거(환경변수 필수화).
+</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="roadmap">
+<h2><span class="num">5.</span>리팩토링 로드맵</h2>
+<p class="small-dim">노력 표기: <span class="badge b-effort">S</span> 반나절 이내 · <span class="badge b-effort">M</span> 1~2일 · <span class="badge b-effort">L</span> 1주 내외. 각 Phase는 독립 배포 가능하며 순서가 의존성을 반영합니다. CPS 로드맵과 같은 틀이되, 이 프로젝트는 "데이터 정확성"이 성능보다 앞섭니다.</p>
+
+<h3>Phase 0 — 안전망 (코드 구조 불변, 최우선)</h3>
+<table>
+  <thead><tr><th>작업</th><th style="width:60px">노력</th><th>내용 / 해결 이슈</th></tr></thead>
+  <tbody>
+    <tr><td><b>데이터 스냅샷 백업</b></td><td><span class="badge b-effort">S</span></td><td>update-data에서 덮어쓰기 전 data.js를 아티팩트(보존 90일) 또는 <code>data-backup</code> 브랜치에 보관. <i>C1 피해 한정</i></td></tr>
+    <tr><td><b>신규 종목 부분 수집 전환</b></td><td><span class="badge b-effort">M</span></td><td>전체 재빌드 대신 "신규 pair만 풀 기간, 기존 pair는 증분" (부록 8.4). 병합 시 시작일 후퇴·포인트 급감 가드 추가. <i>C1</i></td></tr>
+    <tr><td><b>requirements.txt 고정</b></td><td><span class="badge b-effort">S</span></td><td><code>yfinance==x.y.z, pandas==x.y.z</code> + setup-python pip 캐시. 세 워크플로우 공통 적용. <i>H5 절반</i></td></tr>
+    <tr><td><b>워크플로우 동시성/푸시 견고화</b></td><td><span class="badge b-effort">S</span></td><td>세 워크플로우가 <code>concurrency: data-commit</code> 그룹 공유, push 전 <code>git pull --rebase</code> + 재시도. <i>M3</i></td></tr>
+    <tr><td><b>콤팩트 직렬화</b></td><td><span class="badge b-effort">S</span></td><td>27.2→13.7MB 즉시 절감(파싱 시간 ~절반). current.js/json도 동일 적용. <i>H1 완화</i></td></tr>
+    <tr><td><b>비밀/엔드포인트 정리</b></td><td><span class="badge b-effort">S</span></td><td>DDNS·LAN IP 기본값 제거(환경변수 필수화), KIS Secrets 설정해 직접 호출 1차 승격. <i>H3</i></td></tr>
+    <tr><td><b>README + 운영 문서</b></td><td><span class="badge b-effort">S</span></td><td>아키텍처 다이어그램, 로컬 실행법, 종목 추가 절차(재빌드 의미 포함), 장애 복구 절차.</td></tr>
+  </tbody>
+</table>
+
+<h3>Phase 1 — 데이터 정확성·지표 재설계 (이 프로젝트의 본론)</h3>
+<table>
+  <thead><tr><th>작업</th><th style="width:60px">노력</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><b>validFrom 도입 + 허구 구간 제거</b></td><td><span class="badge b-effort">M</span></td><td>config pair별 <code>validFrom</code>(지분 구조 성립일) 추가, 그 이전 히스토리 미생성. 세아·티와이 등 분할/전환 종목부터 채움. admin.html 폼에 필드 추가. <i>C2</i></td></tr>
+    <tr><td><b>전체 평균 재설계</b></td><td><span class="badge b-effort">M</span></td><td>중앙값 병행(또는 기본), 구성 N&lt;20 구간 음영/제외, 구성 변화 주석. 배치(fetch_data)와 장중(fetch_current, 프런트 buildLiveSnapshot) 세 곳 동시 변경. <i>H2</i></td></tr>
+    <tr><td><b>데이터 품질 모니터</b></td><td><span class="badge b-effort">S</span></td><td>수집 후 pair별 시작일·포인트 수·비율 상한(예: &gt;1,500%)을 직전 실행과 비교, 위반 시 워크플로우 실패. C1·C2 재발 탐지 장치.</td></tr>
+    <tr><td><b>(선택) 지분 이력 스키마</b></td><td><span class="badge b-effort">L</span></td><td>자회사별 <code>sharesHeldHistory: [{from, shares}]</code> — 사업보고서 분기 단위 갱신을 받을 수 있는 구조(부록 8.2). 기능 제언 #5와 연계.</td></tr>
+  </tbody>
+</table>
+
+<h3>Phase 2 — 데이터 포맷 개편 (성능, CPS와 스키마 통일)</h3>
+<table>
+  <thead><tr><th>작업</th><th style="width:60px">노력</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><b>data.js 분할</b></td><td><span class="badge b-effort">L</span></td><td><code>data/summary.json</code>(메타+현재가+평균 최근치, &lt;150KB)과 <code>data/history/{pairId}.json</code>(컬럼형, 다중 자회사 확장 포함)으로 분리. 초기 렌더는 summary, 차트는 선택 종목+평균만 지연 로드. 과도기에 data.js 병행 생성. <i>H1</i></td></tr>
+    <tr><td><b>current 산출물 단일화</b></td><td><span class="badge b-effort">S</span></td><td>current.json만 생성, 프런트는 fetch 단일 경로(이미 구현돼 있음 — current.js 분기 제거). <i>L2</i></td></tr>
+    <tr><td><b>차트 시간축 전환</b></td><td><span class="badge b-effort">M</span></td><td>x좌표를 인덱스 → 실제 날짜 기반으로(CPS 차트 엔진 방식 이식). 주간 다운샘플 구간 왜곡 해소 + 터치 이벤트 지원. <i>M4, L3</i></td></tr>
+    <tr><td><b>산출물 커밋 전략 검토</b></td><td><span class="badge b-effort">M</span></td><td>(선택) 생성 산출물을 <code>data</code> 전용 브랜치로 분리해 main 히스토리 비대화 중단. <i>M3 일부</i></td></tr>
+  </tbody>
+</table>
+
+<h3>Phase 3 — 구조 재편 + 중복 제거</h3>
+<table>
+  <thead><tr><th>작업</th><th style="width:60px">노력</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><b>holdings 빌더 단일화</b></td><td><span class="badge b-effort">S</span></td><td>admin.html의 <code>buildHoldingsApiPayload</code> 삭제 — config.json만 커밋하고 holdings.json은 기존 워크플로우에 일임. 드리프트와 3중 커밋 즉시 해소. <i>M1 일부, 가장 싼 승리</i></td></tr>
+    <tr><td><b>프런트 ES 모듈 분해</b></td><td><span class="badge b-effort">M</span></td><td><code>css/app.css</code>, <code>js/state.js</code>(스냅샷 병합·정렬), <code>js/live.js</code>(폴링/네이버 폴백), <code>js/calc.js</code>·<code>js/format.js</code>(순수 함수), <code>js/charts.js</code>, <code>js/views/*.js</code>. 빌드 도구 없이 GitHub Pages에서 그대로 동작. 상태-렌더 분리 + 이벤트 위임.</td></tr>
+    <tr><td><b>Python 패키지화 + pytest</b></td><td><span class="badge b-effort">M</span></td><td><code>pipeline/sources/{yahoo,kis,kis_proxy,internal}.py</code> + <code>merge.py</code>(증분/가드) + <code>average.py</code> + <code>build_daily.py / build_current.py</code>. 병합 규칙(시작일 후퇴 금지, validFrom 마스킹)과 평균 계산을 픽스처로 고정. <i>H5 나머지</i></td></tr>
+    <tr><td><b>실시간 폴백 축소</b></td><td><span class="badge b-effort">M</span></td><td>브라우저 재구현(buildLivePairEntry 등)을 "네이버 현재가 조회 + 단일 계산 모듈 호출"로 한정 — 계산식은 한 곳만. <i>M1</i></td></tr>
+    <tr><td><b>린트/타입</b></td><td><span class="badge b-effort">S</span></td><td>ruff + (선택) mypy, JS eslint. PR CI 체크.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout tip">
+<b>의도적으로 권하지 않는 것 (CPS 보고서와 동일 기조):</b> React/Vue 등 프레임워크 도입, 차트 라이브러리 교체, 별도 백엔드 서버.
+"정적 파일 + Actions" 모델은 운영비 0·배포 단순이라는 최대 강점이므로 모든 개선을 이 모델 안에서 진행합니다.
+Phase 2에서 <b>CPS와 동일한 데이터 스키마·모듈 경계를 채택해 두면 7장의 공통 모듈 추출이 거의 기계적 작업</b>이 됩니다.
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="features">
+<h2><span class="num">6.</span>추가 기능 제언</h2>
+<p class="small-dim">가치 = 투자 판단 기여도 × 구현 난이도 대비. 데이터가 이미 갖춰진 항목부터 정렬. (#)는 CPS 제언과 공통 — 공통 모듈로 한 번 만들어 양쪽에 적용 가능.</p>
+
+<table>
+  <thead><tr><th style="width:30px">#</th><th>기능</th><th style="width:60px">노력</th><th>설명 / 근거</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><b>비율 통계 밴드 (z-score/백분위 오버레이)</b> (#)</td><td><span class="badge b-effort">M</span></td><td>백분위 숫자는 이미 통계 박스에 있음 — 차트에 ±1σ·2σ 밴드와 1y/3y 백분위 칩을 얹어 "지금 역사적으로 싼 구간인가"를 시각화. 추가 수집 불필요.</td></tr>
+    <tr><td>2</td><td><b>자회사 기여 분해 패널</b></td><td><span class="badge b-effort">S</span></td><td>스택 데이터가 이미 히스토리에 있음(<code>subsidiaries[].ratio</code>). 기간 선택 시 비율 변화를 자회사별 기여로 분해한 표/바 — "이번 달 비율 확대는 한화에어로 때문" 류의 직답.</td></tr>
+    <tr><td>3</td><td><b>임계 알림</b> (#)</td><td><span class="badge b-effort">M</span></td><td>fetch_current 말미에 비율/백분위 임계 교차 시 Telegram 발송. 10분 주기 인프라 재활용이라 추가 비용 0. 임계값은 config 확장.</td></tr>
+    <tr><td>4</td><td><b>자매 대시보드 교차 연동</b></td><td><span class="badge b-effort">S</span></td><td>같은 그룹사의 우선주 괴리율(CPS)과 지주사 비율을 상호 링크/임베드(<code>?embed</code> 이미 지원). 두 프로젝트가 연결된 자산임을 사용자 가치로 전환하는 가장 싼 방법.</td></tr>
+    <tr><td>5</td><td><b>지분 변동 이력 + 공시 마커</b></td><td><span class="badge b-effort">L</span></td><td>Phase 1 validFrom의 확장. 지분 추가 취득/처분 시점을 차트 마커로 — 비율 점프의 원인(가격 vs 지분 변동) 구분 가능.</td></tr>
+    <tr><td>6</td><td><b>전 종목 히트맵/산점도 뷰</b> (#)</td><td><span class="badge b-effort">M</span></td><td>x=조정시총, y=백분위(z-score), 색=당일 변화 — 49쌍 비교 한 화면. 카드 그리드보다 스크리닝에 적합.</td></tr>
+    <tr><td>7</td><td><b>평균회귀 백테스트 (analysis/)</b> (#)</td><td><span class="badge b-effort">L</span></td><td>CPS의 analysis/ 프레임(현실적 수수료·정수 주식 가정) 이식: "백분위 하위 X% 매수 → 중앙값 회귀 매도" 전략 검증. validFrom 정리(Phase 1) 이후에 해야 의미 있음.</td></tr>
+    <tr><td>8</td><td><b>관심종목 핀 + 상태 보존</b> (#)</td><td><span class="badge b-effort">S</span></td><td>즐겨찾기 핀, 기간/정렬 선택 localStorage 보존.</td></tr>
+    <tr><td>9</td><td><b>CSV/JSON 내보내기</b> (#)</td><td><span class="badge b-effort">S</span></td><td>선택 종목 히스토리 다운로드 — 데이터는 이미 클라이언트 메모리에 있음.</td></tr>
+    <tr><td>10</td><td><b>모바일 터치 + PWA</b> (#)</td><td><span class="badge b-effort">M</span></td><td>touchmove 툴팁, 매니페스트+서비스워커(stale-while-revalidate). Phase 2 분할 이후 적용해야 효과적.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="cps">
+<h2><span class="num">7.</span>common_preferred_spread와의 정합·공통 모듈 전략</h2>
+
+<p>
+CPS 보고서 7장의 권고("holding_value는 별도 세션에서, 같은 평가 축으로")에 따라 작성된 것이 본 보고서입니다.
+같은 축으로 비교한 결과, <b>두 프로젝트는 같은 골격에 같은 계열의 결함을 공유하되 심각한 지점이 다릅니다</b>:
+CPS는 "이미 발생한 백필 유실 + 42.5MB 캐시 무효화"가, HV는 "헤드라인 지표의 소급 허구 + 상시적 전체 재작성"이 급소입니다.
+</p>
+
+<h3>7.1 이슈 대응표</h3>
+<table>
+  <thead><tr><th>평가 축</th><th>common_preferred_spread</th><th>holding_value (본 보고서)</th></tr></thead>
+  <tbody>
+    <tr><td>데이터 무결성</td><td>C1 백필 유실 (발생 확인)</td><td>C1 전체 재빌드 재작성 (상시 경로) + C2 소급 허구 (실측)</td></tr>
+    <tr><td>초기 페이로드</td><td>C2 42.5MB + 캐시 무효화 (Critical)</td><td>H1 27.2MB, 304 캐시는 동작 (High) — 해법은 동일(분할+지연 로드)</td></tr>
+    <tr><td>지표 일관성</td><td>H4 일중 단순평균 ↔ 일별 sqrt 가중 불일치</td><td>H2 방식은 일관(단순평균)하나 통계적으로 취약 — 재설계 필요</td></tr>
+    <tr><td>사설 엔드포인트</td><td>H1 LAN IP·DDNS 하드코딩</td><td>H3 동일 — <b>같은 DDNS·같은 LAN 서버</b>를 두 프로젝트가 공유 (단일 장애점도 공유)</td></tr>
+    <tr><td>admin PAT</td><td>H2 localStorage 평문</td><td>H4 동일 패턴 (admin.html이 사실상 같은 코드 계열)</td></tr>
+    <tr><td>이중 구현</td><td>M1 Python↔JS 8종</td><td>M1 6종 + holdings 빌더 드리프트 실확인. 네이버 폴링 JS는 양쪽에 복사돼 3중</td></tr>
+    <tr><td>CORS 프록시</td><td>M2 codetabs</td><td>M2 동일 (같은 URL)</td></tr>
+    <tr><td>테스트/의존성/백업</td><td>H5</td><td>H5 동일 (+README 부재)</td></tr>
+  </tbody>
+</table>
+
+<h3>7.2 공통 모듈 후보 (추출 우선순위순)</h3>
+<table>
+  <thead><tr><th>모듈</th><th>현재 상태</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><code>js/live-quotes.js</code> — 네이버 폴링·배치 분할·시세 파싱</td><td>3중 복사 (CPS py/js, HV js)</td><td>HV 주석이 이미 "same as common_preferred_spread"를 인정. 1순위.</td></tr>
+    <tr><td><code>js/charts.js</code> — 시간축 캔버스 엔진(축·툴팁·줌·터치)</td><td>CPS는 시간축, HV는 인덱스축으로 갈라짐</td><td>CPS 엔진 기준으로 통합하면 HV의 M4도 해결</td></tr>
+    <tr><td><code>admin.html</code> 템플릿</td><td>거의 동일 코드 2벌</td><td>owner/repo/스키마만 파라미터화. PAT 처리 개선도 한 번에</td></tr>
+    <tr><td><code>pipeline/sources/*.py</code> — kis/kis_proxy/naver/yahoo/internal 어댑터</td><td>2벌 (HV가 더 정돈됨)</td><td>HV의 fetch_current 구조를 기준으로</td></tr>
+    <tr><td><code>merge.py</code> — 증분 병합 + 후퇴 금지 가드 + 품질 모니터</td><td>각자 결함 보유</td><td>양쪽 C1의 공통 해법</td></tr>
+    <tr><td>데이터 스키마 (summary + 컬럼형 history)</td><td>미도입 (양쪽 Phase 1/2 예정)</td><td><b>추출 전에 스키마부터 합의</b> — 부록 8.2가 양쪽 호환 설계</td></tr>
+  </tbody>
+</table>
+
+<h3>7.3 권장 진행 순서</h3>
+<ol>
+  <li><b>즉시, 각자:</b> 양쪽 Phase 0(안전망)는 의존성이 없으므로 병렬 진행. HV는 C1 가드·validFrom(Phase 1)까지 단독으로.</li>
+  <li><b>CPS Phase 1~2 완료</b> → 데이터 스키마·프런트 모듈 경계가 실물로 확정됨.</li>
+  <li><b>HV Phase 2~3</b>을 그 스키마·경계에 맞춰 정렬 (본 보고서 부록이 이미 호환 설계).</li>
+  <li><b>공통 모듈 추출:</b> 두 저장소를 함께 연결한 세션에서 진행 (한쪽만 보며 추상화하면 다른 쪽에 안 맞는 인터페이스가 나옴).
+  공유 방식은 ① 별도 저장소 + 복사 동기화(가장 단순) ② git submodule ③ npm 패키지(빌드 도입 후) 순으로 검토 — CPS 보고서와 동일 결론.</li>
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="appendix">
+<h2><span class="num">8.</span>부록</h2>
+
+<h3>8.1 권장 디렉터리 구조 (Phase 3 완료 시점)</h3>
+<pre><code>holding_value/
+├── index.html                  # 마크업만 (~150줄)
+├── admin.html                  # (공통화 후 템플릿 파라미터화)
+├── css/app.css
+├── js/
+│   ├── main.js                 # 부트스트랩
+│   ├── state.js                # 상태 저장소 + 스냅샷 병합/정렬
+│   ├── live.js                 # current.json 폴링 / 네이버 실시간 폴백
+│   ├── calc.js                 # 비율·평균/중앙값·SMA/EMA·백분위 (순수 함수)
+│   ├── format.js
+│   ├── charts.js               # 시간축 캔버스 엔진 (CPS와 공통 후보)
+│   └── views/                  # overview / cards / table / stats
+├── pipeline/
+│   ├── sources/                # yahoo.py kis.py kis_proxy.py internal.py
+│   ├── merge.py                # 증분 병합 + 시작일 후퇴 금지 + validFrom 마스킹
+│   ├── average.py              # 평균/중앙값 (배치·장중 단일 구현)
+│   ├── build_daily.py          # 구) fetch_data.py
+│   ├── build_current.py        # 구) fetch_current.py
+│   └── build_holdings.py       # 구) build_holdings_api.py (admin 중복 제거)
+├── data/                       # 생성 산출물 (또는 별도 data 브랜치)
+│   ├── summary.json            # 메타 + 현재가 + 평균 최근치 (&lt;150KB)
+│   ├── history/{pairId}.json   # 컬럼형 히스토리 (지연 로드)
+│   └── current.json            # (current.js 제거)
+├── api/holdings.json
+├── tests/                      # pytest (병합 가드·평균·validFrom) + JS 단위 테스트
+├── requirements.txt
+└── docs/                       # 본 보고서, 운영 문서
+</code></pre>
+
+<h3>8.2 히스토리 컬럼형 스키마 예시 (다중 자회사 + 지분 이력 확장)</h3>
+<pre><code>// config.json — Phase 1 확장
+{
+  "id": "seah_holdings",
+  "holdingName": "세아홀딩스",
+  "holdingTicker": "058650.KS",
+  "validFrom": "2022-04-01",            // 현 지분 구조 성립일 — 이전 구간 미생성
+  "subsidiaries": [
+    { "name": "세아베스틸지주", "ticker": "001430.KS", "sharesHeld": 22136000 }
+    // (선택) "sharesHeldHistory": [{ "from": "2022-04-01", "shares": 22136000 }]
+  ]
+}
+
+// data/history/doosan.json — 컬럼형 (레코드형 대비 ~1/3)
+{
+  "id": "doosan",
+  "dates":    ["2023-10-06", ...],
+  "holding":  [98000, ...],             // 지주사 종가
+  "ratio":    [123.45, ...],
+  "subs": {
+    "두산에너빌리티": { "price": [...], "ratio": [...] },
+    "두산로보틱스":   { "price": [...], "ratio": [...] }
+  }
+  // holdingValue/marketCap은 클라이언트에서 파생 — 저장 불필요
+}
+
+// data/summary.json — 초기 렌더에 필요한 전부 (CPS와 동일 골격)
+{
+  "lastUpdated": "2026-06-10 05:00:00",
+  "average": { "median": 96.2, "mean": 217.4, "count": 49, "trend30d": [ ... ] },
+  "pairs": [ { "id": "...", "name": "...", "current": { ... } }, ... ]
+}</code></pre>
+
+<h3>8.3 워크플로우 보강 예시 (Phase 0)</h3>
+<pre><code># 세 워크플로우 공통
+concurrency:
+  group: data-commit            # update-data / update-current / holdings 의 push 경합 방지
+  cancel-in-progress: false
+
+- name: Install dependencies
+  run: pip install -r requirements.txt    # 버전 고정 (+ setup-python cache: pip)
+
+- name: Backup previous data              # update-data 한정, 덮어쓰기 전 보존
+  uses: actions/upload-artifact@v4
+  with: { name: data-backup-${{ github.run_id }}, path: data.js, retention-days: 90 }
+
+- name: Commit and push if changed
+  run: |
+    ...
+    git pull --rebase origin master && git push   # 경합 시 재시도</code></pre>
+
+<h3>8.4 C1 수정 스케치 — 신규 종목만 풀 수집</h3>
+<pre><code># fetch_data.py main() — 전체 재빌드 분기 대체
+new_ids = current_ids - existing_ids          # has_new_pair_ids를 집합 반환으로
+if new_ids:
+    # 기존 종목: 증분 다운로드 그대로
+    # 신규 종목: 해당 티커만 start="2000-01-01"로 별도 다운로드 후 합류
+    new_tickers = collect_tickers(p for p in PAIRS if p["id"] in new_ids)
+    full_close = download_close_prices(new_tickers, {**kwargs, "start": "2000-01-01"})
+    close = merge_close_frames(close, [full_close])
+
+# merge 가드 — 어떤 경로든 기존 기록을 후퇴시키지 않음
+assert merged[0]["date"] &lt;= old_hist[0]["date"], f"{pair_id}: history start regressed"
+assert len(merged) &gt;= len(old_hist) * 0.9,      f"{pair_id}: history shrank &gt;10%"</code></pre>
+
+<p class="small-dim" style="margin-top:36px">
+본 보고서는 2026-06-10 기준 master 최신 커밋(09a41f8)을 대상으로 전체 소스를 정독·검증하여 작성되었습니다.
+수치(파일 크기 27.2MB/콤팩트 13.7MB/gzip 2.2MB, 50,745 포인트, 2002-07-26 평균 682.0% vs 세아 제외 127.9%,
+quoteSource 분포 48/49, 구성 종목 수 추이 5→49)는 모두 저장소 내 실데이터에서 직접 측정한 값입니다.
+자매 보고서: <i>우선주 괴리율 대시보드 구조·품질 리뷰(2026-06)</i> — 평가 축·로드맵 체계 공유.
+</p>
+</section>
+
+</div>
+</body>
+</html>
