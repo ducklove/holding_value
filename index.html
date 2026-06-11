@@ -205,10 +205,10 @@ function startDashboard(STOCK_DATA) {
   const LIVE_REFRESH_MAX_AGE_MS = 60 * 1000;
   const LIVE_REFRESH_RETRY_DELAY_MS = 1500;
   const LIVE_REFRESH_RETRY_ATTEMPTS = 3;
-  const LIVE_REFRESH_FORCE_ATTEMPTS = 1;
-  const LIVE_FETCH_TIMEOUT_MS = 2500;
-  const LIVE_REFRESH_TIMEOUT_MS = 15000;
-  const LIVE_REFRESH_FORCE_TIMEOUT_MS = 30000;
+  const LIVE_REFRESH_FORCE_ATTEMPTS = 3;
+  const LIVE_FETCH_TIMEOUT_MS = 8000;
+  const LIVE_REFRESH_TIMEOUT_MS = 20000;
+  const LIVE_REFRESH_FORCE_TIMEOUT_MS = 35000;
   const LIVE_PROXY_URL = 'https://api.codetabs.com/v1/proxy?quest=';
   const LIVE_FETCH_BATCH_SIZE = 20;
   const LIVE_FETCH_BATCH_CONCURRENCY = 2;
@@ -402,10 +402,10 @@ function startDashboard(STOCK_DATA) {
       const refreshed = await refreshLivePricesWithRetry(
         baseSnapshot,
         forceLiveRefresh ? LIVE_REFRESH_FORCE_ATTEMPTS : LIVE_REFRESH_RETRY_ATTEMPTS,
-        { forceRefresh: forceLiveRefresh, requireComplete: forceLiveRefresh },
+        { forceRefresh: forceLiveRefresh },
       );
       if (forceLiveRefresh && !refreshed) {
-        throw new Error('모든 현재가를 새로 받지 못했습니다.');
+        throw new Error('현재가를 새로 받지 못했습니다 (프록시/네트워크 확인)');
       }
 
       lastRefreshError = '';
@@ -1011,8 +1011,7 @@ function startDashboard(STOCK_DATA) {
     return holdingConfigPromise;
   }
 
-  async function buildLiveSnapshot(options) {
-    options = options || {};
+  async function buildLiveSnapshot() {
     const configMap = await loadHoldingConfigMap();
     const codes = [];
     pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
@@ -1029,29 +1028,35 @@ function startDashboard(STOCK_DATA) {
       fetchLiveStockQuoteMap(uniqueCodes),
       buildLiveMarketSummary().catch(function() { return null; }),
     ]);
-    if (options.requireComplete) {
-      const missingCodes = uniqueCodes.filter(function(code) { return !quoteMap.has(code); });
-      if (missingCodes.length) {
-        throw new Error('현재가 누락 ' + missingCodes.length + '개: ' + missingCodes.slice(0, 8).join(', '));
-      }
-      if (!market) {
-        throw new Error('시장 지표를 새로 받지 못했습니다.');
-      }
-    }
+    // 부분 성공 허용: 받은 종목만 갱신하고 누락 종목은 직전 값을 유지한다.
+    // (서버 스냅샷의 isPartial/missingPairIds 계약과 동일 — 전부-아니면-실패 제거)
     const livePairs = [];
+    const missingPairIds = [];
     pairs.filter(function(pair) { return !pair.isAverage; }).forEach(function(pair) {
       const config = configMap.get(pair.id);
       const entry = config ? buildLivePairEntry(pair, config, quoteMap) : null;
       if (entry) livePairs.push(entry);
+      else missingPairIds.push(pair.id);
     });
-    if (!livePairs.length) throw new Error('KIS 프록시 현재가를 가져오지 못했습니다.');
-    const ratioChangePairs = livePairs.filter(function(pair) {
-      return typeof pair.ratioChange === 'number' && Number.isFinite(pair.ratioChange);
-    });
+    if (!livePairs.length) throw new Error('현재가를 하나도 받지 못했습니다 (프록시/네트워크 확인)');
+
+    // 전체 지표는 라이브 + 누락 종목의 직전 값까지 합친 전체 구성 기준으로 계산
+    const liveIds = new Set(livePairs.map(function(entry) { return entry.id; }));
     const ratioValues = livePairs.map(function(pair) { return pair.ratio; });
+    const changeValues = livePairs
+      .map(function(pair) { return pair.ratioChange; })
+      .filter(function(value) { return typeof value === 'number' && Number.isFinite(value); });
+    pairs.forEach(function(pair) {
+      if (pair.isAverage || liveIds.has(pair.id)) return;
+      if (typeof pair.current.ratio === 'number' && Number.isFinite(pair.current.ratio)) {
+        ratioValues.push(pair.current.ratio);
+      }
+      if (typeof pair.current.ratioChange === 'number' && Number.isFinite(pair.current.ratioChange)) {
+        changeValues.push(pair.current.ratioChange);
+      }
+    });
     const medianRatio = medianOf(ratioValues);
     const meanRatio = ratioValues.reduce(function(sum, v) { return sum + v; }, 0) / ratioValues.length;
-    const changeValues = ratioChangePairs.map(function(pair) { return pair.ratioChange; });
     const medianChange = changeValues.length ? medianOf(changeValues) : null;
     livePairs.push({
       id: '_average',
@@ -1067,6 +1072,9 @@ function startDashboard(STOCK_DATA) {
       lastUpdated: formatKstTimestamp(now),
       generatedAt: now.toISOString(),
       snapshotTimestamp: Date.now(),
+      isPartial: missingPairIds.length > 0,
+      missingPairIds: missingPairIds,
+      preservedPairIds: [],
       market,
       pairs: livePairs,
     };
@@ -1168,7 +1176,7 @@ function startDashboard(STOCK_DATA) {
     liveRefreshPromise = (async function() {
       try {
         const liveSnapshot = await runWithTimeout(
-          buildLiveSnapshot({ requireComplete: !!opts.requireComplete }),
+          buildLiveSnapshot(),
           opts.forceRefresh ? LIVE_REFRESH_FORCE_TIMEOUT_MS : LIVE_REFRESH_TIMEOUT_MS,
           '실시간 갱신 시간이 초과되었습니다.',
         );
