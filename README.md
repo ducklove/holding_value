@@ -10,7 +10,7 @@ GitHub Actions가 데이터를 수집해 저장소에 커밋하고, GitHub Pages
 ```
 Yahoo Finance ─┐
 KIS Open API ──┤   fetch_data.py    (일 1회, KST 05:00)  →  data.js     (전체 히스토리)
-KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      →  current.js / current.json
+KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      →  current.json
 내부 가격 API ─┘   build_holdings_api.py (config push 시) →  api/holdings.json
                           │ git commit/push (저장소 = DB)
                           ▼
@@ -22,11 +22,14 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `config.json` | 종목 정의 (admin.html에서 관리). pair별 선택 필드 `validFrom` 지원 |
 | `fetch_data.py` | 일별 히스토리 파이프라인 (증분 병합, 주간 다운샘플, 품질 가드) |
 | `fetch_current.py` | 장중 스냅샷 (세션 인지 보존, KIS → KIS 프록시 → yfinance 폴백) |
+| `pipeline/` | 순수 로직 패키지 (stdlib 전용) — fetch_*.py가 재수출 |
 | `price_api.py` | 내부 가격 API 어댑터 (LAN 전용 — CI에서는 자동 스킵) |
 | `build_holdings_api.py` | `api/holdings.json` 생성 (config.json push 시 워크플로우가 실행) |
+| `js/` | 프런트 순수 함수 모듈 (`node --test tests/js`로 검증) |
+| `css/` | 프런트 스타일 |
 | `data/summary.json` | 생성 산출물 — 메타+현재가 (~25KB). 프런트 첫 화면의 데이터 소스 |
 | `data/history/{id}.json` | 생성 산출물 — 종목별 컬럼형 히스토리. 선택 종목만 지연 로드 |
-| `data.js` / `current.js(.json)` | 생성 산출물 — 직접 편집 금지. data.js는 분할 로드 실패 시 폴백(과도기) |
+| `data.js` / `current.json` | 생성 산출물 — 직접 편집 금지. data.js는 분할 로드 실패 시 폴백(과도기) |
 | `docs/refactoring_review_202606.html` | 구조·품질 리뷰 보고서 및 로드맵 |
 
 ## 데이터 규칙
@@ -108,8 +111,9 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 pip install -r requirements.txt
 python fetch_data.py            # 증분 갱신 (data.js)
 python fetch_data.py --full     # 전체 재생성 (주의: 과거 값 소급 변동)
-python fetch_current.py         # 장중 스냅샷 (current.js/current.json)
+python fetch_current.py         # 장중 스냅샷 (current.json)
 python -m pytest -q             # 테스트
+node --test tests/js            # JS 단위 테스트
 python -m http.server 8000      # 대시보드: http://localhost:8000
 ```
 
@@ -122,5 +126,6 @@ python -m http.server 8000      # 대시보드: http://localhost:8000
   (Phase 3 시간축 전환 예정).
 - admin.html의 PAT는 localStorage에 저장된다. 공용 브라우저에서 사용 금지,
   사용 후 "토큰 삭제" 권장.
-- 세아 외 분할·지주전환 종목(코스맥스비티아이, 한국콜마홀딩스, 오리온홀딩스 등)의
-  validFrom은 사업보고서 확인 후 채워야 한다.
+- 코스맥스비티아이·한국콜마홀딩스·오리온홀딩스 등 분할 종목은 자회사 신규 상장일
+  교집합으로 자체 절단됨을 확인. 잔여 validFrom 후보는 조광피혁(버크셔·애플 취득
+  이전 구간 — 취득 시기 공시 확인 필요) 한 건.

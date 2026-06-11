@@ -1,27 +1,52 @@
 #!/usr/bin/env python3
 """
-Generate the current.js snapshot for the holding value dashboard.
+Generate the current.json snapshot for the holding value dashboard.
 """
 
 import json
 import os
-import re
-import statistics
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
-from zoneinfo import ZoneInfo
 
 import yfinance as yf
 import pandas as pd
 
+from pipeline.core import get_holding_adjusted_shares, write_atomic
+from pipeline.snapshot import (
+    SEOUL_TZ,
+    build_alert_messages,
+    build_average_entry,
+    build_session_info,
+    calculate_pct_change,
+    deep_copy_json,
+    is_cached_entry_compatible,
+    parse_number,
+    same_session,
+    signed_kis_value,
+)
+
+# pipeline.core/snapshot 재수출 — 기존 fetch_current.X 참조(테스트 포함)가 그대로 동작한다.
+__all__ = [
+    "SEOUL_TZ",
+    "build_alert_messages",
+    "build_average_entry",
+    "build_session_info",
+    "calculate_pct_change",
+    "deep_copy_json",
+    "get_holding_adjusted_shares",
+    "is_cached_entry_compatible",
+    "parse_number",
+    "same_session",
+    "signed_kis_value",
+    "write_atomic",
+]
+
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "config.json"
-OUTPUT_PATH = BASE_DIR / "current.js"
 OUTPUT_JSON_PATH = BASE_DIR / "current.json"
-SEOUL_TZ = ZoneInfo("Asia/Seoul")
 KIS_BASE_URL = os.environ.get("KIS_BASE_URL", "https://openapi.koreainvestment.com:9443")
 KIS_APP_KEY = (
     os.environ.get("KIS_APP_KEY")
@@ -60,17 +85,6 @@ def ticker_code(ticker):
 def batched(values, size):
     for start in range(0, len(values), size):
         yield values[start:start + size]
-
-
-def parse_number(value):
-    if value in (None, ""):
-        return None
-    if isinstance(value, (int, float)):
-        return float(value)
-    try:
-        return float(str(value).replace(",", ""))
-    except ValueError:
-        return None
 
 
 def request_json(url, method="GET", headers=None, payload=None, params=None, timeout=KIS_TIMEOUT):
@@ -144,21 +158,6 @@ def get_kis_access_token():
         expires_at = time.time() + int(token_response.get("expires_in", 86400))
     write_cached_kis_token(access_token, expires_at)
     return access_token
-
-
-def signed_kis_value(value, sign_code):
-    number = parse_number(value)
-    if number is None:
-        return None
-
-    sign_code = str(sign_code or "")
-    if sign_code in {"4", "5"}:
-        return -abs(number)
-    if sign_code in {"1", "2"}:
-        return abs(number)
-    if sign_code == "3":
-        return 0.0
-    return number
 
 
 def fetch_kis_domestic_quote(ticker, access_token):
@@ -336,67 +335,12 @@ def fetch_market_summary():
 
 
 def parse_existing_current():
+    if not OUTPUT_JSON_PATH.exists():
+        return None
     try:
-        if OUTPUT_JSON_PATH.exists():
-            return json.loads(OUTPUT_JSON_PATH.read_text(encoding="utf-8"))
-
-        if not OUTPUT_PATH.exists():
-            return None
-
-        text = OUTPUT_PATH.read_text(encoding="utf-8")
-        json_str = re.sub(r"^const CURRENT_DATA\s*=\s*", "", text)
-        json_str = re.sub(r";\s*$", "", json_str)
-        return json.loads(json_str)
+        return json.loads(OUTPUT_JSON_PATH.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return None
-
-
-def build_session_info(now_local):
-    weekday = now_local.weekday()
-    minutes = now_local.hour * 60 + now_local.minute
-    is_weekday = weekday < 5
-
-    if is_weekday and 9 * 60 <= minutes <= 16 * 60:
-        return {
-            "name": "kr_day",
-            "date": now_local.strftime("%Y-%m-%d"),
-            "label": "KR day session",
-        }
-
-    if (is_weekday and minutes >= 21 * 60) or (minutes < 6 * 60 + 30 and (now_local - timedelta(days=1)).weekday() < 5):
-        session_date = now_local if minutes >= 21 * 60 else now_local - timedelta(days=1)
-        return {
-            "name": "us_night",
-            "date": session_date.strftime("%Y-%m-%d"),
-            "label": "US night session",
-        }
-
-    return {
-        "name": "offhours",
-        "date": now_local.strftime("%Y-%m-%d"),
-        "label": "Off hours",
-    }
-
-
-def same_session(previous_snapshot, current_session):
-    if not previous_snapshot:
-        return False
-
-    previous_session = previous_snapshot.get("session") or {}
-    return (
-        previous_session.get("name") == current_session["name"]
-        and previous_session.get("date") == current_session["date"]
-    )
-
-
-def deep_copy_json(value):
-    return json.loads(json.dumps(value))
-
-
-def write_atomic(path, content):
-    tmp_path = path.with_name(path.name + ".tmp")
-    tmp_path.write_text(content, encoding="utf-8")
-    os.replace(tmp_path, path)
 
 
 def build_previous_pair_map(previous_snapshot, current_session):
@@ -408,36 +352,6 @@ def build_previous_pair_map(previous_snapshot, current_session):
         for pair in previous_snapshot.get("pairs", [])
         if pair.get("id") and pair.get("id") != "_average"
     }
-
-
-def is_cached_entry_compatible(pair, previous_entry):
-    if previous_entry is None:
-        return False
-
-    expected_names = [sub["name"] for sub in pair["subsidiaries"]]
-    cached_subs = previous_entry.get("subsidiaries")
-
-    if len(expected_names) == 1:
-        return not cached_subs
-
-    if not isinstance(cached_subs, list):
-        return False
-
-    cached_names = [sub.get("name") for sub in cached_subs]
-    return cached_names == expected_names
-
-
-def calculate_pct_change(current_price, previous_price):
-    if current_price is None or previous_price in (None, 0):
-        return None
-    return round((current_price - previous_price) / previous_price * 100, 2)
-
-
-def get_holding_adjusted_shares(pair):
-    return pair.get(
-        "holdingAdjustedShares",
-        pair["holdingTotalShares"] - pair["holdingTreasuryShares"],
-    )
 
 
 def normalize_close_frame(data, tickers):
@@ -606,59 +520,6 @@ def build_pair_entry(pair, prices, previous_prices, fx_rate, previous_fx_rate, p
     return entry
 
 
-def build_average_entry(pairs_result):
-    """전체 지표 엔트리. 대표값은 중앙값(ratio), 평균은 mean으로 병기.
-
-    일별 배치(fetch_data.build_average_history)와 같은 정의를 유지해야 한다.
-    """
-    live_pairs = [pair for pair in pairs_result if pair.get("id") != "_average"]
-    if not live_pairs:
-        return None
-
-    ratios = [pair["ratio"] for pair in live_pairs]
-    ratio_changes = [
-        pair["ratioChange"]
-        for pair in live_pairs
-        if isinstance(pair.get("ratioChange"), (int, float))
-    ]
-    return {
-        "id": "_average",
-        "ratio": round(statistics.median(ratios), 2),
-        "mean": round(sum(ratios) / len(ratios), 2),
-        "count": len(live_pairs),
-        "ratioChange": round(statistics.median(ratio_changes), 2) if ratio_changes else None,
-        "quoteSource": "derived",
-    }
-
-
-def build_alert_messages(pairs_result, previous_pairs_by_id, pair_config_map):
-    """비율이 알림 임계(alertBelow/alertAbove)를 '교차'한 종목의 메시지 목록.
-
-    직전 스냅샷에서 이미 같은 쪽에 있었으면 재발송하지 않는다
-    (10분 주기 중복 방지 — 상태 파일 없이 직전 스냅샷 비교로 해결).
-    """
-    messages = []
-    for entry in pairs_result:
-        pair_id = entry.get("id")
-        config = pair_config_map.get(pair_id)
-        if not config:
-            continue
-        ratio = entry.get("ratio")
-        if not isinstance(ratio, (int, float)):
-            continue
-        previous_ratio = (previous_pairs_by_id.get(pair_id) or {}).get("ratio")
-        below = config.get("alertBelow")
-        above = config.get("alertAbove")
-        name = config.get("name") or pair_id
-        if isinstance(below, (int, float)) and ratio < below:
-            if not (isinstance(previous_ratio, (int, float)) and previous_ratio < below):
-                messages.append(f"🔻 {name}: {ratio:.2f}% < 하한 {below:g}%")
-        if isinstance(above, (int, float)) and ratio > above:
-            if not (isinstance(previous_ratio, (int, float)) and previous_ratio > above):
-                messages.append(f"🔺 {name}: {ratio:.2f}% > 상한 {above:g}%")
-    return messages
-
-
 def maybe_send_alerts(pairs_result, previous_snapshot, now_local):
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         return
@@ -763,11 +624,9 @@ def main():
     }
 
     json_content = json.dumps(current_data, ensure_ascii=False, separators=(",", ":"))
-    js_content = "const CURRENT_DATA = " + json_content + ";\n"
-    write_atomic(OUTPUT_PATH, js_content)
     write_atomic(OUTPUT_JSON_PATH, json_content + "\n")
 
-    print(f"\nGenerated {OUTPUT_PATH} and {OUTPUT_JSON_PATH} ({len(pairs_result)} pairs)")
+    print(f"\nGenerated {OUTPUT_JSON_PATH} ({len(pairs_result)} pairs)")
 
     maybe_send_alerts(pairs_result, previous_snapshot, now_local)
 
