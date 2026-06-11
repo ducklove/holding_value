@@ -44,8 +44,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet current.js current.json 2>/dev/null || {
-            git add current.js current.json
+          git diff --quiet current.json 2>/dev/null || {
+            git add current.json
             git commit -m "Update current prices ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M'))"
             for attempt in 1 2 3 4; do
               git pull --rebase origin master && git push && exit 0
