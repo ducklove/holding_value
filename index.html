@@ -209,9 +209,14 @@ function startDashboard(STOCK_DATA) {
   const LIVE_FETCH_TIMEOUT_MS = 8000;
   const LIVE_REFRESH_TIMEOUT_MS = 20000;
   const LIVE_REFRESH_FORCE_TIMEOUT_MS = 35000;
-  const LIVE_PROXY_URL = 'https://api.codetabs.com/v1/proxy?quest=';
-  const LIVE_FETCH_BATCH_SIZE = 20;
-  const LIVE_FETCH_BATCH_CONCURRENCY = 2;
+  const LIVE_PROXY_BASE_URL = 'https://cantabile.tplinkdns.com:3298';
+  const LIVE_FETCH_BATCH_SIZE = 100;
+  const LIVE_FETCH_BATCH_CONCURRENCY = 1;
+  const LIVE_FETCH_MIN_INTERVAL_MS = 100;
+  const LIVE_FETCH_RETRY_ATTEMPTS = 3;
+  const LIVE_FETCH_RETRY_BASE_DELAY_MS = 1000;
+  const LIVE_FETCH_RATE_LIMIT_DELAY_MS = 3500;
+  const LIVE_FETCH_RETRY_MAX_DELAY_MS = 7000;
   const MIN_ZOOM_SPAN = 0.04;
   // 분할 히스토리 진행 중 요청 캐시 — init에서 바로 쓰므로 상단 선언 (행 필드 HISTORY_COLUMNS는 js/calc.js)
   const historyRequests = {};
@@ -231,6 +236,7 @@ function startDashboard(STOCK_DATA) {
   let lastRefreshStartedAt = 0;
   let autoRefreshTimer = null;
   let liveRefreshPromise = null;
+  let nextLiveFetchAt = 0;
   let todayOverviewData = null;
   let lastRefreshError = '';
 
@@ -695,6 +701,7 @@ function startDashboard(STOCK_DATA) {
     if (!snapshot || !Array.isArray(snapshot.pairs)) return '';
     const sources = [...new Set(snapshot.pairs.map(function(pair) { return pair.quoteSource; }).filter(Boolean))];
     if (!sources.length) return '';
+    if (sources.includes('internal_proxy')) return '내부 프록시 실시간';
     if (sources.includes('naver_browser')) return '네이버 증권 실시간';
     if (sources.includes('kis_proxy')) return 'KIS 프록시';
     if (sources.includes('kis_openapi')) return '한국투자증권 Open API';
@@ -898,15 +905,67 @@ function startDashboard(STOCK_DATA) {
     return url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
   }
 
+  function buildLiveProxyUrl(path) {
+    return LIVE_PROXY_BASE_URL.replace(/\/$/, '') + path;
+  }
+
+  function shouldBypassCacheBuster(url) {
+    return url.indexOf(LIVE_PROXY_BASE_URL.replace(/\/$/, '')) === 0;
+  }
+
+  async function waitForLiveFetchSlot() {
+    const now = Date.now();
+    const scheduledAt = Math.max(now, nextLiveFetchAt);
+    nextLiveFetchAt = scheduledAt + LIVE_FETCH_MIN_INTERVAL_MS;
+    const waitMs = scheduledAt - now;
+    if (waitMs > 0) await delay(waitMs);
+  }
+
+  function parseRetryAfterMs(value) {
+    if (!value) return null;
+    const seconds = Number(value);
+    if (Number.isFinite(seconds)) return Math.max(0, seconds * 1000);
+    const parsed = Date.parse(value);
+    if (Number.isFinite(parsed)) return Math.max(0, parsed - Date.now());
+    return null;
+  }
+
+  function isRetryableLiveFetchError(err) {
+    const status = err && err.status;
+    if (status === 429) return true;
+    if (status >= 500 && status < 600) return true;
+    const name = err && err.name;
+    if (name === 'AbortError') return true;
+    const message = err && err.message ? err.message : '';
+    return /Failed to fetch|NetworkError|Load failed/i.test(message);
+  }
+
+  function getLiveFetchRetryDelayMs(err, attempt) {
+    const retryAfterMs = parseRetryAfterMs(err && err.retryAfter);
+    if (retryAfterMs != null) return Math.min(retryAfterMs, LIVE_FETCH_RETRY_MAX_DELAY_MS);
+    const baseDelay = err && err.status === 429 ? LIVE_FETCH_RATE_LIMIT_DELAY_MS : LIVE_FETCH_RETRY_BASE_DELAY_MS;
+    return Math.min(LIVE_FETCH_RETRY_MAX_DELAY_MS, baseDelay * Math.pow(2, attempt));
+  }
+
   async function fetchWithTimeout(url, responseType, timeoutMs) {
     const controller = new AbortController();
     const timer = setTimeout(function() { controller.abort(); }, timeoutMs || LIVE_FETCH_TIMEOUT_MS);
     try {
-      const resp = await fetch(LIVE_PROXY_URL + encodeURIComponent(withCacheBustingParam(url)), {
+      await waitForLiveFetchSlot();
+      const requestUrl = shouldBypassCacheBuster(url) ? url : withCacheBustingParam(url);
+      const resp = await fetch(requestUrl, {
         signal: controller.signal,
         cache: 'no-store',
       });
-      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      if (!resp.ok) {
+        const err = new Error('HTTP ' + resp.status);
+        err.status = resp.status;
+        err.retryAfter = resp.headers.get('Retry-After');
+        try {
+          err.body = (await resp.text()).slice(0, 200);
+        } catch (bodyErr) {}
+        throw err;
+      }
       return responseType === 'text' ? await resp.text() : await resp.json();
     } finally {
       clearTimeout(timer);
@@ -928,7 +987,17 @@ function startDashboard(STOCK_DATA) {
   }
 
   async function fetchLiveJson(url, timeoutMs) {
-    return fetchWithTimeout(url, 'json', timeoutMs || LIVE_FETCH_TIMEOUT_MS);
+    for (let attempt = 0; attempt < LIVE_FETCH_RETRY_ATTEMPTS; attempt += 1) {
+      try {
+        return await fetchWithTimeout(url, 'json', timeoutMs || LIVE_FETCH_TIMEOUT_MS);
+      } catch (err) {
+        if (attempt >= LIVE_FETCH_RETRY_ATTEMPTS - 1 || !isRetryableLiveFetchError(err)) {
+          throw err;
+        }
+        await delay(getLiveFetchRetryDelayMs(err, attempt));
+      }
+    }
+    return null;
   }
 
   async function mapWithConcurrency(items, limit, mapper) {
@@ -956,37 +1025,42 @@ function startDashboard(STOCK_DATA) {
     const uniqueCodes = [...new Set(codes.filter(Boolean))];
     if (!uniqueCodes.length) return new Map();
 
-    async function fetchBatch(batchCodes) {
+    async function fetchQuoteBatch(batchCodes) {
       const payload = await fetchLiveJson(
-        'https://polling.finance.naver.com/api/realtime/domestic/stock/' + batchCodes.join(','),
+        buildLiveProxyUrl('/v1/naverfinance/stocks/quotes?symbols=' + encodeURIComponent(batchCodes.join(','))),
       );
-      return Array.isArray(payload?.datas) ? payload.datas : [];
-    }
-
-    try {
-      const quotes = await fetchBatch(uniqueCodes);
-      if (quotes.length) {
-        return new Map(quotes.map(function(quote) {
-          return [quote.itemCode, parseNaverQuote(quote)];
-        }));
+      if (Array.isArray(payload?.items)) {
+        return payload.items.map(function(item) {
+          return {
+            code: String(item.symbol || item.summary?.symbol || item.raw?.cd || '').trim(),
+            quote: parseProxyQuote(item),
+          };
+        });
       }
-    } catch (err) {
-      // Fall through to smaller batch requests, same as common_preferred_spread.
+      if (payload?.summary || payload?.raw) {
+        return [{
+          code: String(payload.symbol || payload.summary?.symbol || payload.raw?.cd || batchCodes[0] || '').trim(),
+          quote: parseProxyQuote(payload),
+        }];
+      }
+      return [];
     }
 
     const batchResults = await mapWithConcurrency(
       chunkArray(uniqueCodes, LIVE_FETCH_BATCH_SIZE),
       LIVE_FETCH_BATCH_CONCURRENCY,
       function(batchCodes) {
-        return fetchBatch(batchCodes);
+        return fetchQuoteBatch(batchCodes);
       },
     );
 
     return new Map(
       batchResults
         .flat()
-        .filter(function(quote) { return quote && quote.itemCode; })
-        .map(function(quote) { return [quote.itemCode, parseNaverQuote(quote)]; }),
+        .filter(function(result) {
+          return result && result.code && result.quote && result.quote.price != null;
+        })
+        .map(function(result) { return [result.code, result.quote]; }),
     );
   }
 
@@ -1068,7 +1142,7 @@ function startDashboard(STOCK_DATA) {
     });
     const now = new Date();
     return {
-      source: '네이버 증권 실시간',
+      source: '내부 프록시 실시간',
       lastUpdated: formatKstTimestamp(now),
       generatedAt: now.toISOString(),
       snapshotTimestamp: Date.now(),
@@ -1082,11 +1156,11 @@ function startDashboard(STOCK_DATA) {
 
   async function buildLiveMarketSummary() {
     const [kospiPayload, kosdaqPayload] = await Promise.all([
-      fetchLiveJson('https://polling.finance.naver.com/api/realtime/domestic/index/KOSPI'),
-      fetchLiveJson('https://polling.finance.naver.com/api/realtime/domestic/index/KOSDAQ').catch(function() { return null; }),
+      fetchLiveJson(buildLiveProxyUrl('/v1/indexes/KOSPI/quote')),
+      fetchLiveJson(buildLiveProxyUrl('/v1/indexes/KOSDAQ/quote')).catch(function() { return null; }),
     ]);
-    const kospi = buildLiveMarketMetric(kospiPayload?.datas?.[0] || null, { id: 'KOSPI', name: 'KOSPI', priceDecimals: 2 });
-    const kosdaq = buildLiveMarketMetric(kosdaqPayload?.datas?.[0] || null, { id: 'KOSDAQ', name: 'KOSDAQ', priceDecimals: 2 });
+    const kospi = buildProxyMarketMetric(kospiPayload, { id: 'KOSPI', name: 'KOSPI', priceDecimals: 2 });
+    const kosdaq = buildProxyMarketMetric(kosdaqPayload, { id: 'KOSDAQ', name: 'KOSDAQ', priceDecimals: 2 });
     if (!kospi) return null;
     if (kosdaq) kospi.extras = [kosdaq];
     return kospi;
@@ -1155,7 +1229,7 @@ function startDashboard(STOCK_DATA) {
       marketCap: +(marketCap / 1e8).toFixed(1),
       ratio: +ratio.toFixed(2),
       ratioChange: previousRatio != null ? +(ratio - previousRatio).toFixed(2) : null,
-      quoteSource: usedFallback ? 'mixed' : 'naver_browser',
+      quoteSource: usedFallback ? 'mixed' : 'internal_proxy',
     };
     if (subDetails.length === 1) {
       entry.subsidiaryPrice = subDetails[0].price;

@@ -142,6 +142,22 @@ test('parseNaverQuote: Raw 없으면 일반 필드 폴백, 결측은 null', () =
   assert.deepEqual(calc.parseNaverQuote(undefined), { price: null, previousPrice: null, changePct: null });
 });
 
+test('parseProxyQuote: internal proxy quote', () => {
+  const parsed = calc.parseProxyQuote({
+    summary: { current_price: 332000, change: 33000, change_rate: 11.04 },
+    raw: { stck_sdpr: '299000', prdy_vrss_sign: '2' },
+  });
+  assert.deepEqual(parsed, { price: 332000, previousPrice: 299000, changePct: 11.04 });
+});
+
+test('parseProxyQuote: falling sign derives previous price', () => {
+  const parsed = calc.parseProxyQuote({
+    summary: { current_price: 95000 },
+    raw: { prdy_vrss: '5000', prdy_vrss_sign: '5', prdy_ctrt: '-5.00' },
+  });
+  assert.deepEqual(parsed, { price: 95000, previousPrice: 100000, changePct: -5 });
+});
+
 test('buildLiveMarketMetric: Raw 우선 파싱 + defaults 반영, 가격 없으면 null', () => {
   const metric = calc.buildLiveMarketMetric({
     itemCode: 'KOSPI',
@@ -159,6 +175,23 @@ test('buildLiveMarketMetric: Raw 우선 파싱 + defaults 반영, 가격 없으�
   assert.equal(metric.priceDecimals, 2);
   assert.equal(calc.buildLiveMarketMetric(null), null);
   assert.equal(calc.buildLiveMarketMetric({ stockName: 'X' }), null); // 가격 결측
+});
+
+test('buildProxyMarketMetric: internal KIS proxy index', () => {
+  const metric = calc.buildProxyMarketMetric({
+    market: 'kospi',
+    index_code: '0001',
+    summary: { current_price: 8351.23, change: 587.28, change_rate: 7.56 },
+    raw: { prdy_vrss_sign: '2' },
+  }, { id: 'KOSPI', name: 'KOSPI', priceDecimals: 2 });
+  assert.equal(metric.id, 'KOSPI');
+  assert.equal(metric.name, 'KOSPI');
+  assert.equal(metric.price, 8351.23);
+  assert.equal(metric.change, 587.28);
+  assert.equal(metric.changePct, 7.56);
+  assert.equal(metric.source, '내부 KIS 프록시');
+  assert.equal(metric.priceDecimals, 2);
+  assert.equal(calc.buildProxyMarketMetric(null), null);
 });
 
 test('buildTimeScale: 날짜 간격 비례 x좌표 (등간격 아님)', () => {

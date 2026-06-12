@@ -53,6 +53,16 @@ function isKoreanTicker(ticker) {
   return /\.K[QS]$/.test(String(ticker || ''));
 }
 
+function signedKoreanChange(value, signCode) {
+  const number = parseRawNumber(value);
+  if (number == null) return null;
+  const code = String(signCode || '');
+  if (code === '4' || code === '5') return -Math.abs(number);
+  if (code === '1' || code === '2') return Math.abs(number);
+  if (code === '3') return 0;
+  return number;
+}
+
 function rowsFromColumnar(columnar) {
   const dates = columnar.dates || [];
   const subNames = columnar.subs ? Object.keys(columnar.subs) : [];
@@ -89,6 +99,44 @@ function parseNaverQuote(quote) {
   };
 }
 
+function parseProxyQuote(payload) {
+  const summary = payload?.summary || {};
+  const raw = payload?.raw || {};
+  const price = parseRawNumber(pickDefined(
+    summary.current_price,
+    summary.regular_market_price,
+    raw.stck_prpr,
+    raw.nv,
+  ));
+  const rawChange = pickDefined(
+    summary.change,
+    summary.change_amount,
+    raw.prdy_vrss,
+    raw.cv,
+  );
+  const change = signedKoreanChange(rawChange, pickDefined(raw.prdy_vrss_sign, raw.rf));
+  const previous = parseRawNumber(pickDefined(
+    summary.previous_close,
+    raw.stck_sdpr,
+    raw.pcv,
+  ));
+  const previousPrice = previous != null
+    ? previous
+    : price != null && change != null ? price - change : null;
+
+  return {
+    price,
+    previousPrice,
+    changePct: parseRawNumber(pickDefined(
+      summary.change_rate,
+      summary.change_pct,
+      summary.changePct,
+      raw.prdy_ctrt,
+      raw.cr,
+    )),
+  };
+}
+
 function buildLiveMarketMetric(quote, defaults) {
   defaults = defaults || {};
   if (!quote) return null;
@@ -104,6 +152,28 @@ function buildLiveMarketMetric(quote, defaults) {
     )),
     changePct: parseRawNumber(pickDefined(quote.fluctuationsRatioRaw, quote.fluctuationsRatio)),
     source: '네이버 증권',
+    priceDecimals: defaults.priceDecimals == null ? 2 : defaults.priceDecimals,
+  };
+}
+
+function buildProxyMarketMetric(payload, defaults) {
+  defaults = defaults || {};
+  if (!payload) return null;
+  const summary = payload.summary || {};
+  const raw = payload.raw || {};
+  const price = parseRawNumber(pickDefined(summary.current_price, raw.bstp_nmix_prpr));
+  if (price == null) return null;
+  const change = signedKoreanChange(
+    pickDefined(summary.change, raw.bstp_nmix_prdy_vrss),
+    raw.prdy_vrss_sign,
+  );
+  return {
+    id: defaults.id || payload.market || payload.index_code,
+    name: defaults.name || payload.market || defaults.id,
+    price,
+    change,
+    changePct: parseRawNumber(pickDefined(summary.change_rate, raw.bstp_nmix_prdy_ctrt)),
+    source: '내부 KIS 프록시',
     priceDecimals: defaults.priceDecimals == null ? 2 : defaults.priceDecimals,
   };
 }
@@ -155,9 +225,12 @@ if (typeof module !== 'undefined' && module.exports) {
     chunkArray,
     derivePreviousPrice,
     isKoreanTicker,
+    signedKoreanChange,
     rowsFromColumnar,
     parseNaverQuote,
+    parseProxyQuote,
     buildLiveMarketMetric,
+    buildProxyMarketMetric,
     buildTimeScale,
     nearestIndexForX,
     drawTimeAxisLabels,
