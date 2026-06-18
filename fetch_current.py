@@ -87,6 +87,22 @@ def batched(values, size):
         yield values[start:start + size]
 
 
+def first_number(*values):
+    for value in values:
+        number = parse_number(value)
+        if number is not None:
+            return number
+    return None
+
+
+def first_signed_kis_value(sign_code, *values):
+    for value in values:
+        number = signed_kis_value(value, sign_code)
+        if number is not None:
+            return number
+    return None
+
+
 def request_json(url, method="GET", headers=None, payload=None, params=None, timeout=KIS_TIMEOUT):
     if params:
         url = f"{url}?{urlencode(params)}"
@@ -252,16 +268,21 @@ def fetch_kis_proxy_domestic_quote(ticker):
     )
     summary = payload.get("summary") or {}
     raw = payload.get("raw") or {}
+    sign_code = raw.get("prdy_vrss_sign") or raw.get("rf") or summary.get("change_sign") or summary.get("change_code")
 
-    current_price = parse_number(summary.get("current_price")) or parse_number(raw.get("stck_prpr"))
+    current_price = first_number(summary.get("current_price"), raw.get("stck_prpr"), raw.get("nv"))
     if current_price is None:
         raise RuntimeError(f"KIS proxy quote missing current price for {ticker}")
 
-    previous_price = parse_number(raw.get("stck_sdpr"))
+    previous_price = first_number(summary.get("previous_close"), raw.get("stck_sdpr"), raw.get("pcv"))
     if previous_price is None:
-        change_amount = parse_number(summary.get("change"))
-        if change_amount is None:
-            change_amount = signed_kis_value(raw.get("prdy_vrss"), raw.get("prdy_vrss_sign"))
+        change_amount = first_signed_kis_value(
+            sign_code,
+            summary.get("change"),
+            summary.get("change_amount"),
+            raw.get("prdy_vrss"),
+            raw.get("cv"),
+        )
         if change_amount is not None:
             previous_price = current_price - change_amount
 
@@ -311,7 +332,8 @@ def fetch_kis_proxy_index(index_id):
 
     summary = payload.get("summary") or {}
     raw = payload.get("raw") or {}
-    price = parse_number(summary.get("current_price")) or parse_number(raw.get("bstp_nmix_prpr"))
+    sign_code = raw.get("prdy_vrss_sign") or summary.get("change_sign") or summary.get("change_code")
+    price = first_number(summary.get("current_price"), raw.get("bstp_nmix_prpr"))
     if price is None:
         return None
 
@@ -319,8 +341,13 @@ def fetch_kis_proxy_index(index_id):
         "id": index_id,
         "name": index_id,
         "price": price,
-        "change": parse_number(summary.get("change")) or parse_number(raw.get("bstp_nmix_prdy_vrss")),
-        "changePct": parse_number(summary.get("change_rate")) or parse_number(raw.get("bstp_nmix_prdy_ctrt")),
+        "change": first_signed_kis_value(sign_code, summary.get("change"), raw.get("bstp_nmix_prdy_vrss")),
+        "changePct": first_signed_kis_value(
+            sign_code,
+            summary.get("change_rate"),
+            summary.get("change_pct"),
+            raw.get("bstp_nmix_prdy_ctrt"),
+        ),
         "source": "KIS proxy",
         "priceDecimals": 2,
     }

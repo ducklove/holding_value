@@ -102,6 +102,7 @@ function parseNaverQuote(quote) {
 function parseProxyQuote(payload) {
   const summary = payload?.summary || {};
   const raw = payload?.raw || {};
+  const signCode = pickDefined(raw.prdy_vrss_sign, raw.rf, summary.change_sign, summary.change_code);
   const price = parseRawNumber(pickDefined(
     summary.current_price,
     summary.regular_market_price,
@@ -114,7 +115,7 @@ function parseProxyQuote(payload) {
     raw.prdy_vrss,
     raw.cv,
   );
-  const change = signedKoreanChange(rawChange, pickDefined(raw.prdy_vrss_sign, raw.rf));
+  const change = signedKoreanChange(rawChange, signCode);
   const previous = parseRawNumber(pickDefined(
     summary.previous_close,
     raw.stck_sdpr,
@@ -127,13 +128,13 @@ function parseProxyQuote(payload) {
   return {
     price,
     previousPrice,
-    changePct: parseRawNumber(pickDefined(
+    changePct: signedKoreanChange(pickDefined(
       summary.change_rate,
       summary.change_pct,
       summary.changePct,
       raw.prdy_ctrt,
       raw.cr,
-    )),
+    ), signCode),
   };
 }
 
@@ -163,16 +164,17 @@ function buildProxyMarketMetric(payload, defaults) {
   const raw = payload.raw || {};
   const price = parseRawNumber(pickDefined(summary.current_price, raw.bstp_nmix_prpr));
   if (price == null) return null;
+  const signCode = pickDefined(raw.prdy_vrss_sign, summary.change_sign, summary.change_code);
   const change = signedKoreanChange(
     pickDefined(summary.change, raw.bstp_nmix_prdy_vrss),
-    raw.prdy_vrss_sign,
+    signCode,
   );
   return {
     id: defaults.id || payload.market || payload.index_code,
     name: defaults.name || payload.market || defaults.id,
     price,
     change,
-    changePct: parseRawNumber(pickDefined(summary.change_rate, raw.bstp_nmix_prdy_ctrt)),
+    changePct: signedKoreanChange(pickDefined(summary.change_rate, raw.bstp_nmix_prdy_ctrt), signCode),
     source: '내부 KIS 프록시',
     priceDecimals: defaults.priceDecimals == null ? 2 : defaults.priceDecimals,
   };
