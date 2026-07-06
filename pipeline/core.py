@@ -1,14 +1,16 @@
-"""일별 히스토리 파이프라인의 순수 로직 (fetch_data.py에서 이동, stdlib 전용).
+"""일별 히스토리 파이프라인의 순수 로직 (fetch_data.py에서 이동).
 
 병합·다운샘플·추세 주석·전체 지표·품질 가드·컬럼형 직렬화를 담당한다.
 fetch_data.py가 이 모듈의 이름을 재수출하므로 기존 fetch_data.X 참조는 그대로 동작한다.
+의존성은 표준 라이브러리 + fin-commons(stdlib only)뿐이다.
 """
 
-import os
 import math
 import statistics
 from collections import defaultdict, deque
 from datetime import datetime, timedelta
+
+from fin_commons.jsonio import atomic_write_text
 
 DAILY_RETENTION_DAYS = 730
 SMA_WINDOW = 250
@@ -331,9 +333,8 @@ def check_history_regressions(previous_pairs, pairs_result, rebuild_ids, valid_f
 
 
 def write_atomic(path, content):
-    tmp_path = path.with_name(path.name + ".tmp")
-    tmp_path.write_text(content, encoding="utf-8")
-    os.replace(tmp_path, path)
+    """원자적 텍스트 쓰기 — fin-commons로 위임 (실패 시 tmp 정리, 부모 디렉터리 생성 포함)."""
+    atomic_write_text(path, content)
 
 
 def incremental_start(last_dates, max_lookback_days=INCREMENTAL_MAX_LOOKBACK_DAYS):

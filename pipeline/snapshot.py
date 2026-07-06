@@ -1,18 +1,20 @@
-"""장중 스냅샷의 순수 로직 (fetch_current.py에서 이동, stdlib 전용).
+"""장중 스냅샷의 순수 로직 (fetch_current.py에서 이동).
 
 세션 판별·캐시 호환성·전체 지표 엔트리·알림 메시지·KIS 값 파싱을 담당한다.
 fetch_current.py가 이 모듈의 이름을 재수출하므로 기존 fetch_current.X 참조는 그대로 동작한다.
+의존성은 표준 라이브러리 + fin-commons(stdlib only)뿐이다.
 """
 
 import json
 import math
 import statistics
 from datetime import timedelta
-from zoneinfo import ZoneInfo
+
+from fin_commons.timeutil import KST
 
 from pipeline.core import calculate_pct_change as calculate_pct_change  # 재수출
 
-SEOUL_TZ = ZoneInfo("Asia/Seoul")
+SEOUL_TZ = KST  # KST는 DST 없음 — 고정 오프셋으로 충분 (fin-commons, fetch_current가 재수출)
 
 
 def parse_number(value):

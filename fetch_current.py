@@ -14,6 +14,8 @@ from urllib.request import Request, urlopen
 import yfinance as yf
 import pandas as pd
 
+from fin_commons.notify import send_telegram
+
 from pipeline.core import get_holding_adjusted_shares, write_atomic
 from pipeline.snapshot import (
     SEOUL_TZ,
@@ -564,16 +566,11 @@ def maybe_send_alerts(pairs_result, previous_snapshot, now_local):
         + "\n".join(messages)
         + "\n" + DASHBOARD_URL
     )
-    try:
-        request_json(
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-            method="POST",
-            payload={"chat_id": TELEGRAM_CHAT_ID, "text": text, "disable_web_page_preview": True},
-        )
+    # 알림 실패가 스냅샷 생성을 막아서는 안 된다 — fin-commons가 예외를 삼킨다
+    if send_telegram(text, token=TELEGRAM_BOT_TOKEN, chat_id=TELEGRAM_CHAT_ID):
         print(f"  Telegram 알림 {len(messages)}건 발송")
-    except Exception as exc:
-        # 알림 실패가 스냅샷 생성을 막아서는 안 된다
-        print(f"  Telegram 알림 발송 실패: {exc}")
+    else:
+        print("  Telegram 알림 발송 실패 (파이프라인은 계속 진행)")
 
 
 def main():

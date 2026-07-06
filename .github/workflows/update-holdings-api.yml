@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  issues: write  # 실패 이슈 알림 (fin-commons 표준 헬스 패턴)
 
 concurrency:
   group: data-commit
@@ -47,3 +48,23 @@ jobs:
             echo "ERROR: push failed after retries" >&2
             exit 1
           }
+
+      # --- fin-commons 표준 파이프라인 헬스 블록 ---------------------------
+      # 의존성 설치가 없는 워크플로우라 이슈 알림만 사용 (시크릿·설치 불필요)
+      - name: Report failure as issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create data-update-failure --color D93F0B \
+            --description "데이터 갱신 워크플로우 실패" --force || true
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="${{ github.workflow }} 워크플로우가 실패했습니다. 실행 로그: ${run_url}"
+          existing=$(gh issue list --label data-update-failure --state open \
+            --json number --jq '.[0].number' || true)
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "데이터 갱신 실패: ${{ github.workflow }}" \
+              --label data-update-failure --body "$body"
+          fi

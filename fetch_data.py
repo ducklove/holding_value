@@ -12,10 +12,11 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 import yfinance as yf
 import pandas as pd
+
+from fin_commons.timeutil import KST
 
 from pipeline.core import (
     DAILY_RETENTION_DAYS,
@@ -83,7 +84,7 @@ with open(CONFIG_PATH, encoding="utf-8") as f:
 OUTPUT_PATH = Path(__file__).parent / "data.js"
 DATA_DIR = Path(__file__).parent / "data"
 HISTORY_DIR = DATA_DIR / "history"
-SEOUL_TZ = ZoneInfo("Asia/Seoul")
+SEOUL_TZ = KST  # KST는 DST 없음 — 고정 오프셋으로 충분 (fin-commons)
 
 
 def parse_existing_data():

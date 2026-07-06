@@ -1,3 +1,5 @@
 # 2026-06-10 기준 CI에서 검증된 버전 고정 (update-data 데일리 런 성공 조합)
 yfinance==1.4.1
 pandas==3.0.3
+# 공통 유틸리티 (알림/원자적 쓰기/KST) — 반드시 버전 태그로 고정
+fin-commons @ git+https://github.com/ducklove/fin-commons.git@v0.1.1
