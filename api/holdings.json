@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-06T23:30:09+09:00",
-  "lastUpdated": "2026-07-06 23:30:09",
-  "count": 49,
+  "generatedAt": "2026-07-09T14:06:43+09:00",
+  "lastUpdated": "2026-07-09 14:06:43",
+  "count": 50,
   "items": [
     {
       "id": "youngpoong_koreazinc",
@@ -1272,6 +1272,25 @@
           "ticker": "038540.KQ",
           "code": "038540",
           "sharesHeld": 150807
+        }
+      ]
+    },
+    {
+      "id": "daeduck",
+      "name": "대덕→대덕전자",
+      "holdingName": "대덕",
+      "holdingTicker": "008060.KS",
+      "holdingCode": "008060",
+      "holdingTotalShares": 31287098,
+      "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 31287098,
+      "subsidiaryCount": 1,
+      "subsidiaries": [
+        {
+          "name": "대덕전자",
+          "ticker": "353200.KS",
+          "code": "353200",
+          "sharesHeld": 14584913
         }
       ]
     },

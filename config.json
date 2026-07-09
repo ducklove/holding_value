@@ -1054,6 +1054,23 @@
     "holdingAdjustedShares": 64605196
   },
   {
+    "id": "daeduck",
+    "name": "대덕→대덕전자",
+    "holdingName": "대덕",
+    "holdingTicker": "008060.KS",
+    "holdingTotalShares": 31287098,
+    "holdingTreasuryShares": 0,
+    "subsidiaries": [
+      {
+        "name": "대덕전자",
+        "ticker": "353200.KS",
+        "sharesHeld": 14584913
+      }
+    ],
+    "holdingAdjustedShares": 31287098,
+    "validFrom": "2020-05-21"
+  },
+  {
     "id": "inbiogen",
     "name": "인바이오젠→비덴트",
     "holdingName": "인바이오젠",
