@@ -151,6 +151,24 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.hub-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+  color: var(--text-dim);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.hub-link:hover {
+  color: var(--accent);
+}
+.hub-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 
 .container {
   max-width: 1400px;
