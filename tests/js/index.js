@@ -6,3 +6,4 @@ import('./format.test.mjs');
 import('./calc.test.mjs');
 import('./proxy-sign.test.mjs');
 import('./dashboard-core.test.mjs');
+import('./structure.test.mjs');
