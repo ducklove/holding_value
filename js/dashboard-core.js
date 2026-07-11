@@ -309,6 +309,80 @@ function getStackedSubsidiarySeries(hist) {
   });
 }
 
+// --- 차트 시리즈 계산 (renderChart의 DOM 비의존부) ---
+// SMA250/EMA(α=0.1) 추세선 값. 파이프라인 사전계산(sma250/ema01) 필드가 있으면 그대로 쓰고,
+// 없으면 전체 히스토리에서 계산해 가시 구간(visibleHist)에 맞춰 반환한다.
+function buildRatioTrendLines(fullHist, visibleHist) {
+  const hasPrecomputed = visibleHist.some(function(entry) {
+    return typeof entry.sma250 === 'number' || typeof entry.ema01 === 'number';
+  });
+
+  if (hasPrecomputed) {
+    return {
+      sma: {
+        values: visibleHist.map(function(entry) {
+          return typeof entry.sma250 === 'number' ? entry.sma250 : null;
+        })
+      },
+      ema: {
+        values: visibleHist.map(function(entry) {
+          return typeof entry.ema01 === 'number' ? entry.ema01 : null;
+        })
+      }
+    };
+  }
+
+  const alpha = 0.1;
+  const smaByDate = new Map();
+  const emaByDate = new Map();
+  let rollingSum = 0;
+  let ema = null;
+
+  fullHist.forEach(function(entry, idx) {
+    const ratio = entry.ratio;
+    rollingSum += ratio;
+    if (idx >= 250) {
+      rollingSum -= fullHist[idx - 250].ratio;
+    }
+    smaByDate.set(entry.date, idx >= 249 ? rollingSum / 250 : null);
+    ema = ema === null ? ratio : (alpha * ratio) + ((1 - alpha) * ema);
+    emaByDate.set(entry.date, ema);
+  });
+
+  return {
+    sma: {
+      values: visibleHist.map(function(entry) {
+        return smaByDate.has(entry.date) ? smaByDate.get(entry.date) : null;
+      })
+    },
+    ema: {
+      values: visibleHist.map(function(entry) {
+        return emaByDate.has(entry.date) ? emaByDate.get(entry.date) : null;
+      })
+    }
+  };
+}
+
+// 차트 범례 항목(라벨+색). 스택(다자회사) 여부에 따라 구성 분기.
+function buildChartLegendItems(series, palette, colors) {
+  const items = [];
+  if (series && series.length > 1) {
+    series.forEach(function(sub, idx) {
+      items.push({
+        label: sub.name,
+        color: palette[idx % palette.length]
+      });
+    });
+    items.push({ label: '총 비율', color: colors.text });
+  } else {
+    items.push({ label: '비율', color: colors.accent });
+  }
+  items.push({ label: '기간 평균', color: colors.avgLine });
+  items.push({ label: 'SMA 250일', color: colors.smaLine });
+  items.push({ label: 'EMA α=0.1', color: colors.emaLine });
+  return items;
+}
+
 // --- 통계/기여 분해 (renderStats/renderContribution의 계산부) ---
 function computeRatioStats(ratios, current) {
   const min = Math.min(...ratios);
@@ -386,6 +460,8 @@ if (typeof module !== 'undefined' && module.exports) {
     applyZoomToHistory,
     filterHistoryByDays,
     getStackedSubsidiarySeries,
+    buildRatioTrendLines,
+    buildChartLegendItems,
     computeRatioStats,
     buildContributionRows,
   };

@@ -2009,24 +2009,7 @@ function startDashboard(STOCK_DATA) {
     return ['#6c8cff', '#38c96a', '#f0615e', '#f5a623', '#8a63ff', '#4dc7ff'];
   }
 
-  function buildChartLegendItems(series, palette, colors) {
-    const items = [];
-    if (series && series.length > 1) {
-      series.forEach(function(sub, idx) {
-        items.push({
-          label: sub.name,
-          color: palette[idx % palette.length]
-        });
-      });
-      items.push({ label: '총 비율', color: colors.text });
-    } else {
-      items.push({ label: '비율', color: colors.accent });
-    }
-    items.push({ label: '기간 평균', color: colors.avgLine });
-    items.push({ label: 'SMA 250일', color: colors.smaLine });
-    items.push({ label: 'EMA α=0.1', color: colors.emaLine });
-    return items;
-  }
+  // buildChartLegendItems는 js/dashboard-core.js로 이동
 
   function renderChartLegend(items, el) {
     if (!el) return;
@@ -2039,56 +2022,7 @@ function startDashboard(STOCK_DATA) {
     }).join('');
   }
 
-  function buildRatioTrendLines(fullHist, visibleHist) {
-    const hasPrecomputed = visibleHist.some(function(entry) {
-      return typeof entry.sma250 === 'number' || typeof entry.ema01 === 'number';
-    });
-
-    if (hasPrecomputed) {
-      return {
-        sma: {
-          values: visibleHist.map(function(entry) {
-            return typeof entry.sma250 === 'number' ? entry.sma250 : null;
-          })
-        },
-        ema: {
-          values: visibleHist.map(function(entry) {
-            return typeof entry.ema01 === 'number' ? entry.ema01 : null;
-          })
-        }
-      };
-    }
-
-    const alpha = 0.1;
-    const smaByDate = new Map();
-    const emaByDate = new Map();
-    let rollingSum = 0;
-    let ema = null;
-
-    fullHist.forEach(function(entry, idx) {
-      const ratio = entry.ratio;
-      rollingSum += ratio;
-      if (idx >= 250) {
-        rollingSum -= fullHist[idx - 250].ratio;
-      }
-      smaByDate.set(entry.date, idx >= 249 ? rollingSum / 250 : null);
-      ema = ema === null ? ratio : (alpha * ratio) + ((1 - alpha) * ema);
-      emaByDate.set(entry.date, ema);
-    });
-
-    return {
-      sma: {
-        values: visibleHist.map(function(entry) {
-          return smaByDate.has(entry.date) ? smaByDate.get(entry.date) : null;
-        })
-      },
-      ema: {
-        values: visibleHist.map(function(entry) {
-          return emaByDate.has(entry.date) ? emaByDate.get(entry.date) : null;
-        })
-      }
-    };
-  }
+  // buildRatioTrendLines는 js/dashboard-core.js로 이동
 
   function drawSingleRatioChart(ctx, hist, xs, colors, pad, cW, cH, chartMin, rangeS) {
     const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);

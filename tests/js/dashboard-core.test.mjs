@@ -347,3 +347,46 @@ test('buildContributionRows: |Δ| 내림차순 행과 총 변화량, 분해 불�
     { date: 'd2', ratio: 2, subsidiaries: [{ name: 'A', ratio: NaN }, { name: 'B' }] }, // 유효 행 없음
   ]), null);
 });
+
+test('buildRatioTrendLines: 사전계산(sma250/ema01) 필드가 있으면 그대로 사용', () => {
+  const visible = [
+    { date: 'd1', ratio: 10, sma250: 9.5, ema01: 9.8 },
+    { date: 'd2', ratio: 11 }, // 필드 결측 행은 null
+  ];
+  const lines = core.buildRatioTrendLines([], visible);
+  assert.deepEqual(lines.sma.values, [9.5, null]);
+  assert.deepEqual(lines.ema.values, [9.8, null]);
+});
+
+test('buildRatioTrendLines: 사전계산 없으면 전체 히스토리에서 SMA250/EMA(α=0.1) 계산', () => {
+  const fullHist = [];
+  for (let i = 0; i < 260; i += 1) {
+    fullHist.push({ date: 'd' + i, ratio: 100 }); // 상수 시계열 → SMA=EMA=100
+  }
+  const visible = [fullHist[0], fullHist[248], fullHist[249], fullHist[259], { date: '없는날짜', ratio: 1 }];
+  const lines = core.buildRatioTrendLines(fullHist, visible);
+  // SMA250: 250번째 관측치(idx 249)부터 값, 이전은 null. 가시 구간에 없는 날짜도 null.
+  assert.deepEqual(lines.sma.values, [null, null, 100, 100, null]);
+  // EMA: 첫 관측치부터 값. 상수 시계열이라 항상 100.
+  assert.deepEqual(lines.ema.values, [100, 100, 100, 100, null]);
+
+  // 변동 시계열의 EMA 재귀식 검증: ema = α·x + (1-α)·ema
+  const varied = [{ date: 'v0', ratio: 100 }, { date: 'v1', ratio: 110 }, { date: 'v2', ratio: 90 }];
+  const variedLines = core.buildRatioTrendLines(varied, varied);
+  assert.equal(variedLines.ema.values[0], 100);
+  assert.ok(Math.abs(variedLines.ema.values[1] - 101) < 1e-12);
+  assert.ok(Math.abs(variedLines.ema.values[2] - (0.1 * 90 + 0.9 * 101)) < 1e-12);
+});
+
+test('buildChartLegendItems: 스택(2개 이상)이면 자회사+총 비율, 아니면 단일 비율 범례', () => {
+  const palette = ['#111111', '#222222'];
+  const colors = { text: '#t', accent: '#a', avgLine: '#avg', smaLine: '#sma', emaLine: '#ema' };
+  const stacked = core.buildChartLegendItems([{ name: 'A' }, { name: 'B' }, { name: 'C' }], palette, colors);
+  assert.deepEqual(stacked.map(i => i.label), ['A', 'B', 'C', '총 비율', '기간 평균', 'SMA 250일', 'EMA α=0.1']);
+  assert.deepEqual(stacked.slice(0, 3).map(i => i.color), ['#111111', '#222222', '#111111']); // 팔레트 순환
+  assert.equal(stacked[3].color, '#t');
+
+  const single = core.buildChartLegendItems([{ name: 'A' }], palette, colors);
+  assert.deepEqual(single.map(i => i.label), ['비율', '기간 평균', 'SMA 250일', 'EMA α=0.1']);
+  assert.equal(single[0].color, '#a');
+});
