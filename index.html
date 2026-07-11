@@ -149,6 +149,7 @@ window.CURRENT_DATA = window.CURRENT_DATA || null;
 </script>
 <script src="js/format.js"></script>
 <script src="js/calc.js"></script>
+<script src="js/dashboard-core.js"></script>
 <script>
 // 분할 데이터(data/summary.json + data/history/*.json 지연 로드) 우선, 실패 시 data.js 폴백.
 // 첫 화면은 요약(~25KB)만으로 그리고, 차트 히스토리는 선택 종목만 받아온다.
@@ -220,10 +221,7 @@ function startDashboard(STOCK_DATA) {
   const LIVE_FETCH_BATCH_CONCURRENCY = 1;
   const LIVE_FETCH_MIN_INTERVAL_MS = 100;
   const LIVE_FETCH_RETRY_ATTEMPTS = 3;
-  const LIVE_FETCH_RETRY_BASE_DELAY_MS = 1000;
-  const LIVE_FETCH_RATE_LIMIT_DELAY_MS = 3500;
-  const LIVE_FETCH_RETRY_MAX_DELAY_MS = 7000;
-  const MIN_ZOOM_SPAN = 0.04;
+  // LIVE_FETCH_RETRY_*_MS·MIN_ZOOM_SPAN 상수는 js/dashboard-core.js로 이동
   const PINNED_PAIRS_STORAGE_KEY = 'holdingValuePinnedPairIds';
   // 분할 히스토리 진행 중 요청 캐시 — init에서 바로 쓰므로 상단 선언 (행 필드 HISTORY_COLUMNS는 js/calc.js)
   const historyRequests = {};
@@ -488,15 +486,7 @@ function startDashboard(STOCK_DATA) {
       : '새로고침';
   }
 
-  // 쉼표·따옴표·개행 포함 값은 "..."로 감싸고 내부 따옴표는 ""로 이스케이프
-  function escapeCsvValue(value) {
-    if (value === null || value === undefined) return '';
-    const text = String(value);
-    if (/[",\n]/.test(text)) {
-      return '"' + text.replace(/"/g, '""') + '"';
-    }
-    return text;
-  }
+  // escapeCsvValue는 js/dashboard-core.js로 이동
 
   function bindCsvExport() {
     var button = document.getElementById('csvExportBtn');
@@ -559,19 +549,12 @@ function startDashboard(STOCK_DATA) {
     document.getElementById('lastUpdated').textContent = parts.join(' · ');
   }
 
-  function getSnapshotVersion(snapshot) {
-    if (!snapshot) return 0;
-    if (typeof snapshot.snapshotTimestamp === 'number') return snapshot.snapshotTimestamp;
-    if (typeof snapshot.generatedAt === 'string') {
-      var generated = Date.parse(snapshot.generatedAt);
-      if (!Number.isNaN(generated)) return generated;
-    }
-    return parseSeoulTimestamp(snapshot.lastUpdated || '');
-  }
+  // getSnapshotVersion은 js/dashboard-core.js로 이동
 
   function sortPairsByCurrentRatio() {
     var selectedPairId = pairs[selectedIdx] ? pairs[selectedIdx].id : '';
-    pairs.sort(comparePairOrder);
+    // 정렬 비교자(comparePairOrder)는 js/dashboard-core.js — 즐겨찾기 판별 함수를 주입한다.
+    pairs.sort(function(a, b) { return comparePairOrder(a, b, isPairPinned); });
     if (!selectedPairId) return;
     var nextIdx = pairs.findIndex(function(pair) {
       return pair.id === selectedPairId;
@@ -579,15 +562,6 @@ function startDashboard(STOCK_DATA) {
     if (nextIdx >= 0) {
       selectedIdx = nextIdx;
     }
-  }
-
-  function comparePairOrder(a, b) {
-    if (a.isAverage) return b.isAverage ? 0 : -1;
-    if (b.isAverage) return 1;
-    var pinDiff = Number(isPairPinned(b)) - Number(isPairPinned(a));
-    if (pinDiff !== 0) return pinDiff;
-    if (b.current.ratio !== a.current.ratio) return b.current.ratio - a.current.ratio;
-    return a.name.localeCompare(b.name, 'ko');
   }
 
   function loadPinnedPairIds() {
@@ -657,103 +631,11 @@ function startDashboard(STOCK_DATA) {
     renderStats();
   }
 
-  function upsertTodayHistory(pair, live, today) {
-    if (!today || !pair.history || !pair.history.length) return;
-    if (pair.isAverage) {
-      const averageEntry = { date: today, ratio: live.ratio };
-      if (live.count !== undefined) averageEntry.count = live.count;
-      if (live.mean !== undefined) averageEntry.mean = live.mean;
-      const lastAverage = pair.history[pair.history.length - 1];
-      if (lastAverage && lastAverage.date === today) {
-        Object.assign(lastAverage, averageEntry);
-      } else {
-        pair.history.push(averageEntry);
-      }
-      return;
-    }
-    const entry = {
-      date: today,
-      holdingPrice: live.holdingPrice,
-      holdingValue: live.holdingValue,
-      marketCap: live.marketCap,
-      ratio: live.ratio,
-    };
-    if (live.subsidiaryPrice !== undefined) entry.subsidiaryPrice = live.subsidiaryPrice;
-    if (live.subsidiaries) entry.subsidiaries = live.subsidiaries;
-
-    const last = pair.history[pair.history.length - 1];
-    if (last && last.date === today) {
-      Object.assign(last, entry);
-    } else {
-      pair.history.push(entry);
-    }
-  }
+  // upsertTodayHistory·inferSnapshotSource는 js/dashboard-core.js로 이동
 
   function buildTodaySummary(snapshot) {
-    const livePairs = pairs.filter(function(pair) { return !pair.isAverage; });
-    const avgPair = pairs.find(function(pair) { return pair.isAverage; });
-    const ratioPairs = livePairs.filter(function(pair) {
-      return typeof pair.current.ratio === 'number' && Number.isFinite(pair.current.ratio);
-    });
-    const changePairs = livePairs.filter(function(pair) {
-      return typeof pair.current.ratioChange === 'number' && Number.isFinite(pair.current.ratioChange);
-    });
-    const holdingChangePairs = livePairs.filter(function(pair) {
-      return typeof pair.current.holdingChange === 'number' && Number.isFinite(pair.current.holdingChange);
-    });
-    const subsidiaryChangePairs = livePairs.flatMap(function(pair) {
-      if (Array.isArray(pair.current.subsidiaries)) {
-        return pair.current.subsidiaries.map(function(sub) { return sub.change; });
-      }
-      return [pair.current.subsidiaryChange];
-    }).filter(function(value) {
-      return typeof value === 'number' && Number.isFinite(value);
-    });
-    const sortedByExpansion = changePairs.slice().sort(function(a, b) {
-      return b.current.ratioChange - a.current.ratioChange;
-    });
-    const sortedByContraction = changePairs.slice().sort(function(a, b) {
-      return a.current.ratioChange - b.current.ratioChange;
-    });
-    const averageRatio = avgPair && typeof avgPair.current.ratio === 'number'
-      ? avgPair.current.ratio
-      : medianOf(ratioPairs.map(function(pair) { return pair.current.ratio; }));
-    const averageRatioChange = avgPair && typeof avgPair.current.ratioChange === 'number'
-      ? avgPair.current.ratioChange
-      : medianOf(changePairs.map(function(pair) { return pair.current.ratioChange; }));
-    const averageHoldingChange = holdingChangePairs.reduce(function(sum, pair) {
-      return sum + pair.current.holdingChange;
-    }, 0) / Math.max(1, holdingChangePairs.length);
-    const averageSubsidiaryChange = subsidiaryChangePairs.reduce(function(sum, value) {
-      return sum + value;
-    }, 0) / Math.max(1, subsidiaryChangePairs.length);
-    const market = snapshot?.market || snapshot?.summary?.market || todayOverviewData?.market || null;
-
-    return {
-      source: snapshot?.source || inferSnapshotSource(snapshot) || todayOverviewData?.source || 'current.json',
-      market,
-      averageRatio,
-      averageRatioChange,
-      averageHoldingChange,
-      averageSubsidiaryChange,
-      representativeCount: ratioPairs.length,
-      topExpansion: sortedByExpansion[0] || null,
-      expansionRunners: sortedByExpansion.slice(1, 5),
-      topContraction: sortedByContraction[0] || null,
-      contractionRunners: sortedByContraction.slice(1, 5),
-    };
-  }
-
-  function inferSnapshotSource(snapshot) {
-    if (!snapshot || !Array.isArray(snapshot.pairs)) return '';
-    const sources = [...new Set(snapshot.pairs.map(function(pair) { return pair.quoteSource; }).filter(Boolean))];
-    if (!sources.length) return '';
-    if (sources.includes('internal_proxy')) return '내부 프록시 실시간';
-    if (sources.includes('naver_browser')) return '네이버 증권 실시간';
-    if (sources.includes('kis_proxy')) return 'KIS 프록시';
-    if (sources.includes('kis_openapi')) return '한국투자증권 Open API';
-    if (sources.includes('yfinance')) return 'yfinance';
-    return sources.join(', ');
+    // 계산부(buildTodaySummaryFrom)는 js/dashboard-core.js — pairs·이전 요약을 주입한다.
+    return buildTodaySummaryFrom(pairs, snapshot, todayOverviewData);
   }
 
   function renderAverageSparkline() {
@@ -981,31 +863,7 @@ function startDashboard(STOCK_DATA) {
     if (waitMs > 0) await delay(waitMs);
   }
 
-  function parseRetryAfterMs(value) {
-    if (!value) return null;
-    const seconds = Number(value);
-    if (Number.isFinite(seconds)) return Math.max(0, seconds * 1000);
-    const parsed = Date.parse(value);
-    if (Number.isFinite(parsed)) return Math.max(0, parsed - Date.now());
-    return null;
-  }
-
-  function isRetryableLiveFetchError(err) {
-    const status = err && err.status;
-    if (status === 429) return true;
-    if (status >= 500 && status < 600) return true;
-    const name = err && err.name;
-    if (name === 'AbortError') return true;
-    const message = err && err.message ? err.message : '';
-    return /Failed to fetch|NetworkError|Load failed/i.test(message);
-  }
-
-  function getLiveFetchRetryDelayMs(err, attempt) {
-    const retryAfterMs = parseRetryAfterMs(err && err.retryAfter);
-    if (retryAfterMs != null) return Math.min(retryAfterMs, LIVE_FETCH_RETRY_MAX_DELAY_MS);
-    const baseDelay = err && err.status === 429 ? LIVE_FETCH_RATE_LIMIT_DELAY_MS : LIVE_FETCH_RETRY_BASE_DELAY_MS;
-    return Math.min(LIVE_FETCH_RETRY_MAX_DELAY_MS, baseDelay * Math.pow(2, attempt));
-  }
+  // parseRetryAfterMs·isRetryableLiveFetchError·getLiveFetchRetryDelayMs는 js/dashboard-core.js로 이동
 
   async function fetchWithTimeout(url, responseType, timeoutMs) {
     const controller = new AbortController();
@@ -1226,79 +1084,7 @@ function startDashboard(STOCK_DATA) {
     return kospi;
   }
 
-  function buildLivePairEntry(pair, config, quoteMap) {
-    const holdingCode = getTickerCode(config.holdingTicker);
-    const holdingQuote = quoteMap.get(holdingCode);
-    if (!holdingQuote || holdingQuote.price == null) return null;
-    const adjustedShares = config.holdingAdjustedShares || ((config.holdingTotalShares || 0) - (config.holdingTreasuryShares || 0));
-    if (!adjustedShares) return null;
-
-    const marketCap = adjustedShares * holdingQuote.price;
-    let holdingValue = 0;
-    let previousHoldingValue = 0;
-    let hasPreviousRatio = holdingQuote.previousPrice != null && holdingQuote.previousPrice !== 0;
-    let usedFallback = false;
-    const subDetails = [];
-    const currentSubMap = new Map((pair.current.subsidiaries || []).map(function(sub) { return [sub.name, sub]; }));
-
-    (config.subsidiaries || []).forEach(function(sub) {
-      const quote = isKoreanTicker(sub.ticker) ? quoteMap.get(getTickerCode(sub.ticker)) : null;
-      const fallback = currentSubMap.get(sub.name) || null;
-      const fallbackPrice = fallback ? fallback.price : pair.current.subsidiaryPrice;
-      const fallbackChange = fallback ? fallback.change : pair.current.subsidiaryChange;
-      const price = quote && quote.price != null ? quote.price : fallbackPrice;
-      if (price == null) return;
-      const previousPrice = quote && quote.previousPrice != null
-        ? quote.previousPrice
-        : derivePreviousPrice(price, fallbackChange);
-      if (!quote) usedFallback = true;
-
-      const value = sub.sharesHeld * price;
-      holdingValue += value;
-      if (previousPrice == null) {
-        hasPreviousRatio = false;
-      } else {
-        previousHoldingValue += sub.sharesHeld * previousPrice;
-      }
-      subDetails.push({
-        name: sub.name,
-        price: Math.round(price),
-        change: quote && quote.changePct != null ? quote.changePct : fallbackChange,
-        value: +(value / 1e8).toFixed(1),
-        rawValue: value,
-      });
-    });
-
-    if (!subDetails.length || !holdingValue || !marketCap) return null;
-    const ratio = holdingValue / marketCap * 100;
-    let previousRatio = null;
-    if (hasPreviousRatio) {
-      const previousMarketCap = adjustedShares * holdingQuote.previousPrice;
-      if (previousMarketCap) previousRatio = previousHoldingValue / previousMarketCap * 100;
-    }
-    subDetails.forEach(function(sub) {
-      sub.ratio = +(sub.rawValue / marketCap * 100).toFixed(2);
-      delete sub.rawValue;
-    });
-
-    const entry = {
-      id: pair.id,
-      holdingPrice: Math.round(holdingQuote.price),
-      holdingChange: holdingQuote.changePct,
-      holdingValue: +(holdingValue / 1e8).toFixed(1),
-      marketCap: +(marketCap / 1e8).toFixed(1),
-      ratio: +ratio.toFixed(2),
-      ratioChange: previousRatio != null ? +(ratio - previousRatio).toFixed(2) : null,
-      quoteSource: usedFallback ? 'mixed' : 'internal_proxy',
-    };
-    if (subDetails.length === 1) {
-      entry.subsidiaryPrice = subDetails[0].price;
-      entry.subsidiaryChange = subDetails[0].change;
-    } else {
-      entry.subsidiaries = subDetails;
-    }
-    return entry;
-  }
+  // buildLivePairEntry(실시간 시세+스냅샷 폴백 병합)는 js/dashboard-core.js로 이동
 
   async function refreshLivePricesIfNeeded(baseSnapshot, opts) {
     opts = opts || {};
@@ -1449,21 +1235,9 @@ function startDashboard(STOCK_DATA) {
       if (contribSection) contribSection.style.display = 'none';
       return;
     }
-    const ratios = hist.map(h => h.ratio);
-    const min = Math.min(...ratios);
-    const max = Math.max(...ratios);
-    const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length;
     const current = p.current.ratio;
-
-    // Percentile
-    const sorted = [...ratios].sort((a, b) => a - b);
-    const rank = sorted.filter(s => s <= current).length;
-    const percentile = (rank / sorted.length * 100).toFixed(0);
-
-    // Z-score (가시 구간 표준편차 기준)
-    const variance = ratios.reduce((s, r) => s + (r - avg) * (r - avg), 0) / ratios.length;
-    const sd = Math.sqrt(variance);
-    const zScore = sd > 0 ? (current - avg) / sd : null;
+    // 최소/최대/평균/백분위/Z-score 계산은 js/dashboard-core.js(computeRatioStats)
+    const { min, max, avg, percentile, zScore } = computeRatioStats(hist.map(h => h.ratio), current);
 
     const statsEl = document.getElementById('statsRow');
     statsEl.innerHTML = `
@@ -1484,42 +1258,17 @@ function startDashboard(STOCK_DATA) {
     if (!section) return;
     const p = pairs[selectedIdx];
     const hist = getFilteredHistory(p);
-    const last = hist.length >= 2 ? hist[hist.length - 1] : null;
-    if (p.isAverage || !last || !Array.isArray(last.subsidiaries) || last.subsidiaries.length <= 1) {
+    // 기여 분해 행 계산은 js/dashboard-core.js(buildContributionRows)
+    const contribution = p.isAverage ? null : buildContributionRows(hist);
+    if (!contribution) {
       section.style.display = 'none';
       return;
     }
 
-    const rows = [];
-    last.subsidiaries.forEach(function(lastSub) {
-      if (typeof lastSub.ratio !== 'number' || !Number.isFinite(lastSub.ratio)) return;
-      let firstSub = null;
-      for (const entry of hist) {
-        const subs = Array.isArray(entry.subsidiaries) ? entry.subsidiaries : [];
-        const match = subs.find(function(sub) {
-          return sub.name === lastSub.name && typeof sub.ratio === 'number' && Number.isFinite(sub.ratio);
-        });
-        if (match) {
-          firstSub = match;
-          break;
-        }
-      }
-      if (!firstSub) return;
-      rows.push({
-        name: lastSub.name,
-        first: firstSub.ratio,
-        last: lastSub.ratio,
-        delta: lastSub.ratio - firstSub.ratio,
-      });
-    });
-    if (!rows.length) {
-      section.style.display = 'none';
-      return;
-    }
-
-    rows.sort(function(a, b) { return Math.abs(b.delta) - Math.abs(a.delta); });
-    const maxAbs = rows.reduce(function(acc, row) { return Math.max(acc, Math.abs(row.delta)); }, 0) || 1;
-    const totalDelta = last.ratio - hist[0].ratio;
+    const rows = contribution.rows;
+    const maxAbs = contribution.maxAbs;
+    const totalDelta = contribution.totalDelta;
+    const last = hist[hist.length - 1];
     const formatDelta = (v) => (v > 0 ? '+' : '') + v.toFixed(1) + '%p';
 
     const rowsHtml = rows.map(function(row) {
@@ -1949,33 +1698,7 @@ function startDashboard(STOCK_DATA) {
     zoom.end = 1;
   }
 
-  function normalizeZoomState(zoom) {
-    if (!Number.isFinite(zoom.start)) zoom.start = 0;
-    if (!Number.isFinite(zoom.end)) zoom.end = 1;
-    zoom.start = clamp(zoom.start, 0, 1);
-    zoom.end = clamp(zoom.end, 0, 1);
-    if (zoom.end < zoom.start) {
-      const tmp = zoom.start;
-      zoom.start = zoom.end;
-      zoom.end = tmp;
-    }
-    if (zoom.end - zoom.start < MIN_ZOOM_SPAN) {
-      const center = (zoom.start + zoom.end) / 2;
-      zoom.start = clamp(center - MIN_ZOOM_SPAN / 2, 0, 1 - MIN_ZOOM_SPAN);
-      zoom.end = zoom.start + MIN_ZOOM_SPAN;
-    }
-  }
-
-  function applyZoomToHistory(hist, zoom) {
-    if (!hist || hist.length < 3) return hist || [];
-    normalizeZoomState(zoom);
-    if (zoom.start <= 0 && zoom.end >= 1) return hist;
-    const lastIdx = hist.length - 1;
-    let startIdx = Math.floor(zoom.start * lastIdx);
-    let endIdx = Math.ceil(zoom.end * lastIdx);
-    if (endIdx <= startIdx) endIdx = Math.min(lastIdx, startIdx + 1);
-    return hist.slice(startIdx, endIdx + 1);
-  }
+  // normalizeZoomState·applyZoomToHistory는 js/dashboard-core.js로 이동
 
   function bindDataZoomControls() {
     ['ratio', 'price'].forEach(function(type) {
@@ -2106,15 +1829,7 @@ function startDashboard(STOCK_DATA) {
   }
 
   // --- Helpers ---
-  function getStackedSubsidiarySeries(hist) {
-    const sample = hist.find(function(entry) {
-      return Array.isArray(entry.subsidiaries) && entry.subsidiaries.length > 1;
-    });
-    if (!sample) return [];
-    return sample.subsidiaries.map(function(sub) {
-      return { name: sub.name };
-    });
-  }
+  // getStackedSubsidiarySeries는 js/dashboard-core.js로 이동
 
   function getInitialSelectedIdx() {
     if (!initialCode) return 0;
@@ -2236,14 +1951,7 @@ function startDashboard(STOCK_DATA) {
     return applyZoomToHistory(filterHistoryByDays(pair.history, periodDays), ratioZoom);
   }
 
-  function filterHistoryByDays(hist, days) {
-    if (days === 0 || hist.length < 2) return hist;
-    const latest = parseDateKey(hist[hist.length - 1].date);
-    latest.setDate(latest.getDate() - days);
-    const cutoff = formatDateKey(latest);
-    const filtered = hist.filter(h => h.date >= cutoff);
-    return filtered.length >= 2 ? filtered : hist;
-  }
+  // filterHistoryByDays는 js/dashboard-core.js로 이동
 
   function loadTheme() {
     const urlTheme = new URLSearchParams(location.search).get('theme');
