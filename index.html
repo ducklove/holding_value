@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>보유지분가치/시가총액 비율 대시보드</title>
+<meta name="description" content="국내 지주회사의 상장 자회사 보유지분가치와 조정시가총액 비율을 추적하는 실시간 대시보드. 종목별 비율 추이·주가 차트·종목 비교를 제공한다.">
+<meta property="og:title" content="보유지분가치/시가총액 비율 대시보드">
+<meta property="og:description" content="국내 지주회사의 상장 자회사 보유지분가치와 조정시가총액 비율을 추적하는 실시간 대시보드. 종목별 비율 추이·주가 차트·종목 비교를 제공한다.">
 <link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
 <script>
 // iframe embed + theme: ?theme=dark|light overrides stored theme; ?embed hides chrome.
@@ -64,10 +67,10 @@ html[data-embed] .container { padding-top: 14px !important; }
         <button data-days="365">1Y</button>
         <button data-days="0" class="active">전체</button>
       </div>
-      <div class="period-btns"><button type="button" id="csvExportBtn" title="표시 구간 CSV 다운로드">CSV</button></div>
+      <div class="period-btns"><button type="button" id="csvExportBtn" title="표시 구간 CSV 다운로드" aria-label="표시 구간 CSV 다운로드">CSV</button></div>
     </div>
     <div class="chart-container ratio-chart-container">
-      <canvas id="chart"></canvas>
+      <canvas id="chart" role="img" aria-label="선택 종목의 보유지분가치/시가총액 비율 추이 선 차트"></canvas>
       <div class="tooltip" id="tooltip"></div>
     </div>
     <div class="data-zoom" id="ratioDataZoom" data-chart="ratio">
@@ -97,7 +100,7 @@ html[data-embed] .container { padding-top: 14px !important; }
       </div>
     </div>
     <div class="chart-container price-chart-container">
-      <canvas id="priceChart"></canvas>
+      <canvas id="priceChart" role="img" aria-label="선택 지주사의 주가 추이 선 차트"></canvas>
       <div class="tooltip" id="priceTooltip"></div>
     </div>
     <div class="data-zoom" id="priceDataZoom" data-chart="price">
@@ -121,21 +124,23 @@ html[data-embed] .container { padding-top: 14px !important; }
 
   <div class="table-section">
     <h2>종목 비교</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>종목</th>
-          <th>지주사</th>
-          <th>자회사</th>
-          <th>보유지분가치</th>
-          <th>조정시총</th>
-          <th>현재 비율</th>
-          <th>변동</th>
-          <th style="min-width:120px">비율</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>종목</th>
+            <th>지주사</th>
+            <th>자회사</th>
+            <th>보유지분가치</th>
+            <th>조정시총</th>
+            <th>현재 비율</th>
+            <th>변동</th>
+            <th style="min-width:120px">비율</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -888,6 +893,14 @@ function startDashboard(STOCK_DATA) {
         event.stopPropagation();
         setSelectedPairById(node.dataset.pairId);
       });
+      if (node.tagName === 'BUTTON') return;
+      // div 리더 카드도 키보드로 선택 가능하게 (rank 항목은 원래 button이라 제외)
+      node.addEventListener('keydown', function(event) {
+        if (event.target !== node) return;
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        setSelectedPairById(node.dataset.pairId);
+      });
     });
   }
 
@@ -898,7 +911,7 @@ function startDashboard(STOCK_DATA) {
     const dir = getDirectionClass(pair.current.ratioChange);
     const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
     const sideClass = runners && runners.length ? '' : ' no-side';
-    return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}">
+    return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}" role="button" tabindex="0">
       <div class="overview-split runners${sideClass}">
         <div class="overview-main-copy">
           <div class="overview-label">${label}</div>
@@ -1350,7 +1363,7 @@ function startDashboard(STOCK_DATA) {
       }
       const pinned = isPairPinned(p);
       const pinButton = p.isAverage ? '' : `<button type="button" class="card-pin${pinned ? ' pinned' : ''}" data-pin-idx="${i}" aria-label="관심종목 ${pinned ? '해제' : '등록'}" aria-pressed="${pinned}">${pinned ? '★' : '☆'}</button>`;
-      return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}">
+      return `<div class="card${i === selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}" role="button" tabindex="0" aria-pressed="${i === selectedIdx}">
         ${pinButton}
         <div class="name">${escapeHtml(p.name)}</div>
         <div class="ratio-line">
@@ -1363,6 +1376,17 @@ function startDashboard(STOCK_DATA) {
     el.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         setSelectedIdx(parseInt(card.dataset.idx), { syncUrl: true });
+      });
+      // 키보드 접근: role="button" 카드에서 Enter/Space로 선택 (내부 핀 버튼 키 입력은 제외)
+      card.addEventListener('keydown', event => {
+        if (event.target !== card) return;
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        const idx = parseInt(card.dataset.idx);
+        setSelectedIdx(idx, { syncUrl: true });
+        // 재렌더로 기존 노드가 사라지므로 같은 카드에 포커스 복원
+        const next = el.querySelector('.card[data-idx="' + idx + '"]');
+        if (next) next.focus();
       });
     });
     el.querySelectorAll('.card-pin').forEach(button => {
@@ -1529,6 +1553,7 @@ function startDashboard(STOCK_DATA) {
     const legendEl = document.getElementById('chartLegend');
 
     const canvas = document.getElementById('chart');
+    canvas.setAttribute('aria-label', p.name + '의 보유지분가치/시가총액 비율 추이 선 차트');
     const container = canvas.parentElement;
     const dpr = window.devicePixelRatio || 1;
     const rect = container.getBoundingClientRect();
@@ -1763,6 +1788,7 @@ function startDashboard(STOCK_DATA) {
     document.getElementById('priceChartTitle').textContent = p.holdingName + ' 주가 추이';
 
     const canvas = document.getElementById('priceChart');
+    canvas.setAttribute('aria-label', p.holdingName + ' 주가 추이 선 차트');
     const container = canvas.parentElement;
     const dpr = window.devicePixelRatio || 1;
     const rect = container.getBoundingClientRect();

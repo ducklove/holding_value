@@ -550,10 +550,16 @@ body {
   border-color: var(--accent);
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
+.card:focus-visible,
+.overview-card.clickable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 .card .card-pin {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  /* padding 12px로 히트 영역 ~41px 확보 — top/right를 당겨 별 글리프의 시각 위치는 기존과 동일 */
+  top: 1px;
+  right: 3px;
   appearance: none;
   background: transparent;
   border: none;
@@ -561,7 +567,7 @@ body {
   cursor: pointer;
   font-size: 17px;
   line-height: 1;
-  padding: 3px;
+  padding: 12px;
 }
 .card .card-pin:hover,
 .card .card-pin:focus-visible {
@@ -739,6 +745,7 @@ body {
   gap: 4px;
 }
 .period-btns button {
+  position: relative;
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text-dim);
@@ -748,7 +755,17 @@ body {
   font-size: 13px;
   transition: all 0.15s;
 }
+/* 보이는 크기는 그대로 두고 터치 히트 영역만 ~43px 높이로 확장 (버튼 간 4px gap 내에서 좌우 2px씩) */
+.period-btns button::before {
+  content: '';
+  position: absolute;
+  inset: -6px -2px;
+}
 .period-btns button:hover { border-color: var(--accent); color: var(--text); }
+.period-btns button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 .period-btns button.active {
   background: var(--accent);
   border-color: var(--accent);
@@ -868,6 +885,11 @@ canvas { display: block; }
   font-weight: 600;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+}
+/* 8열 테이블이 좁은 화면에서 잘리지 않도록 테이블만 가로 스크롤 (섹션의 radius 클리핑은 유지) */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 table {
   width: 100%;
