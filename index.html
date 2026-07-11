@@ -899,7 +899,11 @@ function startDashboard(STOCK_DATA) {
         if (event.target !== node) return;
         if (event.key !== 'Enter' && event.key !== ' ') return;
         event.preventDefault();
-        setSelectedPairById(node.dataset.pairId);
+        const pairId = node.dataset.pairId;
+        setSelectedPairById(pairId);
+        // 재렌더로 기존 노드가 사라지므로 같은 카드에 포커스 복원 (차트 스크롤은 유지)
+        const next = el.querySelector('.leader-card[data-pair-id="' + pairId + '"]');
+        if (next) next.focus({ preventScroll: true });
       });
     });
   }
@@ -909,9 +913,10 @@ function startDashboard(STOCK_DATA) {
       return `<div class="overview-card"><div class="overview-label">${label}</div><div class="overview-detail">표시할 데이터가 없습니다.</div></div>`;
     }
     const dir = getDirectionClass(pair.current.ratioChange);
-    const active = pairs[selectedIdx] && pairs[selectedIdx].id === pair.id ? ' active' : '';
+    const isActive = !!(pairs[selectedIdx] && pairs[selectedIdx].id === pair.id);
+    const active = isActive ? ' active' : '';
     const sideClass = runners && runners.length ? '' : ' no-side';
-    return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}" role="button" tabindex="0">
+    return `<div class="overview-card clickable leader-card${active}" data-pair-id="${escapeHtml(pair.id)}" role="button" tabindex="0" aria-pressed="${isActive}">
       <div class="overview-split runners${sideClass}">
         <div class="overview-main-copy">
           <div class="overview-label">${label}</div>
