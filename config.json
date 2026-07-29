@@ -656,23 +656,6 @@
     "holdingAdjustedShares": 34289607
   },
   {
-    "id": "seah_mechanics",
-    "name": "세아메카닉스→두산에너빌리티",
-    "holdingName": "세아메카닉스",
-    "holdingTicker": "396300.KQ",
-    "holdingTotalShares": 26489688,
-    "holdingTreasuryShares": 0,
-    "subsidiaries": [
-      {
-        "name": "두산에너빌리티",
-        "ticker": "034020.KS",
-        "sharesHeld": 2550
-      }
-    ],
-    "holdingAdjustedShares": 26489688,
-    "validFrom": "2025-10-22"
-  },
-  {
     "id": "iljin_diamond",
     "name": "일진다이아→일진하이솔루스",
     "holdingName": "일진다이아",

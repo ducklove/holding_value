@@ -1220,33 +1220,6 @@
       "corpCode": "00203290",
       "holdingName": "콜마홀딩스"
     },
-    "seah_mechanics": {
-      "equity": 76453864340.0,
-      "equityReport": "2026 1분기보고서",
-      "equityTerm": "제 28 기 1분기말",
-      "equityRceptNo": "20260514000314",
-      "bookValue": 192000000.0,
-      "bookValueReport": "2025 사업보고서",
-      "bookValueDate": "2025-12-31",
-      "residualEquity": 76261864340.0,
-      "subsidiaries": [
-        {
-          "name": "두산에너빌리티",
-          "ticker": "034020.KS",
-          "sharesHeld": 2550,
-          "bookValue": 192000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "두산에너빌리티(주)"
-          ],
-          "qty": 2550000.0,
-          "note": "세아메카닉스 출자현황 표의 단위는 '(단위 : 백만원, 천주, %)'인데 두산에너빌리티·현대자동차 행만 수량을 천주가 아닌 주 단위로 기재했다(삼성전자 행은 천주로 정상 기재). OpenDART API는 헤더 단위대로 ×1,000 해서 2,550,000주로 돌려주지만 실제 보유는 2,550주다 — 기말 장부가액 192백만원 ÷ 2,550주 = 75,294원으로 2025-12-30 종가 75,300원과 일치하고, 지분율도 0.00%로 기재돼 있다. 따라서 수량 비교를 건너뛴다."
-        }
-      ],
-      "warnings": [],
-      "corpCode": "00534701",
-      "holdingName": "세아메카닉스"
-    },
     "iljin_diamond": {
       "equity": 224004454906.0,
       "equityReport": "2026 1분기보고서",
