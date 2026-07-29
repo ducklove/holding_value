@@ -10,10 +10,12 @@ on:
     branches:
       - master
     paths:
+      # 수집 결과가 실제로 달라지는 변경만 트리거한다. 한 번 도는 데 15분쯤
+      # 걸려서(종목당 7회 남짓, 총 350여 회 OpenDART 호출) 워크플로우 파일
+      # 자체는 넣지 않는다 — 그건 workflow_dispatch로 돌린다.
       - fundamentals_overrides.json
       - fetch_fundamentals.py
       - pipeline/fundamentals.py
-      - .github/workflows/update-fundamentals.yml
   workflow_dispatch:
 
 permissions:
@@ -27,6 +29,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # OpenDART가 응답하지 않으면 요청마다 타임아웃+재시도로 늘어질 수 있다.
+    # 기본 360분 한도로 러너를 붙잡지 않도록 상한을 둔다 (정상 실행은 5분 안쪽).
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v5
