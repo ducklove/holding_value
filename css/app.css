@@ -687,6 +687,11 @@ body {
   text-align: right;
   white-space: nowrap;
 }
+/* 실질가치 = 보유지분 비율 + 잔존자본 비율 (분기 공시 + 실시간 시총) */
+.effective-ratio {
+  color: var(--accent);
+  font-weight: 700;
+}
 
 /* Chart area */
 .chart-section {

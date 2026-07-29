@@ -1,0 +1,28 @@
+{
+  "_note": "타법인 출자현황 자동 매칭이 통하지 않는 예외만 손으로 고정한다. config.json은 admin.html이 폼 값으로 통째로 다시 쓰므로(자회사는 name/ticker/sharesHeld만 보존) 이 예외들은 별도 파일로 둔다. 키는 config.json의 pair id, 그 아래는 자회사 name.",
+  "pairs": {
+    "youngpoong_koreazinc": {
+      "고려아연": {
+        "dartInvestmentName": ["(유)와이피씨"],
+        "skipQtyCheck": true,
+        "note": "영풍은 2025년 중 고려아연 지분 전량(5,262,450주)을 100% 자회사 (유)와이피씨에 현물출자했다. 별도 재무제표에는 고려아연이 아니라 (유)와이피씨 투자주식으로 계상되므로 그 장부가액을 쓴다."
+      }
+    },
+    "chokwang_brk": {
+      "버크셔해서웨이": {
+        "dartInvestmentName": ["Berkshire Hathaway Inc."],
+        "note": "출자현황에는 영문 법인명으로 기재되어 한글명 자동 매칭이 되지 않는다."
+      },
+      "애플": {
+        "dartInvestmentName": ["Apple Inc"],
+        "note": "위와 같음."
+      }
+    },
+    "sebang_battery": {
+      "세방전지": {
+        "bookValueFrom": "bsInvestments",
+        "note": "세방의 타법인 출자현황에는 건설공제조합·한국선주상호보험조합만 기재되고 세방전지 지분이 빠져 있다. 대신 별도 재무상태표의 '종속기업, 관계기업및공동기업투자주식' 총액을 쓴다 — 세방전지 외 다른 종속기업까지 포함하므로 잔존자본이 과소 계상될 수 있다(근사치)."
+      }
+    }
+  }
+}

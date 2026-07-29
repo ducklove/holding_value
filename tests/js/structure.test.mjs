@@ -139,3 +139,35 @@ test('팩토리가 만든 함수 묶음이 app 계약(함수 이름)을 유지�
     }
   }
 });
+
+test('실질가치 지표가 데이터 로드 → 계산 → 렌더 계약을 유지한다', () => {
+  // 분기성 공시(data/fundamentals.json)는 가격 데이터와 별도 파일로 로드된다
+  const boot = readFileSync(path.join(rootDir, 'js/app-boot.js'), 'utf-8');
+  assert.match(boot, /data\/fundamentals\.json/);
+  assert.match(boot, /pair\.fundamentals = record/);
+
+  // 계산부는 calc.js 순수 함수 (분모는 실시간 갱신되는 current.marketCap)
+  const calc = require('../../js/calc.js');
+  assert.equal(typeof calc.residualCapitalRatio, 'function');
+  assert.equal(typeof calc.effectiveValueRatio, 'function');
+  assert.equal(typeof calc.buildEffectiveValue, 'function');
+
+  // 표 헤더와 렌더 셀이 짝을 이룬다
+  assert.match(indexHtml, /<th[^>]*>실질가치<\/th>/);
+  const render = readFileSync(path.join(rootDir, 'js/render.js'), 'utf-8');
+  assert.match(render, /renderEffectiveCell/);
+  assert.match(render, /renderResidualRows/);
+});
+
+test('종목 비교표의 헤더 수와 렌더 행의 셀 수가 일치한다', () => {
+  // <thead>가 걸리지 않도록 태그명 경계를 명시한다
+  const headerCount = (indexHtml.match(/<th(?:\s[^>]*)?>/g) || []).length;
+  const render = readFileSync(path.join(rootDir, 'js/render.js'), 'utf-8');
+  const tableBody = render.slice(render.indexOf('function renderTable()'), render.indexOf('// --- Stats ---'));
+  const rows = tableBody.split('return `<tr').slice(1);
+  assert.equal(rows.length, 2, '평균 행 + 일반 행 두 종류여야 한다');
+  for (const row of rows) {
+    const cells = (row.match(/<td[^>]*>/g) || []).length;
+    assert.equal(cells, headerCount, `행의 <td> ${cells}개 ≠ 헤더 <th> ${headerCount}개`);
+  }
+});

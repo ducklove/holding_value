@@ -20,6 +20,8 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | 파일 | 역할 |
 |---|---|
 | `config.json` | 종목 정의 (admin.html에서 관리). pair별 선택 필드 `validFrom` 지원 |
+| `fundamentals_overrides.json` | 타법인 출자현황 자동 매칭 예외만 손으로 고정 (admin.html이 덮어쓰는 config.json과 분리) |
+| `fetch_fundamentals.py` | OpenDART에서 별도 자본총계·자회사 지분 장부가액 수집 (주 1회) |
 | `fetch_data.py` | 일별 히스토리 파이프라인 (증분 병합, 주간 다운샘플, 품질 가드) |
 | `fetch_current.py` | 장중 스냅샷 (세션 인지 보존, KIS → KIS 프록시 → yfinance 폴백) |
 | `pipeline/` | 순수 로직 패키지 (stdlib 전용) — fetch_*.py가 재수출 |
@@ -28,6 +30,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `js/` | 프런트 모듈 (classic script 전역 공유, index.html의 로드 순서 주석이 의존 계약). 순수 로직(format/calc/dashboard-core)은 `node --test tests/js`로 검증, UI(render/charts-ui/live-ui/app-boot)는 구조 계약 테스트(structure.test.mjs)로 고정 |
 | `css/` | 프런트 스타일 |
 | `data/summary.json` | 생성 산출물 — 메타+현재가 (~25KB). 프런트 첫 화면의 데이터 소스 |
+| `data/fundamentals.json` | 생성 산출물 — 종목별 별도 자본총계·지분 장부가액·잔존자본 (원 단위). 실질가치 지표용 |
 | `data/history/{id}.json` | 생성 산출물 — 종목별 컬럼형 히스토리. 선택 종목만 지연 로드 |
 | `data.js` / `current.json` | 생성 산출물 — 직접 편집 금지. data.js는 분할 로드 실패 시 폴백(과도기) |
 | `docs/refactoring_review_202606.html` | 구조·품질 리뷰 보고서 및 로드맵 |
@@ -55,6 +58,16 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
   프런트의 `rowsFromColumnar`가 행 배열로 복원하며, 행 포맷과 무손실 동치임을
   pytest와 브라우저 스모크 테스트로 고정해 두었다. data.js 폴백은 분할 로드
   실패 시(배포 전환기·롤백)에만 쓰인다 — 안정화 후 제거 예정.
+- **실질가치** (현재 상태 전용 지표, 추이 없음):
+  - **잔존자본** = 지주사 **별도(개별)재무제표 자본총계** − **리스트 자회사 지분 장부가액 합계**.
+    자회사 지분을 걷어낸 모회사 자체 순자산이다.
+  - **잔존자본 비율** = 잔존자본 ÷ 조정시가총액 × 100. **실질가치** = 지분가치 비율 + 잔존자본 비율.
+  - 자본총계는 분기보고서까지 포함한 최신 정기보고서(`fnlttSinglAcntAll`, `fs_div=OFS`),
+    장부가액은 **사업/반기보고서의 타법인 출자현황**(`otrCprInvstmntSttus`) 기말 장부가액을 쓴다.
+    분기보고서의 출자현황은 값이 `-`로만 제출되는 사례가 많아 제외한다.
+  - 분모(조정시가총액)만 실시간이라 장중에도 값이 따라 움직인다. 분자는 정기보고서 시즌에만 바뀐다.
+  - 잔존자본은 **음수가 될 수 있다** (지분 장부가액 > 별도 자본총계 = 차입으로 지분 취득).
+    그대로 음수 비율로 표시한다.
 - **백분위 칩** (`pctile1y`/`pctile3y`): 일별 빌드 시 현재 비율이 최근 1년/3년 분포에서
   차지하는 백분위(%). 3년 창은 730일 이전 주간 다운샘플 구간을 포함하므로 근사치다.
   표본 30개 미만이면 생략.
@@ -80,8 +93,13 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 - **전체 재생성**: admin의 "전체 재생성" 버튼 또는 `update-data.yml` 수동 실행에서
   `full_rebuild: true`. 전 종목이 현재 시점 Yahoo 조정가로 재계산되므로 과거 비율이
   소급 변동한다 — 꼭 필요할 때만.
-- **스케줄**: data 일 1회(20:00 UTC = KST 05:00), current 주중 10분 간격, CI(pytest)는
-  Python 변경 시.
+- **잔존자본 갱신**: `update-fundamentals.yml`이 주 1회(월 06:30 KST) OpenDART를 훑어
+  `data/fundamentals.json`을 갱신하고, 값이 바뀐 경우에만 커밋한다. 정기보고서 제출
+  시즌(3월·5월·8월·11월 중순) 직후 자동 반영된다. `DART_API_KEY` Secret이 필요하다.
+  자동 매칭이 안 되는 종목은 `fundamentals_overrides.json`에 예외를 적는다
+  (현재 영풍/조광피혁/세방 3건 — 파일 안에 사유를 적어 두었다).
+- **스케줄**: data 일 1회(20:00 UTC = KST 05:00), current 주중 10분 간격,
+  fundamentals 주 1회, CI(pytest)는 Python 변경 시.
 - **동시성**: 세 워크플로우가 `data-commit` concurrency 그룹을 공유하고, push는
   `pull --rebase` + 4회 재시도.
 
@@ -93,6 +111,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `KIS_PROXY_BASE_URL` (Variable) | KIS 프록시 주소 | `http://cantabile.tplinkdns.com:3288` |
 | `HOLDING_VALUE_PRICE_API_URL` | 내부 가격 API (LAN) | `http://192.168.68.84:8400/...` |
 | `HOLDING_VALUE_PRICE_API` | `0`이면 내부 API 비활성 | `1` |
+| `DART_API_KEY` (Secret) | OpenDART 인증키 — 별도 자본총계·타법인 출자현황 수집 | 미설정 시 실질가치 지표 갱신 불가 |
 | `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` (Secrets) | 비율 임계 교차 알림 (선택) | 미설정 시 알림 비활성 |
 
 > **권고**: 현재 장중 시세의 사실상 전부가 개인 프록시 한 대에 의존한다.
@@ -112,6 +131,8 @@ pip install -r requirements.txt
 python fetch_data.py            # 증분 갱신 (data.js)
 python fetch_data.py --full     # 전체 재생성 (주의: 과거 값 소급 변동)
 python fetch_current.py         # 장중 스냅샷 (current.json)
+DART_API_KEY=... python fetch_fundamentals.py            # 잔존자본 (data/fundamentals.json)
+DART_API_KEY=... python fetch_fundamentals.py --only lg_corp   # 일부 종목만 갱신
 python -m pytest -q             # 테스트
 node --test tests/js            # JS 단위 테스트
 python -m http.server 8000      # 대시보드: http://localhost:8000
@@ -126,6 +147,12 @@ python -m http.server 8000      # 대시보드: http://localhost:8000
   (Phase 3 시간축 전환 예정).
 - admin.html의 PAT는 localStorage에 저장된다. 공용 브라우저에서 사용 금지,
   사용 후 "토큰 삭제" 권장.
+- 실질가치의 두 항은 **기준일이 다르다**. 자본총계는 직전 분기말, 지분 장부가액은
+  직전 사업/반기말이라 그 사이의 지분 변동은 반영되지 않는다. 카드/표의 `*` 표시는
+  config 보유수량과 공시 기말수량이 2% 넘게 어긋난 종목이다(`warnings` 참고).
+- 세아메카닉스의 `sharesHeld`(두산에너빌리티 2,550,000주)는 세아메카닉스 별도
+  자산총계(1,594억, 2026-03-31)보다 큰 지분가치를 만들어 낸다. config 값이 1,000배
+  과대일 가능성이 높아 확인이 필요하다 — 실질가치가 아니라 기존 비율 지표의 문제다.
 - 코스맥스비티아이·한국콜마홀딩스·오리온홀딩스 등 분할 종목은 자회사 신규 상장일
   교집합으로 자체 절단됨을 확인. 잔여 validFrom 후보는 조광피혁(버크셔·애플 취득
   이전 구간 — 취득 시기 공시 확인 필요) 한 건.

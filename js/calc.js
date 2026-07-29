@@ -42,6 +42,44 @@ function chunkArray(items, size) {
   return chunks;
 }
 
+// --- 잔존자본 / 실질가치 ---
+// 잔존자본 = 지주사 별도재무제표 자본총계 − 리스트 자회사 지분 장부가액 합계 (data/fundamentals.json, 원 단위).
+// 자회사 지분을 걷어낸 모회사 자체 순자산이라, 지분가치 비율만으로는 안 보이던
+// "본체가 시총 대비 얼마나 남아 있는가"를 더해 준다.
+// 분모(조정시가총액)는 실시간 주가로 갱신되는 값(억원)이라 이 비율도 자동으로 따라 움직인다.
+const WON_PER_OK = 1e8;
+
+function residualCapitalRatio(residualEquityWon, marketCapOk) {
+  if (typeof residualEquityWon !== 'number' || !Number.isFinite(residualEquityWon)) return null;
+  if (typeof marketCapOk !== 'number' || !Number.isFinite(marketCapOk) || marketCapOk <= 0) return null;
+  return (residualEquityWon / WON_PER_OK) / marketCapOk * 100;
+}
+
+// 실질가치 = 보유지분 비율 + 잔존자본 비율. 둘 중 하나라도 없으면 산출하지 않는다.
+function effectiveValueRatio(holdingRatio, residualRatio) {
+  if (typeof holdingRatio !== 'number' || !Number.isFinite(holdingRatio)) return null;
+  if (typeof residualRatio !== 'number' || !Number.isFinite(residualRatio)) return null;
+  return holdingRatio + residualRatio;
+}
+
+// pair.current(실시간 반영) + pair.fundamentals(분기성 공시)를 묶어 현재 상태 지표를 만든다.
+function buildEffectiveValue(pair) {
+  if (!pair || pair.isAverage) return null;
+  const fundamentals = pair.fundamentals;
+  const current = pair.current || {};
+  if (!fundamentals || typeof fundamentals.residualEquity !== 'number') return null;
+  const residualRatio = residualCapitalRatio(fundamentals.residualEquity, current.marketCap);
+  if (residualRatio == null) return null;
+  return {
+    residualEquityOk: fundamentals.residualEquity / WON_PER_OK,
+    residualRatio,
+    effectiveRatio: effectiveValueRatio(current.ratio, residualRatio),
+    equityReport: fundamentals.equityReport,
+    bookValueReport: fundamentals.bookValueReport,
+    warnings: fundamentals.warnings || [],
+  };
+}
+
 function derivePreviousPrice(price, changePct) {
   if (typeof price !== 'number' || !Number.isFinite(price)) return null;
   if (typeof changePct !== 'number' || !Number.isFinite(changePct)) return null;
@@ -221,8 +259,12 @@ function drawTimeAxisLabels(ctx, hist, xs, padLeft, cW, y) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     HISTORY_COLUMNS,
+    WON_PER_OK,
     clamp,
     medianOf,
+    residualCapitalRatio,
+    effectiveValueRatio,
+    buildEffectiveValue,
     withAlpha,
     chunkArray,
     derivePreviousPrice,

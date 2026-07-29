@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 .claude/
 .kis_token.json
+data/.corp_codes.json

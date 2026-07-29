@@ -1,0 +1,88 @@
+name: Update Fundamentals
+
+# 별도 총자본·자회사 지분 장부가액(잔존자본)은 정기보고서가 나올 때만 바뀐다.
+# 분기·반기·사업보고서 제출 시즌(2·3월, 5월, 8월, 11월 중순)을 놓치지 않도록
+# 주 1회 돌리고, 값이 바뀐 경우에만 커밋한다.
+on:
+  schedule:
+    - cron: "30 21 * * 0" # 월요일 06:30 KST
+  push:
+    branches:
+      - master
+    paths:
+      - fundamentals_overrides.json
+      - fetch_fundamentals.py
+      - pipeline/fundamentals.py
+      - .github/workflows/update-fundamentals.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write # 실패 이슈 알림 (fin-commons 표준 헬스 패턴)
+
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch fundamentals from OpenDART
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        run: python fetch_fundamentals.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # generatedAt만 바뀐 경우는 커밋하지 않는다 (pairs 본문 비교)
+          if git diff --quiet data/fundamentals.json; then
+            echo "변경 없음"
+            exit 0
+          fi
+          if [ -z "$(git diff -U0 data/fundamentals.json | grep -E '^[+-]' | grep -vE '^[+-]{3}' | grep -v generatedAt)" ]; then
+            echo "generatedAt만 변경 — 커밋 생략"
+            git checkout -- data/fundamentals.json
+            exit 0
+          fi
+          git add data/fundamentals.json
+          git commit -m "자동 업데이트: $(TZ=Asia/Seoul date '+%Y-%m-%d') 잔존자본 공시 갱신"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin master && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            echo "push retry ${attempt}"
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: push failed after retries" >&2
+          exit 1
+
+      # --- fin-commons 표준 파이프라인 헬스 블록 ---------------------------
+      - name: Report failure as issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create data-update-failure --color D93F0B \
+            --description "데이터 갱신 워크플로우 실패" --force || true
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="${{ github.workflow }} 워크플로우가 실패했습니다. 실행 로그: ${run_url}"
+          existing=$(gh issue list --label data-update-failure --state open \
+            --json number --jq '.[0].number' || true)
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "데이터 갱신 실패: ${{ github.workflow }}" \
+              --label data-update-failure --body "$body"
+          fi

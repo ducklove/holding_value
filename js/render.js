@@ -236,6 +236,23 @@ function createDashboardRenderers(app) {
   }
 
   // --- Cards ---
+  // 잔존자본·실질가치 — data/fundamentals.json이 있는 종목만 노출한다(추이 없이 현재 상태만).
+  function renderResidualRows(pair) {
+    const effective = buildEffectiveValue(pair);
+    if (!effective) return '';
+    const warned = effective.warnings.length ? ' *' : '';
+    return `<span class="amount-label">잔존자본</span><span class="amount-value">${formatOk(Math.round(effective.residualEquityOk))} (${formatRatio(effective.residualRatio)})</span>
+          <span class="amount-label">실질가치${warned}</span><span class="amount-value effective-ratio">${formatRatio(effective.effectiveRatio)}</span>`;
+  }
+
+  function renderEffectiveCell(pair) {
+    const effective = buildEffectiveValue(pair);
+    if (!effective) return '-';
+    const title = `잔존자본 ${formatOk(Math.round(effective.residualEquityOk))} (${formatRatio(effective.residualRatio)}) · `
+      + `자본총계 ${effective.equityReport || '-'} / 장부가액 ${effective.bookValueReport || '-'}`;
+    return `<strong title="${escapeHtml(title)}">${formatRatio(effective.effectiveRatio)}</strong>`;
+  }
+
   function renderCards() {
     const el = document.getElementById('cards');
     el.innerHTML = app.pairs.map((p, i) => {
@@ -262,6 +279,7 @@ function createDashboardRenderers(app) {
         <div class="amounts">
           <span class="amount-label">보유지분</span><span class="amount-value">${formatOk(c.holdingValue)}</span>
           <span class="amount-label">조정시총</span><span class="amount-value">${formatOk(c.marketCap)}</span>
+          ${renderResidualRows(p)}
           ${pctileRow}
         </div>`;
       }
@@ -318,6 +336,7 @@ function createDashboardRenderers(app) {
           <td></td>
           <td></td>
           <td><strong>${c.ratio.toFixed(2)}%</strong></td>
+          <td></td>
           <td class="${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
           <td><div class="bar-cell"><div class="bar" style="width:${barW}%;background:var(--green)"></div>${c.ratio.toFixed(1)}%</div></td>
         </tr>`;
@@ -332,6 +351,7 @@ function createDashboardRenderers(app) {
         <td>${formatOk(c.holdingValue)}</td>
         <td>${formatOk(c.marketCap)}</td>
         <td><strong>${c.ratio.toFixed(2)}%</strong></td>
+        <td class="effective-ratio">${renderEffectiveCell(p)}</td>
         <td class="${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
         <td><div class="bar-cell"><div class="bar" style="width:${barW}%"></div>${c.ratio.toFixed(1)}%</div></td>
       </tr>`;
@@ -352,9 +372,17 @@ function createDashboardRenderers(app) {
     // 최소/최대/평균/백분위/Z-score 계산은 js/dashboard-core.js(computeRatioStats)
     const { min, max, avg, percentile, zScore } = computeRatioStats(hist.map(h => h.ratio), current);
 
+    const effective = buildEffectiveValue(p);
+    const effectiveBox = effective
+      ? `<div class="stat-box" title="잔존자본 ${formatOk(Math.round(effective.residualEquityOk))} = 별도 총자본(${effective.equityReport || '-'}) − 자회사 지분 장부가액(${effective.bookValueReport || '-'})">
+        <div class="label">실질가치 (지분 ${formatRatio(p.current.ratio)} + 잔존 ${formatRatio(effective.residualRatio)})</div>
+        <div class="value">${formatRatio(effective.effectiveRatio)}</div></div>`
+      : '';
+
     const statsEl = document.getElementById('statsRow');
     statsEl.innerHTML = `
       <div class="stat-box"><div class="label">현재 비율</div><div class="value">${current.toFixed(2)}%</div></div>
+      ${effectiveBox}
       <div class="stat-box"><div class="label">평균</div><div class="value">${avg.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">최저</div><div class="value">${min.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">최고</div><div class="value">${max.toFixed(2)}%</div></div>

@@ -10,6 +10,8 @@ on:
       - '.github/workflows/ci.yml'
       - 'js/**'
       - 'tests/js/**'
+      # 구조 계약 테스트가 index.html ↔ js/ 짝을 검사하므로 index.html도 트리거에 포함
+      - 'index.html'
 
 permissions:
   contents: read

@@ -46,7 +46,30 @@ function loadDashboardData() {
   return fromSplit().catch(function(err) {
     console.warn('분할 데이터 로드 실패, data.js로 폴백:', err);
     return fromLegacy();
-  });
+  }).then(attachFundamentals);
+}
+
+// 잔존자본(별도 총자본 − 자회사 지분 장부가액)은 정기보고서 시즌에만 바뀌는 값이라
+// 가격 데이터와 별도 파일로 둔다. 없거나 실패해도 대시보드 본체는 그대로 뜬다.
+function attachFundamentals(stockData) {
+  return fetch('data/fundamentals.json', { cache: 'no-store' })
+    .then(function(res) {
+      if (!res.ok) throw new Error('fundamentals HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(payload) {
+      const byId = (payload && payload.pairs) || {};
+      for (const pair of stockData.pairs || []) {
+        const record = byId[pair.id];
+        if (record && typeof record.residualEquity === 'number') pair.fundamentals = record;
+      }
+      stockData.fundamentalsGeneratedAt = payload && payload.generatedAt;
+      return stockData;
+    })
+    .catch(function(err) {
+      console.warn('fundamentals.json 로드 실패 — 실질가치 지표를 생략합니다:', err);
+      return stockData;
+    });
 }
 
 function startDashboard(STOCK_DATA) {

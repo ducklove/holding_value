@@ -228,3 +228,59 @@ test('drawTimeAxisLabels: 인자(ctx)만 사용해 라벨을 그림 — 중복 �
   assert.equal(calls[1].x, 100);
   assert.equal(calls[0].y, 20);
 });
+
+test('residualCapitalRatio: 잔존자본(원) ÷ 조정시총(억) → %', () => {
+  // 잔존자본 6,263억, 조정시총 5,952억 → 약 105.2%
+  assert.equal(calc.residualCapitalRatio(626332971489, 5952).toFixed(1), '105.2');
+  // 음수 잔존자본(자본총계 < 지분 장부가액)도 그대로 음수 비율로 낸다
+  assert.equal(calc.residualCapitalRatio(-31600000000, 933).toFixed(1), '-33.9');
+});
+
+test('residualCapitalRatio: 값이 없거나 시총이 0이면 null', () => {
+  assert.equal(calc.residualCapitalRatio(null, 100), null);
+  assert.equal(calc.residualCapitalRatio(undefined, 100), null);
+  assert.equal(calc.residualCapitalRatio(NaN, 100), null);
+  assert.equal(calc.residualCapitalRatio(1e12, 0), null);
+  assert.equal(calc.residualCapitalRatio(1e12, null), null);
+});
+
+test('effectiveValueRatio: 지분 비율 + 잔존자본 비율', () => {
+  assert.equal(calc.effectiveValueRatio(839.9, 105.2).toFixed(1), '945.1');
+  assert.equal(calc.effectiveValueRatio(100, -33.8).toFixed(1), '66.2');
+  assert.equal(calc.effectiveValueRatio(null, 10), null);
+  assert.equal(calc.effectiveValueRatio(10, null), null);
+});
+
+test('buildEffectiveValue: current(실시간 시총)와 fundamentals(분기 공시)를 결합', () => {
+  const pair = {
+    current: { ratio: 839.9, marketCap: 5952 },
+    fundamentals: {
+      residualEquity: 626332971489,
+      equityReport: '2026 1분기보고서',
+      bookValueReport: '2025 사업보고서',
+      warnings: [],
+    },
+  };
+  const effective = calc.buildEffectiveValue(pair);
+  assert.equal(effective.residualEquityOk.toFixed(0), '6263');
+  assert.equal(effective.residualRatio.toFixed(1), '105.2');
+  assert.equal(effective.effectiveRatio.toFixed(1), '945.1');
+  assert.equal(effective.equityReport, '2026 1분기보고서');
+
+  // 시총이 바뀌면(장중 갱신) 잔존자본 비율·실질가치도 따라 움직인다
+  pair.current.marketCap = 11904;
+  pair.current.ratio = 419.95;
+  const halved = calc.buildEffectiveValue(pair);
+  assert.equal(halved.residualRatio.toFixed(1), '52.6');
+  assert.equal(halved.effectiveRatio.toFixed(1), '472.6');
+});
+
+test('buildEffectiveValue: 전체 지표/공시 없는 종목은 null', () => {
+  assert.equal(calc.buildEffectiveValue(null), null);
+  assert.equal(calc.buildEffectiveValue({ isAverage: true, current: {}, fundamentals: { residualEquity: 1 } }), null);
+  assert.equal(calc.buildEffectiveValue({ current: { ratio: 100, marketCap: 10 } }), null);
+  assert.equal(
+    calc.buildEffectiveValue({ current: { ratio: 100, marketCap: 10 }, fundamentals: { residualEquity: null } }),
+    null,
+  );
+});
