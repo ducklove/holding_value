@@ -666,10 +666,11 @@
       {
         "name": "두산에너빌리티",
         "ticker": "034020.KS",
-        "sharesHeld": 2550000
+        "sharesHeld": 2550
       }
     ],
-    "holdingAdjustedShares": 26489688
+    "holdingAdjustedShares": 26489688,
+    "validFrom": "2025-10-22"
   },
   {
     "id": "iljin_diamond",
