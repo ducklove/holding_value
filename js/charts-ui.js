@@ -622,6 +622,31 @@ function createDashboardCharts(app) {
         resetZoomState(getZoomState(type));
         renderZoomedChart(type);
       });
+
+      root.querySelectorAll('.data-zoom-handle').forEach(function(handle) {
+        handle.addEventListener('keydown', function(e) {
+          if (root.classList.contains('disabled')) return;
+          const zoom = getZoomState(type);
+          normalizeZoomState(zoom);
+          const target = handle.dataset.handle;
+          const step = e.shiftKey ? 0.05 : 0.01;
+          let next = target === 'start' ? zoom.start : zoom.end;
+
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') next -= step;
+          else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') next += step;
+          else if (e.key === 'PageDown') next -= 0.1;
+          else if (e.key === 'PageUp') next += 0.1;
+          else if (e.key === 'Home') next = target === 'start' ? 0 : zoom.start + MIN_ZOOM_SPAN;
+          else if (e.key === 'End') next = target === 'start' ? zoom.end - MIN_ZOOM_SPAN : 1;
+          else return;
+
+          e.preventDefault();
+          if (target === 'start') zoom.start = clamp(next, 0, zoom.end - MIN_ZOOM_SPAN);
+          else zoom.end = clamp(next, zoom.start + MIN_ZOOM_SPAN, 1);
+          normalizeZoomState(zoom);
+          renderZoomedChart(type);
+        });
+      });
     });
   }
 
@@ -646,8 +671,13 @@ function createDashboardCharts(app) {
     const summaryLabel = root.querySelector('[data-zoom-summary]');
     const endLabel = root.querySelector('[data-zoom-end]');
     const disabled = !baseHist || baseHist.length < 3;
+    const handles = root.querySelectorAll('.data-zoom-handle');
 
     root.classList.toggle('disabled', disabled);
+    handles.forEach(function(handle) {
+      handle.setAttribute('aria-disabled', String(disabled));
+      handle.tabIndex = disabled ? -1 : 0;
+    });
     if (disabled) {
       if (selection) {
         selection.style.left = '0%';
@@ -673,6 +703,15 @@ function createDashboardCharts(app) {
       summaryLabel.textContent = isFull ? '전체 구간' : visibleHist.length.toLocaleString('ko-KR') + '개 포인트';
     }
     if (endLabel) endLabel.textContent = visibleHist[visibleHist.length - 1].date;
+    handles.forEach(function(handle) {
+      const isStart = handle.dataset.handle === 'start';
+      const value = isStart ? startPct : endPct;
+      const date = isStart ? visibleHist[0].date : visibleHist[visibleHist.length - 1].date;
+      handle.setAttribute('aria-valuemin', '0');
+      handle.setAttribute('aria-valuemax', '100');
+      handle.setAttribute('aria-valuenow', value.toFixed(0));
+      handle.setAttribute('aria-valuetext', date + ' · 전체 기간의 ' + value.toFixed(0) + '%');
+    });
   }
 
   return {

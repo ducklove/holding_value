@@ -93,6 +93,16 @@ test('모듈별 전역 진입점(UMD-lite export)이 유지된다', () => {
   assert.equal(bootMod.PINNED_PAIRS_STORAGE_KEY, 'holdingValuePinnedPairIds');
 });
 
+test('차트 데이터 줌은 키보드 슬라이더 계약을 제공한다', () => {
+  const charts = readFileSync(path.join(rootDir, 'js/charts-ui.js'), 'utf-8');
+  assert.match(indexHtml, /data-handle="start" role="slider" tabindex="0"/);
+  assert.match(indexHtml, /data-handle="end" role="slider" tabindex="0"/);
+  assert.match(charts, /ArrowLeft/);
+  assert.match(charts, /PageUp/);
+  assert.match(charts, /aria-valuenow/);
+  assert.match(charts, /aria-valuetext/);
+});
+
 test('팩토리가 만든 함수 묶음이 app 계약(함수 이름)을 유지한다', () => {
   // DOM 없이도 팩토리 호출 자체는 함수 묶음만 만들므로 안전하다 (호출 전까지 DOM 미접근).
   const { createDashboardRenderers } = require('../../js/render.js');
