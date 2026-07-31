@@ -735,32 +735,6 @@
     "holdingAdjustedShares": 16845801
   },
   {
-    "id": "inveni",
-    "name": "INVENI→자회사",
-    "holdingName": "INVENI",
-    "holdingTicker": "015360.KS",
-    "holdingTotalShares": 5111964,
-    "holdingTreasuryShares": 0,
-    "subsidiaries": [
-      {
-        "name": "우리금융지주",
-        "ticker": "316140.KS",
-        "sharesHeld": 2773000
-      },
-      {
-        "name": "삼성증권",
-        "ticker": "016360.KS",
-        "sharesHeld": 324000
-      },
-      {
-        "name": "피에스텍",
-        "ticker": "002230.KQ",
-        "sharesHeld": 906000
-      }
-    ],
-    "holdingAdjustedShares": 5111964
-  },
-  {
     "id": "donga_soc_holdings",
     "name": "동아쏘시오홀딩스→자회사",
     "holdingName": "동아쏘시오홀딩스",

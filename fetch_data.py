@@ -580,13 +580,17 @@ def main():
             f"({'↑' if ratio_change > 0 else '↓'}{abs(ratio_change):.2f}%p)"
         )
 
-    # 새 데이터가 없는 기존 종목 유지
+    # 새 데이터가 없는 기존 종목 유지 (config에서 빠진 종목은 그대로 탈락시킨다)
     if existing:
         processed_ids = {p['id'] for p in pairs_result}
         for p in existing.get('pairs', []):
-            if p.get('id') and p['id'] not in processed_ids and not p.get('isAverage'):
-                pairs_result.append(p)
-                print(f"  {p['name']}: 기존 데이터 유지 ({len(p.get('history', []))} days)")
+            if not p.get('id') or p['id'] in processed_ids or p.get('isAverage'):
+                continue
+            if p['id'] not in pair_config_map:
+                print(f"  {p['name']}: config에서 제거됨 — 산출물에서 삭제")
+                continue
+            pairs_result.append(p)
+            print(f"  {p['name']}: 기존 데이터 유지 ({len(p.get('history', []))} days)")
 
     # 전체 지표(중앙값, 최소 구성 종목 수 필터) 계산
     avg_pair = build_average_pair(pairs_result)

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-09T14:19:34+09:00",
-  "lastUpdated": "2026-07-09 14:19:34",
-  "count": 50,
+  "generatedAt": "2026-07-31T12:00:16+09:00",
+  "lastUpdated": "2026-07-31 12:00:16",
+  "count": 49,
   "items": [
     {
       "id": "youngpoong_koreazinc",
@@ -892,37 +892,6 @@
           "ticker": "391710.KQ",
           "code": "391710",
           "sharesHeld": 17807102
-        }
-      ]
-    },
-    {
-      "id": "inveni",
-      "name": "INVENI→자회사",
-      "holdingName": "INVENI",
-      "holdingTicker": "015360.KS",
-      "holdingCode": "015360",
-      "holdingTotalShares": 5111964,
-      "holdingTreasuryShares": 0,
-      "holdingAdjustedShares": 5111964,
-      "subsidiaryCount": 3,
-      "subsidiaries": [
-        {
-          "name": "우리금융지주",
-          "ticker": "316140.KS",
-          "code": "316140",
-          "sharesHeld": 2773000
-        },
-        {
-          "name": "삼성증권",
-          "ticker": "016360.KS",
-          "code": "016360",
-          "sharesHeld": 324000
-        },
-        {
-          "name": "피에스텍",
-          "ticker": "002230.KQ",
-          "code": "002230",
-          "sharesHeld": 906000
         }
       ]
     },

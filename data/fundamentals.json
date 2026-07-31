@@ -1357,54 +1357,6 @@
       "corpCode": "00296078",
       "holdingName": "APS"
     },
-    "inveni": {
-      "equity": 591115065000.0,
-      "equityReport": "2026 1분기보고서",
-      "equityTerm": "제 46 기 1분기말",
-      "equityRceptNo": "20260508000361",
-      "bookValue": 110980000000.0,
-      "bookValueReport": "2025 사업보고서",
-      "bookValueDate": "2025-12-31",
-      "residualEquity": 480135065000.0,
-      "subsidiaries": [
-        {
-          "name": "우리금융지주",
-          "ticker": "316140.KS",
-          "sharesHeld": 2773000,
-          "bookValue": 77644000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "우리금융지주"
-          ],
-          "qty": 2773000.0
-        },
-        {
-          "name": "삼성증권",
-          "ticker": "016360.KS",
-          "sharesHeld": 324000,
-          "bookValue": 24430000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "삼성증권"
-          ],
-          "qty": 324000.0
-        },
-        {
-          "name": "피에스텍",
-          "ticker": "002230.KQ",
-          "sharesHeld": 906000,
-          "bookValue": 8906000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "피에스텍"
-          ],
-          "qty": 906000.0
-        }
-      ],
-      "warnings": [],
-      "corpCode": "00105101",
-      "holdingName": "INVENI"
-    },
     "donga_soc_holdings": {
       "equity": 719721731711.0,
       "equityReport": "2026 1분기보고서",
