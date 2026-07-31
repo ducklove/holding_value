@@ -109,8 +109,18 @@ def match_investment_rows(subsidiary, rows, dart_name=None):
 
     보통주/우선주가 별도 행으로 기재되는 사례가 있어 매칭된 행을 모두 합산한다.
     매칭 근거는 how로 반환한다: name(법인명 일치) → qty(기말수량 일치) → partial(부분 일치).
+
+    dartInvestmentExclude(오버라이드)에 적힌 행은 합산 전에 제외한다. 주식 종류 표기는
+    정규화 단계에서 지워지므로(보통주/우선주 합산이 기본 동작) 여기서는 기재된 법인명을
+    공백만 지운 원문으로 비교한다 — 같은 투자처의 다른 종류 주식을 골라 뺄 수 있는 유일한 자리다.
     """
     rows = usable_investment_rows(rows)
+    excludes = subsidiary.get("dartInvestmentExclude")
+    if isinstance(excludes, str):
+        excludes = [excludes]
+    if excludes:
+        blocked = {re.sub(r"\s", "", name) for name in excludes}
+        rows = [row for row in rows if re.sub(r"\s", "", row.get("inv_prm", "")) not in blocked]
     aliases = subsidiary.get("dartInvestmentName")
     if isinstance(aliases, str):
         aliases = [aliases]

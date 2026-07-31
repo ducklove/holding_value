@@ -1002,32 +1002,6 @@
     "holdingAdjustedShares": 39830191
   },
   {
-    "id": "linked",
-    "name": "링크드→자회사",
-    "holdingName": "링크드",
-    "holdingTicker": "193250.KS",
-    "holdingTotalShares": 64605196,
-    "holdingTreasuryShares": 0,
-    "subsidiaries": [
-      {
-        "name": "넥써쓰",
-        "ticker": "205500.KQ",
-        "sharesHeld": 13526473
-      },
-      {
-        "name": "상상인증권",
-        "ticker": "001290.KS",
-        "sharesHeld": 350000
-      },
-      {
-        "name": "상상인",
-        "ticker": "038540.KQ",
-        "sharesHeld": 150807
-      }
-    ],
-    "holdingAdjustedShares": 64605196
-  },
-  {
     "id": "daeduck",
     "name": "대덕→대덕전자",
     "holdingName": "대덕",
@@ -1059,5 +1033,42 @@
       }
     ],
     "holdingAdjustedShares": 9988623
+  },
+  {
+    "id": "inveni",
+    "name": "INVENI→자회사",
+    "holdingName": "INVENI",
+    "holdingTicker": "015360.KS",
+    "holdingTotalShares": 27250000,
+    "holdingTreasuryShares": 1700000,
+    "subsidiaries": [
+      {
+        "name": "맥쿼리인프라",
+        "ticker": "088980.KS",
+        "sharesHeld": 8108000
+      },
+      {
+        "name": "우리금융지주",
+        "ticker": "316140.KS",
+        "sharesHeld": 2773000
+      },
+      {
+        "name": "대신증권",
+        "ticker": "003540.KS",
+        "sharesHeld": 2070000
+      },
+      {
+        "name": "삼성증권",
+        "ticker": "016360.KS",
+        "sharesHeld": 324000
+      },
+      {
+        "name": "피에스텍",
+        "ticker": "002230.KQ",
+        "sharesHeld": 906000
+      }
+    ],
+    "holdingAdjustedShares": 25550000,
+    "validFrom": "2023-07-01"
   }
 ]

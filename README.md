@@ -97,7 +97,9 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
   `data/fundamentals.json`을 갱신하고, 값이 바뀐 경우에만 커밋한다. 정기보고서 제출
   시즌(3월·5월·8월·11월 중순) 직후 자동 반영된다. `DART_API_KEY` Secret이 필요하다.
   자동 매칭이 안 되는 종목은 `fundamentals_overrides.json`에 예외를 적는다
-  (현재 영풍/조광피혁/세방 3건 — 파일 안에 사유를 적어 두었다).
+  (현재 영풍/조광피혁/INVENI/세방 4건 — 파일 안에 사유를 적어 두었다).
+  같은 투자처의 다른 종류 주식이 별도 행으로 잡히면 `dartInvestmentExclude`로 뺀다
+  (주식 종류 표기는 매칭 정규화에서 지워져 보통주/우선주가 기본으로 합산되기 때문).
 - **스케줄**: data 일 1회(20:00 UTC = KST 05:00), current 주중 10분 간격,
   fundamentals 주 1회, CI(pytest)는 Python 변경 시.
 - **동시성**: 세 워크플로우가 `data-commit` concurrency 그룹을 공유하고, push는

@@ -1834,54 +1834,6 @@
       "corpCode": "00139214",
       "holdingName": "삼성화재"
     },
-    "linked": {
-      "equity": 51434639958.0,
-      "equityReport": "2026 1분기보고서",
-      "equityTerm": "제 23 기 1분기말",
-      "equityRceptNo": "20260515001670",
-      "bookValue": 19206000000.0,
-      "bookValueReport": "2025 사업보고서",
-      "bookValueDate": "2025-12-31",
-      "residualEquity": 32228639958.0,
-      "subsidiaries": [
-        {
-          "name": "넥써쓰",
-          "ticker": "205500.KQ",
-          "sharesHeld": 13526473,
-          "bookValue": 18723000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "㈜넥써쓰"
-          ],
-          "qty": 13526473.0
-        },
-        {
-          "name": "상상인증권",
-          "ticker": "001290.KS",
-          "sharesHeld": 350000,
-          "bookValue": 222000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "㈜상상인증권"
-          ],
-          "qty": 350000.0
-        },
-        {
-          "name": "상상인",
-          "ticker": "038540.KQ",
-          "sharesHeld": 150807,
-          "bookValue": 261000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            "㈜상상인"
-          ],
-          "qty": 150807.0
-        }
-      ],
-      "warnings": [],
-      "corpCode": "01035678",
-      "holdingName": "링크드"
-    },
     "daeduck": {
       "equity": 455453028649.0,
       "equityReport": "2026 1분기보고서",
@@ -1935,6 +1887,78 @@
       "warnings": [],
       "corpCode": "00652423",
       "holdingName": "인바이오젠"
+    },
+    "inveni": {
+      "equity": 591115065000.0,
+      "equityReport": "2026 1분기보고서",
+      "equityTerm": "제 46 기 1분기말",
+      "equityRceptNo": "20260508000361",
+      "bookValue": 258085000000.0,
+      "bookValueReport": "2025 사업보고서",
+      "bookValueDate": "2025-12-31",
+      "residualEquity": 333030065000.0,
+      "subsidiaries": [
+        {
+          "name": "맥쿼리인프라",
+          "ticker": "088980.KS",
+          "sharesHeld": 8108000,
+          "bookValue": 91215000000.0,
+          "matchHow": "name",
+          "matchedNames": [
+            "맥쿼리한국인프라투융자회사"
+          ],
+          "qty": 8108000.0,
+          "note": "출자현황에는 정식 법인명으로 기재되어 종목명(맥쿼리인프라) 자동 매칭이 되지 않는다. 수량 일치로 잡히긴 하지만 지분이 바뀌면 끊기므로 법인명을 고정한다."
+        },
+        {
+          "name": "우리금융지주",
+          "ticker": "316140.KS",
+          "sharesHeld": 2773000,
+          "bookValue": 77644000000.0,
+          "matchHow": "name",
+          "matchedNames": [
+            "우리금융지주"
+          ],
+          "qty": 2773000.0
+        },
+        {
+          "name": "대신증권",
+          "ticker": "003540.KS",
+          "sharesHeld": 2070000,
+          "bookValue": 55890000000.0,
+          "matchHow": "name",
+          "matchedNames": [
+            "대신증권(보통주)"
+          ],
+          "qty": 2070000.0,
+          "note": "출자현황에 보통주와 비상장 상환전환우선주(123,456주·100억)가 따로 기재된다. 주식 종류 표기는 정규화에서 지워져 두 행이 같이 잡히는데, 지분가치는 보통주 2,070,000주만 시가로 계산하므로 RCPS 장부가액은 잔존자본에 남겨야 한다."
+        },
+        {
+          "name": "삼성증권",
+          "ticker": "016360.KS",
+          "sharesHeld": 324000,
+          "bookValue": 24430000000.0,
+          "matchHow": "name",
+          "matchedNames": [
+            "삼성증권"
+          ],
+          "qty": 324000.0
+        },
+        {
+          "name": "피에스텍",
+          "ticker": "002230.KQ",
+          "sharesHeld": 906000,
+          "bookValue": 8906000000.0,
+          "matchHow": "name",
+          "matchedNames": [
+            "피에스텍"
+          ],
+          "qty": 906000.0
+        }
+      ],
+      "warnings": [],
+      "corpCode": "00105101",
+      "holdingName": "INVENI"
     }
   }
 }

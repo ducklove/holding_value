@@ -131,6 +131,32 @@ class TestMatching:
         assert result["bookValue"] == 670052000000.0
         assert result["matchedNames"] == ["(유)와이피씨"]
 
+    def test_exclude_drops_other_share_class_of_same_investee(self):
+        # INVENI는 대신증권 보통주(상장)와 상환전환우선주(비상장)를 함께 들고 있다.
+        # 주식 종류 표기는 정규화에서 지워져 두 행이 같이 잡히므로 RCPS를 이름으로 뺀다.
+        rows = [
+            inv_row("대신증권(보통주)", "2,070,000", "55,890,000,000"),
+            inv_row("대신증권(상환전환우선주)", "123,456", "10,000,000,000"),
+        ]
+        subsidiary = {
+            "name": "대신증권",
+            "sharesHeld": 2070000,
+            "dartInvestmentExclude": ["대신증권(상환전환우선주)"],
+        }
+        result = match_investment_rows(subsidiary, rows)
+        assert result["bookValue"] == 55890000000.0
+        assert result["qty"] == 2070000.0
+        assert result["matchedNames"] == ["대신증권(보통주)"]
+        assert qty_warning(subsidiary, result["qty"]) is None
+
+    def test_without_exclude_both_share_classes_are_summed(self):
+        rows = [
+            inv_row("대신증권(보통주)", "2,070,000", "55,890,000,000"),
+            inv_row("대신증권(상환전환우선주)", "123,456", "10,000,000,000"),
+        ]
+        result = match_investment_rows({"name": "대신증권", "sharesHeld": 2070000}, rows)
+        assert result["bookValue"] == 65890000000.0
+
     def test_no_match_returns_none_book_value(self):
         rows = [inv_row("건설공제조합", "571", "884,000,000")]
         result = match_investment_rows({"name": "세방전지", "sharesHeld": 5569225}, rows)
