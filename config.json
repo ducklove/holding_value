@@ -205,23 +205,23 @@
     "name": "SNT홀딩스→자회사",
     "holdingName": "SNT홀딩스",
     "holdingTicker": "036530.KS",
-    "holdingTotalShares": 12000000,
-    "holdingTreasuryShares": 200000,
+    "holdingTotalShares": 16303886,
+    "holdingTreasuryShares": 1407820,
     "subsidiaries": [
       {
         "name": "SNT다이내믹스",
         "ticker": "003570.KS",
-        "sharesHeld": 10060000
+        "sharesHeld": 14055889
       },
       {
         "name": "SNT모티브",
         "ticker": "064960.KS",
-        "sharesHeld": 5124000
+        "sharesHeld": 11975536
       },
       {
         "name": "SNT에너지",
         "ticker": "100840.KS",
-        "sharesHeld": 4000000
+        "sharesHeld": 9920079
       }
     ]
   },

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-31T13:57:12+09:00",
-  "lastUpdated": "2026-07-31 13:57:12",
+  "generatedAt": "2026-08-27T12:19:19+09:00",
+  "lastUpdated": "2026-08-27 12:19:19",
   "count": 49,
   "items": [
     {
@@ -253,28 +253,28 @@
       "holdingName": "SNT홀딩스",
       "holdingTicker": "036530.KS",
       "holdingCode": "036530",
-      "holdingTotalShares": 12000000,
-      "holdingTreasuryShares": 200000,
-      "holdingAdjustedShares": 11800000,
+      "holdingTotalShares": 16303886,
+      "holdingTreasuryShares": 1407820,
+      "holdingAdjustedShares": 14896066,
       "subsidiaryCount": 3,
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
           "ticker": "003570.KS",
           "code": "003570",
-          "sharesHeld": 10060000
+          "sharesHeld": 14055889
         },
         {
           "name": "SNT모티브",
           "ticker": "064960.KS",
           "code": "064960",
-          "sharesHeld": 5124000
+          "sharesHeld": 11975536
         },
         {
           "name": "SNT에너지",
           "ticker": "100840.KS",
           "code": "100840",
-          "sharesHeld": 4000000
+          "sharesHeld": 9920079
         }
       ]
     },

@@ -573,7 +573,7 @@
         {
           "name": "SNT다이내믹스",
           "ticker": "003570.KS",
-          "sharesHeld": 10060000,
+          "sharesHeld": 14055889,
           "bookValue": 199891000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -594,7 +594,7 @@
         {
           "name": "SNT모티브",
           "ticker": "064960.KS",
-          "sharesHeld": 5124000,
+          "sharesHeld": 11975536,
           "bookValue": 156506000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -615,7 +615,7 @@
         {
           "name": "SNT에너지",
           "ticker": "100840.KS",
-          "sharesHeld": 4000000,
+          "sharesHeld": 9920079,
           "bookValue": 40031000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -634,11 +634,7 @@
           }
         }
       ],
-      "warnings": [
-        "SNT다이내믹스: config 보유수량 10,060,000주 ↔ 출자현황 기말수량 14,055,889주 (비 1.397)",
-        "SNT모티브: config 보유수량 5,124,000주 ↔ 출자현황 기말수량 11,975,536주 (비 2.337)",
-        "SNT에너지: config 보유수량 4,000,000주 ↔ 출자현황 기말수량 9,920,079주 (비 2.480)"
-      ],
+      "warnings": [],
       "corpCode": "00225159",
       "holdingName": "SNT홀딩스"
     },
