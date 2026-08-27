@@ -30,7 +30,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `js/` | 프런트 모듈 (classic script 전역 공유, index.html의 로드 순서 주석이 의존 계약). 순수 로직(format/calc/dashboard-core)은 `node --test tests/js`로 검증, UI(render/charts-ui/live-ui/app-boot)는 구조 계약 테스트(structure.test.mjs)로 고정 |
 | `css/` | 프런트 스타일 |
 | `data/summary.json` | 생성 산출물 — 메타+현재가 (~25KB). 프런트 첫 화면의 데이터 소스 |
-| `data/fundamentals.json` | 생성 산출물 — 종목별 별도 자본총계·지분 장부가액·잔존자본 (원 단위). 실질가치 지표용 |
+| `data/fundamentals.json` | 생성 산출물 — 종목별 별도 자본총계·지분 장부가액·잔존자본 (원 단위) + 자회사별 출자현황 상세(`detail`: 기말 지분율·기중 취득/처분·피출자법인 최근사업연도 순이익). 실질가치 지표와 "보유 지분 상세" 표용 |
 | `data/history/{id}.json` | 생성 산출물 — 종목별 컬럼형 히스토리. 선택 종목만 지연 로드 |
 | `data.js` / `current.json` | 생성 산출물 — 직접 편집 금지. data.js는 분할 로드 실패 시 폴백(과도기) |
 | `docs/refactoring_review_202606.html` | 구조·품질 리뷰 보고서 및 로드맵 |

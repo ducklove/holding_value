@@ -439,6 +439,99 @@ function buildContributionRows(hist) {
   return { rows, maxAbs, totalDelta };
 }
 
+// --- 보유 지분 상세 (선택 종목) ---
+// config 보유수량 ↔ 출자현황 기말수량 괴리 허용치 (pipeline/fundamentals.py QTY_WARN_TOLERANCE와 동일)
+const HOLDINGS_QTY_MISMATCH_TOLERANCE = 0.02;
+
+// 선택 지주사의 자회사별 상세 행을 조립한다: 공시(pair.fundamentals.subsidiaries — 보유수량·
+// 지분율·피출자법인 순이익·기중 변동) ↔ 실시간 시세(pair.current)를 이름으로 조인.
+// fundamentals가 없으면 시세 스냅샷만으로 축소 행을 만든다. 표시할 행이 없으면 null.
+function buildHoldingsDetailRows(pair) {
+  if (!pair || pair.isAverage) return null;
+  const current = pair.current || {};
+  const currentSubs = Array.isArray(current.subsidiaries) ? current.subsidiaries : null;
+  const fundamentals = pair.fundamentals || null;
+  const fundSubs = fundamentals && Array.isArray(fundamentals.subsidiaries)
+    ? fundamentals.subsidiaries
+    : [];
+
+  // 단일 자회사 pair는 current에 subsidiaries 배열 대신 subsidiaryPrice/-Change로 온다
+  const singleCurrent = currentSubs ? null : {
+    name: pair.subsidiaryName,
+    price: current.subsidiaryPrice,
+    change: current.subsidiaryChange,
+    value: current.holdingValue,
+  };
+  const currentByName = new Map((currentSubs || []).map(function(sub) { return [sub.name, sub]; }));
+  const asNumber = function(value) {
+    return typeof value === 'number' && Number.isFinite(value) ? value : null;
+  };
+
+  const rows = [];
+  const seen = new Set();
+  fundSubs.forEach(function(sub) {
+    const live = currentByName.get(sub.name) || (fundSubs.length === 1 ? singleCurrent : null);
+    const detail = sub.detail || null;
+    const price = live ? asNumber(live.price) : null;
+    const sharesHeld = asNumber(sub.sharesHeld);
+    const reportQty = asNumber(sub.qty);
+    let valueOk = live ? asNumber(live.value) : null;
+    if (valueOk === null && price !== null && sharesHeld !== null) {
+      valueOk = +(price * sharesHeld / 1e8).toFixed(1);
+    }
+    // 보고서 기말수량과 현재 설정 보유수량의 괴리 — 보고서 이후 지분 변동 신호.
+    // note가 있는 행(중간법인 이전 등 구조적 차이)은 설명이 있으므로 경고로 치지 않는다.
+    const qtyMismatch = !sub.note && sharesHeld !== null && reportQty !== null && reportQty > 0
+      && Math.abs(reportQty / sharesHeld - 1) > HOLDINGS_QTY_MISMATCH_TOLERANCE;
+    rows.push({
+      name: sub.name,
+      ticker: sub.ticker || '',
+      price,
+      change: live ? asNumber(live.change) : null,
+      sharesHeld,
+      valueOk,
+      stakePct: detail ? asNumber(detail.stakePct) : null,
+      netIncome: detail ? asNumber(detail.recentNetIncome) : null,
+      beginQty: detail ? asNumber(detail.beginQty) : null,
+      reportQty,
+      acqQty: detail ? asNumber(detail.acqQty) : null,
+      acqAmount: detail ? asNumber(detail.acqAmount) : null,
+      qtyMismatch,
+      note: sub.note || '',
+    });
+    seen.add(sub.name);
+  });
+
+  // 공시 레코드에 없는 자회사(수집 전/매칭 실패)도 시세 행으로는 보여준다
+  const liveOnly = currentSubs || (singleCurrent && singleCurrent.name ? [singleCurrent] : []);
+  liveOnly.forEach(function(sub) {
+    if (seen.has(sub.name) || asNumber(sub.price) === null) return;
+    rows.push({
+      name: sub.name,
+      ticker: '',
+      price: asNumber(sub.price),
+      change: asNumber(sub.change),
+      sharesHeld: null,
+      valueOk: asNumber(sub.value),
+      stakePct: null,
+      netIncome: null,
+      beginQty: null,
+      reportQty: null,
+      acqQty: null,
+      acqAmount: null,
+      qtyMismatch: false,
+      note: '',
+    });
+  });
+
+  if (!rows.length) return null;
+  return {
+    rows,
+    reportLabel: (fundamentals && fundamentals.bookValueReport) || null,
+    reportDate: (fundamentals && fundamentals.bookValueDate) || null,
+  };
+}
+
 // UMD-lite: Node(node:test) 환경에서만 CommonJS export. 브라우저에선 전역 함수로 사용.
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -464,5 +557,7 @@ if (typeof module !== 'undefined' && module.exports) {
     buildChartLegendItems,
     computeRatioStats,
     buildContributionRows,
+    HOLDINGS_QTY_MISMATCH_TOLERANCE,
+    buildHoldingsDetailRows,
   };
 }

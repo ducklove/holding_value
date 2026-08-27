@@ -390,3 +390,122 @@ test('buildChartLegendItems: 스택(2개 이상)이면 자회사+총 비율, 아
   assert.deepEqual(single.map(i => i.label), ['비율', '기간 평균', 'SMA 250일', 'EMA α=0.1']);
   assert.equal(single[0].color, '#a');
 });
+
+test('buildHoldingsDetailRows: 공시(fundamentals) ↔ 실시간 시세를 이름으로 조인한다', () => {
+  const pair = {
+    id: 'snt_holdings',
+    holdingName: 'SNT홀딩스',
+    current: {
+      subsidiaries: [
+        { name: 'SNT다이내믹스', price: 30000, change: 1.2, value: 3018.0, ratio: 120 },
+        { name: 'SNT모티브', price: 50000, change: -0.5, value: 2562.0, ratio: 100 },
+      ],
+    },
+    fundamentals: {
+      bookValueReport: '2025 사업보고서',
+      bookValueDate: '2025-12-31',
+      subsidiaries: [
+        {
+          name: 'SNT다이내믹스',
+          ticker: '003570.KS',
+          sharesHeld: 10060000,
+          qty: 10060000,
+          detail: {
+            stakePct: 31.54,
+            beginQty: 10000000,
+            acqQty: 60000,
+            acqAmount: 1800000000,
+            recentNetIncome: 250000000000,
+          },
+        },
+        { name: 'SNT모티브', ticker: '064960.KS', sharesHeld: 5124000, qty: 5124000 },
+      ],
+    },
+  };
+
+  const detail = core.buildHoldingsDetailRows(pair);
+  assert.equal(detail.reportLabel, '2025 사업보고서');
+  assert.equal(detail.reportDate, '2025-12-31');
+  assert.equal(detail.rows.length, 2);
+
+  const [dynamics, motiv] = detail.rows;
+  assert.equal(dynamics.price, 30000);
+  assert.equal(dynamics.change, 1.2);
+  assert.equal(dynamics.valueOk, 3018.0); // 시세 스냅샷의 value(억)를 우선 사용
+  assert.equal(dynamics.stakePct, 31.54);
+  assert.equal(dynamics.netIncome, 250000000000);
+  assert.equal(dynamics.acqQty, 60000);
+  assert.equal(dynamics.qtyMismatch, false);
+
+  // detail 미수집 자회사는 시세·보유수량만 채워진다
+  assert.equal(motiv.stakePct, null);
+  assert.equal(motiv.netIncome, null);
+  assert.equal(motiv.sharesHeld, 5124000);
+});
+
+test('buildHoldingsDetailRows: 단일 자회사 pair는 subsidiaryPrice/-Change에서 시세를 얻는다', () => {
+  const pair = {
+    id: 'poongsan_holdings',
+    holdingName: '풍산홀딩스',
+    subsidiaryName: '풍산',
+    current: { subsidiaryPrice: 60000, subsidiaryChange: 2.0, holdingValue: 6390.0, marketCap: 2000 },
+    fundamentals: {
+      bookValueReport: '2025 사업보고서',
+      subsidiaries: [{ name: '풍산', ticker: '103140.KS', sharesHeld: 10650000, qty: 10650000 }],
+    },
+  };
+  const detail = core.buildHoldingsDetailRows(pair);
+  assert.equal(detail.rows.length, 1);
+  assert.equal(detail.rows[0].price, 60000);
+  assert.equal(detail.rows[0].change, 2.0);
+  assert.equal(detail.rows[0].valueOk, 6390.0); // holdingValue가 곧 해당 자회사 지분가치
+});
+
+test('buildHoldingsDetailRows: fundamentals 없으면 시세 스냅샷만으로 축소 행을 만든다', () => {
+  const pair = {
+    id: 'x',
+    subsidiaryName: '자회사A',
+    current: { subsidiaryPrice: 1000, subsidiaryChange: 0.1, holdingValue: 12.3 },
+  };
+  const detail = core.buildHoldingsDetailRows(pair);
+  assert.equal(detail.reportLabel, null);
+  assert.equal(detail.rows.length, 1);
+  assert.equal(detail.rows[0].name, '자회사A');
+  assert.equal(detail.rows[0].sharesHeld, null);
+  assert.equal(detail.rows[0].stakePct, null);
+});
+
+test('buildHoldingsDetailRows: 수량 괴리(>2%)는 경고, note가 있으면 구조적 차이로 보고 침묵', () => {
+  const base = {
+    id: 'x',
+    subsidiaryName: '자회사A',
+    current: { subsidiaryPrice: 1000, subsidiaryChange: 0, holdingValue: 10 },
+  };
+  const mismatch = core.buildHoldingsDetailRows({
+    ...base,
+    fundamentals: { subsidiaries: [{ name: '자회사A', sharesHeld: 1000000, qty: 877075 }] },
+  });
+  assert.equal(mismatch.rows[0].qtyMismatch, true);
+
+  const withNote = core.buildHoldingsDetailRows({
+    ...base,
+    fundamentals: {
+      subsidiaries: [{ name: '자회사A', sharesHeld: 1000000, qty: 877075, note: '중간법인 이전' }],
+    },
+  });
+  assert.equal(withNote.rows[0].qtyMismatch, false);
+  assert.equal(withNote.rows[0].note, '중간법인 이전');
+
+  // 허용치(2%) 이내면 경고하지 않는다
+  const close = core.buildHoldingsDetailRows({
+    ...base,
+    fundamentals: { subsidiaries: [{ name: '자회사A', sharesHeld: 1000000, qty: 1010000 }] },
+  });
+  assert.equal(close.rows[0].qtyMismatch, false);
+});
+
+test('buildHoldingsDetailRows: 평균 pair·빈 데이터는 null', () => {
+  assert.equal(core.buildHoldingsDetailRows(null), null);
+  assert.equal(core.buildHoldingsDetailRows({ isAverage: true, current: {} }), null);
+  assert.equal(core.buildHoldingsDetailRows({ id: 'x', current: {} }), null);
+});

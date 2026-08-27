@@ -61,7 +61,12 @@ function attachFundamentals(stockData) {
       const byId = (payload && payload.pairs) || {};
       for (const pair of stockData.pairs || []) {
         const record = byId[pair.id];
-        if (record && typeof record.residualEquity === 'number') pair.fundamentals = record;
+        // 잔존자본이 없어도(자본총계 미수집 등) 자회사 공시 상세(보유 지분 상세 표)는
+        // 쓸 수 있으므로 subsidiaries가 있으면 붙인다. 실질가치 산출 여부는
+        // buildEffectiveValue(js/calc.js)가 residualEquity를 직접 확인한다.
+        if (record && (typeof record.residualEquity === 'number' || Array.isArray(record.subsidiaries))) {
+          pair.fundamentals = record;
+        }
       }
       stockData.fundamentalsGeneratedAt = payload && payload.generatedAt;
       return stockData;

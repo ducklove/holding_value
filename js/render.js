@@ -361,6 +361,7 @@ function createDashboardRenderers(app) {
   // --- Stats ---
   function renderStats() {
     const p = app.pairs[app.selectedIdx];
+    renderHoldingsDetail(); // 히스토리와 무관 — 통계 계산 전에 먼저 갱신한다
     const hist = app.getFilteredHistory(p);
     if (!hist.length) {
       document.getElementById('statsRow').innerHTML = '';
@@ -437,6 +438,83 @@ function createDashboardRenderers(app) {
           <span class="contrib-delta ${getDirectionClass(totalDelta)}-color">${formatDelta(totalDelta)}</span>
           <span></span>
         </div>
+      </div>`;
+    section.style.display = '';
+  }
+
+  // --- 보유 지분 상세 ---
+  // 선택 지주사의 자회사별 시세·보유수량·지분율·피출자법인 순이익·기중 지분 변동 표.
+  // 행 조립은 js/dashboard-core.js(buildHoldingsDetailRows) — 공시(fundamentals) 없으면
+  // 시세 기반 열만 채워진다. renderStats에서 함께 갱신한다(별도 export 없음).
+  function formatShareCount(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    return value.toLocaleString('ko-KR') + '주';
+  }
+
+  function renderHoldingsChangeCell(row) {
+    let text = '-';
+    if (row.acqQty !== null && row.acqQty !== 0) {
+      const verb = row.acqQty > 0 ? '취득' : '처분';
+      const amount = row.acqAmount !== null ? ' · ' + formatPrice(Math.abs(row.acqAmount)) : '';
+      text = `기중 ${row.acqQty > 0 ? '+' : '−'}${formatShareCount(Math.abs(row.acqQty))} ${verb}${amount}`;
+    } else if (row.beginQty !== null && row.reportQty !== null) {
+      text = row.beginQty === row.reportQty
+        ? '변동 없음'
+        : `${formatShareCount(row.beginQty)} → ${formatShareCount(row.reportQty)}`;
+    }
+    const mismatchNote = row.qtyMismatch
+      ? `<div class="holdings-note" title="정기보고서 이후의 취득·처분, 무상증자·분할, 또는 설정값 미갱신 가능성">보고서 기말 ${formatShareCount(row.reportQty)} ≠ 현재 반영 ${formatShareCount(row.sharesHeld)}</div>`
+      : '';
+    const note = row.note ? `<div class="holdings-note">${escapeHtml(row.note)}</div>` : '';
+    return `${escapeHtml(text)}${mismatchNote}${note}`;
+  }
+
+  function renderHoldingsDetail() {
+    const section = document.getElementById('holdingsDetailSection');
+    if (!section) return;
+    const pair = app.pairs[app.selectedIdx];
+    const detail = pair ? buildHoldingsDetailRows(pair) : null;
+    if (!detail) {
+      section.style.display = 'none';
+      section.innerHTML = '';
+      return;
+    }
+
+    const rowsHtml = detail.rows.map(function(row) {
+      const netIncomeClass = row.netIncome !== null && row.netIncome < 0 ? ' class="down-color"' : '';
+      return `<tr>
+        <td><strong>${escapeHtml(row.name)}</strong>${row.ticker ? ` <span class="holdings-ticker">${escapeHtml(getTickerCode(row.ticker))}</span>` : ''}</td>
+        <td>${renderPriceCell(row.price, row.change)}</td>
+        <td>${formatShareCount(row.sharesHeld)}</td>
+        <td>${formatRatio(row.stakePct)}</td>
+        <td>${formatOk(row.valueOk)}</td>
+        <td${netIncomeClass}>${formatPrice(row.netIncome)}</td>
+        <td>${renderHoldingsChangeCell(row)}</td>
+      </tr>`;
+    }).join('');
+
+    const sourceText = detail.reportLabel
+      ? `공시 출처: ${detail.reportLabel} 타법인 출자현황${detail.reportDate ? ` (기준일 ${detail.reportDate})` : ''} · 순이익은 피출자법인 최근사업연도 당기순이익(보고서 기재 단위)`
+      : '공시 데이터 수집 전 — 시세 기반 항목만 표시';
+
+    section.innerHTML = `
+      <h2>보유 지분 상세 — ${escapeHtml(pair.holdingName || pair.name)}</h2>
+      <div class="holdings-detail-meta">${escapeHtml(sourceText)}</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>보유 종목</th>
+              <th>현재가</th>
+              <th title="현재 지분가치 계산에 쓰는 보유주식수 (config 기준)">보유주식수</th>
+              <th title="타법인 출자현황 기말 지분율">지분율</th>
+              <th title="보유주식수 × 현재가">평가가치</th>
+              <th title="피출자법인 최근사업연도 당기순이익 (타법인 출자현황 기재값)">최근 순이익</th>
+              <th title="보고서 기간 중 취득·처분 및 보고서 이후 변동 신호">지분 변동</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
       </div>`;
     section.style.display = '';
   }

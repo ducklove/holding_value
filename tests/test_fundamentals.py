@@ -12,19 +12,22 @@ from pipeline.fundamentals import (
     qty_warning,
     report_candidates,
     residual_ratio,
+    summarize_investment_details,
     to_amount,
     total_book_value,
     usable_investment_rows,
 )
 
 
-def inv_row(name, qty=None, book=None, stlm="2025-12-31"):
-    return {
+def inv_row(name, qty=None, book=None, stlm="2025-12-31", **extra):
+    row = {
         "inv_prm": name,
         "trmend_blce_qy": qty,
         "trmend_blce_acntbk_amount": book,
         "stlm_dt": stlm,
     }
+    row.update(extra)
+    return row
 
 
 class TestNormalize:
@@ -168,6 +171,103 @@ class TestMatching:
         rows = [inv_row("-", "-", "-"), inv_row("...", "1", "100")]
         result = match_investment_rows({"name": "하림", "sharesHeld": 1000}, rows)
         assert result["how"] == "none"
+
+
+class TestInvestmentDetail:
+    def test_extracts_stake_change_and_investee_performance(self):
+        rows = [
+            inv_row(
+                "㈜풍산",
+                "10,650,000",
+                "273,644,000,000",
+                trmend_blce_qota_rt="35.11",
+                bsis_blce_qy="10,000,000",
+                bsis_blce_qota_rt="32.97",
+                incrs_dcrs_acqs_dsps_qy="650,000",
+                incrs_dcrs_acqs_dsps_amount="21,000,000,000",
+                recent_bsns_year_fnnr_sttus_tot_assets="3,000,000,000,000",
+                recent_bsns_year_fnnr_sttus_thstrm_ntpf="250,000,000,000",
+                frst_acqs_de="2008-07-01",
+            )
+        ]
+        detail = summarize_investment_details(rows)
+        assert detail["stakePct"] == 35.11
+        assert detail["beginQty"] == 10000000.0
+        assert detail["acqQty"] == 650000.0
+        assert detail["acqAmount"] == 21000000000.0
+        assert detail["recentNetIncome"] == 250000000000.0
+        assert detail["recentTotalAssets"] == 3000000000000.0
+        assert detail["firstAcquiredAt"] == "2008-07-01"
+
+    def test_sums_share_classes_but_keeps_performance_once(self):
+        # 보통주/우선주 행이 나뉘어도 피출자법인 실적은 같은 값이 중복 기재된다
+        rows = [
+            inv_row(
+                "(주)아모레퍼시픽(보통주)",
+                "22,250,869",
+                "1,262,637,000,000",
+                trmend_blce_qota_rt="37.79",
+                incrs_dcrs_acqs_dsps_qy="1,000",
+                recent_bsns_year_fnnr_sttus_thstrm_ntpf="120,000,000,000",
+            ),
+            inv_row(
+                "(주)아모레퍼시픽(우선주)",
+                "1,511,030",
+                "30,484,000,000",
+                trmend_blce_qota_rt="14.66",
+                incrs_dcrs_acqs_dsps_qy="-",
+                recent_bsns_year_fnnr_sttus_thstrm_ntpf="120,000,000,000",
+            ),
+        ]
+        detail = summarize_investment_details(rows)
+        assert detail["stakePct"] == pytest.approx(52.45)
+        assert detail["acqQty"] == 1000.0
+        assert detail["recentNetIncome"] == 120000000000.0
+
+    def test_all_placeholder_fields_stay_none(self):
+        # "-"만 기재된 필드는 0이 아니라 None (미기재와 순변동 0을 구분)
+        detail = summarize_investment_details(
+            [inv_row("(주)하림", "1", "100", incrs_dcrs_acqs_dsps_qy="-", trmend_blce_qota_rt="-")]
+        )
+        assert detail["stakePct"] is None
+        assert detail["acqQty"] is None
+        assert detail["firstAcquiredAt"] is None
+
+    def test_empty_hits_return_none(self):
+        assert summarize_investment_details([]) is None
+
+    def test_match_result_carries_detail_into_pair_record(self):
+        pair = {
+            "id": "poongsan_holdings",
+            "subsidiaries": [{"name": "풍산", "ticker": "103140.KS", "sharesHeld": 10650000}],
+        }
+        investments = {
+            "report": "2025 사업보고서",
+            "stlmDt": "2025-12-31",
+            "rows": [
+                inv_row(
+                    "㈜풍산",
+                    "10,650,000",
+                    "273,644,000,000",
+                    trmend_blce_qota_rt="35.11",
+                    recent_bsns_year_fnnr_sttus_thstrm_ntpf="250,000,000,000",
+                )
+            ],
+        }
+        record = build_pair_fundamentals(pair, {"equity": 433595463414.0}, investments)
+        detail = record["subsidiaries"][0]["detail"]
+        assert detail["stakePct"] == 35.11
+        assert detail["recentNetIncome"] == 250000000000.0
+
+    def test_unmatched_and_bs_fallback_have_no_detail(self):
+        pair = {
+            "id": "sebang_battery",
+            "subsidiaries": [{"name": "세방전지", "sharesHeld": 5569225, "bookValueFrom": "bsInvestments"}],
+        }
+        record = build_pair_fundamentals(
+            pair, {"equity": 1.0}, {"rows": []}, bs_investments=217924408763.0
+        )
+        assert "detail" not in record["subsidiaries"][0]
 
 
 class TestQtyWarning:

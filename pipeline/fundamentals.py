@@ -90,6 +90,45 @@ def total_book_value(rows):
     return sum(to_amount(row.get("trmend_blce_acntbk_amount")) or 0.0 for row in rows)
 
 
+def _sum_optional(values):
+    """None을 제외하고 합산한다. 전부 None이면(미기재) 0과 구분해 None을 돌려준다."""
+    present = [value for value in values if value is not None]
+    return sum(present) if present else None
+
+
+def _first_amount(rows, key):
+    for row in rows:
+        amount = to_amount(row.get(key))
+        if amount is not None:
+            return amount
+    return None
+
+
+def summarize_investment_details(hits):
+    """매칭된 출자현황 행들의 상세(지분율·기중 변동·피출자법인 실적)를 요약한다.
+
+    수량·금액·지분율은 보통주/우선주 행을 합산한다(DART 합계 행과 같은 방식).
+    피출자법인 실적(총자산·당기순이익)은 같은 법인의 행마다 중복 기재되므로
+    처음 기재된 값만 쓴다. 금액 단위는 보고서 기재 그대로(통상 원)다.
+    """
+    if not hits:
+        return None
+    first_acquired = next(
+        (row.get("frst_acqs_de") for row in hits if row.get("frst_acqs_de") not in (None, "", "-")),
+        None,
+    )
+    return {
+        "stakePct": _sum_optional([to_amount(row.get("trmend_blce_qota_rt")) for row in hits]),
+        "beginQty": _sum_optional([to_amount(row.get("bsis_blce_qy")) for row in hits]),
+        "beginStakePct": _sum_optional([to_amount(row.get("bsis_blce_qota_rt")) for row in hits]),
+        "acqQty": _sum_optional([to_amount(row.get("incrs_dcrs_acqs_dsps_qy")) for row in hits]),
+        "acqAmount": _sum_optional([to_amount(row.get("incrs_dcrs_acqs_dsps_amount")) for row in hits]),
+        "recentTotalAssets": _first_amount(hits, "recent_bsns_year_fnnr_sttus_tot_assets"),
+        "recentNetIncome": _first_amount(hits, "recent_bsns_year_fnnr_sttus_thstrm_ntpf"),
+        "firstAcquiredAt": first_acquired,
+    }
+
+
 def looks_like_scale_anomaly(current_rows, previous_rows, factor=SCALE_ANOMALY_FACTOR):
     """같은 회사의 두 보고서 장부가액 합계가 100배 이상 어긋나면 단위 오기로 본다.
 
@@ -150,13 +189,14 @@ def match_investment_rows(subsidiary, rows, dart_name=None):
         ]
         how = "partial"
     if not hits:
-        return {"how": "none", "bookValue": None, "qty": None, "matchedNames": []}
+        return {"how": "none", "bookValue": None, "qty": None, "matchedNames": [], "detail": None}
 
     return {
         "how": how,
         "bookValue": total_book_value(hits),
         "qty": sum(to_amount(row.get("trmend_blce_qy")) or 0.0 for row in hits),
         "matchedNames": [row.get("inv_prm") for row in hits],
+        "detail": summarize_investment_details(hits),
     }
 
 
@@ -222,6 +262,7 @@ def build_pair_fundamentals(pair, equity, investments, bs_investments=None, dart
                 "bookValue": book,
                 "qty": None,
                 "matchedNames": ["별도 재무상태표 종속·관계기업투자"],
+                "detail": None,
             }
             if book is None:
                 warnings.append(f"{subsidiary.get('name')}: 별도 BS 종속·관계기업투자 계정을 찾지 못했습니다")
@@ -249,6 +290,8 @@ def build_pair_fundamentals(pair, equity, investments, bs_investments=None, dart
             "matchedNames": record["matchedNames"],
             "qty": record.get("qty"),
         }
+        if record.get("detail"):
+            entry["detail"] = record["detail"]
         if subsidiary.get("note"):
             entry["note"] = subsidiary["note"]
         subs.append(entry)
