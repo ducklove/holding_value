@@ -335,9 +335,9 @@ function createDashboardRenderers(app) {
           <td></td>
           <td></td>
           <td></td>
-          <td><strong>${c.ratio.toFixed(2)}%</strong></td>
+          <td class="num"><strong>${c.ratio.toFixed(2)}%</strong></td>
           <td></td>
-          <td class="${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
+          <td class="num ${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
           <td><div class="bar-cell"><div class="bar" style="width:${barW}%;background:var(--green)"></div>${c.ratio.toFixed(1)}%</div></td>
         </tr>`;
       }
@@ -346,13 +346,13 @@ function createDashboardRenderers(app) {
         : renderPriceCell(c.subsidiaryPrice, c.subsidiaryChange);
       return `<tr>
         <td><strong>${escapeHtml(p.name)}</strong></td>
-        <td>${renderPriceCell(c.holdingPrice, c.holdingChange)}</td>
-        <td>${subPrice}</td>
-        <td>${formatOk(c.holdingValue)}</td>
-        <td>${formatOk(c.marketCap)}</td>
-        <td><strong>${c.ratio.toFixed(2)}%</strong></td>
-        <td class="effective-ratio">${renderEffectiveCell(p)}</td>
-        <td class="${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
+        <td class="num">${renderPriceCell(c.holdingPrice, c.holdingChange)}</td>
+        <td class="num">${subPrice}</td>
+        <td class="num">${formatOk(c.holdingValue)}</td>
+        <td class="num">${formatOk(c.marketCap)}</td>
+        <td class="num"><strong>${c.ratio.toFixed(2)}%</strong></td>
+        <td class="num effective-ratio">${renderEffectiveCell(p)}</td>
+        <td class="num ${dir}-color">${arrow} ${Math.abs(c.ratioChange).toFixed(2)}%p</td>
         <td><div class="bar-cell"><div class="bar" style="width:${barW}%"></div>${c.ratio.toFixed(1)}%</div></td>
       </tr>`;
     }).join('');
@@ -481,14 +481,14 @@ function createDashboardRenderers(app) {
     }
 
     const rowsHtml = detail.rows.map(function(row) {
-      const netIncomeClass = row.netIncome !== null && row.netIncome < 0 ? ' class="down-color"' : '';
+      const netIncomeClass = row.netIncome !== null && row.netIncome < 0 ? ' down-color' : '';
       return `<tr>
         <td><strong>${escapeHtml(row.name)}</strong>${row.ticker ? ` <span class="holdings-ticker">${escapeHtml(getTickerCode(row.ticker))}</span>` : ''}</td>
-        <td>${renderPriceCell(row.price, row.change)}</td>
-        <td>${formatShareCount(row.sharesHeld)}</td>
-        <td>${formatRatio(row.stakePct)}</td>
-        <td>${formatOk(row.valueOk)}</td>
-        <td${netIncomeClass}>${formatPrice(row.netIncome)}</td>
+        <td class="num">${renderPriceCell(row.price, row.change)}</td>
+        <td class="num">${formatShareCount(row.sharesHeld)}</td>
+        <td class="num">${formatRatio(row.stakePct)}</td>
+        <td class="num">${formatOk(row.valueOk)}</td>
+        <td class="num${netIncomeClass}">${formatPrice(row.netIncome)}</td>
         <td>${renderHoldingsChangeCell(row)}</td>
       </tr>`;
     }).join('');
@@ -505,11 +505,11 @@ function createDashboardRenderers(app) {
           <thead>
             <tr>
               <th>보유 종목</th>
-              <th>현재가</th>
-              <th title="현재 지분가치 계산에 쓰는 보유주식수 (config 기준)">보유주식수</th>
-              <th title="타법인 출자현황 기말 지분율">지분율</th>
-              <th title="보유주식수 × 현재가">평가가치</th>
-              <th title="피출자법인 최근사업연도 당기순이익 (타법인 출자현황 기재값)">최근 순이익</th>
+              <th class="num">현재가</th>
+              <th class="num" title="현재 지분가치 계산에 쓰는 보유주식수 (config 기준)">보유주식수</th>
+              <th class="num" title="타법인 출자현황 기말 지분율">지분율</th>
+              <th class="num" title="보유주식수 × 현재가">평가가치</th>
+              <th class="num" title="피출자법인 최근사업연도 당기순이익 (타법인 출자현황 기재값)">최근 순이익</th>
               <th title="보고서 기간 중 취득·처분 및 보고서 이후 변동 신호">지분 변동</th>
             </tr>
           </thead>
