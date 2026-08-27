@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24 06:58:36",
+  "generatedAt": "2026-08-27 11:55:08",
   "note": "잔존자본 = 별도재무제표 자본총계 − 리스트 자회사 지분 장부가액(타법인 출자현황 기말 장부가액). 금액 단위는 원.",
   "pairs": {
     "youngpoong_koreazinc": {
@@ -22,6 +22,16 @@
             "(유)와이피씨"
           ],
           "qty": 877075.0,
+          "detail": {
+            "stakePct": 100.0,
+            "beginQty": 877075.0,
+            "beginStakePct": 100.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1006831000000.0,
+            "recentNetIncome": -372376000000.0,
+            "firstAcquiredAt": "2025.03.07"
+          },
           "note": "영풍은 2025년 중 고려아연 지분 전량(5,262,450주)을 100% 자회사 (유)와이피씨에 현물출자했다. 별도 재무제표에는 고려아연이 아니라 (유)와이피씨 투자주식으로 계상되므로 그 장부가액을 쓴다."
         }
       ],
@@ -48,7 +58,17 @@
           "matchedNames": [
             "㈜풍산"
           ],
-          "qty": 10650000.0
+          "qty": 10650000.0,
+          "detail": {
+            "stakePct": 38.0,
+            "beginQty": 10650000.0,
+            "beginStakePct": 38.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 4329190000000.0,
+            "recentNetIncome": 147164000000.0,
+            "firstAcquiredAt": "2008.07.01"
+          }
         }
       ],
       "warnings": [],
@@ -74,7 +94,17 @@
           "matchedNames": [
             "(주)세아베스틸지주(상장)"
           ],
-          "qty": 22136000.0
+          "qty": 22136000.0,
+          "detail": {
+            "stakePct": 61.72,
+            "beginQty": 22136000.0,
+            "beginStakePct": 61.72,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1830180000000.0,
+            "recentNetIncome": 64342000000.0,
+            "firstAcquiredAt": "2003.12.11"
+          }
         }
       ],
       "warnings": [],
@@ -100,7 +130,17 @@
           "matchedNames": [
             "효성중공업㈜"
           ],
-          "qty": 3027801.0
+          "qty": 3027801.0,
+          "detail": {
+            "stakePct": 33.0,
+            "beginQty": 3027801.0,
+            "beginStakePct": 33.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 5101456000000.0,
+            "recentNetIncome": 274511000000.0,
+            "firstAcquiredAt": "2018.06.01"
+          }
         },
         {
           "name": "효성티앤씨",
@@ -111,7 +151,17 @@
           "matchedNames": [
             "효성티앤씨㈜"
           ],
-          "qty": 899090.0
+          "qty": 899090.0,
+          "detail": {
+            "stakePct": 21.0,
+            "beginQty": 899090.0,
+            "beginStakePct": 21.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 2296980000000.0,
+            "recentNetIncome": 143746000000.0,
+            "firstAcquiredAt": "2018.06.01"
+          }
         },
         {
           "name": "효성ITX",
@@ -122,7 +172,17 @@
           "matchedNames": [
             "효성ITX㈜"
           ],
-          "qty": 4382245.0
+          "qty": 4382245.0,
+          "detail": {
+            "stakePct": 37.0,
+            "beginQty": 4382245.0,
+            "beginStakePct": 37.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 195240000000.0,
+            "recentNetIncome": 15295000000.0,
+            "firstAcquiredAt": "2001.04.02"
+          }
         },
         {
           "name": "효성화학",
@@ -133,7 +193,17 @@
           "matchedNames": [
             "효성화학㈜"
           ],
-          "qty": 1245166.0
+          "qty": 1245166.0,
+          "detail": {
+            "stakePct": 33.0,
+            "beginQty": 1245166.0,
+            "beginStakePct": 33.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1604972000000.0,
+            "recentNetIncome": -139208000000.0,
+            "firstAcquiredAt": "2018.06.01"
+          }
         }
       ],
       "warnings": [],
@@ -160,6 +230,16 @@
             "Berkshire Hathaway Inc."
           ],
           "qty": 295.0,
+          "detail": {
+            "stakePct": 0.06,
+            "beginQty": 290.0,
+            "beginStakePct": 0.06,
+            "acqQty": 5.0,
+            "acqAmount": 5113000000.0,
+            "recentTotalAssets": null,
+            "recentNetIncome": 96511374000000.0,
+            "firstAcquiredAt": "2013.03.11"
+          },
           "note": "출자현황에는 영문 법인명으로 기재되어 한글명 자동 매칭이 되지 않는다."
         },
         {
@@ -172,6 +252,16 @@
             "Apple Inc"
           ],
           "qty": 319982.0,
+          "detail": {
+            "stakePct": 0.0,
+            "beginQty": 319982.0,
+            "beginStakePct": 0.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 503727730000000.0,
+            "recentNetIncome": 157060422000000.0,
+            "firstAcquiredAt": "2013.10.08"
+          },
           "note": "위와 같음."
         }
       ],
@@ -200,7 +290,17 @@
           "matchedNames": [
             "(주)서희건설"
           ],
-          "qty": 66767015.0
+          "qty": 66767015.0,
+          "detail": {
+            "stakePct": 34.0,
+            "beginQty": 66767015.0,
+            "beginStakePct": 34.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1824159000000.0,
+            "recentNetIncome": 169541000000.0,
+            "firstAcquiredAt": "2000.12.21"
+          }
         }
       ],
       "warnings": [
@@ -228,7 +328,17 @@
           "matchedNames": [
             "㈜심텍"
           ],
-          "qty": 12148169.0
+          "qty": 12148169.0,
+          "detail": {
+            "stakePct": 32.43,
+            "beginQty": 12395602.0,
+            "beginStakePct": 33.19,
+            "acqQty": -247433.0,
+            "acqAmount": -4134853000.0,
+            "recentTotalAssets": 1478785597000.0,
+            "recentNetIncome": -145999538000.0,
+            "firstAcquiredAt": "2015.09.01"
+          }
         }
       ],
       "warnings": [],
@@ -254,7 +364,17 @@
           "matchedNames": [
             "삼성바이오로직스㈜"
           ],
-          "qty": 19932350.0
+          "qty": 19932350.0,
+          "detail": {
+            "stakePct": 43.1,
+            "beginQty": 19932350.0,
+            "beginStakePct": 43.1,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 14362056000000.0,
+            "recentNetIncome": 791633000000.0,
+            "firstAcquiredAt": "2011.04.21"
+          }
         },
         {
           "name": "삼성전자",
@@ -265,7 +385,17 @@
           "matchedNames": [
             "삼성전자㈜"
           ],
-          "qty": 298818100.0
+          "qty": 298818100.0,
+          "detail": {
+            "stakePct": 4.5,
+            "beginQty": 298818100.0,
+            "beginStakePct": 4.4,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 566942110000000.0,
+            "recentNetIncome": 45206805000000.0,
+            "firstAcquiredAt": "1969.01.13"
+          }
         },
         {
           "name": "삼성에스디에스",
@@ -276,7 +406,17 @@
           "matchedNames": [
             "삼성에스디에스㈜"
           ],
-          "qty": 13215822.0
+          "qty": 13215822.0,
+          "detail": {
+            "stakePct": 17.1,
+            "beginQty": 13215822.0,
+            "beginStakePct": 17.1,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 13453704000000.0,
+            "recentNetIncome": 782669000000.0,
+            "firstAcquiredAt": "1985.05.01"
+          }
         },
         {
           "name": "삼성생명",
@@ -287,7 +427,17 @@
           "matchedNames": [
             "삼성생명보험㈜"
           ],
-          "qty": 38688000.0
+          "qty": 38688000.0,
+          "detail": {
+            "stakePct": 19.3,
+            "beginQty": 38688000.0,
+            "beginStakePct": 19.3,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 350685701000000.0,
+            "recentNetIncome": 2451515000000.0,
+            "firstAcquiredAt": "1997.04.04"
+          }
         }
       ],
       "warnings": [],
@@ -313,7 +463,17 @@
           "matchedNames": [
             "(주)원익홀딩스"
           ],
-          "qty": 23171000.0
+          "qty": 23171000.0,
+          "detail": {
+            "stakePct": 30.0,
+            "beginQty": 23171000.0,
+            "beginStakePct": 30.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1969723000000.0,
+            "recentNetIncome": 50427000000.0,
+            "firstAcquiredAt": "2005.12.16"
+          }
         }
       ],
       "warnings": [
@@ -341,7 +501,17 @@
           "matchedNames": [
             "(주)원익아이피에스"
           ],
-          "qty": 16149000.0
+          "qty": 16149000.0,
+          "detail": {
+            "stakePct": 32.9,
+            "beginQty": 16149000.0,
+            "beginStakePct": 32.9,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1124147000000.0,
+            "recentNetIncome": 20748000000.0,
+            "firstAcquiredAt": "2016.04.01"
+          }
         },
         {
           "name": "원익QnC",
@@ -352,7 +522,17 @@
           "matchedNames": [
             "(주)원익큐엔씨"
           ],
-          "qty": 5520000.0
+          "qty": 5520000.0,
+          "detail": {
+            "stakePct": 21.0,
+            "beginQty": 5520000.0,
+            "beginStakePct": 21.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1534689000000.0,
+            "recentNetIncome": 61519000000.0,
+            "firstAcquiredAt": "2017.12.19"
+          }
         },
         {
           "name": "원익머트리얼즈",
@@ -363,7 +543,17 @@
           "matchedNames": [
             "(주)원익머트리얼즈"
           ],
-          "qty": 5760000.0
+          "qty": 5760000.0,
+          "detail": {
+            "stakePct": 45.7,
+            "beginQty": 5760000.0,
+            "beginStakePct": 45.7,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 600524000000.0,
+            "recentNetIncome": 44792000000.0,
+            "firstAcquiredAt": "2006.11.30"
+          }
         }
       ],
       "warnings": [],
@@ -389,7 +579,17 @@
           "matchedNames": [
             "SNT다이내믹스(주)"
           ],
-          "qty": 14055889.0
+          "qty": 14055889.0,
+          "detail": {
+            "stakePct": 42.27,
+            "beginQty": 14055889.0,
+            "beginStakePct": 42.27,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1198381000000.0,
+            "recentNetIncome": 59892000000.0,
+            "firstAcquiredAt": "2003.03.28"
+          }
         },
         {
           "name": "SNT모티브",
@@ -400,7 +600,17 @@
           "matchedNames": [
             "SNT모티브(주)"
           ],
-          "qty": 11975536.0
+          "qty": 11975536.0,
+          "detail": {
+            "stakePct": 45.12,
+            "beginQty": 11975536.0,
+            "beginStakePct": 45.12,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1268180000000.0,
+            "recentNetIncome": 76040000000.0,
+            "firstAcquiredAt": "2007.07.30"
+          }
         },
         {
           "name": "SNT에너지",
@@ -411,7 +621,17 @@
           "matchedNames": [
             "SNT에너지(주)"
           ],
-          "qty": 9920079.0
+          "qty": 9920079.0,
+          "detail": {
+            "stakePct": 47.97,
+            "beginQty": 11242877.0,
+            "beginStakePct": 54.36,
+            "acqQty": -1322798.0,
+            "acqAmount": -5338000000.0,
+            "recentTotalAssets": 526140000000.0,
+            "recentNetIncome": 74141000000.0,
+            "firstAcquiredAt": "2019.03.18"
+          }
         }
       ],
       "warnings": [
@@ -441,7 +661,17 @@
           "matchedNames": [
             "삼성전자"
           ],
-          "qty": 497660000.0
+          "qty": 497660000.0,
+          "detail": {
+            "stakePct": 8.51,
+            "beginQty": 503905000.0,
+            "beginStakePct": 8.51,
+            "acqQty": -6245000.0,
+            "acqAmount": -1213968000000.0,
+            "recentTotalAssets": 566942110000000.0,
+            "recentNetIncome": 45206805000000.0,
+            "firstAcquiredAt": null
+          }
         },
         {
           "name": "삼성카드",
@@ -452,7 +682,17 @@
           "matchedNames": [
             "삼성카드"
           ],
-          "qty": 83259000.0
+          "qty": 83259000.0,
+          "detail": {
+            "stakePct": 71.86,
+            "beginQty": 83259000.0,
+            "beginStakePct": 71.86,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 32174782000000.0,
+            "recentNetIncome": 645923000000.0,
+            "firstAcquiredAt": "2005.03.16"
+          }
         },
         {
           "name": "삼성화재",
@@ -463,7 +703,17 @@
           "matchedNames": [
             "삼성화재"
           ],
-          "qty": 7099000.0
+          "qty": 7099000.0,
+          "detail": {
+            "stakePct": 15.9,
+            "beginQty": 7099000.0,
+            "beginStakePct": 15.43,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 96450390000000.0,
+            "recentNetIncome": 2020287000000.0,
+            "firstAcquiredAt": null
+          }
         },
         {
           "name": "삼성증권",
@@ -474,7 +724,17 @@
           "matchedNames": [
             "삼성증권"
           ],
-          "qty": 26246000.0
+          "qty": 26246000.0,
+          "detail": {
+            "stakePct": 29.39,
+            "beginQty": 26246000.0,
+            "beginStakePct": 29.39,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 79683213000000.0,
+            "recentNetIncome": 1007227000000.0,
+            "firstAcquiredAt": null
+          }
         },
         {
           "name": "삼성중공업",
@@ -485,7 +745,17 @@
           "matchedNames": [
             "삼성중공업"
           ],
-          "qty": 25701000.0
+          "qty": 25701000.0,
+          "detail": {
+            "stakePct": 2.92,
+            "beginQty": 25701000.0,
+            "beginStakePct": 2.92,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 14948871000000.0,
+            "recentNetIncome": 535754000000.0,
+            "firstAcquiredAt": null
+          }
         }
       ],
       "warnings": [],
@@ -511,7 +781,17 @@
           "matchedNames": [
             "두산에너빌리티㈜"
           ],
-          "qty": 194690723.0
+          "qty": 194690723.0,
+          "detail": {
+            "stakePct": 30.39,
+            "beginQty": 194690723.0,
+            "beginStakePct": 30.39,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 14866375000000.0,
+            "recentNetIncome": 507666000000.0,
+            "firstAcquiredAt": "2000.12.19"
+          }
         },
         {
           "name": "오리콤",
@@ -522,7 +802,17 @@
           "matchedNames": [
             "㈜오리콤"
           ],
-          "qty": 7291150.0
+          "qty": 7291150.0,
+          "detail": {
+            "stakePct": 60.89,
+            "beginQty": 7291150.0,
+            "beginStakePct": 60.89,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 194689000000.0,
+            "recentNetIncome": 7452000000.0,
+            "firstAcquiredAt": "1975.02.24"
+          }
         },
         {
           "name": "두산로보틱스",
@@ -533,7 +823,17 @@
           "matchedNames": [
             "두산로보틱스㈜(주1)(주2)(주3)"
           ],
-          "qty": 32394250.0
+          "qty": 32394250.0,
+          "detail": {
+            "stakePct": 49.98,
+            "beginQty": 44149038.0,
+            "beginStakePct": 68.11,
+            "acqQty": -11754788.0,
+            "acqAmount": -107000000.0,
+            "recentTotalAssets": 398677000000.0,
+            "recentNetIncome": -31027000000.0,
+            "firstAcquiredAt": "2017.11.29"
+          }
         }
       ],
       "warnings": [],
@@ -559,7 +859,17 @@
           "matchedNames": [
             "주식회사 LG에너지솔루션"
           ],
-          "qty": 185747525.0
+          "qty": 185747525.0,
+          "detail": {
+            "stakePct": 79.0,
+            "beginQty": 185747525.0,
+            "beginStakePct": 79.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 31167774000000.0,
+            "recentNetIncome": -572713000000.0,
+            "firstAcquiredAt": "2021.12.01"
+          }
         }
       ],
       "warnings": [
@@ -614,7 +924,17 @@
           "matchedNames": [
             " 한화에어로스페이스㈜ "
           ],
-          "qty": 16595161.0
+          "qty": 16595161.0,
+          "detail": {
+            "stakePct": 32.18,
+            "beginQty": 16595161.0,
+            "beginStakePct": 32.18,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 24651333000000.0,
+            "recentNetIncome": 1467505000000.0,
+            "firstAcquiredAt": "2015.06.29"
+          }
         },
         {
           "name": "한화비전",
@@ -625,7 +945,17 @@
           "matchedNames": [
             " 한화비전㈜ "
           ],
-          "qty": 17141530.0
+          "qty": 17141530.0,
+          "detail": {
+            "stakePct": 33.95,
+            "beginQty": 17141530.0,
+            "beginStakePct": 33.95,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1233667000000.0,
+            "recentNetIncome": -28223000000.0,
+            "firstAcquiredAt": "2024.09.27"
+          }
         },
         {
           "name": "한화솔루션",
@@ -636,7 +966,17 @@
           "matchedNames": [
             " 한화솔루션㈜ "
           ],
-          "qty": 63062206.0
+          "qty": 63062206.0,
+          "detail": {
+            "stakePct": 36.15,
+            "beginQty": 63062206.0,
+            "beginStakePct": 36.15,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 19609395000000.0,
+            "recentNetIncome": -148600000000.0,
+            "firstAcquiredAt": "1982.12.10"
+          }
         },
         {
           "name": "고려아연",
@@ -647,7 +987,17 @@
           "matchedNames": [
             " 고려아연㈜ "
           ],
-          "qty": 238358.0
+          "qty": 238358.0,
+          "detail": {
+            "stakePct": 1.14,
+            "beginQty": 238358.0,
+            "beginStakePct": 1.28,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 16921641000000.0,
+            "recentNetIncome": 771571000000.0,
+            "firstAcquiredAt": "2022.11.24"
+          }
         },
         {
           "name": "한화갤러리아",
@@ -658,7 +1008,17 @@
           "matchedNames": [
             " 한화갤러리아㈜ "
           ],
-          "qty": 71121265.0
+          "qty": 71121265.0,
+          "detail": {
+            "stakePct": 36.15,
+            "beginQty": 71121265.0,
+            "beginStakePct": 36.15,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1884976000000.0,
+            "recentNetIncome": 38005000000.0,
+            "firstAcquiredAt": "2023.03.31"
+          }
         }
       ],
       "warnings": [],
@@ -684,7 +1044,17 @@
           "matchedNames": [
             "SK이노베이션㈜ "
           ],
-          "qty": 88052777.0
+          "qty": 88052777.0,
+          "detail": {
+            "stakePct": 51.7,
+            "beginQty": 88052777.0,
+            "beginStakePct": 55.46,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 39714546000000.0,
+            "recentNetIncome": 2706782000000.0,
+            "firstAcquiredAt": "2015.08.01"
+          }
         },
         {
           "name": "SK텔레콤",
@@ -695,7 +1065,17 @@
           "matchedNames": [
             "SK텔레콤㈜ "
           ],
-          "qty": 65668397.0
+          "qty": 65668397.0,
+          "detail": {
+            "stakePct": 30.57,
+            "beginQty": 65668397.0,
+            "beginStakePct": 30.57,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 25148736000000.0,
+            "recentNetIncome": 410795000000.0,
+            "firstAcquiredAt": "2015.08.01"
+          }
         },
         {
           "name": "SK스퀘어",
@@ -706,7 +1086,17 @@
           "matchedNames": [
             "SK스퀘어㈜"
           ],
-          "qty": 42452202.0
+          "qty": 42452202.0,
+          "detail": {
+            "stakePct": 32.17,
+            "beginQty": 42452202.0,
+            "beginStakePct": 31.5,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 6598414000000.0,
+            "recentNetIncome": -105572000000.0,
+            "firstAcquiredAt": "2021.11.01"
+          }
         },
         {
           "name": "SK바이오팜",
@@ -717,7 +1107,17 @@
           "matchedNames": [
             "SK바이오팜㈜ "
           ],
-          "qty": 39217912.0
+          "qty": 39217912.0,
+          "detail": {
+            "stakePct": 50.08,
+            "beginQty": 50134940.0,
+            "beginStakePct": 64.02,
+            "acqQty": -10917028.0,
+            "acqAmount": -80400000000.0,
+            "recentTotalAssets": 955469000000.0,
+            "recentNetIncome": 248268000000.0,
+            "firstAcquiredAt": "2015.08.01"
+          }
         }
       ],
       "warnings": [
@@ -745,7 +1145,17 @@
           "matchedNames": [
             "SK가스㈜"
           ],
-          "qty": 6664401.0
+          "qty": 6664401.0,
+          "detail": {
+            "stakePct": 71.99,
+            "beginQty": 6664401.0,
+            "beginStakePct": 72.08,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 5638069000000.0,
+            "recentNetIncome": 14791000000.0,
+            "firstAcquiredAt": "2020.12.29"
+          }
         },
         {
           "name": "SK케미칼",
@@ -756,7 +1166,17 @@
           "matchedNames": [
             "SK케미칼㈜"
           ],
-          "qty": 7056899.0
+          "qty": 7056899.0,
+          "detail": {
+            "stakePct": 40.79,
+            "beginQty": 7056899.0,
+            "beginStakePct": 40.79,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 2323252000000.0,
+            "recentNetIncome": 68976000000.0,
+            "firstAcquiredAt": "2018.04.18"
+          }
         }
       ],
       "warnings": [
@@ -785,7 +1205,17 @@
           "matchedNames": [
             "SK 바이오사이언스(주)"
           ],
-          "qty": 52059724.0
+          "qty": 52059724.0,
+          "detail": {
+            "stakePct": 66.35,
+            "beginQty": 52059724.0,
+            "beginStakePct": 66.37,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 2981793000000.0,
+            "recentNetIncome": -50251000000.0,
+            "firstAcquiredAt": "2018.07.01"
+          }
         }
       ],
       "warnings": [],
@@ -811,7 +1241,17 @@
           "matchedNames": [
             " 에스케이하이닉스㈜ "
           ],
-          "qty": 146100000.0
+          "qty": 146100000.0,
+          "detail": {
+            "stakePct": 20.5,
+            "beginQty": 146100000.0,
+            "beginStakePct": 20.1,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 176107659000000.0,
+            "recentNetIncome": 42947902000000.0,
+            "firstAcquiredAt": "2021.11.02"
+          }
         }
       ],
       "warnings": [],
@@ -837,7 +1277,17 @@
           "matchedNames": [
             "(주)하림"
           ],
-          "qty": 60928422.0
+          "qty": 60928422.0,
+          "detail": {
+            "stakePct": 57.37,
+            "beginQty": 60928422.0,
+            "beginStakePct": 57.37,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 876450000000.0,
+            "recentNetIncome": 11570000000.0,
+            "firstAcquiredAt": "2011.01.01"
+          }
         },
         {
           "name": "선진",
@@ -848,7 +1298,17 @@
           "matchedNames": [
             "(주)선진"
           ],
-          "qty": 11890211.0
+          "qty": 11890211.0,
+          "detail": {
+            "stakePct": 50.0,
+            "beginQty": 11890211.0,
+            "beginStakePct": 50.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 995474000000.0,
+            "recentNetIncome": 27538000000.0,
+            "firstAcquiredAt": "2011.01.01"
+          }
         },
         {
           "name": "팜스코",
@@ -859,7 +1319,17 @@
           "matchedNames": [
             "(주)팜스코"
           ],
-          "qty": 20692662.0
+          "qty": 20692662.0,
+          "detail": {
+            "stakePct": 56.34,
+            "beginQty": 20692662.0,
+            "beginStakePct": 56.34,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 972051000000.0,
+            "recentNetIncome": -7961000000.0,
+            "firstAcquiredAt": "2012.12.26"
+          }
         },
         {
           "name": "팬오션",
@@ -870,7 +1340,17 @@
           "matchedNames": [
             "팬오션(주)"
           ],
-          "qty": 292533115.0
+          "qty": 292533115.0,
+          "detail": {
+            "stakePct": 54.72,
+            "beginQty": 292533115.0,
+            "beginStakePct": 54.72,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 12665971000000.0,
+            "recentNetIncome": 218199000000.0,
+            "firstAcquiredAt": "2015.06.20"
+          }
         }
       ],
       "warnings": [],
@@ -896,7 +1376,17 @@
           "matchedNames": [
             "엘지전자(주)"
           ],
-          "qty": 57433029.0
+          "qty": 57433029.0,
+          "detail": {
+            "stakePct": 35.0,
+            "beginQty": 57433029.0,
+            "beginStakePct": 35.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 35091143000000.0,
+            "recentNetIncome": 1030595000000.0,
+            "firstAcquiredAt": "2003.03.01"
+          }
         },
         {
           "name": "LG화학",
@@ -907,7 +1397,17 @@
           "matchedNames": [
             "(주)엘지화학"
           ],
-          "qty": 24670331.0
+          "qty": 24670331.0,
+          "detail": {
+            "stakePct": 35.0,
+            "beginQty": 24670331.0,
+            "beginStakePct": 35.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 34424144000000.0,
+            "recentNetIncome": 1367971000000.0,
+            "firstAcquiredAt": "2003.03.01"
+          }
         },
         {
           "name": "LG유플러스",
@@ -918,7 +1418,17 @@
           "matchedNames": [
             "(주)엘지유플러스"
           ],
-          "qty": 164422375.0
+          "qty": 164422375.0,
+          "detail": {
+            "stakePct": 39.0,
+            "beginQty": 164422375.0,
+            "beginStakePct": 38.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 18714525000000.0,
+            "recentNetIncome": 542799000000.0,
+            "firstAcquiredAt": "2003.03.01"
+          }
         },
         {
           "name": "LG생활건강",
@@ -929,7 +1439,17 @@
           "matchedNames": [
             "(주)엘지생활건강"
           ],
-          "qty": 5315500.0
+          "qty": 5315500.0,
+          "detail": {
+            "stakePct": 35.0,
+            "beginQty": 5315500.0,
+            "beginStakePct": 35.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 4931297000000.0,
+            "recentNetIncome": 65664000000.0,
+            "firstAcquiredAt": "2003.03.01"
+          }
         }
       ],
       "warnings": [],
@@ -955,7 +1475,17 @@
           "matchedNames": [
             "(주)LX인터내셔널 "
           ],
-          "qty": 10787300.0
+          "qty": 10787300.0,
+          "detail": {
+            "stakePct": 27.83,
+            "beginQty": 10787300.0,
+            "beginStakePct": 27.83,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 4728331000000.0,
+            "recentNetIncome": 141271000000.0,
+            "firstAcquiredAt": "2021.05.03"
+          }
         },
         {
           "name": "LX세미콘",
@@ -966,7 +1496,17 @@
           "matchedNames": [
             "(주)LX세미콘"
           ],
-          "qty": 5380524.0
+          "qty": 5380524.0,
+          "detail": {
+            "stakePct": 33.08,
+            "beginQty": 5380524.0,
+            "beginStakePct": 33.08,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1386272000000.0,
+            "recentNetIncome": 82499000000.0,
+            "firstAcquiredAt": "2021.05.03"
+          }
         },
         {
           "name": "LX하우시스",
@@ -977,7 +1517,17 @@
           "matchedNames": [
             "(주)LX하우시스"
           ],
-          "qty": 3006673.0
+          "qty": 3006673.0,
+          "detail": {
+            "stakePct": 33.53,
+            "beginQty": 3006673.0,
+            "beginStakePct": 33.53,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1723432000000.0,
+            "recentNetIncome": -24798000000.0,
+            "firstAcquiredAt": "2021.05.03"
+          }
         }
       ],
       "warnings": [],
@@ -1004,7 +1554,17 @@
             "(주)아모레퍼시픽(보통주)",
             "(주)아모레퍼시픽(우선주)"
           ],
-          "qty": 23761899.0
+          "qty": 23761899.0,
+          "detail": {
+            "stakePct": 52.400000000000006,
+            "beginQty": 23761899.0,
+            "beginStakePct": 52.400000000000006,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 5625244000000.0,
+            "recentNetIncome": 317920000000.0,
+            "firstAcquiredAt": "2006.06.29"
+          }
         }
       ],
       "warnings": [],
@@ -1030,7 +1590,17 @@
           "matchedNames": [
             "(주)티엠씨"
           ],
-          "qty": 11332171.0
+          "qty": 11332171.0,
+          "detail": {
+            "stakePct": 47.03,
+            "beginQty": 11749215.0,
+            "beginStakePct": 48.76,
+            "acqQty": -417044.0,
+            "acqAmount": -2203000000.0,
+            "recentTotalAssets": 230565000000.0,
+            "recentNetIncome": 3609000000.0,
+            "firstAcquiredAt": "2021.07.02"
+          }
         },
         {
           "name": "에스비비테크",
@@ -1041,7 +1611,17 @@
           "matchedNames": [
             "㈜에스비비테크"
           ],
-          "qty": 2642773.0
+          "qty": 2642773.0,
+          "detail": {
+            "stakePct": 39.66,
+            "beginQty": 2321230.0,
+            "beginStakePct": 36.65,
+            "acqQty": 321543.0,
+            "acqAmount": 17492000000.0,
+            "recentTotalAssets": 28577000000.0,
+            "recentNetIncome": -12033000000.0,
+            "firstAcquiredAt": "2018.10.18"
+          }
         }
       ],
       "warnings": [
@@ -1070,7 +1650,17 @@
           "matchedNames": [
             "코스맥스㈜"
           ],
-          "qty": 3090301.0
+          "qty": 3090301.0,
+          "detail": {
+            "stakePct": 27.23,
+            "beginQty": 3090301.0,
+            "beginStakePct": 27.23,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1364939000000.0,
+            "recentNetIncome": 131161000000.0,
+            "firstAcquiredAt": "2014.03.01"
+          }
         },
         {
           "name": "코스맥스엔비티",
@@ -1081,7 +1671,17 @@
           "matchedNames": [
             "코스맥스엔비티\n주식회사"
           ],
-          "qty": 8979250.0
+          "qty": 8979250.0,
+          "detail": {
+            "stakePct": 43.53,
+            "beginQty": 8979250.0,
+            "beginStakePct": 43.53,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 300356000000.0,
+            "recentNetIncome": 5295000000.0,
+            "firstAcquiredAt": "2014.06.19"
+          }
         }
       ],
       "warnings": [],
@@ -1107,7 +1707,17 @@
           "matchedNames": [
             "(주)엘앤에프"
           ],
-          "qty": 5488000.0
+          "qty": 5488000.0,
+          "detail": {
+            "stakePct": 13.49,
+            "beginQty": 5488000.0,
+            "beginStakePct": 13.64,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 3080312000000.0,
+            "recentNetIncome": null,
+            "firstAcquiredAt": "2000.07.27"
+          }
         }
       ],
       "warnings": [
@@ -1135,7 +1745,17 @@
           "matchedNames": [
             "㈜태영건설"
           ],
-          "qty": 173268000.0
+          "qty": 173268000.0,
+          "detail": {
+            "stakePct": 58.2,
+            "beginQty": 173268000.0,
+            "beginStakePct": 58.2,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 4127053000000.0,
+            "recentNetIncome": 95829000000.0,
+            "firstAcquiredAt": "2020.09.01"
+          }
         },
         {
           "name": "SBS",
@@ -1146,7 +1766,17 @@
           "matchedNames": [
             "㈜SBS"
           ],
-          "qty": 6738000.0
+          "qty": 6738000.0,
+          "detail": {
+            "stakePct": 36.3,
+            "beginQty": 6738000.0,
+            "beginStakePct": 36.3,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 2044005000000.0,
+            "recentNetIncome": 7925000000.0,
+            "firstAcquiredAt": "2021.12.28"
+          }
         }
       ],
       "warnings": [],
@@ -1172,7 +1802,17 @@
           "matchedNames": [
             "(주)농심"
           ],
-          "qty": 1990000.0
+          "qty": 1990000.0,
+          "detail": {
+            "stakePct": 32.72,
+            "beginQty": 1990000.0,
+            "beginStakePct": 32.72,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 3232121000000.0,
+            "recentNetIncome": 138878000000.0,
+            "firstAcquiredAt": "2003.07.01"
+          }
         },
         {
           "name": "율촌화학",
@@ -1183,7 +1823,17 @@
           "matchedNames": [
             "율촌화학(주)"
           ],
-          "qty": 7922000.0
+          "qty": 7922000.0,
+          "detail": {
+            "stakePct": 31.94,
+            "beginQty": 7922000.0,
+            "beginStakePct": 31.94,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 678827000000.0,
+            "recentNetIncome": 5174000000.0,
+            "firstAcquiredAt": "2003.07.01"
+          }
         }
       ],
       "warnings": [],
@@ -1209,7 +1859,17 @@
           "matchedNames": [
             "한국콜마(주)"
           ],
-          "qty": 6209889.0
+          "qty": 6209889.0,
+          "detail": {
+            "stakePct": 26.31,
+            "beginQty": 6209889.0,
+            "beginStakePct": 26.31,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1528972000000.0,
+            "recentNetIncome": 114321000000.0,
+            "firstAcquiredAt": "2012.10.02"
+          }
         },
         {
           "name": "콜마비앤에이치",
@@ -1220,7 +1880,17 @@
           "matchedNames": [
             "콜마비앤에이치(주)"
           ],
-          "qty": 13129267.0
+          "qty": 13129267.0,
+          "detail": {
+            "stakePct": 44.63,
+            "beginQty": 13129267.0,
+            "beginStakePct": 44.63,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 520637000000.0,
+            "recentNetIncome": -52535000000.0,
+            "firstAcquiredAt": "2004.02.26"
+          }
         }
       ],
       "warnings": [],
@@ -1246,7 +1916,17 @@
           "matchedNames": [
             "두산에너빌리티(주)"
           ],
-          "qty": 2550.0
+          "qty": 2550.0,
+          "detail": {
+            "stakePct": 0.0,
+            "beginQty": 2550.0,
+            "beginStakePct": 0.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 27513223000000.0,
+            "recentNetIncome": 205163000000.0,
+            "firstAcquiredAt": "2025.10.22"
+          }
         }
       ],
       "warnings": [
@@ -1274,7 +1954,17 @@
           "matchedNames": [
             "일진하이솔루스㈜"
           ],
-          "qty": 21627500.0
+          "qty": 21627500.0,
+          "detail": {
+            "stakePct": 59.6,
+            "beginQty": 21627500.0,
+            "beginStakePct": 59.6,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 341981000000.0,
+            "recentNetIncome": 915000000.0,
+            "firstAcquiredAt": "2012.11.02"
+          }
         }
       ],
       "warnings": [],
@@ -1300,7 +1990,17 @@
           "matchedNames": [
             "(주)에이비온"
           ],
-          "qty": 16396104.0
+          "qty": 16396104.0,
+          "detail": {
+            "stakePct": 18.2,
+            "beginQty": 16396104.0,
+            "beginStakePct": 18.2,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 77305000000.0,
+            "recentNetIncome": -29020000000.0,
+            "firstAcquiredAt": "2020.05.28"
+          }
         },
         {
           "name": "케이피엠테크",
@@ -1311,7 +2011,17 @@
           "matchedNames": [
             "(주)케이피엠테크(*1)"
           ],
-          "qty": 807693.0
+          "qty": 807693.0,
+          "detail": {
+            "stakePct": 32.69,
+            "beginQty": 28821307.0,
+            "beginStakePct": 14.77,
+            "acqQty": -28013614.0,
+            "acqAmount": 8000000000.0,
+            "recentTotalAssets": 103851000000.0,
+            "recentNetIncome": -20879000000.0,
+            "firstAcquiredAt": "2016.07.29"
+          }
         }
       ],
       "warnings": [
@@ -1339,7 +2049,17 @@
           "matchedNames": [
             "AP시스템㈜"
           ],
-          "qty": 3820369.0
+          "qty": 3820369.0,
+          "detail": {
+            "stakePct": 25.38,
+            "beginQty": 3820369.0,
+            "beginStakePct": 25.38,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 680939800000.0,
+            "recentNetIncome": 23784739000.0,
+            "firstAcquiredAt": "2017.03.01"
+          }
         },
         {
           "name": "넥스틴",
@@ -1350,7 +2070,17 @@
           "matchedNames": [
             "㈜넥스틴"
           ],
-          "qty": 821319.0
+          "qty": 821319.0,
+          "detail": {
+            "stakePct": 7.84,
+            "beginQty": 932030.0,
+            "beginStakePct": 8.9,
+            "acqQty": -110711.0,
+            "acqAmount": -180485000.0,
+            "recentTotalAssets": 222879250000.0,
+            "recentNetIncome": -2645745000.0,
+            "firstAcquiredAt": "2015.10.26"
+          }
         },
         {
           "name": "코닉오토메이션",
@@ -1361,7 +2091,17 @@
           "matchedNames": [
             "코닉오토메이션㈜"
           ],
-          "qty": 17807102.0
+          "qty": 17807102.0,
+          "detail": {
+            "stakePct": 41.78,
+            "beginQty": 17807102.0,
+            "beginStakePct": 41.78,
+            "acqQty": null,
+            "acqAmount": 44711000.0,
+            "recentTotalAssets": 48292162000.0,
+            "recentNetIncome": -2900443000.0,
+            "firstAcquiredAt": "2008.08.29"
+          }
         }
       ],
       "warnings": [
@@ -1389,7 +2129,17 @@
           "matchedNames": [
             "에스티팜"
           ],
-          "qty": 6096552.0
+          "qty": 6096552.0,
+          "detail": {
+            "stakePct": 29.2,
+            "beginQty": 6096552.0,
+            "beginStakePct": 29.45,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 848034000000.0,
+            "recentNetIncome": 28352000000.0,
+            "firstAcquiredAt": "2010.06.10"
+          }
         },
         {
           "name": "동아에스티",
@@ -1400,7 +2150,17 @@
           "matchedNames": [
             "동아에스티"
           ],
-          "qty": 2545816.0
+          "qty": 2545816.0,
+          "detail": {
+            "stakePct": 26.4,
+            "beginQty": 2424587.0,
+            "beginStakePct": 26.47,
+            "acqQty": 121229.0,
+            "acqAmount": null,
+            "recentTotalAssets": 1354626000000.0,
+            "recentNetIncome": 9302000000.0,
+            "firstAcquiredAt": "2013.03.04"
+          }
         }
       ],
       "warnings": [
@@ -1428,7 +2188,17 @@
           "matchedNames": [
             "HD현대일렉트릭㈜"
           ],
-          "qty": 12764785.0
+          "qty": 12764785.0,
+          "detail": {
+            "stakePct": 35.41,
+            "beginQty": 12883087.0,
+            "beginStakePct": 35.74,
+            "acqQty": -118302.0,
+            "acqAmount": -5228000000.0,
+            "recentTotalAssets": 3503824000000.0,
+            "recentNetIncome": 636438000000.0,
+            "firstAcquiredAt": "2017.04.01"
+          }
         },
         {
           "name": "HD한국조선해양",
@@ -1439,7 +2209,17 @@
           "matchedNames": [
             "HD한국조선해양㈜"
           ],
-          "qty": 24807124.0
+          "qty": 24807124.0,
+          "detail": {
+            "stakePct": 35.05,
+            "beginQty": 24807124.0,
+            "beginStakePct": 35.05,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 8883052000000.0,
+            "recentNetIncome": 402047000000.0,
+            "firstAcquiredAt": "2017.04.01"
+          }
         },
         {
           "name": "HD현대마린솔루션",
@@ -1450,7 +2230,17 @@
           "matchedNames": [
             "HD현대마린솔루션㈜"
           ],
-          "qty": 24800000.0
+          "qty": 24800000.0,
+          "detail": {
+            "stakePct": 55.32,
+            "beginQty": 24800000.0,
+            "beginStakePct": 55.32,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1118068000000.0,
+            "recentNetIncome": 255242000000.0,
+            "firstAcquiredAt": "2017.04.01"
+          }
         }
       ],
       "warnings": [],
@@ -1476,7 +2266,17 @@
           "matchedNames": [
             "(주)동성화인텍 "
           ],
-          "qty": 11378299.0
+          "qty": 11378299.0,
+          "detail": {
+            "stakePct": 37.94,
+            "beginQty": 11378299.0,
+            "beginStakePct": 37.94,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 499642000000.0,
+            "recentNetIncome": 56185000000.0,
+            "firstAcquiredAt": "2009.12.18"
+          }
         },
         {
           "name": "한국석유",
@@ -1487,7 +2287,17 @@
           "matchedNames": [
             "한국석유공업"
           ],
-          "qty": 251440.0
+          "qty": 251440.0,
+          "detail": {
+            "stakePct": 1.98,
+            "beginQty": 251440.0,
+            "beginStakePct": 1.98,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 365437000000.0,
+            "recentNetIncome": 5174000000.0,
+            "firstAcquiredAt": "2025.06.10"
+          }
         }
       ],
       "warnings": [],
@@ -1513,7 +2323,17 @@
           "matchedNames": [
             "티씨머티리얼즈"
           ],
-          "qty": 16681137.0
+          "qty": 16681137.0,
+          "detail": {
+            "stakePct": 47.61,
+            "beginQty": 16681137.0,
+            "beginStakePct": 47.61,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 121022000000.0,
+            "recentNetIncome": 1675000000.0,
+            "firstAcquiredAt": "2021.11.02"
+          }
         },
         {
           "name": "더라미",
@@ -1524,7 +2344,17 @@
           "matchedNames": [
             "더라미"
           ],
-          "qty": 11428571.0
+          "qty": 11428571.0,
+          "detail": {
+            "stakePct": 28.29,
+            "beginQty": 11428571.0,
+            "beginStakePct": 28.29,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 55651000000.0,
+            "recentNetIncome": -4646000000.0,
+            "firstAcquiredAt": "2023.08.31"
+          }
         },
         {
           "name": "옴니시스템",
@@ -1535,7 +2365,17 @@
           "matchedNames": [
             "옴니시스템"
           ],
-          "qty": 13889705.0
+          "qty": 13889705.0,
+          "detail": {
+            "stakePct": 23.39,
+            "beginQty": 13889705.0,
+            "beginStakePct": 23.39,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 130286000000.0,
+            "recentNetIncome": -154000000.0,
+            "firstAcquiredAt": "2009.04.30"
+          }
         }
       ],
       "warnings": [],
@@ -1561,7 +2401,17 @@
           "matchedNames": [
             "(주)머큐리"
           ],
-          "qty": 8490000.0
+          "qty": 8490000.0,
+          "detail": {
+            "stakePct": 49.53,
+            "beginQty": 8490000.0,
+            "beginStakePct": 53.63,
+            "acqQty": 0.0,
+            "acqAmount": 0.0,
+            "recentTotalAssets": 176343000000.0,
+            "recentNetIncome": -2350000000.0,
+            "firstAcquiredAt": "2007.12.10"
+          }
         },
         {
           "name": "한성크린텍",
@@ -1572,7 +2422,17 @@
           "matchedNames": [
             "한성크린텍(주)"
           ],
-          "qty": 4537479.0
+          "qty": 4537479.0,
+          "detail": {
+            "stakePct": 8.63,
+            "beginQty": 4537479.0,
+            "beginStakePct": 8.74,
+            "acqQty": 0.0,
+            "acqAmount": 0.0,
+            "recentTotalAssets": 156789000000.0,
+            "recentNetIncome": 539000000.0,
+            "firstAcquiredAt": "2020.12.23"
+          }
         },
         {
           "name": "위지트",
@@ -1583,7 +2443,17 @@
           "matchedNames": [
             "(주)위지트(*1)"
           ],
-          "qty": 2640172.0
+          "qty": 2640172.0,
+          "detail": {
+            "stakePct": 6.2,
+            "beginQty": 7920517.0,
+            "beginStakePct": 6.69,
+            "acqQty": 0.0,
+            "acqAmount": 0.0,
+            "recentTotalAssets": 682763000000.0,
+            "recentNetIncome": 27776000000.0,
+            "firstAcquiredAt": "2019.12.24"
+          }
         }
       ],
       "warnings": [
@@ -1611,7 +2481,17 @@
           "matchedNames": [
             "오리온"
           ],
-          "qty": 14775000.0
+          "qty": 14775000.0,
+          "detail": {
+            "stakePct": 37.37,
+            "beginQty": 14775000.0,
+            "beginStakePct": 37.37,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 1945314000000.0,
+            "recentNetIncome": 400312000000.0,
+            "firstAcquiredAt": "2017.06.01"
+          }
         },
         {
           "name": "쇼박스",
@@ -1622,7 +2502,17 @@
           "matchedNames": [
             "쇼박스"
           ],
-          "qty": 35998000.0
+          "qty": 35998000.0,
+          "detail": {
+            "stakePct": 57.47,
+            "beginQty": 35998000.0,
+            "beginStakePct": 57.47,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 132620000000.0,
+            "recentNetIncome": -14762000000.0,
+            "firstAcquiredAt": "1999.06.04"
+          }
         }
       ],
       "warnings": [],
@@ -1648,7 +2538,17 @@
           "matchedNames": [
             "카카오뱅크㈜"
           ],
-          "qty": 5123893.0
+          "qty": 5123893.0,
+          "detail": {
+            "stakePct": 1.07,
+            "beginQty": 5123893.0,
+            "beginStakePct": 1.07,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 62805282000000.0,
+            "recentNetIncome": 440065000000.0,
+            "firstAcquiredAt": "2016.03.15"
+          }
         }
       ],
       "warnings": [],
@@ -1674,7 +2574,17 @@
           "matchedNames": [
             "㈜화승엔터프라이즈"
           ],
-          "qty": 41424000.0
+          "qty": 41424000.0,
+          "detail": {
+            "stakePct": 68.37,
+            "beginQty": 41424000.0,
+            "beginStakePct": 68.37,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 362350000000.0,
+            "recentNetIncome": 944000000.0,
+            "firstAcquiredAt": "2015.12.16"
+          }
         },
         {
           "name": "화승코퍼레이션",
@@ -1685,7 +2595,17 @@
           "matchedNames": [
             "㈜화승코퍼레이션"
           ],
-          "qty": 4632000.0
+          "qty": 4632000.0,
+          "detail": {
+            "stakePct": 9.26,
+            "beginQty": 4632000.0,
+            "beginStakePct": 9.26,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 561299000000.0,
+            "recentNetIncome": 92266000000.0,
+            "firstAcquiredAt": "1987.05.09"
+          }
         },
         {
           "name": "성창기업지주",
@@ -1696,7 +2616,17 @@
           "matchedNames": [
             "㈜성창기업지주"
           ],
-          "qty": 1789000.0
+          "qty": 1789000.0,
+          "detail": {
+            "stakePct": 2.56,
+            "beginQty": 1789000.0,
+            "beginStakePct": 2.56,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 409270000000.0,
+            "recentNetIncome": 1591000000.0,
+            "firstAcquiredAt": "2025.07.03"
+          }
         },
         {
           "name": "대림바스",
@@ -1707,7 +2637,17 @@
           "matchedNames": [
             "㈜대림바스"
           ],
-          "qty": 440000.0
+          "qty": 440000.0,
+          "detail": {
+            "stakePct": 2.65,
+            "beginQty": 440000.0,
+            "beginStakePct": 2.64,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 320033000000.0,
+            "recentNetIncome": 13957000000.0,
+            "firstAcquiredAt": "2025.07.09"
+          }
         }
       ],
       "warnings": [],
@@ -1733,7 +2673,17 @@
           "matchedNames": [
             "삼성물산㈜"
           ],
-          "qty": 17010000.0
+          "qty": 17010000.0,
+          "detail": {
+            "stakePct": 10.49,
+            "beginQty": 17010000.0,
+            "beginStakePct": 10.01,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 86532746000000.0,
+            "recentNetIncome": 3906653000000.0,
+            "firstAcquiredAt": "2012.01.27"
+          }
         },
         {
           "name": "HD한국조선해양",
@@ -1744,7 +2694,17 @@
           "matchedNames": [
             "HD한국조선해양㈜"
           ],
-          "qty": 2764000.0
+          "qty": 2764000.0,
+          "detail": {
+            "stakePct": 3.91,
+            "beginQty": 2764000.0,
+            "beginStakePct": 3.91,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 39542213000000.0,
+            "recentNetIncome": 2928395000000.0,
+            "firstAcquiredAt": "2000.04.01"
+          }
         }
       ],
       "warnings": [],
@@ -1770,7 +2730,17 @@
           "matchedNames": [
             "㈜네오위즈"
           ],
-          "qty": 6776000.0
+          "qty": 6776000.0,
+          "detail": {
+            "stakePct": 31.0,
+            "beginQty": 6776000.0,
+            "beginStakePct": 31.0,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 631518000000.0,
+            "recentNetIncome": 57630000000.0,
+            "firstAcquiredAt": "2007.04.26"
+          }
         }
       ],
       "warnings": [],
@@ -1796,7 +2766,17 @@
           "matchedNames": [
             "(주)큐리언트"
           ],
-          "qty": 4563872.0
+          "qty": 4563872.0,
+          "detail": {
+            "stakePct": 12.0,
+            "beginQty": 4075630.0,
+            "beginStakePct": 10.8,
+            "acqQty": 488242.0,
+            "acqAmount": 15989000000.0,
+            "recentTotalAssets": 61994000000.0,
+            "recentNetIncome": -31262000000.0,
+            "firstAcquiredAt": "2024.05.17"
+          }
         },
         {
           "name": "HLB이노베이션",
@@ -1807,7 +2787,17 @@
           "matchedNames": [
             "(주)HLB이노베이션"
           ],
-          "qty": 70164.0
+          "qty": 70164.0,
+          "detail": {
+            "stakePct": 0.8,
+            "beginQty": 1085033.0,
+            "beginStakePct": 0.8,
+            "acqQty": -1014869.0,
+            "acqAmount": -1465000000.0,
+            "recentTotalAssets": 268750000000.0,
+            "recentNetIncome": -33653000000.0,
+            "firstAcquiredAt": "2023.03.17"
+          }
         },
         {
           "name": "지놈앤컴퍼니",
@@ -1818,7 +2808,17 @@
           "matchedNames": [
             "(주)지놈앤컴퍼니"
           ],
-          "qty": 252338.0
+          "qty": 252338.0,
+          "detail": {
+            "stakePct": 0.7,
+            "beginQty": 252338.0,
+            "beginStakePct": 0.7,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 136748000000.0,
+            "recentNetIncome": -22006000000.0,
+            "firstAcquiredAt": "2020.04.24"
+          }
         }
       ],
       "warnings": [
@@ -1847,7 +2847,17 @@
           "matchedNames": [
             "삼성전자"
           ],
-          "qty": 86967675.0
+          "qty": 86967675.0,
+          "detail": {
+            "stakePct": 1.49,
+            "beginQty": 88058948.0,
+            "beginStakePct": 1.49,
+            "acqQty": -1091273.0,
+            "acqAmount": -212783000000.0,
+            "recentTotalAssets": 358902051000000.0,
+            "recentNetIncome": 33686601000000.0,
+            "firstAcquiredAt": null
+          }
         }
       ],
       "warnings": [],
@@ -1873,7 +2883,17 @@
           "matchedNames": [
             "대덕전자(주)"
           ],
-          "qty": 14584913.0
+          "qty": 14584913.0,
+          "detail": {
+            "stakePct": 29.5,
+            "beginQty": 15546152.0,
+            "beginStakePct": 31.5,
+            "acqQty": -961239.0,
+            "acqAmount": -10099000000.0,
+            "recentTotalAssets": 1178007000000.0,
+            "recentNetIncome": 47605000000.0,
+            "firstAcquiredAt": "2020.08.18"
+          }
         }
       ],
       "warnings": [],
@@ -1899,7 +2919,17 @@
           "matchedNames": [
             "(주)비덴트"
           ],
-          "qty": 26438.0
+          "qty": 26438.0,
+          "detail": {
+            "stakePct": 34.25,
+            "beginQty": 26438.0,
+            "beginStakePct": 34.25,
+            "acqQty": null,
+            "acqAmount": null,
+            "recentTotalAssets": 703109000000.0,
+            "recentNetIncome": 8649000000.0,
+            "firstAcquiredAt": "2019.11.16"
+          }
         }
       ],
       "warnings": [
@@ -1928,6 +2958,16 @@
             "맥쿼리한국인프라투융자회사"
           ],
           "qty": 2500000.0,
+          "detail": {
+            "stakePct": 0.52,
+            "beginQty": 8108000.0,
+            "beginStakePct": 1.69,
+            "acqQty": -5608000.0,
+            "acqAmount": -63090000000.0,
+            "recentTotalAssets": 5480790000000.0,
+            "recentNetIncome": 1956162000000.0,
+            "firstAcquiredAt": "2021.09.13"
+          },
           "note": "출자현황에는 정식 법인명으로 기재되어 종목명(맥쿼리인프라) 자동 매칭이 되지 않는다. 수량 일치로 잡히긴 하지만 지분이 바뀌면 끊기므로 법인명을 고정한다."
         },
         {
@@ -1939,7 +2979,17 @@
           "matchedNames": [
             "우리금융지주"
           ],
-          "qty": 2125000.0
+          "qty": 2125000.0,
+          "detail": {
+            "stakePct": 0.29,
+            "beginQty": 2773000.0,
+            "beginStakePct": 0.38,
+            "acqQty": -648000.0,
+            "acqAmount": -18144000000.0,
+            "recentTotalAssets": 601457286000000.0,
+            "recentNetIncome": 3227508000000.0,
+            "firstAcquiredAt": "2023.07.01"
+          }
         },
         {
           "name": "대신증권",
@@ -1951,6 +3001,16 @@
             "대신증권(보통주)"
           ],
           "qty": 2060169.0,
+          "detail": {
+            "stakePct": 4.32,
+            "beginQty": 2070000.0,
+            "beginStakePct": 4.08,
+            "acqQty": -9831.0,
+            "acqAmount": -265000000.0,
+            "recentTotalAssets": 39128864000000.0,
+            "recentNetIncome": 186727000000.0,
+            "firstAcquiredAt": "2021.12.01"
+          },
           "note": "출자현황에 보통주와 비상장 상환전환우선주(123,456주·100억)가 따로 기재된다. 주식 종류 표기는 정규화에서 지워져 두 행이 같이 잡히는데, 지분가치는 보통주 2,070,000주만 시가로 계산하므로 RCPS 장부가액은 잔존자본에 남겨야 한다."
         },
         {
@@ -1962,7 +3022,17 @@
           "matchedNames": [
             "삼성증권"
           ],
-          "qty": 400000.0
+          "qty": 400000.0,
+          "detail": {
+            "stakePct": 0.45,
+            "beginQty": 324000.0,
+            "beginStakePct": 0.36,
+            "acqQty": 76000.0,
+            "acqAmount": 10335000000.0,
+            "recentTotalAssets": 79683213000000.0,
+            "recentNetIncome": 1007227000000.0,
+            "firstAcquiredAt": "2025.06.05"
+          }
         },
         {
           "name": "피에스텍",
@@ -1973,7 +3043,17 @@
           "matchedNames": [
             "피에스텍"
           ],
-          "qty": 580000.0
+          "qty": 580000.0,
+          "detail": {
+            "stakePct": 3.15,
+            "beginQty": 906000.0,
+            "beginStakePct": 4.7,
+            "acqQty": -326000.0,
+            "acqAmount": -3205000000.0,
+            "recentTotalAssets": 174885000000.0,
+            "recentNetIncome": 9133000000.0,
+            "firstAcquiredAt": "2025.09.03"
+          }
         }
       ],
       "warnings": [
