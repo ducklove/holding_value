@@ -89,7 +89,7 @@
       {
         "name": "버크셔해서웨이",
         "ticker": "BRK-A",
-        "sharesHeld": 286
+        "sharesHeld": 295
       },
       {
         "name": "애플",
@@ -109,7 +109,7 @@
       {
         "name": "서희건설",
         "ticker": "035890.KS",
-        "sharesHeld": 79346093
+        "sharesHeld": 66767015
       }
     ]
   },
@@ -171,7 +171,7 @@
       {
         "name": "원익홀딩스",
         "ticker": "030530.KQ",
-        "sharesHeld": 14428218
+        "sharesHeld": 23171000
       }
     ]
   },
@@ -298,7 +298,7 @@
       {
         "name": "LG에너지솔루션",
         "ticker": "373220.KS",
-        "sharesHeld": 191499175
+        "sharesHeld": 185747525
       }
     ]
   },
@@ -379,7 +379,7 @@
       {
         "name": "SK바이오팜",
         "ticker": "326030.KS",
-        "sharesHeld": 50134940
+        "sharesHeld": 39217912
       }
     ]
   },
@@ -394,12 +394,12 @@
       {
         "name": "SK가스",
         "ticker": "018670.KS",
-        "sharesHeld": 7221843
+        "sharesHeld": 6664401
       },
       {
         "name": "SK케미칼",
         "ticker": "285130.KS",
-        "sharesHeld": 6400615
+        "sharesHeld": 7056899
       }
     ]
   },
@@ -545,12 +545,12 @@
       {
         "name": "티엠씨",
         "ticker": "217590.KS",
-        "sharesHeld": 11749215
+        "sharesHeld": 11332171
       },
       {
         "name": "에스비비테크",
         "ticker": "389500.KQ",
-        "sharesHeld": 2321230
+        "sharesHeld": 2642773
       }
     ],
     "holdingAdjustedShares": 20015447
@@ -587,7 +587,7 @@
       {
         "name": "엘앤에프",
         "ticker": "066970.KS",
-        "sharesHeld": 5188000
+        "sharesHeld": 5487870
       }
     ],
     "holdingAdjustedShares": 12230635
@@ -703,7 +703,7 @@
       {
         "name": "케이피엠테크",
         "ticker": "042040.KQ",
-        "sharesHeld": 28821307
+        "sharesHeld": 7007748
       }
     ],
     "holdingAdjustedShares": 68524245
@@ -724,7 +724,7 @@
       {
         "name": "넥스틴",
         "ticker": "348210.KQ",
-        "sharesHeld": 932030
+        "sharesHeld": 821319
       },
       {
         "name": "코닉오토메이션",
@@ -750,7 +750,7 @@
       {
         "name": "동아에스티",
         "ticker": "170900.KS",
-        "sharesHeld": 2377047
+        "sharesHeld": 2545816
       }
     ],
     "holdingAdjustedShares": 6434578
@@ -849,7 +849,7 @@
       {
         "name": "위지트",
         "ticker": "036090.KQ",
-        "sharesHeld": 7920517
+        "sharesHeld": 2640172
       }
     ],
     "holdingAdjustedShares": 26311301
@@ -970,12 +970,12 @@
       {
         "name": "큐리언트",
         "ticker": "115180.KQ",
-        "sharesHeld": 4075630
+        "sharesHeld": 4563872
       },
       {
         "name": "HLB이노베이션",
         "ticker": "024850.KQ",
-        "sharesHeld": 1085033
+        "sharesHeld": 70164
       },
       {
         "name": "지놈앤컴퍼니",
@@ -1029,7 +1029,7 @@
       {
         "name": "비덴트",
         "ticker": "121800.KQ",
-        "sharesHeld": 26438000
+        "sharesHeld": 26437707
       }
     ],
     "holdingAdjustedShares": 9988623
@@ -1045,27 +1045,27 @@
       {
         "name": "맥쿼리인프라",
         "ticker": "088980.KS",
-        "sharesHeld": 8108000
+        "sharesHeld": 2500000
       },
       {
         "name": "우리금융지주",
         "ticker": "316140.KS",
-        "sharesHeld": 2773000
+        "sharesHeld": 2125000
       },
       {
         "name": "대신증권",
         "ticker": "003540.KS",
-        "sharesHeld": 2070000
+        "sharesHeld": 2060169
       },
       {
         "name": "삼성증권",
         "ticker": "016360.KS",
-        "sharesHeld": 324000
+        "sharesHeld": 400000
       },
       {
         "name": "피에스텍",
         "ticker": "002230.KQ",
-        "sharesHeld": 906000
+        "sharesHeld": 580000
       }
     ],
     "holdingAdjustedShares": 25550000,

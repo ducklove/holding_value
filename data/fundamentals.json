@@ -223,7 +223,7 @@
         {
           "name": "버크셔해서웨이",
           "ticker": "BRK-A",
-          "sharesHeld": 286,
+          "sharesHeld": 295,
           "bookValue": 340534000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -265,9 +265,7 @@
           "note": "위와 같음."
         }
       ],
-      "warnings": [
-        "버크셔해서웨이: config 보유수량 286주 ↔ 출자현황 기말수량 295주 (비 1.031)"
-      ],
+      "warnings": [],
       "corpCode": "00148939",
       "holdingName": "조광피혁"
     },
@@ -284,7 +282,7 @@
         {
           "name": "서희건설",
           "ticker": "035890.KS",
-          "sharesHeld": 79346093,
+          "sharesHeld": 66767015,
           "bookValue": 89649000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -303,9 +301,7 @@
           }
         }
       ],
-      "warnings": [
-        "서희건설: config 보유수량 79,346,093주 ↔ 출자현황 기말수량 66,767,015주 (비 0.841)"
-      ],
+      "warnings": [],
       "corpCode": "00173999",
       "holdingName": "유성티엔에스"
     },
@@ -457,7 +453,7 @@
         {
           "name": "원익홀딩스",
           "ticker": "030530.KQ",
-          "sharesHeld": 14428218,
+          "sharesHeld": 23171000,
           "bookValue": 136031000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -476,9 +472,7 @@
           }
         }
       ],
-      "warnings": [
-        "원익홀딩스: config 보유수량 14,428,218주 ↔ 출자현황 기말수량 23,171,000주 (비 1.606)"
-      ],
+      "warnings": [],
       "corpCode": "00210980",
       "holdingName": "원익"
     },
@@ -853,7 +847,7 @@
         {
           "name": "LG에너지솔루션",
           "ticker": "373220.KS",
-          "sharesHeld": 191499175,
+          "sharesHeld": 185747525,
           "bookValue": 6419487000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -872,9 +866,7 @@
           }
         }
       ],
-      "warnings": [
-        "LG에너지솔루션: config 보유수량 191,499,175주 ↔ 출자현황 기말수량 185,747,525주 (비 0.970)"
-      ],
+      "warnings": [],
       "corpCode": "00356361",
       "holdingName": "LG화학"
     },
@@ -1101,7 +1093,7 @@
         {
           "name": "SK바이오팜",
           "ticker": "326030.KS",
-          "sharesHeld": 50134940,
+          "sharesHeld": 39217912,
           "bookValue": 288826000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1120,9 +1112,7 @@
           }
         }
       ],
-      "warnings": [
-        "SK바이오팜: config 보유수량 50,134,940주 ↔ 출자현황 기말수량 39,217,912주 (비 0.782)"
-      ],
+      "warnings": [],
       "corpCode": "00181712",
       "holdingName": "SK"
     },
@@ -1139,7 +1129,7 @@
         {
           "name": "SK가스",
           "ticker": "018670.KS",
-          "sharesHeld": 7221843,
+          "sharesHeld": 6664401,
           "bookValue": 386244000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1160,7 +1150,7 @@
         {
           "name": "SK케미칼",
           "ticker": "285130.KS",
-          "sharesHeld": 6400615,
+          "sharesHeld": 7056899,
           "bookValue": 539452000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1179,10 +1169,7 @@
           }
         }
       ],
-      "warnings": [
-        "SK가스: config 보유수량 7,221,843주 ↔ 출자현황 기말수량 6,664,401주 (비 0.923)",
-        "SK케미칼: config 보유수량 6,400,615주 ↔ 출자현황 기말수량 7,056,899주 (비 1.103)"
-      ],
+      "warnings": [],
       "corpCode": "00131832",
       "holdingName": "SK디스커버리"
     },
@@ -1584,7 +1571,7 @@
         {
           "name": "티엠씨",
           "ticker": "217590.KS",
-          "sharesHeld": 11749215,
+          "sharesHeld": 11332171,
           "bookValue": 59854000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1605,7 +1592,7 @@
         {
           "name": "에스비비테크",
           "ticker": "389500.KQ",
-          "sharesHeld": 2321230,
+          "sharesHeld": 2642773,
           "bookValue": 33528000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1624,10 +1611,7 @@
           }
         }
       ],
-      "warnings": [
-        "티엠씨: config 보유수량 11,749,215주 ↔ 출자현황 기말수량 11,332,171주 (비 0.965)",
-        "에스비비테크: config 보유수량 2,321,230주 ↔ 출자현황 기말수량 2,642,773주 (비 1.139)"
-      ],
+      "warnings": [],
       "corpCode": "00157636",
       "holdingName": "케이피에프"
     },
@@ -1701,7 +1685,7 @@
         {
           "name": "엘앤에프",
           "ticker": "066970.KS",
-          "sharesHeld": 5188000,
+          "sharesHeld": 5487870,
           "bookValue": 95279000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -1720,9 +1704,7 @@
           }
         }
       ],
-      "warnings": [
-        "엘앤에프: config 보유수량 5,188,000주 ↔ 출자현황 기말수량 5,488,000주 (비 1.058)"
-      ],
+      "warnings": [],
       "corpCode": "00147994",
       "holdingName": "새로닉스"
     },
@@ -2005,7 +1987,7 @@
         {
           "name": "케이피엠테크",
           "ticker": "042040.KQ",
-          "sharesHeld": 28821307,
+          "sharesHeld": 7007748,
           "bookValue": 12237000000.0,
           "matchHow": "partial",
           "matchedNames": [
@@ -2024,9 +2006,7 @@
           }
         }
       ],
-      "warnings": [
-        "케이피엠테크: config 보유수량 28,821,307주 ↔ 출자현황 기말수량 807,693주 (비 0.028)"
-      ],
+      "warnings": [],
       "corpCode": "00608802",
       "holdingName": "텔콘RF제약"
     },
@@ -2064,7 +2044,7 @@
         {
           "name": "넥스틴",
           "ticker": "348210.KQ",
-          "sharesHeld": 932030,
+          "sharesHeld": 821319,
           "bookValue": 1338946000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2104,9 +2084,7 @@
           }
         }
       ],
-      "warnings": [
-        "넥스틴: config 보유수량 932,030주 ↔ 출자현황 기말수량 821,319주 (비 0.881)"
-      ],
+      "warnings": [],
       "corpCode": "00296078",
       "holdingName": "APS"
     },
@@ -2144,7 +2122,7 @@
         {
           "name": "동아에스티",
           "ticker": "170900.KS",
-          "sharesHeld": 2377047,
+          "sharesHeld": 2545816,
           "bookValue": 193886000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2163,9 +2141,7 @@
           }
         }
       ],
-      "warnings": [
-        "동아에스티: config 보유수량 2,377,047주 ↔ 출자현황 기말수량 2,545,816주 (비 1.071)"
-      ],
+      "warnings": [],
       "corpCode": "00116824",
       "holdingName": "동아쏘시오홀딩스"
     },
@@ -2437,7 +2413,7 @@
         {
           "name": "위지트",
           "ticker": "036090.KQ",
-          "sharesHeld": 7920517,
+          "sharesHeld": 2640172,
           "bookValue": 4208000000.0,
           "matchHow": "partial",
           "matchedNames": [
@@ -2456,9 +2432,7 @@
           }
         }
       ],
-      "warnings": [
-        "위지트: config 보유수량 7,920,517주 ↔ 출자현황 기말수량 2,640,172주 (비 0.333)"
-      ],
+      "warnings": [],
       "corpCode": "00200910",
       "holdingName": "아이즈비전"
     },
@@ -2760,7 +2734,7 @@
         {
           "name": "큐리언트",
           "ticker": "115180.KQ",
-          "sharesHeld": 4075630,
+          "sharesHeld": 4563872,
           "bookValue": 27987000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2781,7 +2755,7 @@
         {
           "name": "HLB이노베이션",
           "ticker": "024850.KQ",
-          "sharesHeld": 1085033,
+          "sharesHeld": 70164,
           "bookValue": 851000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2821,10 +2795,7 @@
           }
         }
       ],
-      "warnings": [
-        "큐리언트: config 보유수량 4,075,630주 ↔ 출자현황 기말수량 4,563,872주 (비 1.120)",
-        "HLB이노베이션: config 보유수량 1,085,033주 ↔ 출자현황 기말수량 70,164주 (비 0.065)"
-      ],
+      "warnings": [],
       "corpCode": "00114686",
       "holdingName": "동구바이오제약"
     },
@@ -2913,7 +2884,7 @@
         {
           "name": "비덴트",
           "ticker": "121800.KQ",
-          "sharesHeld": 26438000,
+          "sharesHeld": 26437707,
           "bookValue": 135445000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2932,9 +2903,7 @@
           }
         }
       ],
-      "warnings": [
-        "비덴트: config 보유수량 26,438,000주 ↔ 출자현황 기말수량 26,438주 (비 0.001)"
-      ],
+      "warnings": [],
       "corpCode": "00652423",
       "holdingName": "인바이오젠"
     },
@@ -2951,7 +2920,7 @@
         {
           "name": "맥쿼리인프라",
           "ticker": "088980.KS",
-          "sharesHeld": 8108000,
+          "sharesHeld": 2500000,
           "bookValue": 25450000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2973,7 +2942,7 @@
         {
           "name": "우리금융지주",
           "ticker": "316140.KS",
-          "sharesHeld": 2773000,
+          "sharesHeld": 2125000,
           "bookValue": 61625000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -2994,7 +2963,7 @@
         {
           "name": "대신증권",
           "ticker": "003540.KS",
-          "sharesHeld": 2070000,
+          "sharesHeld": 2060169,
           "bookValue": 55625000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -3016,7 +2985,7 @@
         {
           "name": "삼성증권",
           "ticker": "016360.KS",
-          "sharesHeld": 324000,
+          "sharesHeld": 400000,
           "bookValue": 43400000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -3037,7 +3006,7 @@
         {
           "name": "피에스텍",
           "ticker": "002230.KQ",
-          "sharesHeld": 906000,
+          "sharesHeld": 580000,
           "bookValue": 2804000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -3056,12 +3025,7 @@
           }
         }
       ],
-      "warnings": [
-        "맥쿼리인프라: config 보유수량 8,108,000주 ↔ 출자현황 기말수량 2,500,000주 (비 0.308)",
-        "우리금융지주: config 보유수량 2,773,000주 ↔ 출자현황 기말수량 2,125,000주 (비 0.766)",
-        "삼성증권: config 보유수량 324,000주 ↔ 출자현황 기말수량 400,000주 (비 1.235)",
-        "피에스텍: config 보유수량 906,000주 ↔ 출자현황 기말수량 580,000주 (비 0.640)"
-      ],
+      "warnings": [],
       "corpCode": "00105101",
       "holdingName": "INVENI"
     }
