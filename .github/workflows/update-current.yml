@@ -36,7 +36,7 @@ jobs:
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
           KIS_TOKEN_PATH: ${{ runner.temp }}/kis_token.json
           KIS_PROXY_REQUEST_INTERVAL: "0.7"
-          KIS_PROXY_BASE_URL: ${{ vars.KIS_PROXY_BASE_URL || 'http://cantabile.tplinkdns.com:3288' }}
+          KIS_PROXY_BASE_URL: ${{ vars.KIS_PROXY_BASE_URL || 'http://ducklove.duckdns.org:3288' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python fetch_current.py

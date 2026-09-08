@@ -204,7 +204,7 @@ SMA250/EMA 추세선과 백분위 통계 등 <b>기능 밀도는 높고, 자매 
   <div class="flow-row">
     <div class="node src"><b>Yahoo Finance</b><small>yfinance 일별 종가(auto_adjust) + 장중 5d 폴백, USDKRW 환율</small></div>
     <div class="node src"><b>한국투자증권 KIS API</b><small>국내 현재가 (Secrets 미설정 시 미사용 — 현재 미사용 상태)</small></div>
-    <div class="node src"><b>KIS 프록시</b><small>cantabile.tplinkdns.com:3288 (개인 DDNS, 평문 HTTP) — 현재 시세의 사실상 전담(48/49 실측)</small></div>
+    <div class="node src"><b>KIS 프록시</b><small>ducklove.duckdns.org:3288 (개인 DDNS, 평문 HTTP) — 현재 시세의 사실상 전담(48/49 실측)</small></div>
     <div class="node src"><b>내부 가격 API</b><small>192.168.68.84:8400 (사설 LAN — CI에서 도달 불가)</small></div>
     <div class="node src"><b>네이버 polling API</b><small>브라우저 전용 실시간 폴백 (codetabs CORS 프록시 경유)</small></div>
   </div>
@@ -299,7 +299,7 @@ CPS에서 복사된 3중 구현(CPS Python/CPS JS/HV JS)이기도 합니다 — 
 <ul>
   <li><span class="badge b-good">강점</span> 네 파일 중 가장 정돈됨. 세션 판별(kr_day/us_night/offhours)과 같은-세션 캐시 보존, 캐시 호환성 검사(자회사 구성 비교), KIS 토큰 파일 캐시(만료 마진 300초), 소스 라벨링과 부분 반영 메타(<code>preservedPairIds</code>/<code>missingPairIds</code>).</li>
   <li><span class="badge b-high">약점</span> KIS Secrets 미설정으로 실제 운영은 개인 DDNS 프록시가 49종목 중 48개를 전담(현재 current.json 실측) — 가정용 회선·평문 HTTP 단일 장애점(이슈 H3). 프록시 순차 호출 0.7초 간격으로 1회 실행에 ~75초.</li>
-  <li><span class="badge b-med">약점</span> <code>current.js</code>와 <code>current.json</code> 동일 내용 이중 생성·커밋(L2). 파일 쓰기가 비원자적(tmp→replace 아님 — CPS는 원자적). <code>cantabile.tplinkdns.com</code>·<code>192.168.68.84</code> 기본값 하드코딩.</li>
+  <li><span class="badge b-med">약점</span> <code>current.js</code>와 <code>current.json</code> 동일 내용 이중 생성·커밋(L2). 파일 쓰기가 비원자적(tmp→replace 아님 — CPS는 원자적). <code>ducklove.duckdns.org</code>·<code>192.168.68.84</code> 기본값 하드코딩.</li>
 </ul>
 </div>
 
@@ -412,7 +412,7 @@ C2 수정(validFrom) 후에도 남는 문제이므로 별도 이슈로 분리했
 <h3>H3 — 단일 개인 프록시 의존 (상세)</h3>
 <p>
 현재 current.json 기준 49종목 중 48개의 <code>quoteSource</code>가 <code>kis_proxy</code>,
-즉 <code>http://cantabile.tplinkdns.com:3288</code>(가정용 DDNS, 평문 HTTP) 한 대가 10분마다 전 시세를 공급합니다.
+즉 <code>http://ducklove.duckdns.org:3288</code>(가정용 DDNS, 평문 HTTP) 한 대가 10분마다 전 시세를 공급합니다.
 KIS Open API 직접 호출 경로는 구현되어 있으나 Actions Secrets(<code>KIS_APP_KEY/SECRET</code>) 미설정으로 비활성 상태입니다.
 프록시가 내려가면 yfinance 지연 시세로 강등되고, 공개 저장소에 개인 엔드포인트가 노출되어 있습니다(price_api.py의 LAN IP 포함).
 <b>권고:</b> Secrets 설정으로 KIS 직접 호출을 1차로 승격 + 프록시는 폴백으로 강등, 엔드포인트 기본값은 코드에서 제거(환경변수 필수화).

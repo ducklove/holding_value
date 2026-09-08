@@ -64,7 +64,7 @@ KIS_TOKEN_PATH = Path(os.environ.get("KIS_TOKEN_PATH", BASE_DIR / ".kis_token.js
 KIS_TIMEOUT = float(os.environ.get("KIS_TIMEOUT", "10"))
 KIS_REQUEST_INTERVAL = float(os.environ.get("KIS_REQUEST_INTERVAL", "0.05"))
 KIS_DOMESTIC_QUOTE_TR_ID = os.environ.get("KIS_DOMESTIC_QUOTE_TR_ID", "FHKST01010100")
-KIS_PROXY_BASE_URL = os.environ.get("KIS_PROXY_BASE_URL", "http://cantabile.tplinkdns.com:3288")
+KIS_PROXY_BASE_URL = os.environ.get("KIS_PROXY_BASE_URL", "http://ducklove.duckdns.org:3288")
 KIS_PROXY_TIMEOUT = float(os.environ.get("KIS_PROXY_TIMEOUT", "10"))
 KIS_PROXY_REQUEST_INTERVAL = float(os.environ.get("KIS_PROXY_REQUEST_INTERVAL", "0.7"))
 

@@ -110,7 +110,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | 이름 | 용도 | 기본값 |
 |---|---|---|
 | `KIS_APP_KEY` / `KIS_APP_SECRET` (Secrets) | KIS Open API 직접 호출 (1차 시세 소스) | 미설정 시 프록시로 폴백 |
-| `KIS_PROXY_BASE_URL` (Variable) | KIS 프록시 주소 | `http://cantabile.tplinkdns.com:3288` |
+| `KIS_PROXY_BASE_URL` (Variable) | KIS 프록시 주소 | `http://ducklove.duckdns.org:3288` |
 | `HOLDING_VALUE_PRICE_API_URL` | 내부 가격 API (LAN) | `http://192.168.68.84:8400/...` |
 | `HOLDING_VALUE_PRICE_API` | `0`이면 내부 API 비활성 | `1` |
 | `DART_API_KEY` (Secret) | OpenDART 인증키 — 별도 자본총계·타법인 출자현황 수집 | 미설정 시 실질가치 지표 갱신 불가 |
