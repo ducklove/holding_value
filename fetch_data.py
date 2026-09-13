@@ -46,6 +46,7 @@ from pipeline.core import (
     write_atomic,
 )
 from price_api import download_close_frame as download_internal_close_frame
+from price_revisions import has_price_revision, require_complete_refresh
 
 # pipeline.core 재수출 — 기존 fetch_data.X 참조(테스트 포함)가 그대로 동작한다.
 __all__ = [
@@ -273,9 +274,41 @@ def download_close_prices(tickers, download_kwargs, chunk_size=20):
     return close
 
 
+def find_price_revision_pairs(pairs, previous_pairs, close):
+    changed = set()
+    for pair in pairs:
+        history = previous_pairs.get(pair["id"], {}).get("history", [])
+        sources = {}
+        ht = pair["holdingTicker"]
+        if ht in close:
+            sources["holdingPrice"] = close[ht].dropna()
+        flat_history = [dict(row) for row in history]
+        for index, sub in enumerate(pair["subsidiaries"]):
+            ticker = sub["ticker"]
+            if ticker not in close:
+                continue
+            series = close[ticker].dropna()
+            if not is_korean(ticker):
+                # 저장 가격은 원화 환산값이라 환율 소스 정정을 주식병합과
+                # 구별할 수 없다. 해외 종목은 명시적 전체 재조회를 사용한다.
+                continue
+            field = f"sub_{index}"
+            sources[field] = series.dropna()
+            for row in flat_history:
+                if len(pair["subsidiaries"]) == 1:
+                    row[field] = row.get("subsidiaryPrice")
+                else:
+                    row[field] = next((s.get("price") for s in row.get("subsidiaries", [])
+                                       if s["name"] == sub["name"]), None)
+        if has_price_revision(flat_history, sources):
+            changed.add(pair["id"])
+    return changed
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--full', action='store_true', help='전체 최대 기간 데이터를 다시 다운로드')
+    parser.add_argument('--refresh-pairs', nargs='*', default=[], help='수정주가 전체 재조회 대상')
     args = parser.parse_args()
 
     # baseline은 --full 여부와 무관하게 품질 가드의 비교 기준으로 사용한다.
@@ -354,6 +387,17 @@ def main():
 
     close = download_close_prices(all_tickers, download_kwargs)
 
+    price_revision_ids = find_price_revision_pairs(
+        [p for p in PAIRS if not args.refresh_pairs or p["id"] in args.refresh_pairs],
+        previous_pairs, close,
+    )
+    price_revision_ids.update(args.refresh_pairs)
+    if price_revision_ids - set(pair_config_map):
+        raise ValueError(f"알 수 없는 재조회 종목: {price_revision_ids - set(pair_config_map)}")
+    rebuild_ids.update(price_revision_ids)
+    if price_revision_ids:
+        print(f"가격 기준 변경으로 전체 재계산: {', '.join(sorted(price_revision_ids))}")
+
     # 재수집 대상 종목만 전체 기간을 별도로 받아 합류시킨다 (다른 종목은 증분 유지).
     if rebuild_ids and existing_history:
         rebuild_tickers = []
@@ -372,7 +416,10 @@ def main():
 
         if rebuild_tickers:
             full_kwargs = dict(download_kwargs)
-            full_kwargs["start"] = "2000-01-01"
+            full_kwargs["start"] = min(["2000-01-01"] + [
+                p["history"][0]["date"] for pid, p in previous_pairs.items()
+                if pid in rebuild_ids and p.get("history")
+            ])
             print(f"재수집 대상 {len(rebuild_tickers)}개 티커 전체 기간 다운로드...")
             full_close = download_close_prices(rebuild_tickers, full_kwargs)
             if not full_close.empty:
@@ -514,9 +561,16 @@ def main():
 
             history.append(entry)
 
+        if pair["id"] in price_revision_ids:
+            require_complete_refresh(history, [
+                row for row in previous_pairs.get(pair["id"], {}).get("history", [])
+                if not valid_from or row["date"] >= valid_from
+            ], pair["id"])
+
         # 기존 히스토리와 병합 (validFrom 이전 구간은 기존 데이터에서도 제거)
         history, trend_recompute_idx = merge_pair_history(
-            history, existing_history.get(pair["id"]), valid_from
+            history, None if pair["id"] in price_revision_ids else existing_history.get(pair["id"]),
+            valid_from
         )
 
         if not history:
@@ -579,6 +633,10 @@ def main():
             f"current ratio {latest['ratio']:.2f}% "
             f"({'↑' if ratio_change > 0 else '↓'}{abs(ratio_change):.2f}%p)"
         )
+
+    missing_refresh = price_revision_ids - {p["id"] for p in pairs_result}
+    if missing_refresh:
+        raise ValueError(f"가격 기준 변경 종목 재수집 실패: {sorted(missing_refresh)}")
 
     # 새 데이터가 없는 기존 종목 유지 (config에서 빠진 종목은 그대로 탈락시킨다)
     if existing:
