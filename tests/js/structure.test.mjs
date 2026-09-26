@@ -42,7 +42,8 @@ function extractScripts(html) {
 test('index.html 스크립트 로드 순서가 의존성 계약과 일치한다', () => {
   const srcs = extractScripts(indexHtml)
     .map(script => script.src)
-    .filter(Boolean);
+    .filter(Boolean)
+    .map(src => src.split('?')[0]); // 배포 시 캐시 무효화 버전은 의존 순서와 무관
   assert.deepEqual(srcs, SCRIPT_ORDER);
 });
 
