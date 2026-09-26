@@ -171,3 +171,38 @@ test('종목 비교표의 헤더 수와 렌더 행의 셀 수가 일치한다', 
     assert.equal(cells, headerCount, `행의 <td> ${cells}개 ≠ 헤더 <th> ${headerCount}개`);
   }
 });
+
+test('요약 로드 → 실시간 갱신 → 카드 렌더 → 전체 히스토리 로드 후에도 백분위가 일치한다', async () => {
+  const dates = Array.from({ length: 40 }, (_, i) => new Date(Date.UTC(2026, 0, i + 1)).toISOString().slice(0, 10));
+  const columnar = { dates, ratio: dates.map((_, i) => i + 1) };
+  const summary = { lastUpdated: '2026-02-09 09:00:00', pairs: [{
+    id: 'demo', name: '대덕→대덕전자', current: { ratio: 40, pctile1y: 100, pctile3y: 100 },
+    percentileHistory: columnar,
+  }] };
+  const cards = { innerHTML: '', querySelectorAll: () => [] };
+  const context = vm.createContext({
+    console, URLSearchParams, Date,
+    window: {}, document: { getElementById: () => cards },
+    fetch: async url => ({ ok: true, json: async () =>
+      url.includes('summary') ? summary : url.includes('fundamentals') ? { pairs: {} } : columnar,
+    }),
+  });
+  for (const src of SCRIPT_ORDER) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
+  const data = await vm.runInContext('loadDashboardData()', context);
+  context.app = { stockData: data, pairs: data.pairs, selectedIdx: 0,
+    isPairPinned: () => false, buildTodaySummary: () => ({}),
+  };
+  vm.runInContext('Object.assign(app, createDashboardLive(app), createDashboardRenderers(app))', context);
+  vm.runInContext(`app.applyCurrentData({lastUpdated: '2026-02-09 10:00:00', pairs: [{id: 'demo', ratio: 20}]}); app.renderCards()`, context);
+  assert.match(cards.innerHTML, /53% \/ 53%/);
+  assert.equal(data.pairs[0].history.length, 0); // 전체 히스토리를 받기 전에도 정확하다
+  assert.equal(data.pairs[0].percentileHistory.length, 40); // 같은 날짜는 교체
+  vm.runInContext(`app.applyCurrentData({lastUpdated: '2026-02-10 10:00:00', pairs: [{id: 'demo', ratio: 10}]}); app.renderCards()`, context);
+  assert.match(cards.innerHTML, /27% \/ 27%/);
+  assert.equal(data.pairs[0].percentileHistory.length, 41); // 새 날짜는 추가
+  await vm.runInContext('app.ensureHistory(app.pairs[0])', context);
+  vm.runInContext('app.renderCards()', context);
+  assert.match(cards.innerHTML, /27% \/ 27%/);
+  assert.equal(vm.runInContext(`app.applyCurrentData({lastUpdated: '2026-02-09 09:00:00', pairs: [{id: 'demo', ratio: 40}]})`, context), false);
+  assert.equal(data.pairs[0].current.ratio, 10);
+});

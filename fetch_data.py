@@ -10,7 +10,7 @@ import json
 import re
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import yfinance as yf
@@ -119,7 +119,18 @@ def write_split_outputs(stock_data):
         if not re.fullmatch(r"[A-Za-z0-9_-]+", pair_id):
             print(f"WARNING: 분할 산출물에서 제외 — 허용되지 않는 pair id: {pair_id!r}")
             continue
-        summary_pairs.append({k: v for k, v in pair_data.items() if k != "history"})
+        summary_pair = {k: v for k, v in pair_data.items() if k != "history"}
+        history = pair_data.get("history") or []
+        # 카드도 실시간 비율로 백분위를 계산할 수 있도록 최근 3년의 날짜/비율만 제공.
+        # 가격·자회사 상세를 포함한 전체 히스토리는 계속 선택 종목만 지연 로드한다.
+        if history and not pair_data.get("isAverage"):
+            cutoff = (parse_date_key(history[-1]["date"]) - timedelta(days=1095)).strftime("%Y-%m-%d")
+            recent = [entry for entry in history if entry["date"] >= cutoff]
+            summary_pair["percentileHistory"] = {
+                "dates": [entry["date"] for entry in recent],
+                "ratio": [entry["ratio"] for entry in recent],
+            }
+        summary_pairs.append(summary_pair)
         valid_stems.add(pair_id)
         columnar = history_to_columnar(pair_id, pair_data.get("history") or [])
         write_atomic(

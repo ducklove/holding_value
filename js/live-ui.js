@@ -82,6 +82,10 @@ function createDashboardLive(app) {
         }
       }
       upsertTodayHistory(pair, live, today);
+      // 전체 히스토리를 아직 받지 않은 카드도 같은 날짜는 교체하고 새 날짜는 추가한다.
+      if (pair.percentileHistory && pair.percentileHistory.length) {
+        upsertTodayHistory({ history: pair.percentileHistory, isAverage: true }, live, today);
+      }
     }
     if (currentData.lastUpdated) {
       app.stockData.lastUpdated = currentData.lastUpdated;

@@ -273,3 +273,29 @@ def test_downsample_collapses_old_region_to_weekly():
     result = fetch_data.downsample_history(history)
     dates = [e["date"] for e in result]
     assert dates == ["2020-01-08", "2020-01-14", "2026-01-05", "2026-01-06"]
+
+
+def test_split_summary_contains_only_recent_percentile_dates_and_ratios(tmp_path, monkeypatch):
+    import json
+
+    monkeypatch.setattr(fetch_data, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(fetch_data, "HISTORY_DIR", tmp_path / "history")
+    history = [
+        entry("2023-01-30", 999),
+        entry("2023-01-31", 200),
+        entry("2026-01-30", 100),
+    ]
+    fetch_data.write_split_outputs({"lastUpdated": "2026-01-30", "pairs": [
+        pair("demo", history),
+        {**pair("_average", history), "isAverage": True},
+        pair("empty", []),
+    ]})
+    summary = json.loads((tmp_path / "summary.json").read_text())
+    assert summary["pairs"][0]["percentileHistory"] == {
+        "dates": ["2023-01-31", "2026-01-30"], "ratio": [200, 100],
+    }
+    assert "history" not in summary["pairs"][0]
+    assert "percentileHistory" not in summary["pairs"][1]
+    assert "percentileHistory" not in summary["pairs"][2]
+    full = json.loads((tmp_path / "history" / "demo.json").read_text())
+    assert len(full["dates"]) == 3

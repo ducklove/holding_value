@@ -8,7 +8,7 @@
 const PINNED_PAIRS_STORAGE_KEY = 'holdingValuePinnedPairIds';
 
 // 분할 데이터(data/summary.json + data/history/*.json 지연 로드) 우선, 실패 시 data.js 폴백.
-// 첫 화면은 요약(~25KB)만으로 그리고, 차트 히스토리는 선택 종목만 받아온다.
+// 첫 화면은 요약(최근 3년 백분위용 날짜·비율 포함)만으로 그리고, 차트 히스토리는 선택 종목만 받아온다.
 function loadDashboardData() {
   function fromSplit() {
     return fetch('data/summary.json', { cache: 'no-store' })
@@ -21,7 +21,10 @@ function loadDashboardData() {
           throw new Error('summary 비어 있음');
         }
         var pairs = summary.pairs.map(function(pair) {
-          return Object.assign({}, pair, { history: [] });
+          return Object.assign({}, pair, {
+            history: [],
+            percentileHistory: rowsFromColumnar(pair.percentileHistory || {}),
+          });
         });
         return {
           lastUpdated: summary.lastUpdated,
@@ -137,6 +140,7 @@ function startDashboard(STOCK_DATA) {
     app.ensureHistory(app.pairs[app.selectedIdx]),
   ]).then(function() {
     app.renderTodayOverview(); // 평균 스파크라인은 히스토리 하이드레이션 후 갱신
+    app.renderCards(); // 구버전 summary도 선택 종목 히스토리를 받으면 백분위를 계산한다
     app.renderChart();
     app.renderPriceChart();
     app.renderStats();
@@ -296,6 +300,7 @@ function startDashboard(STOCK_DATA) {
     if (selectedPair && (!selectedPair.history || !selectedPair.history.length)) {
       app.ensureHistory(selectedPair).then(function() {
         if (app.pairs[app.selectedIdx] !== selectedPair) return; // 대기 중 선택 변경
+        app.renderCards();
         app.renderChart();
         app.renderPriceChart();
         app.renderStats();

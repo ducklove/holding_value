@@ -384,15 +384,31 @@ function buildChartLegendItems(series, palette, colors) {
 }
 
 // --- 통계/기여 분해 (renderStats/renderContribution의 계산부) ---
+function computePercentile(ratios, current, minPoints = 1) {
+  const valid = ratios.filter(Number.isFinite);
+  if (!Number.isFinite(current) || valid.length < minPoints) return null;
+  return Math.round(valid.filter(ratio => ratio <= current).length / valid.length * 100);
+}
+
+function computePairPercentiles(pair) {
+  const hist = pair.history && pair.history.length ? pair.history : (pair.percentileHistory || []);
+  if (!hist.length) return { pctile1y: null, pctile3y: null };
+  function trailing(days) {
+    const cutoff = parseDateKey(hist[hist.length - 1].date);
+    cutoff.setDate(cutoff.getDate() - days);
+    const dateKey = formatDateKey(cutoff);
+    return computePercentile(hist.filter(h => h.date >= dateKey).map(h => h.ratio), pair.current.ratio, 30);
+  }
+  return { pctile1y: trailing(365), pctile3y: trailing(1095) };
+}
+
 function computeRatioStats(ratios, current) {
   const min = Math.min(...ratios);
   const max = Math.max(...ratios);
   const avg = ratios.reduce((a, b) => a + b, 0) / ratios.length;
 
   // Percentile
-  const sorted = [...ratios].sort((a, b) => a - b);
-  const rank = sorted.filter(s => s <= current).length;
-  const percentile = (rank / sorted.length * 100).toFixed(0);
+  const percentile = String(computePercentile(ratios, current));
 
   // Z-score (가시 구간 표준편차 기준)
   const variance = ratios.reduce((s, r) => s + (r - avg) * (r - avg), 0) / ratios.length;
@@ -556,6 +572,8 @@ if (typeof module !== 'undefined' && module.exports) {
     buildRatioTrendLines,
     buildChartLegendItems,
     computeRatioStats,
+    computePercentile,
+    computePairPercentiles,
     buildContributionRows,
     HOLDINGS_QTY_MISMATCH_TOLERANCE,
     buildHoldingsDetailRows,

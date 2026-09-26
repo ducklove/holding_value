@@ -509,3 +509,36 @@ test('buildHoldingsDetailRows: 평균 pair·빈 데이터는 null', () => {
   assert.equal(core.buildHoldingsDetailRows({ isAverage: true, current: {} }), null);
   assert.equal(core.buildHoldingsDetailRows({ id: 'x', current: {} }), null);
 });
+
+test('카드 백분위는 저장된 100/100 대신 최신 비율을 같은 기간 분포에 대입한다', () => {
+  const history = Array.from({ length: 40 }, (_, i) => ({
+    date: new Date(Date.UTC(2026, 0, i + 1)).toISOString().slice(0, 10), ratio: i + 1,
+  }));
+  const pair = { history: [], percentileHistory: history, current: { ratio: 30, pctile1y: 100, pctile3y: 100 } };
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: 75, pctile3y: 75 });
+  assert.equal(core.computeRatioStats(history.map(h => h.ratio), 30).percentile, '75');
+  pair.current.ratio = 20;
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: 50, pctile3y: 50 });
+  pair.history = history;
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: 50, pctile3y: 50 });
+});
+
+test('카드의 1년/3년 경계와 최소 표본 수를 지키고 구버전의 저장 백분위는 사용하지 않는다', () => {
+  const history = Array.from({ length: 30 }, (_, i) => ({
+    date: new Date(Date.UTC(2026, 0, i + 1)).toISOString().slice(0, 10), ratio: 10,
+  }));
+  const pair = { history: [
+    { date: '2023-01-30', ratio: 100 }, // 3년 창 밖
+    { date: '2023-01-31', ratio: 100 }, // 1095일 경계 포함
+    { date: '2025-01-29', ratio: 100 }, // 1년 창 밖
+    { date: '2025-01-30', ratio: 100 }, // 365일 경계 포함
+    ...history,
+  ], current: { ratio: 10 } };
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: 97, pctile3y: 91 });
+  pair.history = history.slice(1);
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: null, pctile3y: null });
+  pair.history = [];
+  pair.current.pctile1y = 100;
+  assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: null, pctile3y: null });
+  assert.equal(core.computePercentile([1, 2, 2, 3, null, NaN], 2), 75);
+});

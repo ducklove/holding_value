@@ -266,11 +266,12 @@ function createDashboardRenderers(app) {
         } else {
           subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange);
         }
-        // 백분위(1년/3년) 필드는 파이프라인 표본 부족 시 없을 수 있다 — 둘 다 없으면 행 생략
+        // 저장된 종가 백분위 대신 현재 카드 비율로 계산한다. 표본 30개 미만은 생략.
+        const percentiles = computePairPercentiles(p);
         let pctileRow = '';
-        if (typeof c.pctile1y === 'number' || typeof c.pctile3y === 'number') {
+        if (percentiles.pctile1y !== null || percentiles.pctile3y !== null) {
           const pct = (v) => typeof v === 'number' ? v + '%' : '-';
-          pctileRow = `<span class="amount-label">백분위 1y/3y</span><span class="amount-value">${pct(c.pctile1y)} / ${pct(c.pctile3y)}</span>`;
+          pctileRow = `<span class="amount-label" title="현재 비율의 최근 1년 / 3년 백분위 · 각 기간 표본 중 현재 비율 이하인 비중">백분위 1y/3y</span><span class="amount-value">${pct(percentiles.pctile1y)} / ${pct(percentiles.pctile3y)}</span>`;
         }
         prices = `<div class="prices">
           ${renderPriceLine(p.holdingName, c.holdingPrice, c.holdingChange)}
@@ -387,7 +388,7 @@ function createDashboardRenderers(app) {
       <div class="stat-box"><div class="label">평균</div><div class="value">${avg.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">최저</div><div class="value">${min.toFixed(2)}%</div></div>
       <div class="stat-box"><div class="label">최고</div><div class="value">${max.toFixed(2)}%</div></div>
-      <div class="stat-box"><div class="label">백분위</div><div class="value">${percentile}%</div></div>
+      <div class="stat-box" title="현재 그래프에 표시된 기간·확대 구간에서 현재 비율 이하인 표본의 비중"><div class="label">백분위 (그래프 구간)</div><div class="value">${percentile}%</div></div>
       <div class="stat-box"><div class="label">Z-SCORE (구간)</div><div class="value">${zScore === null ? '-' : (zScore > 0 ? '+' : '') + zScore.toFixed(2)}</div></div>
       <div class="stat-box"><div class="label">데이터 수</div><div class="value">${hist.length}일</div></div>
     `;
