@@ -15,6 +15,7 @@ const indexHtml = readFileSync(path.join(rootDir, 'index.html'), 'utf-8');
 
 // index.html <script src> 로드 순서 = 의존성 계약 (index.html 주석 참고)
 const SCRIPT_ORDER = [
+  './analytics.js',
   'js/format.js',
   'js/calc.js',
   'js/dashboard-core.js',
@@ -183,7 +184,8 @@ test('요약 로드 → 실시간 갱신 → 카드 렌더 → 전체 히스토�
   const cards = { innerHTML: '', querySelectorAll: () => [] };
   const context = vm.createContext({
     console, URLSearchParams, Date,
-    window: {}, document: { getElementById: () => cards },
+    window: { location: { hostname: 'localhost', protocol: 'http:' } },
+    document: { getElementById: () => cards },
     fetch: async url => ({ ok: true, json: async () =>
       url.includes('summary') ? summary : url.includes('fundamentals') ? { pairs: {} } : columnar,
     }),
