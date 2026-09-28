@@ -14,7 +14,7 @@ function createDashboardRenderers(app) {
       : '<span class="price-change flat-color">-</span>';
     const suffixText = suffix ? `<span class="price-suffix">${suffix}</span>` : '<span class="price-suffix"></span>';
     return `<div class="price-line">
-      <span class="price-label" data-portfolio-code="${escapeHtml(ticker || '')}">${escapeHtml(label)}</span>
+      <span class="price-label" data-portfolio-code="${escapeHtml(ticker || '')}" data-portfolio-price="${escapeHtml(price ?? '')}">${escapeHtml(label)}</span>
       <span class="price-value">${formatPrice(price)}</span>
       <span class="price-meta">${changeHtml}${suffixText}</span>
     </div>`;
@@ -208,7 +208,7 @@ function createDashboardRenderers(app) {
       <div class="overview-split runners${sideClass}">
         <div class="overview-main-copy">
           <div class="overview-label">${label}</div>
-          <div class="name" data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}">${escapeHtml(pair.name)}</div>
+          <div class="name" data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}" data-portfolio-price="${escapeHtml(pair.current?.holdingPrice ?? '')}">${escapeHtml(pair.name)}</div>
           <div class="leader-ratio-block">
             <div class="ratio-val">${formatRatio(pair.current.ratio)}</div>
             <div class="ratio-change ${dir}">${formatSignedPoints(pair.current.ratioChange)}</div>
@@ -226,7 +226,7 @@ function createDashboardRenderers(app) {
       const active = app.pairs[app.selectedIdx] && app.pairs[app.selectedIdx].id === pair.id ? ' active' : '';
       const dir = getDirectionClass(pair.current.ratioChange);
       return `<button type="button" class="overview-rank-item${active}" data-pair-id="${escapeHtml(pair.id)}">
-        <span class="overview-rank-name" data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}">${escapeHtml(pair.name)}</span>
+        <span class="overview-rank-name" data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}" data-portfolio-price="${escapeHtml(pair.current?.holdingPrice ?? '')}">${escapeHtml(pair.name)}</span>
         <span class="overview-rank-meta">
           <span>${formatRatio(pair.current.ratio)}</span>
           <span class="ratio-change ${dir}">${formatSignedPoints(pair.current.ratioChange)}</span>
@@ -288,7 +288,7 @@ function createDashboardRenderers(app) {
       const pinButton = p.isAverage ? '' : `<button type="button" class="card-pin${pinned ? ' pinned' : ''}" data-pin-idx="${i}" aria-label="관심종목 ${pinned ? '해제' : '등록'}" aria-pressed="${pinned}">${pinned ? '★' : '☆'}</button>`;
       return `<div class="card${i === app.selectedIdx ? ' active' : ''}${p.isAverage ? ' avg-card' : ''}" data-idx="${i}" role="button" tabindex="0" aria-pressed="${i === app.selectedIdx}">
         ${pinButton}
-        <div class="name" data-portfolio-code="${escapeHtml(p.isAverage ? '' : (p.holdingTicker || app.holdingCodeById?.[p.id] || ''))}">${escapeHtml(p.name)}</div>
+        <div class="name" data-portfolio-code="${escapeHtml(p.isAverage ? '' : (p.holdingTicker || app.holdingCodeById?.[p.id] || ''))}" data-portfolio-price="${escapeHtml(c.holdingPrice ?? '')}">${escapeHtml(p.name)}</div>
         <div class="ratio-line">
           <div class="ratio-val">${formatRatio(c.ratio)}</div>
           <div class="ratio-change ${dir}">${formatSignedPoints(c.ratioChange)}</div>
@@ -346,7 +346,7 @@ function createDashboardRenderers(app) {
         ? c.subsidiaries.map(s => `${escapeHtml(s.name)} ${renderPriceCell(s.price, s.change)}`).join('<br>')
         : renderPriceCell(c.subsidiaryPrice, c.subsidiaryChange);
       return `<tr>
-        <td><strong data-portfolio-code="${escapeHtml(p.holdingTicker || app.holdingCodeById?.[p.id] || '')}">${escapeHtml(p.name)}</strong></td>
+        <td><strong data-portfolio-code="${escapeHtml(p.holdingTicker || app.holdingCodeById?.[p.id] || '')}" data-portfolio-price="${escapeHtml(c.holdingPrice ?? '')}">${escapeHtml(p.name)}</strong></td>
         <td class="num">${renderPriceCell(c.holdingPrice, c.holdingChange)}</td>
         <td class="num">${subPrice}</td>
         <td class="num">${formatOk(c.holdingValue)}</td>
@@ -484,7 +484,7 @@ function createDashboardRenderers(app) {
     const rowsHtml = detail.rows.map(function(row) {
       const netIncomeClass = row.netIncome !== null && row.netIncome < 0 ? ' down-color' : '';
       return `<tr>
-        <td><strong data-portfolio-code="${escapeHtml(row.ticker || '')}">${escapeHtml(row.name)}</strong>${row.ticker ? ` <span class="holdings-ticker">${escapeHtml(getTickerCode(row.ticker))}</span>` : ''}</td>
+        <td><strong data-portfolio-code="${escapeHtml(row.ticker || '')}" data-portfolio-price="${escapeHtml(row.price ?? '')}">${escapeHtml(row.name)}</strong>${row.ticker ? ` <span class="holdings-ticker">${escapeHtml(getTickerCode(row.ticker))}</span>` : ''}</td>
         <td class="num">${renderPriceCell(row.price, row.change)}</td>
         <td class="num">${formatShareCount(row.sharesHeld)}</td>
         <td class="num">${formatRatio(row.stakePct)}</td>
@@ -499,7 +499,7 @@ function createDashboardRenderers(app) {
       : '공시 데이터 수집 전 — 시세 기반 항목만 표시';
 
     section.innerHTML = `
-      <h2>보유 지분 상세 — <span data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}">${escapeHtml(pair.holdingName || pair.name)}</span></h2>
+      <h2>보유 지분 상세 — <span data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}" data-portfolio-price="${escapeHtml(pair.current?.holdingPrice ?? '')}">${escapeHtml(pair.holdingName || pair.name)}</span></h2>
       <div class="holdings-detail-meta">${escapeHtml(sourceText)}</div>
       <div class="table-scroll">
         <table>
