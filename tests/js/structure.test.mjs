@@ -16,6 +16,7 @@ const indexHtml = readFileSync(path.join(rootDir, 'index.html'), 'utf-8');
 // index.html <script src> 로드 순서 = 의존성 계약 (index.html 주석 참고)
 const SCRIPT_ORDER = [
   './analytics.js',
+  'https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js',
   'js/format.js',
   'js/calc.js',
   'js/dashboard-core.js',
@@ -68,7 +69,7 @@ test('index.html 인라인 스크립트는 부트 수준으로만 유지된다 (
 });
 
 test('js/ 모듈이 모두 존재하고 classic script로 파싱된다', () => {
-  for (const src of SCRIPT_ORDER) {
+  for (const src of SCRIPT_ORDER.filter(src => !src.startsWith('https://'))) {
     const code = readFileSync(path.join(rootDir, src), 'utf-8');
     assert.ok(code.trim().length > 0, `${src} 비어 있음`);
     // ES module 문법(import/export)이 섞이면 여기서 SyntaxError로 실패한다
@@ -190,7 +191,7 @@ test('요약 로드 → 실시간 갱신 → 카드 렌더 → 전체 히스토�
       url.includes('summary') ? summary : url.includes('fundamentals') ? { pairs: {} } : columnar,
     }),
   });
-  for (const src of SCRIPT_ORDER) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
+  for (const src of SCRIPT_ORDER.filter(src => !src.startsWith('https://'))) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
   const data = await vm.runInContext('loadDashboardData()', context);
   context.app = { stockData: data, pairs: data.pairs, selectedIdx: 0,
     isPairPinned: () => false, buildTodaySummary: () => ({}),
