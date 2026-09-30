@@ -542,3 +542,27 @@ test('카드의 1년/3년 경계와 최소 표본 수를 지키고 구버전의 
   assert.deepEqual(core.computePairPercentiles(pair), { pctile1y: null, pctile3y: null });
   assert.equal(core.computePercentile([1, 2, 2, 3, null, NaN], 2), 75);
 });
+
+test('resolveSubsidiaryTicker: config → fundamentals 순으로 자회사 이름을 맞춰 티커를 찾는다', () => {
+  const config = { subsidiaries: [
+    { name: '효성중공업', ticker: '298040.KS' },
+    { name: '효성티앤씨', ticker: '298020.KS' },
+  ] };
+  const pair = { id: 'hyosung', fundamentals: { subsidiaries: [
+    { name: '효성중공업', ticker: '298040.KS' },
+    { name: '효성ITX', ticker: '094280.KS' },
+  ] } };
+  // 다중 자회사: 이름으로 매칭 (config 우선, 없으면 fundamentals)
+  assert.equal(core.resolveSubsidiaryTicker(pair, '효성티앤씨', config), '298020.KS');
+  assert.equal(core.resolveSubsidiaryTicker(pair, '효성ITX', config), '094280.KS');
+  assert.equal(core.resolveSubsidiaryTicker(pair, '효성ITX', null), '094280.KS');
+  // config를 아직 못 받았어도 fundamentals만으로 찾는다 (첫 화면)
+  assert.equal(core.resolveSubsidiaryTicker(pair, '효성중공업', undefined), '298040.KS');
+  // 모르는 이름·데이터 없음은 '' (배지 없음)
+  assert.equal(core.resolveSubsidiaryTicker(pair, '없는회사', config), '');
+  assert.equal(core.resolveSubsidiaryTicker({}, '효성중공업', null), '');
+  assert.equal(core.resolveSubsidiaryTicker(null, '', null), '');
+  // 이름 없이 부르면 자회사가 하나뿐인 목록에서만 돌려준다 (다중이면 모호 → '')
+  assert.equal(core.resolveSubsidiaryTicker(pair, null, config), '');
+  assert.equal(core.resolveSubsidiaryTicker({}, null, { subsidiaries: [{ name: '고려아연', ticker: '010130.KS' }] }), '010130.KS');
+});

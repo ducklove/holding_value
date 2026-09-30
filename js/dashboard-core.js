@@ -455,6 +455,28 @@ function buildContributionRows(hist) {
   return { rows, maxAbs, totalDelta };
 }
 
+// --- 자회사 티커 조회 (카드 보유 배지용) ---
+// data/summary.json·current.json의 자회사 항목에는 티커가 없다(이름·시세만). 그래서
+// config.json 항목(live-ui가 로드해 app.pairConfigById에 둔다) → data/fundamentals.json의
+// 자회사 목록(pair.fundamentals.subsidiaries, 첫 화면부터 있음) 순으로 이름을 맞춰 찾는다.
+// subName을 비우면 자회사가 하나뿐인 목록에서만 그 티커를 돌려준다. 못 찾으면 ''.
+function resolveSubsidiaryTicker(pair, subName, config) {
+  const lists = [
+    config && config.subsidiaries,
+    pair && pair.fundamentals && pair.fundamentals.subsidiaries,
+  ];
+  for (const list of lists) {
+    if (!Array.isArray(list) || !list.length) continue;
+    if (subName) {
+      const match = list.find(function(sub) { return sub && sub.name === subName && sub.ticker; });
+      if (match) return String(match.ticker);
+    } else if (list.length === 1 && list[0] && list[0].ticker) {
+      return String(list[0].ticker);
+    }
+  }
+  return '';
+}
+
 // --- 보유 지분 상세 (선택 종목) ---
 // config 보유수량 ↔ 출자현황 기말수량 괴리 허용치 (pipeline/fundamentals.py QTY_WARN_TOLERANCE와 동일)
 const HOLDINGS_QTY_MISMATCH_TOLERANCE = 0.02;
@@ -575,6 +597,7 @@ if (typeof module !== 'undefined' && module.exports) {
     computePercentile,
     computePairPercentiles,
     buildContributionRows,
+    resolveSubsidiaryTicker,
     HOLDINGS_QTY_MISMATCH_TOLERANCE,
     buildHoldingsDetailRows,
   };

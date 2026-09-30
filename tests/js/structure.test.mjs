@@ -15,6 +15,7 @@ const indexHtml = readFileSync(path.join(rootDir, 'index.html'), 'utf-8');
 
 // index.html <script src> 로드 순서 = 의존성 계약 (index.html 주석 참고)
 const SCRIPT_ORDER = [
+  './vc-shell.js', // Value Compass 에코시스템 바 (defer, 벤더링 — tests/js/ecosystem.test.mjs)
   './analytics.js',
   'https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js',
   'js/format.js',
@@ -191,7 +192,8 @@ test('요약 로드 → 실시간 갱신 → 카드 렌더 → 전체 히스토�
       url.includes('summary') ? summary : url.includes('fundamentals') ? { pairs: {} } : columnar,
     }),
   });
-  for (const src of SCRIPT_ORDER.filter(src => !src.startsWith('https://'))) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
+  // vc-shell.js는 실제 DOM(customElements 등)이 필요한 벤더링 셸이라 이 최소 컨텍스트에서는 제외한다.
+  for (const src of SCRIPT_ORDER.filter(src => !src.startsWith('https://') && src !== './vc-shell.js')) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
   const data = await vm.runInContext('loadDashboardData()', context);
   context.app = { stockData: data, pairs: data.pairs, selectedIdx: 0,
     isPairPinned: () => false, buildTodaySummary: () => ({}),

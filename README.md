@@ -34,6 +34,8 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `data/history/{id}.json` | 생성 산출물 — 종목별 컬럼형 히스토리. 선택 종목만 지연 로드 |
 | `data.js` / `current.json` | 생성 산출물 — 직접 편집 금지. data.js는 분할 로드 실패 시 폴백(과도기) |
 | `docs/refactoring_review_202606.html` | 구조·품질 리뷰 보고서 및 로드맵 |
+| `summary.json` / `version.json` | 생성 산출물 — 허브(Value Compass)용 요약 envelope v1 (`publish_summary.py` → `pipeline/hub_summary.py`). 아래 "생태계 연동" 참고 |
+| `vc-shell.js` / `vc-tokens.css` / `pipeline/vc_publish.py` | **벤더링 파일 — 직접 수정 금지.** 정본은 value-invest `static/ecosystem/`·`ecosystem/python/`, 갱신은 `node ../value-invest/scripts/sync-ecosystem.mjs --write --only holding_value` |
 
 ## 데이터 규칙
 
@@ -130,6 +132,22 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 3. 장중 스냅샷(10분 주기)에서 비율이 임계를 **교차하는 순간 1회** 발송
    (직전 스냅샷과 비교해 같은 쪽이면 재발송하지 않음 — 상태 파일 불필요)
 
+## 생태계 연동 (Value Compass)
+
+- **에코시스템 바**: `index.html` body 맨 위 `<vc-shell tool="holding_value">` (벤더링 `vc-shell.js`, defer).
+  JS가 막히면 안쪽 `Value Compass ↗` 링크가 그대로 보인다. `?embed`·iframe·`?vc-shell=0`이면 숨는다.
+  종목을 고르면 `VCShell.setStock(코드, 지주사명)`으로 "허브에서 분석 ↗" 칩이 뜬다(`js/app-boot.js`).
+- **테마**: head의 `<!-- vc:theme-boot -->` 블록(sync가 채움)이 `?theme=dark|light`(저장 안 함) →
+  공용 `theme` 키 → `prefers-color-scheme` 순으로 정한다. 헤더 🌓 토글은 `VCShell.setTheme`을 쓰고,
+  `vc:themechange` 이벤트에 캔버스 차트를 다시 그린다.
+- **색·폰트**: `css/app.css`의 `--up`/`--down`은 `--vc-up`/`--vc-down`(한국 관례: 상승=빨강, 하락=파랑),
+  본문 폰트는 `--vc-font-sans`. 표면·강조색은 아직 자체 값.
+- **발행 요약**: `update-current.yml`이 `fetch_current.py` 다음에 `python publish_summary.py`를 돌려
+  Pages 루트 `summary.json`·`version.json`을 만든다(값이 같으면 다시 쓰지 않음). 허브는
+  `https://ducklove.github.io/holding_value/summary.json`을 먼저 읽고, 실패하면 `current.json`으로 폴백한다.
+  `asOf` = current.json `generatedAt`. 계약: value-invest `docs/ecosystem/data-contract.md` §6.1.
+- 벤더링 파일을 바꾸려면 허브에서 고친 뒤 sync 스크립트로 다시 복사한다(검증: `--write` 없이 실행).
+
 ## 로컬 실행
 
 ```bash
@@ -137,6 +155,7 @@ pip install -r requirements.txt
 python fetch_data.py            # 증분 갱신 (data.js)
 python fetch_data.py --full     # 전체 재생성 (주의: 과거 값 소급 변동)
 python fetch_current.py         # 장중 스냅샷 (current.json)
+python publish_summary.py       # 허브용 summary.json/version.json (오프라인, 변경 시에만 쓰기)
 DART_API_KEY=... python fetch_fundamentals.py            # 잔존자본 (data/fundamentals.json)
 DART_API_KEY=... python fetch_fundamentals.py --only lg_corp   # 일부 종목만 갱신
 python -m pytest -q             # 테스트
