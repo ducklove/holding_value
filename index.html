@@ -8,35 +8,45 @@
 <meta property="og:title" content="보유지분가치/시가총액 비율 대시보드">
 <meta property="og:description" content="국내 지주회사의 상장 자회사 보유지분가치와 조정시가총액 비율을 추적하는 실시간 대시보드. 종목별 비율 추이·주가 차트·종목 비교를 제공한다.">
 <link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
-<script>
-// iframe embed + theme: ?theme=dark|light overrides stored theme; ?embed hides chrome.
-(function() {
+<!-- 테마·embed pre-paint 부트 (Value Compass 공용): ?theme=dark|light는 저장 없이 적용, 공용 'theme' 키, 미설정 시 prefers-color-scheme, ?embed → html[data-embed]. 블록 안은 sync-ecosystem.mjs가 채운다 — 직접 수정 금지. -->
+<!-- vc:theme-boot --><script>
+/* vc-theme-boot v1 (value-invest static/ecosystem/vc-theme-boot.js) — pre-paint theme; inlined by sync-ecosystem, do not edit copies. */
+(function () {
+  var d = document.documentElement, p = null, s = null, t, v, i;
+  var legacy = ['bondmate.theme', 'eiayn:theme:v1', 'spac-hunter-theme', 'preferred-theme', 'nps-theme'];
+  try { p = new URLSearchParams(location.search); } catch (e) { p = null; }
   try {
-    var params = new URLSearchParams(location.search);
-    var urlTheme = params.get('theme');
-    var stored = localStorage.getItem('theme');
-    var theme = (urlTheme === 'dark' || urlTheme === 'light') ? urlTheme : (stored || 'light');
-    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
-    var embed = params.get('embed');
-    if (embed !== null && embed !== '0' && embed !== 'false') {
-      document.documentElement.dataset.embed = '1';
+    s = localStorage.getItem('theme');
+    if (s === null) {
+      for (i = 0; i < legacy.length && s === null; i++) {
+        v = localStorage.getItem(legacy[i]);
+        if (v && v.charAt(0) === '"') { try { v = JSON.parse(v); } catch (e) { v = null; } }
+        if (v === 'light' || v === 'dark') { s = v; localStorage.setItem('theme', v); }
+      }
     }
-  } catch (e) {
-    document.documentElement.dataset.theme = 'light';
-  }
+  } catch (e) { s = null; }
+  t = p && p.get('theme');
+  if (t !== 'light' && t !== 'dark') t = s === 'light' || s === 'dark' ? s : null;
+  if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  v = p && p.get('embed');
+  if ((v !== null && v !== undefined && v !== '0' && v !== 'false') || (p && p.get('headless') === '1')) d.setAttribute('data-embed', v || '');
 })();
-</script>
+</script><!-- /vc:theme-boot -->
 <style>
 /* iframe embed mode: hide standalone chrome so the dashboard fits a host frame */
 html[data-embed] .header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="./vc-tokens.css?v=1.1.0">
+<link rel="stylesheet" href="css/app.css?v=20260930-vc">
+<script defer src="./vc-shell.js?v=1.1.0"></script>
 <script defer src="./analytics.js" data-project="holding_value"></script>
-<script defer src="https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js?v=20260928-tooltip"></script>
+<script defer src="https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js?v=20260930-vc"></script>
 </head>
 <body>
+<vc-shell tool="holding_value"><a class="hub-link" href="https://ducklove.duckdns.org:3691" rel="noopener">Value Compass ↗</a></vc-shell>
 
 <div class="header">
   <div class="header-row">
@@ -45,7 +55,6 @@ html[data-embed] .container { padding-top: 14px !important; }
       <div class="updated" id="lastUpdated"></div>
     </div>
     <div class="header-actions">
-      <a class="hub-link" href="https://ducklove.duckdns.org:3691" rel="noopener">Value Compass ↗</a>
       <button type="button" class="refresh-btn" id="refreshBtn">새로고침</button>
       <button type="button" class="theme-toggle" id="themeToggle" title="테마 전환" aria-label="테마 전환">🌓</button>
     </div>
@@ -163,13 +172,13 @@ window.CURRENT_DATA = window.CURRENT_DATA || null;
     7) js/app-boot.js       loadDashboardData·startDashboard (4~6 팩토리 조립·배선)
   이 순서는 tests/js/structure.test.mjs가 구조 계약으로 고정한다.
 -->
-<script src="js/format.js"></script>
-<script src="js/calc.js"></script>
-<script src="js/dashboard-core.js?v=20260926-percentiles"></script>
-<script src="js/render.js?v=20260926-percentiles"></script>
-<script src="js/charts-ui.js"></script>
-<script src="js/live-ui.js?v=20260926-percentiles"></script>
-<script src="js/app-boot.js?v=20260926-percentiles"></script>
+<script src="js/format.js?v=20260930-vc"></script>
+<script src="js/calc.js?v=20260930-vc"></script>
+<script src="js/dashboard-core.js?v=20260930-vc"></script>
+<script src="js/render.js?v=20260930-vc"></script>
+<script src="js/charts-ui.js?v=20260930-vc"></script>
+<script src="js/live-ui.js?v=20260930-vc"></script>
+<script src="js/app-boot.js?v=20260930-vc"></script>
 <script>
 // 부트스트랩: 데이터 로드 → 대시보드 시작 (모든 로직은 js/*.js — 위 로드 순서 계약 참고)
 window.__dashboardData = loadDashboardData();

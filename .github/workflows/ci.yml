@@ -12,6 +12,11 @@ on:
       - 'tests/js/**'
       # 구조 계약 테스트가 index.html ↔ js/ 짝을 검사하므로 index.html도 트리거에 포함
       - 'index.html'
+      # 벤더링된 생태계 셸·토큰·CSS (구조 계약 테스트 대상). summary.json/version.json은
+      # 봇이 장중에 계속 커밋하므로 트리거에 넣지 않는다 (검증은 매 CI 실행에서 수행).
+      - 'vc-shell.js'
+      - 'vc-tokens.css'
+      - 'css/**'
 
 permissions:
   contents: read
@@ -31,6 +36,8 @@ jobs:
         run: ruff check --select E9,F .
       - name: Run tests
         run: python -m pytest -q
+      - name: Validate published hub summary envelope
+        run: python pipeline/vc_publish.py validate summary.json
 
   test-js:
     runs-on: ubuntu-latest

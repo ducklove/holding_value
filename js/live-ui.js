@@ -405,6 +405,8 @@ function createDashboardLive(app) {
             app.holdingCodeById[entry.id] = getTickerCode(entry.holdingTicker);
           }
         });
+        // 렌더(카드 자회사 보유 배지 티커)도 같은 config를 쓴다 — resolveSubsidiaryTicker 참고.
+        app.pairConfigById = holdingConfigById;
         return holdingConfigById;
       });
     return holdingConfigPromise;

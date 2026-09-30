@@ -261,10 +261,17 @@ function createDashboardRenderers(app) {
       let prices = '';
       if (!p.isAverage) {
         let subLines = '';
+        // 자회사 티커는 config.json(app.pairConfigById) → fundamentals 순으로 이름을 맞춰 찾는다
+        // (resolveSubsidiaryTicker, js/dashboard-core.js). 보유 배지(data-portfolio-code)용.
+        const pairConfig = app.pairConfigById && typeof app.pairConfigById.get === 'function'
+          ? app.pairConfigById.get(p.id) : null;
         if (c.subsidiaries) {
-          subLines = c.subsidiaries.map(s => renderPriceLine(s.name, s.price, s.change, `(${formatRatio(s.ratio)})`)).join('');
+          subLines = c.subsidiaries.map(s => renderPriceLine(s.name, s.price, s.change, `(${formatRatio(s.ratio)})`,
+            resolveSubsidiaryTicker(p, s.name, pairConfig))).join('');
         } else {
-          subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange, null, p.subsidiaryTicker);
+          const subTicker = resolveSubsidiaryTicker(p, p.subsidiaryName, pairConfig)
+            || resolveSubsidiaryTicker(p, null, pairConfig);
+          subLines = renderPriceLine(p.subsidiaryName, c.subsidiaryPrice, c.subsidiaryChange, null, subTicker);
         }
         // 저장된 종가 백분위 대신 현재 카드 비율로 계산한다. 표본 30개 미만은 생략.
         const percentiles = computePairPercentiles(p);

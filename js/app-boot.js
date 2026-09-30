@@ -153,6 +153,10 @@ function startDashboard(STOCK_DATA) {
   bindCsvExport();
   bindThemeToggle();
   resolveSelectionFromQuery();
+  syncShellStock();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncShellStock, { once: true });
+  }
 
   // --- Auto-refresh ---
   app.bindAutoRefresh();
@@ -307,7 +311,20 @@ function startDashboard(STOCK_DATA) {
       });
     }
     if (opts.syncUrl) syncSelectedCodeToUrl();
+    syncShellStock();
     if (opts.scroll) scrollToRatioChart();
+  }
+
+  // Value Compass 에코시스템 바(<vc-shell>)에 선택 지주사를 알린다 → '허브에서 분석 ↗' 칩.
+  // 평균 카드·코드 미확정이면 해제(null). vc-shell.js(defer)가 아직 없으면 조용히 건너뛴다
+  // (setStock은 <vc-shell> 속성만 바꾸므로 부트 직후 한 번 더 호출해 맞춘다).
+  function syncShellStock() {
+    const shell = window.VCShell;
+    if (!shell || typeof shell.setStock !== 'function') return;
+    const pair = app.pairs[app.selectedIdx];
+    const code = pair && !pair.isAverage ? resolvePairCode(pair).toUpperCase() : '';
+    if (code) shell.setStock(code, pair.holdingName || pair.name || '');
+    else shell.setStock(null);
   }
 
   function syncSelectedCodeToUrl() {
@@ -399,16 +416,36 @@ function startDashboard(STOCK_DATA) {
   }
 
   // --- 테마 ---
+  // head의 vc:theme-boot 블록이 ?theme → 공용 'theme' 키 → prefers-color-scheme 순으로
+  // data-theme을 이미 정해 두므로 그 값을 우선한다. 저장소 접근은 막힐 수 있어 try/catch.
   function loadTheme() {
+    const current = document.documentElement.dataset.theme;
+    if (current === 'dark' || current === 'light') return current;
     const urlTheme = new URLSearchParams(location.search).get('theme');
     if (urlTheme === 'dark' || urlTheme === 'light') return urlTheme;
-    return localStorage.getItem('theme') || 'light';
+    let stored = null;
+    try {
+      stored = localStorage.getItem('theme');
+    } catch (e) {
+      stored = null; // 저장소 차단(사파리 프라이빗 등) — 기본값으로
+    }
+    return stored === 'dark' ? 'dark' : 'light';
   }
 
   function applyTheme(theme, persist) {
     const nextTheme = theme === 'light' ? 'light' : 'dark';
     document.documentElement.dataset.theme = nextTheme;
-    if (persist) localStorage.setItem('theme', nextTheme);
+    if (persist) {
+      try {
+        localStorage.setItem('theme', nextTheme);
+      } catch (e) {
+        // 저장이 막힌 환경에서는 현재 페이지에만 적용한다.
+      }
+    }
+    redrawForTheme();
+  }
+
+  function redrawForTheme() {
     updateThemeButtons();
     if (hasRendered) {
       app.renderChart();
@@ -416,9 +453,17 @@ function startDashboard(STOCK_DATA) {
     }
   }
 
+  // 토글은 공용 셸(VCShell.setTheme — 공용 키 저장·다른 탭 동기화·'vc:themechange' 발행)을
+  // 우선 쓰고, 셸이 없으면 기존 로직으로 폴백한다.
   function toggleTheme() {
     const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
-    applyTheme(theme === 'dark' ? 'light' : 'dark', true);
+    const next = theme === 'dark' ? 'light' : 'dark';
+    const shell = window.VCShell;
+    if (shell && typeof shell.setTheme === 'function') {
+      shell.setTheme(next);
+      return;
+    }
+    applyTheme(next, true);
   }
 
   function updateThemeButtons() {
@@ -432,6 +477,9 @@ function startDashboard(STOCK_DATA) {
   function bindThemeToggle() {
     const toggle = document.getElementById('themeToggle');
     updateThemeButtons();
+    // 셸 토글·다른 탭·허브 postMessage로 테마가 바뀌면 캔버스 차트를 다시 그린다
+    // (차트 색은 CSS 변수를 렌더 시점에 읽는다 — getThemeColors).
+    document.addEventListener('vc:themechange', redrawForTheme);
     if (!toggle) return;
     toggle.addEventListener('click', toggleTheme);
   }
