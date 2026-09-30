@@ -132,21 +132,38 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 3. 장중 스냅샷(10분 주기)에서 비율이 임계를 **교차하는 순간 1회** 발송
    (직전 스냅샷과 비교해 같은 쪽이면 재발송하지 않음 — 상태 파일 불필요)
 
-## 생태계 연동 (Value Compass)
+## Value Compass 생태계 연동
 
-- **에코시스템 바**: `index.html` body 맨 위 `<vc-shell tool="holding_value">` (벤더링 `vc-shell.js`, defer).
-  JS가 막히면 안쪽 `Value Compass ↗` 링크가 그대로 보인다. `?embed`·iframe·`?vc-shell=0`이면 숨는다.
-  종목을 고르면 `VCShell.setStock(코드, 지주사명)`으로 "허브에서 분석 ↗" 칩이 뜬다(`js/app-boot.js`).
-- **테마**: head의 `<!-- vc:theme-boot -->` 블록(sync가 채움)이 `?theme=dark|light`(저장 안 함) →
-  공용 `theme` 키 → `prefers-color-scheme` 순으로 정한다. 헤더 🌓 토글은 `VCShell.setTheme`을 쓰고,
-  `vc:themechange` 이벤트에 캔버스 차트를 다시 그린다.
-- **색·폰트**: `css/app.css`의 `--up`/`--down`은 `--vc-up`/`--vc-down`(한국 관례: 상승=빨강, 하락=파랑),
-  본문 폰트는 `--vc-font-sans`. 표면·강조색은 아직 자체 값.
-- **발행 요약**: `update-current.yml`이 `fetch_current.py` 다음에 `python publish_summary.py`를 돌려
-  Pages 루트 `summary.json`·`version.json`을 만든다(값이 같으면 다시 쓰지 않음). 허브는
-  `https://ducklove.github.io/holding_value/summary.json`을 먼저 읽고, 실패하면 `current.json`으로 폴백한다.
-  `asOf` = current.json `generatedAt`. 계약: value-invest `docs/ecosystem/data-contract.md` §6.1.
-- 벤더링 파일을 바꾸려면 허브에서 고친 뒤 sync 스크립트로 다시 복사한다(검증: `--write` 없이 실행).
+허브 레지스트리(value-invest `config/ecosystem.json`)의 도구 id는 **`holding_value`**
+(integrationKey `holdingValue`, handoff·보유 배지 대상)다.
+
+- **벤더링 (직접 수정 금지)**: `vc-shell.js`·`vc-tokens.css`, `index.html` head의
+  `<!-- vc:theme-boot -->` 블록, 허브 보유 배지 `?v=` 태그, `pipeline/vc_publish.py`는 허브가 정본이다.
+  바꾸려면 허브에서 고친 뒤 이 저장소 루트에서
+  `node ../value-invest/scripts/sync-ecosystem.mjs --write --only holding_value`로 다시 복사한다
+  (`--write` 없이 실행하면 검증만).
+- **에코시스템 바·테마**: body 맨 위 `<vc-shell tool="holding_value">`(JS가 막히면 안쪽
+  `Value Compass ↗` 링크가 보인다). 쌍을 고르면 `VCShell.setStock`으로 "허브에서 분석 ↗" 칩이 뜬다
+  (`js/app-boot.js`). 🌓 토글은 `VCShell.setTheme`, 캔버스 차트는 `vc:themechange`에 다시 그린다.
+  `--up`/`--down`은 `--vc-up`/`--vc-down`(상승=빨강, 하락=파랑), 본문 폰트는 `--vc-font-sans`.
+- **인바운드 딥링크**
+  - `?code=<지주사 종목코드 | pair id>` — 해당 쌍 선택(못 찾으면 첫 쌍). 선택을 바꾸면 URL도 갱신한다.
+  - `?theme=dark|light` — 첫 페인트 전에 적용, 저장하지 않는다(없으면 공용 `theme` 키 → OS 설정).
+  - `?embed`(`0`/`false` 제외)·`?headless=1` → `html[data-embed]`, `?vc-shell=0`·iframe — 에코시스템 바 숨김.
+  - `#vc-held=코드:수량,…` — 허브 `/go/holding_value` handoff가 붙이는 보유 스냅샷(배지 스크립트가 읽고 지운다).
+- **발행 요약**: `update-current.yml`이 `fetch_current.py` 다음에 `python publish_summary.py`(네트워크 없음)로
+  루트(= Pages 루트) `summary.json`·`version.json`을 만든다. 값이 같으면 다시 쓰지 않고, 실패해도
+  `current.json` 커밋은 막지 않는다. `asOf` = current.json `generatedAt`. 허브는
+  `https://ducklove.github.io/holding_value/summary.json`을 먼저 읽고 실패하면 `current.json`으로 폴백한다.
+  계약: [data-contract.md](https://github.com/ducklove/value-invest/blob/master/docs/ecosystem/data-contract.md) §6.1.
+- **사용하는 허브 서비스**
+  - 보유 배지: 허브 `/js/portfolio-held-badges.js`가 `data-portfolio-code`/`data-portfolio-price` 라벨에
+    **보유** 배지를 붙인다(`#vc-held` 스냅샷이 없으면 `/api/portfolio/held-codes` 쿠키 조회).
+  - kis-proxy: `fetch_current.py`가 `KIS_PROXY_BASE_URL`(기본 `http://ducklove.duckdns.org:3288`,
+    저장소 Variables로 변경)에서 국내 시세·지수를 받고, 브라우저 실시간 갱신(`js/live-ui.js`)은
+    HTTPS `:3298`의 `/v1/naverfinance/…`·`/v1/indexes/…`를 쓴다.
+  - `/api/internal/notify`·`/api/asset-quotes`·finance-pi는 쓰지 않는다(임계 알림은 자체 Telegram,
+    워크플로우 실패는 GitHub 이슈).
 
 ## 로컬 실행
 
