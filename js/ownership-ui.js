@@ -148,6 +148,26 @@ function createOwnershipGraphView(app) {
 
   function renderGraph() {
     const nodes = new Map(layout.nodes.map(node => [node.id, node]));
+    const labelBoxes = [];
+    function labelPosition(source, target, sameLevel, text) {
+      const halfWidth = Math.max(24, text.length * 3.5 + 6);
+      const x1 = source.x + source.width / 2, y1 = source.y + source.height;
+      const x2 = target.x + target.width / 2, y2 = target.y;
+      const candidates = sameLevel ? [{ x: (x1 + x2) / 2, y: y1 + 26 }] : [0.5, 0.4, 0.6, 0.3, 0.7, 0.2, 0.8].map(function(t) {
+        const u = 1 - t, middle = (y1 + y2) / 2;
+        return {
+          x: u * u * u * x1 + 3 * u * u * t * x1 + 3 * u * t * t * x2 + t * t * t * x2,
+          y: u * u * u * y1 + 3 * u * u * t * middle + 3 * u * t * t * middle + t * t * t * (y2 - 6) - 8,
+        };
+      });
+      function boxAt(point) { return { left: point.x - halfWidth, right: point.x + halfWidth, top: point.y - 13, bottom: point.y + 5 }; }
+      function overlaps(a, b) { return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top; }
+      const obstacles = layout.nodes.map(node => ({ left: node.x - 5, right: node.x + node.width + 5, top: node.y - 5, bottom: node.y + node.height + 5 }));
+      const clearOfNodes = candidates.filter(point => !obstacles.some(box => overlaps(boxAt(point), box)));
+      const chosen = clearOfNodes.find(point => !labelBoxes.some(box => overlaps(boxAt(point), box))) || clearOfNodes[0] || candidates[0];
+      labelBoxes.push(boxAt(chosen));
+      return chosen;
+    }
     const paths = layout.edges.map(function(edge) {
       const source = nodes.get(edge.source), target = nodes.get(edge.target);
       const sameLevel = source.level === target.level;
@@ -157,9 +177,8 @@ function createOwnershipGraphView(app) {
       const d = sameLevel
         ? `M ${source.x + source.width} ${source.y + source.height / 2} C ${source.x + source.width + 48} ${source.y + source.height + 52}, ${target.x - 48} ${target.y + target.height + 52}, ${target.x} ${target.y + target.height / 2}`
         : `M ${x1} ${y1} C ${x1} ${middle}, ${x2} ${middle}, ${x2} ${y2 - 6}`;
-      const labelX = (x1 + x2) / 2;
-      const labelY = sameLevel ? source.y + source.height + 26 : middle - 8;
-      return `<g class="ownership-edge" data-ownership-source="${escapeHtml(edge.source)}" data-ownership-target="${escapeHtml(edge.target)}"><title>${escapeHtml(source.name + ' → ' + target.name + ' · ' + edgeDescription(edge))}</title><path d="${d}" marker-end="url(#ownershipArrow)"></path><text class="ownership-edge-label" x="${labelX}" y="${labelY}" text-anchor="middle">${escapeHtml(edgeLabel(edge))}</text></g>`;
+      const label = labelPosition(source, target, sameLevel, edgeLabel(edge));
+      return `<g class="ownership-edge" data-ownership-source="${escapeHtml(edge.source)}" data-ownership-target="${escapeHtml(edge.target)}"><title>${escapeHtml(source.name + ' → ' + target.name + ' · ' + edgeDescription(edge))}</title><path d="${d}" marker-end="url(#ownershipArrow)"></path><text class="ownership-edge-label" x="${label.x}" y="${label.y}" text-anchor="middle">${escapeHtml(edgeLabel(edge))}</text></g>`;
     }).join('');
     const buttons = layout.nodes.map(function(node) {
       const outgoing = component.edges.some(edge => edge.source === node.id);
