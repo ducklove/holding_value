@@ -408,6 +408,9 @@ function createDashboardLive(app) {
         // 렌더(카드 자회사 보유 배지 티커)도 같은 config를 쓴다 — resolveSubsidiaryTicker 참고.
         app.pairConfigById = holdingConfigById;
         return holdingConfigById;
+      }).catch(function(err) {
+        holdingConfigPromise = null;
+        throw err;
       });
     return holdingConfigPromise;
   }
@@ -530,6 +533,7 @@ function createDashboardLive(app) {
   }
 
   return {
+    loadHoldingConfigMap,
     applyCurrentData,
     ensureHistory,
     refreshCurrentPrices,

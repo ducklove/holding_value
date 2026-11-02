@@ -21,6 +21,8 @@ const SCRIPT_ORDER = [
   'js/format.js',
   'js/calc.js',
   'js/dashboard-core.js',
+  'js/ownership-graph.js',
+  'js/ownership-ui.js',
   'js/render.js',
   'js/charts-ui.js',
   'js/live-ui.js',
@@ -91,6 +93,13 @@ test('모듈별 전역 진입점(UMD-lite export)이 유지된다', () => {
   const liveMod = require('../../js/live-ui.js');
   assert.equal(typeof liveMod.createDashboardLive, 'function');
 
+  const graphMod = require('../../js/ownership-graph.js');
+  for (const name of ['buildOwnershipGraph', 'getOwnershipComponent', 'layoutOwnershipGraph']) {
+    assert.equal(typeof graphMod[name], 'function', `지분 연결도 순수 함수 ${name}`);
+  }
+  const ownershipMod = require('../../js/ownership-ui.js');
+  assert.equal(typeof ownershipMod.createOwnershipGraphView, 'function');
+
   const bootMod = require('../../js/app-boot.js');
   assert.equal(typeof bootMod.loadDashboardData, 'function');
   assert.equal(typeof bootMod.startDashboard, 'function');
@@ -112,6 +121,7 @@ test('팩토리가 만든 함수 묶음이 app 계약(함수 이름)을 유지�
   const { createDashboardRenderers } = require('../../js/render.js');
   const { createDashboardCharts } = require('../../js/charts-ui.js');
   const { createDashboardLive } = require('../../js/live-ui.js');
+  const { createOwnershipGraphView } = require('../../js/ownership-ui.js');
   const app = {};
   const renderers = createDashboardRenderers(app);
   assert.deepEqual(Object.keys(renderers), [
@@ -131,17 +141,50 @@ test('팩토리가 만든 함수 묶음이 app 계약(함수 이름)을 유지�
   ]);
   const live = createDashboardLive(app);
   assert.deepEqual(Object.keys(live), [
+    'loadHoldingConfigMap',
     'applyCurrentData',
     'ensureHistory',
     'refreshCurrentPrices',
     'bindAutoRefresh',
     'bindRefreshButton',
   ]);
-  for (const bundle of [renderers, charts, live]) {
+  const ownership = createOwnershipGraphView(app);
+  assert.deepEqual(Object.keys(ownership), ['bindOwnershipGraph', 'openOwnershipGraph']);
+  for (const bundle of [renderers, charts, live, ownership]) {
     for (const [name, fn] of Object.entries(bundle)) {
       assert.equal(typeof fn, 'function', `${name}은 함수여야 한다`);
     }
   }
+});
+
+test('연결도와 시세 갱신은 config 요청을 공유하고 실패 후 재시도할 수 있다', async () => {
+  let requests = 0;
+  let fail = true;
+  const context = vm.createContext({
+    console, Date, Map,
+    fetch: async () => {
+      requests++;
+      if (fail) return { ok: false, status: 503 };
+      return { ok: true, json: async () => [{
+        id: 'sk_square', holdingTicker: '402340.KS',
+        subsidiaries: [{ name: 'SK하이닉스', ticker: '000660.KS', sharesHeld: 10 }],
+      }] };
+    },
+  });
+  for (const src of ['js/format.js', 'js/live-ui.js']) vm.runInContext(readFileSync(path.join(rootDir, src), 'utf8'), context);
+  context.app = { holdingCodeById: {} };
+  vm.runInContext('Object.assign(app, createDashboardLive(app))', context);
+  await assert.rejects(vm.runInContext('app.loadHoldingConfigMap()', context), /503/);
+  fail = false;
+  const [first, second] = await Promise.all([
+    vm.runInContext('app.loadHoldingConfigMap()', context),
+    vm.runInContext('app.loadHoldingConfigMap()', context),
+  ]);
+  assert.equal(requests, 2, '실패 1회 뒤 동시 요청 2개는 성공 요청 1개를 공유');
+  assert.equal(first, second);
+  assert.equal(first.get('sk_square').subsidiaries[0].ticker, '000660.KS');
+  assert.equal(context.app.pairConfigById, first);
+  assert.equal(context.app.holdingCodeById.sk_square, '402340');
 });
 
 test('실질가치 지표가 데이터 로드 → 계산 → 렌더 계약을 유지한다', () => {

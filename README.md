@@ -29,6 +29,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `build_holdings_api.py` | `api/holdings.json` 생성 (config.json push 시 워크플로우가 실행) |
 | `js/` | 프런트 모듈 (classic script 전역 공유, index.html의 로드 순서 주석이 의존 계약). 순수 로직(format/calc/dashboard-core)은 `node --test tests/js`로 검증, UI(render/charts-ui/live-ui/app-boot)는 구조 계약 테스트(structure.test.mjs)로 고정 |
 | `css/` | 프런트 스타일 |
+| `js/ownership-graph.js` / `js/ownership-ui.js` / `css/ownership.css` | 다단계 지분 연결도 모델·팝업. 종목 카드의 **지분 연결도**, 종목명 옆 연결 아이콘, 보유 지분 상세에서 연다 |
 | `data/summary.json` | 생성 산출물 — 메타+현재가+최근 3년 백분위용 날짜·비율. 프런트 첫 화면의 데이터 소스 |
 | `data/fundamentals.json` | 생성 산출물 — 종목별 별도 자본총계·지분 장부가액·잔존자본 (원 단위) + 자회사별 출자현황 상세(`detail`: 기말 지분율·기중 취득/처분·피출자법인 최근사업연도 순이익). 실질가치 지표와 "보유 지분 상세" 표용 |
 | `data/history/{id}.json` | 생성 산출물 — 종목별 컬럼형 히스토리. 선택 종목만 지연 로드 |
@@ -38,6 +39,15 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `vc-shell.js` / `vc-tokens.css` / `pipeline/vc_publish.py` | **벤더링 파일 — 직접 수정 금지.** 정본은 value-invest `static/ecosystem/`·`ecosystem/python/`, 갱신은 `node ../value-invest/scripts/sync-ecosystem.mjs --write --only holding_value` |
 
 ## 데이터 규칙
+
+- **지분 연결도**: `config.json`의 보유 회사 → 보유 종목을 거래소·주식 종류를 포함한 티커로
+  연결한다. 어느 종목에서 열어도 같은 연결망의 상위·하위 관계가 모두 표시되며,
+  공유 투자처는 한 번만 그린다. 종목을 누르면 직접 보유 관계·수량·지분율 출처를 확인하고,
+  **이 종목 대시보드 보기**로 해당 지주사 화면에 이동할 수 있다. 종목 선택·확대/축소·전체 맞춤,
+  모바일 내부 스크롤을 지원한다. 전체 계열사나 미등록·비상장 지분을 포함하는 조직도는 아니다.
+  지분율은 명시된 설정값 또는 공시 기말 지분율을 사용하고, 둘 다 없을 때만 설정 보유수량을
+  해당 종목의 총발행주식수로 나눈 값을 표시한다(자사주 차감 조정주식수는 사용하지 않음).
+  공시 기준일과 설정 수량의 차이, 중간 법인 경유·종류주식 합산 등은 상세 주석에 표시한다.
 
 - **비율** = Σ(자회사 `sharesHeld` × 자회사 종가[× 환율]) ÷ (조정주식수 × 지주사 종가) × 100.
   조정주식수 = `holdingAdjustedShares`(있으면) 또는 발행주식수 − 자사주.

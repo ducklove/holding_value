@@ -19,7 +19,8 @@ const indexHtml = read('index.html');
 // 허브 레지스트리(config/ecosystem.json) heldBadges.version — 허브 쪽 값이 바뀌면 함께 올린다.
 const HELD_BADGES_VERSION = '20260930-vc';
 const APP_SCRIPTS = [
-  'js/format.js', 'js/calc.js', 'js/dashboard-core.js', 'js/render.js',
+  'js/format.js', 'js/calc.js', 'js/dashboard-core.js',
+  'js/ownership-graph.js', 'js/ownership-ui.js', 'js/render.js',
   'js/charts-ui.js', 'js/live-ui.js', 'js/app-boot.js',
 ];
 
@@ -125,7 +126,7 @@ function makeStorage({ blocked = false, initial = {} } = {}) {
   };
 }
 
-// startDashboard를 실제로 실행하되 렌더/차트/라이브 팩토리는 호출 기록만 남기는 스텁으로 바꾼다.
+// startDashboard를 실제로 실행하되 UI 팩토리는 호출 기록만 남기는 스텁으로 바꾼다.
 async function bootDashboard({ search = '', theme = 'light', shell = true, storage = makeStorage() } = {}) {
   const elements = new Map();
   const document = new EventTarget();
@@ -137,7 +138,7 @@ async function bootDashboard({ search = '', theme = 'light', shell = true, stora
       return elements.get(id);
     },
   });
-  const calls = { renderChart: 0, renderPriceChart: 0, setTheme: [], setStock: [] };
+  const calls = { renderChart: 0, renderPriceChart: 0, setTheme: [], setStock: [], bindOwnershipGraph: 0 };
   const VCShell = shell ? {
     setTheme(t) {
       calls.setTheme.push(t);
@@ -171,10 +172,15 @@ async function bootDashboard({ search = '', theme = 'light', shell = true, stora
     bindPeriodBtns() {}, bindPricePeriodBtns() {}, bindDataZoomControls() {},
   });
   context.createDashboardLive = () => ({
+    loadHoldingConfigMap() { return Promise.resolve(new Map()); },
     applyCurrentData() { return false; },
     ensureHistory() { return Promise.resolve(); },
     refreshCurrentPrices() { return Promise.resolve(false); },
     bindAutoRefresh() {}, bindRefreshButton() {},
+  });
+  context.createOwnershipGraphView = () => ({
+    bindOwnershipGraph() { calls.bindOwnershipGraph += 1; },
+    openOwnershipGraph() {},
   });
   context.__data = {
     lastUpdated: '2026-09-26 09:21:15',
@@ -240,6 +246,13 @@ test('종목 선택 → VCShell.setStock(코드, 지주사명), 평균 카드 �
   const avg = app.pairs.findIndex(pair => pair.isAverage);
   app.setSelectedIdx(avg, { syncUrl: true });
   assert.deepEqual(calls.setStock.at(-1), [null, null]);
+});
+
+test('대시보드 부트는 지분 연결도 진입점을 한 번만 연결한다', async () => {
+  const { app, calls } = await bootDashboard();
+  assert.equal(calls.bindOwnershipGraph, 1);
+  assert.equal(typeof app.openOwnershipGraph, 'function');
+  assert.equal(typeof app.loadHoldingConfigMap, 'function');
 });
 
 // ---- render.js: 카드 자회사 보유 배지 티커 -------------------------------------------------

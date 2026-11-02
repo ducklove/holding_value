@@ -8,3 +8,5 @@ import('./proxy-sign.test.mjs');
 import('./dashboard-core.test.mjs');
 import('./structure.test.mjs');
 import('./ecosystem.test.mjs');
+
+import('./ownership-graph.test.mjs');

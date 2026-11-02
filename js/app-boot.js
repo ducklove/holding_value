@@ -121,6 +121,7 @@ function startDashboard(STOCK_DATA) {
   Object.assign(app, createDashboardRenderers(app));
   Object.assign(app, createDashboardCharts(app));
   Object.assign(app, createDashboardLive(app));
+  Object.assign(app, createOwnershipGraphView(app));
 
   applyTheme(loadTheme(), false);
 
@@ -152,6 +153,7 @@ function startDashboard(STOCK_DATA) {
   app.bindRefreshButton();
   bindCsvExport();
   bindThemeToggle();
+  app.bindOwnershipGraph();
   resolveSelectionFromQuery();
   syncShellStock();
   if (document.readyState === 'loading') {
