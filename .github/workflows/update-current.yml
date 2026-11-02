@@ -41,6 +41,14 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python fetch_current.py
 
+      # Exact share-class denominators for ownership graphs. Successful observations
+      # are cached for 24 hours; failures retain prior source/date and never block prices.
+      - name: Refresh ownership security metadata
+        continue-on-error: true
+        env:
+          KIS_PROXY_BASE_URL: ${{ vars.KIS_PROXY_BASE_URL || 'http://ducklove.duckdns.org:3288' }}
+        run: python build_ownership_securities.py --max-age-hours 24
+
       # 허브(Value Compass)용 요약 envelope — current.json·config.json만 읽는다(네트워크 없음).
       # 데이터가 같으면 파일을 다시 쓰지 않는다(write_if_changed). 계약: value-invest
       # docs/ecosystem/data-contract.md §6.1. 요약 발행이 실패해도 current.json 커밋은 막지 않는다
@@ -55,6 +63,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add current.json summary.json version.json
+          if [ -f data/ownership-securities.json ]; then
+            git add data/ownership-securities.json
+          fi
           git diff --cached --quiet || {
             git commit -m "Update current prices ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M'))"
             for attempt in 1 2 3 4; do

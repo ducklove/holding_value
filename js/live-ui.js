@@ -94,6 +94,7 @@ function createDashboardLive(app) {
     app.latestAppliedSnapshotMs = incomingVersion || Date.now();
     app.latestSnapshotVersion = Math.max(app.latestSnapshotVersion || 0, app.latestAppliedSnapshotMs || 0);
     app.todayOverviewData = app.buildTodaySummary(currentData);
+    if (app.refreshOwnershipGraph) app.refreshOwnershipGraph();
     return true;
   }
 

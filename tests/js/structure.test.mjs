@@ -149,7 +149,7 @@ test('팩토리가 만든 함수 묶음이 app 계약(함수 이름)을 유지�
     'bindRefreshButton',
   ]);
   const ownership = createOwnershipGraphView(app);
-  assert.deepEqual(Object.keys(ownership), ['bindOwnershipGraph', 'openOwnershipGraph']);
+  assert.deepEqual(Object.keys(ownership), ['bindOwnershipGraph', 'openOwnershipGraph', 'refreshOwnershipGraph']);
   for (const bundle of [renderers, charts, live, ownership]) {
     for (const [name, fn] of Object.entries(bundle)) {
       assert.equal(typeof fn, 'function', `${name}은 함수여야 한다`);
