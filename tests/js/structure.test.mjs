@@ -22,6 +22,7 @@ const SCRIPT_ORDER = [
   'js/calc.js',
   'js/dashboard-core.js',
   'js/ownership-graph.js',
+  'js/holdings-analysis.js',
   'js/ownership-ui.js',
   'js/render.js',
   'js/charts-ui.js',

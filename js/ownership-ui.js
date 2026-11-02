@@ -37,6 +37,8 @@ function createOwnershipGraphView(app) {
 
   function rebuildGraph() {
     graph = buildOwnershipGraph(graphConfigs, app.stockData, null, securities);
+    app.ownershipGraph = graph;
+    app.ownershipGraphStatus = 'ready';
     return graph;
   }
 
@@ -55,6 +57,7 @@ function createOwnershipGraphView(app) {
       return rebuildGraph();
     }).catch(function(err) {
       graphPromise = null;
+      app.ownershipGraphStatus = 'unavailable';
       throw err;
     });
     return graphPromise;
@@ -154,7 +157,7 @@ function createOwnershipGraphView(app) {
     window.addEventListener('resize', function() { if (dialog.open && layout) fitGraph(); });
   }
 
-  async function openOwnershipGraph(stock, trigger) {
+  async function openOwnershipGraph(stock, trigger, targetStock) {
     if (!dialog) createDialog();
     const request = ++openRequest;
     opener = trigger || document.activeElement;
@@ -172,6 +175,10 @@ function createOwnershipGraphView(app) {
         .sort((a, b) => a.name.localeCompare(b.name, 'ko'))
         .map(node => `<option value="${escapeHtml(node.id)}">${escapeHtml(node.name)} · ${escapeHtml(node.ticker)}</option>`).join('');
       showComponent(stock);
+      if (targetStock) {
+        const target = getOwnershipComponent(graph, targetStock).focusId;
+        if (component.nodes.some(node => node.id === target)) selectNode(target, false);
+      }
     } catch (err) {
       if (request !== openRequest || !dialog.open) return;
       el('ownershipStatus').innerHTML = '연결 관계를 불러오지 못했습니다. <button type="button" class="ownership-detail-link" data-ownership-retry>다시 시도</button>';
@@ -381,19 +388,23 @@ function createOwnershipGraphView(app) {
   }
 
   function bindOwnershipGraph() {
+    app.ownershipGraphStatus = 'loading';
     document.addEventListener('click', function(event) {
       const trigger = event.target.closest('[data-ownership-stock]');
       if (!trigger) return;
       event.preventDefault();
       event.stopPropagation(); // 카드 선택보다 먼저 처리해 뒤쪽의 선택 상태를 유지한다.
-      openOwnershipGraph(trigger.dataset.ownershipStock, trigger);
+      openOwnershipGraph(trigger.dataset.ownershipStock, trigger, trigger.dataset.ownershipTarget);
     }, true);
     // 시세 갱신과 같은 config 요청을 공유한다. 불러오면 자회사 이름 옆 진입점도 채운다.
     ensureGraph().then(function() {
       app.renderCards();
       app.renderTable();
       app.renderStats();
-    }).catch(function() { /* 팝업을 열 때 오류 및 재시도 UI를 제공한다. */ });
+    }).catch(function() {
+      app.ownershipGraphStatus = 'unavailable';
+      app.renderStats();
+    });
   }
 
   return { bindOwnershipGraph, openOwnershipGraph, refreshOwnershipGraph };

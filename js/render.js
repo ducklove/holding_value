@@ -7,10 +7,12 @@
 // 포맷/이스케이프 헬퍼(escapeHtml, formatRatio …)와 계산부(computeRatioStats,
 // buildContributionRows …)는 format.js/dashboard-core.js 전역을 그대로 쓴다.
 function createDashboardRenderers(app) {
-  function renderOwnershipLink(stock, name, compact) {
+  const expandedHoldings = new Set();
+  const expandedIndirectPairs = new Set();
+  function renderOwnershipLink(stock, name, compact, targetStock) {
     if (!stock) return '';
     const icon = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="1.5" width="6" height="5" rx="1.3"/><path d="M10 6.5v4M4 14v-3.5h12V14"/><rect x="1" y="14" width="6" height="4.5" rx="1.3"/><rect x="13" y="14" width="6" height="4.5" rx="1.3"/></svg>';
-    return `<button type="button" class="${compact ? 'ownership-mini-link' : 'ownership-open'}" data-ownership-stock="${escapeHtml(stock)}" aria-label="${escapeHtml(name || stock)} 지분 연결도 열기" title="지분 연결도" aria-haspopup="dialog">${icon}${compact ? '' : '지분 연결도 <span aria-hidden="true">→</span>'}</button>`;
+    return `<button type="button" class="${compact ? 'ownership-mini-link' : 'ownership-open'}" data-ownership-stock="${escapeHtml(stock)}"${targetStock ? ` data-ownership-target="${escapeHtml(targetStock)}"` : ''} aria-label="${escapeHtml(name || stock)} 지분 연결도 열기" title="지분 연결도" aria-haspopup="dialog">${icon}${compact ? '' : '지분 연결도 <span aria-hidden="true">→</span>'}</button>`;
   }
 
   function renderPriceLine(label, price, change, suffix, ticker) {
@@ -380,8 +382,6 @@ function createDashboardRenderers(app) {
     const hist = app.getFilteredHistory(p);
     if (!hist.length) {
       document.getElementById('statsRow').innerHTML = '';
-      const contribSection = document.getElementById('contribSection');
-      if (contribSection) contribSection.style.display = 'none';
       return;
     }
     const current = p.current.ratio;
@@ -406,55 +406,6 @@ function createDashboardRenderers(app) {
       <div class="stat-box"><div class="label">Z-SCORE (구간)</div><div class="value">${zScore === null ? '-' : (zScore > 0 ? '+' : '') + zScore.toFixed(2)}</div></div>
       <div class="stat-box"><div class="label">데이터 수</div><div class="value">${hist.length}일</div></div>
     `;
-    renderContribution();
-  }
-
-  // --- 자회사 기여 분해 ---
-  function renderContribution() {
-    const section = document.getElementById('contribSection');
-    if (!section) return;
-    const p = app.pairs[app.selectedIdx];
-    const hist = app.getFilteredHistory(p);
-    // 기여 분해 행 계산은 js/dashboard-core.js(buildContributionRows)
-    const contribution = p.isAverage ? null : buildContributionRows(hist);
-    if (!contribution) {
-      section.style.display = 'none';
-      return;
-    }
-
-    const rows = contribution.rows;
-    const maxAbs = contribution.maxAbs;
-    const totalDelta = contribution.totalDelta;
-    const last = hist[hist.length - 1];
-    const formatDelta = (v) => (v > 0 ? '+' : '') + v.toFixed(1) + '%p';
-
-    const rowsHtml = rows.map(function(row) {
-      const barWidth = (Math.abs(row.delta) / maxAbs * 100).toFixed(1);
-      const barColor = row.delta >= 0 ? 'var(--up)' : 'var(--down)';
-      return `<div class="contrib-row">
-        <span class="contrib-name">${escapeHtml(row.name)}</span>
-        <span class="contrib-span">${row.first.toFixed(1)}% → ${row.last.toFixed(1)}%</span>
-        <span class="contrib-delta ${getDirectionClass(row.delta)}-color">${formatDelta(row.delta)}</span>
-        <div class="contrib-bar-track"><div class="contrib-bar" style="width:${barWidth}%;background:${barColor}"></div></div>
-      </div>`;
-    }).join('');
-
-    // 자회사 Δ는 총 비율과 같은 분모(지주 조정시총)를 쓰므로 Σd ≈ totalDelta (반올림 차이만) — 잔차 행 불필요
-    section.innerHTML = `
-      <div class="contrib-head">
-        <div class="contrib-title">자회사 기여 분해</div>
-        <div class="contrib-range">${hist[0].date} → ${last.date}</div>
-      </div>
-      <div>
-        ${rowsHtml}
-        <div class="contrib-row contrib-total">
-          <span class="contrib-name">합계 (지주가 변동 포함)</span>
-          <span class="contrib-span">${hist[0].ratio}% → ${last.ratio}%</span>
-          <span class="contrib-delta ${getDirectionClass(totalDelta)}-color">${formatDelta(totalDelta)}</span>
-          <span></span>
-        </div>
-      </div>`;
-    section.style.display = '';
   }
 
   // --- 보유 지분 상세 ---
@@ -484,54 +435,143 @@ function createDashboardRenderers(app) {
     return `${escapeHtml(text)}${mismatchNote}${note}`;
   }
 
+  function formatHoldingPct(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    if (value > 0 && value < 0.000001) return '<0.000001%';
+    const digits = value >= 1 ? 2 : value >= 0.01 ? 3 : value >= 0.0001 ? 4 : 6;
+    return value.toLocaleString('ko-KR', { maximumFractionDigits: digits }) + '%';
+  }
+
+  function formatNativeValue(value, currency) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) return '-';
+    if (currency === 'KRW') return formatOk(+(value / 1e8).toFixed(Math.abs(value) < 1e8 ? 3 : 1));
+    if (currency === 'USD') return '$' + value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+    return value.toLocaleString('ko-KR', { maximumFractionDigits: 2 }) + ' ' + (currency || '');
+  }
+
+  function formatHoldingsSummary(valueOk) {
+    if (typeof valueOk !== 'number' || !Number.isFinite(valueOk)) return '-';
+    return Math.abs(valueOk) >= 10000 ? (valueOk / 10000).toLocaleString('ko-KR', { maximumFractionDigits: 2 }) + '조' : formatOk(valueOk);
+  }
+
   function renderHoldingsDetail() {
     const section = document.getElementById('holdingsDetailSection');
     if (!section) return;
+    const previousScroll = section.querySelector('.table-scroll');
+    const scrollLeft = previousScroll ? previousScroll.scrollLeft : 0;
+    const active = document.activeElement;
+    const activeKey = active && section.contains(active) ? active.dataset.holdingsToggle : null;
+    const moreHadFocus = active && section.contains(active) && active.hasAttribute('data-holdings-more');
+    const scrollHadFocus = active === previousScroll;
     const pair = app.pairs[app.selectedIdx];
-    const detail = pair ? buildHoldingsDetailRows(pair) : null;
-    if (!detail) {
+    const history = pair ? app.getFilteredHistory(pair) : [];
+    const graph = app.ownershipGraphStatus === 'unavailable' ? undefined : app.ownershipGraph || null;
+    const overview = buildHoldingsOverview(pair, graph, history);
+    if (!overview || !overview.directRows.length) {
       section.style.display = 'none';
       section.innerHTML = '';
       return;
     }
+    const contribution = overview.contribution;
+    const graphNodes = new Map((graph && graph.nodes || []).map(node => [node.id, node]));
+    const sourceStock = pair.holdingTicker || pair.id;
+    const moreExpanded = expandedIndirectPairs.has(pair.id);
+    const visibleIndirectCount = 4;
+    const formatDelta = value => typeof value === 'number' && Number.isFinite(value)
+      ? (value > 0 ? '+' : '') + value.toFixed(1) + '%p' : '-';
+    const range = history.length >= 2 ? history[0].date + ' → ' + history[history.length - 1].date : '구간 데이터 없음';
+    const directValue = typeof pair.current.holdingValue === 'number' ? pair.current.holdingValue : overview.totals.directSum;
+    const totalDelta = contribution ? contribution.totalDelta : null;
 
-    const rowsHtml = detail.rows.map(function(row) {
-      const netIncomeClass = row.netIncome !== null && row.netIncome < 0 ? ' down-color' : '';
-      return `<tr>
-        <td><strong data-portfolio-code="${escapeHtml(row.ticker || '')}" data-portfolio-price="${escapeHtml(row.price ?? '')}">${escapeHtml(row.name)}</strong>${row.ticker ? ` <span class="holdings-ticker">${escapeHtml(getTickerCode(row.ticker))}</span>` : ''}${renderOwnershipLink(row.ticker, row.name, true)}</td>
-        <td class="num">${renderPriceCell(row.price, row.change)}</td>
-        <td class="num">${formatShareCount(row.sharesHeld)}</td>
-        <td class="num">${formatRatio(row.stakePct)}</td>
-        <td class="num">${formatOk(row.valueOk)}</td>
-        <td class="num${netIncomeClass}">${formatPrice(row.netIncome)}</td>
-        <td>${renderHoldingsChangeCell(row)}</td>
-      </tr>`;
-    }).join('');
+    function contributionCell(row) {
+      if (row.type === 'indirect') return '<span class="holdings-group-note" title="중복 평가를 막기 위해 보유 합계와 비율 기여에서 제외합니다">합계 미포함</span>';
+      const currentSub = (pair.current.subsidiaries || []).find(sub => sub.name === row.name);
+      const currentRatio = currentSub && typeof currentSub.ratio === 'number' ? currentSub.ratio
+        : typeof row.valueOk === 'number' && pair.current.marketCap > 0 ? row.valueOk / pair.current.marketCap * 100 : null;
+      const delta = row.contribution && row.contribution.delta;
+      const deltaText = typeof delta === 'number' ? formatDelta(delta) : '-';
+      const width = typeof delta === 'number' && contribution ? Math.min(100, Math.abs(delta) / contribution.maxAbs * 100) : 0;
+      return `<span class="holdings-contribution-value">${formatRatio(currentRatio)}</span><span class="holdings-contribution-delta ${getDirectionClass(delta)}-color" title="선택 구간 비율 변화: ${escapeHtml(range)}">${deltaText}</span>${typeof delta === 'number' ? `<div class="holdings-contribution-track" aria-hidden="true"><div class="holdings-contribution-bar ${getDirectionClass(delta)}-color" style="width:${width}%"></div></div>` : ''}`;
+    }
 
-    const sourceText = detail.reportLabel
-      ? `공시 출처: ${detail.reportLabel} 타법인 출자현황${detail.reportDate ? ` (기준일 ${detail.reportDate})` : ''} · 순이익은 피출자법인 최근사업연도 당기순이익(보고서 기재 단위)`
-      : '공시 데이터 수집 전 — 시세 기반 항목만 표시';
+    function detailContent(row) {
+      if (row.type === 'indirect') {
+        const paths = row.paths || [];
+        const pathRows = paths.slice(0, 12).map(function(path) {
+          const names = path.nodeIds.map(id => graphNodes.get(id)?.name || id).join(' → ');
+          const formula = path.stakePcts.map(formatHoldingPct).join(' × ') + ' = ' + formatHoldingPct(path.pct);
+          return `<li><strong>${escapeHtml(names)}</strong><div class="ownership-path-formula">${escapeHtml(formula)}</div></li>`;
+        }).join('');
+        const node = row.node || graphNodes.get(row.ticker) || {};
+        const stamp = node.marketCapAsOf || node.marketCapObservedAt;
+        const timestamp = stamp ? ownershipTimestamp(stamp) : null;
+        const time = timestamp !== null ? (node.marketCapAsOf ? '시세 기준 ' : '시세 조회 ') + formatKstTimestamp(new Date(timestamp)) + ' KST' : '시세 시점 미확인';
+        return `<div class="holdings-detail-item"><span>간접 환산 지분율</span><strong>${escapeHtml(formatHoldingPct(row.indirectPct))}</strong></div><div class="holdings-detail-item"><span>대상 종류주식 시총</span><strong>${escapeHtml(formatNativeValue(row.rawTargetMarketCap, row.currency))}</strong></div><div class="holdings-detail-item"><span>간접 환산가치</span><strong>${escapeHtml(formatNativeValue(row.nativeValueRaw, row.currency))}</strong></div><div class="holdings-detail-note">환산가치 = 간접 지분율 × 대상 시총. ${escapeHtml(time)}. ${row.currency === 'USD' ? 'USD 참고값이며 원화 보유 합계에 포함하지 않습니다. ' : ''}중간 회사의 지분가치에 이미 반영된 하위 지분이므로 보유 합계에 더하지 않습니다.</div><ol class="holdings-path-list">${pathRows}</ol>${paths.length > 12 ? '<div class="holdings-detail-note">나머지 경로는 지분 연결도에서 확인할 수 있습니다.</div>' : ''}${(row.caveats || []).map(note => `<div class="holdings-detail-note">${escapeHtml(note)}</div>`).join('')}`;
+      }
+      const periodText = row.contribution
+        ? `${formatRatio(row.contribution.first)} → ${formatRatio(row.contribution.last)} (${formatDelta(row.contribution.delta)})`
+        : '선택 구간 양 끝의 데이터가 없어 계산하지 않습니다.';
+      const disclosed = typeof row.reportedStakePct === 'number'
+        ? formatHoldingPct(row.reportedStakePct) + (overview.reportDate ? ' · ' + overview.reportDate : '') : '-';
+      const basis = row.edge && row.edge.stakeSource === 'calculated'
+        ? `등록 수량 ${formatShareCount(row.sharesHeld)} ÷ 대상 주식수 ${formatShareCount(row.edge.totalShares)}`
+        : row.edge && row.edge.stakeSource === 'disclosure' ? '공시 기말 지분율' : '등록·공시 자료 기준';
+      return `<div class="holdings-detail-item"><span>보유주식수</span><strong>${formatShareCount(row.sharesHeld)}</strong></div><div class="holdings-detail-item"><span>공시 기말 지분율</span><strong>${escapeHtml(disclosed)}</strong></div><div class="holdings-detail-item"><span>피출자법인 최근 순이익</span><strong>${formatPrice(row.netIncome)}</strong></div><div class="holdings-detail-item"><span>공시 기간 지분 변동</span>${renderHoldingsChangeCell(row)}</div><div class="holdings-detail-item"><span>선택 구간 비율 기여</span><strong>${escapeHtml(periodText)}</strong></div><div class="holdings-detail-item"><span>현재 지분율 기준</span>${escapeHtml(basis)}</div><div class="holdings-detail-note">${escapeHtml(range)} · 기여 비율 = 해당 보유지분 평가가치 ÷ ${escapeHtml(pair.holdingName)} 조정시총. 기간 변화는 모회사 주가 변동도 반영합니다. 순이익은 ${escapeHtml(overview.reportLabel || '수집된 공시')}에 기재된 피출자법인 최근사업연도 값입니다.</div>`;
+    }
 
-    section.innerHTML = `
-      <div class="ownership-heading"><h2>보유 지분 상세 — <span data-portfolio-code="${escapeHtml(pair.holdingTicker || app.holdingCodeById?.[pair.id] || '')}" data-portfolio-price="${escapeHtml(pair.current?.holdingPrice ?? '')}">${escapeHtml(pair.holdingName || pair.name)}</span></h2>${renderOwnershipLink(pair.holdingTicker || pair.id, pair.holdingName, false)}</div>
-      <div class="holdings-detail-meta">${escapeHtml(sourceText)}</div>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>보유 종목</th>
-              <th class="num">현재가</th>
-              <th class="num" title="현재 지분가치 계산에 쓰는 보유주식수 (config 기준)">보유주식수</th>
-              <th class="num" title="타법인 출자현황 기말 지분율">지분율</th>
-              <th class="num" title="보유주식수 × 현재가">평가가치</th>
-              <th class="num" title="피출자법인 최근사업연도 당기순이익 (타법인 출자현황 기재값)">최근 순이익</th>
-              <th title="보고서 기간 중 취득·처분 및 보고서 이후 변동 신호">지분 변동</th>
-            </tr>
-          </thead>
-          <tbody>${rowsHtml}</tbody>
-        </table>
-      </div>`;
+    function holdingRow(row, index) {
+      const indirect = row.type === 'indirect';
+      const key = pair.id + ':' + row.type + ':' + (row.ticker || row.name);
+      const id = 'holding-detail-' + encodeURIComponent(key).replace(/%/g, '_');
+      const extra = indirect && index >= visibleIndirectCount;
+      const shown = !extra || moreExpanded;
+      const expanded = expandedHoldings.has(key);
+      const price = indirect ? (row.node || graphNodes.get(row.ticker) || {}).price : row.price;
+      const priceText = indirect && row.currency === 'USD'
+        ? (typeof price === 'number' ? '$' + price.toLocaleString('ko-KR', { maximumFractionDigits: 2 }) : '-')
+        : indirect ? formatPrice(price) : renderPriceCell(price, row.change);
+      const valueText = indirect ? formatNativeValue(row.nativeValueRaw, row.currency) : formatOk(row.valueOk);
+      const stake = indirect ? row.indirectPct : row.stakePct;
+      const meta = indirect ? `${row.paths.length}개 경로 · ${row.minSteps === row.maxSteps ? row.minSteps : row.minSteps + '–' + row.maxSteps}단계` : row.edge?.relationshipKind === 'tracked-indirect' ? '중간 법인 경유' : '';
+      const extraAttrs = extra ? ' data-holdings-extra' : '';
+      return `<tr class="${indirect ? 'holdings-indirect-row' : 'holdings-registered-row'}" data-holding-kind="${row.type}" data-holding-ticker="${escapeHtml(row.ticker || '')}"${extraAttrs}${shown ? '' : ' hidden'}><td><div class="holdings-stock"><div class="holdings-stock-name"><strong data-portfolio-code="${escapeHtml(row.ticker || '')}"${indirect ? '' : ` data-portfolio-price="${escapeHtml(price ?? '')}"`}>${escapeHtml(row.name)}</strong>${renderOwnershipLink(sourceStock, row.name, true, row.ticker)}</div><div class="holdings-stock-meta"><span class="holdings-kind${indirect ? ' is-indirect' : ''}">${indirect ? '간접' : '보유'}</span><span>${escapeHtml(row.ticker ? getTickerCode(row.ticker) : '')}</span>${meta ? `<span>${escapeHtml(meta)}</span>` : ''}</div></div></td><td class="num">${escapeHtml(formatHoldingPct(stake))}</td><td class="num"><strong>${escapeHtml(valueText)}</strong></td><td class="num">${contributionCell(row)}</td><td class="num">${priceText}</td><td class="holdings-row-actions"><button type="button" class="holdings-detail-toggle" data-holdings-toggle="${escapeHtml(key)}" aria-expanded="${expanded}" aria-controls="${id}" aria-label="${escapeHtml(row.name)} ${indirect ? '간접 보유 계산' : '보유 지분'} 상세">${expanded ? '접기' : '상세'}</button></td></tr><tr class="holdings-detail-row" id="${id}" data-holdings-detail-key="${escapeHtml(key)}"${extraAttrs}${shown && expanded ? '' : ' hidden'}><td colspan="6"><div class="holdings-detail-content">${detailContent(row)}</div></td></tr>`;
+    }
+
+    const directRows = overview.directRows.map(holdingRow).join('');
+    const indirectRows = overview.indirectRows.map(holdingRow).join('');
+    const groupText = overview.indirectStatus === 'loading' ? '간접 보유 정보를 불러오는 중…'
+      : overview.indirectStatus === 'unavailable' ? '지분 연결도에서 연결 정보를 다시 불러올 수 있습니다.' : '';
+    const extraCount = Math.max(0, overview.indirectRows.length - visibleIndirectCount);
+    const sourceText = overview.reportLabel ? `공시 ${overview.reportLabel}${overview.reportDate ? ' · ' + overview.reportDate : ''}` : '공시 상세 수집 전';
+    section.innerHTML = `<div class="holdings-analysis-header"><h2>보유 지분 분석 — <span data-portfolio-code="${escapeHtml(pair.holdingTicker || '')}" data-portfolio-price="${escapeHtml(pair.current.holdingPrice ?? '')}">${escapeHtml(pair.holdingName || pair.name)}</span></h2>${renderOwnershipLink(sourceStock, pair.holdingName, false)}</div><div class="holdings-analysis-meta">현재 평가가치와 선택 구간의 비율 변화를 함께 봅니다. ${escapeHtml(sourceText)}${app.stockData.lastUpdated ? ' · 보유 시세 ' + escapeHtml(app.stockData.lastUpdated) : ''}</div><div class="holdings-analysis-summary"><div class="holdings-summary-item"><span class="holdings-summary-label">보유지분 가치</span><strong class="holdings-summary-value" title="${formatOk(directValue)}">${formatHoldingsSummary(directValue)}</strong><span class="holdings-summary-note">반영 보유 ${overview.directRows.length}종목</span></div><div class="holdings-summary-item"><span class="holdings-summary-label">현재 비율</span><strong class="holdings-summary-value">${formatRatio(pair.current.ratio)}</strong><span class="holdings-summary-note">보유지분 가치 / 조정시총</span></div><div class="holdings-summary-item"><span class="holdings-summary-label">선택 구간 비율 변화</span><strong class="holdings-summary-value ${getDirectionClass(totalDelta)}-color">${formatDelta(totalDelta)}</strong><span class="holdings-summary-note">${escapeHtml(range)}</span></div></div><div class="table-scroll" tabindex="0" role="region" aria-label="${escapeHtml(pair.holdingName)} 보유 지분 표. 좌우로 스크롤할 수 있습니다."><table class="holdings-analysis-table"><thead><tr><th>보유 종목</th><th class="num">지분율</th><th class="num">현재 평가가치</th><th class="num" title="위: 현재 평가가치 / 모회사 조정시총. 아래: 선택 구간 시작 대비 종료 비율 변화(%p)">현재 비율 기여 / 구간 변화</th><th class="num">현재가</th><th>상세</th></tr></thead><tbody>${directRows}<tr class="holdings-total-row"><td>보유 합계</td><td></td><td class="num" data-holdings-total>${formatOk(directValue)}</td><td class="num"><span class="holdings-contribution-value">${formatRatio(pair.current.ratio)}</span><span class="holdings-contribution-delta ${getDirectionClass(totalDelta)}-color">${formatDelta(totalDelta)}</span></td><td colspan="2"></td></tr>${overview.indirectRows.length ? `<tr class="holdings-group-row"><td colspan="6"><strong>간접 보유 환산 · ${overview.indirectRows.length}종목</strong><span class="holdings-group-note">중간 회사에 반영된 지분 · 합계 미포함</span></td></tr>${indirectRows}` : groupText ? `<tr class="holdings-group-row"><td colspan="6">${groupText}</td></tr>` : ''}</tbody></table></div>${extraCount ? `<button type="button" class="holdings-more-button" data-holdings-more aria-expanded="${moreExpanded}">${moreExpanded ? '간접 보유 접기' : '간접 보유 ' + extraCount + '종목 더 보기'}</button>` : ''}`;
     section.style.display = '';
+    const scroll = section.querySelector('.table-scroll');
+    if (scroll) scroll.scrollLeft = scrollLeft;
+    section.querySelectorAll('[data-holdings-toggle]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const key = button.dataset.holdingsToggle;
+        const expanded = !expandedHoldings.has(key);
+        if (expanded) expandedHoldings.add(key); else expandedHoldings.delete(key);
+        document.getElementById(button.getAttribute('aria-controls')).hidden = !expanded;
+        button.setAttribute('aria-expanded', String(expanded));
+        button.textContent = expanded ? '접기' : '상세';
+      });
+    });
+    const more = section.querySelector('[data-holdings-more]');
+    if (more) more.addEventListener('click', function() {
+      const expanded = !expandedIndirectPairs.has(pair.id);
+      if (expanded) expandedIndirectPairs.add(pair.id); else expandedIndirectPairs.delete(pair.id);
+      section.querySelectorAll('tr[data-holdings-extra]').forEach(function(row) {
+        row.hidden = !expanded || (row.dataset.holdingsDetailKey !== undefined && !expandedHoldings.has(row.dataset.holdingsDetailKey));
+      });
+      more.setAttribute('aria-expanded', String(expanded));
+      more.textContent = expanded ? '간접 보유 접기' : '간접 보유 ' + extraCount + '종목 더 보기';
+    });
+    if (activeKey) {
+      const replacement = Array.from(section.querySelectorAll('[data-holdings-toggle]')).find(button => button.dataset.holdingsToggle === activeKey);
+      if (replacement) replacement.focus({ preventScroll: true });
+    } else if (moreHadFocus && more) more.focus({ preventScroll: true });
+    else if (scrollHadFocus && scroll) scroll.focus({ preventScroll: true });
   }
 
   return {

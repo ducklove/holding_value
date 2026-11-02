@@ -30,6 +30,7 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `js/` | 프런트 모듈 (classic script 전역 공유, index.html의 로드 순서 주석이 의존 계약). 순수 로직(format/calc/dashboard-core)은 `node --test tests/js`로 검증, UI(render/charts-ui/live-ui/app-boot)는 구조 계약 테스트(structure.test.mjs)로 고정 |
 | `css/` | 프런트 스타일 |
 | `build_ownership_securities.py` / `data/ownership-securities.json` | 연결도용 종류주식별 주식수·시세 원본. KIS 국내 상장주식수 및 Yahoo 해외 outstanding을 수집하고 기준·조회 시각을 보존 |
+| `js/holdings-analysis.js` / `css/holdings.css` | 보유 상세·선택 구간 기여·간접 환산가치를 한 표로 조립. 간접 가치는 보유 합계에 더하지 않음 |
 | `js/ownership-graph.js` / `js/ownership-ui.js` / `css/ownership.css` | 다단계 지분 연결도 모델·팝업. 종목 카드의 **지분 연결도**, 종목명 옆 연결 아이콘, 보유 지분 상세에서 연다 |
 | `data/summary.json` | 생성 산출물 — 메타+현재가+최근 3년 백분위용 날짜·비율. 프런트 첫 화면의 데이터 소스 |
 | `data/fundamentals.json` | 생성 산출물 — 종목별 별도 자본총계·지분 장부가액·잔존자본 (원 단위) + 자회사별 출자현황 상세(`detail`: 기말 지분율·기중 취득/처분·피출자법인 최근사업연도 순이익). 실질가치 지표와 "보유 지분 상세" 표용 |
@@ -40,6 +41,16 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
 | `vc-shell.js` / `vc-tokens.css` / `pipeline/vc_publish.py` | **벤더링 파일 — 직접 수정 금지.** 정본은 value-invest `static/ecosystem/`·`ecosystem/python/`, 갱신은 `node ../value-invest/scripts/sync-ecosystem.mjs --write --only holding_value` |
 
 ## 데이터 규칙
+
+- **보유 지분 분석**: 기존 보유 지분 상세와 자회사 기여 분해를 한 표로 표시한다.
+  현재 평가가치·지분율·모회사 조정시총 대비 현재 기여 비율과 선택 구간의 변화(%p)를
+  함께 보여주고, 수량·순이익·지분 변동·계산 근거는 행의 **상세**에서 확인한다.
+  현재 평가가치는 차트 확대 구간에 따라 과거 값으로 바뀌지 않는다. 구간 기여 변화는
+  선택 구간의 정확한 시작·종료 값으로 계산하며, 어느 한쪽이 없으면 미확인으로 둔다.
+  삼성전자처럼 여러 단계를 거친 종목은 **간접 보유 환산**에 대상별로 모아서 표시한다.
+  환산가치 = 간접 지분율 × 대상 종류주식 시총이며, 같은 대상의 경로만 합산한다.
+  중간 회사의 시가에 이미 반영된 하위 지분이므로 보유 합계·NAV·현재 비율에 더하지 않는다.
+  해외 간접 가치는 환율 근거가 없으면 원 통화를 유지하며 원화 합계에 섞지 않는다.
 
 - **지분 연결도**: `config.json`의 보유 회사 → 보유 종목을 거래소·주식 종류를 포함한 티커로
   연결한다. 어느 종목에서 열어도 같은 연결망의 상위·하위 관계가 모두 표시되며,

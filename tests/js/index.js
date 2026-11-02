@@ -10,3 +10,5 @@ import('./structure.test.mjs');
 import('./ecosystem.test.mjs');
 
 import('./ownership-graph.test.mjs');
+
+import('./holdings-analysis.test.mjs');
