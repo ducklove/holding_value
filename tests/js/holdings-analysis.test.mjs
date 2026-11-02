@@ -61,6 +61,8 @@ test('직접/간접으로 함께 보유한 종목의 간접 가치는 간접 비
   assert.equal(indirect.rawTargetMarketCap, 500e8);
   assert.equal(indirect.nativeValueRaw, 30e8);
   assert.equal(indirect.valueOk, 30);
+  assert.equal(indirect.parentAdjustedMarketCapOk, 100);
+  assert.equal(indirect.parentMarketCapRatio, 30);
   assert.equal(indirect.pathCount, 1);
   assert.equal(indirect.minSteps, 2);
   assert.equal(indirect.maxSteps, 2);
@@ -179,6 +181,7 @@ test('해외 간접 가치는 원 통화 USD를 유지하며 원화 억원 합�
   assert.equal(apple.indirectPct, 6);
   assert.equal(apple.nativeValueRaw, 1800);
   assert.equal(apple.valueOk, null);
+  assert.equal(apple.parentMarketCapRatio, null);
   assert.equal(apple.currency, 'USD');
   assert.equal(apple.price, 300);
   assert.equal(apple.priceAsOf, '2026-10-30');
@@ -239,4 +242,20 @@ test('실제 KCC 삼성전자 3개 경로의 간접 비율과 시가총액으로
   assert.equal(samsung.valueOk, samsung.nativeValueRaw / 1e8);
   assert.ok(samsung.valueOk > 0);
   assert.equal(overview.totals.directSum, original.rows.reduce((sum, r) => sum + r.valueOk, 0));
+});
+
+
+test('간접 환산가치의 모회사 조정시총 대비 비율은 같은 억원 단위로 계산하고 잘못된 분모는 비워 둔다', () => {
+  const { pair, graph } = fixture();
+  pair.current.marketCap = 10;
+  const first = buildHoldingsOverview(pair, graph, []).indirectRows[0];
+  assert.equal(first.parentMarketCapRatio, 300, '시총 대비 비율은 100%를 초과할 수 있다');
+  pair.current.marketCap = 20;
+  assert.equal(buildHoldingsOverview(pair, graph, []).indirectRows[0].parentMarketCapRatio, 150);
+  for (const invalid of [0, -1, null, undefined, NaN, Infinity]) {
+    pair.current.marketCap = invalid;
+    const result = buildHoldingsOverview(pair, graph, []);
+    assert.equal(result.indirectRows[0].parentMarketCapRatio, null);
+    assert.equal(result.totals.dashboardHoldingValueOk, 130.1);
+  }
 });

@@ -172,6 +172,10 @@ function buildHoldingsOverview(pair, graph, hist) {
       var indirectPct = numeric(exposure.indirectPct);
       var marketCap = numeric(node.marketCap);
       var nativeValueRaw = indirectPct !== null && marketCap !== null ? numeric(marketCap * indirectPct / 100) : null;
+      var valueOk = node.currency === 'KRW' && nativeValueRaw !== null ? nativeValueRaw / 1e8 : null;
+      var parentAdjustedMarketCapOk = numeric(current.marketCap);
+      var parentMarketCapRatio = valueOk !== null && parentAdjustedMarketCapOk !== null && parentAdjustedMarketCapOk > 0
+        ? valueOk / parentAdjustedMarketCapOk * 100 : null;
       var caveats = exposure.caveats.slice();
       if (marketCap === null) caveats.push('대상 종목 시가총액을 확인할 수 없어 간접 평가가치를 계산하지 않습니다.');
       caveats.push('간접 평가가치는 중간 보유회사에 포함된 가치를 다시 살펴보는 참고값이며 직접 보유 평가가치 합계에 더하지 않습니다.');
@@ -184,7 +188,9 @@ function buildHoldingsOverview(pair, graph, hist) {
         marketCapObservedAt: node.marketCapObservedAt || null, marketCapSource: node.marketCapSource || null,
         indirectPct: indirectPct, directPct: exposure.directPct, totalPct: exposure.totalPct,
         nativeValueRaw: nativeValueRaw,
-        valueOk: node.currency === 'KRW' && nativeValueRaw !== null ? nativeValueRaw / 1e8 : null,
+        valueOk: valueOk,
+        parentAdjustedMarketCapOk: parentAdjustedMarketCapOk,
+        parentMarketCapRatio: parentMarketCapRatio,
         sharesHeld: null, contribution: null,
         exposure: exposure, paths: paths, pathCount: paths.length,
         minSteps: Math.min.apply(null, steps), maxSteps: Math.max.apply(null, steps),
