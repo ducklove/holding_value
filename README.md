@@ -190,6 +190,8 @@ KIS 프록시 ────┼─→ fetch_current.py (주중 10분 간격)      
   `current.json` 커밋은 막지 않는다. `asOf` = current.json `generatedAt`. 허브는
   `https://ducklove.github.io/holding_value/summary.json`을 먼저 읽고 실패하면 `current.json`으로 폴백한다.
   계약: [data-contract.md](https://github.com/ducklove/value-invest/blob/master/docs/ecosystem/data-contract.md) §6.1.
+  쌍마다 `ratioPct1y`·`ratioPct3y`(카드 칩과 같은 식으로 현재 비율을 다시 계산)와 분포 끝 날짜 `ratioPctEnd`도 싣는다.
+  허브 기회 보드·종목 360°·액션 보드가 쓴다. 일봉 작업이 멈추면 `ratioPctEnd`가 그 날짜에 머문다.
 - **사용하는 허브 서비스**
   - 보유 배지: 허브 `/js/portfolio-held-badges.js`가 `data-portfolio-code`/`data-portfolio-price` 라벨에
     **보유** 배지를 붙인다(`#vc-held` 스냅샷이 없으면 `/api/portfolio/held-codes` 쿠키 조회).

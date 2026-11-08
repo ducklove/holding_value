@@ -6,6 +6,7 @@ config/schemas/summary/holding_value.schema.json.
 
 import json
 import math
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
@@ -97,6 +98,75 @@ def test_builder_average_fallback_and_invalid_codes():
     assert data["averageRatio"] == 150.5  # summary 없으면 _average 행
     assert data["pairCount"] is None
     assert [p["id"] for p in data["pairs"]] == ["b_pair", "a_pair", "no_quote"]  # 스키마 밖 코드·id 없음 제외
+
+
+# --- 백분위 (data/summary.json percentileHistory + 현재 비율) ---
+
+def history(values, start="2024-01-01"):
+    first = date.fromisoformat(start)
+    days = [(first + timedelta(days=i)).isoformat() for i in range(len(values))]
+    return {"dates": days, "ratio": values}
+
+
+def test_percentile_uses_current_ratio_and_exposes_distribution_end():
+    # 100개 표본(1~100), 마지막 날짜 2024-04-09. 현재 비율 80 → 스냅샷 표본까지 넣어 101개 중 81개 이하.
+    fields = hub_summary.percentile_fields(history(list(range(1, 101))), 80.0, "2024-05-01")
+    assert fields == {"ratioPct1y": 80, "ratioPct3y": 80, "ratioPctEnd": "2024-04-09"}
+
+
+def test_percentile_replaces_same_day_sample_like_the_card():
+    # 스냅샷 날짜가 분포 마지막 날짜와 같으면 표본 수가 늘지 않고 값만 바뀐다.
+    fields = hub_summary.percentile_fields(history(list(range(1, 101))), 1.0, "2024-04-09")
+    assert fields["ratioPct3y"] == 2  # {1, 1(교체)} ≤ 1 → 2/100
+    assert fields["ratioPctEnd"] == "2024-04-09"
+
+
+def test_percentile_windows_are_trailing_from_the_latest_sample():
+    # 약 3년 전 낮은 표본 40개 + 최근 높은 표본 40개 → 1년 창에는 높은 표본만 들어간다.
+    old = history([1.0] * 40, start="2023-06-01")
+    recent = history([100.0] * 40, start="2026-01-01")
+    merged = {"dates": old["dates"] + recent["dates"], "ratio": old["ratio"] + recent["ratio"]}
+    fields = hub_summary.percentile_fields(merged, 50.0, "2026-03-01")
+    assert fields["ratioPct1y"] == 2   # 41개 중 현재 표본 하나
+    assert fields["ratioPct3y"] == 51  # 81개 중 41개
+
+
+def test_percentile_is_null_below_minimum_samples_or_without_a_ratio():
+    assert hub_summary.percentile_fields(history([1.0] * 10), 5.0, "2024-02-01") == {
+        "ratioPct1y": None, "ratioPct3y": None, "ratioPctEnd": "2024-01-10",
+    }
+    assert hub_summary.percentile_fields(history([1.0] * 50), None, "2024-03-01")["ratioPct3y"] is None
+    assert hub_summary.percentile_fields(None, 5.0, "2024-03-01") == {
+        "ratioPct1y": None, "ratioPct3y": None, "ratioPctEnd": None,
+    }
+    noisy = {"dates": ["2024-01-01", "bad", "2024-01-03"], "ratio": [1.0, 2.0, float("nan")]}
+    assert hub_summary.percentile_fields(noisy, 1.0, "2024-01-05")["ratioPctEnd"] == "2024-01-01"
+
+
+def test_builder_adds_percentiles_only_with_a_dashboard_file():
+    assert "ratioPct3y" not in hub_summary.build_holding_summary(CURRENT, CONFIG)["pairs"][1]
+    dashboard = {"pairs": [{"id": "a_pair", "percentileHistory": history(list(range(100, 200)))}]}
+    pairs = {p["id"]: p for p in hub_summary.build_holding_summary(CURRENT, CONFIG, dashboard)["pairs"]}
+    assert pairs["a_pair"]["ratioPct3y"] == 100
+    assert pairs["a_pair"]["ratioPctEnd"] == "2024-04-09"
+    # 분포가 없는 쌍도 키는 있고 값은 null(0으로 채우지 않는다).
+    assert pairs["b_pair"]["ratioPct3y"] is None and pairs["b_pair"]["ratioPctEnd"] is None
+    assert_schema_shape({"lastUpdated": None, "isPartial": False, "pairCount": None, "averageRatio": None,
+                         "pairs": list(pairs.values())})
+
+
+def test_publish_reads_dashboard_and_ignores_a_broken_one(tmp_path):
+    write_inputs(tmp_path)
+    (tmp_path / "data").mkdir()
+    (tmp_path / "data" / "summary.json").write_text("{broken", encoding="utf-8")
+    env = hub_summary.publish(tmp_path, generated_at="2026-09-30T09:00:00+09:00")["envelope"]
+    assert "ratioPct3y" not in env["data"]["pairs"][0]
+
+    dashboard = {"pairs": [{"id": "a_pair", "percentileHistory": history(list(range(100, 200)))}]}
+    (tmp_path / "data" / "summary.json").write_text(json.dumps(dashboard), encoding="utf-8")
+    env = hub_summary.publish(tmp_path, generated_at="2026-09-30T09:10:00+09:00")["envelope"]
+    vp.validate_envelope(env)
+    assert {p["id"]: p["ratioPct3y"] for p in env["data"]["pairs"]}["a_pair"] == 100
 
 
 # --- envelope ---
