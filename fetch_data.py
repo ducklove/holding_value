@@ -573,10 +573,15 @@ def main():
             history.append(entry)
 
         if pair["id"] in price_revision_ids:
-            require_complete_refresh(history, [
+            dropped_dates = require_complete_refresh(history, [
                 row for row in previous_pairs.get(pair["id"], {}).get("history", [])
                 if not valid_from or row["date"] >= valid_from
             ], pair["id"])
+            if dropped_dates:
+                print(
+                    f"  WARNING: {pair['name']}: 원천에 없는 과거 {len(dropped_dates)}일 제외 "
+                    f"({', '.join(dropped_dates)})"
+                )
 
         # 기존 히스토리와 병합 (validFrom 이전 구간은 기존 데이터에서도 제거)
         history, trend_recompute_idx = merge_pair_history(

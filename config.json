@@ -692,21 +692,22 @@
     "name": "텔콘RF제약→자회사",
     "holdingName": "텔콘RF제약",
     "holdingTicker": "200230.KQ",
-    "holdingTotalShares": 68524245,
+    "holdingTotalShares": 9482269,
     "holdingTreasuryShares": 0,
     "subsidiaries": [
       {
         "name": "에이비온",
         "ticker": "203400.KQ",
-        "sharesHeld": 16396104
+        "sharesHeld": 3279220
       },
       {
         "name": "케이피엠테크",
         "ticker": "042040.KQ",
-        "sharesHeld": 28821307
+        "sharesHeld": 7007748
       }
     ],
-    "holdingAdjustedShares": 68524245
+    "holdingAdjustedShares": 9482269,
+    "validFrom": "2026-09-29"
   },
   {
     "id": "aps",
@@ -823,7 +824,7 @@
       {
         "name": "옴니시스템",
         "ticker": "057540.KQ",
-        "sharesHeld": 13889705
+        "sharesHeld": 4021453
       }
     ],
     "holdingAdjustedShares": 25275307

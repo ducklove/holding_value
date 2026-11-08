@@ -29,6 +29,27 @@ def test_partial_refresh_cannot_preserve_unadjusted_older_prices():
     require_complete_refresh(old, old, "daekyo")
 
 
+def _daily_rows(count):
+    return [{"date": f"2026-08-{day:02d}"} for day in range(1, count + 1)]
+
+
+def test_dates_absent_from_the_source_are_dropped_without_stopping_the_run():
+    old = _daily_rows(10)
+    fresh = [row for row in old if row["date"] not in {"2026-08-04", "2026-08-07"}]
+    assert require_complete_refresh(fresh, old, "bio_smart") == ["2026-08-04", "2026-08-07"]
+    assert require_complete_refresh(old, old, "bio_smart") == []
+
+
+def test_truncated_or_heavily_missing_refresh_is_still_blocked():
+    old = _daily_rows(10)
+    with pytest.raises(ValueError, match="재수집 누락"):
+        require_complete_refresh(old[1:], old, "head_cut")
+    with pytest.raises(ValueError, match="재수집 누락"):
+        require_complete_refresh(old[:-1], old, "tail_cut")
+    with pytest.raises(ValueError, match="재수집 누락"):
+        require_complete_refresh([old[0], *old[5:]], old, "many_gaps")
+
+
 def test_subsidiary_split_rebuilds_every_parent_pair():
     pairs = [
         {"id": pid, "holdingTicker": ht, "subsidiaries": [
