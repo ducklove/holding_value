@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T04:32:37+00:00",
+  "generatedAt": "2026-11-09T12:12:42+00:00",
   "shareCountBasis": "exact ticker: domestic listed shares including treasury; foreign outstanding shares excluding treasury",
   "marketCapBasis": "exact security shares*native-currency price; domestic counts not treasury-adjusted",
   "timestampBasis": "ObservedAt is retrieval time; AsOf is source trading/report time, null when unavailable",
@@ -3505,31 +3505,6 @@
       "status": "current",
       "name": "HD현대마린솔루션"
     },
-    "452260.KS": {
-      "ticker": "452260.KS",
-      "currency": "KRW",
-      "totalShares": 193859610,
-      "sharesSource": "kis_proxy",
-      "sharesSourceField": "lstn_stcn",
-      "sharesAsOf": null,
-      "sharesObservedAt": "2026-11-09T04:32:33+00:00",
-      "price": 2085,
-      "priceSource": "kis_proxy",
-      "priceSourceField": "stck_prpr",
-      "priceAsOf": null,
-      "priceObservedAt": "2026-11-09T04:32:33+00:00",
-      "marketCap": 404197286850,
-      "marketCapSource": "listedShares*price",
-      "marketCapBasis": "listedShares",
-      "shareCountBasis": "listedShares",
-      "sharesIncludeTreasury": true,
-      "marketCapAsOf": null,
-      "marketCapObservedAt": "2026-11-09T04:32:33+00:00",
-      "observedAt": "2026-11-09T04:32:33+00:00",
-      "timestampBasis": "retrieval",
-      "status": "current",
-      "name": "한화갤러리아"
-    },
     "454910.KS": {
       "ticker": "454910.KS",
       "currency": "KRW",
@@ -3554,32 +3529,6 @@
       "timestampBasis": "retrieval",
       "status": "current",
       "name": "두산로보틱스"
-    },
-    "489790.KS": {
-      "ticker": "489790.KS",
-      "currency": "KRW",
-      "totalShares": 50488390,
-      "sharesSource": "kis_proxy",
-      "sharesSourceField": "lstn_stcn",
-      "sharesAsOf": null,
-      "sharesObservedAt": "2026-11-06T12:46:46+00:00",
-      "price": 38700,
-      "priceSource": "kis_proxy",
-      "priceSourceField": "stck_prpr",
-      "priceAsOf": null,
-      "priceObservedAt": "2026-11-06T12:46:46+00:00",
-      "marketCap": 1953900693000,
-      "marketCapSource": "listedShares*price",
-      "marketCapBasis": "listedShares",
-      "shareCountBasis": "listedShares",
-      "sharesIncludeTreasury": true,
-      "marketCapAsOf": null,
-      "marketCapObservedAt": "2026-11-06T12:46:46+00:00",
-      "observedAt": "2026-11-06T12:46:46+00:00",
-      "timestampBasis": "retrieval",
-      "status": "stale",
-      "name": "한화비전",
-      "fetchError": "HTTPError: HTTP Error 502: Bad Gateway"
     },
     "AAPL": {
       "ticker": "AAPL",
@@ -3632,9 +3581,7 @@
       "name": "버크셔해서웨이"
     }
   },
-  "failedTickers": [
-    "489790.KS"
-  ],
+  "failedTickers": [],
   "unsupportedTickers": [],
-  "isPartial": true
+  "isPartial": false
 }
