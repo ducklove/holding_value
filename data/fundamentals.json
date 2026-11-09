@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08 20:57:03",
+  "generatedAt": "2026-11-09 20:33:26",
   "note": "잔존자본 = 별도재무제표 자본총계 − 리스트 자회사 지분 장부가액(타법인 출자현황 기말 장부가액). 금액 단위는 원.",
   "pairs": {
     "youngpoong_koreazinc": {
@@ -573,7 +573,7 @@
         {
           "name": "SNT다이내믹스",
           "ticker": "003570.KS",
-          "sharesHeld": 10060000,
+          "sharesHeld": 14055889,
           "bookValue": 199891000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -594,7 +594,7 @@
         {
           "name": "SNT모티브",
           "ticker": "064960.KS",
-          "sharesHeld": 5124000,
+          "sharesHeld": 12182536,
           "bookValue": 156506000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -610,12 +610,13 @@
             "recentTotalAssets": 1268180000000.0,
             "recentNetIncome": 76040000000.0,
             "firstAcquiredAt": "2007.07.30"
-          }
+          },
+          "note": "2026-11-06 대량보유 보고서(20261106000439)의 SNT홀딩스 보유수량은 12,182,536주. 2026-06-30 출자현황 11,975,536주는 11월 장내매수 전 수량이다."
         },
         {
           "name": "SNT에너지",
           "ticker": "100840.KS",
-          "sharesHeld": 4000000,
+          "sharesHeld": 9920079,
           "bookValue": 40031000000.0,
           "matchHow": "name",
           "matchedNames": [
@@ -631,14 +632,11 @@
             "recentTotalAssets": 526140000000.0,
             "recentNetIncome": 74141000000.0,
             "firstAcquiredAt": "2019.03.18"
-          }
+          },
+          "note": "2026-06-30 출자현황 수량. 2026-11-09 대량보유 보고서(20261109000308)의 특별관계자 포함 합계는 11,016,079주이며 직접 보유수량 확인 전이다."
         }
       ],
-      "warnings": [
-        "SNT다이내믹스: config 보유수량 10,060,000주 ↔ 출자현황 기말수량 14,055,889주 (비 1.397)",
-        "SNT모티브: config 보유수량 5,124,000주 ↔ 출자현황 기말수량 11,975,536주 (비 2.337)",
-        "SNT에너지: config 보유수량 4,000,000주 ↔ 출자현황 기말수량 9,920,079주 (비 2.480)"
-      ],
+      "warnings": [],
       "corpCode": "00225159",
       "holdingName": "SNT홀딩스"
     },
@@ -910,10 +908,10 @@
       "equityReport": "2026 반기보고서",
       "equityTerm": "제 75 기 반기말",
       "equityRceptNo": "20260831001249",
-      "bookValue": 3265656000000.0,
+      "bookValue": 3031192000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 351129000000.0,
+      "residualEquity": 585593000000.0,
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -937,27 +935,6 @@
           }
         },
         {
-          "name": "한화비전",
-          "ticker": "489790.KS",
-          "sharesHeld": 17141530,
-          "bookValue": 90837000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            " 한화비전㈜ "
-          ],
-          "qty": 17141530.0,
-          "detail": {
-            "stakePct": 33.95,
-            "beginQty": 17141530.0,
-            "beginStakePct": 33.95,
-            "acqQty": null,
-            "acqAmount": null,
-            "recentTotalAssets": 1233667000000.0,
-            "recentNetIncome": -28223000000.0,
-            "firstAcquiredAt": "2024.09.27"
-          }
-        },
-        {
           "name": "한화솔루션",
           "ticker": "009830.KS",
           "sharesHeld": 63062206,
@@ -976,7 +953,8 @@
             "recentTotalAssets": 19609395000000.0,
             "recentNetIncome": -148600000000.0,
             "firstAcquiredAt": "1982.12.10"
-          }
+          },
+          "note": "2026-06-30 출자현황 수량. 2026-08 유상증자 참여(20260803000056) 반영 전이므로 현재 보유수량보다 적다."
         },
         {
           "name": "고려아연",
@@ -997,27 +975,6 @@
             "recentTotalAssets": 16921641000000.0,
             "recentNetIncome": 771571000000.0,
             "firstAcquiredAt": "2022.11.24"
-          }
-        },
-        {
-          "name": "한화갤러리아",
-          "ticker": "452260.KS",
-          "sharesHeld": 71121265,
-          "bookValue": 143627000000.0,
-          "matchHow": "name",
-          "matchedNames": [
-            " 한화갤러리아㈜ "
-          ],
-          "qty": 71121265.0,
-          "detail": {
-            "stakePct": 36.15,
-            "beginQty": 71121265.0,
-            "beginStakePct": 36.15,
-            "acqQty": null,
-            "acqAmount": null,
-            "recentTotalAssets": 1884976000000.0,
-            "recentNetIncome": 38005000000.0,
-            "firstAcquiredAt": "2023.03.31"
           }
         }
       ],
