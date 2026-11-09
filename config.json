@@ -205,23 +205,23 @@
     "name": "SNT홀딩스→자회사",
     "holdingName": "SNT홀딩스",
     "holdingTicker": "036530.KS",
-    "holdingTotalShares": 12000000,
-    "holdingTreasuryShares": 200000,
+    "holdingTotalShares": 14896066,
+    "holdingTreasuryShares": 0,
     "subsidiaries": [
       {
         "name": "SNT다이내믹스",
         "ticker": "003570.KS",
-        "sharesHeld": 10060000
+        "sharesHeld": 14055889
       },
       {
         "name": "SNT모티브",
         "ticker": "064960.KS",
-        "sharesHeld": 5124000
+        "sharesHeld": 12182536
       },
       {
         "name": "SNT에너지",
         "ticker": "100840.KS",
-        "sharesHeld": 4000000
+        "sharesHeld": 9920079
       }
     ]
   },
@@ -307,8 +307,8 @@
     "name": "세방→세방전지",
     "holdingName": "세방",
     "holdingTicker": "004360.KS",
-    "holdingTotalShares": 13860000,
-    "holdingTreasuryShares": 800000,
+    "holdingTotalShares": 19115603,
+    "holdingTreasuryShares": 784733,
     "subsidiaries": [
       {
         "name": "세방전지",
@@ -322,18 +322,13 @@
     "name": "한화→자회사",
     "holdingName": "한화",
     "holdingTicker": "000880.KS",
-    "holdingTotalShares": 75495175,
-    "holdingTreasuryShares": 2500000,
+    "holdingTotalShares": 53328897,
+    "holdingTreasuryShares": 856522,
     "subsidiaries": [
       {
         "name": "한화에어로스페이스",
         "ticker": "012450.KS",
         "sharesHeld": 16595161
-      },
-      {
-        "name": "한화비전",
-        "ticker": "489790.KS",
-        "sharesHeld": 17141530
       },
       {
         "name": "한화솔루션",
@@ -344,14 +339,10 @@
         "name": "고려아연",
         "ticker": "010130.KS",
         "sharesHeld": 238358
-      },
-      {
-        "name": "한화갤러리아",
-        "ticker": "452260.KS",
-        "sharesHeld": 71121265
       }
     ],
-    "holdingAdjustedShares": 74957051
+    "holdingAdjustedShares": 52472375,
+    "validFrom": "2026-08-25"
   },
   {
     "id": "sk_inc",
@@ -524,8 +515,8 @@
     "name": "아모레퍼시픽홀딩스→아모레퍼시픽",
     "holdingName": "아모레퍼시픽홀딩스",
     "holdingTicker": "002790.KS",
-    "holdingTotalShares": 89994150,
-    "holdingTreasuryShares": 242770,
+    "holdingTotalShares": 76458180,
+    "holdingTreasuryShares": 176927,
     "subsidiaries": [
       {
         "name": "아모레퍼시픽",
