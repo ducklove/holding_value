@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-10 08:55:22",
+  "generatedAt": "2026-11-16 10:24:23",
   "note": "잔존자본 = 별도재무제표 자본총계 − 리스트 자회사 지분 장부가액(타법인 출자현황 기말 장부가액). 금액 단위는 원.",
   "pairs": {
     "youngpoong_koreazinc": {
-      "equity": 1258745626123.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 76 기 반기말",
-      "equityRceptNo": "20260814002751",
+      "equity": 1231003139028.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 76 기 3분기말",
+      "equityRceptNo": "20261113001247",
       "bookValue": 670052000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 588693626123.0,
+      "residualEquity": 560951139028.0,
       "subsidiaries": [
         {
           "name": "고려아연",
@@ -112,14 +112,14 @@
       "holdingName": "세아홀딩스"
     },
     "hyosung_heavy": {
-      "equity": 2726103343016.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 72 기 반기말",
-      "equityRceptNo": "20260819000068",
+      "equity": 2711693638790.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 72 기 3분기말",
+      "equityRceptNo": "20261113001241",
       "bookValue": 1196177000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 1529926343016.0,
+      "residualEquity": 1515516638790.0,
       "subsidiaries": [
         {
           "name": "효성중공업",
@@ -272,14 +272,14 @@
       "holdingName": "조광피혁"
     },
     "yoosung_seohee": {
-      "equity": 213092302178.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 50 기 반기말",
-      "equityRceptNo": "20260814003609",
+      "equity": 212250997638.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 50 기 3분기말",
+      "equityRceptNo": "20261113001525",
       "bookValue": 89649000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 123443302178.0,
+      "residualEquity": 122601997638.0,
       "subsidiaries": [
         {
           "name": "서희건설",
@@ -310,14 +310,14 @@
       "holdingName": "유성티엔에스"
     },
     "simmtech_holdings": {
-      "equity": 280311852643.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 40 기 반기말",
-      "equityRceptNo": "20260814003489",
+      "equity": 309829559083.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 40 기 3분기말",
+      "equityRceptNo": "20261113000907",
       "bookValue": 203010951000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 77300901643.0,
+      "residualEquity": 106818608083.0,
       "subsidiaries": [
         {
           "name": "심텍",
@@ -561,14 +561,14 @@
       "holdingName": "원익홀딩스"
     },
     "snt_holdings": {
-      "equity": 599520964969.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 45 기 반기말",
-      "equityRceptNo": "20260812000295",
+      "equity": 604547945087.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 45 기 3분기말",
+      "equityRceptNo": "20261111000260",
       "bookValue": 396428000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 203092964969.0,
+      "residualEquity": 208119945087.0,
       "subsidiaries": [
         {
           "name": "SNT다이내믹스",
@@ -761,14 +761,14 @@
       "holdingName": "삼성생명"
     },
     "doosan": {
-      "equity": 4168378000000.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 90 기 반기말",
-      "equityRceptNo": "20260814004047",
+      "equity": 4229101000000.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 90 기 3분기말",
+      "equityRceptNo": "20261113001375",
       "bookValue": 2624032000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 1544346000000.0,
+      "residualEquity": 1605069000000.0,
       "subsidiaries": [
         {
           "name": "두산에너빌리티",
@@ -877,20 +877,20 @@
       "holdingName": "LG화학"
     },
     "sebang_battery": {
-      "equity": 666952642301.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 62 기 반기말",
-      "equityRceptNo": "20260814002634",
-      "bookValue": 217924408763.0,
+      "equity": 668934270381.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 62 기 3분기말",
+      "equityRceptNo": "20261113001405",
+      "bookValue": 230666098763.0,
       "bookValueReport": "2025 사업보고서",
       "bookValueDate": "2025-12-31",
-      "residualEquity": 449028233538.0,
+      "residualEquity": 438268171618.0,
       "subsidiaries": [
         {
           "name": "세방전지",
           "ticker": "004490.KS",
           "sharesHeld": 5569225,
-          "bookValue": 217924408763.0,
+          "bookValue": 230666098763.0,
           "matchHow": "bsInvestments",
           "matchedNames": [
             "별도 재무상태표 종속·관계기업투자"
@@ -904,14 +904,14 @@
       "holdingName": "세방"
     },
     "hanwha": {
-      "equity": 3616785000000.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 75 기 반기말",
-      "equityRceptNo": "20260831001249",
+      "equity": 2835217000000.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 75 기 3분기말",
+      "equityRceptNo": "20261112000446",
       "bookValue": 3031192000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 585593000000.0,
+      "residualEquity": -195975000000.0,
       "subsidiaries": [
         {
           "name": "한화에어로스페이스",
@@ -1086,14 +1086,14 @@
       "holdingName": "SK"
     },
     "sk_discovery": {
-      "equity": 1003846789492.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 58 기 반기말",
-      "equityRceptNo": "20260813001756",
+      "equity": 1078782569266.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 58 기 3분기말",
+      "equityRceptNo": "20261113001397",
       "bookValue": 925696000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 78150789492.0,
+      "residualEquity": 153086569266.0,
       "subsidiaries": [
         {
           "name": "SK가스",
@@ -1146,14 +1146,14 @@
       "holdingName": "SK디스커버리"
     },
     "sk_chemical_bioscience": {
-      "equity": 1462955271316.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 10 기 반기말",
-      "equityRceptNo": "20260813001371",
+      "equity": 1467041262066.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 10 기 3분기말",
+      "equityRceptNo": "20261112000694",
       "bookValue": 168035000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 1294920271316.0,
+      "residualEquity": 1299006262066.0,
       "subsidiaries": [
         {
           "name": "SK바이오사이언스",
@@ -1218,14 +1218,14 @@
       "holdingName": "SK스퀘어"
     },
     "harim_holdings": {
-      "equity": 1565541000000.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 65 기 반기말",
-      "equityRceptNo": "20260813001582",
+      "equity": 1558201000000.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 65 기 3분기말",
+      "equityRceptNo": "20261112000720",
       "bookValue": 1062832000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 502709000000.0,
+      "residualEquity": 495369000000.0,
       "subsidiaries": [
         {
           "name": "하림",
@@ -1531,14 +1531,14 @@
       "holdingName": "아모레퍼시픽홀딩스"
     },
     "kpf_tmc": {
-      "equity": 247531424423.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 63 기 반기말",
-      "equityRceptNo": "20260813000697",
+      "equity": 243523450112.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 63 기 3분기말",
+      "equityRceptNo": "20261112000222",
       "bookValue": 93382000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 154149424423.0,
+      "residualEquity": 150141450112.0,
       "subsidiaries": [
         {
           "name": "티엠씨",
@@ -1591,14 +1591,14 @@
       "holdingName": "케이피에프"
     },
     "cosmax_bti": {
-      "equity": 283081703105.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 34 기 반기말",
-      "equityRceptNo": "20260814002427",
+      "equity": 282976352457.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 34 기 3분기말",
+      "equityRceptNo": "20261113001256",
       "bookValue": 333234000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": -50152296895.0,
+      "residualEquity": -50257647543.0,
       "subsidiaries": [
         {
           "name": "코스맥스",
@@ -1857,14 +1857,14 @@
       "holdingName": "콜마홀딩스"
     },
     "seah_mechanics": {
-      "equity": 79647780874.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 28 기 반기말",
-      "equityRceptNo": "20260813001552",
+      "equity": 80138253094.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 28 기 3분기말",
+      "equityRceptNo": "20261113001194",
       "bookValue": 221000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 79426780874.0,
+      "residualEquity": 79917253094.0,
       "subsidiaries": [
         {
           "name": "두산에너빌리티",
@@ -1895,14 +1895,14 @@
       "holdingName": "세아메카닉스"
     },
     "iljin_diamond": {
-      "equity": 228375331188.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 23 기 반기말",
-      "equityRceptNo": "20260812000362",
+      "equity": 228362061330.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 23 기 3분기말",
+      "equityRceptNo": "20261112000230",
       "bookValue": 29112000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 199263331188.0,
+      "residualEquity": 199250061330.0,
       "subsidiaries": [
         {
           "name": "일진하이솔루스",
@@ -1931,14 +1931,14 @@
       "holdingName": "일진다이아"
     },
     "telcon_rf": {
-      "equity": 74973680074.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 28 기 반기말",
-      "equityRceptNo": "20260814002996",
+      "equity": 75318488992.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 28 기 3분기말",
+      "equityRceptNo": "20261113001223",
       "bookValue": 26206000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 48767680074.0,
+      "residualEquity": 49112488992.0,
       "subsidiaries": [
         {
           "name": "에이비온",
@@ -2490,7 +2490,7 @@
       "equity": 162709780856.0,
       "equityReport": "2026 반기보고서",
       "equityTerm": "제 28 기 반기말",
-      "equityRceptNo": "20260814002825",
+      "equityRceptNo": "20261111000446",
       "bookValue": 107089000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
@@ -2523,14 +2523,14 @@
       "holdingName": "예스24"
     },
     "hwaseung_ind": {
-      "equity": 216716846119.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 58 기 반기말",
-      "equityRceptNo": "20260813000737",
+      "equity": 218472116814.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 58 기 3분기말",
+      "equityRceptNo": "20261113000454",
       "bookValue": 108801000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 107915846119.0,
+      "residualEquity": 109671116814.0,
       "subsidiaries": [
         {
           "name": "화승엔터프라이즈",
@@ -2679,14 +2679,14 @@
       "holdingName": "KCC"
     },
     "neowiz_holdings": {
-      "equity": 281674451535.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 30 기 반기말",
-      "equityRceptNo": "20260814003736",
+      "equity": 271429737227.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 30 기 3분기말",
+      "equityRceptNo": "20261113001204",
       "bookValue": 116076000000.0,
       "bookValueReport": "2025 사업보고서",
       "bookValueDate": "2025-12-31",
-      "residualEquity": 165598451535.0,
+      "residualEquity": 155353737227.0,
       "subsidiaries": [
         {
           "name": "네오위즈",
@@ -2715,14 +2715,14 @@
       "holdingName": "네오위즈홀딩스"
     },
     "dongkoo_bio": {
-      "equity": 142183201183.0,
-      "equityReport": "2026 반기보고서",
-      "equityTerm": "제 44 기 반기말",
-      "equityRceptNo": "20260812000820",
+      "equity": 130683415426.0,
+      "equityReport": "2026 3분기보고서",
+      "equityTerm": "제 44 기 3분기말",
+      "equityRceptNo": "20261112000596",
       "bookValue": 29812000000.0,
       "bookValueReport": "2026 반기보고서",
       "bookValueDate": "2026-06-30",
-      "residualEquity": 112371201183.0,
+      "residualEquity": 100871415426.0,
       "subsidiaries": [
         {
           "name": "큐리언트",
