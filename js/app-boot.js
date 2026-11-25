@@ -54,7 +54,9 @@ function loadDashboardData() {
     return fromLegacy();
   }).then(attachFundamentals);
   return Promise.all([stockData, initialSnapshot]).then(([data, snapshot]) => {
-    if (snapshot && getSnapshotVersion(snapshot) >= getSnapshotVersion(data)) {
+    const snapshotDate = snapshot?.session?.date || snapshot?.lastUpdated?.slice(0, 10);
+    const summaryDate = data.lastUpdated?.slice(0, 10);
+    if (snapshotDate && (!summaryDate || snapshotDate >= summaryDate)) {
       window.CURRENT_DATA = snapshot;
     }
     return data;

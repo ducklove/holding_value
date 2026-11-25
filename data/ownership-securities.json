@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-24T13:25:14+00:00",
+  "generatedAt": "2026-11-25T09:04:58+00:00",
   "shareCountBasis": "exact ticker: domestic listed shares including treasury; foreign outstanding shares excluding treasury",
   "marketCapBasis": "exact security shares*native-currency price; domestic counts not treasury-adjusted",
   "timestampBasis": "ObservedAt is retrieval time; AsOf is source trading/report time, null when unavailable",
@@ -954,6 +954,31 @@
       "timestampBasis": "retrieval",
       "status": "current",
       "name": "한화에어로스페이스"
+    },
+    "0126Z0.KS": {
+      "ticker": "0126Z0.KS",
+      "currency": "KRW",
+      "totalShares": 24883049,
+      "sharesSource": "kis_proxy",
+      "sharesSourceField": "lstn_stcn",
+      "sharesAsOf": null,
+      "sharesObservedAt": "2026-11-25T09:04:58+00:00",
+      "price": 356000,
+      "priceSource": "kis_proxy",
+      "priceSourceField": "stck_prpr",
+      "priceAsOf": null,
+      "priceObservedAt": "2026-11-25T09:04:58+00:00",
+      "marketCap": 8858365444000,
+      "marketCapSource": "listedShares*price",
+      "marketCapBasis": "listedShares",
+      "shareCountBasis": "listedShares",
+      "sharesIncludeTreasury": true,
+      "marketCapAsOf": null,
+      "marketCapObservedAt": "2026-11-25T09:04:58+00:00",
+      "observedAt": "2026-11-25T09:04:58+00:00",
+      "timestampBasis": "retrieval",
+      "status": "current",
+      "name": "삼성에피스홀딩스"
     },
     "013520.KS": {
       "ticker": "013520.KS",
@@ -2179,6 +2204,31 @@
       "timestampBasis": "retrieval",
       "status": "current",
       "name": "아모레퍼시픽"
+    },
+    "090435.KS": {
+      "ticker": "090435.KS",
+      "currency": "KRW",
+      "totalShares": 10557830,
+      "sharesSource": "kis_proxy",
+      "sharesSourceField": "lstn_stcn",
+      "sharesAsOf": null,
+      "sharesObservedAt": "2026-11-25T09:04:58+00:00",
+      "price": 41050,
+      "priceSource": "kis_proxy",
+      "priceSourceField": "stck_prpr",
+      "priceAsOf": null,
+      "priceObservedAt": "2026-11-25T09:04:58+00:00",
+      "marketCap": 433398921500,
+      "marketCapSource": "listedShares*price",
+      "marketCapBasis": "listedShares",
+      "shareCountBasis": "listedShares",
+      "sharesIncludeTreasury": true,
+      "marketCapAsOf": null,
+      "marketCapObservedAt": "2026-11-25T09:04:58+00:00",
+      "observedAt": "2026-11-25T09:04:58+00:00",
+      "timestampBasis": "retrieval",
+      "status": "current",
+      "name": "아모레퍼시픽우"
     },
     "094280.KS": {
       "ticker": "094280.KS",
@@ -3453,7 +3503,7 @@
       "observedAt": "2026-11-24T13:25:08+00:00",
       "timestampBasis": "retrieval",
       "status": "current",
-      "name": "세아메카닉스"
+      "name": "에이치티로보틱스"
     },
     "402340.KS": {
       "ticker": "402340.KS",
