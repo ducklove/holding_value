@@ -46,10 +46,19 @@ function loadDashboardData() {
       document.head.appendChild(script);
     });
   }
-  return fromSplit().catch(function(err) {
+  const initialSnapshot = fetch('current.json', { cache: 'no-store' })
+    .then(res => res.ok ? res.json() : null)
+    .catch(() => null);
+  const stockData = fromSplit().catch(function(err) {
     console.warn('분할 데이터 로드 실패, data.js로 폴백:', err);
     return fromLegacy();
   }).then(attachFundamentals);
+  return Promise.all([stockData, initialSnapshot]).then(([data, snapshot]) => {
+    if (snapshot && getSnapshotVersion(snapshot) >= getSnapshotVersion(data)) {
+      window.CURRENT_DATA = snapshot;
+    }
+    return data;
+  });
 }
 
 // 잔존자본(별도 총자본 − 자회사 지분 장부가액)은 정기보고서 시즌에만 바뀌는 값이라
@@ -69,6 +78,12 @@ function attachFundamentals(stockData) {
         // buildEffectiveValue(js/calc.js)가 residualEquity를 직접 확인한다.
         if (record && (typeof record.residualEquity === 'number' || Array.isArray(record.subsidiaries))) {
           pair.fundamentals = record;
+          if (record.holdingName && pair.holdingName && pair.holdingName !== record.holdingName) {
+            if (pair.name?.startsWith(pair.holdingName + '→')) {
+              pair.name = record.holdingName + pair.name.slice(pair.holdingName.length);
+            }
+            pair.holdingName = record.holdingName;
+          }
         }
       }
       stockData.fundamentalsGeneratedAt = payload && payload.generatedAt;

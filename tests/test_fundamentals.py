@@ -259,14 +259,9 @@ class TestInvestmentDetail:
         assert detail["stakePct"] == 35.11
         assert detail["recentNetIncome"] == 250000000000.0
 
-    def test_unmatched_and_bs_fallback_have_no_detail(self):
-        pair = {
-            "id": "sebang_battery",
-            "subsidiaries": [{"name": "세방전지", "sharesHeld": 5569225, "bookValueFrom": "bsInvestments"}],
-        }
-        record = build_pair_fundamentals(
-            pair, {"equity": 1.0}, {"rows": []}, bs_investments=217924408763.0
-        )
+    def test_unmatched_stake_has_no_detail(self):
+        pair = {"id": "x", "subsidiaries": [{"name": "세방전지", "sharesHeld": 5312352}]}
+        record = build_pair_fundamentals(pair, {"equity": 1.0}, {"rows": []})
         assert "detail" not in record["subsidiaries"][0]
 
 
@@ -300,52 +295,63 @@ class TestOverrides:
 
 
 class TestBuildPairFundamentals:
+    date = "2026-09-30"
+
     def test_residual_is_equity_minus_matched_book_values(self):
-        pair = {
-            "id": "poongsan_holdings",
-            "subsidiaries": [{"name": "풍산", "ticker": "103140.KS", "sharesHeld": 10650000}],
-        }
-        equity = {"equity": 433595463414.0, "report": "2026 1분기보고서", "termName": "제 58 기 1분기말"}
+        pair = {"subsidiaries": [{"name": "풍산", "ticker": "103140.KS", "sharesHeld": 10650000}]}
+        equity = {"equity": 433595463414.0, "report": "2026 3분기보고서", "date": self.date}
         investments = {
-            "report": "2025 사업보고서",
-            "stlmDt": "2025-12-31",
-            "rows": [inv_row("㈜풍산", "10,650,000", "273,644,000,000")],
+            "report": "2026 3분기보고서", "stlmDt": self.date,
+            "rows": [inv_row("㈜풍산", "10,650,000", "273,644,000,000", stlm=self.date)],
         }
         record = build_pair_fundamentals(pair, equity, investments)
         assert record["bookValue"] == 273644000000.0
         assert record["residualEquity"] == pytest.approx(159951463414.0)
-        assert record["equityReport"] == "2026 1분기보고서"
-        assert record["bookValueDate"] == "2025-12-31"
+        assert record["equityReport"] == "2026 3분기보고서"
+        assert record["bookValueDate"] == self.date
         assert record["warnings"] == []
 
     def test_negative_residual_is_kept(self):
-        # 자회사 지분 장부가액이 별도 자본총계를 넘는 종목(차입 취득)도 그대로 음수로 낸다
-        pair = {"id": "seronics", "subsidiaries": [{"name": "엘앤에프", "sharesHeld": 5188000}]}
-        equity = {"equity": 48625016640.0, "report": "2026 1분기보고서"}
-        investments = {"rows": [inv_row("(주)엘앤에프", "5,188,000", "80,176,000,000")]}
-        record = build_pair_fundamentals(pair, equity, investments)
-        assert record["residualEquity"] < 0
+        pair = {"subsidiaries": [{"name": "엘앤에프", "sharesHeld": 5188000}]}
+        equity = {"equity": 48625016640.0, "date": self.date}
+        investments = {"stlmDt": self.date, "rows": [inv_row("엘앤에프", "5,188,000", "80,176,000,000")]}
+        assert build_pair_fundamentals(pair, equity, investments)["residualEquity"] < 0
 
-    def test_bs_investments_fallback(self):
-        # 타법인 출자현황에 지분이 누락된 종목은 별도 BS의 종속·관계기업투자 총액으로 대체
-        pair = {
-            "id": "sebang_battery",
-            "subsidiaries": [{"name": "세방전지", "sharesHeld": 5569225, "bookValueFrom": "bsInvestments"}],
-        }
-        equity = {"equity": 663494635260.0, "report": "2026 1분기보고서"}
-        investments = {"rows": [inv_row("건설공제조합", "571", "884,000,000")]}
-        record = build_pair_fundamentals(pair, equity, investments, bs_investments=217924408763.0)
-        assert record["subsidiaries"][0]["matchHow"] == "bsInvestments"
-        assert record["residualEquity"] == pytest.approx(445570226497.0)
+    def test_specific_filing_note_replaces_the_missing_investee_book(self):
+        pair = {"subsidiaries": [{"name": "세방전지", "ticker": "004490.KS", "sharesHeld": 5312352}]}
+        equity = {"equity": 668934270381.0, "date": self.date}
+        investments = {"stlmDt": self.date, "rows": [inv_row("건설공제조합", "571", "884,000,000")]}
+        books = {"004490.KS": {"bookValue": 132024549000, "qty": 5312352, "source": "별도 주석"}}
+        record = build_pair_fundamentals(pair, equity, investments, filing_books=books)
+        assert record["subsidiaries"][0]["matchHow"] == "financialNotes"
+        assert record["subsidiaries"][0]["bookValueSource"] == "별도 주석"
+        assert record["residualEquity"] == 536909721381.0
 
-    def test_unmatched_subsidiary_leaves_warning(self):
-        pair = {"id": "x", "subsidiaries": [{"name": "세방전지", "sharesHeld": 100}]}
-        record = build_pair_fundamentals(pair, {"equity": 1000.0}, {"rows": []})
+    def test_period_mismatch_blocks_residual(self):
+        pair = {"subsidiaries": [{"name": "풍산", "sharesHeld": 1}]}
+        investments = {"stlmDt": "2026-06-30", "rows": [inv_row("풍산", "1", "100")]}
+        record = build_pair_fundamentals(pair, {"equity": 1000, "date": self.date}, investments)
+        assert record["bookValue"] == 100
         assert record["residualEquity"] is None
+        assert any("기준일이 다릅니다" in warning for warning in record["warnings"])
+
+    @pytest.mark.parametrize("second_book", [None, "-"])
+    def test_incomplete_basket_blocks_residual(self, second_book):
+        pair = {"subsidiaries": [{"name": "풍산", "sharesHeld": 1}, {"name": "풍산특수금속", "sharesHeld": 2}]}
+        rows = [inv_row("풍산", "1", "100"), inv_row("풍산특수금속", "2", second_book)]
+        record = build_pair_fundamentals(pair, {"equity": 1000.0,"date": self.date}, {"stlmDt": self.date,"rows": rows})
+        assert record["residualEquity"] is None
+        assert record["bookValue"] is None
         assert any("찾지 못했습니다" in warning for warning in record["warnings"])
 
+    def test_zero_book_value_is_a_complete_stake(self):
+        pair = {"subsidiaries": [{"name": "풍산", "sharesHeld": 1}]}
+        investments = {"stlmDt": self.date, "rows": [inv_row("풍산", "1", "0")]}
+        record = build_pair_fundamentals(pair, {"equity": 1000, "date": self.date}, investments)
+        assert record["residualEquity"] == 1000
+
     def test_missing_equity_blocks_residual(self):
-        pair = {"id": "x", "subsidiaries": [{"name": "풍산", "sharesHeld": 1}]}
+        pair = {"subsidiaries": [{"name": "풍산", "sharesHeld": 1}]}
         record = build_pair_fundamentals(pair, None, {"rows": [inv_row("㈜풍산", "1", "100")]})
         assert record["residualEquity"] is None
 

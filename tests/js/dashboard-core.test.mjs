@@ -566,3 +566,14 @@ test('resolveSubsidiaryTicker: config → fundamentals 순으로 자회사 이�
   assert.equal(core.resolveSubsidiaryTicker(pair, null, config), '');
   assert.equal(core.resolveSubsidiaryTicker({}, null, { subsidiaries: [{ name: '고려아연', ticker: '010130.KS' }] }), '010130.KS');
 });
+
+
+test('buildLivePairEntry does not treat a missing new holding quote as part of a complete portfolio', () => {
+  const current = { subsidiaryPrice: 100, subsidiaries: [{ name: '기존', price: 100 }] };
+  const config = { holdingTicker: '000001.KS', holdingAdjustedShares: 100, subsidiaries: [
+    { name: '기존', ticker: '000002.KS', sharesHeld: 2 },
+    { name: '신규', ticker: '000003.KS', sharesHeld: 3 },
+  ] };
+  const quoteMap = new Map([['000001', { price: 20 }]]);
+  assert.equal(core.buildLivePairEntry({ id: 'x', current }, config, quoteMap), null);
+});

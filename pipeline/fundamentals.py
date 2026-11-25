@@ -12,10 +12,9 @@ fetch_fundamentals.py가 이 모듈을 재수출한다. 표준 라이브러리�
 
 import re
 
-# 타법인 출자현황은 분기보고서에 "-"만 제출되는 사례가 많아 사업/반기보고서만 쓴다.
-INVESTMENT_REPORT_CODES = (("11011", "사업"), ("11012", "반기"))
-# 자본총계는 분기보고서에도 정상 기재되므로 최신치를 위해 전 보고서를 본다.
 FS_REPORT_CODES = (("11011", "사업"), ("11014", "3분기"), ("11012", "반기"), ("11013", "1분기"))
+INVESTMENT_REPORT_CODES = FS_REPORT_CODES
+_REPORT_ENDINGS = {"11011": "12-31", "11014": "09-30", "11012": "06-30", "11013": "03-31"}
 # OpenDART 정기보고서 재무정보 제공 시작 연도
 DART_MIN_YEAR = 2015
 # 보유수량이 이 비율 이상 어긋나면 경고 (config sharesHeld ↔ 출자현황 기말수량)
@@ -28,13 +27,13 @@ _SUFFIX_RE = re.compile(
     re.IGNORECASE,
 )
 _STOCK_KIND_RE = re.compile(r"\((보통주|우선주|구주|신주|전환우선주|상환전환우선주|주\d+)\)")
-_NOTE_RE = re.compile(r"\((주\d+|참고\d*|\*+)\)")
+_NOTE_RE = re.compile(r"\((주\d+|참고\d*|\*+\d*|상장|비상장)\)")
 _TOTAL_NAMES = {"합계", "계", "소계", "총계"}
 
 
 def normalize_corp_name(name):
     """법인명을 매칭용으로 정규화한다 (법인격·주식종류·주석·구두점 제거)."""
-    text = _STOCK_KIND_RE.sub("", name or "")
+    text = _STOCK_KIND_RE.sub("", re.sub(r"^\s*주\)", "", name or ""))
     text = _NOTE_RE.sub("", text)
     text = _SUFFIX_RE.sub("", text)
     return re.sub(r"[\s.,\-()&·'\"]", "", text).lower()
@@ -66,6 +65,10 @@ def report_candidates(year, codes, min_year=DART_MIN_YEAR):
         for code, label in codes:
             candidates.append((str(bsns_year), code, f"{bsns_year} {label}보고서"))
     return candidates
+
+
+def report_end_date(year, report_code):
+    return f"{year}-{_REPORT_ENDINGS[report_code]}"
 
 
 def is_total_row(row):
@@ -154,6 +157,9 @@ def match_investment_rows(subsidiary, rows, dart_name=None):
     공백만 지운 원문으로 비교한다 — 같은 투자처의 다른 종류 주식을 골라 뺄 수 있는 유일한 자리다.
     """
     rows = usable_investment_rows(rows)
+    share_class = subsidiary.get("dartInvestmentShareClass")
+    if share_class:
+        rows = [row for row in rows if f"({share_class})" in re.sub(r"\s", "", row.get("inv_prm", ""))]
     excludes = subsidiary.get("dartInvestmentExclude")
     if isinstance(excludes, str):
         excludes = [excludes]
@@ -173,12 +179,13 @@ def match_investment_rows(subsidiary, rows, dart_name=None):
     hits = [row for row in rows if normalize_corp_name(row.get("inv_prm", "")) in targets]
     how = "name"
     if not hits and shares:
-        hits = [
+        quantity_hits = [
             row
             for row in rows
             if (qty := to_amount(row.get("trmend_blce_qy"))) is not None
             and abs(qty - shares) <= max(1.0, shares * 0.001)
         ]
+        hits = quantity_hits if len(quantity_hits) == 1 else []
         how = "qty"
     if not hits:
         hits = [
@@ -191,10 +198,11 @@ def match_investment_rows(subsidiary, rows, dart_name=None):
     if not hits:
         return {"how": "none", "bookValue": None, "qty": None, "matchedNames": [], "detail": None}
 
+    amounts = [to_amount(row.get("trmend_blce_acntbk_amount")) for row in hits]
     return {
         "how": how,
-        "bookValue": total_book_value(hits),
-        "qty": sum(to_amount(row.get("trmend_blce_qy")) or 0.0 for row in hits),
+        "bookValue": sum(amounts) if all(amount is not None for amount in amounts) else None,
+        "qty": _sum_optional([to_amount(row.get("trmend_blce_qy")) for row in hits]),
         "matchedNames": [row.get("inv_prm") for row in hits],
         "detail": summarize_investment_details(hits),
     }
@@ -237,78 +245,71 @@ def apply_overrides(pair, overrides):
     return merged
 
 
-def build_pair_fundamentals(pair, equity, investments, bs_investments=None, dart_names=None):
-    """지주사 1곳의 잔존자본 레코드를 만든다.
-
-    pair: config.json 항목
-    equity: {"equity": 원, "report": ..., "termName": ..., "rceptNo": ...} 또는 None
-    investments: {"report": ..., "stlmDt": ..., "rows": [...]} 또는 None
-    bs_investments: 별도 재무상태표의 종속·관계기업투자 계정 금액(원) 또는 None
-    dart_names: {ticker6: DART 정식 법인명}
-    """
+def build_pair_fundamentals(pair, equity, investments, dart_names=None, filing_books=None):
+    """Build a valuation only when the full tracked basket and equity share a reporting date."""
+    equity = equity or {}
+    investments = investments or {}
     dart_names = dart_names or {}
+    filing_books = filing_books or {}
     subs = []
     warnings = []
-    book_total = 0.0
-    matched_any = False
+    equity_date = equity.get("date")
+    book_date = investments.get("stlmDt")
+    same_period = bool(equity_date and equity_date == book_date)
 
     for subsidiary in pair.get("subsidiaries", []):
-        ticker6 = str(subsidiary.get("ticker", "")).split(".")[0]
-        source = subsidiary.get("bookValueFrom")
-        if source == "bsInvestments":
-            book = bs_investments
-            record = {
-                "how": "bsInvestments",
-                "bookValue": book,
-                "qty": None,
-                "matchedNames": ["별도 재무상태표 종속·관계기업투자"],
-                "detail": None,
-            }
-            if book is None:
-                warnings.append(f"{subsidiary.get('name')}: 별도 BS 종속·관계기업투자 계정을 찾지 못했습니다")
-        else:
-            record = match_investment_rows(
-                subsidiary, (investments or {}).get("rows"), dart_names.get(ticker6)
+        ticker = subsidiary.get("ticker", "")
+        name = subsidiary.get("name")
+        filed_book = filing_books.get(ticker)
+        record = match_investment_rows(subsidiary, investments.get("rows"), dart_names.get(ticker.split(".")[0]))
+        if filed_book and same_period:
+            record.update(
+                how=filed_book.get("basis", "financialNotes"),
+                bookValue=filed_book["bookValue"],
+                qty=filed_book.get("qty"),
+                matchedNames=[filed_book.get("name", name)],
             )
-
-        if record["bookValue"] is not None:
-            book_total += record["bookValue"]
-            matched_any = True
-        else:
-            warnings.append(f"{subsidiary.get('name')}: 타법인 출자현황에서 지분을 찾지 못했습니다")
-
-        warning = qty_warning(subsidiary, record.get("qty"))
+            if record["detail"] is None and filed_book.get("stakePct") is not None:
+                record["detail"] = {"stakePct": filed_book["stakePct"]}
+        if record["bookValue"] is None:
+            warnings.append(f"{name}: 같은 기준일의 개별 지분 장부가액을 찾지 못했습니다")
+        warning = qty_warning(subsidiary, record["qty"])
         if warning:
             warnings.append(warning)
 
         entry = {
-            "name": subsidiary.get("name"),
-            "ticker": subsidiary.get("ticker"),
+            "name": name,
+            "ticker": ticker,
             "sharesHeld": subsidiary.get("sharesHeld"),
             "bookValue": record["bookValue"],
             "matchHow": record["how"],
             "matchedNames": record["matchedNames"],
-            "qty": record.get("qty"),
+            "qty": record["qty"],
         }
-        if record.get("detail"):
+        if record["detail"]:
             entry["detail"] = record["detail"]
         if subsidiary.get("note"):
             entry["note"] = subsidiary["note"]
+        if filed_book and same_period:
+            entry["bookValueSource"] = filed_book["source"]
         subs.append(entry)
 
-    equity_value = (equity or {}).get("equity")
-    residual = None
-    if equity_value is not None and matched_any:
-        residual = equity_value - book_total
+    equity_value = equity.get("equity")
+    complete = bool(subs) and all(sub["bookValue"] is not None for sub in subs)
+    book_total = sum(sub["bookValue"] for sub in subs) if complete else None
+    residual = equity_value - book_total if same_period and equity_value is not None and complete else None
+    if equity_date and book_date and not same_period:
+        warnings.append("별도 자본총계와 지분 장부가액의 기준일이 다릅니다")
 
     return {
         "equity": equity_value,
-        "equityReport": (equity or {}).get("report"),
-        "equityTerm": (equity or {}).get("termName"),
-        "equityRceptNo": (equity or {}).get("rceptNo"),
-        "bookValue": book_total if matched_any else None,
-        "bookValueReport": (investments or {}).get("report"),
-        "bookValueDate": (investments or {}).get("stlmDt"),
+        "equityReport": equity.get("report"),
+        "equityDate": equity_date,
+        "equityTerm": equity.get("termName"),
+        "equityRceptNo": equity.get("rceptNo"),
+        "bookValue": book_total,
+        "bookValueReport": investments.get("report"),
+        "bookValueDate": book_date,
         "residualEquity": residual,
         "subsidiaries": subs,
         "warnings": warnings,

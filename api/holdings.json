@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-10T08:59:01+09:00",
-  "lastUpdated": "2026-11-10 08:59:01",
+  "generatedAt": "2026-11-25T18:00:06+09:00",
+  "lastUpdated": "2026-11-25 18:00:06",
   "count": 49,
   "items": [
     {
@@ -112,7 +112,7 @@
           "name": "버크셔해서웨이",
           "ticker": "BRK-A",
           "code": "BRK-A",
-          "sharesHeld": 286
+          "sharesHeld": 295
         },
         {
           "name": "애플",
@@ -166,10 +166,10 @@
       "holdingName": "삼성물산",
       "holdingTicker": "028260.KS",
       "holdingCode": "028260",
-      "holdingTotalShares": 177784107,
-      "holdingTreasuryShares": 16192437,
-      "holdingAdjustedShares": 162139063,
-      "subsidiaryCount": 4,
+      "holdingTotalShares": 162167581,
+      "holdingTreasuryShares": 0,
+      "holdingAdjustedShares": 162167581,
+      "subsidiaryCount": 5,
       "subsidiaries": [
         {
           "name": "삼성바이오로직스",
@@ -194,6 +194,12 @@
           "ticker": "032830.KS",
           "code": "032830",
           "sharesHeld": 38688000
+        },
+        {
+          "name": "삼성에피스홀딩스",
+          "ticker": "0126Z0.KS",
+          "code": "0126Z0",
+          "sharesHeld": 10714354
         }
       ]
     },
@@ -285,39 +291,39 @@
       "holdingTicker": "032830.KS",
       "holdingCode": "032830",
       "holdingTotalShares": 200000000,
-      "holdingTreasuryShares": 0,
-      "holdingAdjustedShares": 179578510,
+      "holdingTreasuryShares": 20425221,
+      "holdingAdjustedShares": 179574779,
       "subsidiaryCount": 5,
       "subsidiaries": [
         {
           "name": "삼성전자",
           "ticker": "005930.KS",
           "code": "005930",
-          "sharesHeld": 503905000
+          "sharesHeld": 497660185
         },
         {
           "name": "삼성카드",
           "ticker": "029780.KS",
           "code": "029780",
-          "sharesHeld": 83259000
+          "sharesHeld": 83259006
         },
         {
           "name": "삼성화재",
           "ticker": "000810.KS",
           "code": "000810",
-          "sharesHeld": 7099000
+          "sharesHeld": 7099088
         },
         {
           "name": "삼성증권",
           "ticker": "016360.KS",
           "code": "016360",
-          "sharesHeld": 26246000
+          "sharesHeld": 26246112
         },
         {
           "name": "삼성중공업",
           "ticker": "010140.KS",
           "code": "010140",
-          "sharesHeld": 25701000
+          "sharesHeld": 25701199
         }
       ]
     },
@@ -386,7 +392,7 @@
           "name": "세방전지",
           "ticker": "004490.KS",
           "code": "004490",
-          "sharesHeld": 5569225
+          "sharesHeld": 5312352
         }
       ]
     },
@@ -635,13 +641,19 @@
       "holdingTotalShares": 76458180,
       "holdingTreasuryShares": 176927,
       "holdingAdjustedShares": 76281253,
-      "subsidiaryCount": 1,
+      "subsidiaryCount": 2,
       "subsidiaries": [
         {
           "name": "아모레퍼시픽",
           "ticker": "090430.KS",
           "code": "090430",
-          "sharesHeld": 23761899
+          "sharesHeld": 22250869
+        },
+        {
+          "name": "아모레퍼시픽우",
+          "ticker": "090435.KS",
+          "code": "090435",
+          "sharesHeld": 1511030
         }
       ]
     },
@@ -791,8 +803,8 @@
     },
     {
       "id": "seah_mechanics",
-      "name": "세아메카닉스→두산에너빌리티",
-      "holdingName": "세아메카닉스",
+      "name": "에이치티로보틱스→두산에너빌리티",
+      "holdingName": "에이치티로보틱스",
       "holdingTicker": "396300.KQ",
       "holdingCode": "396300",
       "holdingTotalShares": 26489688,
@@ -804,7 +816,7 @@
           "name": "두산에너빌리티",
           "ticker": "034020.KS",
           "code": "034020",
-          "sharesHeld": 2550000
+          "sharesHeld": 2550
         }
       ]
     },
@@ -1197,7 +1209,7 @@
           "name": "삼성전자",
           "ticker": "005930.KS",
           "code": "005930",
-          "sharesHeld": 88058948
+          "sharesHeld": 86967675
         }
       ]
     },

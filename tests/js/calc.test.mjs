@@ -284,3 +284,10 @@ test('buildEffectiveValue: 전체 지표/공시 없는 종목은 null', () => {
     null,
   );
 });
+
+
+test('실질가치는 기준일이 섞인 배포 데이터를 거부한다', () => {
+  const current = { ratio: 200, marketCap: 10000 };
+  const fundamentals = { residualEquity: 150000000, equityDate: '2026-09-30', bookValueDate: '2026-06-30' };
+  assert.equal(calc.buildEffectiveValue({ current, fundamentals }), null);
+});

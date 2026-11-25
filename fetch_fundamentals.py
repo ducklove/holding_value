@@ -2,8 +2,8 @@
 """잔존자본(별도 총자본 − 리스트 자회사 지분 장부가액) 수집 스크립트.
 
 OpenDART에서 지주사별로
-  1) 별도재무제표 자본총계 (fnlttSinglAcntAll, fs_div=OFS) — 분기보고서 포함 최신치
-  2) 타법인 출자현황 기말 장부가액 (otrCprInvstmntSttus) — 사업/반기보고서 기준
+  1) 별도재무제표 자본총계 (fnlttSinglAcntAll, fs_div=OFS) — 장부가액과 일치하는 결산일
+  2) 타법인 출자현황 기말 장부가액 (otrCprInvstmntSttus) — 분기 포함, 필요 시 별도 주석 자료
 을 받아 `data/fundamentals.json`을 만든다. 주가와 무관한 분기성 데이터라 정기보고서
 제출 시즌에만 갱신하면 된다 (실시간 시가총액은 프런트에서 결합한다).
 
@@ -28,6 +28,7 @@ from zipfile import ZipFile
 from fin_commons.jsonio import atomic_write_text
 from fin_commons.timeutil import KST
 
+from pipeline.dart_investments import read_original_investments
 from pipeline.fundamentals import (  # noqa: F401 — 재수출 (기존 참조 호환)
     DART_MIN_YEAR,
     FS_REPORT_CODES,
@@ -41,6 +42,7 @@ from pipeline.fundamentals import (  # noqa: F401 — 재수출 (기존 참조 �
     match_investment_rows,
     normalize_corp_name,
     report_candidates,
+    report_end_date,
     residual_ratio,
     to_amount,
     usable_investment_rows,
@@ -53,7 +55,6 @@ OVERRIDES_PATH = ROOT / "fundamentals_overrides.json"
 OUTPUT_PATH = ROOT / "data" / "fundamentals.json"
 CORP_CODE_CACHE = ROOT / "data" / ".corp_codes.json"
 EQUITY_ACCOUNT_ID = "ifrs-full_Equity"
-INVESTMENT_ACCOUNT_ID = "ifrs-full_InvestmentsInSubsidiariesJointVenturesAndAssociates"
 REQUEST_INTERVAL = 0.1
 REQUEST_TIMEOUT = 20
 
@@ -113,29 +114,15 @@ def load_corp_codes(api_key, refresh=False):
     return codes
 
 
-def fetch_balance_sheet(corp_code, api_key, year):
-    """가장 최근 정기보고서의 별도 재무상태표 행과 보고서 라벨을 돌려준다."""
-    for bsns_year, reprt_code, label in report_candidates(year, FS_REPORT_CODES):
-        try:
-            payload = request_json(
-                "fnlttSinglAcntAll",
-                {
-                    "corp_code": corp_code,
-                    "bsns_year": bsns_year,
-                    "reprt_code": reprt_code,
-                    "fs_div": "OFS",
-                },
-                api_key,
-            )
-        except DartError as exc:
-            print(f"    ! {label} 재무제표 요청 실패: {exc}", file=sys.stderr)
-            continue
-        if payload.get("status") != "000":
-            continue
-        rows = [row for row in (payload.get("list") or []) if row.get("sj_div") == "BS"]
-        if rows:
-            return rows, label
-    return [], None
+def fetch_balance_sheet(corp_code, api_key, bsns_year, reprt_code):
+    payload = request_json(
+        "fnlttSinglAcntAll",
+        {"corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code, "fs_div": "OFS"},
+        api_key,
+    )
+    if payload.get("status") != "000":
+        return []
+    return [row for row in (payload.get("list") or []) if row.get("sj_div") == "BS"]
 
 
 def pick_account(rows, account_id, names):
@@ -148,58 +135,69 @@ def pick_account(rows, account_id, names):
     return to_amount(hit.get("thstrm_amount")), hit
 
 
-def fetch_equity_and_investments_account(corp_code, api_key, year):
-    rows, label = fetch_balance_sheet(corp_code, api_key, year)
-    if not rows:
-        return None, None
-    equity_amount, equity_row = pick_account(rows, EQUITY_ACCOUNT_ID, ["자본총계"])
-    if equity_amount is None:
-        return None, None
-    investments, _ = pick_account(
-        rows,
-        INVESTMENT_ACCOUNT_ID,
-        ["종속기업관계기업및공동기업투자", "종속기업관계기업및공동기업투자주식", "종속및관계기업투자", "관계기업투자"],
-    )
-    equity = {
-        "equity": equity_amount,
+def fetch_equity(corp_code, api_key, candidate):
+    bsns_year, reprt_code, label = candidate
+    rows = fetch_balance_sheet(corp_code, api_key, bsns_year, reprt_code)
+    amount, row = pick_account(rows, EQUITY_ACCOUNT_ID, ["자본총계"])
+    if amount is None:
+        return None
+    return {
+        "equity": amount,
         "report": label,
-        "termName": equity_row.get("thstrm_nm"),
-        "rceptNo": equity_row.get("rcept_no"),
+        "date": report_end_date(bsns_year, reprt_code),
+        "termName": row.get("thstrm_nm"),
+        "rceptNo": row.get("rcept_no"),
     }
-    return equity, investments
 
 
-def fetch_investments(corp_code, api_key, year):
-    """사업/반기보고서 중 가장 최근의 타법인 출자현황. 기재 단위가 튀면 직전 보고서로 폴백."""
-    previous = None
-    for bsns_year, reprt_code, label in report_candidates(year, INVESTMENT_REPORT_CODES):
+def fetch_investments(corp_code, api_key, candidate, equity):
+    bsns_year, reprt_code, label = candidate
+    date = equity["date"]
+    try:
+        rows = read_original_investments(equity["rceptNo"], date)
+    except (OSError, UnicodeError) as exc:
+        print(f"    ! {label} 공시 원문 조회 실패: {exc}", file=sys.stderr)
+        rows = None
+    if rows is None:
+        payload = request_json(
+            "otrCprInvstmntSttus",
+            {"corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code},
+            api_key,
+        )
+        rows = [row for row in usable_investment_rows(payload.get("list"))
+                if row.get("stlm_dt") == date and row.get("rcept_no") == equity["rceptNo"]]
+    return {"report": label, "stlmDt": date, "rows": rows}
+
+
+def select_pair_fundamentals(pair, reports, dart_names=None, filings=None):
+    """Prefer the latest complete period, keeping the newest available equity date for display."""
+    latest = None
+    for equity, investments in reports:
+        filing_books = (filings or {}).get(equity["rceptNo"])
+        record = build_pair_fundamentals(pair, equity, investments, dart_names, filing_books)
+        if latest is None:
+            latest = record
+        if record["residualEquity"] is not None:
+            record["latestEquityDate"] = latest["equityDate"]
+            return record
+    return latest or build_pair_fundamentals(pair, None, None, dart_names)
+
+
+def period_inputs(corp_code, api_key, year):
+    for candidate in report_candidates(year, FS_REPORT_CODES, min_year=year - 1):
         try:
-            payload = request_json(
-                "otrCprInvstmntSttus",
-                {"corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code},
-                api_key,
-            )
+            equity = fetch_equity(corp_code, api_key, candidate)
         except DartError as exc:
-            print(f"    ! {label} 출자현황 요청 실패: {exc}", file=sys.stderr)
+            print(f"    ! {candidate[2]} 별도 재무상태표 조회 실패: {exc}", file=sys.stderr)
             continue
-        if payload.get("status") != "000":
+        if equity is None:
             continue
-        rows = usable_investment_rows(payload.get("list"))
-        if not rows or not has_real_amounts(rows):
-            continue
-        current = {"report": label, "stlmDt": rows[0].get("stlm_dt"), "rows": rows}
-        if previous is None:
-            previous = current
-            continue
-        if looks_like_scale_anomaly(previous["rows"], rows):
-            print(
-                f"    ! {previous['report']} 장부가액 합계가 {label} 대비 100배 이상 어긋납니다"
-                f" — 기재 단위 오류로 보고 {label}를 사용합니다",
-                file=sys.stderr,
-            )
-            return current
-        return previous
-    return previous
+        try:
+            investments = fetch_investments(corp_code, api_key, candidate, equity)
+        except DartError as exc:
+            print(f"    ! {candidate[2]} 출자현황 조회 실패: {exc}", file=sys.stderr)
+            investments = {"report": candidate[2], "stlmDt": equity["date"], "rows": []}
+        yield equity, investments
 
 
 def collect(pairs, api_key, year, only=None, overrides=None):
@@ -218,8 +216,6 @@ def collect(pairs, api_key, year, only=None, overrides=None):
             results[pair_id] = {"error": "corp_code_not_found", "warnings": ["DART 고유번호 없음"]}
             continue
 
-        equity, bs_investments = fetch_equity_and_investments_account(info["corpCode"], api_key, year)
-        investments = fetch_investments(info["corpCode"], api_key, year)
         dart_names = {}
         for subsidiary in pair.get("subsidiaries", []):
             sub_ticker = str(subsidiary.get("ticker", "")).split(".")[0]
@@ -227,13 +223,17 @@ def collect(pairs, api_key, year, only=None, overrides=None):
             if sub_info:
                 dart_names[sub_ticker] = sub_info["corpName"]
 
-        record = build_pair_fundamentals(pair, equity, investments, bs_investments, dart_names)
+        record = select_pair_fundamentals(
+            pair, period_inputs(info["corpCode"], api_key, year), dart_names, (overrides or {}).get("filings"),
+        )
         record["corpCode"] = info["corpCode"]
         record["holdingName"] = pair.get("holdingName")
         results[pair_id] = record
 
         if record["equity"] is None:
             print("    ! 별도 자본총계를 찾지 못했습니다", file=sys.stderr)
+        elif record["residualEquity"] is None:
+            print("    ! 같은 기준일에 확인 가능한 지분 장부가액이 없습니다", file=sys.stderr)
         else:
             print(
                 f"    자본총계 {record['equity'] / 1e8:,.0f}억 ({record['equityReport']}) / "
@@ -243,6 +243,25 @@ def collect(pairs, api_key, year, only=None, overrides=None):
         for warning in record["warnings"]:
             print(f"    ⚠ {warning}", file=sys.stderr)
     return results
+
+
+def preserve_verified_period(previous, incoming):
+    """Protect a published period when a provider outage leaves only older data available."""
+    if not previous.get("equityDate") or previous.get("equityDate") != previous.get("bookValueDate"):
+        return incoming
+    if previous.get("residualEquity") is None:
+        return incoming
+    if incoming.get("residualEquity") is not None and incoming["equityDate"] >= previous["equityDate"]:
+        return incoming
+
+    def positions(record):
+        return [(row["ticker"], row.get("sharesHeld")) for row in record.get("subsidiaries", [])]
+
+    if positions(previous) != positions(incoming):
+        return incoming
+    latest_date = incoming.get("latestEquityDate") or incoming.get("equityDate")
+    previous_latest = previous.get("latestEquityDate") or previous["equityDate"]
+    return {**previous, "latestEquityDate": max(latest_date or "", previous_latest)}
 
 
 def main():
@@ -261,15 +280,15 @@ def main():
     year = args.year or datetime.now(KST).year
     results = collect(pairs, api_key, year, set(args.only) if args.only else None, overrides)
 
-    if args.only and args.output.exists():
-        existing = json.loads(args.output.read_text(encoding="utf-8"))
-        merged = existing.get("pairs", {})
-        merged.update(results)
-        results = merged
+    if args.output.exists():
+        previous = json.loads(args.output.read_text(encoding="utf-8")).get("pairs", {})
+        results = {key: preserve_verified_period(previous.get(key, {}), record) for key, record in results.items()}
+        if args.only:
+            results = {**previous, **results}
 
     payload = {
         "generatedAt": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
-        "note": "잔존자본 = 별도재무제표 자본총계 − 리스트 자회사 지분 장부가액(타법인 출자현황 기말 장부가액). 금액 단위는 원.",
+        "note": "잔존자본 = 동일 결산일의 별도 자본총계 − 추적 지분 장부가액. 금액 단위는 원.",
         "pairs": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

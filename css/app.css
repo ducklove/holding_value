@@ -699,6 +699,11 @@ vc-shell > .hub-link { margin: 4px 24px; }
   white-space: nowrap;
 }
 /* 실질가치 = 보유지분 비율 + 잔존자본 비율 (분기 공시 + 실시간 시총) */
+.effective-basis {
+  margin-inline-start: 0.4em;
+  color: var(--text-dim);
+  font-size: 0.9em;
+}
 .effective-ratio {
   color: var(--accent);
   font-weight: 700;

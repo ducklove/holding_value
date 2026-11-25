@@ -244,21 +244,41 @@ function createDashboardRenderers(app) {
   }
 
   // --- Cards ---
-  // 잔존자본·실질가치 — data/fundamentals.json이 있는 종목만 노출한다(추이 없이 현재 상태만).
+  function effectiveBasis(effective) {
+    const date = effective.valuationDate || effective.equityReport;
+    const latest = effective.latestEquityDate;
+    const parts = date ? [`재무 기준 ${date}`] : [];
+    if (latest && latest !== date) parts.push(`최신 별도 재무제표 ${latest} · 같은 기준일의 지분 장부가액 미확인`);
+    if (effective.estimated) parts.push('일부 지분의 장부가액은 분기 말 종가와 공시 보유수량으로 산출');
+    return [...parts, ...effective.warnings].join(' · ');
+  }
+
+  function effectiveText(effective) {
+    const ratio = formatRatio(effective.effectiveRatio);
+    return effective.estimated && ratio !== '-' ? `약 ${ratio}` : ratio;
+  }
+
+  const missingEffectiveBasis = '같은 기준일의 별도 자본총계와 추적 지분 장부가액을 모두 확인해야 합니다.';
+
   function renderResidualRows(pair) {
     const effective = buildEffectiveValue(pair);
-    if (!effective) return '';
-    const warned = effective.warnings.length ? ' *' : '';
+    if (!effective) {
+      return pair.fundamentals
+        ? `<span class="amount-label" title="${missingEffectiveBasis}">실질가치</span><span class="amount-value" title="${missingEffectiveBasis}">자료 확인 중</span>`
+        : '';
+    }
+    const title = escapeHtml(effectiveBasis(effective));
+    const date = effective.valuationDate;
+    const basis = date ? `<small class="effective-basis">${escapeHtml(date)}</small>` : '';
     return `<span class="amount-label">잔존자본</span><span class="amount-value">${formatOk(Math.round(effective.residualEquityOk))} (${formatRatio(effective.residualRatio)})</span>
-          <span class="amount-label">실질가치${warned}</span><span class="amount-value effective-ratio">${formatRatio(effective.effectiveRatio)}</span>`;
+          <span class="amount-label" title="${title}">실질가치${effective.warnings.length ? ' *' : ''}${basis}</span><span class="amount-value effective-ratio" title="${title}">${effectiveText(effective)}</span>`;
   }
 
   function renderEffectiveCell(pair) {
     const effective = buildEffectiveValue(pair);
-    if (!effective) return '-';
-    const title = `잔존자본 ${formatOk(Math.round(effective.residualEquityOk))} (${formatRatio(effective.residualRatio)}) · `
-      + `자본총계 ${effective.equityReport || '-'} / 장부가액 ${effective.bookValueReport || '-'}`;
-    return `<strong title="${escapeHtml(title)}">${formatRatio(effective.effectiveRatio)}</strong>`;
+    if (!effective) return pair.fundamentals ? `<span title="${missingEffectiveBasis}">–</span>` : '-';
+    const title = `잔존자본 ${formatOk(Math.round(effective.residualEquityOk))} (${formatRatio(effective.residualRatio)}) · ${effectiveBasis(effective)}`;
+    return `<strong title="${escapeHtml(title)}">${effectiveText(effective)}</strong>`;
   }
 
   function renderCards() {
@@ -390,9 +410,9 @@ function createDashboardRenderers(app) {
 
     const effective = buildEffectiveValue(p);
     const effectiveBox = effective
-      ? `<div class="stat-box" title="잔존자본 ${formatOk(Math.round(effective.residualEquityOk))} = 별도 총자본(${effective.equityReport || '-'}) − 자회사 지분 장부가액(${effective.bookValueReport || '-'})">
+      ? `<div class="stat-box" title="${escapeHtml(effectiveBasis(effective))}">
         <div class="label">실질가치 (지분 ${formatRatio(p.current.ratio)} + 잔존 ${formatRatio(effective.residualRatio)})</div>
-        <div class="value">${formatRatio(effective.effectiveRatio)}</div></div>`
+        <div class="value">${effectiveText(effective)}</div></div>`
       : '';
 
     const statsEl = document.getElementById('statsRow');

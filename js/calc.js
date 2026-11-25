@@ -68,6 +68,7 @@ function buildEffectiveValue(pair) {
   const fundamentals = pair.fundamentals;
   const current = pair.current || {};
   if (!fundamentals || typeof fundamentals.residualEquity !== 'number') return null;
+  if (fundamentals.equityDate && fundamentals.equityDate !== fundamentals.bookValueDate) return null;
   const residualRatio = residualCapitalRatio(fundamentals.residualEquity, current.marketCap);
   if (residualRatio == null) return null;
   return {
@@ -76,6 +77,9 @@ function buildEffectiveValue(pair) {
     effectiveRatio: effectiveValueRatio(current.ratio, residualRatio),
     equityReport: fundamentals.equityReport,
     bookValueReport: fundamentals.bookValueReport,
+    valuationDate: fundamentals.equityDate,
+    latestEquityDate: fundamentals.latestEquityDate,
+    estimated: fundamentals.subsidiaries?.some(sub => sub.matchHow === 'quarterEndFairValue') || false,
     warnings: fundamentals.warnings || [],
   };
 }

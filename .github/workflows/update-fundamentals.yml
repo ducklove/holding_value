@@ -13,9 +13,11 @@ on:
       # 수집 결과가 실제로 달라지는 변경만 트리거한다. 한 번 도는 데 15분쯤
       # 걸려서(종목당 7회 남짓, 총 350여 회 OpenDART 호출) 워크플로우 파일
       # 자체는 넣지 않는다 — 그건 workflow_dispatch로 돌린다.
+      - config.json
       - fundamentals_overrides.json
       - fetch_fundamentals.py
       - pipeline/fundamentals.py
+      - pipeline/dart_investments.py
   workflow_dispatch:
 
 permissions:

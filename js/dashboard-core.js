@@ -202,13 +202,15 @@ function buildLivePairEntry(pair, config, quoteMap) {
   const subDetails = [];
   const currentSubMap = new Map((pair.current.subsidiaries || []).map(function(sub) { return [sub.name, sub]; }));
 
-  (config.subsidiaries || []).forEach(function(sub) {
+  const configuredSubs = config.subsidiaries || [];
+  configuredSubs.forEach(function(sub) {
     const quote = isKoreanTicker(sub.ticker) ? quoteMap.get(getTickerCode(sub.ticker)) : null;
     const fallback = currentSubMap.get(sub.name) || null;
-    const fallbackPrice = fallback ? fallback.price : pair.current.subsidiaryPrice;
-    const fallbackChange = fallback ? fallback.change : pair.current.subsidiaryChange;
+    const canUseSingleQuote = configuredSubs.length === 1 && currentSubMap.size === 0;
+    const fallbackPrice = fallback?.price ?? (canUseSingleQuote ? pair.current.subsidiaryPrice : null);
+    const fallbackChange = fallback?.change ?? (canUseSingleQuote ? pair.current.subsidiaryChange : null);
     const price = quote && quote.price != null ? quote.price : fallbackPrice;
-    if (price == null) return;
+    if (!(price > 0)) return;
     const previousPrice = quote && quote.previousPrice != null
       ? quote.previousPrice
       : derivePreviousPrice(price, fallbackChange);
@@ -230,7 +232,7 @@ function buildLivePairEntry(pair, config, quoteMap) {
     });
   });
 
-  if (!subDetails.length || !holdingValue || !marketCap) return null;
+  if (subDetails.length !== configuredSubs.length || !holdingValue || !marketCap) return null;
   const ratio = holdingValue / marketCap * 100;
   let previousRatio = null;
   if (hasPreviousRatio) {
