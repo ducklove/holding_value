@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25 17:59:50",
+  "generatedAt": "2026-11-25 18:08:50",
   "note": "잔존자본 = 동일 결산일의 별도 자본총계 − 추적 지분 장부가액. 금액 단위는 원.",
   "pairs": {
     "youngpoong_koreazinc": {
@@ -766,7 +766,7 @@
           "bookValue": 1500245000000.0,
           "matchHow": "name",
           "matchedNames": [
-            " 한화에어로스페이스㈜ "
+            "한화에어로스페이스㈜"
           ],
           "qty": 16595161.0,
           "detail": {
@@ -787,7 +787,7 @@
           "bookValue": 1273520000000.0,
           "matchHow": "name",
           "matchedNames": [
-            " 한화솔루션㈜ "
+            "한화솔루션㈜"
           ],
           "qty": 63062206.0,
           "detail": {
@@ -809,7 +809,7 @@
           "bookValue": 257427000000.0,
           "matchHow": "name",
           "matchedNames": [
-            " 고려아연㈜ "
+            "고려아연㈜"
           ],
           "qty": 238358.0,
           "detail": {
@@ -1088,7 +1088,7 @@
           "ticker": "066570.KS",
           "sharesHeld": 57433029,
           "bookValue": 3004623000000.0,
-          "matchHow": "name",
+          "matchHow": "qty",
           "matchedNames": [
             "엘지전자(주)"
           ],
@@ -1109,7 +1109,7 @@
           "ticker": "051910.KS",
           "sharesHeld": 24670331,
           "bookValue": 1921208000000.0,
-          "matchHow": "name",
+          "matchHow": "qty",
           "matchedNames": [
             "(주)엘지화학"
           ],
@@ -1130,7 +1130,7 @@
           "ticker": "032640.KS",
           "sharesHeld": 164422375,
           "bookValue": 1252052000000.0,
-          "matchHow": "name",
+          "matchHow": "qty",
           "matchedNames": [
             "(주)엘지유플러스"
           ],
@@ -1151,7 +1151,7 @@
           "ticker": "051900.KS",
           "sharesHeld": 5315500,
           "bookValue": 141608000000.0,
-          "matchHow": "name",
+          "matchHow": "qty",
           "matchedNames": [
             "(주)엘지생활건강"
           ],
@@ -1191,7 +1191,7 @@
           "bookValue": 330635000000.0,
           "matchHow": "name",
           "matchedNames": [
-            "(주)LX인터내셔널 "
+            "(주)LX인터내셔널"
           ],
           "qty": 10787300.0,
           "detail": {
@@ -1202,7 +1202,7 @@
             "acqAmount": null,
             "recentTotalAssets": 4728331000000.0,
             "recentNetIncome": 141271000000.0,
-            "firstAcquiredAt": "2021.05.03"
+            "firstAcquiredAt": "2021년 05월 03일"
           }
         },
         {
@@ -1223,7 +1223,7 @@
             "acqAmount": null,
             "recentTotalAssets": 1386272000000.0,
             "recentNetIncome": 82499000000.0,
-            "firstAcquiredAt": "2021.05.03"
+            "firstAcquiredAt": "2021년 05월 03일"
           }
         },
         {
@@ -1244,7 +1244,7 @@
             "acqAmount": null,
             "recentTotalAssets": 1723432000000.0,
             "recentNetIncome": -24798000000.0,
-            "firstAcquiredAt": "2021.05.03"
+            "firstAcquiredAt": "2021년 05월 03일"
           }
         }
       ],
@@ -1484,7 +1484,7 @@
             "acqAmount": null,
             "recentTotalAssets": 4127053000000.0,
             "recentNetIncome": 95829000000.0,
-            "firstAcquiredAt": "2020.09.01"
+            "firstAcquiredAt": "2020년 09월 01일"
           }
         },
         {
@@ -1505,7 +1505,7 @@
             "acqAmount": null,
             "recentTotalAssets": 2044005000000.0,
             "recentNetIncome": 7925000000.0,
-            "firstAcquiredAt": "2021.12.28"
+            "firstAcquiredAt": "2021년 12월 28일"
           }
         }
       ],
@@ -2399,10 +2399,10 @@
       "holdingName": "KCC"
     },
     "neowiz_holdings": {
-      "equity": 276716542712,
+      "equity": 276716542712.0,
       "equityReport": "2025 사업보고서",
       "equityDate": "2025-12-31",
-      "equityTerm": "제 29 기말",
+      "equityTerm": "제 29 기",
       "equityRceptNo": "20260319001405",
       "bookValue": 116076000000.0,
       "bookValueReport": "2025 사업보고서",
